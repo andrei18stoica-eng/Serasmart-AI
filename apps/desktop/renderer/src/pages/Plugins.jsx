@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Plus, Search, Check, Play, Pencil, Trash2, ExternalLink, Plug, Puzzle, Lock, X } from "lucide-react";
 import { api, toast, cx, isHttpUrl, openLink, useAccess, deniedMessage, useModal, ToolShell, Switch, GATEWAY, OAUTH_REDIRECT_PATH } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
+import { ConnectorsPanel } from "./Connectors.jsx";
+import { t as tr, useLanguage } from "../i18n.jsx";
 
 const PLUGIN_APP_LINKS={
   "Gmail":"https://mail.google.com/","Google Drive":"https://drive.google.com/","GitHub":"https://github.com/login","Outlook Email":"https://outlook.office.com/mail/",
@@ -299,7 +301,9 @@ function CatalogSetup({selected,onClose,onDone,reload}){
 
 export function PluginsPage({onClose}){
   const {can}=useAccess();
-  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState(null),[result,setResult]=useState(null);
+  useLanguage();
+  // 0.7.29: the first tab is the connected apps (like Claude's connectors); the API plugins stay in the other tabs.
+  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState("apps"),[result,setResult]=useState(null);
   const [query,setQuery]=useState(""),[selected,setSelected]=useState(null),[testing,setTesting]=useState(null),[cardNotes,setCardNotes]=useState({});
   const [formInit,setFormInit]=useState(BLANK_PLUGIN),[editing,setEditing]=useState(null),[builtins,setBuiltins]=useState([]),[adding,setAdding]=useState("");
   const mounted=useRef(true);
@@ -356,13 +360,14 @@ export function PluginsPage({onClose}){
   const filtered=PLUGIN_CATALOG.filter(x=>!normalized||x.name.toLowerCase().includes(normalized)||x.description.toLowerCase().includes(normalized)||x.group.toLowerCase().includes(normalized));
   const groups=PLUGIN_GROUPS.map(group=>({group,items:filtered.filter(x=>x.group===group)})).filter(x=>x.items.length);
   const skills=SKILLS.filter(x=>!normalized||x.name.toLowerCase().includes(normalized)||x.description.toLowerCase().includes(normalized));
-  const tabs=[["installed",`Instalate${items.length?` (${items.length})`:""}`],["directory","Director"],["create",editing?"Editează plugin":"Creează plugin"]];
-  return <ToolShell title="Pluginuri" subtitle={`Scrie numele unui plugin în chat (de ex. «Calendar») sau @nume și ${BRAND_NAME} îl folosește pentru răspuns.`} onClose={onClose} className="pageModal pluginsPage">
+  const tabs=[["apps",tr("Connected apps")],["installed",`${tr("API plugins")}${items.length?` (${items.length})`:""}`],["directory",tr("Plugin directory")],["create",editing?tr("Edit plugin"):tr("Create plugin")]];
+  return <ToolShell title={tr("Apps")} subtitle={tab==="apps"?tr("Connect your apps: the AI can search, read, create and edit in them, and asks you before every action."):`Scrie numele unui plugin în chat (de ex. «Calendar») sau @nume și ${BRAND_NAME} îl folosește pentru răspuns.`} onClose={onClose} className="pageModal pluginsPage">
     <div className="pageTabs" role="tablist" aria-label="Secțiuni pluginuri">
       {tabs.map(([k,label])=><button key={k} role="tab" aria-selected={tab===k} className={cx("pageTab",tab===k&&"active")} onClick={()=>{setTab(k);if(k==="create"&&editing&&tab!=="create"){setEditing(null);setFormInit(BLANK_PLUGIN)}}}>{label}</button>)}
     </div>
     <div className="pageBody" role="tabpanel">
-      <ResultNote result={result}/>
+      {tab!=="apps"&&<ResultNote result={result}/>}
+      {tab==="apps"&&<ConnectorsPanel/>}
       {tab==="installed"&&(loading?<div className="emptyState small">Se încarcă pluginurile…</div>:!items.length?<div className="taskEmpty">
         <span className="taskIcon big"><Puzzle size={26}/></span><h3>Nu ai pluginuri instalate</h3><p>Alege unul din Director sau creează-l pe al tău dintr-un API. După instalare, scrie-i numele în chat și {BRAND_NAME} îl folosește.</p>
         <div className="taskExamples"><button className="primary" onClick={()=>setTab("directory")}>Deschide Directorul</button><button className="secondary" onClick={()=>setTab("create")}><Plus size={14}/> Creează plugin</button></div>

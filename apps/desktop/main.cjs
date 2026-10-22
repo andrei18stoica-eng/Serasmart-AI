@@ -44,7 +44,7 @@ let gateway;
 let watchdog;
 let omniInstalledCache = { at: 0, value: null };
 
-const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey"];
+const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret"];
 const MASK = "••••••••";
 function configPath() { return path.join(app.getPath("userData"), "config.json"); }
 function logError(line) {
@@ -74,6 +74,8 @@ function defaults() {
     replicateVideoModel: "wan-video/wan-2.2-t2v-fast",
     openAiApiKey: "",
     xaiApiKey: "",
+    googleClientId: "",
+    googleClientSecret: "",
     blockedProviders: "cerebras",
     sharedCombos: "",
     imageProviders: "",
@@ -181,6 +183,7 @@ function saveConfig(input) {
     videoProviders: mediaMakersValue(cfg, "videoProviders"),
     mediaMakers: 2,
     xaiModels: String(cfg.xaiModels || DIRECT_MODEL_DEFAULTS.xaiModels).trim(),
+    googleClientId: String(cfg.googleClientId || "").trim().slice(0, 300),
     xaiImageModel: String(cfg.xaiImageModel || "grok-imagine-image").trim(),
     xaiVideoModel: String(cfg.xaiVideoModel || "grok-imagine-video").trim(),
     geminiImageModel: String(cfg.geminiImageModel || "gemini-3.1-flash-image").trim(),

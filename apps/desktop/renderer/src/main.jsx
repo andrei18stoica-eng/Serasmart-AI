@@ -31,6 +31,7 @@ import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
 import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat } from "./documentIntent.mjs";
 import { PluginsPage } from "./pages/Plugins.jsx";
+import { ToolRunCard } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
 import { SkillsPage } from "./pages/Skills.jsx";
 import { UsagePage, CreditsDialog } from "./pages/Usage.jsx";
@@ -772,6 +773,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
       const nextUser=questions&&!questions.pending?conversation.messages.slice(i+1).find(x=>x.role==="user"):null;
       return <div key={m.id||i} className={cx("assistantBlock",(m.error||m.mediaGenerationError)&&"errorMessage")}><div className="assistantMark" aria-hidden="true">S</div><div className="assistantBody copyByRightClick" onContextMenu={e=>openCopyMenu(e,m)}>
         {m.routeInfo&&<RouteBadge info={m.routeInfo}/>}
+        {m.toolRuns?.length>0&&<div className="toolRuns">{m.toolRuns.map(r=><ToolRunCard key={r.id} run={r}/>)}</div>}
         {questions?<>
           {questions.before.trim()&&<Markdown text={questions.before}/>}
           {questions.pending?<QuestionsPending/>:<QuestionCard key={m.id||i} questions={questions.questions} answeredWith={nextUser?messageText(nextUser):null} disabled={busy} onSubmit={onAnswer}/>}
@@ -1591,6 +1593,9 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <ProviderHead name="Grok (xAI)" id="xai" cfg={cfg}>{tr("Paid per use; the same key also makes Grok Imagine pictures and videos. Turn it on with «Also allow the paid APIs».")}</ProviderHead>
         <KeyField label={tr("xAI API key")} name="xaiApiKey" placeholder="xai-..." {...keyProps}/>
         <label>{tr("Grok models · separated by commas")}<input value={cfg.xaiModels||""} onChange={e=>set({xaiModels:e.target.value})} placeholder="grok-4.6,grok-4.3"/></label>
+        <ProviderHead name={tr("Google apps (Gmail, Drive, Calendar, Docs, Sheets)")} id="google-apps" cfg={cfg}>{tr("For connecting Google apps in Apps: an OAuth client of type «Web application» from Google Cloud, with this return address: {url}",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Google OAuth client ID")}<input value={cfg.googleClientId||""} onChange={e=>set({googleClientId:e.target.value})} placeholder="….apps.googleusercontent.com"/></label>
+        <KeyField label={tr("Google OAuth client secret")} name="googleClientSecret" placeholder="GOCSPX-..." {...keyProps}/>
       </>}
       {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><h3>{tr("Pictures")}</h3><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="image" cfg={cfg} set={set} paidOff={imageCost!=="allow_paid"||cfg.imageProviderMode==="free"}/>
@@ -2069,7 +2074,7 @@ function App() {
     // was never a chat model) the one chosen in the picker answers instead of an error.
     const effectiveModel=modelPolicyEnforced||models.length?(models.includes(desiredModel)?desiredModel:(models.includes(model)?model:(models[0]||""))):desiredModel;
     const controller=startGeneration(convId);
-    let answer="",routeInfo=null,started=false,streamError="",flushTimer=null,resume=false;
+    let answer="",routeInfo=null,started=false,streamError="",flushTimer=null,resume=false,toolRuns=[];
     const assistantMessage={id:uid(),role:"assistant",content:"",createdAt:Date.now(),streaming:true};
     controller.requestId=assistantMessage.id;
     let working={...baseConv,model:effectiveModel||baseConv.model||model,messages:[...messages,assistantMessage],updatedAt:Date.now()};
@@ -2096,12 +2101,20 @@ function App() {
           working={...working,messages:[...messages,{...assistantMessage,routeInfo,content:answer,streaming:true}]};scheduleFlush();
           return;
         }
+        // 0.7.29: an action in a connected app (asking for approval, working, done, denied).
+        if(j?.serasmart_tool){
+          const run=j.serasmart_tool;
+          toolRuns=toolRuns.some(x=>x.id===run.id)?toolRuns.map(x=>x.id===run.id?run:x):[...toolRuns,run];
+          setGen(convId,{stage:run.status==="ask"?tr("Waiting for your approval in {app}…",{app:run.app}):run.status==="running"?tr("Working in {app}…",{app:run.app}):tr("Thinking…")});
+          working={...working,messages:[...messages,{...assistantMessage,routeInfo,toolRuns,content:answer,streaming:true}]};scheduleFlush();
+          return;
+        }
         // An OmniRoute combination ("Ai principal") answers with one of its members: show which one really answered.
         if(routeInfo?.model&&!routeInfo.servedBy&&typeof j?.model==="string"&&j.model&&!j.model.includes(String(routeInfo.model).split("/").pop()))routeInfo={...routeInfo,servedBy:j.model};
         const delta=j?.choices?.[0]?.delta?.content||j?.choices?.[0]?.message?.content||"";
         if(delta){
           if(!started){started=true;setGen(convId,{stage:format?`Scrie conținutul pentru fișierul ${format.toUpperCase()}…`:"Scrie răspunsul…"})}
-          answer+=delta;working={...working,messages:[...messages,{...assistantMessage,routeInfo,content:answer,streaming:true}]};scheduleFlush();
+          answer+=delta;working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns}:{}),content:answer,streaming:true}]};scheduleFlush();
         }
       };
       const reader=r.body.getReader(),dec=new TextDecoder();let buf="";
@@ -2134,7 +2147,8 @@ function App() {
         }
       }
       clearTimeout(flushTimer);
-      working={...working,messages:[...messages,{...assistantMessage,routeInfo,content:(answer||"Nu am primit răspuns.")+note,attachments:files,streaming:false}],updatedAt:Date.now()};
+      const doneRuns=toolRuns.map(({args,...r})=>r);
+      working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:(answer||"Nu am primit răspuns.")+note,attachments:files,streaming:false}],updatedAt:Date.now()};
       showConversation(working);
       const saved=await saveConversation(working);
       api("/api/memory/capture",{method:"POST",body:JSON.stringify({conversationId:saved.id,userText:messageText(lastUser),assistantText:answer})}).catch(()=>{});
@@ -2150,8 +2164,8 @@ function App() {
       }
       if(!aborted)creditProblem(e);
       const finalMessage=aborted
-        ?{...assistantMessage,routeInfo,content:answer,streaming:false,stopped:true}
-        :{...assistantMessage,routeInfo,content:`Eroare: ${friendlyError(e.message)}`,streaming:false,error:true};
+        ?{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns:toolRuns.map(({args,...r})=>r.status==="ask"?{...r,status:"denied"}:r)}:{}),content:answer,streaming:false,stopped:true}
+        :{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns:toolRuns.map(({args,...r})=>r.status==="ask"?{...r,status:"denied"}:r)}:{}),content:`Eroare: ${friendlyError(e.message)}`,streaming:false,error:true};
       working={...working,messages:[...messages,finalMessage],updatedAt:Date.now()};
       showConversation(working);
       if(storage.get(TOKEN_KEY)){try{await saveConversation(working)}catch(saveError){if(!isAuthLost(saveError.status,saveError.message))toast("Conversația nu a putut fi salvată: "+saveError.message)}}

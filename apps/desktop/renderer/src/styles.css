@@ -1318,3 +1318,30 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .authTopTools{position:absolute;top:16px;right:16px;z-index:6;display:flex;gap:8px;align-items:center}
 :root[dir="rtl"] .authTopTools{right:auto;left:16px}
 @media(max-width:900px){.authShell{padding-top:72px}}
+/* 0.7.29: connected apps (Apps → Connected apps) and the approval card in chat. */
+.connectorsPanel{display:flex;flex-direction:column;gap:6px}
+.connNote{display:flex;align-items:flex-start;gap:8px;justify-content:space-between;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--text-2)}
+.connNote.ok{border-color:var(--success);color:var(--success)}.connNote.error{border-color:var(--danger);color:var(--danger)}.connNote.info{border-color:var(--accent);color:var(--accent)}
+.iconPlain{border:0;background:transparent;color:inherit;cursor:pointer;padding:2px;display:grid;place-items:center}
+.connHead{display:flex;align-items:center;justify-content:space-between;gap:10px}.connHead h3{margin:0}
+.connHead .smallBtn,.connApproval .smallBtn{display:inline-flex;align-items:center;gap:5px}
+.connGroup h4{margin:14px 0 8px;font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.connCustom{display:grid;grid-template-columns:1fr 2fr 1fr auto;gap:8px;margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.connCustom p{grid-column:1/-1;margin:0}.connCustom input,.connToken input{border:1px solid var(--line);background:var(--bg-2);color:var(--text-strong);border-radius:9px;padding:9px 10px;outline:0;min-width:0}
+.connCustom .primary{display:inline-flex;align-items:center;gap:6px}
+.connToken{display:flex;gap:6px;margin-top:8px}.connToken input{flex:1;padding:6px 8px}
+.connError{color:var(--danger);font-size:11px}
+.connTools{display:flex;flex-wrap:wrap;gap:5px;font-size:11px;color:var(--muted)}
+.connTool{border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--text-2);background:var(--surface-2)}.connTool.read{color:var(--muted)}
+.connApprovals{display:grid;gap:6px}.connApproval{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--text-2);min-width:0}
+.connApproval span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.catalogSection h3 svg{vertical-align:-2px;color:var(--accent)}
+.toolRuns{display:grid;gap:8px;margin:4px 0 10px}
+.toolRun{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;font-size:12px;color:var(--text-2);min-width:0}
+.toolRun.ask{border-color:var(--accent);background:var(--panel)}.toolRun.denied{opacity:.7}.toolRun.error{border-color:var(--danger)}
+.toolRunHead{display:flex;align-items:center;gap:9px;min-width:0}.toolRunTitle{min-width:0;overflow-wrap:anywhere}.toolRunTitle em{font-style:normal;color:var(--text-strong);font-weight:600}.toolRunTitle small{color:var(--muted)}
+.pluginLogo.small{width:26px;height:26px;border-radius:7px;font-size:10px;flex:none}
+.toolRunArgs,.toolRunResult pre{margin:8px 0 0;max-height:180px;overflow:auto;background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:8px;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--text-2)}
+.toolRunActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.toolRunActions button{padding:7px 12px;font-size:12px}.toolRunActions .danger{color:var(--danger)}
+.toolRunResult{margin-top:6px}.toolRunResult summary{cursor:pointer;color:var(--accent);font-size:11px}
+@media(max-width:760px){.connCustom{grid-template-columns:1fr}}

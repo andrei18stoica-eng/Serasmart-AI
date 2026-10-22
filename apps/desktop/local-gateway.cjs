@@ -21,6 +21,7 @@ const { QUESTIONS_RULE, sanitizeQuestions } = require("./lib/questions.cjs");
 const { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinList } = require("./lib/builtinplugins.cjs");
 const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill } = require("./lib/skills.cjs");
 const creditsLib = require("./lib/credits.cjs");
+const { createConnectors } = require("./lib/connectors.cjs");
 const accountLib = require("./lib/accountsettings.cjs");
 const { DESIGN_KINDS, MAX_VERSIONS: MAX_DESIGN_VERSIONS, designMessages, reviseMessages, extractHtml, htmlTitle, previewToken, verifyPreviewToken } = require("./lib/design.cjs");
 function normalizeModelKey(value){return String(value||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/\s+/g," ").trim();}
@@ -1323,6 +1324,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       account:{name:user.name,email:user.email,createdAt:user.createdAt,settings:accountLib.accountSettings(user),preferences:userPreferences(user)},
       conversations:mine("conversations"),projects:mine("projects"),assistants:mine("assistants"),memories:mine("memories"),
       skills:mine("skills").map(publicSkill),automations:mine("automations").map(publicAutomation),plugins:mine("plugins").map(publicPlugin),
+      connectedApps:connectors.list(uid),alwaysAllowed:connectors.approvals(uid),
       designs:mine("designs").map(publicDesign),library:mine("library").map(({filePath,...x})=>x),
       credits:metered(req)?{status:credits.status(uid),history:credits.history(uid,300)}:null
     };
@@ -1337,7 +1339,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     if(scope==="conversations"||scope==="all")drop("conversations");
     if(scope==="memories"||scope==="all")drop("memories");
     if(scope==="library"||scope==="all"){files=db.library.filter(x=>x.userId===uid&&x.filePath).map(x=>x.filePath);drop("library");}
-    if(scope==="all")for(const k of ["projects","assistants","skills","automations","plugins","designs"])drop(k);
+    if(scope==="all")for(const k of ["projects","assistants","skills","automations","plugins","designs","connectors","toolApprovals"])drop(k);
     store.write(db);
     for(const f of files)await fs.promises.unlink(f).catch(()=>{});
     if(scope==="all"||scope==="library")for(const id of [...libraryChunkCache.keys()])if(!store.read().library.some(x=>x.id===id))libraryChunkCache.delete(id);
@@ -1945,7 +1947,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     const max=credits.status(req.user.id).features.plugins;
     if(max===null||max===undefined)return;
     if(!max)throw planUpgrade(`Connected apps are available from the ${planWith(p=>p.plugins!==0)} plan.`);
-    const used=store.read().plugins.filter(x=>x.userId===req.user.id&&x.mode!=="builtin").length;
+    const db=store.read(),used=db.plugins.filter(x=>x.userId===req.user.id&&x.mode!=="builtin").length+(db.connectors||[]).filter(x=>x.userId===req.user.id).length;
     if(used>=max)throw planUpgrade(`Your plan includes ${max} connected app${max===1?"":"s"}. Upgrade your plan to connect more.`);
   }
   // How many of something (automations, skills) the plan allows; null = no limit applies.
@@ -3632,6 +3634,156 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }catch(e){return finish(false,`Nu am putut finaliza OAuth: ${e.code==="EBLOCKED"?e.message:roError(e)}`)}
   });
 
+  // Connected apps, like the connectors in Claude (0.7.29): remote MCP servers (lib/connectors.cjs). The person connects
+  // an app in Apps; in chat the AI may use its tools, and every action waits for «Allow once», «Always allow» or «Deny».
+  const connectors=createConnectors({
+    store,seal:sealSecret,open:openSecret,getConfig:getOmniConfig,
+    redirectUri:()=>connectorRedirect(null),
+    version:(()=>{try{return require("./package.json").version}catch{return "1.0"}})(),
+    allowPrivate:()=>(getOmniConfig()?.allowPrivatePlugins??loopbackHost)===true
+  });
+  function connectorRedirect(req){return `${previewBase(req)}/api/connectors/oauth/callback`;}
+  const toolAsks=new Map(); // run id -> { userId, connId, tool, app, done }
+  const APPROVAL_MS=5*60*1000;
+  app.get("/api/connectors",auth,(req,res)=>{
+    res.json({data:{catalog:connectors.catalog(req.user.id),connected:connectors.list(req.user.id),approvals:connectors.approvals(req.user.id)}});
+  });
+  app.post("/api/connectors/connect",auth,requirePermission("plugins"),async(req,res)=>{
+    try{
+      const b=req.body||{};
+      const catalogId=typeof b.catalogId==="string"?b.catalogId.slice(0,40):"",url=typeof b.url==="string"?b.url.trim().slice(0,2000):"";
+      if(!catalogId&&!url)return res.status(400).json({error:"Choose an app or type its MCP address."});
+      // Connecting again (a new sign-in) does not take another of the plan's app places.
+      const again=(store.read().connectors||[]).some(c=>c.userId===req.user.id&&(catalogId?c.catalogId===catalogId:c.url===url));
+      if(!again)requirePluginSlot(req);
+      const out=await connectors.connect(req.user.id,{catalogId,url,name:typeof b.name==="string"?b.name:"",token:typeof b.token==="string"?b.token.slice(0,4000):"",redirect:connectorRedirect(req)});
+      res.json({data:out});
+    }catch(e){sendError(res,e.status?e:Object.assign(new Error(`The app could not be connected: ${e.code==="EBLOCKED"?e.message:roError(e)}`),{status:502}),400)}
+  });
+  app.get("/api/connectors/oauth/callback",async(req,res)=>{
+    const page=(ok,message)=>res.status(ok?200:400).type("html").send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${BRAND_NAME}</title></head><body style="font-family:system-ui,Segoe UI,Arial;background:#060A11;color:#EEF4FF;padding:40px;max-width:560px;margin:auto"><h2>${ok?"Connected":"Not connected"}</h2><p>${String(message).replace(/[<>&"']/g,x=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#39;"}[x]))}</p><p>You can close this window and go back to ${BRAND_NAME}.</p><script>try{if(window.opener){window.opener.postMessage({serasmartConnector:${ok?"true":"false"}},"*");setTimeout(()=>window.close(),900)}}catch(e){}</script></body></html>`);
+    try{const conn=await connectors.finish(req.query?.state,req.query?.code,req.query?.error);page(true,`${conn.name} is connected. The AI asks you before every action in it.`);}
+    catch(e){page(false,e.status?e.message:`The sign-in did not finish: ${roError(e)}`)}
+  });
+  app.get("/api/connectors/:id/tools",auth,async(req,res)=>{
+    try{res.json({data:await connectors.tools(req.user.id,String(req.params.id),true)})}catch(e){sendError(res,e,502)}
+  });
+  app.delete("/api/connectors/approvals/:id",auth,(req,res)=>{
+    if(!connectors.revokeApproval(req.user.id,String(req.params.id)))return res.status(404).json({error:"Not found."});
+    res.json({ok:true});
+  });
+  app.delete("/api/connectors/:id",auth,async(req,res)=>{
+    if(!(await connectors.disconnect(req.user.id,String(req.params.id))))return res.status(404).json({error:"Not found."});
+    res.json({ok:true});
+  });
+  // The person's choice on an action the AI wants to take: once, always (for this tool of this app) or deny.
+  app.post("/api/connectors/approve",auth,(req,res)=>{
+    const ask=toolAsks.get(String(req.body?.callId||"")),decision=String(req.body?.decision||"");
+    if(!ask||ask.userId!==req.user.id)return res.status(404).json({error:"This request is no longer waiting."});
+    if(!["once","always","deny"].includes(decision))return res.status(400).json({error:"Choose once, always or deny."});
+    if(decision==="always")connectors.allowAlways(req.user.id,ask.connId,ask.tool,ask.app);
+    ask.done(decision==="deny"?"deny":"allow");
+    res.json({ok:true});
+  });
+  // The tools of the person's connected apps, for this message (none when apps are off for it or the account may not use them).
+  async function appToolsFor(req){
+    if(req.body?.apps===false||!hasPermission(req,"plugins"))return [];
+    if(!(store.read().connectors||[]).some(c=>c.userId===req.user.id&&c.status==="connected"))return [];
+    let t;const timeout=new Promise(r=>{t=setTimeout(()=>r([]),20000);});
+    try{return await Promise.race([connectors.toolsForChat(req.user.id),timeout])}catch{return []}finally{clearTimeout(t)}
+  }
+  function askApproval(req,res,signal,def,run,send){
+    return new Promise(resolve=>{
+      if(res.destroyed||res.writableEnded||signal.aborted)return resolve("deny");
+      let t=null;
+      const done=(d)=>{clearTimeout(t);toolAsks.delete(run.id);res.off("close",gone);signal.removeEventListener("abort",gone);resolve(d)};
+      const gone=()=>done("deny");
+      t=setTimeout(gone,APPROVAL_MS);
+      toolAsks.set(run.id,{userId:req.user.id,connId:def.connId,tool:def.tool,app:def.app,done});
+      res.on("close",gone);signal.addEventListener("abort",gone,{once:true});
+      send({serasmart_tool:run});
+    });
+  }
+  const clipArgs=(args)=>{const s=JSON.stringify(args||{});return s.length<=4000?args:{_preview:s.slice(0,4000)+"…"};};
+  // Chat with tools: answers are asked without streaming, each tool call waits for the person, and the final text goes
+  // out as one piece. Returns { handled:false } when no model takes tools, so the normal answer (without apps) follows.
+  async function chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal,bill,usage}){
+    const tools=appTools.map(t=>t.schema);
+    const apps=[...new Set(appTools.map(t=>t.app))];
+    const convo=[...messages];
+    const firstOther=convo.findIndex(m=>m.role!=="system");
+    convo.splice(firstOther<0?convo.length:firstOther,0,{role:"system",content:`CONNECTED APPS: ${apps.join(", ")}. Use their tools when the request needs information from these apps or a change in them (search, read, create, edit). The person approves every action in the app before it runs, so call the tool directly; do not ask for permission in text. When an action is denied, say so in one short sentence and carry on without it. Never invent what a tool returned.`});
+    const ask=async(model,withTools)=>{
+      const r=await fetchChatCandidate(cfg,model,convo,false,timer,withTools?{tools}:{});
+      const text=await r.text();
+      if(!r.ok)throw Object.assign(new Error(`HTTP ${r.status} ${upstreamErrorText(text)}`),{status:r.status,body:text});
+      let data;try{data=JSON.parse(text)}catch{throw new Error("The AI sent an answer that could not be read.")}
+      const msg=data?.choices?.[0]?.message;if(!msg)throw new Error("The AI sent an empty answer.");
+      return msg;
+    };
+    let msg=null,used=null;
+    for(const candidate of route.candidates){
+      if(signal.aborted)return {handled:true,paid:false};
+      try{msg=await ask(candidate.id,true);used=candidate;break;}
+      catch(e){if(signal.aborted)return {handled:true,paid:false};}
+    }
+    if(!msg)return {handled:false,paid:false};
+    chatSettle(bill,used.id,usage.web);
+    res.status(200);
+    res.setHeader("Content-Type","text/event-stream; charset=utf-8");
+    res.setHeader("Cache-Control","no-cache, no-transform");
+    res.setHeader("Connection","keep-alive");
+    res.setHeader("X-Serasmart-Route",route.task);
+    res.setHeader("X-Serasmart-Model",headerSafe(used.id));
+    const open=()=>!res.destroyed&&!res.writableEnded;
+    const send=(obj)=>{if(open())res.write(`data: ${JSON.stringify(obj)}\n\n`);};
+    const routeInfo={task:route.task,model:used.id,provider:used.provider||inferProvider(used.id),reasons:route.reasons||[],apps};
+    if(job)job.routeInfo=routeInfo;
+    send({serasmart_route:routeInfo});
+    // Waiting for the person (or a slow app) keeps the connection and the idle timer alive.
+    const ping=setInterval(()=>{timer.touch();if(open())res.write(": ping\n\n");},15000);
+    const runs=[];
+    try{
+      for(let round=0;round<8&&msg?.tool_calls?.length&&!signal.aborted;round++){
+        convo.push({role:"assistant",content:msg.content||null,tool_calls:msg.tool_calls});
+        for(const call of msg.tool_calls){
+          const def=appTools.find(t=>t.name===call?.function?.name);
+          let args={};try{args=JSON.parse(call?.function?.arguments||"{}")||{}}catch{}
+          const run={id:crypto.randomUUID(),app:def?.app||"",tool:def?.tool||String(call?.function?.name||""),title:def?.title||def?.tool||String(call?.function?.name||""),args:clipArgs(args),readOnly:!!def?.readOnly,status:"ask"};
+          let result;
+          if(!def){run.status="error";run.summary="Unknown tool.";result="This tool does not exist.";}
+          else{
+            const decision=connectors.alwaysAllowed(req.user.id,def.connId,def.tool)?"allow":await askApproval(req,res,signal,def,run,send);
+            if(decision!=="allow"){run.status="denied";result="The person denied this action. Do not try it again; continue without it.";}
+            else{
+              run.status="running";send({serasmart_tool:run});
+              try{const out=await connectors.call(req.user.id,def.connId,def.tool,args);run.status=out.ok?"done":"error";run.summary=String(out.text||"").slice(0,400);result=out.text||"(no content)";}
+              catch(e){run.status="error";run.summary=String(e?.message||e).slice(0,300);result=`The tool failed: ${run.summary}`;}
+            }
+          }
+          runs.push(run);if(job)job.toolRuns=runs;send({serasmart_tool:run});
+          convo.push({role:"tool",tool_call_id:call.id,content:String(result).slice(0,30000)});
+        }
+        if(signal.aborted)break;
+        timer.touch();
+        msg=await ask(used.id,round<7);
+      }
+      const text=signal.aborted?"":sanitizeQuestions(String(msg?.content||""));
+      const toolRuns=runs.map(({id,app,tool,title,status,summary,readOnly})=>({id,app,tool,title,status,readOnly,summary:summary||""}));
+      if(job){
+        if(job.cancelled||signal.aborted)endJob(job,"cancelled");
+        else{job.text=text;saveJobMessage(job,{content:text||"Nu am primit răspuns.",routeInfo,toolRuns});endJob(job,"done");}
+      }
+      if(text)send({choices:[{delta:{content:text}}]});
+      if(open()){res.write("data: [DONE]\n\n");res.end();}
+    }catch(e){
+      const message=e?.status?`The AI could not finish with the apps: ${e.message}`:roError(e);
+      if(job&&job.status==="running"){saveJobMessage(job,{content:`Eroare: ${message}`,routeInfo,toolRuns:runs,error:true});endJob(job,"error",{error:message});}
+      send({error:message});if(open())res.end();
+    }finally{clearInterval(ping)}
+    return {handled:true,paid:true};
+  }
+
   app.get("/api/plugins", auth, (req,res) => {const db=store.read();res.json({data:db.plugins.filter(x=>x.userId===req.user.id).map(publicPlugin)});});
   // Built-in plugins (0.7.18): the list with what this account already added, and adding one with a click.
   app.get("/api/plugins/builtin", auth, (req,res) => {
@@ -4321,11 +4473,11 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     res.json({data:results,media,omni:await omniCheck,checkedAt:Date.now()});
   });
 
-  async function fetchChatCandidate(cfg,model,messages,stream,timer=chatTimer(stream,null)){
+  async function fetchChatCandidate(cfg,model,messages,stream,timer=chatTimer(stream,null),extra={}){
     return await fetch(`${String(cfg.baseUrl).replace(/\/+$/,"")}/chat/completions`,{
       method:"POST",
       headers:{"Content-Type":"application/json",...(cfg.apiKey?{Authorization:`Bearer ${cfg.apiKey}`}:{})},
-      body:JSON.stringify({model,messages,stream,temperature:0.4}),
+      body:JSON.stringify({model,messages,stream,temperature:0.4,...extra}),
       signal:timer.attemptSignal()
     });
   }
@@ -4385,6 +4537,14 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     try{
       const route=await resolveChatRoute(req,messages,requestedModel,{chosen});
       if(bill?.free)freeOnly(route,req);
+      // Connected apps (0.7.29): with tools the answer comes through chatWithApps; when no model takes tools, the
+      // normal answer below follows (without the apps).
+      const appTools=await appToolsFor(req);
+      if(appTools.length&&!clientGone.signal.aborted){
+        const withApps=await chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal:clientGone.signal,bill,usage});
+        if(withApps.paid)paid=true;
+        if(withApps.handled)return;
+      }
       const errors=[];let upstream=null,usedModel="",directCandidate=null;
       for(const candidate of route.candidates){
         if(clientGone.signal.aborted)return;
@@ -4791,6 +4951,6 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
 
   const server=app.listen(port,host);
   server.on("error",e=>logError(`Gateway listen ${host}:${port}: ${e?.message||e}`));
-  return {server,port,host,close:()=>new Promise(resolve=>{clearInterval(automationTimer);for(const t of timers)clearTimeout(t);embeddingIndex.flush?.();server.close(resolve);server.closeAllConnections?.();})};
+  return {server,port,host,close:()=>new Promise(resolve=>{clearInterval(automationTimer);for(const t of timers)clearTimeout(t);embeddingIndex.flush?.();connectors.close();for(const a of toolAsks.values())a.done("deny");server.close(resolve);server.closeAllConnections?.();})};
 }
 module.exports={startLocalGateway};

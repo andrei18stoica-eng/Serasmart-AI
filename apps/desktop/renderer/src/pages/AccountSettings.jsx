@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Rise } from "../riseText.jsx";
 import { Download, Trash2, LogOut, KeyRound, Monitor, Smartphone } from "lucide-react";
 import { api, toast, storage, TOKEN_KEY, GATEWAY, authHeaders, saveBlobDownload, Switch, cx } from "../core.jsx";
 import { PreferenceSwitches } from "./Memory.jsx";
@@ -39,7 +38,7 @@ export function ProfileTab({ account, models = [], preferences, onPreferences, p
   }
   const modelList = [...new Set([f.preferredModel, ...models].filter(Boolean))];
   return <form className="accountForm" onSubmit={submit}>
-    <Rise tag="h3">{tr("Profile")}</Rise>
+    <h3>{tr("Profile")}</h3>
     <div className="accountGrid">
       <label>{tr("Name")}<input value={f.name} onChange={(e) => set("name", e.target.value)} maxLength={80} required /></label>
       <label>{tr("Email")}<input value={f.email} disabled /></label>
@@ -47,7 +46,7 @@ export function ProfileTab({ account, models = [], preferences, onPreferences, p
       <label><span className="labelLine">{tr("What you do")} <span className="optional">{tr("optional")}</span></span><input value={f.occupation} onChange={(e) => set("occupation", e.target.value)} maxLength={120} placeholder={tr("e.g. student, web designer, accountant")} /></label>
     </div>
     <label><span className="labelLine">{tr("About you")} <span className="optional">{tr("optional")}</span></span><textarea rows={3} value={f.about} onChange={(e) => set("about", e.target.value)} maxLength={1500} placeholder={tr("What would help the AI to know about you: interests, projects, level of experience.")} /></label>
-    <Rise tag="h3">{tr("How the AI answers")}</Rise>
+    <h3>{tr("How the AI answers")}</h3>
     <div className="accountGrid">
       <label>{tr("Tone")}<select value={f.tone} onChange={(e) => set("tone", e.target.value)}>{TONES.map(([k, l]) => <option key={k} value={k}>{tr(l)}</option>)}</select></label>
       <label>{tr("Answer language")}<select value={f.responseLanguage} onChange={(e) => set("responseLanguage", e.target.value)}>{LANGS.map(([k, l]) => <option key={k} value={k}>{tr(l)}</option>)}</select></label>
@@ -56,7 +55,7 @@ export function ProfileTab({ account, models = [], preferences, onPreferences, p
     <label><span className="labelLine">{tr("Custom instructions")} <span className="optional">{tr("optional")}</span></span><textarea rows={5} value={f.customInstructions} onChange={(e) => set("customInstructions", e.target.value)} maxLength={3000} placeholder={tr("How you want it to answer you, every time. e.g. «Explain briefly, with examples. When you write code, comment it.»")} /></label>
     <p className="settingsHelp">{tr("{brand} uses this only to answer you better; you can see and change it here any time.",{brand:BRAND_NAME})}</p>
     <div className="formActions"><button className="primary" disabled={busy || !dirty}>{busy ? tr("Saving…") : tr("Save profile")}</button></div>
-    {onPreferences && <><Rise tag="h3">{tr("Memory and chats")}</Rise><PreferenceSwitches preferences={preferences} onChange={onPreferences} busyKey={prefBusy} /></>}
+    {onPreferences && <><h3>{tr("Memory and chats")}</h3><PreferenceSwitches preferences={preferences} onChange={onPreferences} busyKey={prefBusy} /></>}
   </form>;
 }
 
@@ -68,7 +67,7 @@ export function NotifyTab({ account, children }) {
   const row = (k, title, desc) => <div className="prefRow" key={k}><div className="prefText"><b>{tr(title)}</b><span>{tr(desc)}</span></div>
     <Switch checked={data[k] !== false} label={tr(title)} onChange={(v) => save({ [k]: v }, "").catch((e) => toast(e.message))} /></div>;
   return <div>
-    <Rise tag="h3">{tr("Notifications")}</Rise>
+    <h3>{tr("Notifications")}</h3>
     <div className="prefList">
       {row("notifyAutomations", "Automation results", "A message in the app (and on the phone, if it is subscribed) when an automation finishes.")}
       {row("notifyCredits", "Credit warnings", "A message at 25, 50, 75 and 90% of the week's credits. The 100% message always appears.")}
@@ -99,13 +98,13 @@ export function PrivacyTab({ account, onDataDeleted }) {
     catch (e) { toast(e.message); } finally { setBusy(""); }
   }
   return <div>
-    <Rise tag="h3">{tr("Privacy and data")}</Rise>
+    <h3>{tr("Privacy and data")}</h3>
     <label className="accountInline">{tr("Keep chats")}<select value={data.retentionDays} onChange={(e) => save({ retentionDays: Number(e.target.value) }, tr("Saved.")).catch((er) => toast(er.message))}>{KEEP.map(([d, l]) => <option key={d} value={d}>{tr(l)}</option>)}</select></label>
     <p className="settingsHelp">{tr("Chats older than this are deleted on their own (pinned ones stay). Your data stays on the {brand} server and is never sold or used for ads.",{brand:BRAND_NAME})}</p>
     <div className="accountActions">
       <button className="secondary" onClick={exportData} disabled={!!busy}><Download size={15} /> {busy === "export" ? tr("Preparing…") : tr("Download all my data")}</button>
     </div>
-    <Rise tag="h4">{tr("Delete data")}</Rise>
+    <h4>{tr("Delete data")}</h4>
     <div className="accountActions">
       <button className="secondary" onClick={() => wipe("conversations", "all chats")} disabled={!!busy}><Trash2 size={15} /> {tr("Chats")}</button>
       <button className="secondary" onClick={() => wipe("memories", "all memory")} disabled={!!busy}><Trash2 size={15} /> {tr("Memory")}</button>
@@ -149,8 +148,8 @@ export function SecurityTab({ account, onAccountDeleted }) {
     catch (e) { toast(e.message); } finally { setBusy(""); }
   }
   return <div>
-    <Rise tag="h3">{tr("Security")}</Rise>
-    <Rise tag="h4">{tr("Active sessions")}</Rise>
+    <h3>{tr("Security")}</h3>
+    <h4>{tr("Active sessions")}</h4>
     {!sessions ? <div className="settingsLoading">{tr("Loading…")}</div> : <div className="sessionList">
       {sessions.map((s) => <div key={s.id} className={cx("sessionRow", s.current && "current")}>
         {/iphone|android|mobile/i.test(s.userAgent) ? <Smartphone size={18} /> : <Monitor size={18} />}
@@ -160,7 +159,7 @@ export function SecurityTab({ account, onAccountDeleted }) {
       </div>)}
     </div>}
     <div className="accountActions"><button className="secondary" onClick={revokeOthers} disabled={!!busy}><LogOut size={15} /> {busy === "others" ? tr("Signing out…") : tr("Sign out the other devices")}</button></div>
-    <Rise tag="h4">{tr("Password")}</Rise>
+    <h4>{tr("Password")}</h4>
     <form className="accountGrid" onSubmit={changePassword}>
       <label>{tr("Current password")}<input type="password" autoComplete="current-password" value={pw.current} onChange={(e) => setPw({ ...pw, current: e.target.value })} required /></label>
       <span />
@@ -169,7 +168,7 @@ export function SecurityTab({ account, onAccountDeleted }) {
       <div className="formActions span2"><button className="secondary" disabled={busy === "pw"}><KeyRound size={15} /> {busy === "pw" ? tr("Changing…") : tr("Change password")}</button></div>
     </form>
     {data?.role !== "owner" && <>
-      <Rise tag="h4">{tr("Delete the account")}</Rise>
+      <h4>{tr("Delete the account")}</h4>
       <p className="settingsHelp">{tr("The account and all its data (chats, memory, files, settings) are deleted for good.")}</p>
       <div className="accountActions"><button className="iconDanger wide" onClick={deleteAccount} disabled={!!busy}><Trash2 size={15} /> {busy === "delete" ? tr("Deleting…") : tr("Delete the account")}</button></div>
     </>}

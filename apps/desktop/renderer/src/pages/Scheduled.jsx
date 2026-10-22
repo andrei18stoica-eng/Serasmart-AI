@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Rise } from "../riseText.jsx";
 import { CalendarClock, Plus, Play, Pencil, Copy, Trash2, ArrowLeft, ChevronDown, RotateCcw, Clock, Bell, BellOff, Sparkles } from "lucide-react";
 import { api, toast, cx, plural, ToolShell, Modal, Switch, relativeDay, shortDate, clockTime, Markdown } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
@@ -197,7 +196,7 @@ export function ScheduledPage({onClose,model,models}){
         <button className="backButton" onClick={()=>setOpenId(null)}><ArrowLeft size={16}/> Toate sarcinile</button>
         <div className="taskDetailHead">
           <span className="taskIcon big"><CalendarClock size={22}/></span>
-          <div className="taskDetailTitle"><Rise tag="h3">{selected.title}</Rise><p>{humanSchedule(selected)}{selected.enabled?` · următoarea: ${relativeDay(selected.nextRunAt)}`:" · oprită"}</p></div>
+          <div className="taskDetailTitle"><h3>{selected.title}</h3><p>{humanSchedule(selected)}{selected.enabled?` · următoarea: ${relativeDay(selected.nextRunAt)}`:" · oprită"}</p></div>
           <StatusPill status={selected.lastStatus} ran={!!selected.lastRunAt}/>
           <Switch checked={selected.enabled} disabled={busy===selected.id} label={`${selected.enabled?"Oprește":"Pornește"} ${selected.title}`} onChange={()=>toggle(selected)}/>
         </div>
@@ -213,11 +212,11 @@ export function ScheduledPage({onClose,model,models}){
           <div><span>Model</span><b title={selected.model||""}>{selected.model||"Implicit"}</b></div>
           <div><span>Notificări</span><b>{selected.notify!==false?<><Bell size={13}/> Da</>:<><BellOff size={13}/> Nu</>}{selected.timingMode==="condition_watch"?" · doar la schimbări":""}</b></div>
         </div>
-        <section className="taskSection"><Rise tag="h4">Instrucțiuni</Rise><div className="taskPromptFull">{selected.prompt}</div></section>
-        <section className="taskSection"><Rise tag="h4">Istoric rulări</Rise><RunHistory task={selected} runs={runs[selected.id]}/></section>
+        <section className="taskSection"><h4>Instrucțiuni</h4><div className="taskPromptFull">{selected.prompt}</div></section>
+        <section className="taskSection"><h4>Istoric rulări</h4><RunHistory task={selected} runs={runs[selected.id]}/></section>
       </div>:loading?<div className="emptyState small">Se încarcă sarcinile…</div>:!items.length?<div className="taskEmpty">
         <span className="taskIcon big"><CalendarClock size={26}/></span>
-        <Rise tag="h3">Nicio sarcină programată încă</Rise>
+        <h3>Nicio sarcină programată încă</h3>
         <p>Scrie o dată ce vrei să facă {BRAND_NAME} și alege când. De exemplu: „În fiecare zi lucrătoare la 08:30, fă-mi un rezumat al știrilor din România.”</p>
         <div className="taskExamples">{EXAMPLES.map(({label,...preset})=><button key={label} className="secondary" onClick={()=>newTask(preset)}><Sparkles size={14}/> {label}</button>)}</div>
       </div>:<div className="taskList" role="list">

@@ -1003,7 +1003,50 @@ export const LOCALES = {
   "Voice activity": "Activitate vocală",
   "Writing out what you said…": "Scriu ce ai spus…",
   "Listening… press the microphone again to stop.": "Te ascult… apasă din nou microfonul ca să te oprești.",
-  "See your calendars, events and free time (Google allows reading only, for now).": "Vezi calendarele, evenimentele și timpul liber (deocamdată Google permite doar citirea)."
+  "See your calendars, events and free time (Google allows reading only, for now).": "Vezi calendarele, evenimentele și timpul liber (deocamdată Google permite doar citirea).",
+  "Professional email": "Email profesional",
+  "Writes a clear, polite email with a subject from a few ideas.": "Scrie un email clar și politicos, cu subiect, din câteva idei.",
+  "Summary": "Rezumat",
+  "Sums up a text or a document in its main ideas.": "Rezumă un text sau un document în ideile principale.",
+  "Proofreader": "Corector",
+  "Fixes grammar, diacritics and punctuation without changing the meaning.": "Corectează gramatica, diacriticele și punctuația, fără să schimbe sensul.",
+  "Translator": "Traducător",
+  "Translates naturally, keeping the tone and the formatting.": "Traduce natural, păstrând tonul și formatarea.",
+  "Social media post": "Postare social media",
+  "Posts for Instagram, Facebook, LinkedIn or TikTok.": "Postări pentru Instagram, Facebook, LinkedIn sau TikTok.",
+  "Explain simply": "Explică simplu",
+  "Explains any subject so a beginner understands it.": "Explică orice subiect pe înțelesul unui începător.",
+  "Offer for a client": "Ofertă pentru client",
+  "A clear service offer with steps, price and deadline.": "O ofertă de servicii clară, cu etape, preț și termen.",
+  "The skill /{slug} was saved.": "Skill-ul /{slug} a fost salvat.",
+  "e.g. Reply to complaints": "ex. Răspuns la reclamații",
+  "Command in chat": "Comanda în chat",
+  "made from the name": "se face din nume",
+  "Short description": "Descriere scurtă",
+  "What it does, in one sentence": "Ce face, într-o propoziție",
+  "Instructions for the AI": "Instrucțiuni pentru AI",
+  "What the AI must do every time you use this skill: tone, structure, what to include, what to avoid.": "Ce trebuie să facă AI-ul de fiecare dată când folosești acest skill: ton, structură, ce să includă, ce să evite.",
+  "Save the skill": "Salvează skill-ul",
+  "The skills could not be loaded: {error}": "Nu am putut încărca skill-urile: {error}",
+  "You added /{slug}. Write it in chat to use it.": "Ai adăugat /{slug}. Scrie-l în chat ca să-l folosești.",
+  "Delete the skill /{slug}?": "Ștergi skill-ul /{slug}?",
+  "Your skills": "Skill-urile tale",
+  "New skill": "Skill nou",
+  "No skills yet": "Nu ai încă skill-uri",
+  "A skill is a set of instructions the AI follows when you call it. Add one below or make your own.": "Un skill e un set de instrucțiuni pe care AI-ul îl urmează când îl chemi. Adaugă unul de mai jos sau creează-l pe al tău.",
+  "Always on: used on every message, without /name": "Mereu activ: se aplică la fiecare mesaj, fără /nume",
+  "Always on {slug}": "Mereu activ {slug}",
+  "Always on": "Mereu activ",
+  "On {slug}": "Activ {slug}",
+  "Edit {name}": "Editează {name}",
+  "Ready-made": "Gata făcute",
+  "Instructions saved once and used any time: write /name in chat (for example /summary) or keep a skill always on.": "Instrucțiuni salvate o dată și folosite oricând: scrie /nume în chat (de ex. /rezumat) sau lasă un skill mereu activ.",
+  "Extensions": "Extensii",
+  "Connectors": "Conectori",
+  "Plugins": "Pluginuri",
+  "Plugin sections": "Secțiuni pluginuri",
+  "Your own APIs and webhooks, and plugins that work right away.": "API-urile și webhook-urile tale, plus pluginuri care merg imediat.",
+  "Instructions the AI follows when you call them with /name.": "Instrucțiuni pe care AI-ul le urmează când le chemi cu /nume."
  },
  "es": {
   "AI model: {model}": "Modelo de IA: {model}",
@@ -1196,7 +1239,8 @@ export const LOCALES = {
   "How to install": "Cómo instalar",
   "Close": "Cerrar",
   "Length": "Duración",
-  "{n} seconds": "{n} segundos"
+  "{n} seconds": "{n} segundos",
+  "Extensions": "Extensiones"
  },
  "fr": {
   "AI model: {model}": "Modèle d'IA : {model}",
@@ -1389,7 +1433,8 @@ export const LOCALES = {
   "How to install": "Comment installer",
   "Close": "Fermer",
   "Length": "Durée",
-  "{n} seconds": "{n} secondes"
+  "{n} seconds": "{n} secondes",
+  "Extensions": "Extensions"
  },
  "de": {
   "AI model: {model}": "KI-Modell: {model}",
@@ -1582,6 +1627,7 @@ export const LOCALES = {
   "How to install": "So installierst du",
   "Close": "Schließen",
   "Length": "Länge",
-  "{n} seconds": "{n} Sekunden"
+  "{n} seconds": "{n} Sekunden",
+  "Extensions": "Erweiterungen"
  }
 };

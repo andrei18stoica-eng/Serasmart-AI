@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Rise } from "../riseText.jsx";
 import { Plus, Search, Check, Trash2, RefreshCw, ShieldCheck, Link2, Wrench, X } from "lucide-react";
 import { api, toast, cx, openLink } from "../core.jsx";
 import { t as tr, useLanguage } from "../i18n.jsx";
@@ -96,7 +95,7 @@ export function ConnectorsPanel() {
   return <div className="connectorsPanel">
     {note && <div className={cx("connNote", note.kind)} role="status">{note.text}<button className="iconPlain" onClick={() => setNote(null)} aria-label={tr("Close")}><X size={13} /></button></div>}
     <section className="catalogSection">
-      <Rise tag="h3">{tr("Your apps")}</Rise>
+      <h3>{tr("Your apps")}</h3>
       {loading ? <div className="emptyState small">{tr("Loading…")}</div> : !data.connected.length ? <p className="settingsHelp">{tr("No app connected yet. Pick one below: after you sign in, {brand} can search, read, create and edit in it, and asks you before every action.", { brand: BRAND_NAME })}</p>
         : <div className="plugCards">{data.connected.map((c) => <div key={c.id} className={cx("plugCard", c.status !== "connected" && "off")}>
           <div className="plugCardTop"><AppLogo logo={c.logo} name={c.name} /><div className="plugCardText"><b title={c.name}>{c.name}</b><small>{tr(STATUS[c.status] || c.status)}{c.status === "connected" && c.toolCount ? ` · ${tr("{n} actions", { n: c.toolCount })}` : ""}</small></div></div>
@@ -115,7 +114,7 @@ export function ConnectorsPanel() {
       <div className="connApprovals">{data.approvals.map((a) => <div key={a.id} className="connApproval"><span><b>{a.app || nameOf(a.connId)}</b> · {a.tool}</span><button className="smallBtn" onClick={() => revoke(a)}>{tr("Remove")}</button></div>)}</div>
     </section>}
     <section className="catalogSection">
-      <div className="connHead"><Rise tag="h3">{tr("Connect an app")}</Rise><button className="smallBtn" onClick={() => setShowCustom((v) => !v)}><Link2 size={13} /> {tr("Custom app")}</button></div>
+      <div className="connHead"><h3>{tr("Connect an app")}</h3><button className="smallBtn" onClick={() => setShowCustom((v) => !v)}><Link2 size={13} /> {tr("Custom app")}</button></div>
       {showCustom && <form className="connCustom" onSubmit={async (e) => { e.preventDefault(); if (await connect({ url: custom.url, name: custom.name, token: custom.token || undefined }, custom.name || custom.url)) setCustom({ url: "", name: "", token: "" }); }}>
         <p className="settingsHelp">{tr("Any app with a remote MCP server (an address that starts with https://). Leave the token empty if the app has its own sign-in.")}</p>
         <input value={custom.name} onChange={(e) => setCustom({ ...custom, name: e.target.value })} placeholder={tr("Name")} maxLength={80} />
@@ -124,7 +123,7 @@ export function ConnectorsPanel() {
         <button className="primary" disabled={!!busy || !custom.url.trim()}><Plus size={14} /> {tr("Connect")}</button>
       </form>}
       <div className="pageSearch"><Search size={16} /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={tr("Search apps")} aria-label={tr("Search apps")} /></div>
-      {groups.map((g) => <div key={g} className="connGroup"><Rise tag="h4">{tr(g)}</Rise><div className="catalogGrid">
+      {groups.map((g) => <div key={g} className="connGroup"><h4>{tr(g)}</h4><div className="catalogGrid">
         {catalog.filter((x) => x.category === g).map((x) => <div key={x.id} className={cx("catalogCard", x.unavailable && "locked")} title={x.unavailable ? tr(x.unavailable) : ""}>
           <AppLogo logo={x.logo} name={x.name} />
           <div className="catalogText"><b>{x.name}</b><small>{x.unavailable ? tr(x.unavailable) : tr(x.description)}</small>

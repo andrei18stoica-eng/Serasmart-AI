@@ -1370,8 +1370,7 @@ html[data-thinking] .brandS img{animation:sThinkImg 1.6s ease-in-out infinite}
 @keyframes sThink{0%,100%{box-shadow:0 0 12px rgba(91,155,255,.35)}50%{box-shadow:0 0 26px rgba(91,155,255,.7)}}
 @keyframes sThinkImg{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(-6deg) scale(1.05)}}
 @media (prefers-reduced-motion:reduce){.brandS,.brandS img,.brandS::after,html[data-thinking] .brandS,html[data-thinking] .brandS img{animation:none}}
-/* 0.7.29: the Dot & Ring cursor stays visible on the light theme; a soft wash at the top of the dark page. */
-:root[data-theme="light"] .dotRingRing,:root[data-theme="light"] .dotRingDot{mix-blend-mode:difference}
+/* 0.7.29: a soft wash at the top of the dark page. */
 :root:not([data-theme="light"]) body{background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,#f5f5f5 5%,var(--bg)),var(--bg) 70%) fixed}
 /* 0.7.29: the voice orb above the message box, on a dark surface from its base colour #07262b. */
 .voiceOrbStage{position:absolute;left:50%;bottom:calc(100% + 14px);transform:translateX(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 26px 16px;border-radius:24px;border:1px solid color-mix(in srgb,#38e1ff 18%,transparent);
@@ -1382,3 +1381,21 @@ html[data-thinking] .brandS img{animation:sThinkImg 1.6s ease-in-out infinite}
 /* 0.7.30: the apps' own logos sit on a white tile, in their colours. */
 .pluginLogo.brand{background:#fff;border-color:transparent}
 .pluginLogo.brand img{width:58%;height:58%;object-fit:contain;filter:none}
+/* 0.7.30: Extensions = connectors, plugins and skills, switched at the top. */
+.extSwitch{display:flex;flex-shrink:0;gap:6px;padding:4px;margin:14px 0 6px;border:1px solid var(--line);border-radius:12px;background:var(--surface);width:fit-content;max-width:100%;overflow-x:auto}
+.extTab{display:inline-flex;align-items:center;gap:7px;border:0;background:transparent;color:var(--text-2);padding:8px 14px;border-radius:9px;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap}
+.extTab svg{color:var(--accent)}.extTab.active{background:var(--surface-3);color:var(--text-strong)}.extTab:disabled{opacity:.45;cursor:not-allowed}
+@media (hover:hover) and (pointer:fine){.extTab:not(.active):not(:disabled):hover{color:var(--text-strong)}}
+.panelLead{margin:4px 0 12px;color:var(--muted);font-size:12px}
+/* 0.7.30, reported by the Owner («the left bar turns black lower down and cannot be moved»): the system scrollbar was a
+   wide black strip on the dark theme. Thin scrollbars in the theme's colours, the list scrolls on its own (the page
+   does not move with it), and the top and the account area keep their size on short screens. */
+*{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--text) 22%,transparent) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--text) 22%,transparent);border-radius:8px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--text) 38%,transparent);background-clip:padding-box;border:2px solid transparent}
+::-webkit-scrollbar-corner{background:transparent}
+.sideScroll{overscroll-behavior:contain}
+.sidebar>.sideTop,.sidebar>.newChat,.sidebar>.searchBox,.sidebar>.accountArea{flex-shrink:0}
+.pluginsPanel,.skillsPanel{display:flex;flex-direction:column;min-height:0}

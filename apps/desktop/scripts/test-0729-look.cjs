@@ -14,19 +14,15 @@ expect(/src="\.\/serasmart-s\.webp"/.test(main) && !fs.existsSync(path.join(SRC,
 expect(/@keyframes sGlow/.test(css) && /@keyframes sSweep/.test(css) && /html\[data-thinking\] \.brandS\{animation:sThink 1\.6s/.test(css), "the S glows and sweeps at rest and pulses while the AI answers");
 expect(/prefers-reduced-motion:reduce\)\{\.brandS,/.test(css) && /dataset\.thinking="1"/.test(main), "still with reduce motion; thinking follows the answers in progress");
 
-expect(pkg.dependencies["spring-text-engine"] === "0.1.5" && pkg.dependencies["@react-spring/web"], "spring-text-engine pinned");
-const rise = read("riseText.jsx");
-expect(/letterOut=\{\{ opacity: 0, y: 24 \}\} letterIn=\{\{ opacity: 1, y: 0 \}\}/.test(rise) && /letterConfig=\{\{ tension: 220, friction: 22 \}\} letterStagger=\{30\}/.test(rise) && /mode="once" overflow/.test(rise) && !/mode="manual"/.test(rise), "Rise & Settle exactly as specified");
-expect(/justifyContent: justify/.test(rise) && /prefers-reduced-motion: reduce/.test(rise), "centred with justify-content; plain with reduce motion");
-const files = ["main.jsx", "core.jsx", "accessRequest.jsx", "serverUpdate.jsx", ...fs.readdirSync(path.join(SRC, "pages")).map((f) => "pages/" + f)];
-let plain = 0;
-for (const f of files) plain += (read(f).match(/<h[1-6](?: [^>]*)?>[^<]{0,160}<\/h[1-6]>/g) || []).filter((h) => !/a întâmpinat o problemă/.test(h)).length;
-expect(plain === 0, `every interface heading rises (${plain} left plain)`);
-
-const cursor = read("cursor.js");
-expect(/FOLLOW = 0\.14, RING = 36, DOT = 6, HOVER_SCALE = 1\.9, COLOUR = "#FFFFFF", SCALE_LERP = 0\.22/.test(cursor) && /closest\("a, button, input"\)/.test(cursor), "Dot & Ring with the given parameters");
-expect(/\(hover: hover\) and \(pointer: fine\)/.test(cursor) && /prefers-reduced-motion: reduce/.test(cursor) && /aria-hidden", "true"/.test(cursor) && /pointerEvents: "none"/.test(cursor), "only with a fine pointer, never with reduce motion, never in the way");
-expect(!/cursor:\s*none/.test(css) && !/cursor = "none"/.test(cursor), "the system cursor stays");
+// 0.7.30: the Owner removed the letter animation of the headings and the Dot & Ring cursor.
+expect(!pkg.dependencies["spring-text-engine"] && !pkg.dependencies["@react-spring/web"] && !fs.existsSync(path.join(SRC, "riseText.jsx")) && !fs.existsSync(path.join(SRC, "cursor.js")), "no heading animation and no cursor ring");
+expect(!/<Rise |startDotRingCursor/.test(main) && !/dotRing/.test(css), "nothing of them is left");
+// 0.7.30: the left bar scrolls with a thin scrollbar in the theme's colours (it was a wide black strip).
+expect(/::-webkit-scrollbar-thumb\{background:color-mix/.test(css) && /scrollbar-width:thin/.test(css) && /\.sideScroll\{overscroll-behavior:contain\}/.test(css), "thin themed scrollbars");
+// 0.7.30: connectors, plugins and skills are one «Extensions» page.
+expect(/\["extensions",Puzzle,"Extensions",null\]/.test(main) && !/\["plugins",Plug,"Apps"/.test(main) && !/\["skills",Sparkles,"Skills"/.test(main), "one Extensions entry in the tools menu");
+const ext = read("pages/Extensions.jsx");
+expect(/\["connectors", Plug, "Connectors"/.test(ext) && /\["plugins", Puzzle, "Plugins"/.test(ext) && /\["skills", Sparkles, "Skills"/.test(ext) && /<ConnectorsPanel \/>/.test(ext) && /<PluginsPanel \/>/.test(ext) && /<SkillsPanel \/>/.test(ext), "Extensions opens connectors, plugins and skills");
 
 expect(pkg.dependencies.orbloom === "0.1.0", "orbloom pinned");
 const orb = read("voiceOrb.jsx");

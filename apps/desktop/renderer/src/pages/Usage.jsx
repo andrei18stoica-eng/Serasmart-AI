@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Rise } from "../riseText.jsx";
 import { Gauge, CreditCard, Clock, Plus, Users, Check, X, Sparkles } from "lucide-react";
 import { api, toast, cx, ToolShell, Modal, useAccess } from "../core.jsx";
 import { t as tr, useLanguage, getLanguage } from "../i18n.jsx";
@@ -87,7 +86,7 @@ function ExtraCreditsCard({ min = 100 }) {
   return <article className="planCard extraCard" aria-label={tr("Extra credits")}>
     <span className="planBadge extra"><Plus size={12} /> {tr("Top up")}</span>
     <header>
-      <Rise tag="h4">{tr("Extra credits")}</Rise>
+      <h4>{tr("Extra credits")}</h4>
       <div className="planPrice" aria-live="polite"><b>{valid && price ? lei(price) : "—"}</b><span>{valid ? tr("once") : ""}</span></div>
       <small className="planYearly">{valid && price ? tr("for {n} credits · paid once", { n: num(credits) }) : credits > PACK_MAX ? tr("at most {n} credits", { n: num(PACK_MAX) }) : tr("minimum {n} credits", { n: num(min) })}</small>
     </header>
@@ -168,7 +167,7 @@ export function UsagePage({ onClose }) {
           </div>
         </section>}
         <section className="usageSection">
-          <Rise tag="h3">{tr("Plans and extra credits")}</Rise>
+          <h3>{tr("Plans and extra credits")}</h3>
           <div className="planGrid">{cat.plans.map((p) => <PlanCard key={p.key} plan={p} current={d.plan?.key === p.key} popular={p.key === "pro"} />)}<ExtraCreditsCard min={cat.minPack} /></div>
           <p className="settingsHelp">{tr("Without a plan: {n} messages a day on the free models, after a {days}-day trial with {credits} credits. Card payments open soon; until then plans are given by the Owner.", { n: cat.free.dailyMessages, days: cat.trial.days, credits: num(cat.trial.credits) })}</p>
           <p className="settingsHelp">{tr("A plan's credits come in four equal parts, one every 7 days counted from the day your plan started (for example, a plan started on a Wednesday gets its credits every Wednesday). What you don't use moves to the next week. At 100% the paid models stop until the next part, or you buy extra credits; meanwhile you keep {n} messages a day on the free models.", { n: cat.freeDaily.planExhausted })}</p>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Rise } from "../riseText.jsx";
 import { Plus, Search, Check, Trash2, RefreshCw, ShieldCheck, Link2, Wrench, X } from "lucide-react";
 import { api, toast, cx, openLink } from "../core.jsx";
 import { t as tr, useLanguage } from "../i18n.jsx";
@@ -88,7 +89,7 @@ export function ConnectorsPanel() {
   return <div className="connectorsPanel">
     {note && <div className={cx("connNote", note.kind)} role="status">{note.text}<button className="iconPlain" onClick={() => setNote(null)} aria-label={tr("Close")}><X size={13} /></button></div>}
     <section className="catalogSection">
-      <h3>{tr("Your apps")}</h3>
+      <Rise tag="h3">{tr("Your apps")}</Rise>
       {loading ? <div className="emptyState small">{tr("Loading…")}</div> : !data.connected.length ? <p className="settingsHelp">{tr("No app connected yet. Pick one below: after you sign in, {brand} can search, read, create and edit in it, and asks you before every action.", { brand: BRAND_NAME })}</p>
         : <div className="plugCards">{data.connected.map((c) => <div key={c.id} className={cx("plugCard", c.status !== "connected" && "off")}>
           <div className="plugCardTop"><span className="pluginLogo"><span>{initials(c.name)}</span></span><div className="plugCardText"><b title={c.name}>{c.name}</b><small>{tr(STATUS[c.status] || c.status)}{c.status === "connected" && c.toolCount ? ` · ${tr("{n} actions", { n: c.toolCount })}` : ""}</small></div></div>
@@ -107,7 +108,7 @@ export function ConnectorsPanel() {
       <div className="connApprovals">{data.approvals.map((a) => <div key={a.id} className="connApproval"><span><b>{a.app || nameOf(a.connId)}</b> · {a.tool}</span><button className="smallBtn" onClick={() => revoke(a)}>{tr("Remove")}</button></div>)}</div>
     </section>}
     <section className="catalogSection">
-      <div className="connHead"><h3>{tr("Connect an app")}</h3><button className="smallBtn" onClick={() => setShowCustom((v) => !v)}><Link2 size={13} /> {tr("Custom app")}</button></div>
+      <div className="connHead"><Rise tag="h3">{tr("Connect an app")}</Rise><button className="smallBtn" onClick={() => setShowCustom((v) => !v)}><Link2 size={13} /> {tr("Custom app")}</button></div>
       {showCustom && <form className="connCustom" onSubmit={async (e) => { e.preventDefault(); if (await connect({ url: custom.url, name: custom.name, token: custom.token || undefined }, custom.name || custom.url)) setCustom({ url: "", name: "", token: "" }); }}>
         <p className="settingsHelp">{tr("Any app with a remote MCP server (an address that starts with https://). Leave the token empty if the app has its own sign-in.")}</p>
         <input value={custom.name} onChange={(e) => setCustom({ ...custom, name: e.target.value })} placeholder={tr("Name")} maxLength={80} />
@@ -116,7 +117,7 @@ export function ConnectorsPanel() {
         <button className="primary" disabled={!!busy || !custom.url.trim()}><Plus size={14} /> {tr("Connect")}</button>
       </form>}
       <div className="pageSearch"><Search size={16} /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={tr("Search apps")} aria-label={tr("Search apps")} /></div>
-      {groups.map((g) => <div key={g} className="connGroup"><h4>{tr(g)}</h4><div className="catalogGrid">
+      {groups.map((g) => <div key={g} className="connGroup"><Rise tag="h4">{tr(g)}</Rise><div className="catalogGrid">
         {catalog.filter((x) => x.category === g).map((x) => <div key={x.id} className={cx("catalogCard", x.unavailable && "locked")} title={x.unavailable ? tr(x.unavailable) : ""}>
           <span className="pluginLogo"><span>{initials(x.name)}</span></span>
           <div className="catalogText"><b>{x.name}</b><small>{x.unavailable ? tr(x.unavailable) : tr(x.description)}</small>
@@ -159,4 +160,34 @@ export function ToolRunCard({ run, onDecide = decideToolRun }) {
     </>}
     {run.status !== "ask" && run.summary && <details className="toolRunResult"><summary>{tr("Result")}</summary><pre>{run.summary}</pre></details>}
   </div>;
+}
+
+// Actions waiting for the person outside the open chat: an automation working in an app, or a chat whose page was
+// closed. They wait until the person decides; the list is read every 10 seconds and when the window comes back.
+export function PendingApprovals({ currentConversationId, onOpenConversation }) {
+  useLanguage();
+  const [items, setItems] = useState([]), [hidden, setHidden] = useState(false);
+  const mounted = useRef(true);
+  async function load() {
+    try { const d = await api("/api/connectors/pending"); if (mounted.current) setItems(d.data || []); } catch {}
+  }
+  useEffect(() => {
+    mounted.current = true; load();
+    const t = setInterval(load, 10000), onFocus = () => load();
+    window.addEventListener("focus", onFocus);
+    return () => { mounted.current = false; clearInterval(t); window.removeEventListener("focus", onFocus); };
+  }, []);
+  const shown = items.filter((x) => !(x.source?.kind === "chat" && x.source.conversationId && x.source.conversationId === currentConversationId));
+  if (!shown.length) return null;
+  const decide = async (id, decision) => { await decideToolRun(id, decision); setItems((v) => v.filter((x) => x.id !== id)); };
+  return <aside className={cx("pendingTray", hidden && "collapsed")} aria-label={tr("Waiting for your approval")}>
+    <button className="pendingHead" onClick={() => setHidden((v) => !v)} aria-expanded={!hidden}>
+      <span className="pendingCount">{shown.length}</span> {tr("Waiting for your approval")}
+    </button>
+    {!hidden && <div className="pendingList">{shown.map((x) => <div key={x.id} className="pendingItem">
+      <small className="pendingSource">{x.source?.kind === "automation" ? tr("Automation «{name}»", { name: x.source.name || "" })
+        : <button className="linkBtn" onClick={() => onOpenConversation?.(x.source?.conversationId)}>{tr("In a chat")}</button>}</small>
+      <ToolRunCard run={x} onDecide={decide} />
+    </div>)}</div>}
+  </aside>;
 }

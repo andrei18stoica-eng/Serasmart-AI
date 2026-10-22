@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Rise } from "../riseText.jsx";
 import { Plus, Sparkles, Download, ExternalLink, Trash2, Monitor, Tablet, Smartphone, LoaderCircle, WandSparkles, Palette } from "lucide-react";
 import { api, authedFetch, toast, cx, shortDate, relativeDay, openLink, saveBlobDownload, useAccess, ToolShell } from "../core.jsx";
 import { DESIGN_KINDS } from "./Library.jsx";
@@ -24,7 +25,7 @@ function Progress({job,onCancel}){
   const pct=Math.round(92*(1-Math.exp(-s/28)));
   return <div className="designProgress" role="status" aria-live="polite">
     <LoaderCircle size={30} className="spin"/>
-    <h3>{job.type==="revise"?"Aplic modificările…":"Creez designul…"}</h3>
+    <Rise tag="h3">{job.type==="revise"?"Aplic modificările…":"Creez designul…"}</Rise>
     <p>{STEPS[Math.min(STEPS.length-1,Math.floor(s/10))]}</p>
     <div className="progressBar" aria-hidden="true"><span style={{transform:`scaleX(${pct/100})`}}/></div>
     <small>{s} s · de obicei durează aproximativ un minut</small>
@@ -148,7 +149,7 @@ export function DesignPage({onClose,model,models,initialId=null}){
           </form>
         </div>:currentId?<div className="previewPlaceholder">Se încarcă designul…</div>:<form className="designStart" onSubmit={generate}>
           <span className="designHero"><Palette size={26}/></span>
-          <h3>Ce construim azi?</h3>
+          <Rise tag="h3">Ce construim azi?</Rise>
           <p>Descrie pagina, afișul sau prezentarea. {BRAND_NAME} scrie un singur fișier HTML pe care îl vezi imediat, îl modifici cu cuvinte și îl descarci.</p>
           <div className="designPromptBox">
             <textarea ref={promptRef} value={prompt} onChange={e=>setPrompt(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();generate()}}} placeholder="Descrie ce vrei să construim…" aria-label="Descrie ce vrei să construim"/>
@@ -156,7 +157,7 @@ export function DesignPage({onClose,model,models,initialId=null}){
           </div>
           <div className="chipRow designKinds" role="radiogroup" aria-label="Tipul designului">{KIND_CHIPS.map(([k,label])=><button type="button" key={k} role="radio" aria-checked={kind===k} className={cx("filterChip",kind===k&&"active")} onClick={()=>setKind(k)}>{label}</button>)}</div>
           {error&&<div className="inlineError" role="alert">{error}</div>}
-          <div className="designExamples"><h4>Exemple</h4><div className="designExampleGrid">{EXAMPLES.map(x=><button type="button" key={x.text} className="designExample" onClick={()=>{setPrompt(x.text);setKind(x.kind);promptRef.current?.focus()}}><b>{DESIGN_KINDS[x.kind]}</b><span>{x.text}</span></button>)}</div></div>
+          <div className="designExamples"><Rise tag="h4">Exemple</Rise><div className="designExampleGrid">{EXAMPLES.map(x=><button type="button" key={x.text} className="designExample" onClick={()=>{setPrompt(x.text);setKind(x.kind);promptRef.current?.focus()}}><b>{DESIGN_KINDS[x.kind]}</b><span>{x.text}</span></button>)}</div></div>
         </form>}
       </section>
     </div>

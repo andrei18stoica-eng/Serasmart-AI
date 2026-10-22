@@ -3155,7 +3155,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       if(delta){job.text+=delta;job.updatedAt=Date.now();}
     }
   }
-  const jobView=(j)=>({id:j.id,kind:j.kind,conversationId:j.conversationId,status:j.status,text:j.text,routeInfo:j.routeInfo,attachment:j.attachment,error:j.error,startedAt:j.startedAt,updatedAt:j.updatedAt});
+  const jobView=(j)=>({id:j.id,kind:j.kind,conversationId:j.conversationId,status:j.status,text:j.text,routeInfo:j.routeInfo,attachment:j.attachment,error:j.error,startedAt:j.startedAt,updatedAt:j.updatedAt,...(j.toolRuns?.length?{toolRuns:j.toolRuns}:{})});
   app.get("/api/chat/jobs", auth, (req,res) => {res.json({data:[...chatJobs.values()].filter(j=>j.userId===req.user.id).map(jobView)});});
   app.get("/api/chat/jobs/:id", auth, (req,res) => {
     const j=chatJobs.get(req.params.id);
@@ -3643,8 +3643,10 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     allowPrivate:()=>(getOmniConfig()?.allowPrivatePlugins??loopbackHost)===true
   });
   function connectorRedirect(req){return `${previewBase(req)}/api/connectors/oauth/callback`;}
-  const toolAsks=new Map(); // run id -> { userId, connId, tool, app, done }
-  const APPROVAL_MS=5*60*1000;
+  // Actions waiting for the person (chat or automation). They wait until the person decides: a closed page does not
+  // refuse them (the chat continues on the server and the card is shown again); only Stop, deleting the automation or a
+  // restart of the server ends them.
+  const toolAsks=new Map(); // run id -> { id, userId, connId, tool, app, title, args, readOnly, source, createdAt, done }
   app.get("/api/connectors",auth,(req,res)=>{
     res.json({data:{catalog:connectors.catalog(req.user.id),connected:connectors.list(req.user.id),approvals:connectors.approvals(req.user.id)}});
   });
@@ -3685,49 +3687,101 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     ask.done(decision==="deny"?"deny":"allow");
     res.json({ok:true});
   });
-  // The tools of the person's connected apps, for this message (none when apps are off for it or the account may not use them).
+  app.get("/api/connectors/pending",auth,(req,res)=>{
+    res.json({data:[...toolAsks.values()].filter(a=>a.userId===req.user.id).map(({id,app,tool,title,args,readOnly,source,createdAt})=>({id,app,tool,title,args,readOnly,source,createdAt,status:"ask"}))});
+  });
+  // The tools of the person's connected apps (none when the account may not use them).
+  async function appToolsForUser(userId){
+    if(!(store.read().connectors||[]).some(c=>c.userId===userId&&c.status==="connected"))return [];
+    let t;const timeout=new Promise(r=>{t=setTimeout(()=>r([]),20000);});
+    try{return await Promise.race([connectors.toolsForChat(userId),timeout])}catch{return []}finally{clearTimeout(t)}
+  }
   async function appToolsFor(req){
     if(req.body?.apps===false||!hasPermission(req,"plugins"))return [];
-    if(!(store.read().connectors||[]).some(c=>c.userId===req.user.id&&c.status==="connected"))return [];
-    let t;const timeout=new Promise(r=>{t=setTimeout(()=>r([]),20000);});
-    try{return await Promise.race([connectors.toolsForChat(req.user.id),timeout])}catch{return []}finally{clearTimeout(t)}
+    return appToolsForUser(req.user.id);
   }
-  function askApproval(req,res,signal,def,run,send){
+  function waitForApproval({userId,def,run,source,signal}){
     return new Promise(resolve=>{
-      if(res.destroyed||res.writableEnded||signal.aborted)return resolve("deny");
-      let t=null;
-      const done=(d)=>{clearTimeout(t);toolAsks.delete(run.id);res.off("close",gone);signal.removeEventListener("abort",gone);resolve(d)};
-      const gone=()=>done("deny");
-      t=setTimeout(gone,APPROVAL_MS);
-      toolAsks.set(run.id,{userId:req.user.id,connId:def.connId,tool:def.tool,app:def.app,done});
-      res.on("close",gone);signal.addEventListener("abort",gone,{once:true});
-      send({serasmart_tool:run});
+      if(signal?.aborted)return resolve("deny");
+      const stop=()=>done("deny");
+      const done=(d)=>{toolAsks.delete(run.id);signal?.removeEventListener("abort",stop);resolve(d)};
+      toolAsks.set(run.id,{id:run.id,userId,connId:def.connId,tool:def.tool,app:def.app,title:run.title,args:run.args,readOnly:run.readOnly,source,createdAt:Date.now(),done});
+      signal?.addEventListener("abort",stop,{once:true});
     });
   }
   const clipArgs=(args)=>{const s=JSON.stringify(args||{});return s.length<=4000?args:{_preview:s.slice(0,4000)+"…"};};
-  // Chat with tools: answers are asked without streaming, each tool call waits for the person, and the final text goes
+  const validZone=(tz)=>{try{if(tz){new Intl.DateTimeFormat("en-GB",{timeZone:String(tz)});return String(tz);}}catch{}return "";};
+  // What the AI is told when apps are connected: act on what the person asks (without naming the app) and the date and
+  // time where the person is, so «on Saturday» or «tomorrow at 8» land on the right day.
+  function appsNote(apps,timeZone){
+    const tz=validZone(timeZone)||validZone(getOmniConfig().timeZone)||"Europe/Bucharest";
+    const now=new Intl.DateTimeFormat("en-GB",{timeZone:tz,weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date());
+    return {role:"system",content:`CONNECTED APPS: ${apps.join(", ")}. Use their tools on your own whenever the request needs information from these apps or a change in them (search, read, create, edit, move, sort), even when the person does not name the app: «add a basketball match on Saturday» means creating the event in the connected calendar; «sort my emails» means working in the connected email. First look up what you need (for example the calendar list or the messages), then make the change. The person approves every change before it runs, so call the tool directly; do not ask for permission in text. When an action is denied, say so in one short sentence and carry on without it. Never invent what a tool returned. Now: ${now} (${tz}); work out relative dates from this and use this time zone for events.`};
+  }
+  // The rounds with tools, for chat and automations: every action waits for the person unless it is always allowed.
+  async function runAppTools({userId,appTools,convo,first,ask,signal,source,onRun,onWait}){
+    let msg=first;const runs=[];
+    for(let round=0;round<8&&msg?.tool_calls?.length&&!signal?.aborted;round++){
+      convo.push({role:"assistant",content:msg.content||null,tool_calls:msg.tool_calls});
+      for(const call of msg.tool_calls){
+        const def=appTools.find(t=>t.name===call?.function?.name);
+        let args={};try{args=JSON.parse(call?.function?.arguments||"{}")||{}}catch{}
+        const run={id:crypto.randomUUID(),app:def?.app||"",tool:def?.tool||String(call?.function?.name||""),title:def?.title||def?.tool||String(call?.function?.name||""),args:clipArgs(args),readOnly:!!def?.readOnly,status:"ask"};
+        let result;
+        if(!def){run.status="error";run.summary="Unknown tool.";result="This tool does not exist.";}
+        else{
+          let decision="allow";
+          if(!connectors.alwaysAllowed(userId,def.connId,def.tool)){
+            runs.push(run);onRun?.(run,runs);onWait?.(run);
+            decision=await waitForApproval({userId,def,run,source,signal});
+            runs.pop();
+          }
+          if(decision!=="allow"){run.status="denied";result="The person denied this action. Do not try it again; continue without it.";}
+          else{
+            run.status="running";runs.push(run);onRun?.(run,runs);runs.pop();
+            try{const out=await connectors.call(userId,def.connId,def.tool,args);run.status=out.ok?"done":"error";run.summary=String(out.text||"").slice(0,400);result=out.text||"(no content)";}
+            catch(e){run.status="error";run.summary=String(e?.message||e).slice(0,300);result=`The tool failed: ${run.summary}`;}
+          }
+        }
+        runs.push(run);onRun?.(run,runs);
+        convo.push({role:"tool",tool_call_id:call.id,content:String(result).slice(0,30000)});
+      }
+      if(signal?.aborted)break;
+      msg=await ask(round<7);
+    }
+    return {msg,runs};
+  }
+  const publicRuns=(runs)=>runs.map(({id,app,tool,title,status,summary,readOnly})=>({id,app,tool,title,status,readOnly,summary:summary||""}));
+  // Chat with tools: answers are asked without streaming, each action waits for the person, and the final text goes
   // out as one piece. Returns { handled:false } when no model takes tools, so the normal answer (without apps) follows.
-  async function chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal,bill,usage}){
+  async function chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal:stopSignal,bill,usage}){
     const tools=appTools.map(t=>t.schema);
     const apps=[...new Set(appTools.map(t=>t.app))];
     const convo=[...messages];
     const firstOther=convo.findIndex(m=>m.role!=="system");
-    convo.splice(firstOther<0?convo.length:firstOther,0,{role:"system",content:`CONNECTED APPS: ${apps.join(", ")}. Use their tools when the request needs information from these apps or a change in them (search, read, create, edit). The person approves every action in the app before it runs, so call the tool directly; do not ask for permission in text. When an action is denied, say so in one short sentence and carry on without it. Never invent what a tool returned.`});
+    convo.splice(firstOther<0?convo.length:firstOther,0,appsNote(apps,req.body?.timeZone));
+    // With a job (the app sent requestId and conversationId) a closed page keeps the answer going on the server, and the
+    // actions keep waiting; without one, nobody could see them, so closing the page refuses them.
+    const ctl=new AbortController(),signal=ctl.signal;
+    const abort=()=>ctl.abort("stop");
+    if(stopSignal.aborted)abort();else stopSignal.addEventListener("abort",abort,{once:true});
+    if(!job)res.on("close",()=>{if(!res.writableFinished)abort();});
+    const callTimer=chatTimer(false,signal);
     const ask=async(model,withTools)=>{
-      const r=await fetchChatCandidate(cfg,model,convo,false,timer,withTools?{tools}:{});
+      const r=await fetchChatCandidate(cfg,model,convo,false,callTimer,withTools?{tools}:{});
       const text=await r.text();
       if(!r.ok)throw Object.assign(new Error(`HTTP ${r.status} ${upstreamErrorText(text)}`),{status:r.status,body:text});
       let data;try{data=JSON.parse(text)}catch{throw new Error("The AI sent an answer that could not be read.")}
       const msg=data?.choices?.[0]?.message;if(!msg)throw new Error("The AI sent an empty answer.");
       return msg;
     };
-    let msg=null,used=null;
+    let first=null,used=null;
     for(const candidate of route.candidates){
       if(signal.aborted)return {handled:true,paid:false};
-      try{msg=await ask(candidate.id,true);used=candidate;break;}
+      try{first=await ask(candidate.id,true);used=candidate;break;}
       catch(e){if(signal.aborted)return {handled:true,paid:false};}
     }
-    if(!msg)return {handled:false,paid:false};
+    if(!first)return {handled:false,paid:false};
     chatSettle(bill,used.id,usage.web);
     res.status(200);
     res.setHeader("Content-Type","text/event-stream; charset=utf-8");
@@ -3742,46 +3796,50 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     send({serasmart_route:routeInfo});
     // Waiting for the person (or a slow app) keeps the connection and the idle timer alive.
     const ping=setInterval(()=>{timer.touch();if(open())res.write(": ping\n\n");},15000);
-    const runs=[];
+    let runs=[];
     try{
-      for(let round=0;round<8&&msg?.tool_calls?.length&&!signal.aborted;round++){
-        convo.push({role:"assistant",content:msg.content||null,tool_calls:msg.tool_calls});
-        for(const call of msg.tool_calls){
-          const def=appTools.find(t=>t.name===call?.function?.name);
-          let args={};try{args=JSON.parse(call?.function?.arguments||"{}")||{}}catch{}
-          const run={id:crypto.randomUUID(),app:def?.app||"",tool:def?.tool||String(call?.function?.name||""),title:def?.title||def?.tool||String(call?.function?.name||""),args:clipArgs(args),readOnly:!!def?.readOnly,status:"ask"};
-          let result;
-          if(!def){run.status="error";run.summary="Unknown tool.";result="This tool does not exist.";}
-          else{
-            const decision=connectors.alwaysAllowed(req.user.id,def.connId,def.tool)?"allow":await askApproval(req,res,signal,def,run,send);
-            if(decision!=="allow"){run.status="denied";result="The person denied this action. Do not try it again; continue without it.";}
-            else{
-              run.status="running";send({serasmart_tool:run});
-              try{const out=await connectors.call(req.user.id,def.connId,def.tool,args);run.status=out.ok?"done":"error";run.summary=String(out.text||"").slice(0,400);result=out.text||"(no content)";}
-              catch(e){run.status="error";run.summary=String(e?.message||e).slice(0,300);result=`The tool failed: ${run.summary}`;}
-            }
-          }
-          runs.push(run);if(job)job.toolRuns=runs;send({serasmart_tool:run});
-          convo.push({role:"tool",tool_call_id:call.id,content:String(result).slice(0,30000)});
-        }
-        if(signal.aborted)break;
-        timer.touch();
-        msg=await ask(used.id,round<7);
-      }
-      const text=signal.aborted?"":sanitizeQuestions(String(msg?.content||""));
-      const toolRuns=runs.map(({id,app,tool,title,status,summary,readOnly})=>({id,app,tool,title,status,readOnly,summary:summary||""}));
+      const source={kind:"chat",conversationId:job?.conversationId||null,requestId:job?.id||null};
+      const out=await runAppTools({userId:req.user.id,appTools,convo,first,ask:(withTools)=>ask(used.id,withTools),signal,source,
+        onRun:(run,all)=>{runs=all.slice();if(job){job.toolRuns=all.slice();job.updatedAt=Date.now();}send({serasmart_tool:run});}});
+      runs=out.runs;
+      const text=signal.aborted?"":sanitizeQuestions(String(out.msg?.content||""));
       if(job){
         if(job.cancelled||signal.aborted)endJob(job,"cancelled");
-        else{job.text=text;saveJobMessage(job,{content:text||"Nu am primit răspuns.",routeInfo,toolRuns});endJob(job,"done");}
+        else{job.text=text;saveJobMessage(job,{content:text||"Nu am primit răspuns.",routeInfo,toolRuns:publicRuns(runs)});endJob(job,"done");}
       }
       if(text)send({choices:[{delta:{content:text}}]});
       if(open()){res.write("data: [DONE]\n\n");res.end();}
     }catch(e){
       const message=e?.status?`The AI could not finish with the apps: ${e.message}`:roError(e);
-      if(job&&job.status==="running"){saveJobMessage(job,{content:`Eroare: ${message}`,routeInfo,toolRuns:runs,error:true});endJob(job,"error",{error:message});}
+      if(job&&job.status==="running"){saveJobMessage(job,{content:`Eroare: ${message}`,routeInfo,toolRuns:publicRuns(runs),error:true});endJob(job,"error",{error:message});}
       send({error:message});if(open())res.end();
-    }finally{clearInterval(ping)}
+    }finally{clearInterval(ping);callTimer.clear();stopSignal.removeEventListener("abort",abort);}
     return {handled:true,paid:true};
+  }
+  // Automations with apps (0.7.29): the same rounds; an action that is not always allowed waits for the person in Apps
+  // (and the automation says so), for as long as it takes. Returns null when the model does not take tools.
+  const automationStops=new Map(); // automation id -> AbortController
+  async function automationWithApps({item,user,cfg,model,messages,appTools,onWait}){
+    const tools=appTools.map(t=>t.schema),apps=[...new Set(appTools.map(t=>t.app))];
+    const convo=[...messages];
+    const firstOther=convo.findIndex(m=>m.role!=="system");
+    convo.splice(firstOther<0?convo.length:firstOther,0,appsNote(apps,item.timeZone));
+    const ask=async(withTools)=>{
+      const r=await fetch(`${String(cfg.baseUrl).replace(/\/+$/,"")}/chat/completions`,{method:"POST",headers:{"Content-Type":"application/json",...(cfg.apiKey?{Authorization:`Bearer ${cfg.apiKey}`}:{})},body:JSON.stringify({model,messages:convo,stream:false,temperature:0.25,...(withTools?{tools}:{})}),signal:AbortSignal.timeout(NONSTREAM_MS)});
+      const text=await r.text();
+      if(!r.ok)throw Object.assign(new Error(`OmniRoute HTTP ${r.status}: ${text.slice(0,300)}`),{status:r.status});
+      let data;try{data=JSON.parse(text)}catch{throw new Error("The AI sent an answer that could not be read.")}
+      if(!data?.choices?.[0]?.message)throw new Error("The AI sent an empty answer.");
+      return data;
+    };
+    let first;
+    try{first=await ask(true)}catch{return null}
+    const ctl=new AbortController();automationStops.set(item.id,ctl);
+    try{
+      const out=await runAppTools({userId:user.id,appTools,convo,first:first.choices[0].message,ask:async(withTools)=>(await ask(withTools)).choices[0].message,signal:ctl.signal,source:{kind:"automation",automationId:item.id,name:String(item.title||"")},onWait});
+      const actions=out.runs.filter(r=>r.status!=="error"||r.app).map(r=>`- ${r.app}: ${r.title} — ${({done:"done",denied:"denied",error:"failed"})[r.status]||r.status}`).join("\n");
+      return {model:first.model,choices:[{message:{role:"assistant",content:String(out.msg?.content||"")+(actions?`\n\n${actions}`:"")}}]};
+    }finally{if(automationStops.get(item.id)===ctl)automationStops.delete(item.id)}
   }
 
   app.get("/api/plugins", auth, (req,res) => {const db=store.read();res.json({data:db.plugins.filter(x=>x.userId===req.user.id).map(publicPlugin)});});
@@ -3949,7 +4007,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     if(req.cloudToken){copy.cloudToken=sealSecret(req.cloudToken);copy.cloudTokenHash=tokenHash(req.cloudToken);}
     db.automations.push(copy);store.write(db);res.json({data:publicAutomation(copy)});
   });
-  app.delete("/api/automations/:id", auth, (req,res) => {const db=store.read(),before=db.automations.length;db.automations=db.automations.filter(x=>!(x.id===req.params.id&&x.userId===req.user.id));if(db.automations.length===before)return res.status(404).json({error:"Automatizarea nu a fost găsită."});store.write(db);res.json({ok:true});});
+  app.delete("/api/automations/:id", auth, (req,res) => {const db=store.read(),before=db.automations.length;db.automations=db.automations.filter(x=>!(x.id===req.params.id&&x.userId===req.user.id));if(db.automations.length===before)return res.status(404).json({error:"Automatizarea nu a fost găsită."});store.write(db);automationStops.get(req.params.id)?.abort("deleted");res.json({ok:true});});
 
   function mediaExtension(mime,name="") {
     const fromName=path.extname(String(name||"")).replace(/^\./,"").toLowerCase();
@@ -4852,7 +4910,20 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       const directAllowed=freeDirectAllowed(ctx)&&cfg.directChatEnabled!==false;
       const directModel=await isDirectModel(cfg,directAllowed,selectedModel),fallback=automaticModel||cfg.chatFallbackOnFailure===true;
       // A free message runs on a free model only: OmniRoute is skipped unless the chosen model is free.
-      if(!directModel&&!(bill?.free&&!creditsLib.isFreeModel(selectedModel)))try{
+      // 0.7.29: with connected apps the automation works in them (sorting emails, adding events…); an action that is not
+      // always allowed waits for the person in Apps. When the model does not take tools, the plain answer below follows.
+      const omniAllowed=!directModel&&!(bill?.free&&!creditsLib.isFreeModel(selectedModel));
+      const appTools=omniAllowed&&hasPermission(ctx,"plugins")?await appToolsForUser(item.userId):[];
+      if(appTools.length)try{
+        data=await automationWithApps({item,user,cfg,model:selectedModel,messages,appTools,onWait:(run)=>{
+          const f=store.read(),t=f.automations.find(x=>x.id===item.id);
+          if(t){t.lastStatus="waiting_approval";t.lastResult=`Waiting for your approval: ${run.app} · ${run.title}. Open ${BRAND_NAME} to allow or deny it.`;store.write(f);}
+          const note={title:String(item.title||"Automation").slice(0,120),body:`Waiting for your approval: ${run.app} · ${run.title}`};
+          if(item.notify!==false&&typeof onAutomationResult==="function"){try{onAutomationResult({...note,automationId:item.id,userId:item.userId})}catch{}}
+          if(item.notify!==false&&ctx.cloudToken&&cloudBase())cloudFetch("/api/notifications/self",{method:"POST",headers:{Authorization:`Bearer ${ctx.cloudToken}`},body:{type:"automation",...note},timeout:8000}).then(r=>r.text()).catch(()=>{});
+        }});
+      }catch(e){errors.push(`Apps: ${e.status?e.message:roError(e)}`)}
+      if(!data&&omniAllowed)try{
         const r=await fetch(`${String(cfg.baseUrl).replace(/\/+$/,"")}/chat/completions`,{method:"POST",headers:{"Content-Type":"application/json",...(cfg.apiKey?{Authorization:`Bearer ${cfg.apiKey}`}:{})},body:JSON.stringify({model:selectedModel,messages,stream:false,temperature:0.25}),signal:AbortSignal.timeout(NONSTREAM_MS)});
         if(r.ok)data=await r.json();
         else errors.push(`OmniRoute HTTP ${r.status}: ${(await r.text()).slice(0,300)}`);
@@ -4899,9 +4970,9 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
         // Re-read: the automation may have been disabled, edited or deleted while an earlier one was running.
         const a=store.read().automations.find(x=>x.id===id);
         if(!a||a.enabled!==true||!a.nextRunAt||a.nextRunAt>Date.now()||runningAutomations.has(id))continue;
-        try{await runAutomation(a,openSecret(a.cloudToken));}
-        catch(e){
-          const f=store.read(),t=f.automations.find(x=>x.id===id);if(!t)continue;
+        // Not awaited: an automation may wait for the person's approval, and the others must still run on time.
+        runAutomation(a,openSecret(a.cloudToken)).catch(e=>{
+          const f=store.read(),t=f.automations.find(x=>x.id===id);if(!t)return;
           t.lastRunAt=Date.now();
           const reason=e.status?e.message:roError(e);
           if(e.status===401){
@@ -4920,7 +4991,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
           }
           recordRun(t,["needs_login","permission_denied"].includes(t.lastStatus)?t.lastStatus:"error",t.model,t.lastResult);
           store.write(f);
-        }
+        });
       }
     }finally{automationBusy=false;}
   },30000);

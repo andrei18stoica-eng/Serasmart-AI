@@ -66,7 +66,7 @@ async function gateway() {
   const app = makeApp({ token: "secret-1" }), oauthApp = makeApp({ token: "oauth-token", oauth: true });
   const appPort = await listen(app.srv), oauthPort = await listen(oauthApp.srv);
   app.setBase(`http://127.0.0.1:${appPort}`); oauthApp.setBase(`http://127.0.0.1:${oauthPort}`);
-  let rejectTools = false, sawTools = 0;
+  let rejectTools = false, sawTools = 0, appsSystem = "";
   const omni = http.createServer(async (req, res) => {
     const b = await readBody(req);
     res.setHeader("content-type", "application/json");
@@ -75,7 +75,8 @@ async function gateway() {
     if (body.tools) {
       sawTools++;
       if (rejectTools) { res.statusCode = 400; return res.end(JSON.stringify({ error: { message: "tools are not supported" } })); }
-      expect(body.stream === false && body.messages.some((m) => m.role === "system" && /CONNECTED APPS: Notes/.test(m.content)), "the AI is told which apps are connected");
+      appsSystem = body.messages.filter((m) => m.role === "system" && /CONNECTED APPS:/.test(m.content)).map((m) => m.content).join("\n");
+      expect(body.stream === false && /CONNECTED APPS: Notes/.test(appsSystem), "the AI is told which apps are connected");
       const last = body.messages.at(-1);
       if (last.role === "tool") return res.end(JSON.stringify({ choices: [{ message: { role: "assistant", content: "Done: " + last.content } }] }));
       const create = body.tools.find((t) => /create_note$/.test(t.function.name));
@@ -162,6 +163,52 @@ async function gateway() {
     const before = sawTools;
     const plain = await fetch(base + "/api/chat/stream", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + user }, body: JSON.stringify({ messages: [{ role: "user", content: "hi" }], apps: false }) });
     expect(/Plain answer/.test(await plain.text()) && sawTools === before, "apps off for a message");
+
+    // The AI acts on what the person asks, without the app being named, and knows the date and time where they are.
+    expect(/even when the person does not name the app/.test(appsSystem) && /basketball match on Saturday/.test(appsSystem), "the AI uses the apps on its own: " + appsSystem.slice(0, 200));
+    await chat(user, (run) => call("/api/connectors/approve", { method: "POST", token: user, body: { callId: run.id, decision: "deny" } }));
+    const zoned = await fetch(base + "/api/chat/stream", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + user }, body: JSON.stringify({ messages: [{ role: "user", content: "add it" }], timeZone: "Asia/Tokyo" }) });
+    const zr = zoned.body.getReader(); let zbuf = "";
+    while (!/serasmart_tool/.test(zbuf)) { const { value, done } = await zr.read(); if (done) break; zbuf += new TextDecoder().decode(value); }
+    expect(/Now: \w+day,? \d{1,2} \w+ \d{4},? (at )?\d\d:\d\d \(Asia\/Tokyo\)/.test(appsSystem), "the date and time in the person's zone: " + appsSystem.slice(-120));
+    const zid = JSON.parse(zbuf.split("\n").find((l) => l.includes("serasmart_tool")).slice(5)).serasmart_tool.id;
+    await call("/api/connectors/approve", { method: "POST", token: user, body: { callId: zid, decision: "deny" } });
+    while (!(await zr.read()).done);
+
+    // A request waits until the person decides, also when the page is closed: the answer continues on the server,
+    // the action is listed as waiting, and once allowed the answer is saved in the conversation.
+    const conv = (await call("/api/conversations", { method: "POST", token: user, body: { title: "Plan", messages: [] } })).j.data;
+    const ctl = new AbortController();
+    const resp = await fetch(base + "/api/chat/stream", { method: "POST", signal: ctl.signal, headers: { "content-type": "application/json", authorization: "Bearer " + user }, body: JSON.stringify({ requestId: "req-closed-page-1", conversationId: conv.id, messages: [{ role: "user", content: "Make a note called Hello" }] }) });
+    const rd = resp.body.getReader(); let got = "";
+    while (!/"status":"ask"/.test(got)) { const { value, done } = await rd.read(); if (done) break; got += new TextDecoder().decode(value); }
+    ctl.abort(); // the page is closed
+    await new Promise((r) => setTimeout(r, 400));
+    let pending = (await call("/api/connectors/pending", { token: user })).j.data;
+    expect(pending.length === 1 && pending[0].source.kind === "chat" && pending[0].source.conversationId === conv.id && pending[0].args.title === "Hello", "still waiting after the page closed: " + JSON.stringify(pending));
+    expect((await call("/api/connectors/pending", { token: other })).j.data.length === 0, "another account sees nothing");
+    const job = (await call("/api/chat/jobs/req-closed-page-1", { token: user })).j.data;
+    expect(job.status === "running" && job.toolRuns?.[0]?.status === "ask", "the job shows the waiting action to an app that comes back: " + JSON.stringify(job));
+    const notes = app.calls.filter((c) => c.tool === "create_note").length;
+    expect((await call("/api/connectors/approve", { method: "POST", token: user, body: { callId: pending[0].id, decision: "once" } })).status === 200, "allowed later");
+    for (let i = 0; i < 50 && (await call("/api/chat/jobs/req-closed-page-1", { token: user })).j.data?.status === "running"; i++) await new Promise((r) => setTimeout(r, 100));
+    const saved = (await call("/api/conversations", { token: user })).j.data.find((c) => c.id === conv.id).messages.at(-1);
+    expect(saved.content === "Done: created Hello" && saved.toolRuns[0].status === "done" && app.calls.filter((c) => c.tool === "create_note").length === notes + 1, "the answer is saved with the action: " + JSON.stringify(saved));
+    expect(!/APPROVAL_MS|setTimeout\(gone/.test(fs.readFileSync(path.join(__dirname, "..", "local-gateway.cjs"), "utf8")), "no time limit on a decision");
+
+    // Automations work in the apps too: the action waits in the list until the person decides.
+    r = await call("/api/automations", { method: "POST", token: user, body: { title: "Weekly notes", prompt: "Make a note called Hello", frequency: "weekly", weekday: 1, time: "09:00", timeZone: "Europe/Bucharest" } });
+    expect(r.status === 200 || r.status === 201, "automation made: " + r.text);
+    const auto = r.j.data;
+    const running = call(`/api/automations/${auto.id}/run`, { method: "POST", token: user, body: {} });
+    for (let i = 0; i < 50 && !(pending = (await call("/api/connectors/pending", { token: user })).j.data).length; i++) await new Promise((res) => setTimeout(res, 100));
+    expect(pending.length === 1 && pending[0].source.kind === "automation" && pending[0].source.name === "Weekly notes", "the automation waits for approval: " + JSON.stringify(pending));
+    const waiting = (await call("/api/automations", { token: user })).j.data.find((a) => a.id === auto.id);
+    expect(waiting.lastStatus === "waiting_approval" && /Waiting for your approval: Notes/.test(waiting.lastResult), "the automation says it is waiting: " + JSON.stringify(waiting));
+    await call("/api/connectors/approve", { method: "POST", token: user, body: { callId: pending[0].id, decision: "once" } });
+    r = await running;
+    const done = (await call("/api/automations", { token: user })).j.data.find((a) => a.id === auto.id);
+    expect(r.status === 200 && /Done: created Hello/.test(done.lastResult) && /Notes: Create note — done/.test(done.lastResult), "the automation did it in the app: " + r.text + " " + done.lastResult);
 
     // OAuth: discovery, client registration, sign-in page, code → connected.
     r = await call("/api/connectors/connect", { method: "POST", token: user, body: { url: `http://127.0.0.1:${oauthPort}/mcp`, name: "Docs" } });

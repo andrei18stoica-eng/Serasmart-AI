@@ -19,24 +19,51 @@ const CATALOG = [
   { id: "notion", logo: "notion", name: "Notion", category: "Productivity", url: "https://mcp.notion.com/mcp", description: "Search, read, create and edit pages and databases." },
   { id: "linear", logo: "linear", name: "Linear", category: "Development", url: "https://mcp.linear.app/mcp", description: "Find, create and update issues, projects and comments." },
   { id: "atlassian", logo: "atlassian", name: "Jira & Confluence", category: "Development", url: "https://mcp.atlassian.com/v1/mcp/authv2", description: "Jira issues and Confluence pages: search, create, edit." },
-  { id: "asana", logo: "asana", name: "Asana", category: "Productivity", url: "https://mcp.asana.com/sse", transport: "sse", description: "Tasks, projects and comments." },
+  { id: "asana", approvedOnly: true, logo: "asana", name: "Asana", category: "Productivity", url: "https://mcp.asana.com/sse", transport: "sse", description: "Tasks, projects and comments." },
   { id: "monday", name: "monday.com", category: "Productivity", url: "https://mcp.monday.com/sse", transport: "sse", description: "Boards, items and updates." },
   { id: "canva", name: "Canva", category: "Design", url: "https://mcp.canva.com/mcp", description: "Find, create and edit designs." },
   { id: "miro", logo: "miro", name: "Miro", category: "Design", url: "https://mcp.miro.com/", description: "Boards, sticky notes and diagrams (Miro Enterprise)." },
-  { id: "box", logo: "box", name: "Box", category: "Files", url: "https://mcp.box.com", transport: "sse", description: "Search and read files and folders." },
+  { id: "box", approvedOnly: true, logo: "box", name: "Box", category: "Files", url: "https://mcp.box.com", transport: "sse", description: "Search and read files and folders." },
   { id: "webflow", logo: "webflow", name: "Webflow", category: "Websites", url: "https://mcp.webflow.com/sse", transport: "sse", description: "Sites, pages and CMS items." },
   { id: "wix", logo: "wix", name: "Wix", category: "Websites", url: "https://mcp.wix.com/sse", transport: "sse", description: "Your Wix sites, pages and store." },
-  { id: "intercom", logo: "intercom", name: "Intercom", category: "Customers", url: "https://mcp.intercom.com/sse", transport: "sse", description: "Conversations and contacts." },
+  { id: "intercom", approvedOnly: true, logo: "intercom", name: "Intercom", category: "Customers", url: "https://mcp.intercom.com/sse", transport: "sse", description: "Conversations and contacts." },
   { id: "close", name: "Close CRM", category: "Customers", url: "https://mcp.close.com/mcp", description: "Leads, contacts and opportunities." },
   { id: "stripe", logo: "stripe", name: "Stripe", category: "Payments", url: "https://mcp.stripe.com", description: "Customers, payments, invoices and products." },
   { id: "paypal", logo: "paypal", name: "PayPal", category: "Payments", url: "https://mcp.paypal.com/sse", transport: "sse", description: "Invoices, orders and transactions." },
-  { id: "square", logo: "square", name: "Square", category: "Payments", url: "https://mcp.squareup.com/sse", transport: "sse", description: "Payments, orders, catalog and customers." },
-  { id: "vercel", logo: "vercel", name: "Vercel", category: "Development", url: "https://mcp.vercel.com/", description: "Projects, deployments and logs." },
+  { id: "square", approvedOnly: true, logo: "square", name: "Square", category: "Payments", url: "https://mcp.squareup.com/sse", transport: "sse", description: "Payments, orders, catalog and customers." },
+  { id: "vercel", approvedOnly: true, logo: "vercel", name: "Vercel", category: "Development", url: "https://mcp.vercel.com/", description: "Projects, deployments and logs." },
   { id: "sentry", logo: "sentry", name: "Sentry", category: "Development", url: "https://mcp.sentry.dev/mcp", description: "Errors, issues and releases." },
   { id: "netlify", logo: "netlify", name: "Netlify", category: "Development", url: "https://netlify-mcp.netlify.app/mcp", description: "Sites and deploys." },
   { id: "github", logo: "github", name: "GitHub", category: "Development", url: "https://api.githubcopilot.com/mcp/", ownerClient: "github", scope: "repo read:org read:user", tokenHint: "A GitHub personal access token (github_pat_…)", description: "Repositories, issues, pull requests and files." },
   { id: "fireflies", name: "Fireflies", category: "Meetings", url: "https://api.fireflies.ai/mcp", description: "Meeting transcripts and summaries." },
   { id: "deepwiki", name: "DeepWiki", category: "Development", url: "https://mcp.deepwiki.com/mcp", auth: "none", description: "Ask questions about any public GitHub repository." },
+  // 0.7.30: more apps, each checked live (server answers, sign-in found, Serasmart can register itself).
+  { id: "airtable", logo: "airtable", name: "Airtable", category: "Productivity", url: "https://mcp.airtable.com/mcp", description: "Bases, tables and records: search, create and update." },
+  { id: "clickup", logo: "clickup", name: "ClickUp", category: "Productivity", url: "https://mcp.clickup.com/mcp", description: "Tasks, lists, docs and comments." },
+  { id: "todoist", logo: "todoist", name: "Todoist", category: "Productivity", url: "https://ai.todoist.net/mcp", description: "Your tasks and projects: add, finish, reschedule." },
+  { id: "granola", name: "Granola", category: "Meetings", url: "https://mcp.granola.ai/mcp", description: "Your meeting notes and transcripts." },
+  { id: "zapier", logo: "zapier", name: "Zapier", category: "Automation", url: "https://mcp.zapier.com/api/mcp/mcp", description: "Thousands of apps through your Zapier actions." },
+  { id: "supabase", logo: "supabase", name: "Supabase", category: "Development", url: "https://mcp.supabase.com/mcp", description: "Projects, databases, SQL and logs." },
+  { id: "neon", logo: "neon", name: "Neon", category: "Development", url: "https://mcp.neon.tech/mcp", description: "Postgres databases: query, branch and manage." },
+  { id: "prisma", logo: "prisma", name: "Prisma Postgres", category: "Development", url: "https://mcp.prisma.io/mcp", description: "Prisma Postgres databases and migrations." },
+  { id: "cfbindings", logo: "cloudflare", name: "Cloudflare", category: "Development", url: "https://bindings.mcp.cloudflare.com/mcp", description: "Workers, KV, R2 and D1 in your Cloudflare account." },
+  { id: "cfobservability", logo: "cloudflare", name: "Cloudflare logs", category: "Development", url: "https://observability.mcp.cloudflare.com/mcp", description: "Logs and analytics of your Workers." },
+  { id: "cfdocs", logo: "cloudflare", name: "Cloudflare docs", category: "Development", url: "https://docs.mcp.cloudflare.com/mcp", auth: "none", description: "Answers from the Cloudflare documentation (no account)." },
+  { id: "semgrep", name: "Semgrep", category: "Development", url: "https://mcp.semgrep.ai/mcp", description: "Scans code for security problems." },
+  { id: "jam", name: "Jam", category: "Development", url: "https://mcp.jam.dev/mcp", description: "Bug reports with recordings and logs." },
+  { id: "datadog", logo: "datadog", name: "Datadog", category: "Development", url: "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp", description: "Logs, metrics, monitors and incidents." },
+  { id: "posthog", logo: "posthog", name: "PostHog", category: "Data", url: "https://mcp.posthog.com/mcp", description: "Product analytics, flags and experiments." },
+  { id: "huggingface", logo: "huggingface", name: "Hugging Face", category: "AI", url: "https://huggingface.co/mcp", description: "Models, datasets and Spaces." },
+  { id: "replicate", logo: "replicate", name: "Replicate", category: "AI", url: "https://mcp.replicate.com/mcp", description: "Run AI models on Replicate." },
+  { id: "exa", name: "Exa", category: "Search", url: "https://mcp.exa.ai/mcp", description: "Web search made for AI." },
+  { id: "context7", name: "Context7", category: "Search", url: "https://mcp.context7.com/mcp", description: "Up-to-date documentation for code libraries." },
+  { id: "browserbase", name: "Browserbase", category: "Search", url: "https://mcp.browserbase.com/mcp", auth: "none", description: "A browser in the cloud that reads and uses web pages (no account)." },
+  { id: "cloudinary", logo: "cloudinary", name: "Cloudinary", category: "Files", url: "https://asset-management.mcp.cloudinary.com/mcp", description: "Your pictures and videos: search, upload, change." },
+  { id: "egnyte", logo: "egnyte", name: "Egnyte", category: "Files", url: "https://mcp-server.egnyte.com/mcp", description: "Search and read your company files." },
+  { id: "klaviyo", name: "Klaviyo", category: "Customers", url: "https://mcp.klaviyo.com/mcp", description: "Email and SMS campaigns, lists and results." },
+  { id: "ramp", name: "Ramp", category: "Payments", url: "https://mcp.ramp.com/mcp", description: "Company cards, expenses and bills." },
+  { id: "mercury", name: "Mercury", category: "Payments", url: "https://mcp.mercury.com/mcp", description: "Business bank accounts and transactions." },
+  { id: "plaid", name: "Plaid", category: "Payments", url: "https://api.dashboard.plaid.com/mcp/sse", transport: "sse", description: "Your Plaid dashboard: items, usage and issues." },
   // Google's Workspace MCP servers need an OAuth client the Owner registers once in Google Cloud (Developer Preview).
   // Scopes exactly as in developers.google.com/workspace/guides/configure-mcp-servers (Calendar is read-only there).
   { id: "gmail", logo: "gmail", name: "Gmail", category: "Google", url: "https://gmailmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.compose", description: "Search, read and draft emails." },
@@ -134,7 +161,9 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
       // GitHub without the Owner's OAuth app connects with a personal token; Google needs the Owner's client.
       const tokenInstead = e.ownerClient === "github" && !ownerClientFor(e);
       const needsOwner = e.ownerClient === "google" && !ownerClientFor(e);
-      return { id: e.id, logo: e.logo || "", name: e.name, category: e.category, description: e.description, auth: tokenInstead ? "token" : (e.auth || "oauth"), tokenHint: e.tokenHint || "", unavailable: needsOwner ? "The Owner has to add a Google OAuth client in Settings first." : "", connected: conn?.status === "connected", connectorId: conn?.id || "" };
+      // Checked live (2026-10-22): these only let in apps they approved, so Serasmart cannot sign in to them yet.
+      const notYet = e.approvedOnly ? "This app only lets in apps it has approved; Serasmart is not on its list yet." : "";
+      return { id: e.id, logo: e.logo || "", name: e.name, category: e.category, description: e.description, auth: tokenInstead ? "token" : (e.auth || "oauth"), tokenHint: e.tokenHint || "", unavailable: notYet || (needsOwner ? "The Owner has to add a Google OAuth client in Settings first." : ""), connected: conn?.status === "connected", connectorId: conn?.id || "" };
     });
   }
   function list(userId) { return (db().connectors || []).filter((c) => c.userId === userId).map(publicView); }
@@ -146,6 +175,7 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
     const address = entry ? entry.url : String(url || "").trim();
     await checkUrl(address);
     if (entry?.ownerClient === "github" && !ownerClientFor(entry) && !token) throw Object.assign(new Error(`This app needs a token: ${entry.tokenHint}.`), { status: 400 });
+    if (entry?.approvedOnly) throw Object.assign(new Error("This app only lets in apps it has approved; Serasmart is not on its list yet."), { status: 409 });
     if (entry?.ownerClient === "google" && !ownerClientFor(entry)) throw Object.assign(new Error("The Owner has to add a Google OAuth client in Settings first."), { status: 409 });
     const d = db(); d.connectors = d.connectors || [];
     let conn = d.connectors.find((c) => c.userId === userId && (entry ? c.catalogId === entry.id : c.url === address));

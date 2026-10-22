@@ -25,6 +25,7 @@ const PLUGIN_OAUTH={
   "Notion":{provider:"notion",authUrl:"https://api.notion.com/v1/oauth/authorize",tokenUrl:"https://api.notion.com/v1/oauth/token",scopes:"",apiUrl:"https://api.notion.com/v1/search",method:"POST",requiresSecret:true},
   "Spotify":{provider:"spotify",authUrl:"https://accounts.spotify.com/authorize",tokenUrl:"https://accounts.spotify.com/api/token",scopes:"user-read-private user-read-email",apiUrl:"https://api.spotify.com/v1/me",method:"GET"}
 };
+const CONNECTOR_APPS=new Set(["Gmail","Google Drive","Google Calendar","GitHub","Canva","Notion","monday.com","Atlassian Rovo","Vercel"]);
 const PLUGIN_CATALOG=[
   ["Popular","Gmail","Read and organise your Gmail emails","@gmail","M","gmail"],
   ["Popular","Google Drive","Documents, spreadsheets and presentations in Drive","@drive","△","googledrive"],
@@ -105,7 +106,9 @@ const PLUGIN_CATALOG=[
   ["Other","Astrologic","Birth charts and horoscope","@astrologic","☾"],
   ["Other","Kleinanzeigen","Classified ads in Germany","@kleinanzeigen","K","kleinanzeigen"],
   ["Other","Steer Astro","Personal AI astrologer","@steerastro","◎"]
-].map(([group,name,description,trigger,mark,slug])=>({group,name,description,trigger,mark,slug}));
+].map(([group,name,description,trigger,mark,slug])=>({group,name,description,trigger,mark,slug}))
+  // 0.7.30: these are connectors now (Extensions → Connectors, each person signs in with their own account).
+  .filter(x=>!CONNECTOR_APPS.has(x.name));
 const PLUGIN_GROUPS=["Popular","New and notable","Productivity","Communication","Creativity","Developer tools","Health","Entertainment","Education","Business and operations","Data and analytics","Scientific research","Security","Other"];
 const SKILLS=[
   {name:"Web search",description:"Searches current information and online sources.",mark:"W",perm:"web_search"},

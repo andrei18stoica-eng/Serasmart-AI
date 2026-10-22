@@ -11,8 +11,10 @@ expect(/className=\{cx\("statusDot",omni===true\?"ok":"bad"\)\} role="status" ar
 expect(/\.statusDot\.ok\{background:var\(--success\)/.test(css) && /\.statusDot\{[^}]*background:var\(--danger\)/.test(css), "green when it answers, red when not");
 
 expect(/src="\.\/serasmart-s\.webp"/.test(main) && !fs.existsSync(path.join(SRC, "..", "public", "serasmart-ai-mark.webp")) && fs.existsSync(path.join(SRC, "..", "public", "serasmart-s.webp")), "the logo is only the S, the picture with the name is gone");
-expect(/@keyframes sGlow/.test(css) && /@keyframes sSweep/.test(css) && /html\[data-thinking\] \.brandS\{animation:sThink 1\.6s/.test(css), "the S glows and sweeps at rest and pulses while the AI answers");
-expect(/prefers-reduced-motion:reduce\)\{\.brandS,/.test(css) && /dataset\.thinking="1"/.test(main), "still with reduce motion; thinking follows the answers in progress");
+// 0.7.30: the S turns (no glow), faster while the AI answers; next to an answer it spins like a spiral while writing.
+expect(/@keyframes sTurn/.test(css) && !/@keyframes sGlow/.test(css) && /html\[data-thinking\] \.brandS img\{animation-duration:3s\}/.test(css), "the S turns, faster while thinking");
+expect(/className=\{cx\("assistantMark logoMark",m\.streaming&&"spinning"\)\}/.test(main) && /@keyframes sSpiral/.test(css), "the S next to an answer spins while it is written");
+expect(/prefers-reduced-motion:reduce\)\{\.brandS img,/.test(css) && /dataset\.thinking="1"/.test(main), "still with reduce motion; thinking follows the answers in progress");
 
 // 0.7.30: the Owner removed the letter animation of the headings and the Dot & Ring cursor.
 expect(!pkg.dependencies["spring-text-engine"] && !pkg.dependencies["@react-spring/web"] && !fs.existsSync(path.join(SRC, "riseText.jsx")) && !fs.existsSync(path.join(SRC, "cursor.js")), "no heading animation and no cursor ring");

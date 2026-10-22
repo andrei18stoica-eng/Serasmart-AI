@@ -29,7 +29,8 @@ const DIRECT_KEYS = {
   // Grok (xAI): chat, Grok Imagine pictures and video
   xaiApiKey: "XAI_API_KEY",
   // Connected apps (0.7.29): the Owner's Google OAuth client for Gmail, Drive, Calendar, Docs and Sheets
-  googleClientId: "GOOGLE_CLIENT_ID", googleClientSecret: "GOOGLE_CLIENT_SECRET"
+  googleClientId: "GOOGLE_CLIENT_ID", googleClientSecret: "GOOGLE_CLIENT_SECRET",
+  githubClientId: "GITHUB_OAUTH_CLIENT_ID", githubClientSecret: "GITHUB_OAUTH_CLIENT_SECRET"
 };
 
 function envConfig() {

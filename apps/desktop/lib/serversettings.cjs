@@ -8,7 +8,7 @@ const { PROVIDER_KEY_PAGES, comboNames } = require("./providers.cjs");
 
 const MASK = "••••••••";
 // Same list as SECRET_KEYS in main.cjs (test-0716-web-settings.cjs keeps them equal).
-const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret"];
+const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret","githubClientSecret"];
 const BOOLEAN_KEYS = ["directChatEnabled","chatFallbackOnFailure","webSearchEnabled","projectContextEnabled","githubAutoContext","pollinationsFreeEnabled","mediaStrict","creditsEnabled"];
 const CHOICES = {
   directChatCostPolicy: ["free_only","allow_paid"], imageCostPolicy: ["free_only","allow_paid"], videoCostPolicy: ["free_only","allow_paid"],
@@ -20,7 +20,7 @@ const TEXT_KEYS = [
   "cerebrasModel","groqModel","geminiModels","mistralModel","nvidiaModel","githubModelsModel","openRouterChatModel","cloudflareChatModel","cohereModel","huggingFaceChatModel","openAiChatModels","xaiModels",
   "imageModel","imageProviderOrder","cloudflareAccountId","openAiImageModel","replicateImageModel","falImageModel","openRouterImageModel","pollinationsImageModel","geminiImageModel","xaiImageModel",
   "videoModel","videoProviderOrder","geminiVideoModel","falVideoModel","replicateVideoModel","openRouterVideoModel","pollinationsVideoModel","xaiVideoModel",
-  "githubRepo","githubBranch","googleClientId"
+  "githubRepo","githubBranch","googleClientId","githubClientId"
 ];
 const EDITABLE = [...TEXT_KEYS, ...BOOLEAN_KEYS, ...Object.keys(CHOICES), ...SECRET_KEYS];
 

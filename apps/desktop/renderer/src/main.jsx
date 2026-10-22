@@ -356,8 +356,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
 }
 
 function localZone(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch{return ""}}
-// 0.7.29: only the S (no name), animated as designed in Figma («S emblem — motion storyboard»): a slow glow and a
-// light sweep at rest, a faster pulse while the AI answers (html[data-thinking]); still with «reduce motion».
+// 0.7.30: only the S (no name), turning slowly; faster while the AI answers (html[data-thinking]); still with «reduce motion».
 function BrandMark({small=false}) { return <div className={cx("brandMark brandS",small&&"small")}><img src="./serasmart-s.webp" alt={`${BRAND_NAME}`} draggable="false"/></div>; }
 
 // 0.7.26: the order of the approved mockup; labels in English, shown through tr().
@@ -720,19 +719,42 @@ function guessCodeLanguage(code,className){
 }
 // The empty chat (0.7.26): a greeting with the account's own first name and four general starting points, no names,
 // places or addresses in them.
-const WELCOME_STARTS=[[Mail,"Write an email","Write a short, friendly email that "],[ImageIcon,"Make a picture",null,"image"],[FileText,"Summarize a document","Summarize the attached document in five clear points."],[CalendarClock,"Plan my week","Help me plan my week. My priorities are: "]];
-function Welcome({user,onPick}) {
+// 0.7.30, asked by the Owner: no suggestion buttons on a new chat, only a greeting and one line that changes from time
+// to time with the moment (night, morning, the start or end of the week…) and with what the person was working on.
+const WELCOME_LINES={
+  night:["Working late? I'm here when you need me.","A quiet night is good for focused work. What's on your mind?","Still up? Let's get it done together."],
+  morning:["Let's start the day well. What's first?","Fresh morning. What should we tackle?","Coffee and a clear plan? Tell me where to start."],
+  afternoon:["How is the day going? What can I take off your plate?","Afternoon push: what are we finishing today?","Need a hand with the rest of the day?"],
+  evening:["Wrapping up the day? I can help with what's left.","Evening. Something to finish, or a plan for tomorrow?","A calm evening is good for thinking. What's next?"],
+  weekend:["It's the weekend. Something for work, or just for you?","Weekend mode. What would you like to do?"],
+  monday:["New week. Want to plan it together?","Monday again. Let's set the week up."],
+  friday:["Almost the weekend. What should we close before it?","Friday. Let's finish the week well."]
+};
+function welcomeLine(now,recentTitle){
+  const h=now.getHours(),d=now.getDay(),slot=Math.floor(now.getTime()/(20*60*1000));
+  const part=h<5?"night":h<12?"morning":h<18?"afternoon":h<23?"evening":"night";
+  let pool=WELCOME_LINES[part];
+  if(d===0||d===6)pool=[...pool,...WELCOME_LINES.weekend];
+  else if(d===1&&h<12)pool=[...WELCOME_LINES.monday,...pool];
+  else if(d===5&&h>=12)pool=[...WELCOME_LINES.friday,...pool];
+  const title=String(recentTitle||"").trim();
+  // Now and then, what the person was working on last.
+  if(title&&title.length<=60&&slot%3===0)return tr("Shall we continue with «{title}»?",{title});
+  return tr(pool[slot%pool.length]);
+}
+function Welcome({user,recentTitle}) {
   useLanguage();
-  const h=new Date().getHours(),part=h<5||h>=18?"Good evening":h<12?"Good morning":"Good afternoon";
+  const [now,setNow]=useState(()=>new Date());
+  useEffect(()=>{const t=setInterval(()=>setNow(new Date()),60000);return()=>clearInterval(t)},[]);
+  const h=now.getHours(),part=h<5||h>=18?"Good evening":h<12?"Good morning":"Good afternoon";
   const first=String(user?.name||"").trim().split(/\s+/)[0];
   return <div className="welcome">
     <BrandMark/>
     <h1>{first?tr(part+", {name}",{name:first}):tr(part)}</h1>
-    <p>{tr("What are we working on today?")}</p>
-    <div className="welcomeStarts">{WELCOME_STARTS.map(([Icon,label,text,mode])=><button key={label} onClick={()=>onPick?.(text?tr(text):"",mode)}><Icon size={15}/>{tr(label)}</button>)}</div>
+    <p>{welcomeLine(now,recentTitle)}</p>
   </div>;
 }
-function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,onRate,onCodeResult,canRunCode,onAnswer,onOpenSettings,user,onPick}) {
+function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,onRate,onCodeResult,canRunCode,onAnswer,onOpenSettings,user,onPick,recentTitle}) {
   const {isOwner}=useAccess();
   const [contextMenu,setContextMenu]=useState(null),[running,setRunning]=useState(false);
   useEffect(()=>{
@@ -771,7 +793,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
     }catch(e){toast("Rulare cod: "+e.message)}
     finally{setRunning(false)}
   }
-  if(!conversation||!conversation.messages?.length)return <Welcome user={user} onPick={onPick}/>;
+  if(!conversation||!conversation.messages?.length)return <Welcome user={user} recentTitle={recentTitle}/>;
   const lastIndex=conversation.messages.length-1;
   return <div className="messagesColumn">
     {conversation.messages.map((m,i)=>{
@@ -780,7 +802,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
       const text=String(m.content||(m.attachmentOnly?m.artifactSource||"":"")).trim();
       const questions=!m.error&&!m.mediaKind?splitQuestions(text,m.streaming):null;
       const nextUser=questions&&!questions.pending?conversation.messages.slice(i+1).find(x=>x.role==="user"):null;
-      return <div key={m.id||i} className={cx("assistantBlock",(m.error||m.mediaGenerationError)&&"errorMessage")}><div className="assistantMark" aria-hidden="true">S</div><div className="assistantBody copyByRightClick" onContextMenu={e=>openCopyMenu(e,m)}>
+      return <div key={m.id||i} className={cx("assistantBlock",(m.error||m.mediaGenerationError)&&"errorMessage")}><div className={cx("assistantMark logoMark",m.streaming&&"spinning")} aria-hidden="true"><img src="./serasmart-s.webp" alt="" draggable="false"/></div><div className="assistantBody copyByRightClick" onContextMenu={e=>openCopyMenu(e,m)}>
         {m.routeInfo&&<RouteBadge info={m.routeInfo}/>}
         {m.toolRuns?.length>0&&<div className="toolRuns">{m.toolRuns.map(r=><ToolRunCard key={r.id} run={r}/>)}</div>}
         {questions?<>
@@ -1606,6 +1628,9 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <ProviderHead name={tr("Google apps (Gmail, Drive, Calendar, Docs, Sheets)")} id="google-apps" cfg={cfg}>{tr("For connecting Google apps in Apps: an OAuth client of type «Web application» from Google Cloud, with this return address: {url}",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
         <label>{tr("Google OAuth client ID")}<input value={cfg.googleClientId||""} onChange={e=>set({googleClientId:e.target.value})} placeholder="….apps.googleusercontent.com"/></label>
         <KeyField label={tr("Google OAuth client secret")} name="googleClientSecret" placeholder="GOCSPX-..." {...keyProps}/>
+        <ProviderHead name={tr("GitHub sign-in for everyone")} id="github-apps" cfg={cfg}>{tr("Optional: a GitHub OAuth App (GitHub → Settings → Developer settings) with this callback URL: {url}. Without it, GitHub connects with a personal token.",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("GitHub OAuth client ID")}<input value={cfg.githubClientId||""} onChange={e=>set({githubClientId:e.target.value})} placeholder="Ov23li…"/></label>
+        <KeyField label={tr("GitHub OAuth client secret")} name="githubClientSecret" placeholder="…" {...keyProps}/>
       </>}
       {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><h3>{tr("Pictures")}</h3><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="image" cfg={cfg} set={set} paidOff={imageCost!=="allow_paid"||cfg.imageProviderMode==="free"}/>
@@ -2390,7 +2415,7 @@ function App() {
       <InstallApp banner/>
       {loadError&&<div className="loadErrorBanner" role="alert"><span>Nu am putut încărca datele: {loadError}</span><button onClick={()=>loadData()}>Reîncearcă</button>{GATEWAY!==DEFAULT_GATEWAY&&<button onClick={resetGatewayAndReload}>Folosește serviciul local implicit</button>}</div>}
       {updateReady&&!updateDismissed&&<div className="updateBanner" role="status"><button className="updateInstall" onClick={()=>window.Serasmart?.installUpdate?.()}>Actualizare {BRAND_NAME} disponibilă — instalează acum</button><button className="updateClose" onClick={()=>setUpdateDismissed(true)} aria-label="Ascunde notificarea" title="Mai târziu"><X size={14}/></button></div>}
-      <div className="chatScroll" ref={chatRef} onScroll={updateChatScrollState}><ConversationView user={user} onPick={(text,mode)=>{if(mode)setMediaMode(mode);else{setMediaMode(null);setDraft(text)}}} conversation={current} busy={busy} busyStage={currentGen?.stage} busySteps={currentGen?.steps||[]} onRegenerate={regenerate} onRate={rate} canRunCode={isOwner} onCodeResult={text=>setDraft(v=>(v?v+"\n\n":"")+text)} onAnswer={text=>send(text)} onOpenSettings={tab=>setSettings(tab||true)}/></div>
+      <div className="chatScroll" ref={chatRef} onScroll={updateChatScrollState}><ConversationView user={user} recentTitle={conversations.find(c=>c.id!==currentId&&!c.archived&&(c.messages||[]).length)?.title} onPick={(text,mode)=>{if(mode)setMediaMode(mode);else{setMediaMode(null);setDraft(text)}}} conversation={current} busy={busy} busyStage={currentGen?.stage} busySteps={currentGen?.steps||[]} onRegenerate={regenerate} onRate={rate} canRunCode={isOwner} onCodeResult={text=>setDraft(v=>(v?v+"\n\n":"")+text)} onAnswer={text=>send(text)} onOpenSettings={tab=>setSettings(tab||true)}/></div>
       {showJumpBottom&&hasMessages&&<button className="jumpToLatest" onClick={()=>jumpToLatest({smooth:true})} title={tr("Go to the latest message")} aria-label={tr("Go to the latest message")}><ChevronDown size={19}/><span>{tr("Latest message")}</span></button>}
       <Composer centered={!hasMessages} draft={draft} setDraft={setDraft} onSend={send} onStop={stopGeneration} busy={busy} attachments={attachmentsState} setAttachments={setAttachments} onOpenLibrary={()=>openTool("library","all")} responseMode={responseMode} setResponseMode={setResponseMode} mediaMode={mediaModeState} setMediaMode={setMediaMode} mentionsVersion={mentionsVersion} mediaPolicy={{imagePaid:machineCfgRef.current?.imageCostPolicy==="allow_paid"}}/>
     </main>

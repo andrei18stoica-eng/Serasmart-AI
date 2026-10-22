@@ -240,11 +240,11 @@ async function gateway() {
 function sources() {
   const ui = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "pages", "Connectors.jsx"), "utf8");
   expect(/Allow once/.test(ui) && /Always allow/.test(ui) && /"Deny"/.test(ui) && /\/api\/connectors\/approve/.test(ui), "the approval card");
-  expect(!/<img/.test(ui), "no company logos: letters stand in for them");
+  expect(/brandIcon\(logo\)/.test(ui) && /initials\(name\)/.test(ui), "the app's own logo, or its letters");
   const main = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "main.jsx"), "utf8");
   expect(/j\?\.serasmart_tool/.test(main) && /<ToolRunCard key=\{r\.id\} run=\{r\}\/>/.test(main), "the chat shows the app's actions");
   const settings = fs.readFileSync(path.join(__dirname, "..", "lib", "serversettings.cjs"), "utf8");
-  expect(/"googleClientSecret"\]/.test(settings) && /"googleClientId"/.test(settings), "the Owner sets the Google client on the site");
+  expect(/"googleClientSecret","githubClientSecret"\]/.test(settings) && /"googleClientId"/.test(settings), "the Owner sets the Google client on the site");
   for (const f of ["../../../deploy/hetzner/docker-compose.yml", "../../cloud/docker-compose.yml"]) expect(/GOOGLE_CLIENT_SECRET: \$\{GOOGLE_CLIENT_SECRET:-\}/.test(fs.readFileSync(path.join(__dirname, f), "utf8")), f + " passes the Google client");
   const cloud = JSON.parse(fs.readFileSync(path.join(__dirname, "../../cloud/package.json"), "utf8"));
   expect(cloud.dependencies["@modelcontextprotocol/sdk"] === require("../package.json").dependencies["@modelcontextprotocol/sdk"], "the site has the same MCP library");

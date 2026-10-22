@@ -16,33 +16,34 @@ const { BRAND_NAME } = require("./brand.cjs");
 
 // Official remote MCP servers (Docker's and the vendors' lists, October 2026). "sse" servers use the older transport.
 const CATALOG = [
-  { id: "notion", name: "Notion", category: "Productivity", url: "https://mcp.notion.com/mcp", description: "Search, read, create and edit pages and databases." },
-  { id: "linear", name: "Linear", category: "Development", url: "https://mcp.linear.app/mcp", description: "Find, create and update issues, projects and comments." },
-  { id: "atlassian", name: "Jira & Confluence", category: "Development", url: "https://mcp.atlassian.com/v1/mcp/authv2", description: "Jira issues and Confluence pages: search, create, edit." },
-  { id: "asana", name: "Asana", category: "Productivity", url: "https://mcp.asana.com/sse", transport: "sse", description: "Tasks, projects and comments." },
+  { id: "notion", logo: "notion", name: "Notion", category: "Productivity", url: "https://mcp.notion.com/mcp", description: "Search, read, create and edit pages and databases." },
+  { id: "linear", logo: "linear", name: "Linear", category: "Development", url: "https://mcp.linear.app/mcp", description: "Find, create and update issues, projects and comments." },
+  { id: "atlassian", logo: "atlassian", name: "Jira & Confluence", category: "Development", url: "https://mcp.atlassian.com/v1/mcp/authv2", description: "Jira issues and Confluence pages: search, create, edit." },
+  { id: "asana", logo: "asana", name: "Asana", category: "Productivity", url: "https://mcp.asana.com/sse", transport: "sse", description: "Tasks, projects and comments." },
   { id: "monday", name: "monday.com", category: "Productivity", url: "https://mcp.monday.com/sse", transport: "sse", description: "Boards, items and updates." },
   { id: "canva", name: "Canva", category: "Design", url: "https://mcp.canva.com/mcp", description: "Find, create and edit designs." },
-  { id: "miro", name: "Miro", category: "Design", url: "https://mcp.miro.com/", description: "Boards, sticky notes and diagrams (Miro Enterprise)." },
-  { id: "box", name: "Box", category: "Files", url: "https://mcp.box.com", transport: "sse", description: "Search and read files and folders." },
-  { id: "webflow", name: "Webflow", category: "Websites", url: "https://mcp.webflow.com/sse", transport: "sse", description: "Sites, pages and CMS items." },
-  { id: "wix", name: "Wix", category: "Websites", url: "https://mcp.wix.com/sse", transport: "sse", description: "Your Wix sites, pages and store." },
-  { id: "intercom", name: "Intercom", category: "Customers", url: "https://mcp.intercom.com/sse", transport: "sse", description: "Conversations and contacts." },
+  { id: "miro", logo: "miro", name: "Miro", category: "Design", url: "https://mcp.miro.com/", description: "Boards, sticky notes and diagrams (Miro Enterprise)." },
+  { id: "box", logo: "box", name: "Box", category: "Files", url: "https://mcp.box.com", transport: "sse", description: "Search and read files and folders." },
+  { id: "webflow", logo: "webflow", name: "Webflow", category: "Websites", url: "https://mcp.webflow.com/sse", transport: "sse", description: "Sites, pages and CMS items." },
+  { id: "wix", logo: "wix", name: "Wix", category: "Websites", url: "https://mcp.wix.com/sse", transport: "sse", description: "Your Wix sites, pages and store." },
+  { id: "intercom", logo: "intercom", name: "Intercom", category: "Customers", url: "https://mcp.intercom.com/sse", transport: "sse", description: "Conversations and contacts." },
   { id: "close", name: "Close CRM", category: "Customers", url: "https://mcp.close.com/mcp", description: "Leads, contacts and opportunities." },
-  { id: "stripe", name: "Stripe", category: "Payments", url: "https://mcp.stripe.com", description: "Customers, payments, invoices and products." },
-  { id: "paypal", name: "PayPal", category: "Payments", url: "https://mcp.paypal.com/sse", transport: "sse", description: "Invoices, orders and transactions." },
-  { id: "square", name: "Square", category: "Payments", url: "https://mcp.squareup.com/sse", transport: "sse", description: "Payments, orders, catalog and customers." },
-  { id: "vercel", name: "Vercel", category: "Development", url: "https://mcp.vercel.com/", description: "Projects, deployments and logs." },
-  { id: "sentry", name: "Sentry", category: "Development", url: "https://mcp.sentry.dev/mcp", description: "Errors, issues and releases." },
-  { id: "netlify", name: "Netlify", category: "Development", url: "https://netlify-mcp.netlify.app/mcp", description: "Sites and deploys." },
-  { id: "github", name: "GitHub", category: "Development", url: "https://api.githubcopilot.com/mcp/", auth: "token", tokenHint: "A GitHub personal access token (github_pat_…)", description: "Repositories, issues, pull requests and files." },
+  { id: "stripe", logo: "stripe", name: "Stripe", category: "Payments", url: "https://mcp.stripe.com", description: "Customers, payments, invoices and products." },
+  { id: "paypal", logo: "paypal", name: "PayPal", category: "Payments", url: "https://mcp.paypal.com/sse", transport: "sse", description: "Invoices, orders and transactions." },
+  { id: "square", logo: "square", name: "Square", category: "Payments", url: "https://mcp.squareup.com/sse", transport: "sse", description: "Payments, orders, catalog and customers." },
+  { id: "vercel", logo: "vercel", name: "Vercel", category: "Development", url: "https://mcp.vercel.com/", description: "Projects, deployments and logs." },
+  { id: "sentry", logo: "sentry", name: "Sentry", category: "Development", url: "https://mcp.sentry.dev/mcp", description: "Errors, issues and releases." },
+  { id: "netlify", logo: "netlify", name: "Netlify", category: "Development", url: "https://netlify-mcp.netlify.app/mcp", description: "Sites and deploys." },
+  { id: "github", logo: "github", name: "GitHub", category: "Development", url: "https://api.githubcopilot.com/mcp/", ownerClient: "github", scope: "repo read:org read:user", tokenHint: "A GitHub personal access token (github_pat_…)", description: "Repositories, issues, pull requests and files." },
   { id: "fireflies", name: "Fireflies", category: "Meetings", url: "https://api.fireflies.ai/mcp", description: "Meeting transcripts and summaries." },
   { id: "deepwiki", name: "DeepWiki", category: "Development", url: "https://mcp.deepwiki.com/mcp", auth: "none", description: "Ask questions about any public GitHub repository." },
   // Google's Workspace MCP servers need an OAuth client the Owner registers once in Google Cloud (Developer Preview).
-  { id: "gmail", name: "Gmail", category: "Google", url: "https://gmailmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.compose", description: "Search, read and draft emails." },
-  { id: "gdrive", name: "Google Drive", category: "Google", url: "https://drivemcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly", description: "Search, read and create files." },
-  { id: "gcalendar", name: "Google Calendar", category: "Google", url: "https://calendarmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.readonly", description: "See, create and move events." },
-  { id: "gdocs", name: "Google Docs", category: "Google", url: "https://docsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive.file", description: "Read, write and edit documents." },
-  { id: "gsheets", name: "Google Sheets", category: "Google", url: "https://sheetsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive.file", description: "Read and edit spreadsheets." }
+  // Scopes exactly as in developers.google.com/workspace/guides/configure-mcp-servers (Calendar is read-only there).
+  { id: "gmail", logo: "gmail", name: "Gmail", category: "Google", url: "https://gmailmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.compose", description: "Search, read and draft emails." },
+  { id: "gdrive", logo: "googledrive", name: "Google Drive", category: "Google", url: "https://drivemcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly", description: "Search, read and create files." },
+  { id: "gcalendar", logo: "googlecalendar", name: "Google Calendar", category: "Google", url: "https://calendarmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/calendar.calendarlist.readonly https://www.googleapis.com/auth/calendar.events.freebusy https://www.googleapis.com/auth/calendar.events.readonly", description: "See your calendars, events and free time (Google allows reading only, for now)." },
+  { id: "gdocs", logo: "googledocs", name: "Google Docs", category: "Google", url: "https://docsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/documents.readonly https://www.googleapis.com/auth/documents", description: "Read, write and edit documents." },
+  { id: "gsheets", logo: "googlesheets", name: "Google Sheets", category: "Google", url: "https://sheetsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets", description: "Read and edit spreadsheets." }
 ];
 const MAX_TOOLS = 60, TOOLS_TTL = 10 * 60 * 1000, PENDING_TTL = 10 * 60 * 1000;
 
@@ -83,9 +84,12 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
     Object.assign(c, patch, { updatedAt: now() }); store.write(d); return c;
   }
   function ownerClientFor(entry) {
-    if (entry.ownerClient !== "google") return undefined;
+    if (entry.ownerClient !== "google" && entry.ownerClient !== "github") return undefined;
     const cfg = getConfig() || {};
-    const id = String(cfg.googleClientId || "").trim(), secret = String(cfg.googleClientSecret || "").trim();
+    // One OAuth client the Owner registers once for the whole site (Google Cloud / GitHub OAuth app); every person
+    // still signs in with their own account.
+    const k = entry.ownerClient;
+    const id = String(cfg[k + "ClientId"] || "").trim(), secret = String(cfg[k + "ClientSecret"] || "").trim();
     return id && secret ? { client_id: id, client_secret: secret } : null;
   }
 
@@ -121,14 +125,16 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
 
   function publicView(c) {
     const entry = CATALOG.find((x) => x.id === c.catalogId);
-    return { id: c.id, catalogId: c.catalogId || "", name: c.name, url: c.url, status: c.status, error: c.error || "", category: entry?.category || "Custom", toolCount: c.toolCount || 0, createdAt: c.createdAt };
+    return { id: c.id, catalogId: c.catalogId || "", logo: entry?.logo || "", name: c.name, url: c.url, status: c.status, error: c.error || "", category: entry?.category || "Custom", toolCount: c.toolCount || 0, createdAt: c.createdAt };
   }
   function catalog(userId) {
     const mine = (db().connectors || []).filter((c) => c.userId === userId);
     return CATALOG.map((e) => {
       const conn = mine.find((c) => c.catalogId === e.id);
-      const needsOwner = e.ownerClient && !ownerClientFor(e);
-      return { id: e.id, name: e.name, category: e.category, description: e.description, auth: e.auth || "oauth", tokenHint: e.tokenHint || "", unavailable: needsOwner ? "The Owner has to add a Google OAuth client in Settings first." : "", connected: conn?.status === "connected", connectorId: conn?.id || "" };
+      // GitHub without the Owner's OAuth app connects with a personal token; Google needs the Owner's client.
+      const tokenInstead = e.ownerClient === "github" && !ownerClientFor(e);
+      const needsOwner = e.ownerClient === "google" && !ownerClientFor(e);
+      return { id: e.id, logo: e.logo || "", name: e.name, category: e.category, description: e.description, auth: tokenInstead ? "token" : (e.auth || "oauth"), tokenHint: e.tokenHint || "", unavailable: needsOwner ? "The Owner has to add a Google OAuth client in Settings first." : "", connected: conn?.status === "connected", connectorId: conn?.id || "" };
     });
   }
   function list(userId) { return (db().connectors || []).filter((c) => c.userId === userId).map(publicView); }
@@ -139,14 +145,15 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
     if (catalogId && !entry) throw Object.assign(new Error("Unknown app."), { status: 404 });
     const address = entry ? entry.url : String(url || "").trim();
     await checkUrl(address);
-    if (entry?.ownerClient && !ownerClientFor(entry)) throw Object.assign(new Error("The Owner has to add a Google OAuth client in Settings first."), { status: 409 });
+    if (entry?.ownerClient === "github" && !ownerClientFor(entry) && !token) throw Object.assign(new Error(`This app needs a token: ${entry.tokenHint}.`), { status: 400 });
+    if (entry?.ownerClient === "google" && !ownerClientFor(entry)) throw Object.assign(new Error("The Owner has to add a Google OAuth client in Settings first."), { status: 409 });
     const d = db(); d.connectors = d.connectors || [];
     let conn = d.connectors.find((c) => c.userId === userId && (entry ? c.catalogId === entry.id : c.url === address));
     if (!conn) {
       conn = { id: crypto.randomUUID(), userId, catalogId: entry?.id || "", name: entry?.name || String(name || new URL(address).hostname).slice(0, 80), url: address, transport: entry?.transport || (/\/sse\/?$/.test(address) ? "sse" : "http"), status: "pending", createdAt: now() };
       d.connectors.push(conn);
     }
-    if (entry?.auth === "token" || token) {
+    if (entry?.auth === "token" || (token && !(entry?.ownerClient && ownerClientFor(entry)))) {
       if (!String(token || "").trim()) throw Object.assign(new Error(entry?.tokenHint ? `This app needs a token: ${entry.tokenHint}.` : "This app needs a token."), { status: 400 });
       conn.bearer = seal(String(token).trim()); conn.status = "connected"; conn.error = "";
     } else if (entry?.auth === "none") { conn.status = "connected"; conn.error = ""; }
@@ -228,7 +235,7 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
     for (const [i, conn] of conns.entries()) {
       for (const t of await tools(userId, conn.id).catch(() => [])) {
         const name = `a${i + 1}__${String(t.name).replace(/[^a-zA-Z0-9_-]/g, "_")}`.slice(0, 64);
-        out.push({ name, connId: conn.id, app: conn.name, tool: t.name, title: t.title, readOnly: t.readOnly, schema: { type: "function", function: { name, description: `[${conn.name}] ${t.description}`.slice(0, 1000), parameters: t.inputSchema } } });
+        out.push({ name, connId: conn.id, app: conn.name, logo: CATALOG.find((x) => x.id === conn.catalogId)?.logo || "", tool: t.name, title: t.title, readOnly: t.readOnly, schema: { type: "function", function: { name, description: `[${conn.name}] ${t.description}`.slice(0, 1000), parameters: t.inputSchema } } });
         if (out.length >= MAX_TOOLS) return out;
       }
     }

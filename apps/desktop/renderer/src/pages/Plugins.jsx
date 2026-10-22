@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Rise } from "../riseText.jsx";
 import { Plus, Search, Check, Play, Pencil, Trash2, ExternalLink, Plug, Puzzle, Lock, X } from "lucide-react";
 import { api, toast, cx, isHttpUrl, openLink, useAccess, deniedMessage, useModal, ToolShell, Switch, GATEWAY, OAUTH_REDIRECT_PATH } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
-import { ConnectorsPanel } from "./Connectors.jsx";
+import { brandIcon } from "../brands.js";
 import { t as tr, useLanguage } from "../i18n.jsx";
 
 const PLUGIN_APP_LINKS={
@@ -26,6 +25,7 @@ const PLUGIN_OAUTH={
   "Notion":{provider:"notion",authUrl:"https://api.notion.com/v1/oauth/authorize",tokenUrl:"https://api.notion.com/v1/oauth/token",scopes:"",apiUrl:"https://api.notion.com/v1/search",method:"POST",requiresSecret:true},
   "Spotify":{provider:"spotify",authUrl:"https://accounts.spotify.com/authorize",tokenUrl:"https://accounts.spotify.com/api/token",scopes:"user-read-private user-read-email",apiUrl:"https://api.spotify.com/v1/me",method:"GET"}
 };
+const CONNECTOR_APPS=new Set(["Gmail","Google Drive","Google Calendar","GitHub","Canva","Notion","monday.com","Atlassian Rovo","Vercel"]);
 const PLUGIN_CATALOG=[
   ["Popular","Gmail","Read and organise your Gmail emails","@gmail","M","gmail"],
   ["Popular","Google Drive","Documents, spreadsheets and presentations in Drive","@drive","△","googledrive"],
@@ -106,7 +106,9 @@ const PLUGIN_CATALOG=[
   ["Other","Astrologic","Birth charts and horoscope","@astrologic","☾"],
   ["Other","Kleinanzeigen","Classified ads in Germany","@kleinanzeigen","K","kleinanzeigen"],
   ["Other","Steer Astro","Personal AI astrologer","@steerastro","◎"]
-].map(([group,name,description,trigger,mark,slug])=>({group,name,description,trigger,mark,slug}));
+].map(([group,name,description,trigger,mark,slug])=>({group,name,description,trigger,mark,slug}))
+  // 0.7.30: these are connectors now (Extensions → Connectors, each person signs in with their own account).
+  .filter(x=>!CONNECTOR_APPS.has(x.name));
 const PLUGIN_GROUPS=["Popular","New and notable","Productivity","Communication","Creativity","Developer tools","Health","Entertainment","Education","Business and operations","Data and analytics","Scientific research","Security","Other"];
 const SKILLS=[
   {name:"Web search",description:"Searches current information and online sources.",mark:"W",perm:"web_search"},
@@ -131,9 +133,11 @@ export function pluginTriggerHint(name,trigger){
   const n=String(name||"").trim(),t=trigger||("@"+n.toLowerCase().replace(/\s+/g,"-"));
   return n.length>=3?tr("Used when you write «{name}» or {trigger}",{name:n,trigger:t}):tr("Used when you write {trigger}",{trigger:t});
 }
-// 0.7.29: letters, never the companies' logos.
+// 0.7.30: the app's own logo (carried with the app, no request to another site), otherwise its letters.
 function PluginLogo({entry,large=false}){
-  return <span className={cx("pluginLogo",large&&"large")}><span>{entry?.mark||initials(entry?.name)}</span></span>;
+  const [failed,setFailed]=useState(false);
+  const src=failed?"":brandIcon(entry?.slug);
+  return <span className={cx("pluginLogo",large&&"large",src&&"brand")}>{src?<img src={src} alt="" draggable="false" onError={()=>setFailed(true)}/>:<span>{entry?.mark||initials(entry?.name)}</span>}</span>;
 }
 
 function PluginForm({initial,editing,onSaved,onCancel}){
@@ -274,7 +278,7 @@ function CatalogSetup({selected,onClose,onDone,reload}){
   return <SetupOverlay onClose={onClose}>
     <div className="claudeSetupHead">
       <PluginLogo entry={selected} large/>
-      <div><Rise tag="h3">{selected.name}</Rise><p>{selected.description}</p></div>
+      <div><h3>{selected.name}</h3><p>{selected.description}</p></div>
       <button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={18}/></button>
     </div>
     <ResultNote result={setupResult}/>
@@ -299,11 +303,12 @@ function CatalogSetup({selected,onClose,onDone,reload}){
   </SetupOverlay>;
 }
 
-export function PluginsPage({onClose}){
+// 0.7.30: the API plugins, one of the three tabs of Extensions (pages/Extensions.jsx).
+export function PluginsPanel(){
   const {can}=useAccess();
   useLanguage();
   // 0.7.29: the first tab is the connected apps (like Claude's connectors); the API plugins stay in the other tabs.
-  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState("apps"),[result,setResult]=useState(null);
+  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState(null),[result,setResult]=useState(null);
   const [query,setQuery]=useState(""),[selected,setSelected]=useState(null),[testing,setTesting]=useState(null),[cardNotes,setCardNotes]=useState({});
   const [formInit,setFormInit]=useState(BLANK_PLUGIN),[editing,setEditing]=useState(null),[builtins,setBuiltins]=useState([]),[adding,setAdding]=useState("");
   const mounted=useRef(true);
@@ -360,16 +365,16 @@ export function PluginsPage({onClose}){
   const filtered=PLUGIN_CATALOG.filter(x=>!normalized||[x.name,x.description,x.group,tr(x.description),tr(x.group)].some(v=>v.toLowerCase().includes(normalized)));
   const groups=PLUGIN_GROUPS.map(group=>({group,items:filtered.filter(x=>x.group===group)})).filter(x=>x.items.length);
   const skills=SKILLS.filter(x=>!normalized||x.name.toLowerCase().includes(normalized)||x.description.toLowerCase().includes(normalized));
-  const tabs=[["apps",tr("Connected apps")],["installed",`${tr("API plugins")}${items.length?` (${items.length})`:""}`],["directory",tr("Plugin directory")],["create",editing?tr("Edit plugin"):tr("Create plugin")]];
-  return <ToolShell title={tr("Apps")} subtitle={tab==="apps"?tr("Connect your apps: the AI can search, read, create and edit in them, and asks you before every action."):tr("Write a plugin's name in chat (for example «Calendar») or @name and {brand} uses it for the answer.",{brand:BRAND_NAME})} onClose={onClose} className="pageModal pluginsPage">
-    <div className="pageTabs" role="tablist" aria-label={tr("Apps sections")}>
+  const tabs=[["installed",`${tr("API plugins")}${items.length?` (${items.length})`:""}`],["directory",tr("Plugin directory")],["create",editing?tr("Edit plugin"):tr("Create plugin")]];
+  return <div className="pluginsPanel">
+    <p className="panelLead">{tr("Write a plugin's name in chat (for example «Calendar») or @name and {brand} uses it for the answer.",{brand:BRAND_NAME})}</p>
+    <div className="pageTabs" role="tablist" aria-label={tr("Plugin sections")}>
       {tabs.map(([k,label])=><button key={k} role="tab" aria-selected={tab===k} className={cx("pageTab",tab===k&&"active")} onClick={()=>{setTab(k);if(k==="create"&&editing&&tab!=="create"){setEditing(null);setFormInit(BLANK_PLUGIN)}}}>{label}</button>)}
     </div>
     <div className="pageBody" role="tabpanel">
-      {tab!=="apps"&&<ResultNote result={result}/>}
-      {tab==="apps"&&<ConnectorsPanel/>}
+      <ResultNote result={result}/>
       {tab==="installed"&&(loading?<div className="emptyState small">{tr("Loading the plugins…")}</div>:!items.length?<div className="taskEmpty">
-        <span className="taskIcon big"><Puzzle size={26}/></span><Rise tag="h3">{tr("No API plugins yet")}</Rise><p>{tr("Pick one from the directory or make your own from an API. Then write its name in chat and {brand} uses it.",{brand:BRAND_NAME})}</p>
+        <span className="taskIcon big"><Puzzle size={26}/></span><h3>{tr("No API plugins yet")}</h3><p>{tr("Pick one from the directory or make your own from an API. Then write its name in chat and {brand} uses it.",{brand:BRAND_NAME})}</p>
         <div className="taskExamples"><button className="primary" onClick={()=>setTab("directory")}>{tr("Open the directory")}</button><button className="secondary" onClick={()=>setTab("create")}><Plus size={14}/> {tr("Create plugin")}</button></div>
       </div>:<div className="plugCards">
         {items.map(x=><div key={x.id} className={cx("plugCard",!x.enabled&&"off")}>
@@ -386,7 +391,7 @@ export function PluginsPage({onClose}){
       </div>)}
       {tab==="directory"&&<div className="pluginDirectory">
         <div className="pageSearch"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={tr("Search the directory (name, category)")} aria-label={tr("Search plugins")}/></div>
-        {builtins.length>0&&!normalized&&<section className="catalogSection builtinSection"><Rise tag="h3">{tr("Works right away")}</Rise><div className="catalogGrid">
+        {builtins.length>0&&!normalized&&<section className="catalogSection builtinSection"><h3>{tr("Works right away")}</h3><div className="catalogGrid">
           {builtins.map(b=><div className="catalogCard" key={b.key}>
             <span className="pluginLogo"><span>{b.trigger.slice(1,2).toUpperCase()}</span></span>
             <div className="catalogText"><b>{tr(b.title||b.name)}</b><small>{tr(b.about||b.description)} · {tr("no account")}</small></div>
@@ -395,7 +400,7 @@ export function PluginsPage({onClose}){
           </div>)}
         </div></section>}
         {groups.map(({group,items:groupItems})=><section className="catalogSection" key={group}>
-          <Rise tag="h3">{tr(group)}</Rise>
+          <h3>{tr(group)}</h3>
           <div className="catalogGrid">
             {groupItems.map(x=>{const installed=installedNames.has(x.name.toLowerCase());return <div className="catalogCard" key={x.group+x.name}>
               <PluginLogo entry={x}/>
@@ -406,7 +411,7 @@ export function PluginsPage({onClose}){
           </div>
         </section>)}
         {!groups.length&&<div className="emptyState small">{tr("No plugin found. You can make it in the «Create plugin» tab.")}</div>}
-        {skills.length>0&&<section className="catalogSection"><Rise tag="h3">{tr("Included in {brand}",{brand:BRAND_NAME})}</Rise><div className="catalogGrid">
+        {skills.length>0&&<section className="catalogSection"><h3>{tr("Included in {brand}",{brand:BRAND_NAME})}</h3><div className="catalogGrid">
           {skills.map(x=>{const ok=can(x.perm);return <div className={cx("catalogCard",!ok&&"locked")} key={x.name} title={ok?tr("Available for your account"):deniedMessage(x.perm)}>
             <span className="pluginLogo"><span>{x.mark}</span></span>
             <div className="catalogText"><b>{tr(x.name)}</b><small>{ok?tr(x.description):tr("Turned off by the Owner for your account.")}</small></div>
@@ -417,5 +422,5 @@ export function PluginsPage({onClose}){
       {tab==="create"&&<PluginForm initial={formInit} editing={editing} onSaved={onSaved} onCancel={()=>{setEditing(null);setFormInit(BLANK_PLUGIN);setTab("installed")}}/>}
     </div>
     {selected&&<CatalogSetup selected={selected} reload={load} onClose={()=>setSelected(null)} onDone={note=>{setSelected(null);setResult(note);load();setTab("installed")}}/>}
-  </ToolShell>;
+  </div>;
 }

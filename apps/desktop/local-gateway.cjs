@@ -3688,7 +3688,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     res.json({ok:true});
   });
   app.get("/api/connectors/pending",auth,(req,res)=>{
-    res.json({data:[...toolAsks.values()].filter(a=>a.userId===req.user.id).map(({id,app,tool,title,args,readOnly,source,createdAt})=>({id,app,tool,title,args,readOnly,source,createdAt,status:"ask"}))});
+    res.json({data:[...toolAsks.values()].filter(a=>a.userId===req.user.id).map(({id,app,logo,tool,title,args,readOnly,source,createdAt})=>({id,app,logo,tool,title,args,readOnly,source,createdAt,status:"ask"}))});
   });
   // The tools of the person's connected apps (none when the account may not use them).
   async function appToolsForUser(userId){
@@ -3705,7 +3705,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       if(signal?.aborted)return resolve("deny");
       const stop=()=>done("deny");
       const done=(d)=>{toolAsks.delete(run.id);signal?.removeEventListener("abort",stop);resolve(d)};
-      toolAsks.set(run.id,{id:run.id,userId,connId:def.connId,tool:def.tool,app:def.app,title:run.title,args:run.args,readOnly:run.readOnly,source,createdAt:Date.now(),done});
+      toolAsks.set(run.id,{id:run.id,userId,connId:def.connId,tool:def.tool,app:def.app,logo:run.logo,title:run.title,args:run.args,readOnly:run.readOnly,source,createdAt:Date.now(),done});
       signal?.addEventListener("abort",stop,{once:true});
     });
   }
@@ -3726,7 +3726,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       for(const call of msg.tool_calls){
         const def=appTools.find(t=>t.name===call?.function?.name);
         let args={};try{args=JSON.parse(call?.function?.arguments||"{}")||{}}catch{}
-        const run={id:crypto.randomUUID(),app:def?.app||"",tool:def?.tool||String(call?.function?.name||""),title:def?.title||def?.tool||String(call?.function?.name||""),args:clipArgs(args),readOnly:!!def?.readOnly,status:"ask"};
+        const run={id:crypto.randomUUID(),app:def?.app||"",logo:def?.logo||"",tool:def?.tool||String(call?.function?.name||""),title:def?.title||def?.tool||String(call?.function?.name||""),args:clipArgs(args),readOnly:!!def?.readOnly,status:"ask"};
         let result;
         if(!def){run.status="error";run.summary="Unknown tool.";result="This tool does not exist.";}
         else{
@@ -3751,7 +3751,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }
     return {msg,runs};
   }
-  const publicRuns=(runs)=>runs.map(({id,app,tool,title,status,summary,readOnly})=>({id,app,tool,title,status,readOnly,summary:summary||""}));
+  const publicRuns=(runs)=>runs.map(({id,app,logo,tool,title,status,summary,readOnly})=>({id,app,logo:logo||"",tool,title,status,readOnly,summary:summary||""}));
   // Chat with tools: answers are asked without streaming, each action waits for the person, and the final text goes
   // out as one piece. Returns { handled:false } when no model takes tools, so the normal answer (without apps) follows.
   async function chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal:stopSignal,bill,usage}){

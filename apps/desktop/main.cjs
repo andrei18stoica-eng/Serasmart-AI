@@ -44,7 +44,7 @@ let gateway;
 let watchdog;
 let omniInstalledCache = { at: 0, value: null };
 
-const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret"];
+const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret","githubClientSecret"];
 const MASK = "••••••••";
 function configPath() { return path.join(app.getPath("userData"), "config.json"); }
 function logError(line) {
@@ -76,6 +76,8 @@ function defaults() {
     xaiApiKey: "",
     googleClientId: "",
     googleClientSecret: "",
+    githubClientId: "",
+    githubClientSecret: "",
     blockedProviders: "cerebras",
     sharedCombos: "",
     imageProviders: "",
@@ -184,6 +186,7 @@ function saveConfig(input) {
     mediaMakers: 2,
     xaiModels: String(cfg.xaiModels || DIRECT_MODEL_DEFAULTS.xaiModels).trim(),
     googleClientId: String(cfg.googleClientId || "").trim().slice(0, 300),
+    githubClientId: String(cfg.githubClientId || "").trim().slice(0, 300),
     xaiImageModel: String(cfg.xaiImageModel || "grok-imagine-image").trim(),
     xaiVideoModel: String(cfg.xaiVideoModel || "grok-imagine-video").trim(),
     geminiImageModel: String(cfg.geminiImageModel || "gemini-3.1-flash-image").trim(),

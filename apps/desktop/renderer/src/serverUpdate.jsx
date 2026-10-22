@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Rise } from "./riseText.jsx";
 import { RotateCcw, Download } from "lucide-react";
 import { api, toast } from "./core.jsx";
 import { BRAND_DOMAIN } from "./brand.js";
@@ -50,7 +49,7 @@ export function ServerUpdate() {
   const installed = s?.version || a?.current?.version || "";
   const newer = a?.behind > 0 ? (a.latest?.version && a.latest.version !== installed ? tr("Version {v} is available.", { v: a.latest.version }) : tr("There are new changes on GitHub.")) : a ? tr("The site has the latest version.") : "";
   return <div className="settingsPrefs serverUpdate">
-    <Rise tag="h4">{tr("Site update ({domain})", { domain: BRAND_DOMAIN })}</Rise>
+    <h4>{tr("Site update ({domain})", { domain: BRAND_DOMAIN })}</h4>
     {!info.installed && <p className="settingsHelp">{info.setupHint}</p>}
     {info.installed && <>
       <p className="settingsHelp">

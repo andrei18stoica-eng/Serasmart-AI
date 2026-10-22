@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Rise } from "./riseText.jsx";
 import { Bell, BellOff, Check, Send, X } from "lucide-react";
 import { GATEWAY, IS_WEB, Modal, api } from "./core.jsx";
 import { BRAND_NAME, BRAND_DOMAIN } from "./brand.js";
@@ -108,7 +107,7 @@ export function PhoneNotifications() {
   }
   const iosNeedsInstall = isIos() && !isStandalone();
   return <>
-    <Rise tag="h3">{tr("Phone notifications")}</Rise>
+    <h3>{tr("Phone notifications")}</h3>
     <p className="settingsHelp">{tr("When someone signs up, your phone shows who wants to join {brand} and asks if you allow it. On Android you answer from the notification with Allow or Deny; on iPhone you tap it and choose in the app. The request waits until you answer.", { brand: BRAND_NAME })}</p>
     {!pushSupported() || iosNeedsInstall
       ? <div className="settingsPrefs"><p className="settingsHelp">{iosNeedsInstall

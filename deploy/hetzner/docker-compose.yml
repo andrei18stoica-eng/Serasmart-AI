@@ -166,6 +166,8 @@ services:
       XAI_API_KEY: ${XAI_API_KEY:-}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      GITHUB_OAUTH_CLIENT_ID: ${GITHUB_OAUTH_CLIENT_ID:-}
+      GITHUB_OAUTH_CLIENT_SECRET: ${GITHUB_OAUTH_CLIENT_SECRET:-}
     volumes:
       - web-data:/data
       - ${SERASMART_UPDATE_HOST_DIR:-${AI_STOICA_UPDATE_HOST_DIR:-/var/lib/serasmart-update}}:/update

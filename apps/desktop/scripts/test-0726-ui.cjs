@@ -57,7 +57,7 @@ function theme() {
     expect(dark[1].includes(v + ":") && light[1].includes(v + ":"), `both themes define ${v}`);
   }
   expect(/--accent:#5B9BFF/.test(dark[1]) && /--bg:#060A11/.test(dark[1]), "dark premium, blue accents");
-  for (const c of [".themeSwitch", ".langMenu", ".langGrid", ".welcomeStarts", ".sideUsage", ".wordmark em"]) expect(css.includes(c), `styles for ${c}`);
+  for (const c of [".themeSwitch", ".langMenu", ".langGrid", ".sideUsage", ".wordmark em"]) expect(css.includes(c), `styles for ${c}`);
   expect(/@fontsource-variable\/manrope/.test(read("main.jsx")) && /@fontsource-variable\/dm-sans/.test(read("main.jsx")), "the mockup's fonts travel with the app (no Google Fonts request)");
   const html = fs.readFileSync(path.join(SRC, "..", "index.html"), "utf8");
   expect(/<html lang="en">/.test(html) && /content="dark light"/.test(html) && !/Asistentul tău AI/.test(html), "the page head is English and allows both themes");
@@ -69,8 +69,9 @@ function noPersonalExamples() {
     expect(!/webserano/i.test(s), `${f}: nothing about Webserano`);
     expect(!/\bAndrei\b|Brutăria|@brutaria|\bex\. [A-Z][a-z]+"/.test(s), `${f}: no personal names in examples`);
   }
-  const starts = read("main.jsx").match(/const WELCOME_STARTS=\[([\s\S]*?)\];/)[1];
-  expect(!/@|https?:|str\.|street/i.test(starts), "the start suggestions name no address or place");
+  // 0.7.30: no suggestion buttons on a new chat; the greeting line changes with the moment and names no address or place.
+  const lines = read("main.jsx").match(/const WELCOME_LINES=\{([\s\S]*?)\n\};/)[1];
+  expect(!/WELCOME_STARTS/.test(read("main.jsx")) && !/@|https?:|str\.|street/i.test(lines) && /function welcomeLine\(now,recentTitle\)/.test(read("main.jsx")), "a changing greeting line, no suggestion buttons");
 }
 
 function extraCredits() {

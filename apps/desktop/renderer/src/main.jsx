@@ -1,12 +1,10 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { startDotRingCursor } from "./cursor.js";
-import { Rise } from "./riseText.jsx";
 import { createRoot } from "react-dom/client";
 import {
   Menu, Plus, Search, Folder, Bot, Settings, LogOut, Share2, MoreHorizontal,
   Paperclip, Mic, ArrowUp, Copy, ThumbsUp, ThumbsDown, RotateCcw, X,
   ChevronDown, User, Check, Wifi, Sparkles, SquarePen, Square,
-  CalendarClock, Plug, Library, Brain, Upload, Trash2, Play, Pin, PinOff,
+  CalendarClock, Plug, Puzzle, Library, Brain, Upload, Trash2, Play, Pin, PinOff,
   FileText, Image as ImageIcon, HardDrive, ToggleLeft, ToggleRight,
   Compass, Map as MapIcon, Globe2, Archive, ArchiveRestore, ExternalLink, SlidersHorizontal, Volume2,
   PanelTopOpen, ShieldCheck, UserCheck, Download, Bell, Lock, Pencil, Palette, Clapperboard, Eye, Maximize2, LoaderCircle, SquareTerminal, Gauge,
@@ -32,10 +30,9 @@ import { ScheduledPage } from "./pages/Scheduled.jsx";
 import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
 import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat } from "./documentIntent.mjs";
-import { PluginsPage } from "./pages/Plugins.jsx";
+import { ExtensionsPage } from "./pages/Extensions.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
-import { SkillsPage } from "./pages/Skills.jsx";
 import { UsagePage, CreditsDialog } from "./pages/Usage.jsx";
 import { useAccountSettings, ProfileTab, NotifyTab, PrivacyTab, SecurityTab } from "./pages/AccountSettings.jsx";
 import { LibraryPage } from "./pages/Library.jsx";
@@ -326,7 +323,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
   }
   function resetGateway(){setGatewayUrl(DEFAULT_GATEWAY);Promise.resolve(window.Serasmart?.setConfig?.({gatewayUrl:DEFAULT_GATEWAY})).catch(()=>{});setNetworkIssue(false);setError("");setNotice(tr("Back to the default local service. Try signing in again."));}
   return <div className="authShell"><div className="authGlow"/><div className="authTopTools"><ThemeSwitch/><LanguageMenu/></div>
-    <div className="authBrand"><img src="./serasmart-ai-768.webp" alt={`${BRAND_NAME}`}/><Rise tag="h1">{BRAND_NAME}</Rise><p>{tr("Your AI, every model")}</p>
+    <div className="authBrand"><img src="./serasmart-ai-768.webp" alt={`${BRAND_NAME}`}/><h1>{BRAND_NAME}</h1><p>{tr("Your AI, every model")}</p>
       <div className="authFeature"><Sparkles size={17}/> {tr("Chat with every top AI, memory, files, pictures, video and automations.")}</div>
       <div className="authFeature"><Wifi size={17}/> {tr("Your apps connected: the AI reads and works in them with your approval.")}</div>
       <div className="authFeature"><User size={17}/> {tr("A personal account, confirmed by email and protected by your password.")}</div>
@@ -334,7 +331,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
     <form className="authCard" onSubmit={submit}>
       <div className="authTabs" role="tablist"><button type="button" role="tab" aria-selected={mode==="login"} className={mode==="login"?"active":""} onClick={()=>{setMode("login");setError("");}}>{tr("Sign in")}</button><button type="button" role="tab" aria-selected={mode==="register"} className={mode==="register"?"active":""} onClick={()=>{setMode("register");setError("");setNotice("");}}>{tr("Create account")}</button></div>
       {mode==="verify"?<>
-      <Rise tag="h2">{tr("Confirm your email")}</Rise>
+      <h2>{tr("Confirm your email")}</h2>
       <p className="muted">{tr("We sent a 6-digit code to {email}. If you do not see it, look in Spam. The code expires in 15 minutes.",{email})}</p>
       <label>{tr("Code from the email")}<input value={code} onChange={e=>setCode(e.target.value.replace(/\D/g,"").slice(0,6))} placeholder="123456" inputMode="numeric" autoComplete="one-time-code" pattern="\d{6}" maxLength={6} required autoFocus className="codeInput"/></label>
       {notice&&<div className="authNotice" role="status"><UserCheck size={17}/><span>{notice}</span></div>}
@@ -342,7 +339,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
       <button className="primaryWide" disabled={busy||code.length!==6}>{busy?tr("Working…"):tr("Confirm email")}</button>
       <div className="codeActions"><button type="button" className="linkBtn" disabled={busy||resendIn>0} onClick={resendCode}>{resendIn>0?tr("Send the code again ({s}s)",{s:resendIn}):tr("Send the code again")}</button><button type="button" className="linkBtn" onClick={()=>{setMode("login");setError("");setNotice("")}}>{tr("Back")}</button></div>
       </>:<>
-      <Rise tag="h2">{mode==="login"?tr("Welcome back"):tr("Create your {brand} account",{brand:BRAND_NAME})}</Rise>
+      <h2>{mode==="login"?tr("Welcome back"):tr("Create your {brand} account",{brand:BRAND_NAME})}</h2>
       <p className="muted">{mode==="register"?(cloud?tr("You get a code by email to confirm the address, then the Owner approves the account."):IS_WEB?tr("The account is created on the {brand} server.",{brand:BRAND_NAME}):tr("The account is created on this computer and you can use it right away.")):tr("Use the email of your {brand} account.",{brand:BRAND_NAME})}</p>
       {mode==="register"&&<label>{tr("Name")}<input value={name} onChange={e=>setName(e.target.value)} placeholder={tr("Your name")} autoComplete="name"/></label>}
       <label>{tr("Email")}<input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="name@example.com" required autoComplete="email"/></label>
@@ -359,12 +356,11 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
 }
 
 function localZone(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch{return ""}}
-// 0.7.29: only the S (no name), animated as designed in Figma («S emblem — motion storyboard»): a slow glow and a
-// light sweep at rest, a faster pulse while the AI answers (html[data-thinking]); still with «reduce motion».
+// 0.7.30: only the S (no name), turning slowly; faster while the AI answers (html[data-thinking]); still with «reduce motion».
 function BrandMark({small=false}) { return <div className={cx("brandMark brandS",small&&"small")}><img src="./serasmart-s.webp" alt={`${BRAND_NAME}`} draggable="false"/></div>; }
 
 // 0.7.26: the order of the approved mockup; labels in English, shown through tr().
-const TOOL_ITEMS=[["explore",Compass,"Explore",null],["library",Library,"Library",null],["plugins",Plug,"Apps","plugins"],["skills",Sparkles,"Skills",null],["automations",CalendarClock,"Automations","automations"],["design",Palette,"Design","document_generation"],["memory",Brain,"Memory",null],["code",SquareTerminal,"Code","code"],["usage",Gauge,"Usage",null]];
+const TOOL_ITEMS=[["explore",Compass,"Explore",null],["library",Library,"Library",null],["extensions",Puzzle,"Extensions",null],["automations",CalendarClock,"Automations","automations"],["design",Palette,"Design","document_generation"],["memory",Brain,"Memory",null],["code",SquareTerminal,"Code","code"],["usage",Gauge,"Usage",null]];
 // The plan's week under the menu (only when plans and credits are on and the account pays): opens Usage.
 function SideUsage({onOpen}) {
   const [d,setD]=useState(null);
@@ -564,10 +560,10 @@ function Header({deniedCount,lockedModels=[],onMenu,model,onSelectModel,models,o
     <ModelPicker model={model} onSelect={onSelectModel} models={models} onRefresh={onRefreshModels} refreshing={refreshingModels} policyEnforced={policyEnforced} deniedCount={deniedCount} locked={lockedModels}/>
     <div className="topSpacer"/>
     {showOmni&&(()=>{
-      // 0.7.29: only a dot, green when the AI service answers and red when not; the explanation is in the tooltip.
+      // 0.7.29: only a dot, green when the AI service answers and red when not.
       const label=omni===true?tr("OmniRoute connected"):omni==="key"?tr("OmniRoute needs an API key"):omni==="offline"?tr("Can't reach the server, reconnecting…"):tr("OmniRoute stopped");
-      const help=omni===true?tr("OmniRoute is answering."):omni==="key"?tr("OmniRoute is running but needs an API key: make one in OmniRoute → API Manager and put it in Settings → AI & OmniRoute. Until then the direct APIs (Groq, Gemini…) answer, if you pick them in the list."):omni==="offline"?"":tr("OmniRoute is not answering. Pick a model from a direct API (Groq, Gemini…) in the list, or turn on the automatic fallback.");
-      return <span className={cx("statusDot",omni===true?"ok":"bad")} role="status" aria-label={label} title={help?`${label}. ${help}`:label}/>;
+      // 0.7.30: no text on screen, not even on hover (the Owner's choice); screen readers still hear it.
+      return <span className={cx("statusDot",omni===true?"ok":"bad")} role="status" aria-label={label}/>;
     })()}
     <ThemeSwitch/>
     <LanguageMenu/>
@@ -723,19 +719,42 @@ function guessCodeLanguage(code,className){
 }
 // The empty chat (0.7.26): a greeting with the account's own first name and four general starting points, no names,
 // places or addresses in them.
-const WELCOME_STARTS=[[Mail,"Write an email","Write a short, friendly email that "],[ImageIcon,"Make a picture",null,"image"],[FileText,"Summarize a document","Summarize the attached document in five clear points."],[CalendarClock,"Plan my week","Help me plan my week. My priorities are: "]];
-function Welcome({user,onPick}) {
+// 0.7.30, asked by the Owner: no suggestion buttons on a new chat, only a greeting and one line that changes from time
+// to time with the moment (night, morning, the start or end of the week…) and with what the person was working on.
+const WELCOME_LINES={
+  night:["Working late? I'm here when you need me.","A quiet night is good for focused work. What's on your mind?","Still up? Let's get it done together."],
+  morning:["Let's start the day well. What's first?","Fresh morning. What should we tackle?","Coffee and a clear plan? Tell me where to start."],
+  afternoon:["How is the day going? What can I take off your plate?","Afternoon push: what are we finishing today?","Need a hand with the rest of the day?"],
+  evening:["Wrapping up the day? I can help with what's left.","Evening. Something to finish, or a plan for tomorrow?","A calm evening is good for thinking. What's next?"],
+  weekend:["It's the weekend. Something for work, or just for you?","Weekend mode. What would you like to do?"],
+  monday:["New week. Want to plan it together?","Monday again. Let's set the week up."],
+  friday:["Almost the weekend. What should we close before it?","Friday. Let's finish the week well."]
+};
+function welcomeLine(now,recentTitle){
+  const h=now.getHours(),d=now.getDay(),slot=Math.floor(now.getTime()/(20*60*1000));
+  const part=h<5?"night":h<12?"morning":h<18?"afternoon":h<23?"evening":"night";
+  let pool=WELCOME_LINES[part];
+  if(d===0||d===6)pool=[...pool,...WELCOME_LINES.weekend];
+  else if(d===1&&h<12)pool=[...WELCOME_LINES.monday,...pool];
+  else if(d===5&&h>=12)pool=[...WELCOME_LINES.friday,...pool];
+  const title=String(recentTitle||"").trim();
+  // Now and then, what the person was working on last.
+  if(title&&title.length<=60&&slot%3===0)return tr("Shall we continue with «{title}»?",{title});
+  return tr(pool[slot%pool.length]);
+}
+function Welcome({user,recentTitle}) {
   useLanguage();
-  const h=new Date().getHours(),part=h<5||h>=18?"Good evening":h<12?"Good morning":"Good afternoon";
+  const [now,setNow]=useState(()=>new Date());
+  useEffect(()=>{const t=setInterval(()=>setNow(new Date()),60000);return()=>clearInterval(t)},[]);
+  const h=now.getHours(),part=h<5||h>=18?"Good evening":h<12?"Good morning":"Good afternoon";
   const first=String(user?.name||"").trim().split(/\s+/)[0];
   return <div className="welcome">
     <BrandMark/>
-    <Rise tag="h1">{first?tr(part+", {name}",{name:first}):tr(part)}</Rise>
-    <p>{tr("What are we working on today?")}</p>
-    <div className="welcomeStarts">{WELCOME_STARTS.map(([Icon,label,text,mode])=><button key={label} onClick={()=>onPick?.(text?tr(text):"",mode)}><Icon size={15}/>{tr(label)}</button>)}</div>
+    <h1>{first?tr(part+", {name}",{name:first}):tr(part)}</h1>
+    <p>{welcomeLine(now,recentTitle)}</p>
   </div>;
 }
-function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,onRate,onCodeResult,canRunCode,onAnswer,onOpenSettings,user,onPick}) {
+function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,onRate,onCodeResult,canRunCode,onAnswer,onOpenSettings,user,onPick,recentTitle}) {
   const {isOwner}=useAccess();
   const [contextMenu,setContextMenu]=useState(null),[running,setRunning]=useState(false);
   useEffect(()=>{
@@ -774,7 +793,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
     }catch(e){toast("Rulare cod: "+e.message)}
     finally{setRunning(false)}
   }
-  if(!conversation||!conversation.messages?.length)return <Welcome user={user} onPick={onPick}/>;
+  if(!conversation||!conversation.messages?.length)return <Welcome user={user} recentTitle={recentTitle}/>;
   const lastIndex=conversation.messages.length-1;
   return <div className="messagesColumn">
     {conversation.messages.map((m,i)=>{
@@ -783,7 +802,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
       const text=String(m.content||(m.attachmentOnly?m.artifactSource||"":"")).trim();
       const questions=!m.error&&!m.mediaKind?splitQuestions(text,m.streaming):null;
       const nextUser=questions&&!questions.pending?conversation.messages.slice(i+1).find(x=>x.role==="user"):null;
-      return <div key={m.id||i} className={cx("assistantBlock",(m.error||m.mediaGenerationError)&&"errorMessage")}><div className="assistantMark" aria-hidden="true">S</div><div className="assistantBody copyByRightClick" onContextMenu={e=>openCopyMenu(e,m)}>
+      return <div key={m.id||i} className={cx("assistantBlock",(m.error||m.mediaGenerationError)&&"errorMessage")}><div className={cx("assistantMark logoMark",m.streaming&&"spinning")} aria-hidden="true"><img src="./serasmart-s.webp" alt="" draggable="false"/></div><div className="assistantBody copyByRightClick" onContextMenu={e=>openCopyMenu(e,m)}>
         {m.routeInfo&&<RouteBadge info={m.routeInfo}/>}
         {m.toolRuns?.length>0&&<div className="toolRuns">{m.toolRuns.map(r=><ToolRunCard key={r.id} run={r}/>)}</div>}
         {questions?<>
@@ -1213,7 +1232,7 @@ function AdminPanel({onClose}) {
           {!selected?<div className="seraPluginEmpty">Selectează un utilizator.</div>:<>
             <div className="adminIdentity">
               <div className="accountAvatar big">{(selected.name||selected.email||"U")[0].toUpperCase()}</div>
-              <div><Rise tag="h3">{selected.name||"Utilizator"}</Rise><p>{selected.email}</p><small>{selected.role==="owner"?"Owner":"Utilizator"} · {ADMIN_STATUS_LABELS[selected.status]||selected.status} · {plural(Number(selected.active_sessions||0),"sesiune activă","sesiuni active")}</small></div>
+              <div><h3>{selected.name||"Utilizator"}</h3><p>{selected.email}</p><small>{selected.role==="owner"?"Owner":"Utilizator"} · {ADMIN_STATUS_LABELS[selected.status]||selected.status} · {plural(Number(selected.active_sessions||0),"sesiune activă","sesiuni active")}</small></div>
             </div>
             {selected.role!=="owner"&&<div className="adminApprovalActions">
               {selected.status!=="active"&&<button className="primary" onClick={()=>setStatus(selected,"active")} disabled={actionBusy}><Check size={15}/> Aprobă / Reactivează</button>}
@@ -1222,7 +1241,7 @@ function AdminPanel({onClose}) {
               {selected.status==="pending"&&<button className="secondary" onClick={()=>setStatus(selected,"rejected")} disabled={actionBusy}><X size={15}/> Respinge</button>}
               <button className="secondary" onClick={()=>revokeSessions(selected)} disabled={actionBusy}>Închide sesiunile</button>
             </div>}
-            <div className="adminPermissionHead"><div><Rise tag="h4">Permisiuni</Rise><p>Se aplică pe server pentru acest cont.</p></div></div>
+            <div className="adminPermissionHead"><div><h4>Permisiuni</h4><p>Se aplică pe server pentru acest cont.</p></div></div>
             <div className="adminPermissions">
               {Object.entries(permissionLabels).map(([key,label])=>{
                 const checked=selected.role==="owner"?true:selected.permissions?.[key]===true;
@@ -1234,7 +1253,7 @@ function AdminPanel({onClose}) {
               })}
             </div>
             {selected.role!=="owner"&&<>
-              <div className="adminPermissionHead"><div><Rise tag="h4">Modele AI pentru acest cont</Rise><p>«Implicit» urmează permisiunile de mai sus; «Activat» deschide modelul chiar dacă permisiunile îl țin închis; «Blocat» îl închide. Abonamentele personale ale Owner-ului rămân doar ale lui.</p></div></div>
+              <div className="adminPermissionHead"><div><h4>Modele AI pentru acest cont</h4><p>«Implicit» urmează permisiunile de mai sus; «Activat» deschide modelul chiar dacă permisiunile îl țin închis; «Blocat» îl închide. Abonamentele personale ale Owner-ului rămân doar ale lui.</p></div></div>
               {selected.permissions?.chat!==true&&<div className="adminModelHint" role="note">«Activat» nu are efect cât timp «Chat AI» este oprit pentru acest cont: pornește întâi permisiunea Chat de mai sus.</div>}
               <input className="adminModelSearch" type="search" placeholder="Caută un model…" value={modelQuery} onChange={e=>setModelQuery(e.target.value)} aria-label="Caută un model"/>
               <div className="adminModels">
@@ -1282,10 +1301,10 @@ function ExplorePanel({onClose,assistants,onUseAssistant,onImageMode,onOpenLibra
   const imageOk=can("image_generation");
   return <ToolShell title="Explorează" subtitle="Un singur loc pentru hărți, imagini, asistenți și site-uri." onClose={onClose}>
     <div className="exploreGrid">
-      <form className="exploreCard" onSubmit={e=>{e.preventDefault();openMap("google")}}><div className="exploreIcon"><MapIcon size={22}/></div><Rise tag="h3">Hărți</Rise><p>Caută o adresă, localitate sau punct de interes.</p><input value={mapQuery} onChange={e=>setMapQuery(e.target.value)} placeholder="Ex. o adresă sau un oraș" aria-label="Locul căutat"/><div className="exploreActions"><button className="primary" disabled={!mapQuery.trim()}>Google Maps</button><button type="button" className="secondary" disabled={!mapQuery.trim()} onClick={()=>openMap("osm")}>OpenStreetMap</button></div></form>
-      <section className="exploreCard"><div className="exploreIcon"><ImageIcon size={22}/></div><Rise tag="h3">Imagini</Rise><p>{imageOk?"Pornește direct o conversație pentru generarea unei imagini.":deniedMessage("image_generation")}</p><button className={cx("primary",!imageOk&&"locked")} onClick={onImageMode}>Creează o imagine</button><button className="secondary" onClick={()=>onOpenLibrary("image")}>Imaginile din Bibliotecă</button></section>
-      <section className="exploreCard wide"><div className="exploreIcon"><Bot size={22}/></div><Rise tag="h3">Asistenți</Rise><p>Alege rapid un asistent pentru o conversație nouă.</p><div className="gptGrid">{assistants.map(a=><button key={a.id} className="gptCard" onClick={()=>onUseAssistant(a.id)}><span className="gptAvatar">{a.icon||a.name?.[0]||"A"}</span><span><b>{a.name}</b><small>{a.builtIn?"Asistent principal":"Asistent personalizat"}</small></span></button>)}{!assistants.length&&<div className="emptyState small">Nu ai asistenți. Creează unul din bara laterală.</div>}</div></section>
-      <form className="exploreCard" onSubmit={openSite}><div className="exploreIcon"><Globe2 size={22}/></div><Rise tag="h3">Site-uri</Rise><p>Deschide rapid un site în browser.</p><div className="quickSites"><button type="button" onClick={()=>openLink("https://www.google.com")}>Google</button><button type="button" onClick={()=>openLink("https://www.wikipedia.org")}>Wikipedia</button><button type="button" onClick={()=>openLink("https://www.youtube.com")}>YouTube</button><button type="button" onClick={()=>openLink("https://github.com")}>GitHub</button></div><div className="siteOpen"><input value={site} onChange={e=>setSite(e.target.value)} placeholder="exemplu.ro" aria-label="Adresa site-ului"/><button className="smallBtn" disabled={!site.trim()}><ExternalLink size={14}/> Deschide</button></div></form>
+      <form className="exploreCard" onSubmit={e=>{e.preventDefault();openMap("google")}}><div className="exploreIcon"><MapIcon size={22}/></div><h3>Hărți</h3><p>Caută o adresă, localitate sau punct de interes.</p><input value={mapQuery} onChange={e=>setMapQuery(e.target.value)} placeholder="Ex. o adresă sau un oraș" aria-label="Locul căutat"/><div className="exploreActions"><button className="primary" disabled={!mapQuery.trim()}>Google Maps</button><button type="button" className="secondary" disabled={!mapQuery.trim()} onClick={()=>openMap("osm")}>OpenStreetMap</button></div></form>
+      <section className="exploreCard"><div className="exploreIcon"><ImageIcon size={22}/></div><h3>Imagini</h3><p>{imageOk?"Pornește direct o conversație pentru generarea unei imagini.":deniedMessage("image_generation")}</p><button className={cx("primary",!imageOk&&"locked")} onClick={onImageMode}>Creează o imagine</button><button className="secondary" onClick={()=>onOpenLibrary("image")}>Imaginile din Bibliotecă</button></section>
+      <section className="exploreCard wide"><div className="exploreIcon"><Bot size={22}/></div><h3>Asistenți</h3><p>Alege rapid un asistent pentru o conversație nouă.</p><div className="gptGrid">{assistants.map(a=><button key={a.id} className="gptCard" onClick={()=>onUseAssistant(a.id)}><span className="gptAvatar">{a.icon||a.name?.[0]||"A"}</span><span><b>{a.name}</b><small>{a.builtIn?"Asistent principal":"Asistent personalizat"}</small></span></button>)}{!assistants.length&&<div className="emptyState small">Nu ai asistenți. Creează unul din bara laterală.</div>}</div></section>
+      <form className="exploreCard" onSubmit={openSite}><div className="exploreIcon"><Globe2 size={22}/></div><h3>Site-uri</h3><p>Deschide rapid un site în browser.</p><div className="quickSites"><button type="button" onClick={()=>openLink("https://www.google.com")}>Google</button><button type="button" onClick={()=>openLink("https://www.wikipedia.org")}>Wikipedia</button><button type="button" onClick={()=>openLink("https://www.youtube.com")}>YouTube</button><button type="button" onClick={()=>openLink("https://github.com")}>GitHub</button></div><div className="siteOpen"><input value={site} onChange={e=>setSite(e.target.value)} placeholder="exemplu.ro" aria-label="Adresa site-ului"/><button className="smallBtn" disabled={!site.trim()}><ExternalLink size={14}/> Deschide</button></div></form>
     </div>
   </ToolShell>;
 }
@@ -1505,7 +1524,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
   const imageCost=cfg?.imageCostPolicy||(webServer?"allow_paid":"free_only");
   const tabs=[["profile",User,"Profile",true],["general",SlidersHorizontal,"General",!!bridge],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge],["video",Play,"Video",machineSettingsAllowed&&!!bridge],["voice",Volume2,"Voice and microphone",!!bridge],["notify",Bell,"Notifications",true],["privacy",ShieldCheck,"Privacy",true],["security",Lock,"Security",true],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge]];
   const onAccountTab=accountOnly||ACCOUNT_TABS.includes(tab);
-  return <div className="modalBackdrop" {...backdropProps}><div className="settingsModal" ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><Rise tag="h2">{tr("{brand} settings",{brand:BRAND_NAME})}</Rise><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
+  return <div className="modalBackdrop" {...backdropProps}><div className="settingsModal" ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><h2>{tr("{brand} settings",{brand:BRAND_NAME})}</h2><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
     {!cfg&&!onAccountTab?<div className="settingsLoading">{error||tr("Loading the settings…")}{error&&<ServerUpdate/>}</div>:<>
     <div className="settingsBody"><div className="settingsNav" role="tablist" aria-orientation="vertical">
       {tabs.filter(t=>t[3]).map(([k,Icon,label])=><button key={k} role="tab" aria-selected={tab===k} className={tab===k?"active":""} onClick={()=>setTab(k)}><Icon size={17}/> {tr(label)}</button>)}
@@ -1514,7 +1533,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
       {tab==="profile"&&<ProfileTab account={account} models={models} preferences={preferences} onPreferences={onPreferences} prefBusy={prefBusy}/>}
       {tab==="privacy"&&<PrivacyTab account={account} onDataDeleted={onDataDeleted}/>}
       {tab==="security"&&<SecurityTab account={account} onAccountDeleted={onAccountDeleted}/>}
-      {tab==="general"&&cfg&&<><Rise tag="h3">{tr("General")}</Rise>
+      {tab==="general"&&cfg&&<><h3>{tr("General")}</h3>
         {!IS_WEB&&<>
         <label className="toggleRow"><div><b>{tr("Start {brand} with Windows",{brand:BRAND_NAME})}</b><span>{tr("The app starts on its own and can stay in the background.")}</span></div><input type="checkbox" checked={!!cfg.startWithWindows} onChange={e=>set({startWithWindows:e.target.checked})}/></label>
         <label className="toggleRow"><div><b>{tr("Close to the notification area")}</b><span>{tr("The X button hides the app without stopping the services.")}</span></div><input type="checkbox" checked={cfg.closeToTray!==false} onChange={e=>set({closeToTray:e.target.checked})}/></label>
@@ -1524,7 +1543,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         </>}
         <ServerUpdate/>
       </>}
-      {tab==="ai"&&cfg&&<><Rise tag="h3">{tr("AI & OmniRoute")}</Rise>
+      {tab==="ai"&&cfg&&<><h3>{tr("AI & OmniRoute")}</h3>
         {webServer&&<p className="settingsHelp">{tr("The site's settings: saved on the server and applied at once for every account. The keys stay on the server and are only shown masked. The Owner email and sign-ups stay in the .env file on the server.")}</p>}
         {!webServer&&<>
         <label>{tr("{brand} service address",{brand:BRAND_NAME})}<input value={cfg.gatewayUrl||DEFAULT_GATEWAY} onChange={e=>set({gatewayUrl:e.target.value})} placeholder={DEFAULT_GATEWAY}/></label>
@@ -1559,7 +1578,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <div className="statusGrid"><div><span>{tr("{brand} service",{brand:BRAND_NAME})}</span><b>{status?.gatewayRunning?tr("Running"):tr("Unavailable")}</b></div><div><span>OmniRoute</span><b>{status?.omniRunning?tr("Connected"):status?.omniInstalled===false?tr("Not installed — npm install -g omniroute"):tr("Unavailable")}</b></div></div>
         </>}
       </>}
-      {tab==="chatapis"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Plug size={22}/></div><div><Rise tag="h3">{tr("AI APIs")}</Rise><p>{tr("Their models appear in the list and answer directly, without OmniRoute.")}</p></div></div>
+      {tab==="chatapis"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Plug size={22}/></div><div><h3>{tr("AI APIs")}</h3><p>{tr("Their models appear in the list and answer directly, without OmniRoute.")}</p></div></div>
         <ProviderTestBox/>
         <ServerKeysBox/>
         <label className="toggleRow"><div><b>{tr("Use the direct APIs")}</b><span>{tr("Their models appear in the list (Groq, Gemini, Cerebras…). They answer when you pick them or when no model is picked.")}</span></div><input type="checkbox" checked={cfg.directChatEnabled!==false} onChange={e=>set({directChatEnabled:e.target.checked})}/></label>
@@ -1609,8 +1628,11 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <ProviderHead name={tr("Google apps (Gmail, Drive, Calendar, Docs, Sheets)")} id="google-apps" cfg={cfg}>{tr("For connecting Google apps in Apps: an OAuth client of type «Web application» from Google Cloud, with this return address: {url}",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
         <label>{tr("Google OAuth client ID")}<input value={cfg.googleClientId||""} onChange={e=>set({googleClientId:e.target.value})} placeholder="….apps.googleusercontent.com"/></label>
         <KeyField label={tr("Google OAuth client secret")} name="googleClientSecret" placeholder="GOCSPX-..." {...keyProps}/>
+        <ProviderHead name={tr("GitHub sign-in for everyone")} id="github-apps" cfg={cfg}>{tr("Optional: a GitHub OAuth App (GitHub → Settings → Developer settings) with this callback URL: {url}. Without it, GitHub connects with a personal token.",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("GitHub OAuth client ID")}<input value={cfg.githubClientId||""} onChange={e=>set({githubClientId:e.target.value})} placeholder="Ov23li…"/></label>
+        <KeyField label={tr("GitHub OAuth client secret")} name="githubClientSecret" placeholder="…" {...keyProps}/>
       </>}
-      {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><Rise tag="h3">{tr("Pictures")}</Rise><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
+      {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><h3>{tr("Pictures")}</h3><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="image" cfg={cfg} set={set} paidOff={imageCost!=="allow_paid"||cfg.imageProviderMode==="free"}/>
         <label><span className="labelLine">{tr("Picture model")} <span className="optional">{tr("optional")}</span></span><input value={cfg.imageModel||""} onChange={e=>set({imageModel:e.target.value})} placeholder={tr("Automatic — the first picture model available")}/></label>
         <details className="mediaProviderSettings" open><summary>{tr("Picture providers")}</summary>
@@ -1651,7 +1673,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         </details>
         <p className="settingsHelp">{tr("When you ask for a picture, {brand} tries the providers in the order set, puts the real file in the chat and saves it in the Library.",{brand:BRAND_NAME})}</p>
       </>}
-      {tab==="video"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Play size={22}/></div><div><Rise tag="h3">{tr("Video")}</Rise><p>{tr("Video generation, APIs, models and trying another provider on its own.")}</p></div></div>
+      {tab==="video"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Play size={22}/></div><div><h3>{tr("Video")}</h3><p>{tr("Video generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="video" cfg={cfg} set={set} paidOff={cfg.videoCostPolicy!=="allow_paid"||cfg.videoMode==="free"}/>
         <label>{tr("Video mode")}<select value={cfg.videoMode||"fast"} onChange={e=>{const videoMode=e.target.value;const quality=videoMode==="quality";set({videoMode,videoModel:quality?"bytedance/seedance-2.5":"bytedance/seedance-2.0-fast",openRouterVideoModel:quality?"bytedance/seedance-2.5":"bytedance/seedance-2.0-fast",geminiVideoModel:quality?"veo-3.1-generate-preview":"veo-3.1-fast-generate-preview"})}}><option value="fast">{tr("⚡ Fast")}</option><option value="quality">{tr("🎬 Quality")}</option><option value="free">{tr("🛡️ Free only")}</option></select></label>
         <label>{tr("Cost protection")}<select value={cfg.videoCostPolicy||"free_only"} onChange={e=>set({videoCostPolicy:e.target.value})}><option value="free_only">{tr("Do not start paid jobs")}</option><option value="allow_paid">{tr("Allow paid providers")}</option></select></label>
@@ -1676,14 +1698,14 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <label>{tr("Replicate video model")}<input value={cfg.replicateVideoModel||"wan-video/wan-2.2-t2v-fast"} onChange={e=>set({replicateVideoModel:e.target.value})}/></label>
         <p className="settingsHelp">{tr("When you ask for a video, {brand} tries the providers in order, downloads the real MP4 file, puts it in the chat and saves it in the Library.",{brand:BRAND_NAME})}</p>
       </>}
-      {tab==="voice"&&cfg&&<><Rise tag="h3">{tr("Voice and microphone")}</Rise>
+      {tab==="voice"&&cfg&&<><h3>{tr("Voice and microphone")}</h3>
         <label>{tr("Language for dictation, transcription and reading aloud")}<select value={cfg.speechLanguage||"ro"} onChange={e=>set({speechLanguage:e.target.value})}><option value="ro">Română</option><option value="en">English</option><option value="fr">Français</option></select></label>
         {machineSettingsAllowed&&<label>{tr("Transcription model")}<input value={cfg.speechModel||"openai/whisper-1"} onChange={e=>set({speechModel:e.target.value})}/></label>}
         <button type="button" className="secondary testMicBtn" onClick={testMic}><Mic size={16}/> {tr("Test the microphone")}</button>{micStatus&&<div className="micStatus" role="status">{micStatus}</div>}
         <p className="settingsHelp">{tr("Press the microphone once to start recording and again to stop. {brand} writes out what you said and sends it.",{brand:BRAND_NAME})}</p>
       </>}
       {tab==="notify"&&<NotifyTab account={account}>{webServer&&<PhoneNotifications/>}</NotifyTab>}
-      {tab==="account"&&cfg&&<><Rise tag="h3">{tr("Owner on this PC")}</Rise>
+      {tab==="account"&&cfg&&<><h3>{tr("Owner on this PC")}</h3>
         <div className="accountSettingsCard"><div className="accountAvatar big">{(user?.name||user?.email||"S")[0].toUpperCase()}</div><div><b>{user?.name||tr("{brand} account",{brand:BRAND_NAME})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div></div>
         <p className="settingsHelp">{IS_WEB?tr("Chats, memory, the library, designs, projects, apps and automations are kept on the {brand} server.",{brand:BRAND_NAME}):tr("Chats, memory, the library, designs, projects, apps and automations are kept on this computer.")}</p>
         {machineSettingsAllowed&&!webServer&&<>
@@ -2315,13 +2337,12 @@ function App() {
   function openTool(name,filter){
     if(name==="automations"&&!can("automations")){deny("automations");return}
     if(name==="design"&&!can("document_generation")){deny("document_generation");return}
-    if(name==="plugins"&&!can("plugins")){deny("plugins");return}
     if(name==="admin"&&!isOwner)return;
     if(name==="code"&&!can("code")){deny("code");return}
     setSidebar(false);setToolPanel({name,filter});
   }
   function closeTool(){
-    if(toolPanel?.name==="plugins"||toolPanel?.name==="automations")setMentionsVersion(v=>v+1);
+    if(toolPanel?.name==="extensions"||toolPanel?.name==="automations")setMentionsVersion(v=>v+1);
     setToolPanel(null);
   }
   function attachFromLibrary(a){setAttachments(v=>[...v,a])}
@@ -2394,7 +2415,7 @@ function App() {
       <InstallApp banner/>
       {loadError&&<div className="loadErrorBanner" role="alert"><span>Nu am putut încărca datele: {loadError}</span><button onClick={()=>loadData()}>Reîncearcă</button>{GATEWAY!==DEFAULT_GATEWAY&&<button onClick={resetGatewayAndReload}>Folosește serviciul local implicit</button>}</div>}
       {updateReady&&!updateDismissed&&<div className="updateBanner" role="status"><button className="updateInstall" onClick={()=>window.Serasmart?.installUpdate?.()}>Actualizare {BRAND_NAME} disponibilă — instalează acum</button><button className="updateClose" onClick={()=>setUpdateDismissed(true)} aria-label="Ascunde notificarea" title="Mai târziu"><X size={14}/></button></div>}
-      <div className="chatScroll" ref={chatRef} onScroll={updateChatScrollState}><ConversationView user={user} onPick={(text,mode)=>{if(mode)setMediaMode(mode);else{setMediaMode(null);setDraft(text)}}} conversation={current} busy={busy} busyStage={currentGen?.stage} busySteps={currentGen?.steps||[]} onRegenerate={regenerate} onRate={rate} canRunCode={isOwner} onCodeResult={text=>setDraft(v=>(v?v+"\n\n":"")+text)} onAnswer={text=>send(text)} onOpenSettings={tab=>setSettings(tab||true)}/></div>
+      <div className="chatScroll" ref={chatRef} onScroll={updateChatScrollState}><ConversationView user={user} recentTitle={conversations.find(c=>c.id!==currentId&&!c.archived&&(c.messages||[]).length)?.title} onPick={(text,mode)=>{if(mode)setMediaMode(mode);else{setMediaMode(null);setDraft(text)}}} conversation={current} busy={busy} busyStage={currentGen?.stage} busySteps={currentGen?.steps||[]} onRegenerate={regenerate} onRate={rate} canRunCode={isOwner} onCodeResult={text=>setDraft(v=>(v?v+"\n\n":"")+text)} onAnswer={text=>send(text)} onOpenSettings={tab=>setSettings(tab||true)}/></div>
       {showJumpBottom&&hasMessages&&<button className="jumpToLatest" onClick={()=>jumpToLatest({smooth:true})} title={tr("Go to the latest message")} aria-label={tr("Go to the latest message")}><ChevronDown size={19}/><span>{tr("Latest message")}</span></button>}
       <Composer centered={!hasMessages} draft={draft} setDraft={setDraft} onSend={send} onStop={stopGeneration} busy={busy} attachments={attachmentsState} setAttachments={setAttachments} onOpenLibrary={()=>openTool("library","all")} responseMode={responseMode} setResponseMode={setResponseMode} mediaMode={mediaModeState} setMediaMode={setMediaMode} mentionsVersion={mentionsVersion} mediaPolicy={{imagePaid:machineCfgRef.current?.imageCostPolicy==="allow_paid"}}/>
     </main>
@@ -2403,12 +2424,11 @@ function App() {
     {toolPanel?.name==="explore"&&<ExplorePanel onClose={closeTool} assistants={assistants} onUseAssistant={startWithAssistant} onImageMode={startImageMode} onOpenLibrary={filter=>openTool("library",filter)}/>}
     {toolPanel?.name==="library"&&<LibraryPage onClose={closeTool} onAttach={attachFromLibrary} toAttachment={libraryItemToAttachment} initialFilter={toolPanel.filter||"all"} onOpenDesign={id=>openTool("design",id)}/>}
     {toolPanel?.name==="design"&&can("document_generation")&&<DesignPage onClose={closeTool} model={model} models={models} initialId={toolPanel.filter||null}/>}
-    {toolPanel?.name==="skills"&&<SkillsPage onClose={closeTool}/>}
     {toolPanel?.name==="usage"&&<UsagePage onClose={closeTool}/>}
     {creditsDialog&&<CreditsDialog info={creditsDialog} onClose={()=>setCreditsDialog(null)} onBuy={()=>{setCreditsDialog(null);openTool("usage")}}/>}
     {toolPanel?.name==="memory"&&<MemoryPage onClose={closeTool} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy}/>}
     {toolPanel?.name==="admin"&&isOwner&&<AdminPanel onClose={closeTool}/>}
-    {toolPanel?.name==="plugins"&&can("plugins")&&<PluginsPage onClose={closeTool}/>}
+    {toolPanel?.name==="extensions"&&<ExtensionsPage onClose={closeTool} initialTab={toolPanel.filter}/>}
     {can("plugins")&&<PendingApprovals currentConversationId={currentId} onOpenConversation={id=>{if(id){setCurrentId(id);closeTool?.()}}}/>}
     {toolPanel?.name==="code"&&can("code")&&<CodePage onClose={closeTool} onStart={startCode}/>}
     {toolPanel?.name==="automations"&&can("automations")&&<ScheduledPage onClose={closeTool} model={model} models={models}/>}
@@ -2418,5 +2438,4 @@ function App() {
   </div></AccessContext.Provider>;
 }
 document.title=BRAND_NAME;
-startDotRingCursor();
 createRoot(document.getElementById("root")).render(<ErrorBoundary><App/><AccessRequestDialog/></ErrorBoundary>);

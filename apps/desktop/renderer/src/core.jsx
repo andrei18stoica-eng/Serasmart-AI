@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Rise } from "./riseText.jsx";
 import ReactMarkdown from "react-markdown";
 import { prepareMath, mathFromCode, mathFromPre } from "./math.jsx";
 import remarkGfm from "remark-gfm";
@@ -243,12 +242,12 @@ export function useDismiss(open,onClose,ref){
 }
 export function ToolShell({title,subtitle,label,onClose,children,className="",actions=null}) {
   const {ref,backdropProps}=useModal(onClose);
-  return <div className="modalBackdrop" {...backdropProps}><div className={cx("toolModal",className)} ref={ref} role="dialog" aria-modal="true" aria-label={title||label||"Panou"} tabIndex={-1}><div className="toolHead"><div><Rise tag="h2">{title}</Rise>{subtitle&&<p>{subtitle}</p>}</div>{actions&&<div className="toolHeadActions">{actions}</div>}<button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={20}/></button></div>{children}</div></div>;
+  return <div className="modalBackdrop" {...backdropProps}><div className={cx("toolModal",className)} ref={ref} role="dialog" aria-modal="true" aria-label={title||label||"Panou"} tabIndex={-1}><div className="toolHead"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div>{actions&&<div className="toolHeadActions">{actions}</div>}<button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={20}/></button></div>{children}</div></div>;
 }
 export function Modal({title,subtitle,onClose,className="modal",children}) {
   const {ref,backdropProps}=useModal(onClose);
   return <div className="modalBackdrop" {...backdropProps}><div className={className} ref={ref} role="dialog" aria-modal="true" aria-label={title} tabIndex={-1}>
-    <div className="modalHead"><div><Rise tag="h2">{title}</Rise>{subtitle&&<p>{subtitle}</p>}</div><button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={20}/></button></div>
+    <div className="modalHead"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div><button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={20}/></button></div>
     {children}
   </div></div>;
 }

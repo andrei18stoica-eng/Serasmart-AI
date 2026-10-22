@@ -254,6 +254,8 @@ function toProviderMessages(messages,extra={}){
     if(!m||!["user","assistant","system"].includes(m.role)||m.error||m.mediaGenerationError)return null;
     let content=m.content;
     if(m.role==="assistant"&&typeof content==="string"&&!content.trim()&&m.attachmentOnly)content=String(m.artifactSource||"");
+    // 0.7.30: a file the AI made shows one line in the chat; the AI still sees the file's text, so it can change it later.
+    if(m.role==="assistant"&&m.artifactSource&&(m.attachments||[]).some(x=>x?.source==="ai-export"||x?.format))content=`${String(m.content||"").split("\n")[0]}\n\n${String(m.artifactSource)}`;
     if(m.role==="assistant"&&m.mediaKind&&m.attachments?.length&&!String(content||"").trim())content=`Am generat ${m.mediaKind==="video"?"videoclipul":"imaginea"} „${m.attachments[0]?.name||"fișier"}”.`;
     const more=extra[m.id];
     if(more?.length)content=[...(Array.isArray(content)?content:(String(content||"").trim()?[{type:"text",text:String(content)}]:[])),...more];
@@ -2151,8 +2153,12 @@ function App() {
         if(routeInfo?.model&&!routeInfo.servedBy&&typeof j?.model==="string"&&j.model&&!j.model.includes(String(routeInfo.model).split("/").pop()))routeInfo={...routeInfo,servedBy:j.model};
         const delta=j?.choices?.[0]?.delta?.content||j?.choices?.[0]?.message?.content||"";
         if(delta){
-          if(!started){started=true;setGen(convId,{stage:format?`Scrie conținutul pentru fișierul ${format.toUpperCase()}…`:"Scrie răspunsul…"})}
-          answer+=delta;working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns}:{}),content:answer,streaming:true}]};scheduleFlush();
+          if(!started){started=true;setGen(convId,{stage:format?tr("Writing your {format} file…",{format:format.toUpperCase()}):"Scrie răspunsul…"})}
+          answer+=delta;
+          // 0.7.30: a file request does not fill the chat with the file's text; the file comes as a card when it is ready.
+          const shown=format&&!/```intrebari/.test(answer)?"":answer;
+          if(format)setGen(convId,{stage:tr("Writing your {format} file… {n} words",{format:format.toUpperCase(),n:answer.trim().split(/\s+/).length})});
+          working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns}:{}),content:shown,streaming:true}]};scheduleFlush();
         }
       };
       const reader=r.body.getReader(),dec=new TextDecoder();let buf="";
@@ -2186,7 +2192,10 @@ function App() {
       }
       clearTimeout(flushTimer);
       const doneRuns=toolRuns.map(({args,...r})=>r);
-      working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:(answer||"Nu am primit răspuns.")+note,attachments:files,streaming:false}],updatedAt:Date.now()};
+      // The file's text stays with the message (artifactSource, used when the file is changed later); the chat shows one line.
+      const madeFile=files[0];
+      const shownText=madeFile?tr("Here is your {format} file: {name}",{format:format.toUpperCase(),name:madeFile.name||""})+note:(answer||"Nu am primit răspuns.")+note;
+      working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:shownText,...(madeFile?{artifactSource:answer}:{}),attachments:files,streaming:false}],updatedAt:Date.now()};
       showConversation(working);
       const saved=await saveConversation(working);
       api("/api/memory/capture",{method:"POST",body:JSON.stringify({conversationId:saved.id,userText:messageText(lastUser),assistantText:answer})}).catch(()=>{});

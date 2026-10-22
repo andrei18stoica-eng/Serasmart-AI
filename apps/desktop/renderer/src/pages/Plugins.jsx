@@ -108,7 +108,9 @@ const PLUGIN_CATALOG=[
   ["Other","Steer Astro","Personal AI astrologer","@steerastro","◎"]
 ].map(([group,name,description,trigger,mark,slug])=>({group,name,description,trigger,mark,slug}))
   // 0.7.30: these are connectors now (Extensions → Connectors, each person signs in with their own account).
-  .filter(x=>!CONNECTOR_APPS.has(x.name));
+  .filter(x=>!CONNECTOR_APPS.has(x.name))
+  // 0.7.30 (approved by the Owner): only entries that work; names with nothing behind them («API only») are gone.
+  .filter(x=>PLUGIN_APP_LINKS[x.name]||PLUGIN_OAUTH[x.name]);
 const PLUGIN_GROUPS=["Popular","New and notable","Productivity","Communication","Creativity","Developer tools","Health","Entertainment","Education","Business and operations","Data and analytics","Scientific research","Security","Other"];
 const SKILLS=[
   {name:"Web search",description:"Searches current information and online sources.",mark:"W",perm:"web_search"},

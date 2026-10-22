@@ -8,7 +8,7 @@ export function isQuestion(t){return t.includes("?")||QUESTION_START.test(t);}
 export const FILE_FORMATS=["pdf","docx","pptx","xlsx","csv","json","md","txt","html","xml","rtf","zip","ipynb","svg","js","ts","jsx","tsx","py","java","c","cpp","cs","go","rs","php","rb","sh","ps1","sql","css","yaml","yml","toml","ini","tex"];
 const FILE_VERB=/^(?:te rog,? )?(trimite(?:-mi)?|da-mi|dami|exporta(?:-mi)?|salveaza(?:-mi)?|fa-mi|fami|creeaza(?:-mi)?|genereaza(?:-mi)?|descarca(?:-mi)?|pune(?:-mi)?|transforma|converteste|export|save|make|create|generate|download|send)\b/;
 export const FORMAT_CANDIDATES=[
-  ["pptx",/\bpptx\b|powerpoint|prezentare|presentation|slide deck|\bslides\b/],["docx",/\bdocx\b|\bword\b/],["xlsx",/\bxlsx\b|\bexcel\b|foaie de calcul|spreadsheet/],
+  ["pptx",/\bpptx?\b|powerpoint|prezentare|presentation|slide deck|\bslides\b/],["docx",/\bdocx?\b|\bword\b/],["xlsx",/\bxlsx?\b|\bexcel\b|foaie de calcul|spreadsheet/],
   ["pdf",/\bpdf\b/],["csv",/\bcsv\b/],["json",/\bjson\b/],["html",/\bhtml\b/],["xml",/\bxml\b/],["rtf",/\brtf\b/],
   ["zip",/\bzip\b|arhiva/],["ipynb",/\bipynb\b|jupyter|notebook/],["svg",/\bsvg\b/],["md",/\bmarkdown\b|\bmd\b/],["txt",/\btxt\b|text simplu/],
   ["py",/\bpython\b/],["js",/\bjavascript\b/],["ts",/\btypescript\b/],["ps1",/\bpowershell\b/],["sql",/\bsql\b/],["yaml",/\byaml\b/],["tex",/\blatex\b/],
@@ -19,7 +19,9 @@ export const FORMAT_CANDIDATES=[
 // so "scrie un articol despre formatul PDF" or "vreau să știu cum export în Excel" stay text.
 const MAKE="(?:faci|generezi|creezi|scrii|trimiti|pregatesti|redactezi|exporti|pui|face|genera|crea|scrie|trimite|pregati|pune)";
 const ASK=new RegExp("^(?:te rog,? )?(?:(?:vreau|as vrea|am nevoie de|imi trebuie)(?:\\s+sa\\s+(?:imi\\s+)?"+MAKE+")?|(?:poti|ai putea|puteti|imi poti|mi ai putea|ma poti ajuta)\\s+(?:sa\\s+)?(?:(?:imi|mi)\\s+)?"+MAKE+"|imi (?:faci|scrii|pregatesti|generezi|creezi)|(?:fa|scrie|redacteaza|pregateste|realizeaza|compune)(?:\\s+mi)?)\\s+(?!sa\\b|cum\\b|daca\\b|ce\\b)");
-const FORMAT_SLOT=new RegExp("\\b(?:in|ca|un|o|intr un|niste|document|fisier|tabel|format|foaie)\\s+(?:(?:document|fisier|tabel|format)\\s+)?(?:word|excel|powerpoint|prezentare|"+FILE_FORMATS.join("|")+")\\b");
+const FORMAT_SLOT=new RegExp("\\b(?:in|ca|un|o|intr un|niste|document|fisier|tabel|format|foaie)\\s+(?:(?:document|fisier|tabel|format)\\s+)?(?:word|excel|powerpoint|prezentare|ppt|doc|xls|"+FILE_FORMATS.join("|")+")\\b");
+// 0.7.30: a message that starts with the file to make: "pptx despre vulcani", "în pptx te rog despre…", "o prezentare despre…".
+const STARTS_WITH_FILE=/^(?:te rog,? )?(?:(?:in|ca|un|o|a|an)\s+)?(?:pptx?|docx?|xlsx?|pdf|word|excel|powerpoint|prezentare|presentation)\b(?:\s+te rog)?\s+(?:despre|cu|pentru|de|about|on|with|for)\b/;
 // The same in English (0.7.29): "can you make me a presentation…?", "I want a PDF with…", "please make a pdf", "write an
 // essay in Word", "turn this into a PDF". The format must be named as the thing to make ("a PDF", "in Word", "into a
 // spreadsheet"), so "write an article about the PDF format" or "I need help with Excel" stay text.
@@ -33,7 +35,7 @@ export function requestedDocumentFormat(value){
   const found=explicit?[explicit[1]]:FORMAT_CANDIDATES.find(([,re])=>re.test(t));
   if(!found)return null;
   const onlyFormat=new RegExp("^(in |ca )?("+found[0]+"|word|powerpoint|excel|markdown|python|javascript|typescript|jupyter|notebook)( te rog)?[.!]?$");
-  if(!isQuestion(t)&&(FILE_VERB.test(t)||onlyFormat.test(t)))return found[0];
+  if(!isQuestion(t)&&(FILE_VERB.test(t)||onlyFormat.test(t)||STARTS_WITH_FILE.test(t)))return found[0];
   const u=t.replace(/\bsa-mi\b/g,"sa imi").replace(/-mi\b/g," mi").replace(/[-,]/g," ").replace(/\s+/g," ");
   if(ASK.test(u)&&FORMAT_SLOT.test(u))return found[0];
   return ASK_EN.test(u)&&FORMAT_SLOT_EN.test(u)?found[0]:null;

@@ -1069,7 +1069,10 @@ export const LOCALES = {
   "Monday again. Let's set the week up.": "Iar luni. Hai să pregătim săptămâna.",
   "Almost the weekend. What should we close before it?": "Aproape weekend. Ce închidem înainte?",
   "Friday. Let's finish the week well.": "Vineri. Hai să încheiem săptămâna bine.",
-  "Shall we continue with «{title}»?": "Continuăm cu «{title}»?"
+  "Shall we continue with «{title}»?": "Continuăm cu «{title}»?",
+  "Writing your {format} file…": "Scriu fișierul {format}…",
+  "Writing your {format} file… {n} words": "Scriu fișierul {format}… {n} cuvinte",
+  "Here is your {format} file: {name}": "Iată fișierul {format}: {name}"
  },
  "es": {
   "AI model: {model}": "Modelo de IA: {model}",

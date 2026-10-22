@@ -1,9 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { startDotRingCursor } from "./cursor.js";
+import { Rise } from "./riseText.jsx";
 import { createRoot } from "react-dom/client";
 import {
   Menu, Plus, Search, Folder, Bot, Settings, LogOut, Share2, MoreHorizontal,
   Paperclip, Mic, ArrowUp, Copy, ThumbsUp, ThumbsDown, RotateCcw, X,
-  ChevronDown, User, Check, Wifi, WifiOff, Sparkles, SquarePen, Square,
+  ChevronDown, User, Check, Wifi, Sparkles, SquarePen, Square,
   CalendarClock, Plug, Library, Brain, Upload, Trash2, Play, Pin, PinOff,
   FileText, Image as ImageIcon, HardDrive, ToggleLeft, ToggleRight,
   Compass, Map as MapIcon, Globe2, Archive, ArchiveRestore, ExternalLink, SlidersHorizontal, Volume2,
@@ -29,8 +31,9 @@ import { AccessRequestDialog, PhoneNotifications } from "./accessRequest.jsx";
 import { ScheduledPage } from "./pages/Scheduled.jsx";
 import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
-import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat } from "./documentIntent.mjs";
+import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat } from "./documentIntent.mjs";
 import { PluginsPage } from "./pages/Plugins.jsx";
+import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
 import { SkillsPage } from "./pages/Skills.jsx";
 import { UsagePage, CreditsDialog } from "./pages/Usage.jsx";
@@ -39,6 +42,8 @@ import { LibraryPage } from "./pages/Library.jsx";
 import { DesignPage } from "./pages/Design.jsx";
 import { splitQuestions, QuestionCard, QuestionsPending } from "./questions.jsx";
 import { BRAND_NAME, BRAND_SHORT, BRAND_DOMAIN } from "./brand.js";
+// 0.7.29: loaded only when the microphone is used.
+const VoiceOrb=React.lazy(()=>import("./voiceOrb.jsx"));
 
 let DICTATION_LANG = "ro";
 const SPEECH_LOCALES = {ro:"ro-RO",en:"en-US",fr:"fr-FR"};
@@ -133,6 +138,22 @@ async function exportMessageFile(message,format,title) {
   await downloadGeneratedFile(d.data);
 }
 
+// The last file the AI made in this chat (its format), so "add a slide" or "translate it" changes that file (0.7.29).
+function lastMadeFormat(messages){
+  for(const m of [...(messages||[])].reverse()){
+    if(m.role!=="assistant")continue;
+    const f=(m.attachments||[]).find(a=>a?.source==="ai-export"||a?.format);
+    if(f)return String(f.format||String(f.name||"").split(".").pop()||"").toLowerCase()||null;
+  }
+  return null;
+}
+// What file a message asks for: a new one ("make a PDF…") or a change to the attached / last made one.
+function fileRequestFor(text,attachmentNames,messages){
+  const made=requestedDocumentFormat(text);
+  if(made)return {format:made,edit:false};
+  const edited=editedDocumentFormat(text,attachmentNames,lastMadeFormat(messages));
+  return edited?{format:edited,edit:true,source:attachmentNames.find(n=>String(n||"").toLowerCase().endsWith("."+edited))||""}:null;
+}
 function answerFormat(answerText,messages){
   const request=[...messages].reverse().find(m=>m.role==="user");
   const original=request?requestedDocumentFormat(messageText(request)):null;
@@ -305,7 +326,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
   }
   function resetGateway(){setGatewayUrl(DEFAULT_GATEWAY);Promise.resolve(window.Serasmart?.setConfig?.({gatewayUrl:DEFAULT_GATEWAY})).catch(()=>{});setNetworkIssue(false);setError("");setNotice(tr("Back to the default local service. Try signing in again."));}
   return <div className="authShell"><div className="authGlow"/><div className="authTopTools"><ThemeSwitch/><LanguageMenu/></div>
-    <div className="authBrand"><img src="./serasmart-ai-768.webp" alt={`${BRAND_NAME}`}/><h1>{BRAND_NAME}</h1><p>{tr("Your AI, every model")}</p>
+    <div className="authBrand"><img src="./serasmart-ai-768.webp" alt={`${BRAND_NAME}`}/><Rise tag="h1">{BRAND_NAME}</Rise><p>{tr("Your AI, every model")}</p>
       <div className="authFeature"><Sparkles size={17}/> {tr("Chat with every top AI, memory, files, pictures, video and automations.")}</div>
       <div className="authFeature"><Wifi size={17}/> {tr("Your apps connected: the AI reads and works in them with your approval.")}</div>
       <div className="authFeature"><User size={17}/> {tr("A personal account, confirmed by email and protected by your password.")}</div>
@@ -313,7 +334,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
     <form className="authCard" onSubmit={submit}>
       <div className="authTabs" role="tablist"><button type="button" role="tab" aria-selected={mode==="login"} className={mode==="login"?"active":""} onClick={()=>{setMode("login");setError("");}}>{tr("Sign in")}</button><button type="button" role="tab" aria-selected={mode==="register"} className={mode==="register"?"active":""} onClick={()=>{setMode("register");setError("");setNotice("");}}>{tr("Create account")}</button></div>
       {mode==="verify"?<>
-      <h2>{tr("Confirm your email")}</h2>
+      <Rise tag="h2">{tr("Confirm your email")}</Rise>
       <p className="muted">{tr("We sent a 6-digit code to {email}. If you do not see it, look in Spam. The code expires in 15 minutes.",{email})}</p>
       <label>{tr("Code from the email")}<input value={code} onChange={e=>setCode(e.target.value.replace(/\D/g,"").slice(0,6))} placeholder="123456" inputMode="numeric" autoComplete="one-time-code" pattern="\d{6}" maxLength={6} required autoFocus className="codeInput"/></label>
       {notice&&<div className="authNotice" role="status"><UserCheck size={17}/><span>{notice}</span></div>}
@@ -321,7 +342,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
       <button className="primaryWide" disabled={busy||code.length!==6}>{busy?tr("Working…"):tr("Confirm email")}</button>
       <div className="codeActions"><button type="button" className="linkBtn" disabled={busy||resendIn>0} onClick={resendCode}>{resendIn>0?tr("Send the code again ({s}s)",{s:resendIn}):tr("Send the code again")}</button><button type="button" className="linkBtn" onClick={()=>{setMode("login");setError("");setNotice("")}}>{tr("Back")}</button></div>
       </>:<>
-      <h2>{mode==="login"?tr("Welcome back"):tr("Create your {brand} account",{brand:BRAND_NAME})}</h2>
+      <Rise tag="h2">{mode==="login"?tr("Welcome back"):tr("Create your {brand} account",{brand:BRAND_NAME})}</Rise>
       <p className="muted">{mode==="register"?(cloud?tr("You get a code by email to confirm the address, then the Owner approves the account."):IS_WEB?tr("The account is created on the {brand} server.",{brand:BRAND_NAME}):tr("The account is created on this computer and you can use it right away.")):tr("Use the email of your {brand} account.",{brand:BRAND_NAME})}</p>
       {mode==="register"&&<label>{tr("Name")}<input value={name} onChange={e=>setName(e.target.value)} placeholder={tr("Your name")} autoComplete="name"/></label>}
       <label>{tr("Email")}<input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="name@example.com" required autoComplete="email"/></label>
@@ -337,7 +358,10 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
   </div>;
 }
 
-function BrandMark({small=false}) { return <div className={cx("brandMark",small&&"small")}><img src="./serasmart-ai-mark.webp" alt={`${BRAND_NAME}`}/></div>; }
+function localZone(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch{return ""}}
+// 0.7.29: only the S (no name), animated as designed in Figma («S emblem — motion storyboard»): a slow glow and a
+// light sweep at rest, a faster pulse while the AI answers (html[data-thinking]); still with «reduce motion».
+function BrandMark({small=false}) { return <div className={cx("brandMark brandS",small&&"small")}><img src="./serasmart-s.webp" alt={`${BRAND_NAME}`} draggable="false"/></div>; }
 
 // 0.7.26: the order of the approved mockup; labels in English, shown through tr().
 const TOOL_ITEMS=[["explore",Compass,"Explore",null],["library",Library,"Library",null],["plugins",Plug,"Apps","plugins"],["skills",Sparkles,"Skills",null],["automations",CalendarClock,"Automations","automations"],["design",Palette,"Design","document_generation"],["memory",Brain,"Memory",null],["code",SquareTerminal,"Code","code"],["usage",Gauge,"Usage",null]];
@@ -539,7 +563,12 @@ function Header({deniedCount,lockedModels=[],onMenu,model,onSelectModel,models,o
     <button className="iconOnly menuBtn" onClick={onMenu} aria-label={tr("Show or hide the menu")} title={tr("Menu")}><Menu size={20}/></button>
     <ModelPicker model={model} onSelect={onSelectModel} models={models} onRefresh={onRefreshModels} refreshing={refreshingModels} policyEnforced={policyEnforced} deniedCount={deniedCount} locked={lockedModels}/>
     <div className="topSpacer"/>
-    {showOmni&&<div className={cx("connection",omni===true?"ok":"bad")} title={omni===true?tr("OmniRoute is answering."):omni==="key"?tr("OmniRoute is running but needs an API key: make one in OmniRoute → API Manager and put it in Settings → AI & OmniRoute. Until then the direct APIs (Groq, Gemini…) answer, if you pick them in the list."):tr("OmniRoute is not answering. Pick a model from a direct API (Groq, Gemini…) in the list, or turn on the automatic fallback.")}>{omni===true?<Wifi size={15}/>:<WifiOff size={15}/>} {omni===true?tr("OmniRoute connected"):omni==="key"?tr("OmniRoute needs an API key"):omni==="offline"?tr("Can't reach the server, reconnecting…"):tr("OmniRoute stopped")}</div>}
+    {showOmni&&(()=>{
+      // 0.7.29: only a dot, green when the AI service answers and red when not; the explanation is in the tooltip.
+      const label=omni===true?tr("OmniRoute connected"):omni==="key"?tr("OmniRoute needs an API key"):omni==="offline"?tr("Can't reach the server, reconnecting…"):tr("OmniRoute stopped");
+      const help=omni===true?tr("OmniRoute is answering."):omni==="key"?tr("OmniRoute is running but needs an API key: make one in OmniRoute → API Manager and put it in Settings → AI & OmniRoute. Until then the direct APIs (Groq, Gemini…) answer, if you pick them in the list."):omni==="offline"?"":tr("OmniRoute is not answering. Pick a model from a direct API (Groq, Gemini…) in the list, or turn on the automatic fallback.");
+      return <span className={cx("statusDot",omni===true?"ok":"bad")} role="status" aria-label={label} title={help?`${label}. ${help}`:label}/>;
+    })()}
     <ThemeSwitch/>
     <LanguageMenu/>
     <button className="topAction" onClick={onShare} disabled={!current} title={tr("Copy the chat to the clipboard")}><Share2 size={16}/> <span>{tr("Copy chat")}</span></button>
@@ -701,7 +730,7 @@ function Welcome({user,onPick}) {
   const first=String(user?.name||"").trim().split(/\s+/)[0];
   return <div className="welcome">
     <BrandMark/>
-    <h1>{first?tr(part+", {name}",{name:first}):tr(part)}</h1>
+    <Rise tag="h1">{first?tr(part+", {name}",{name:first}):tr(part)}</Rise>
     <p>{tr("What are we working on today?")}</p>
     <div className="welcomeStarts">{WELCOME_STARTS.map(([Icon,label,text,mode])=><button key={label} onClick={()=>onPick?.(text?tr(text):"",mode)}><Icon size={15}/>{tr(label)}</button>)}</div>
   </div>;
@@ -756,6 +785,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
       const nextUser=questions&&!questions.pending?conversation.messages.slice(i+1).find(x=>x.role==="user"):null;
       return <div key={m.id||i} className={cx("assistantBlock",(m.error||m.mediaGenerationError)&&"errorMessage")}><div className="assistantMark" aria-hidden="true">S</div><div className="assistantBody copyByRightClick" onContextMenu={e=>openCopyMenu(e,m)}>
         {m.routeInfo&&<RouteBadge info={m.routeInfo}/>}
+        {m.toolRuns?.length>0&&<div className="toolRuns">{m.toolRuns.map(r=><ToolRunCard key={r.id} run={r}/>)}</div>}
         {questions?<>
           {questions.before.trim()&&<Markdown text={questions.before}/>}
           {questions.pending?<QuestionsPending/>:<QuestionCard key={m.id||i} questions={questions.questions} answeredWith={nextUser?messageText(nextUser):null} disabled={busy} onSubmit={onAnswer}/>}
@@ -1039,6 +1069,7 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
   return <div className={cx("composerDock",centered&&"centered")} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
     {mentionOptions.length>0&&<div className="mentionMenu" role="listbox" aria-label={tr("Apps and automations")}>{mentionOptions.map((x,i)=><button key={x.type+x.trigger+i} role="option" aria-selected={i===mentionIndex} className={cx(i===mentionIndex&&"active")} onMouseDown={e=>e.preventDefault()} onClick={()=>insertMention(x)}><span className={cx("mentionType",x.type)}>{x.type==="plugin"?<Plug size={14}/>:<CalendarClock size={14}/>}</span><span><b>{x.name}</b><small>{x.type==="plugin"?tr("App"):tr("Automation")} · {x.trigger}</small></span></button>)}</div>}
     <div className={cx("composerCard",dragOver&&"dragOver")}>
+      {(recording||transcribing)&&<Suspense fallback={null}><VoiceOrb phase={transcribing?"thinking":"listening"} stream={streamRef.current}/></Suspense>}
       {dragOver&&<div className="dropHint">{uploadLocked?deniedMessage("file_upload"):tr("Drop to attach the files")}</div>}
       {attachments.length>0&&<div className="attachmentTray">{attachments.map((a,i)=><TrayChip key={(a.libraryId||a.name)+i} attachment={a} onRemove={()=>setAttachments(v=>v.filter((_,j)=>j!==i))}/>)}</div>}
       <input ref={fileInput} type="file" hidden multiple onChange={filesChosen}/>
@@ -1182,7 +1213,7 @@ function AdminPanel({onClose}) {
           {!selected?<div className="seraPluginEmpty">Selectează un utilizator.</div>:<>
             <div className="adminIdentity">
               <div className="accountAvatar big">{(selected.name||selected.email||"U")[0].toUpperCase()}</div>
-              <div><h3>{selected.name||"Utilizator"}</h3><p>{selected.email}</p><small>{selected.role==="owner"?"Owner":"Utilizator"} · {ADMIN_STATUS_LABELS[selected.status]||selected.status} · {plural(Number(selected.active_sessions||0),"sesiune activă","sesiuni active")}</small></div>
+              <div><Rise tag="h3">{selected.name||"Utilizator"}</Rise><p>{selected.email}</p><small>{selected.role==="owner"?"Owner":"Utilizator"} · {ADMIN_STATUS_LABELS[selected.status]||selected.status} · {plural(Number(selected.active_sessions||0),"sesiune activă","sesiuni active")}</small></div>
             </div>
             {selected.role!=="owner"&&<div className="adminApprovalActions">
               {selected.status!=="active"&&<button className="primary" onClick={()=>setStatus(selected,"active")} disabled={actionBusy}><Check size={15}/> Aprobă / Reactivează</button>}
@@ -1191,7 +1222,7 @@ function AdminPanel({onClose}) {
               {selected.status==="pending"&&<button className="secondary" onClick={()=>setStatus(selected,"rejected")} disabled={actionBusy}><X size={15}/> Respinge</button>}
               <button className="secondary" onClick={()=>revokeSessions(selected)} disabled={actionBusy}>Închide sesiunile</button>
             </div>}
-            <div className="adminPermissionHead"><div><h4>Permisiuni</h4><p>Se aplică pe server pentru acest cont.</p></div></div>
+            <div className="adminPermissionHead"><div><Rise tag="h4">Permisiuni</Rise><p>Se aplică pe server pentru acest cont.</p></div></div>
             <div className="adminPermissions">
               {Object.entries(permissionLabels).map(([key,label])=>{
                 const checked=selected.role==="owner"?true:selected.permissions?.[key]===true;
@@ -1203,7 +1234,7 @@ function AdminPanel({onClose}) {
               })}
             </div>
             {selected.role!=="owner"&&<>
-              <div className="adminPermissionHead"><div><h4>Modele AI pentru acest cont</h4><p>«Implicit» urmează permisiunile de mai sus; «Activat» deschide modelul chiar dacă permisiunile îl țin închis; «Blocat» îl închide. Abonamentele personale ale Owner-ului rămân doar ale lui.</p></div></div>
+              <div className="adminPermissionHead"><div><Rise tag="h4">Modele AI pentru acest cont</Rise><p>«Implicit» urmează permisiunile de mai sus; «Activat» deschide modelul chiar dacă permisiunile îl țin închis; «Blocat» îl închide. Abonamentele personale ale Owner-ului rămân doar ale lui.</p></div></div>
               {selected.permissions?.chat!==true&&<div className="adminModelHint" role="note">«Activat» nu are efect cât timp «Chat AI» este oprit pentru acest cont: pornește întâi permisiunea Chat de mai sus.</div>}
               <input className="adminModelSearch" type="search" placeholder="Caută un model…" value={modelQuery} onChange={e=>setModelQuery(e.target.value)} aria-label="Caută un model"/>
               <div className="adminModels">
@@ -1251,10 +1282,10 @@ function ExplorePanel({onClose,assistants,onUseAssistant,onImageMode,onOpenLibra
   const imageOk=can("image_generation");
   return <ToolShell title="Explorează" subtitle="Un singur loc pentru hărți, imagini, asistenți și site-uri." onClose={onClose}>
     <div className="exploreGrid">
-      <form className="exploreCard" onSubmit={e=>{e.preventDefault();openMap("google")}}><div className="exploreIcon"><MapIcon size={22}/></div><h3>Hărți</h3><p>Caută o adresă, localitate sau punct de interes.</p><input value={mapQuery} onChange={e=>setMapQuery(e.target.value)} placeholder="Ex. Primăria Cornetu" aria-label="Locul căutat"/><div className="exploreActions"><button className="primary" disabled={!mapQuery.trim()}>Google Maps</button><button type="button" className="secondary" disabled={!mapQuery.trim()} onClick={()=>openMap("osm")}>OpenStreetMap</button></div></form>
-      <section className="exploreCard"><div className="exploreIcon"><ImageIcon size={22}/></div><h3>Imagini</h3><p>{imageOk?"Pornește direct o conversație pentru generarea unei imagini.":deniedMessage("image_generation")}</p><button className={cx("primary",!imageOk&&"locked")} onClick={onImageMode}>Creează o imagine</button><button className="secondary" onClick={()=>onOpenLibrary("image")}>Imaginile din Bibliotecă</button></section>
-      <section className="exploreCard wide"><div className="exploreIcon"><Bot size={22}/></div><h3>Asistenți</h3><p>Alege rapid un asistent pentru o conversație nouă.</p><div className="gptGrid">{assistants.map(a=><button key={a.id} className="gptCard" onClick={()=>onUseAssistant(a.id)}><span className="gptAvatar">{a.icon||a.name?.[0]||"A"}</span><span><b>{a.name}</b><small>{a.builtIn?"Asistent principal":"Asistent personalizat"}</small></span></button>)}{!assistants.length&&<div className="emptyState small">Nu ai asistenți. Creează unul din bara laterală.</div>}</div></section>
-      <form className="exploreCard" onSubmit={openSite}><div className="exploreIcon"><Globe2 size={22}/></div><h3>Site-uri</h3><p>Deschide rapid un site în browser.</p><div className="quickSites"><button type="button" onClick={()=>openLink("https://www.google.com")}>Google</button><button type="button" onClick={()=>openLink("https://www.wikipedia.org")}>Wikipedia</button><button type="button" onClick={()=>openLink("https://www.youtube.com")}>YouTube</button><button type="button" onClick={()=>openLink("https://github.com")}>GitHub</button></div><div className="siteOpen"><input value={site} onChange={e=>setSite(e.target.value)} placeholder="exemplu.ro" aria-label="Adresa site-ului"/><button className="smallBtn" disabled={!site.trim()}><ExternalLink size={14}/> Deschide</button></div></form>
+      <form className="exploreCard" onSubmit={e=>{e.preventDefault();openMap("google")}}><div className="exploreIcon"><MapIcon size={22}/></div><Rise tag="h3">Hărți</Rise><p>Caută o adresă, localitate sau punct de interes.</p><input value={mapQuery} onChange={e=>setMapQuery(e.target.value)} placeholder="Ex. o adresă sau un oraș" aria-label="Locul căutat"/><div className="exploreActions"><button className="primary" disabled={!mapQuery.trim()}>Google Maps</button><button type="button" className="secondary" disabled={!mapQuery.trim()} onClick={()=>openMap("osm")}>OpenStreetMap</button></div></form>
+      <section className="exploreCard"><div className="exploreIcon"><ImageIcon size={22}/></div><Rise tag="h3">Imagini</Rise><p>{imageOk?"Pornește direct o conversație pentru generarea unei imagini.":deniedMessage("image_generation")}</p><button className={cx("primary",!imageOk&&"locked")} onClick={onImageMode}>Creează o imagine</button><button className="secondary" onClick={()=>onOpenLibrary("image")}>Imaginile din Bibliotecă</button></section>
+      <section className="exploreCard wide"><div className="exploreIcon"><Bot size={22}/></div><Rise tag="h3">Asistenți</Rise><p>Alege rapid un asistent pentru o conversație nouă.</p><div className="gptGrid">{assistants.map(a=><button key={a.id} className="gptCard" onClick={()=>onUseAssistant(a.id)}><span className="gptAvatar">{a.icon||a.name?.[0]||"A"}</span><span><b>{a.name}</b><small>{a.builtIn?"Asistent principal":"Asistent personalizat"}</small></span></button>)}{!assistants.length&&<div className="emptyState small">Nu ai asistenți. Creează unul din bara laterală.</div>}</div></section>
+      <form className="exploreCard" onSubmit={openSite}><div className="exploreIcon"><Globe2 size={22}/></div><Rise tag="h3">Site-uri</Rise><p>Deschide rapid un site în browser.</p><div className="quickSites"><button type="button" onClick={()=>openLink("https://www.google.com")}>Google</button><button type="button" onClick={()=>openLink("https://www.wikipedia.org")}>Wikipedia</button><button type="button" onClick={()=>openLink("https://www.youtube.com")}>YouTube</button><button type="button" onClick={()=>openLink("https://github.com")}>GitHub</button></div><div className="siteOpen"><input value={site} onChange={e=>setSite(e.target.value)} placeholder="exemplu.ro" aria-label="Adresa site-ului"/><button className="smallBtn" disabled={!site.trim()}><ExternalLink size={14}/> Deschide</button></div></form>
     </div>
   </ToolShell>;
 }
@@ -1474,7 +1505,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
   const imageCost=cfg?.imageCostPolicy||(webServer?"allow_paid":"free_only");
   const tabs=[["profile",User,"Profile",true],["general",SlidersHorizontal,"General",!!bridge],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge],["video",Play,"Video",machineSettingsAllowed&&!!bridge],["voice",Volume2,"Voice and microphone",!!bridge],["notify",Bell,"Notifications",true],["privacy",ShieldCheck,"Privacy",true],["security",Lock,"Security",true],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge]];
   const onAccountTab=accountOnly||ACCOUNT_TABS.includes(tab);
-  return <div className="modalBackdrop" {...backdropProps}><div className="settingsModal" ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><h2>{tr("{brand} settings",{brand:BRAND_NAME})}</h2><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
+  return <div className="modalBackdrop" {...backdropProps}><div className="settingsModal" ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><Rise tag="h2">{tr("{brand} settings",{brand:BRAND_NAME})}</Rise><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
     {!cfg&&!onAccountTab?<div className="settingsLoading">{error||tr("Loading the settings…")}{error&&<ServerUpdate/>}</div>:<>
     <div className="settingsBody"><div className="settingsNav" role="tablist" aria-orientation="vertical">
       {tabs.filter(t=>t[3]).map(([k,Icon,label])=><button key={k} role="tab" aria-selected={tab===k} className={tab===k?"active":""} onClick={()=>setTab(k)}><Icon size={17}/> {tr(label)}</button>)}
@@ -1483,7 +1514,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
       {tab==="profile"&&<ProfileTab account={account} models={models} preferences={preferences} onPreferences={onPreferences} prefBusy={prefBusy}/>}
       {tab==="privacy"&&<PrivacyTab account={account} onDataDeleted={onDataDeleted}/>}
       {tab==="security"&&<SecurityTab account={account} onAccountDeleted={onAccountDeleted}/>}
-      {tab==="general"&&cfg&&<><h3>{tr("General")}</h3>
+      {tab==="general"&&cfg&&<><Rise tag="h3">{tr("General")}</Rise>
         {!IS_WEB&&<>
         <label className="toggleRow"><div><b>{tr("Start {brand} with Windows",{brand:BRAND_NAME})}</b><span>{tr("The app starts on its own and can stay in the background.")}</span></div><input type="checkbox" checked={!!cfg.startWithWindows} onChange={e=>set({startWithWindows:e.target.checked})}/></label>
         <label className="toggleRow"><div><b>{tr("Close to the notification area")}</b><span>{tr("The X button hides the app without stopping the services.")}</span></div><input type="checkbox" checked={cfg.closeToTray!==false} onChange={e=>set({closeToTray:e.target.checked})}/></label>
@@ -1493,7 +1524,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         </>}
         <ServerUpdate/>
       </>}
-      {tab==="ai"&&cfg&&<><h3>{tr("AI & OmniRoute")}</h3>
+      {tab==="ai"&&cfg&&<><Rise tag="h3">{tr("AI & OmniRoute")}</Rise>
         {webServer&&<p className="settingsHelp">{tr("The site's settings: saved on the server and applied at once for every account. The keys stay on the server and are only shown masked. The Owner email and sign-ups stay in the .env file on the server.")}</p>}
         {!webServer&&<>
         <label>{tr("{brand} service address",{brand:BRAND_NAME})}<input value={cfg.gatewayUrl||DEFAULT_GATEWAY} onChange={e=>set({gatewayUrl:e.target.value})} placeholder={DEFAULT_GATEWAY}/></label>
@@ -1528,7 +1559,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <div className="statusGrid"><div><span>{tr("{brand} service",{brand:BRAND_NAME})}</span><b>{status?.gatewayRunning?tr("Running"):tr("Unavailable")}</b></div><div><span>OmniRoute</span><b>{status?.omniRunning?tr("Connected"):status?.omniInstalled===false?tr("Not installed — npm install -g omniroute"):tr("Unavailable")}</b></div></div>
         </>}
       </>}
-      {tab==="chatapis"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Plug size={22}/></div><div><h3>{tr("AI APIs")}</h3><p>{tr("Their models appear in the list and answer directly, without OmniRoute.")}</p></div></div>
+      {tab==="chatapis"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Plug size={22}/></div><div><Rise tag="h3">{tr("AI APIs")}</Rise><p>{tr("Their models appear in the list and answer directly, without OmniRoute.")}</p></div></div>
         <ProviderTestBox/>
         <ServerKeysBox/>
         <label className="toggleRow"><div><b>{tr("Use the direct APIs")}</b><span>{tr("Their models appear in the list (Groq, Gemini, Cerebras…). They answer when you pick them or when no model is picked.")}</span></div><input type="checkbox" checked={cfg.directChatEnabled!==false} onChange={e=>set({directChatEnabled:e.target.checked})}/></label>
@@ -1575,8 +1606,11 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <ProviderHead name="Grok (xAI)" id="xai" cfg={cfg}>{tr("Paid per use; the same key also makes Grok Imagine pictures and videos. Turn it on with «Also allow the paid APIs».")}</ProviderHead>
         <KeyField label={tr("xAI API key")} name="xaiApiKey" placeholder="xai-..." {...keyProps}/>
         <label>{tr("Grok models · separated by commas")}<input value={cfg.xaiModels||""} onChange={e=>set({xaiModels:e.target.value})} placeholder="grok-4.6,grok-4.3"/></label>
+        <ProviderHead name={tr("Google apps (Gmail, Drive, Calendar, Docs, Sheets)")} id="google-apps" cfg={cfg}>{tr("For connecting Google apps in Apps: an OAuth client of type «Web application» from Google Cloud, with this return address: {url}",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Google OAuth client ID")}<input value={cfg.googleClientId||""} onChange={e=>set({googleClientId:e.target.value})} placeholder="….apps.googleusercontent.com"/></label>
+        <KeyField label={tr("Google OAuth client secret")} name="googleClientSecret" placeholder="GOCSPX-..." {...keyProps}/>
       </>}
-      {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><h3>{tr("Pictures")}</h3><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
+      {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><Rise tag="h3">{tr("Pictures")}</Rise><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="image" cfg={cfg} set={set} paidOff={imageCost!=="allow_paid"||cfg.imageProviderMode==="free"}/>
         <label><span className="labelLine">{tr("Picture model")} <span className="optional">{tr("optional")}</span></span><input value={cfg.imageModel||""} onChange={e=>set({imageModel:e.target.value})} placeholder={tr("Automatic — the first picture model available")}/></label>
         <details className="mediaProviderSettings" open><summary>{tr("Picture providers")}</summary>
@@ -1617,7 +1651,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         </details>
         <p className="settingsHelp">{tr("When you ask for a picture, {brand} tries the providers in the order set, puts the real file in the chat and saves it in the Library.",{brand:BRAND_NAME})}</p>
       </>}
-      {tab==="video"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Play size={22}/></div><div><h3>{tr("Video")}</h3><p>{tr("Video generation, APIs, models and trying another provider on its own.")}</p></div></div>
+      {tab==="video"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><Play size={22}/></div><div><Rise tag="h3">{tr("Video")}</Rise><p>{tr("Video generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="video" cfg={cfg} set={set} paidOff={cfg.videoCostPolicy!=="allow_paid"||cfg.videoMode==="free"}/>
         <label>{tr("Video mode")}<select value={cfg.videoMode||"fast"} onChange={e=>{const videoMode=e.target.value;const quality=videoMode==="quality";set({videoMode,videoModel:quality?"bytedance/seedance-2.5":"bytedance/seedance-2.0-fast",openRouterVideoModel:quality?"bytedance/seedance-2.5":"bytedance/seedance-2.0-fast",geminiVideoModel:quality?"veo-3.1-generate-preview":"veo-3.1-fast-generate-preview"})}}><option value="fast">{tr("⚡ Fast")}</option><option value="quality">{tr("🎬 Quality")}</option><option value="free">{tr("🛡️ Free only")}</option></select></label>
         <label>{tr("Cost protection")}<select value={cfg.videoCostPolicy||"free_only"} onChange={e=>set({videoCostPolicy:e.target.value})}><option value="free_only">{tr("Do not start paid jobs")}</option><option value="allow_paid">{tr("Allow paid providers")}</option></select></label>
@@ -1642,14 +1676,14 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <label>{tr("Replicate video model")}<input value={cfg.replicateVideoModel||"wan-video/wan-2.2-t2v-fast"} onChange={e=>set({replicateVideoModel:e.target.value})}/></label>
         <p className="settingsHelp">{tr("When you ask for a video, {brand} tries the providers in order, downloads the real MP4 file, puts it in the chat and saves it in the Library.",{brand:BRAND_NAME})}</p>
       </>}
-      {tab==="voice"&&cfg&&<><h3>{tr("Voice and microphone")}</h3>
+      {tab==="voice"&&cfg&&<><Rise tag="h3">{tr("Voice and microphone")}</Rise>
         <label>{tr("Language for dictation, transcription and reading aloud")}<select value={cfg.speechLanguage||"ro"} onChange={e=>set({speechLanguage:e.target.value})}><option value="ro">Română</option><option value="en">English</option><option value="fr">Français</option></select></label>
         {machineSettingsAllowed&&<label>{tr("Transcription model")}<input value={cfg.speechModel||"openai/whisper-1"} onChange={e=>set({speechModel:e.target.value})}/></label>}
         <button type="button" className="secondary testMicBtn" onClick={testMic}><Mic size={16}/> {tr("Test the microphone")}</button>{micStatus&&<div className="micStatus" role="status">{micStatus}</div>}
         <p className="settingsHelp">{tr("Press the microphone once to start recording and again to stop. {brand} writes out what you said and sends it.",{brand:BRAND_NAME})}</p>
       </>}
       {tab==="notify"&&<NotifyTab account={account}>{webServer&&<PhoneNotifications/>}</NotifyTab>}
-      {tab==="account"&&cfg&&<><h3>{tr("Owner on this PC")}</h3>
+      {tab==="account"&&cfg&&<><Rise tag="h3">{tr("Owner on this PC")}</Rise>
         <div className="accountSettingsCard"><div className="accountAvatar big">{(user?.name||user?.email||"S")[0].toUpperCase()}</div><div><b>{user?.name||tr("{brand} account",{brand:BRAND_NAME})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div></div>
         <p className="settingsHelp">{IS_WEB?tr("Chats, memory, the library, designs, projects, apps and automations are kept on the {brand} server.",{brand:BRAND_NAME}):tr("Chats, memory, the library, designs, projects, apps and automations are kept on this computer.")}</p>
         {machineSettingsAllowed&&!webServer&&<>
@@ -1773,6 +1807,7 @@ function App() {
   function finishFirstRun(){storage.set(FIRST_RUN_KEY,"1");setFirstRunDismissed(true)}
   function setResponseMode(m){setResponseModeState(m);storage.set(RESPONSE_MODE_KEY,m)}
 
+  useEffect(()=>{const busy=Object.keys(generations||{}).length>0;if(busy)document.documentElement.dataset.thinking="1";else delete document.documentElement.dataset.thinking;},[generations]);
   function setGen(id,patch){setGenerations(g=>{if(!g[id])return g;const prev=g[id];const next={...prev,...patch};if(patch.stage&&prev.steps.at(-1)!==patch.stage)next.steps=[...prev.steps,patch.stage].slice(-8);return {...g,[id]:next}})}
   function startGeneration(id){
     const map=controllersRef.current;
@@ -1825,10 +1860,12 @@ function App() {
         try{j=(await api(`/api/chat/jobs/${jobId}`,{signal:controller.signal}))?.data||null}
         catch(e){if(controller.signal.aborted)break;if(e.status!==404)throw e}
         if(!j)break;
-        if(j.kind==="chat"&&j.text){
-          lastText=j.text;
-          setGen(convId,{stage:"Scrie răspunsul…"});
-          setConversations(v=>v.map(c=>c.id!==convId?c:{...c,messages:upsertMessage(c.messages,{id:jobId,role:"assistant",content:j.text,routeInfo:j.routeInfo||undefined,streaming:j.status==="running",createdAt:j.startedAt})}));
+        if(j.kind==="chat"&&(j.text||j.toolRuns?.length)){
+          lastText=j.text||"";
+          // 0.7.29: an action in a connected app that waits for the person is shown again, with its buttons.
+          const asking=j.toolRuns?.find(r=>r.status==="ask");
+          setGen(convId,{stage:asking?tr("Waiting for your approval in {app}…",{app:asking.app}):j.text?"Scrie răspunsul…":tr("Thinking…")});
+          setConversations(v=>v.map(c=>c.id!==convId?c:{...c,messages:upsertMessage(c.messages,{id:jobId,role:"assistant",content:j.text||"",routeInfo:j.routeInfo||undefined,...(j.toolRuns?.length?{toolRuns:j.toolRuns}:{}),streaming:j.status==="running",createdAt:j.startedAt})}));
         }
         if(j.status!=="running")break;
         await new Promise(r=>setTimeout(r,1500));
@@ -2045,7 +2082,7 @@ function App() {
     if(d?.data)setConversations(v=>v.map(x=>x.id===id?{...x,...Object.fromEntries(Object.keys(patch).map(k=>[k,d.data[k]])),updatedAt:d.data.updatedAt||x.updatedAt}:x));
     return d?.data;
   }
-  async function streamAssistant(baseConv,messages,{extra={},format=null}={}){
+  async function streamAssistant(baseConv,messages,{extra={},format=null,edit=false,sourceName=""}={}){
     const convId=baseConv.id;
     const lastUser=[...messages].reverse().find(m=>m.role==="user");
     const desiredModel=String(baseConv.model||model||"").trim();
@@ -2053,7 +2090,7 @@ function App() {
     // was never a chat model) the one chosen in the picker answers instead of an error.
     const effectiveModel=modelPolicyEnforced||models.length?(models.includes(desiredModel)?desiredModel:(models.includes(model)?model:(models[0]||""))):desiredModel;
     const controller=startGeneration(convId);
-    let answer="",routeInfo=null,started=false,streamError="",flushTimer=null,resume=false;
+    let answer="",routeInfo=null,started=false,streamError="",flushTimer=null,resume=false,toolRuns=[];
     const assistantMessage={id:uid(),role:"assistant",content:"",createdAt:Date.now(),streaming:true};
     controller.requestId=assistantMessage.id;
     let working={...baseConv,model:effectiveModel||baseConv.model||model,messages:[...messages,assistantMessage],updatedAt:Date.now()};
@@ -2066,7 +2103,7 @@ function App() {
       const payload=toProviderMessages(messages,extra);
       if(!payload.some(m=>m.role==="user"))throw new Error("Mesajul este gol.");
       setGen(convId,{stage:"Verifică memoria, fișierele și contextul relevant…"});
-      const r=await fetch(`${GATEWAY}/api/chat/stream`,{method:"POST",headers:authHeaders({"Content-Type":"application/json"}),body:JSON.stringify({model:effectiveModel,requestId:assistantMessage.id,conversationId:baseConv.id||null,assistantId:baseConv.assistantId||null,projectId:baseConv.projectId||null,responseMode,messages:payload}),signal:controller.signal});
+      const r=await fetch(`${GATEWAY}/api/chat/stream`,{method:"POST",headers:authHeaders({"Content-Type":"application/json"}),body:JSON.stringify({model:effectiveModel,requestId:assistantMessage.id,conversationId:baseConv.id||null,assistantId:baseConv.assistantId||null,projectId:baseConv.projectId||null,responseMode,messages:payload,fileFormat:format||undefined,fileEdit:edit||undefined,timeZone:localZone()}),signal:controller.signal});
       if(!r.ok){const text=await r.text().catch(()=>"");throw apiError(r.status,text,"/api/chat/stream")}
       setGen(convId,{stage:"Așteaptă răspunsul AI-ului ales…"});
       const handleLine=line=>{
@@ -2080,12 +2117,20 @@ function App() {
           working={...working,messages:[...messages,{...assistantMessage,routeInfo,content:answer,streaming:true}]};scheduleFlush();
           return;
         }
+        // 0.7.29: an action in a connected app (asking for approval, working, done, denied).
+        if(j?.serasmart_tool){
+          const run=j.serasmart_tool;
+          toolRuns=toolRuns.some(x=>x.id===run.id)?toolRuns.map(x=>x.id===run.id?run:x):[...toolRuns,run];
+          setGen(convId,{stage:run.status==="ask"?tr("Waiting for your approval in {app}…",{app:run.app}):run.status==="running"?tr("Working in {app}…",{app:run.app}):tr("Thinking…")});
+          working={...working,messages:[...messages,{...assistantMessage,routeInfo,toolRuns,content:answer,streaming:true}]};scheduleFlush();
+          return;
+        }
         // An OmniRoute combination ("Ai principal") answers with one of its members: show which one really answered.
         if(routeInfo?.model&&!routeInfo.servedBy&&typeof j?.model==="string"&&j.model&&!j.model.includes(String(routeInfo.model).split("/").pop()))routeInfo={...routeInfo,servedBy:j.model};
         const delta=j?.choices?.[0]?.delta?.content||j?.choices?.[0]?.message?.content||"";
         if(delta){
           if(!started){started=true;setGen(convId,{stage:format?`Scrie conținutul pentru fișierul ${format.toUpperCase()}…`:"Scrie răspunsul…"})}
-          answer+=delta;working={...working,messages:[...messages,{...assistantMessage,routeInfo,content:answer,streaming:true}]};scheduleFlush();
+          answer+=delta;working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns}:{}),content:answer,streaming:true}]};scheduleFlush();
         }
       };
       const reader=r.body.getReader(),dec=new TextDecoder();let buf="";
@@ -2108,7 +2153,7 @@ function App() {
             const previousSource=previousAssistant?(previousAssistant.artifactSource||messageText(previousAssistant)):"";
             const content=standaloneExportRequest(messageText(lastUser))&&previousSource?previousSource:answer;
             if(!String(content||"").trim())throw new Error("nu există conținut pentru fișier");
-            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - fișier`),content})});
+            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - fișier`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:{})})});
             if(exported?.data){
               files=[exported.data];
               // The file the user asked for is downloaded right away; the card under the answer stays for later.
@@ -2118,7 +2163,8 @@ function App() {
         }
       }
       clearTimeout(flushTimer);
-      working={...working,messages:[...messages,{...assistantMessage,routeInfo,content:(answer||"Nu am primit răspuns.")+note,attachments:files,streaming:false}],updatedAt:Date.now()};
+      const doneRuns=toolRuns.map(({args,...r})=>r);
+      working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:(answer||"Nu am primit răspuns.")+note,attachments:files,streaming:false}],updatedAt:Date.now()};
       showConversation(working);
       const saved=await saveConversation(working);
       api("/api/memory/capture",{method:"POST",body:JSON.stringify({conversationId:saved.id,userText:messageText(lastUser),assistantText:answer})}).catch(()=>{});
@@ -2134,8 +2180,8 @@ function App() {
       }
       if(!aborted)creditProblem(e);
       const finalMessage=aborted
-        ?{...assistantMessage,routeInfo,content:answer,streaming:false,stopped:true}
-        :{...assistantMessage,routeInfo,content:`Eroare: ${friendlyError(e.message)}`,streaming:false,error:true};
+        ?{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns:toolRuns.map(({args,...r})=>r.status==="ask"?{...r,status:"denied"}:r)}:{}),content:answer,streaming:false,stopped:true}
+        :{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns:toolRuns.map(({args,...r})=>r.status==="ask"?{...r,status:"denied"}:r)}:{}),content:`Eroare: ${friendlyError(e.message)}`,streaming:false,error:true};
       working={...working,messages:[...messages,finalMessage],updatedAt:Date.now()};
       showConversation(working);
       if(storage.get(TOKEN_KEY)){try{await saveConversation(working)}catch(saveError){if(!isAuthLost(saveError.status,saveError.message))toast("Conversația nu a putut fi salvată: "+saveError.message)}}
@@ -2191,7 +2237,8 @@ function App() {
       if(!can(perm)){deny(perm);return}
       if(!text){toast(media==="video"?"Descrie videoclipul pe care vrei să-l creez.":"Descrie imaginea pe care vrei s-o creez.","info");return}
     }
-    const format=media?null:answer?answerFormat(text,current?.messages||[]):requestedDocumentFormat(text);
+    const fileReq=media||answer?null:fileRequestFor(text,attachments.map(a=>a.name),current?.messages||[]);
+    const format=media?null:answer?answerFormat(text,current?.messages||[]):fileReq?.format||null;
     const userId=uid();
     const parts=[...(text?[{type:"text",text}]:[]),...usable.flatMap(a=>Array.isArray(a.parts)&&a.parts.length?a.parts:[a.part].filter(Boolean))];
     const content=parts.length===1&&parts[0].type==="text"?parts[0].text:parts;
@@ -2207,7 +2254,7 @@ function App() {
     catch(e){if(!answer){setDraft(previous.draft);setAttachments(previous.attachments);setMediaMode(previous.mediaMode)}if(!isAuthLost(e.status,e.message))toast("Mesajul nu a putut fi trimis: "+e.message);return}
     if(base.archived)patchConversation(saved.id,{archived:false}).catch(()=>{});
     if(media)await generateMediaAssistant(saved,saved.messages||conv.messages,media,text);
-    else await streamAssistant(saved,saved.messages||conv.messages,{extra,format});
+    else await streamAssistant(saved,saved.messages||conv.messages,{extra,format,edit:!!fileReq?.edit,sourceName:fileReq?.source||""});
   }
   async function regenerate(index,needsConfirm){
     if(!current||generations[current.id])return;
@@ -2220,7 +2267,7 @@ function App() {
     let saved;
     try{saved=await saveConversation({...current,messages:msgs})}catch(e){toast(e.message);return}
     if(target?.mediaKind)await generateMediaAssistant(saved,saved.messages||msgs,target.mediaKind,target.mediaPrompt||messageText(lastUser));
-    else await streamAssistant(saved,saved.messages||msgs,{format:requestedDocumentFormat(messageText(lastUser))});
+    else{const req=fileRequestFor(messageText(lastUser),(lastUser?.attachments||[]).map(a=>a.name),msgs.slice(0,-1));await streamAssistant(saved,saved.messages||msgs,{format:req?.format||null,edit:!!req?.edit,sourceName:req?.source||""});}
   }
   async function rate(index,value){
     if(!current||generations[current.id])return;
@@ -2362,6 +2409,7 @@ function App() {
     {toolPanel?.name==="memory"&&<MemoryPage onClose={closeTool} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy}/>}
     {toolPanel?.name==="admin"&&isOwner&&<AdminPanel onClose={closeTool}/>}
     {toolPanel?.name==="plugins"&&can("plugins")&&<PluginsPage onClose={closeTool}/>}
+    {can("plugins")&&<PendingApprovals currentConversationId={currentId} onOpenConversation={id=>{if(id){setCurrentId(id);closeTool?.()}}}/>}
     {toolPanel?.name==="code"&&can("code")&&<CodePage onClose={closeTool} onStart={startCode}/>}
     {toolPanel?.name==="automations"&&can("automations")&&<ScheduledPage onClose={closeTool} model={model} models={models}/>}
     {filesPanel&&<ConversationFilesPanel conversation={current} onClose={()=>setFilesPanel(false)}/>}
@@ -2370,4 +2418,5 @@ function App() {
   </div></AccessContext.Provider>;
 }
 document.title=BRAND_NAME;
+startDotRingCursor();
 createRoot(document.getElementById("root")).render(<ErrorBoundary><App/><AccessRequestDialog/></ErrorBoundary>);

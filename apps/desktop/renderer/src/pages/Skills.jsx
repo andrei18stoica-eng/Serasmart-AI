@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Rise } from "../riseText.jsx";
 import { Plus, Pencil, Trash2, Sparkles, Check } from "lucide-react";
 import { api, toast, cx, ToolShell, Switch } from "../core.jsx";
 
@@ -43,9 +44,9 @@ export function SkillsPage({onClose}){
   return <ToolShell title="Skill-uri" subtitle="Instrucțiuni salvate o dată și folosite oricând: scrie /nume în chat (de ex. /rezumat) sau lasă un skill mereu activ." onClose={onClose} className="pageModal skillsPage">
     <div className="pageBody">
       {editing?<SkillForm initial={editing} onCancel={()=>setEditing(null)} onSaved={()=>{setEditing(null);load()}}/>:<>
-        <div className="skillsHead"><h3>Skill-urile tale</h3><button className="primary" onClick={()=>setEditing({...BLANK})}><Plus size={14}/> Skill nou</button></div>
+        <div className="skillsHead"><Rise tag="h3">Skill-urile tale</Rise><button className="primary" onClick={()=>setEditing({...BLANK})}><Plus size={14}/> Skill nou</button></div>
         {loading?<div className="emptyState small">Se încarcă…</div>:!items.length?<div className="taskEmpty">
-          <span className="taskIcon big"><Sparkles size={26}/></span><h3>Nu ai încă skill-uri</h3>
+          <span className="taskIcon big"><Sparkles size={26}/></span><Rise tag="h3">Nu ai încă skill-uri</Rise>
           <p>Un skill e un set de instrucțiuni pe care AI-ul îl urmează când îl chemi. Adaugă unul de mai jos sau creează-l pe al tău.</p>
         </div>:<div className="skillList">{items.map(x=><div key={x.id} className={cx("skillCard",!x.enabled&&"off")}>
           <div className="skillCardText"><b>/{x.slug} <span>{x.name}</span></b><small>{x.description||String(x.instructions||"").slice(0,140)}</small></div>
@@ -56,7 +57,7 @@ export function SkillsPage({onClose}){
             <button className="iconDanger" onClick={()=>remove(x)} aria-label={`Șterge ${x.slug}`} title="Șterge"><Trash2 size={15}/></button>
           </div>
         </div>)}</div>}
-        {free.length>0&&<section className="catalogSection"><h3>Gata făcute</h3><div className="catalogGrid">
+        {free.length>0&&<section className="catalogSection"><Rise tag="h3">Gata făcute</Rise><div className="catalogGrid">
           {free.map(t=><div className="catalogCard" key={t.slug}>
             <span className="pluginLogo"><span>/</span></span>
             <div className="catalogText"><b>{t.name} <small>/{t.slug}</small></b><small>{t.description}</small></div>

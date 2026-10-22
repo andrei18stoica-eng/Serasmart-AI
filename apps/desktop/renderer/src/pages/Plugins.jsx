@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Rise } from "../riseText.jsx";
 import { Plus, Search, Check, Play, Pencil, Trash2, ExternalLink, Plug, Puzzle, Lock, X } from "lucide-react";
 import { api, toast, cx, isHttpUrl, openLink, useAccess, deniedMessage, useModal, ToolShell, Switch, GATEWAY, OAUTH_REDIRECT_PATH } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
+import { ConnectorsPanel } from "./Connectors.jsx";
+import { t as tr, useLanguage } from "../i18n.jsx";
 
 const PLUGIN_APP_LINKS={
   "Gmail":"https://mail.google.com/","Google Drive":"https://drive.google.com/","GitHub":"https://github.com/login","Outlook Email":"https://outlook.office.com/mail/",
@@ -24,100 +27,100 @@ const PLUGIN_OAUTH={
   "Spotify":{provider:"spotify",authUrl:"https://accounts.spotify.com/authorize",tokenUrl:"https://accounts.spotify.com/api/token",scopes:"user-read-private user-read-email",apiUrl:"https://api.spotify.com/v1/me",method:"GET"}
 };
 const PLUGIN_CATALOG=[
-  ["Populare","Gmail","Citește și organizează emailurile din Gmail","@gmail","M","gmail"],
-  ["Populare","Google Drive","Documente, foi de calcul și prezentări din Drive","@drive","△","googledrive"],
-  ["Populare","GitHub","Issues, pull requests și depozite de cod","@github","GH","github"],
-  ["Populare","Remote Desktop Commander","Automatizări și control de la distanță","@remote","DC"],
-  ["Populare","Health","Datele tale de sănătate","@health","♥"],
-  ["Populare","Outlook Email","Emailurile din Outlook","@outlook","O","microsoftoutlook"],
-  ["Noi și remarcabile","Adobe","Creează, combină și editează documente și grafică","@adobe","A","adobe"],
-  ["Noi și remarcabile","Figma","Design de interfețe și prototipuri","@figma","F","figma"],
-  ["Noi și remarcabile","MagicPath","Design pe o pânză comună","@magicpath","MP"],
-  ["Noi și remarcabile","Canva","Creează și editează design-uri","@canva","C","canva"],
-  ["Noi și remarcabile","Shopify","Administrează magazinul online","@shopify","S","shopify"],
-  ["Noi și remarcabile","Atlassian Rovo","Jira, Confluence, Loom și altele","@rovo","A","atlassian"],
-  ["Productivitate","Firecrawl","Caută și extrage date de pe web","@firecrawl","🔥"],
-  ["Productivitate","Flaim Fantasy","Analize pentru sporturi fantasy","@flaim","FF"],
-  ["Productivitate","monday.com","Proiecte, sarcini și CRM","@monday","M","mondaydotcom"],
-  ["Productivitate","Notion","Documente și fluxuri de lucru Notion","@notion","N","notion"],
-  ["Productivitate","Google Calendar","Evenimentele din Google Calendar","@calendar","31","googlecalendar"],
-  ["Productivitate","Metricool","Analizează și programează postări","@metricool","∞"],
-  ["Comunicare","Slack","Canale și mesaje Slack","@slack","S","slack"],
-  ["Comunicare","Teams","Echipe și conversații Microsoft Teams","@teams","T","microsoftteams"],
-  ["Comunicare","Zoom","Informații din întâlnirile Zoom","@zoom","Z","zoom"],
-  ["Comunicare","Superhuman Mail","Asistent pentru email și calendar","@superhuman","✉"],
-  ["Comunicare","Hostinger Mail","Emailul găzduit la Hostinger","@hostinger","H","hostinger"],
-  ["Comunicare","Mailopoly Inbox","Caută și trimite emailuri și mesaje","@mailopoly","◇"],
-  ["Creativitate","Higgsfield","Modele AI pentru imagini și video","@higgsfield","HF"],
-  ["Creativitate","Viewmax","Videoclipuri create cu AI","@viewmax","▶"],
-  ["Creativitate","Runway","Generare video cu modele AI","@runway","R","runway"],
-  ["Creativitate","invideo","Videoclipuri de orice durată","@invideo","IV"],
-  ["Instrumente pentru dezvoltatori","Supabase","Administrează și interoghează baze de date","@supabase","S","supabase"],
-  ["Instrumente pentru dezvoltatori","Render","Resursele tale de pe Render","@render","R","render"],
-  ["Instrumente pentru dezvoltatori","WPVibe","Unelte AI pentru WordPress","@wpvibe","WP"],
-  ["Instrumente pentru dezvoltatori","Exa","Căutare web pentru agenți AI","@exa","E"],
-  ["Instrumente pentru dezvoltatori","Vercel","Construiește și publică aplicații web","@vercel","▲","vercel"],
-  ["Instrumente pentru dezvoltatori","Railway","Construiește și publică aplicații","@railway","R","railway"],
-  ["Sănătate","COROS","Antrenamente și date de sănătate","@coros","C","coros"],
-  ["Sănătate","Tredict","Analizează antrenamente și creează planuri","@tredict","T"],
-  ["Sănătate","freddy","Întrebări despre datele tale de sănătate","@freddy","F"],
-  ["Sănătate","Fitness AI Connector","Antrenor AI pentru datele Garmin","@fitness","AI"],
-  ["Sănătate","Calorie Tracker","Urmărește alimentația și caloriile","@calories","CT"],
-  ["Sănătate","LiftTrack","Antrenamente de forță pentru Garmin","@lifttrack","LT"],
-  ["Divertisment","Destiny AI Astrology","Hărți natale și horoscop","@destiny","D"],
-  ["Divertisment","Smart Chess","Joacă șah și învață strategie","@chess","♞"],
-  ["Divertisment","Spotify","Muzică și podcasturi","@spotify","●","spotify"],
-  ["Divertisment","Chessy",`Joacă șah cu ${BRAND_NAME}`,"@chessy","♘"],
-  ["Divertisment","SoundBreak","Muzică AI alături de artiști","@soundbreak","◉"],
-  ["Divertisment","PocketMind: Texas Hold'em","Poker Texas Hold'em cu AI","@pocketmind","♠"],
-  ["Educație","Consensus","Explorează cercetarea științifică","@consensus","C"],
-  ["Educație","SciSpace","Pentru știință și cercetare","@scispace","S"],
-  ["Educație","Acumen by Talarion","Ține AI-ul la curent cu noutățile","@acumen","T"],
-  ["Educație","Explain Video Generator","Videoclipuri explicative create cu AI","@explain","▶"],
-  ["Educație","Scite","Caută în literatura științifică","@scite","S"],
-  ["Educație","Tarteel","Resurse pentru studiul Coranului","@tarteel","◇"],
-  ["Business și operațiuni","HubSpot","Date și acțiuni din HubSpot","@hubspot","H","hubspot"],
-  ["Business și operațiuni","Windsor.ai","Conectează peste 350 de surse de date","@windsor","W"],
-  ["Business și operațiuni","Adspirer","Creează, lansează și analizează reclame","@adspirer","AD"],
-  ["Business și operațiuni","vidIQ","Statistici și cuvinte cheie YouTube","@vidiq","IQ"],
-  ["Business și operațiuni","Ubersuggest","Cercetare SEO","@ubersuggest","U"],
-  ["Date și analiză","PostHog","Analizează datele produsului","@posthog","PH","posthog"],
-  ["Date și analiză","Helium 10","Datele tale Helium 10","@helium","H10"],
-  ["Date și analiză","Blockscout","Analizează date blockchain","@blockscout","B","blockscout"],
-  ["Date și analiză","Data","Răspunsuri pe baza datelor tale","@data","▥"],
-  ["Date și analiză","Amplitude","Analizează comportamentul utilizatorilor","@amplitude","A","amplitude"],
-  ["Date și analiză","Typeform","Formulare și analiza răspunsurilor","@typeform","T","typeform"],
-  ["Cercetare științifică","Undermind","Găsește și citește articole științifice","@undermind","U"],
-  ["Cercetare științifică","Inductive","Modele ADMET de ultimă generație","@inductive","I"],
-  ["Cercetare științifică","Boltz","Structuri, molecule și proteine","@boltz","B"],
-  ["Cercetare științifică","Tamarind Bio","Design proteic și molecular","@tamarind","TB"],
-  ["Cercetare științifică","Proto","Modele AI pentru biologie","@proto","P"],
-  ["Cercetare științifică","Rowan","Simulări de chimie și biologie","@rowan","R"],
-  ["Securitate","Codex Security","Scanare de securitate pentru cod","@codexsecurity","CS"],
-  ["Securitate","PrivacyHawk","Protejează datele personale","@privacyhawk","PH"],
-  ["Securitate","Soluvery","Auditează permisiunile Google Drive","@soluvery","S"],
-  ["Securitate","Malwarebytes","Verifică linkuri, domenii și numere de telefon","@malwarebytes","M","malwarebytes"],
-  ["Securitate","AJAXX Data Scrubber","Elimină datele personale expuse","@ajaxx","AX"],
-  ["Securitate","Ansvar Gateway","Legi, securitate și conformitate","@ansvar","AI"],
-  ["Altele","Tarot","Citiri de tarot","@tarot","✦"],
-  ["Altele","Astrologic","Hărți natale și horoscop","@astrologic","☾"],
-  ["Altele","Kleinanzeigen","Anunțuri de vânzare din Germania","@kleinanzeigen","K","kleinanzeigen"],
-  ["Altele","Steer Astro","Astrolog AI personal","@steerastro","◎"]
+  ["Popular","Gmail","Read and organise your Gmail emails","@gmail","M","gmail"],
+  ["Popular","Google Drive","Documents, spreadsheets and presentations in Drive","@drive","△","googledrive"],
+  ["Popular","GitHub","Issues, pull requests and code repositories","@github","GH","github"],
+  ["Popular","Remote Desktop Commander","Automation and remote control","@remote","DC"],
+  ["Popular","Health","Your health data","@health","♥"],
+  ["Popular","Outlook Email","Your Outlook emails","@outlook","O","microsoftoutlook"],
+  ["New and notable","Adobe","Create, combine and edit documents and graphics","@adobe","A","adobe"],
+  ["New and notable","Figma","Interface design and prototypes","@figma","F","figma"],
+  ["New and notable","MagicPath","Design on a shared canvas","@magicpath","MP"],
+  ["New and notable","Canva","Create and edit designs","@canva","C","canva"],
+  ["New and notable","Shopify","Run your online store","@shopify","S","shopify"],
+  ["New and notable","Atlassian Rovo","Jira, Confluence, Loom and more","@rovo","A","atlassian"],
+  ["Productivity","Firecrawl","Search and extract data from the web","@firecrawl","🔥"],
+  ["Productivity","Flaim Fantasy","Fantasy sports analysis","@flaim","FF"],
+  ["Productivity","monday.com","Projects, tasks and CRM","@monday","M","mondaydotcom"],
+  ["Productivity","Notion","Notion documents and workflows","@notion","N","notion"],
+  ["Productivity","Google Calendar","Your Google Calendar events","@calendar","31","googlecalendar"],
+  ["Productivity","Metricool","Analyse and schedule posts","@metricool","∞"],
+  ["Communication","Slack","Slack channels and messages","@slack","S","slack"],
+  ["Communication","Teams","Microsoft Teams teams and chats","@teams","T","microsoftteams"],
+  ["Communication","Zoom","Information from Zoom meetings","@zoom","Z","zoom"],
+  ["Communication","Superhuman Mail","Email and calendar assistant","@superhuman","✉"],
+  ["Communication","Hostinger Mail","Email hosted at Hostinger","@hostinger","H","hostinger"],
+  ["Communication","Mailopoly Inbox","Search and send emails and messages","@mailopoly","◇"],
+  ["Creativity","Higgsfield","AI models for pictures and video","@higgsfield","HF"],
+  ["Creativity","Viewmax","Videos made with AI","@viewmax","▶"],
+  ["Creativity","Runway","Video generation with AI models","@runway","R","runway"],
+  ["Creativity","invideo","Videos of any length","@invideo","IV"],
+  ["Developer tools","Supabase","Manage and query databases","@supabase","S","supabase"],
+  ["Developer tools","Render","Your resources on Render","@render","R","render"],
+  ["Developer tools","WPVibe","AI tools for WordPress","@wpvibe","WP"],
+  ["Developer tools","Exa","Web search for AI agents","@exa","E"],
+  ["Developer tools","Vercel","Build and publish web apps","@vercel","▲","vercel"],
+  ["Developer tools","Railway","Build and publish apps","@railway","R","railway"],
+  ["Health","COROS","Workouts and health data","@coros","C","coros"],
+  ["Health","Tredict","Analyse workouts and make plans","@tredict","T"],
+  ["Health","freddy","Questions about your health data","@freddy","F"],
+  ["Health","Fitness AI Connector","AI coach for your Garmin data","@fitness","AI"],
+  ["Health","Calorie Tracker","Track food and calories","@calories","CT"],
+  ["Health","LiftTrack","Strength workouts for Garmin","@lifttrack","LT"],
+  ["Entertainment","Destiny AI Astrology","Birth charts and horoscope","@destiny","D"],
+  ["Entertainment","Smart Chess","Play chess and learn strategy","@chess","♞"],
+  ["Entertainment","Spotify","Music and podcasts","@spotify","●","spotify"],
+  ["Entertainment","Chessy",`Play chess with ${BRAND_NAME}`,"@chessy","♘"],
+  ["Entertainment","SoundBreak","AI music with artists","@soundbreak","◉"],
+  ["Entertainment","PocketMind: Texas Hold'em","Texas Hold'em poker with AI","@pocketmind","♠"],
+  ["Education","Consensus","Explore scientific research","@consensus","C"],
+  ["Education","SciSpace","For science and research","@scispace","S"],
+  ["Education","Acumen by Talarion","Keeps the AI up to date with the news","@acumen","T"],
+  ["Education","Explain Video Generator","Explainer videos made with AI","@explain","▶"],
+  ["Education","Scite","Search the scientific literature","@scite","S"],
+  ["Education","Tarteel","Resources for studying the Quran","@tarteel","◇"],
+  ["Business and operations","HubSpot","Data and actions in HubSpot","@hubspot","H","hubspot"],
+  ["Business and operations","Windsor.ai","Connect over 350 data sources","@windsor","W"],
+  ["Business and operations","Adspirer","Create, launch and analyse ads","@adspirer","AD"],
+  ["Business and operations","vidIQ","YouTube statistics and keywords","@vidiq","IQ"],
+  ["Business and operations","Ubersuggest","SEO research","@ubersuggest","U"],
+  ["Data and analytics","PostHog","Analyse your product data","@posthog","PH","posthog"],
+  ["Data and analytics","Helium 10","Your Helium 10 data","@helium","H10"],
+  ["Data and analytics","Blockscout","Analyse blockchain data","@blockscout","B","blockscout"],
+  ["Data and analytics","Data","Answers from your data","@data","▥"],
+  ["Data and analytics","Amplitude","Analyse user behaviour","@amplitude","A","amplitude"],
+  ["Data and analytics","Typeform","Forms and answer analysis","@typeform","T","typeform"],
+  ["Scientific research","Undermind","Find and read scientific papers","@undermind","U"],
+  ["Scientific research","Inductive","State-of-the-art ADMET models","@inductive","I"],
+  ["Scientific research","Boltz","Structures, molecules and proteins","@boltz","B"],
+  ["Scientific research","Tamarind Bio","Protein and molecular design","@tamarind","TB"],
+  ["Scientific research","Proto","AI models for biology","@proto","P"],
+  ["Scientific research","Rowan","Chemistry and biology simulations","@rowan","R"],
+  ["Security","Codex Security","Security scanning for code","@codexsecurity","CS"],
+  ["Security","PrivacyHawk","Protects personal data","@privacyhawk","PH"],
+  ["Security","Soluvery","Audit Google Drive permissions","@soluvery","S"],
+  ["Security","Malwarebytes","Check links, domains and phone numbers","@malwarebytes","M","malwarebytes"],
+  ["Security","AJAXX Data Scrubber","Remove exposed personal data","@ajaxx","AX"],
+  ["Security","Ansvar Gateway","Laws, security and compliance","@ansvar","AI"],
+  ["Other","Tarot","Tarot readings","@tarot","✦"],
+  ["Other","Astrologic","Birth charts and horoscope","@astrologic","☾"],
+  ["Other","Kleinanzeigen","Classified ads in Germany","@kleinanzeigen","K","kleinanzeigen"],
+  ["Other","Steer Astro","Personal AI astrologer","@steerastro","◎"]
 ].map(([group,name,description,trigger,mark,slug])=>({group,name,description,trigger,mark,slug}));
-const PLUGIN_GROUPS=["Populare","Noi și remarcabile","Productivitate","Comunicare","Creativitate","Instrumente pentru dezvoltatori","Sănătate","Divertisment","Educație","Business și operațiuni","Date și analiză","Cercetare științifică","Securitate","Altele"];
+const PLUGIN_GROUPS=["Popular","New and notable","Productivity","Communication","Creativity","Developer tools","Health","Entertainment","Education","Business and operations","Data and analytics","Scientific research","Security","Other"];
 const SKILLS=[
-  {name:"Căutare web",description:"Caută informații actuale și surse online.",mark:"W",perm:"web_search"},
-  {name:"Documente",description:"Generează și lucrează cu PDF, DOCX și PPTX.",mark:"D",perm:"document_generation"},
-  {name:"Cod și GitHub",description:"Analizează cod și lucrează cu GitHub.",mark:"</>",perm:"github_access"},
-  {name:"Imagini",description:"Creează imagini cu AI.",mark:"I",perm:"image_generation"},
-  {name:"Fișiere și date",description:"Analizează fișiere, tabele și documente încărcate.",mark:"∑",perm:"file_upload"},
-  {name:"Scheduled",description:"Rulează sarcini programate și verificări la ora aleasă.",mark:"S",perm:"automations"}
+  {name:"Web search",description:"Searches current information and online sources.",mark:"W",perm:"web_search"},
+  {name:"Documents",description:"Makes and works with PDF, DOCX and PPTX.",mark:"D",perm:"document_generation"},
+  {name:"Code and GitHub",description:"Analyses code and works with GitHub.",mark:"</>",perm:"github_access"},
+  {name:"Pictures",description:"Makes pictures with AI.",mark:"I",perm:"image_generation"},
+  {name:"Files and data",description:"Analyses uploaded files, tables and documents.",mark:"∑",perm:"file_upload"},
+  {name:"Scheduled",description:"Runs scheduled tasks and checks at the time you choose.",mark:"S",perm:"automations"}
 ];
 function pluginHasIntegration(x){return !!(PLUGIN_APP_LINKS[x.name]||PLUGIN_OAUTH[x.name]);}
 
 function SetupOverlay({onClose,children}) {
   const {ref,backdropProps}=useModal(onClose);
-  return <div className="claudeSetupBackdrop" {...backdropProps}><div className="claudeSetupPanel" ref={ref} role="dialog" aria-modal="true" aria-label="Configurare plugin" tabIndex={-1}>{children}</div></div>;
+  return <div className="claudeSetupBackdrop" {...backdropProps}><div className="claudeSetupPanel" ref={ref} role="dialog" aria-modal="true" aria-label={tr("Plugin setup")} tabIndex={-1}>{children}</div></div>;
 }
 function ResultNote({result}){return result?<div className={cx("pluginResult claudeResult",result.kind)} role={result.kind==="error"?"alert":"status"}>{result.text}</div>:null;}
 
@@ -126,12 +129,11 @@ function initials(name){return String(name||"P").replace(/[^\p{L}\p{N} ]/gu,"").
 function hostOf(url){try{return new URL(url).host}catch{return ""}}
 export function pluginTriggerHint(name,trigger){
   const n=String(name||"").trim(),t=trigger||("@"+n.toLowerCase().replace(/\s+/g,"-"));
-  return n.length>=3?`Se folosește când scrii «${n}» sau ${t}`:`Se folosește când scrii ${t}`;
+  return n.length>=3?tr("Used when you write «{name}» or {trigger}",{name:n,trigger:t}):tr("Used when you write {trigger}",{trigger:t});
 }
+// 0.7.29: letters, never the companies' logos.
 function PluginLogo({entry,large=false}){
-  const [failed,setFailed]=useState(false);
-  const src=entry?.slug&&!failed?`https://cdn.simpleicons.org/${entry.slug}`:null;
-  return <span className={cx("pluginLogo",large&&"large")}>{src?<img src={src} alt="" onError={()=>setFailed(true)}/>:<span>{entry?.mark||initials(entry?.name)}</span>}</span>;
+  return <span className={cx("pluginLogo",large&&"large")}><span>{entry?.mark||initials(entry?.name)}</span></span>;
 }
 
 function PluginForm({initial,editing,onSaved,onCancel}){
@@ -142,10 +144,10 @@ function PluginForm({initial,editing,onSaved,onCancel}){
   const set=patch=>setF(v=>({...v,...patch}));
   const direct=editing?.mode==="direct_app",oauth=!!editing?.oauthConnected;
   function problem(){
-    if(!f.name.trim())return "Scrie un nume pentru plugin.";
-    if(!isHttpUrl(f.url))return "Adresa API trebuie să fie un link complet, de exemplu https://exemplu.ro/webhook.";
-    if(f.auth==="header"&&!/^[A-Za-z0-9-]{1,64}$/.test(f.headerName.trim()))return "Numele antetului poate conține doar litere, cifre și cratimă.";
-    if(f.auth!=="none"&&!f.apiKey.trim()&&!editing?.hasKey)return "Adaugă cheia sau alege „Fără” la autentificare.";
+    if(!f.name.trim())return tr("Write a name for the plugin.");
+    if(!isHttpUrl(f.url))return tr("The API address must be a full link, for example https://example.com/webhook.");
+    if(f.auth==="header"&&!/^[A-Za-z0-9-]{1,64}$/.test(f.headerName.trim()))return tr("The header name can only contain letters, digits and hyphens.");
+    if(f.auth!=="none"&&!f.apiKey.trim()&&!editing?.hasKey)return tr("Add the key or choose «None» for authentication.");
     return "";
   }
   function body(){
@@ -168,43 +170,43 @@ function PluginForm({initial,editing,onSaved,onCancel}){
     if(busy)return;
     const p=problem();if(p){setNote({kind:"error",text:p});return;}
     setBusy("save");setNote(null);
-    try{const saved=await persist();onSaved(saved,{kind:"ok",text:`${saved?.name||f.name.trim()}: pluginul a fost salvat.`},true)}
+    try{const saved=await persist();onSaved(saved,{kind:"ok",text:tr("{name}: the plugin was saved.",{name:saved?.name||f.name.trim()})},true)}
     catch(err){if(mounted.current)setNote({kind:"error",text:err.message})}
     finally{if(mounted.current)setBusy("")}
   }
   async function test(){
     if(busy)return;
     const p=problem();if(p){setNote({kind:"error",text:p});return;}
-    setBusy("test");setNote({kind:"info",text:"Salvez pluginul și îl testez…"});
+    setBusy("test");setNote({kind:"info",text:tr("Saving the plugin and testing it…")});
     try{
       const saved=await persist();
       onSaved(saved,null,false);
-      try{const d=await api(`/api/plugins/${saved.id}/test`,{method:"POST",body:JSON.stringify({message:`Test conexiune ${BRAND_NAME}`})});if(mounted.current)setNote({kind:"ok",text:`Test reușit: ${String(d.result||"conexiune reușită").slice(0,600)}`})}
-      catch(err){if(mounted.current)setNote({kind:"error",text:`Pluginul a fost salvat, dar testul a eșuat: ${err.message}`})}
+      try{const d=await api(`/api/plugins/${saved.id}/test`,{method:"POST",body:JSON.stringify({message:`Connection test ${BRAND_NAME}`})});if(mounted.current)setNote({kind:"ok",text:tr("Test passed: {result}",{result:String(d.result||tr("connection works")).slice(0,600)})})}
+      catch(err){if(mounted.current)setNote({kind:"error",text:tr("The plugin was saved, but the test failed: {error}",{error:err.message})})}
     }catch(err){if(mounted.current)setNote({kind:"error",text:err.message})}
     finally{if(mounted.current)setBusy("")}
   }
   return <form className="pluginCreateForm" onSubmit={save} noValidate>
-    <div className="pluginCreateIntro"><Puzzle size={20}/><div><b>{editing?`Editează „${editing.name}”`:"Creează un plugin"}</b><span>Conectează orice API sau webhook. {pluginTriggerHint(f.name||"Nume",f.trigger||undefined)}.</span></div></div>
+    <div className="pluginCreateIntro"><Puzzle size={20}/><div><b>{editing?tr("Edit «{name}»",{name:editing.name}):tr("Create a plugin")}</b><span>{tr("Connect any API or webhook.")} {pluginTriggerHint(f.name||tr("Name"),f.trigger||undefined)}.</span></div></div>
     <div className="pluginFormGrid">
-      <label>Nume<input value={f.name} maxLength={80} onChange={e=>set({name:e.target.value})} placeholder="Ex. Meteo"/></label>
-      <label>Descriere<input value={f.description} maxLength={500} onChange={e=>set({description:e.target.value})} placeholder="Ce face pluginul"/></label>
+      <label>{tr("Name")}<input value={f.name} maxLength={80} onChange={e=>set({name:e.target.value})} placeholder={tr("E.g. Weather")}/></label>
+      <label>{tr("Description")}<input value={f.description} maxLength={500} onChange={e=>set({description:e.target.value})} placeholder={tr("What the plugin does")}/></label>
     </div>
-    <label>Adresă API<input ref={urlRef} value={f.url} onChange={e=>set({url:e.target.value})} inputMode="url" placeholder="https://api.exemplu.ro/date"/></label>
+    <label>{tr("API address")}<input ref={urlRef} value={f.url} onChange={e=>set({url:e.target.value})} inputMode="url" placeholder="https://api.example.com/data"/></label>
     {!direct&&<div className="pluginFormGrid">
-      <label>Metodă<select value={f.method} onChange={e=>set({method:e.target.value})}><option value="GET">GET</option><option value="POST">POST</option>{!["GET","POST"].includes(f.method)&&<option value={f.method}>{f.method}</option>}</select></label>
-      {!oauth&&<label>Autentificare<select value={f.auth} onChange={e=>set({auth:e.target.value})}><option value="none">Fără</option><option value="bearer">Bearer token</option><option value="header">Antet personalizat</option></select></label>}
+      <label>{tr("Method")}<select value={f.method} onChange={e=>set({method:e.target.value})}><option value="GET">GET</option><option value="POST">POST</option>{!["GET","POST"].includes(f.method)&&<option value={f.method}>{f.method}</option>}</select></label>
+      {!oauth&&<label>{tr("Authentication")}<select value={f.auth} onChange={e=>set({auth:e.target.value})}><option value="none">{tr("None")}</option><option value="bearer">Bearer token</option><option value="header">{tr("Custom header")}</option></select></label>}
     </div>}
     {!direct&&!oauth&&f.auth!=="none"&&<div className="pluginFormGrid">
-      {f.auth==="header"&&<label>Nume antet<input value={f.headerName} onChange={e=>set({headerName:e.target.value})} placeholder="X-API-Key"/></label>}
-      <label>Cheie API<input type="password" value={f.apiKey} onChange={e=>set({apiKey:e.target.value})} placeholder={editing?.hasKey?"Cheie salvată — lasă gol pentru a o păstra":"Cheie / token"} autoComplete="off"/></label>
+      {f.auth==="header"&&<label>{tr("Header name")}<input value={f.headerName} onChange={e=>set({headerName:e.target.value})} placeholder="X-API-Key"/></label>}
+      <label>{tr("API key")}<input type="password" value={f.apiKey} onChange={e=>set({apiKey:e.target.value})} placeholder={editing?.hasKey?tr("Key saved — leave empty to keep it"):tr("Key / token")} autoComplete="off"/></label>
     </div>}
-    <label className="checkRow"><input type="checkbox" checked={f.auto} onChange={e=>set({auto:e.target.checked})}/><span><b>Folosește-l automat când e relevant</b><small>Altfel pornește doar când îi scrii numele sau @trigger-ul în chat.</small></span></label>
+    <label className="checkRow"><input type="checkbox" checked={f.auto} onChange={e=>set({auto:e.target.checked})}/><span><b>{tr("Use it on its own when it is relevant")}</b><small>{tr("Otherwise it runs only when you write its name or @trigger in chat.")}</small></span></label>
     {note&&<ResultNote result={note}/>}
     <div className="pluginFormActions">
-      {editing&&<button type="button" className="secondary" onClick={onCancel}>Anulează</button>}
-      <button type="button" className="secondary" onClick={test} disabled={!!busy}><Play size={14}/> {busy==="test"?"Se testează…":"Testează"}</button>
-      <button className="primary" disabled={!!busy}><Check size={15}/> {busy==="save"?"Se salvează…":"Salvează"}</button>
+      {editing&&<button type="button" className="secondary" onClick={onCancel}>{tr("Cancel")}</button>}
+      <button type="button" className="secondary" onClick={test} disabled={!!busy}><Play size={14}/> {busy==="test"?tr("Testing…"):tr("Test")}</button>
+      <button className="primary" disabled={!!busy}><Check size={15}/> {busy==="save"?tr("Saving…"):tr("Save")}</button>
     </div>
   </form>;
 }
@@ -216,19 +218,19 @@ function CatalogSetup({selected,onClose,onDone,reload}){
   async function addApi(e){
     e?.preventDefault?.();
     if(saving)return;
-    if(!form.name.trim()){setSetupResult({kind:"error",text:"Scrie un nume pentru plugin."});return;}
-    if(!isHttpUrl(form.url)){setSetupResult({kind:"error",text:"Adresa API trebuie să fie un link complet, de exemplu https://exemplu.ro/webhook."});return;}
+    if(!form.name.trim()){setSetupResult({kind:"error",text:tr("Write a name for the plugin.")});return;}
+    if(!isHttpUrl(form.url)){setSetupResult({kind:"error",text:tr("The API address must be a full link, for example https://example.com/webhook.")});return;}
     setSaving("api");setSetupResult(null);
     try{
       await api("/api/plugins",{method:"POST",body:JSON.stringify({name:form.name.trim(),description:form.description,url:form.url.trim(),method:form.method,trigger:form.trigger,auto:form.auto,...(form.apiKey.trim()?{apiKey:form.apiKey.trim()}:{})})});
-      onDone({kind:"ok",text:`${form.name.trim()}: pluginul a fost conectat.`});
+      onDone({kind:"ok",text:tr("{name}: the plugin was connected.",{name:form.name.trim()})});
     }catch(err){if(mounted.current)setSetupResult({kind:"error",text:err.message})}
     finally{if(mounted.current)setSaving("")}
   }
   async function connectOAuth(){
     if(!selected?.oauth||saving)return;
-    if(!form.oauthClientId.trim()){setSetupResult({kind:"error",text:"Lipsește OAuth Client ID."});return;}
-    if(selected.oauth.requiresSecret&&!form.oauthClientSecret.trim()){setSetupResult({kind:"error",text:"Acest serviciu necesită și OAuth Client Secret."});return;}
+    if(!form.oauthClientId.trim()){setSetupResult({kind:"error",text:tr("The OAuth Client ID is missing.")});return;}
+    if(selected.oauth.requiresSecret&&!form.oauthClientSecret.trim()){setSetupResult({kind:"error",text:tr("This service also needs the OAuth Client Secret.")});return;}
     setSaving("oauth");setSetupResult(null);
     try{
       const d=await api("/api/plugins/oauth/start",{method:"POST",body:JSON.stringify({
@@ -237,8 +239,8 @@ function CatalogSetup({selected,onClose,onDone,reload}){
       })});
       if(d.redirectUri)setRedirectUri(d.redirectUri);
       const opened=await window.Serasmart?.openExternal?.(d.authorizeUrl);
-      if(opened&&!opened.ok)throw new Error(opened.error||"Nu am putut deschide pagina OAuth.");
-      setSetupResult({kind:"info",text:`Autorizarea s-a deschis în browser. Finalizează-o acolo; ${BRAND_NAME} salvează conexiunea automat.`});
+      if(opened&&!opened.ok)throw new Error(opened.error||tr("The OAuth page could not be opened."));
+      setSetupResult({kind:"info",text:tr("The sign-in opened in the browser. Finish it there; {brand} saves the connection on its own.",{brand:BRAND_NAME})});
       const name=String(selected.name).toLowerCase(),started=Date.now();
       clearInterval(oauthTimer.current);
       oauthTimer.current=setInterval(async()=>{
@@ -248,12 +250,12 @@ function CatalogSetup({selected,onClose,onDone,reload}){
           if(connected||Date.now()-started>120000){
             clearInterval(oauthTimer.current);oauthTimer.current=null;
             if(!mounted.current)return;
-            if(connected)onDone({kind:"ok",text:`${connected.name}: conectat cu succes.`});
-            else setSetupResult({kind:"error",text:"Autorizarea nu a fost finalizată în 2 minute. Încearcă din nou."});
+            if(connected)onDone({kind:"ok",text:tr("{name}: connected.",{name:connected.name})});
+            else setSetupResult({kind:"error",text:tr("The sign-in was not finished within 2 minutes. Try again.")});
           }
         }catch{}
       },2000);
-    }catch(e){if(mounted.current)setSetupResult({kind:"error",text:`Eroare OAuth — ${e.message}`})}
+    }catch(e){if(mounted.current)setSetupResult({kind:"error",text:tr("OAuth error — {error}",{error:e.message})})}
     finally{if(mounted.current)setSaving("")}
   }
   async function openProviderApp(){
@@ -263,8 +265,8 @@ function CatalogSetup({selected,onClose,onDone,reload}){
     try{
       await api("/api/plugins/direct",{method:"POST",body:JSON.stringify({name:selected.name,description:selected.description,trigger:selected.trigger,appUrl:url})});
       const r=await window.Serasmart?.openExternal?.(url);
-      if(r&&!r.ok)throw new Error(r.error||"Nu am putut deschide aplicația.");
-      onDone({kind:"ok",text:`${selected.name}: salvat pentru deschidere directă, fără OAuth. Autentifică-te normal în aplicația oficială.`});
+      if(r&&!r.ok)throw new Error(r.error||tr("The app could not be opened."));
+      onDone({kind:"ok",text:tr("{name}: saved to open directly, without OAuth. Sign in as usual in the official app.",{name:selected.name})});
     }catch(e){if(mounted.current)setSetupResult({kind:"error",text:e.message})}
     finally{if(mounted.current)setSaving("")}
   }
@@ -272,41 +274,43 @@ function CatalogSetup({selected,onClose,onDone,reload}){
   return <SetupOverlay onClose={onClose}>
     <div className="claudeSetupHead">
       <PluginLogo entry={selected} large/>
-      <div><h3>{selected.name}</h3><p>{selected.description}</p></div>
-      <button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={18}/></button>
+      <div><Rise tag="h3">{selected.name}</Rise><p>{selected.description}</p></div>
+      <button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={18}/></button>
     </div>
     <ResultNote result={setupResult}/>
-    <div className="claudeSetupNotice"><Plug size={16}/><span>Poți folosi pluginul fără OAuth pentru deschiderea directă a aplicației. OAuth/API este necesar doar când vrei ca {BRAND_NAME} să citească sau să modifice date private din acel serviciu.</span></div>
+    <div className="claudeSetupNotice"><Plug size={16}/><span>{tr("You can use the plugin without OAuth to open the app directly. OAuth or an API is needed only when you want {brand} to read or change private data in that service.",{brand:BRAND_NAME})}</span></div>
     {selected.appUrl&&<div className="pluginDirectConnect">
-      <button className="primary" onClick={openProviderApp} disabled={!!saving}><ExternalLink size={16}/> {saving==="direct"?"Se deschide…":`Conectează fără OAuth și deschide ${selected.name}`}</button>
-      <small>{BRAND_NAME} salvează pluginul ca legătură directă și deschide aplicația oficială. Te autentifici normal în browser.</small>
+      <button className="primary" onClick={openProviderApp} disabled={!!saving}><ExternalLink size={16}/> {saving==="direct"?tr("Opening…"):tr("Connect without OAuth and open {name}",{name:selected.name})}</button>
+      <small>{tr("{brand} saves the plugin as a direct link and opens the official app. You sign in as usual in the browser.",{brand:BRAND_NAME})}</small>
     </div>}
     <form className="claudeSetupForm" onSubmit={addApi}>
-      <label>Nume<input value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/></label>
+      <label>{tr("Name")}<input value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/></label>
       {selected.oauth&&<div className="oauthBox">
-        <label>OAuth Client ID<input placeholder="Client ID al aplicației create la furnizor" value={form.oauthClientId} onChange={e=>setForm({...form,oauthClientId:e.target.value})}/></label>
-        <label><span className="labelLine">OAuth Client Secret <span className="optional">{selected.oauth.requiresSecret?"necesar":"opțional / PKCE"}</span></span><input type="password" placeholder="Client Secret" value={form.oauthClientSecret} onChange={e=>setForm({...form,oauthClientSecret:e.target.value})}/></label>
-        <small className="settingsHelp">Adresa de redirecționare pe care trebuie s-o înregistrezi la furnizor: <code>{redirectShown}</code></small>
-        <button type="button" className="secondary pluginOAuthButton" onClick={connectOAuth} disabled={!!saving}><ExternalLink size={15}/> {saving==="oauth"?"Se pregătește…":"Conectează prin OAuth (acces la date)"}</button>
+        <label>OAuth Client ID<input placeholder={tr("Client ID of the app made at the provider")} value={form.oauthClientId} onChange={e=>setForm({...form,oauthClientId:e.target.value})}/></label>
+        <label><span className="labelLine">OAuth Client Secret <span className="optional">{selected.oauth.requiresSecret?tr("required"):tr("optional / PKCE")}</span></span><input type="password" placeholder="Client Secret" value={form.oauthClientSecret} onChange={e=>setForm({...form,oauthClientSecret:e.target.value})}/></label>
+        <small className="settingsHelp">{tr("The return address to register at the provider:")} <code>{redirectShown}</code></small>
+        <button type="button" className="secondary pluginOAuthButton" onClick={connectOAuth} disabled={!!saving}><ExternalLink size={15}/> {saving==="oauth"?tr("Getting ready…"):tr("Connect with OAuth (access to data)")}</button>
       </div>}
-      <label>Endpoint / webhook / API personalizat<input placeholder="https://…" value={form.url} onChange={e=>setForm({...form,url:e.target.value})} inputMode="url"/></label>
-      <div className="claudeFormRow"><label>Trigger<input placeholder="@gmail" value={form.trigger} onChange={e=>setForm({...form,trigger:e.target.value})}/></label><label>Metodă<select value={form.method} onChange={e=>setForm({...form,method:e.target.value})}><option>POST</option><option>GET</option></select></label></div>
-      <label><span className="labelLine">Cheie API <span className="optional">opțional</span></span><input type="password" placeholder="Cheie / token" value={form.apiKey} onChange={e=>setForm({...form,apiKey:e.target.value})} autoComplete="off"/></label>
-      <div className="claudeSetupActions"><button type="button" className="secondary" onClick={onClose}>Anulează</button><button className="primary" disabled={!form.name.trim()||!form.url.trim()||!!saving}>{saving==="api"?"Se conectează…":"Conectează API personalizat"}</button></div>
+      <label>{tr("Endpoint / webhook / custom API")}<input placeholder="https://…" value={form.url} onChange={e=>setForm({...form,url:e.target.value})} inputMode="url"/></label>
+      <div className="claudeFormRow"><label>Trigger<input placeholder="@gmail" value={form.trigger} onChange={e=>setForm({...form,trigger:e.target.value})}/></label><label>{tr("Method")}<select value={form.method} onChange={e=>setForm({...form,method:e.target.value})}><option>POST</option><option>GET</option></select></label></div>
+      <label><span className="labelLine">{tr("API key")} <span className="optional">{tr("optional")}</span></span><input type="password" placeholder={tr("Key / token")} value={form.apiKey} onChange={e=>setForm({...form,apiKey:e.target.value})} autoComplete="off"/></label>
+      <div className="claudeSetupActions"><button type="button" className="secondary" onClick={onClose}>{tr("Cancel")}</button><button className="primary" disabled={!form.name.trim()||!form.url.trim()||!!saving}>{saving==="api"?tr("Connecting…"):tr("Connect custom API")}</button></div>
     </form>
   </SetupOverlay>;
 }
 
 export function PluginsPage({onClose}){
   const {can}=useAccess();
-  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState(null),[result,setResult]=useState(null);
+  useLanguage();
+  // 0.7.29: the first tab is the connected apps (like Claude's connectors); the API plugins stay in the other tabs.
+  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState("apps"),[result,setResult]=useState(null);
   const [query,setQuery]=useState(""),[selected,setSelected]=useState(null),[testing,setTesting]=useState(null),[cardNotes,setCardNotes]=useState({});
   const [formInit,setFormInit]=useState(BLANK_PLUGIN),[editing,setEditing]=useState(null),[builtins,setBuiltins]=useState([]),[adding,setAdding]=useState("");
   const mounted=useRef(true);
   useEffect(()=>()=>{mounted.current=false},[]);
   async function load(){
     try{const d=await api("/api/plugins");const list=d.data||[];if(mounted.current){setItems(list);setTab(t=>t||(list.length?"installed":"directory"))}return list}
-    catch(e){if(mounted.current){setResult({kind:"error",text:"Nu am putut încărca pluginurile: "+e.message});setTab(t=>t||"directory")}return []}
+    catch(e){if(mounted.current){setResult({kind:"error",text:tr("The plugins could not be loaded: {error}",{error:e.message})});setTab(t=>t||"directory")}return []}
     finally{if(mounted.current)setLoading(false)}
   }
   useEffect(()=>{load()},[]);
@@ -315,7 +319,7 @@ export function PluginsPage({onClose}){
   useEffect(()=>{loadBuiltins()},[]);
   async function addBuiltin(b){
     if(adding)return;setAdding(b.key);
-    try{await api("/api/plugins/builtin",{method:"POST",body:JSON.stringify({key:b.key})});await Promise.all([load(),loadBuiltins()]);setResult({kind:"ok",text:`${b.name} e gata. Scrie în chat, de exemplu: ${b.trigger} sau întreabă direct.`});setTab("installed")}
+    try{await api("/api/plugins/builtin",{method:"POST",body:JSON.stringify({key:b.key})});await Promise.all([load(),loadBuiltins()]);setResult({kind:"ok",text:tr("{name} is ready. Write in chat, for example: {trigger}, or just ask.",{name:tr(b.title||b.name),trigger:b.trigger})});setTab("installed")}
     catch(e){toast(e.message)}finally{if(mounted.current)setAdding("")}
   }
   async function patch(x,p){try{await api(`/api/plugins/${x.id}`,{method:"PATCH",body:JSON.stringify(p)});await load()}catch(e){toast(e.message)}}
@@ -324,16 +328,16 @@ export function PluginsPage({onClose}){
     if(x.mode==="direct_app"&&(x.appUrl||x.url)){
       const r=await window.Serasmart?.openExternal?.(x.appUrl||x.url);
       if(!window.Serasmart?.openExternal)openLink(x.appUrl||x.url);
-      setCardNotes(n=>({...n,[x.id]:r&&!r.ok?{kind:"error",text:`Nu am putut deschide aplicația — ${r.error||"eroare"}`}:{kind:"ok",text:"Aplicația a fost deschisă."}}));
+      setCardNotes(n=>({...n,[x.id]:r&&!r.ok?{kind:"error",text:tr("The app could not be opened — {error}",{error:r.error||tr("error")})}:{kind:"ok",text:tr("The app was opened.")}}));
       return;
     }
     setTesting(x.id);
-    try{const d=await api(`/api/plugins/${x.id}/test`,{method:"POST",body:JSON.stringify({message:`Test conexiune ${BRAND_NAME}`})});if(mounted.current)setCardNotes(n=>({...n,[x.id]:{kind:"ok",text:`Funcționează: ${String(d.result||"conexiune reușită").slice(0,300)}`}}))}
+    try{const d=await api(`/api/plugins/${x.id}/test`,{method:"POST",body:JSON.stringify({message:`Connection test ${BRAND_NAME}`})});if(mounted.current)setCardNotes(n=>({...n,[x.id]:{kind:"ok",text:tr("Works: {result}",{result:String(d.result||tr("connection works")).slice(0,300)})}}))}
     catch(e){if(mounted.current)setCardNotes(n=>({...n,[x.id]:{kind:"error",text:`Eroare — ${e.message}`}}))}
     finally{if(mounted.current)setTesting(null)}
   }
   async function remove(x){
-    if(!confirm(`Ștergi pluginul „${x.name}”?`))return;
+    if(!confirm(tr("Delete the plugin «{name}»?",{name:x.name})))return;
     try{await api(`/api/plugins/${x.id}`,{method:"DELETE"});if(editing?.id===x.id){setEditing(null);setFormInit(BLANK_PLUGIN)}await load()}catch(e){toast(e.message)}
   }
   function edit(x){
@@ -353,59 +357,60 @@ export function PluginsPage({onClose}){
   }
   const installedNames=new Set(items.map(x=>String(x.name||"").toLowerCase()));
   const normalized=query.trim().toLowerCase();
-  const filtered=PLUGIN_CATALOG.filter(x=>!normalized||x.name.toLowerCase().includes(normalized)||x.description.toLowerCase().includes(normalized)||x.group.toLowerCase().includes(normalized));
+  const filtered=PLUGIN_CATALOG.filter(x=>!normalized||[x.name,x.description,x.group,tr(x.description),tr(x.group)].some(v=>v.toLowerCase().includes(normalized)));
   const groups=PLUGIN_GROUPS.map(group=>({group,items:filtered.filter(x=>x.group===group)})).filter(x=>x.items.length);
   const skills=SKILLS.filter(x=>!normalized||x.name.toLowerCase().includes(normalized)||x.description.toLowerCase().includes(normalized));
-  const tabs=[["installed",`Instalate${items.length?` (${items.length})`:""}`],["directory","Director"],["create",editing?"Editează plugin":"Creează plugin"]];
-  return <ToolShell title="Pluginuri" subtitle={`Scrie numele unui plugin în chat (de ex. «Calendar») sau @nume și ${BRAND_NAME} îl folosește pentru răspuns.`} onClose={onClose} className="pageModal pluginsPage">
-    <div className="pageTabs" role="tablist" aria-label="Secțiuni pluginuri">
+  const tabs=[["apps",tr("Connected apps")],["installed",`${tr("API plugins")}${items.length?` (${items.length})`:""}`],["directory",tr("Plugin directory")],["create",editing?tr("Edit plugin"):tr("Create plugin")]];
+  return <ToolShell title={tr("Apps")} subtitle={tab==="apps"?tr("Connect your apps: the AI can search, read, create and edit in them, and asks you before every action."):tr("Write a plugin's name in chat (for example «Calendar») or @name and {brand} uses it for the answer.",{brand:BRAND_NAME})} onClose={onClose} className="pageModal pluginsPage">
+    <div className="pageTabs" role="tablist" aria-label={tr("Apps sections")}>
       {tabs.map(([k,label])=><button key={k} role="tab" aria-selected={tab===k} className={cx("pageTab",tab===k&&"active")} onClick={()=>{setTab(k);if(k==="create"&&editing&&tab!=="create"){setEditing(null);setFormInit(BLANK_PLUGIN)}}}>{label}</button>)}
     </div>
     <div className="pageBody" role="tabpanel">
-      <ResultNote result={result}/>
-      {tab==="installed"&&(loading?<div className="emptyState small">Se încarcă pluginurile…</div>:!items.length?<div className="taskEmpty">
-        <span className="taskIcon big"><Puzzle size={26}/></span><h3>Nu ai pluginuri instalate</h3><p>Alege unul din Director sau creează-l pe al tău dintr-un API. După instalare, scrie-i numele în chat și {BRAND_NAME} îl folosește.</p>
-        <div className="taskExamples"><button className="primary" onClick={()=>setTab("directory")}>Deschide Directorul</button><button className="secondary" onClick={()=>setTab("create")}><Plus size={14}/> Creează plugin</button></div>
+      {tab!=="apps"&&<ResultNote result={result}/>}
+      {tab==="apps"&&<ConnectorsPanel/>}
+      {tab==="installed"&&(loading?<div className="emptyState small">{tr("Loading the plugins…")}</div>:!items.length?<div className="taskEmpty">
+        <span className="taskIcon big"><Puzzle size={26}/></span><Rise tag="h3">{tr("No API plugins yet")}</Rise><p>{tr("Pick one from the directory or make your own from an API. Then write its name in chat and {brand} uses it.",{brand:BRAND_NAME})}</p>
+        <div className="taskExamples"><button className="primary" onClick={()=>setTab("directory")}>{tr("Open the directory")}</button><button className="secondary" onClick={()=>setTab("create")}><Plus size={14}/> {tr("Create plugin")}</button></div>
       </div>:<div className="plugCards">
         {items.map(x=><div key={x.id} className={cx("plugCard",!x.enabled&&"off")}>
-          <div className="plugCardTop"><PluginLogo entry={PLUGIN_CATALOG.find(c=>c.name.toLowerCase()===String(x.name||"").toLowerCase())||{name:x.name}}/><div className="plugCardText"><b title={x.name}>{x.name}</b><small>{x.description||hostOf(x.appUrl||x.url)}</small></div><Switch checked={x.enabled} label={`${x.enabled?"Dezactivează":"Activează"} ${x.name}`} onChange={()=>patch(x,{enabled:!x.enabled})}/></div>
+          <div className="plugCardTop"><PluginLogo entry={PLUGIN_CATALOG.find(c=>c.name.toLowerCase()===String(x.name||"").toLowerCase())||{name:x.name}}/><div className="plugCardText"><b title={x.name}>{x.name}</b><small>{x.description||hostOf(x.appUrl||x.url)}</small></div><Switch checked={x.enabled} label={tr(x.enabled?"Turn off {name}":"Turn on {name}",{name:x.name})} onChange={()=>patch(x,{enabled:!x.enabled})}/></div>
           <p className="pluginTrigger">{pluginTriggerHint(x.name,x.trigger)}</p>
-          <small className="pluginMeta">{x.mode==="builtin"?`Inclus în ${BRAND_NAME} · fără cont`:x.mode==="direct_app"?"Deschidere directă a aplicației":x.oauthConnected?"Conectat prin OAuth":`API · ${x.method||"POST"}${x.hasKey?" · cu cheie":""}`}{x.auto?" · automat":""}</small>
+          <small className="pluginMeta">{x.mode==="builtin"?tr("Included in {brand} · no account",{brand:BRAND_NAME}):x.mode==="direct_app"?tr("Opens the app directly"):x.oauthConnected?tr("Connected with OAuth"):`API · ${x.method||"POST"}${x.hasKey?` · ${tr("with key")}`:""}`}{x.auto?` · ${tr("automatic")}`:""}</small>
           {cardNotes[x.id]&&<ResultNote result={cardNotes[x.id]}/>}
           <div className="plugCardActions">
-            <button className="smallBtn" onClick={()=>test(x)} disabled={testing===x.id}>{x.mode==="direct_app"?<><ExternalLink size={13}/> Deschide</>:<><Play size={13}/> {testing===x.id?"Se testează…":"Testează"}</>}</button>
-            {x.mode!=="builtin"&&<button className="smallBtn" onClick={()=>edit(x)}><Pencil size={13}/> Editează</button>}
-            <button className="smallBtn dangerSmall" onClick={()=>remove(x)} aria-label={`Șterge ${x.name}`}><Trash2 size={13}/> Șterge</button>
+            <button className="smallBtn" onClick={()=>test(x)} disabled={testing===x.id}>{x.mode==="direct_app"?<><ExternalLink size={13}/> {tr("Open")}</>:<><Play size={13}/> {testing===x.id?tr("Testing…"):tr("Test")}</>}</button>
+            {x.mode!=="builtin"&&<button className="smallBtn" onClick={()=>edit(x)}><Pencil size={13}/> {tr("Edit")}</button>}
+            <button className="smallBtn dangerSmall" onClick={()=>remove(x)} aria-label={tr("Delete {name}",{name:x.name})}><Trash2 size={13}/> {tr("Delete")}</button>
           </div>
         </div>)}
       </div>)}
       {tab==="directory"&&<div className="pluginDirectory">
-        <div className="pageSearch"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Caută în Director (nume, categorie)" aria-label="Caută pluginuri"/></div>
-        {builtins.length>0&&!normalized&&<section className="catalogSection builtinSection"><h3>Funcționează imediat</h3><div className="catalogGrid">
+        <div className="pageSearch"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={tr("Search the directory (name, category)")} aria-label={tr("Search plugins")}/></div>
+        {builtins.length>0&&!normalized&&<section className="catalogSection builtinSection"><Rise tag="h3">{tr("Works right away")}</Rise><div className="catalogGrid">
           {builtins.map(b=><div className="catalogCard" key={b.key}>
             <span className="pluginLogo"><span>{b.trigger.slice(1,2).toUpperCase()}</span></span>
-            <div className="catalogText"><b>{b.name}</b><small>{b.description} · fără cont</small></div>
+            <div className="catalogText"><b>{tr(b.title||b.name)}</b><small>{tr(b.about||b.description)} · {tr("no account")}</small></div>
             {b.installed?<button className="smallBtn installed" onClick={()=>setTab("installed")} aria-label={`${b.name} este instalat`}><Check size={13}/> Instalat</button>
-              :<button className="smallBtn addBtn" onClick={()=>addBuiltin(b)} disabled={adding===b.key} aria-label={`Adaugă ${b.name}`}><Plus size={13}/> {adding===b.key?"Se adaugă…":"Adaugă"}</button>}
+              :<button className="smallBtn addBtn" onClick={()=>addBuiltin(b)} disabled={adding===b.key} aria-label={tr("Add {name}",{name:tr(b.title||b.name)})}><Plus size={13}/> {adding===b.key?tr("Adding…"):tr("Add")}</button>}
           </div>)}
         </div></section>}
         {groups.map(({group,items:groupItems})=><section className="catalogSection" key={group}>
-          <h3>{group}</h3>
+          <Rise tag="h3">{tr(group)}</Rise>
           <div className="catalogGrid">
             {groupItems.map(x=>{const installed=installedNames.has(x.name.toLowerCase());return <div className="catalogCard" key={x.group+x.name}>
               <PluginLogo entry={x}/>
-              <div className="catalogText"><b>{x.name}</b><small>{x.description}{!pluginHasIntegration(x)&&<em className="apiOnlyTag"> · doar prin API</em>}</small></div>
-              {installed?<button className="smallBtn installed" onClick={()=>setTab("installed")} aria-label={`${x.name} este instalat`}><Check size={13}/> Instalat</button>
-                :<button className="smallBtn addBtn" onClick={()=>addFromCatalog(x)} aria-label={`Adaugă ${x.name}`}><Plus size={13}/> Adaugă</button>}
+              <div className="catalogText"><b>{x.name}</b><small>{tr(x.description)}{!pluginHasIntegration(x)&&<em className="apiOnlyTag"> · {tr("API only")}</em>}</small></div>
+              {installed?<button className="smallBtn installed" onClick={()=>setTab("installed")} aria-label={tr("{name} is installed",{name:x.name})}><Check size={13}/> {tr("Installed")}</button>
+                :<button className="smallBtn addBtn" onClick={()=>addFromCatalog(x)} aria-label={tr("Add {name}",{name:x.name})}><Plus size={13}/> {tr("Add")}</button>}
             </div>})}
           </div>
         </section>)}
-        {!groups.length&&<div className="emptyState small">Nu am găsit pluginul căutat. Îl poți crea din tabul „Creează plugin”.</div>}
-        {skills.length>0&&<section className="catalogSection"><h3>Incluse în {BRAND_NAME}</h3><div className="catalogGrid">
-          {skills.map(x=>{const ok=can(x.perm);return <div className={cx("catalogCard",!ok&&"locked")} key={x.name} title={ok?"Disponibilă pentru contul tău":deniedMessage(x.perm)}>
+        {!groups.length&&<div className="emptyState small">{tr("No plugin found. You can make it in the «Create plugin» tab.")}</div>}
+        {skills.length>0&&<section className="catalogSection"><Rise tag="h3">{tr("Included in {brand}",{brand:BRAND_NAME})}</Rise><div className="catalogGrid">
+          {skills.map(x=>{const ok=can(x.perm);return <div className={cx("catalogCard",!ok&&"locked")} key={x.name} title={ok?tr("Available for your account"):deniedMessage(x.perm)}>
             <span className="pluginLogo"><span>{x.mark}</span></span>
-            <div className="catalogText"><b>{x.name}</b><small>{ok?x.description:"Dezactivată de Owner pentru contul tău."}</small></div>
-            {ok?<Check size={16} className="okIcon" aria-label="Disponibilă"/>:<Lock size={15} aria-label="Dezactivată"/>}
+            <div className="catalogText"><b>{tr(x.name)}</b><small>{ok?tr(x.description):tr("Turned off by the Owner for your account.")}</small></div>
+            {ok?<Check size={16} className="okIcon" aria-label={tr("Available")}/>:<Lock size={15} aria-label={tr("Turned off")}/>}
           </div>})}
         </div></section>}
       </div>}

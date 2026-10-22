@@ -27,7 +27,9 @@ const DIRECT_KEYS = {
   pollinationsApiKey: "POLLINATIONS_API_KEY", falApiKey: "FAL_API_KEY", replicateApiToken: "REPLICATE_API_TOKEN",
   togetherApiKey: "TOGETHER_API_KEY", stabilityApiKey: "STABILITY_API_KEY",
   // Grok (xAI): chat, Grok Imagine pictures and video
-  xaiApiKey: "XAI_API_KEY"
+  xaiApiKey: "XAI_API_KEY",
+  // Connected apps (0.7.29): the Owner's Google OAuth client for Gmail, Drive, Calendar, Docs and Sheets
+  googleClientId: "GOOGLE_CLIENT_ID", googleClientSecret: "GOOGLE_CLIENT_SECRET"
 };
 
 function envConfig() {

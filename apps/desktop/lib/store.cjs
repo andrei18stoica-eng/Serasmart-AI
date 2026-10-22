@@ -7,7 +7,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const COLLECTIONS = ["users", "conversations", "projects", "assistants", "memories", "library", "plugins", "automations", "designs", "skills"];
+const COLLECTIONS = ["users", "conversations", "projects", "assistants", "memories", "library", "plugins", "automations", "designs", "skills", "connectors", "toolApprovals"];
 
 function emptyDb() {
   return Object.fromEntries(COLLECTIONS.map((k) => [k, []]));

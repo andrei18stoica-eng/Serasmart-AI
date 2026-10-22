@@ -119,8 +119,15 @@ function builtinKeywordMatch(key, text) {
   return !!p && p.keywords.test(String(text || ""));
 }
 
+const BUILTIN_EN = {
+  weather: { title: "Weather", about: "Weather now and the 3-day forecast for any city (Open-Meteo, no account)." },
+  bnr: { title: "BNR exchange rates", about: "Today's official BNR exchange rates: euro, dollar, pound and the others (bnr.ro)." },
+  wikipedia: { title: "Wikipedia", about: "Searches Wikipedia (Romanian, then English) and brings the article's summary." },
+  time: { title: "Exact time", about: "The exact time and date in Romania and in the world's big cities." }
+};
 function publicBuiltinList(installedKeys = new Set()) {
-  return Object.entries(BUILTIN_PLUGINS).map(([key, p]) => ({ key, name: p.name, description: p.description, trigger: p.trigger, installed: installedKeys.has(key) }));
+  // 0.7.29: the interface is in English (Romanian through its translations); the stored name stays for @mentions.
+  return Object.entries(BUILTIN_PLUGINS).map(([key, p]) => ({ key, name: p.name, description: p.description, title: BUILTIN_EN[key]?.title || p.name, about: BUILTIN_EN[key]?.about || p.description, trigger: p.trigger, installed: installedKeys.has(key) }));
 }
 
 module.exports = { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinList, placeFrom, wikiQuery };

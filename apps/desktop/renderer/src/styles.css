@@ -1318,3 +1318,64 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .authTopTools{position:absolute;top:16px;right:16px;z-index:6;display:flex;gap:8px;align-items:center}
 :root[dir="rtl"] .authTopTools{right:auto;left:16px}
 @media(max-width:900px){.authShell{padding-top:72px}}
+/* 0.7.29: connected apps (Apps → Connected apps) and the approval card in chat. */
+.connectorsPanel{display:flex;flex-direction:column;gap:6px}
+.connNote{display:flex;align-items:flex-start;gap:8px;justify-content:space-between;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--text-2)}
+.connNote.ok{border-color:var(--success);color:var(--success)}.connNote.error{border-color:var(--danger);color:var(--danger)}.connNote.info{border-color:var(--accent);color:var(--accent)}
+.iconPlain{border:0;background:transparent;color:inherit;cursor:pointer;padding:2px;display:grid;place-items:center}
+.connHead{display:flex;align-items:center;justify-content:space-between;gap:10px}.connHead h3{margin:0}
+.connHead .smallBtn,.connApproval .smallBtn{display:inline-flex;align-items:center;gap:5px}
+.connGroup h4{margin:14px 0 8px;font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.connCustom{display:grid;grid-template-columns:1fr 2fr 1fr auto;gap:8px;margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.connCustom p{grid-column:1/-1;margin:0}.connCustom input,.connToken input{border:1px solid var(--line);background:var(--bg-2);color:var(--text-strong);border-radius:9px;padding:9px 10px;outline:0;min-width:0}
+.connCustom .primary{display:inline-flex;align-items:center;gap:6px}
+.connToken{display:flex;gap:6px;margin-top:8px}.connToken input{flex:1;padding:6px 8px}
+.connError{color:var(--danger);font-size:11px}
+.connTools{display:flex;flex-wrap:wrap;gap:5px;font-size:11px;color:var(--muted)}
+.connTool{border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--text-2);background:var(--surface-2)}.connTool.read{color:var(--muted)}
+.connApprovals{display:grid;gap:6px}.connApproval{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--text-2);min-width:0}
+.connApproval span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.catalogSection h3 svg{vertical-align:-2px;color:var(--accent)}
+.toolRuns{display:grid;gap:8px;margin:4px 0 10px}
+.toolRun{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;font-size:12px;color:var(--text-2);min-width:0}
+.toolRun.ask{border-color:var(--accent);background:var(--panel)}.toolRun.denied{opacity:.7}.toolRun.error{border-color:var(--danger)}
+.toolRunHead{display:flex;align-items:center;gap:9px;min-width:0}.toolRunTitle{min-width:0;overflow-wrap:anywhere}.toolRunTitle em{font-style:normal;color:var(--text-strong);font-weight:600}.toolRunTitle small{color:var(--muted)}
+.pluginLogo.small{width:26px;height:26px;border-radius:7px;font-size:10px;flex:none}
+.toolRunArgs,.toolRunResult pre{margin:8px 0 0;max-height:180px;overflow:auto;background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:8px;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--text-2)}
+.toolRunActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.toolRunActions button{padding:7px 12px;font-size:12px}.toolRunActions .danger{color:var(--danger)}
+.toolRunResult{margin-top:6px}.toolRunResult summary{cursor:pointer;color:var(--accent);font-size:11px}
+@media(max-width:760px){.connCustom{grid-template-columns:1fr}}
+/* 0.7.29: the AI service status is a dot (green answering, red not). */
+.statusDot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block;margin:0 6px;background:var(--danger);box-shadow:0 0 0 3px color-mix(in srgb,var(--danger) 22%,transparent)}
+.statusDot.ok{background:var(--success);box-shadow:0 0 0 3px color-mix(in srgb,var(--success) 22%,transparent)}
+.statusDot.bad{animation:statusPulse 1.6s ease-in-out infinite}
+@keyframes statusPulse{50%{opacity:.45}}
+@media (prefers-reduced-motion:reduce){.statusDot.bad{animation:none}}
+.pendingTray{position:fixed;right:18px;top:78px;z-index:60;width:min(380px,calc(100vw - 24px));max-height:60vh;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--accent);border-radius:14px;box-shadow:0 18px 50px #0008;overflow:hidden}
+.pendingHead{display:flex;align-items:center;gap:8px;border:0;background:var(--surface);color:var(--text-strong);padding:10px 12px;font-weight:600;font-size:13px;cursor:pointer;text-align:left}
+.pendingCount{min-width:20px;height:20px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:11px;padding:0 6px}
+.pendingList{overflow:auto;padding:10px;display:grid;gap:10px}.pendingItem{display:grid;gap:5px}
+.pendingSource{color:var(--muted);font-size:11px}.linkBtn{border:0;background:transparent;color:var(--accent);cursor:pointer;padding:0;font-size:11px}
+@media(max-width:760px){.pendingTray{right:12px;left:12px;width:auto;top:70px}}
+/* 0.7.29: the S emblem, animated (storyboard in Figma). Rest: 6 s glow + light sweep; thinking: 1.6 s pulse. */
+.brandS{position:relative;overflow:hidden;background:#060A11;isolation:isolate}
+.brandS img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 50%;animation:sIdleImg 6s cubic-bezier(.4,0,.2,1) infinite}
+.brandS::after{content:"";position:absolute;inset:-40% auto -40% -60%;width:38%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);transform:rotate(-25deg) translateX(0);mix-blend-mode:screen;pointer-events:none;animation:sSweep 6s cubic-bezier(.4,0,.2,1) infinite}
+.brandS{animation:sGlow 6s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes sGlow{0%,100%{box-shadow:0 0 10px rgba(91,155,255,.25)}45%{box-shadow:0 0 22px rgba(91,155,255,.55)}60%{box-shadow:0 0 18px rgba(91,155,255,.45)}}
+@keyframes sIdleImg{0%,100%{transform:scale(1)}45%{transform:scale(1.03)}60%{transform:scale(1.02)}}
+@keyframes sSweep{0%,52%{transform:rotate(-25deg) translateX(0);opacity:0}55%{opacity:1}67%{transform:rotate(-25deg) translateX(480%);opacity:1}70%,100%{transform:rotate(-25deg) translateX(480%);opacity:0}}
+html[data-thinking] .brandS{animation:sThink 1.6s ease-in-out infinite}
+html[data-thinking] .brandS img{animation:sThinkImg 1.6s ease-in-out infinite}
+@keyframes sThink{0%,100%{box-shadow:0 0 12px rgba(91,155,255,.35)}50%{box-shadow:0 0 26px rgba(91,155,255,.7)}}
+@keyframes sThinkImg{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(-6deg) scale(1.05)}}
+@media (prefers-reduced-motion:reduce){.brandS,.brandS img,.brandS::after,html[data-thinking] .brandS,html[data-thinking] .brandS img{animation:none}}
+/* 0.7.29: the Dot & Ring cursor stays visible on the light theme; a soft wash at the top of the dark page. */
+:root[data-theme="light"] .dotRingRing,:root[data-theme="light"] .dotRingDot{mix-blend-mode:difference}
+:root:not([data-theme="light"]) body{background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,#f5f5f5 5%,var(--bg)),var(--bg) 70%) fixed}
+/* 0.7.29: the voice orb above the message box, on a dark surface from its base colour #07262b. */
+.voiceOrbStage{position:absolute;left:50%;bottom:calc(100% + 14px);transform:translateX(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 26px 16px;border-radius:24px;border:1px solid color-mix(in srgb,#38e1ff 18%,transparent);
+  background:radial-gradient(60% 50% at 35% 30%,color-mix(in oklch,oklch(0.66 0.12 180) 24%,transparent),transparent 70%),linear-gradient(135deg,transparent 40%,color-mix(in oklch,#38e1ff 7%,transparent) 50%,transparent 60%),radial-gradient(40% 35% at 80% 85%,color-mix(in oklch,#ffc65c 6%,transparent),transparent 70%),radial-gradient(120% 120% at 50% 40%,oklch(0.19 0.04 200),oklch(0.12 0.045 275) 70%,oklch(0.08 0.02 275));
+  box-shadow:0 24px 60px #000a}
+.voiceOrbStage p{margin:0;color:#cfe9ee;font-size:12px;text-align:center;max-width:220px}
+.composerCard{position:relative}

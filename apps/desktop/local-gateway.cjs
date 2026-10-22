@@ -21,6 +21,7 @@ const { QUESTIONS_RULE, sanitizeQuestions } = require("./lib/questions.cjs");
 const { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinList } = require("./lib/builtinplugins.cjs");
 const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill } = require("./lib/skills.cjs");
 const creditsLib = require("./lib/credits.cjs");
+const { createConnectors } = require("./lib/connectors.cjs");
 const accountLib = require("./lib/accountsettings.cjs");
 const { DESIGN_KINDS, MAX_VERSIONS: MAX_DESIGN_VERSIONS, designMessages, reviseMessages, extractHtml, htmlTitle, previewToken, verifyPreviewToken } = require("./lib/design.cjs");
 function normalizeModelKey(value){return String(value||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/\s+/g," ").trim();}
@@ -1323,6 +1324,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       account:{name:user.name,email:user.email,createdAt:user.createdAt,settings:accountLib.accountSettings(user),preferences:userPreferences(user)},
       conversations:mine("conversations"),projects:mine("projects"),assistants:mine("assistants"),memories:mine("memories"),
       skills:mine("skills").map(publicSkill),automations:mine("automations").map(publicAutomation),plugins:mine("plugins").map(publicPlugin),
+      connectedApps:connectors.list(uid),alwaysAllowed:connectors.approvals(uid),
       designs:mine("designs").map(publicDesign),library:mine("library").map(({filePath,...x})=>x),
       credits:metered(req)?{status:credits.status(uid),history:credits.history(uid,300)}:null
     };
@@ -1337,7 +1339,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     if(scope==="conversations"||scope==="all")drop("conversations");
     if(scope==="memories"||scope==="all")drop("memories");
     if(scope==="library"||scope==="all"){files=db.library.filter(x=>x.userId===uid&&x.filePath).map(x=>x.filePath);drop("library");}
-    if(scope==="all")for(const k of ["projects","assistants","skills","automations","plugins","designs"])drop(k);
+    if(scope==="all")for(const k of ["projects","assistants","skills","automations","plugins","designs","connectors","toolApprovals"])drop(k);
     store.write(db);
     for(const f of files)await fs.promises.unlink(f).catch(()=>{});
     if(scope==="all"||scope==="library")for(const id of [...libraryChunkCache.keys()])if(!store.read().library.some(x=>x.id===id))libraryChunkCache.delete(id);
@@ -1945,7 +1947,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     const max=credits.status(req.user.id).features.plugins;
     if(max===null||max===undefined)return;
     if(!max)throw planUpgrade(`Connected apps are available from the ${planWith(p=>p.plugins!==0)} plan.`);
-    const used=store.read().plugins.filter(x=>x.userId===req.user.id&&x.mode!=="builtin").length;
+    const db=store.read(),used=db.plugins.filter(x=>x.userId===req.user.id&&x.mode!=="builtin").length+(db.connectors||[]).filter(x=>x.userId===req.user.id).length;
     if(used>=max)throw planUpgrade(`Your plan includes ${max} connected app${max===1?"":"s"}. Upgrade your plan to connect more.`);
   }
   // How many of something (automations, skills) the plan allows; null = no limit applies.
@@ -2058,7 +2060,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
 
   app.post("/api/export", auth, requirePermission("document_generation"), async (req,res) => {
     try {
-      reserveQuota(req,res,"document");
+      // 0.7.29: an account with a plan makes files freely (the answer was already paid for); the others keep the free limit.
+      if(!(metered(req)&&credits.status(req.user.id).mode==="plan"))reserveQuota(req,res,"document");
       const format=String(req.body?.format||"docx").toLowerCase().replace(/^\./,"");
       const title=String(req.body?.title||`${BRAND_NAME}`).trim().slice(0,120)||`${BRAND_NAME}`;
       const content=typeof req.body?.content==="string"?req.body.content:"";
@@ -3152,7 +3155,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       if(delta){job.text+=delta;job.updatedAt=Date.now();}
     }
   }
-  const jobView=(j)=>({id:j.id,kind:j.kind,conversationId:j.conversationId,status:j.status,text:j.text,routeInfo:j.routeInfo,attachment:j.attachment,error:j.error,startedAt:j.startedAt,updatedAt:j.updatedAt});
+  const jobView=(j)=>({id:j.id,kind:j.kind,conversationId:j.conversationId,status:j.status,text:j.text,routeInfo:j.routeInfo,attachment:j.attachment,error:j.error,startedAt:j.startedAt,updatedAt:j.updatedAt,...(j.toolRuns?.length?{toolRuns:j.toolRuns}:{})});
   app.get("/api/chat/jobs", auth, (req,res) => {res.json({data:[...chatJobs.values()].filter(j=>j.userId===req.user.id).map(jobView)});});
   app.get("/api/chat/jobs/:id", auth, (req,res) => {
     const j=chatJobs.get(req.params.id);
@@ -3631,6 +3634,214 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }catch(e){return finish(false,`Nu am putut finaliza OAuth: ${e.code==="EBLOCKED"?e.message:roError(e)}`)}
   });
 
+  // Connected apps, like the connectors in Claude (0.7.29): remote MCP servers (lib/connectors.cjs). The person connects
+  // an app in Apps; in chat the AI may use its tools, and every action waits for «Allow once», «Always allow» or «Deny».
+  const connectors=createConnectors({
+    store,seal:sealSecret,open:openSecret,getConfig:getOmniConfig,
+    redirectUri:()=>connectorRedirect(null),
+    version:(()=>{try{return require("./package.json").version}catch{return "1.0"}})(),
+    allowPrivate:()=>(getOmniConfig()?.allowPrivatePlugins??loopbackHost)===true
+  });
+  function connectorRedirect(req){return `${previewBase(req)}/api/connectors/oauth/callback`;}
+  // Actions waiting for the person (chat or automation). They wait until the person decides: a closed page does not
+  // refuse them (the chat continues on the server and the card is shown again); only Stop, deleting the automation or a
+  // restart of the server ends them.
+  const toolAsks=new Map(); // run id -> { id, userId, connId, tool, app, title, args, readOnly, source, createdAt, done }
+  app.get("/api/connectors",auth,(req,res)=>{
+    res.json({data:{catalog:connectors.catalog(req.user.id),connected:connectors.list(req.user.id),approvals:connectors.approvals(req.user.id)}});
+  });
+  app.post("/api/connectors/connect",auth,requirePermission("plugins"),async(req,res)=>{
+    try{
+      const b=req.body||{};
+      const catalogId=typeof b.catalogId==="string"?b.catalogId.slice(0,40):"",url=typeof b.url==="string"?b.url.trim().slice(0,2000):"";
+      if(!catalogId&&!url)return res.status(400).json({error:"Choose an app or type its MCP address."});
+      // Connecting again (a new sign-in) does not take another of the plan's app places.
+      const again=(store.read().connectors||[]).some(c=>c.userId===req.user.id&&(catalogId?c.catalogId===catalogId:c.url===url));
+      if(!again)requirePluginSlot(req);
+      const out=await connectors.connect(req.user.id,{catalogId,url,name:typeof b.name==="string"?b.name:"",token:typeof b.token==="string"?b.token.slice(0,4000):"",redirect:connectorRedirect(req)});
+      res.json({data:out});
+    }catch(e){sendError(res,e.status?e:Object.assign(new Error(`The app could not be connected: ${e.code==="EBLOCKED"?e.message:roError(e)}`),{status:502}),400)}
+  });
+  app.get("/api/connectors/oauth/callback",async(req,res)=>{
+    const page=(ok,message)=>res.status(ok?200:400).type("html").send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${BRAND_NAME}</title></head><body style="font-family:system-ui,Segoe UI,Arial;background:#060A11;color:#EEF4FF;padding:40px;max-width:560px;margin:auto"><h2>${ok?"Connected":"Not connected"}</h2><p>${String(message).replace(/[<>&"']/g,x=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#39;"}[x]))}</p><p>You can close this window and go back to ${BRAND_NAME}.</p><script>try{if(window.opener){window.opener.postMessage({serasmartConnector:${ok?"true":"false"}},"*");setTimeout(()=>window.close(),900)}}catch(e){}</script></body></html>`);
+    try{const conn=await connectors.finish(req.query?.state,req.query?.code,req.query?.error);page(true,`${conn.name} is connected. The AI asks you before every action in it.`);}
+    catch(e){page(false,e.status?e.message:`The sign-in did not finish: ${roError(e)}`)}
+  });
+  app.get("/api/connectors/:id/tools",auth,async(req,res)=>{
+    try{res.json({data:await connectors.tools(req.user.id,String(req.params.id),true)})}catch(e){sendError(res,e,502)}
+  });
+  app.delete("/api/connectors/approvals/:id",auth,(req,res)=>{
+    if(!connectors.revokeApproval(req.user.id,String(req.params.id)))return res.status(404).json({error:"Not found."});
+    res.json({ok:true});
+  });
+  app.delete("/api/connectors/:id",auth,async(req,res)=>{
+    if(!(await connectors.disconnect(req.user.id,String(req.params.id))))return res.status(404).json({error:"Not found."});
+    res.json({ok:true});
+  });
+  // The person's choice on an action the AI wants to take: once, always (for this tool of this app) or deny.
+  app.post("/api/connectors/approve",auth,(req,res)=>{
+    const ask=toolAsks.get(String(req.body?.callId||"")),decision=String(req.body?.decision||"");
+    if(!ask||ask.userId!==req.user.id)return res.status(404).json({error:"This request is no longer waiting."});
+    if(!["once","always","deny"].includes(decision))return res.status(400).json({error:"Choose once, always or deny."});
+    if(decision==="always")connectors.allowAlways(req.user.id,ask.connId,ask.tool,ask.app);
+    ask.done(decision==="deny"?"deny":"allow");
+    res.json({ok:true});
+  });
+  app.get("/api/connectors/pending",auth,(req,res)=>{
+    res.json({data:[...toolAsks.values()].filter(a=>a.userId===req.user.id).map(({id,app,tool,title,args,readOnly,source,createdAt})=>({id,app,tool,title,args,readOnly,source,createdAt,status:"ask"}))});
+  });
+  // The tools of the person's connected apps (none when the account may not use them).
+  async function appToolsForUser(userId){
+    if(!(store.read().connectors||[]).some(c=>c.userId===userId&&c.status==="connected"))return [];
+    let t;const timeout=new Promise(r=>{t=setTimeout(()=>r([]),20000);});
+    try{return await Promise.race([connectors.toolsForChat(userId),timeout])}catch{return []}finally{clearTimeout(t)}
+  }
+  async function appToolsFor(req){
+    if(req.body?.apps===false||!hasPermission(req,"plugins"))return [];
+    return appToolsForUser(req.user.id);
+  }
+  function waitForApproval({userId,def,run,source,signal}){
+    return new Promise(resolve=>{
+      if(signal?.aborted)return resolve("deny");
+      const stop=()=>done("deny");
+      const done=(d)=>{toolAsks.delete(run.id);signal?.removeEventListener("abort",stop);resolve(d)};
+      toolAsks.set(run.id,{id:run.id,userId,connId:def.connId,tool:def.tool,app:def.app,title:run.title,args:run.args,readOnly:run.readOnly,source,createdAt:Date.now(),done});
+      signal?.addEventListener("abort",stop,{once:true});
+    });
+  }
+  const clipArgs=(args)=>{const s=JSON.stringify(args||{});return s.length<=4000?args:{_preview:s.slice(0,4000)+"…"};};
+  const validZone=(tz)=>{try{if(tz){new Intl.DateTimeFormat("en-GB",{timeZone:String(tz)});return String(tz);}}catch{}return "";};
+  // What the AI is told when apps are connected: act on what the person asks (without naming the app) and the date and
+  // time where the person is, so «on Saturday» or «tomorrow at 8» land on the right day.
+  function appsNote(apps,timeZone){
+    const tz=validZone(timeZone)||validZone(getOmniConfig().timeZone)||"Europe/Bucharest";
+    const now=new Intl.DateTimeFormat("en-GB",{timeZone:tz,weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date());
+    return {role:"system",content:`CONNECTED APPS: ${apps.join(", ")}. Use their tools on your own whenever the request needs information from these apps or a change in them (search, read, create, edit, move, sort), even when the person does not name the app: «add a basketball match on Saturday» means creating the event in the connected calendar; «sort my emails» means working in the connected email. First look up what you need (for example the calendar list or the messages), then make the change. The person approves every change before it runs, so call the tool directly; do not ask for permission in text. When an action is denied, say so in one short sentence and carry on without it. Never invent what a tool returned. Now: ${now} (${tz}); work out relative dates from this and use this time zone for events.`};
+  }
+  // The rounds with tools, for chat and automations: every action waits for the person unless it is always allowed.
+  async function runAppTools({userId,appTools,convo,first,ask,signal,source,onRun,onWait}){
+    let msg=first;const runs=[];
+    for(let round=0;round<8&&msg?.tool_calls?.length&&!signal?.aborted;round++){
+      convo.push({role:"assistant",content:msg.content||null,tool_calls:msg.tool_calls});
+      for(const call of msg.tool_calls){
+        const def=appTools.find(t=>t.name===call?.function?.name);
+        let args={};try{args=JSON.parse(call?.function?.arguments||"{}")||{}}catch{}
+        const run={id:crypto.randomUUID(),app:def?.app||"",tool:def?.tool||String(call?.function?.name||""),title:def?.title||def?.tool||String(call?.function?.name||""),args:clipArgs(args),readOnly:!!def?.readOnly,status:"ask"};
+        let result;
+        if(!def){run.status="error";run.summary="Unknown tool.";result="This tool does not exist.";}
+        else{
+          let decision="allow";
+          if(!connectors.alwaysAllowed(userId,def.connId,def.tool)){
+            runs.push(run);onRun?.(run,runs);onWait?.(run);
+            decision=await waitForApproval({userId,def,run,source,signal});
+            runs.pop();
+          }
+          if(decision!=="allow"){run.status="denied";result="The person denied this action. Do not try it again; continue without it.";}
+          else{
+            run.status="running";runs.push(run);onRun?.(run,runs);runs.pop();
+            try{const out=await connectors.call(userId,def.connId,def.tool,args);run.status=out.ok?"done":"error";run.summary=String(out.text||"").slice(0,400);result=out.text||"(no content)";}
+            catch(e){run.status="error";run.summary=String(e?.message||e).slice(0,300);result=`The tool failed: ${run.summary}`;}
+          }
+        }
+        runs.push(run);onRun?.(run,runs);
+        convo.push({role:"tool",tool_call_id:call.id,content:String(result).slice(0,30000)});
+      }
+      if(signal?.aborted)break;
+      msg=await ask(round<7);
+    }
+    return {msg,runs};
+  }
+  const publicRuns=(runs)=>runs.map(({id,app,tool,title,status,summary,readOnly})=>({id,app,tool,title,status,readOnly,summary:summary||""}));
+  // Chat with tools: answers are asked without streaming, each action waits for the person, and the final text goes
+  // out as one piece. Returns { handled:false } when no model takes tools, so the normal answer (without apps) follows.
+  async function chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal:stopSignal,bill,usage}){
+    const tools=appTools.map(t=>t.schema);
+    const apps=[...new Set(appTools.map(t=>t.app))];
+    const convo=[...messages];
+    const firstOther=convo.findIndex(m=>m.role!=="system");
+    convo.splice(firstOther<0?convo.length:firstOther,0,appsNote(apps,req.body?.timeZone));
+    // With a job (the app sent requestId and conversationId) a closed page keeps the answer going on the server, and the
+    // actions keep waiting; without one, nobody could see them, so closing the page refuses them.
+    const ctl=new AbortController(),signal=ctl.signal;
+    const abort=()=>ctl.abort("stop");
+    if(stopSignal.aborted)abort();else stopSignal.addEventListener("abort",abort,{once:true});
+    if(!job)res.on("close",()=>{if(!res.writableFinished)abort();});
+    const callTimer=chatTimer(false,signal);
+    const ask=async(model,withTools)=>{
+      const r=await fetchChatCandidate(cfg,model,convo,false,callTimer,withTools?{tools}:{});
+      const text=await r.text();
+      if(!r.ok)throw Object.assign(new Error(`HTTP ${r.status} ${upstreamErrorText(text)}`),{status:r.status,body:text});
+      let data;try{data=JSON.parse(text)}catch{throw new Error("The AI sent an answer that could not be read.")}
+      const msg=data?.choices?.[0]?.message;if(!msg)throw new Error("The AI sent an empty answer.");
+      return msg;
+    };
+    let first=null,used=null;
+    for(const candidate of route.candidates){
+      if(signal.aborted)return {handled:true,paid:false};
+      try{first=await ask(candidate.id,true);used=candidate;break;}
+      catch(e){if(signal.aborted)return {handled:true,paid:false};}
+    }
+    if(!first)return {handled:false,paid:false};
+    chatSettle(bill,used.id,usage.web);
+    res.status(200);
+    res.setHeader("Content-Type","text/event-stream; charset=utf-8");
+    res.setHeader("Cache-Control","no-cache, no-transform");
+    res.setHeader("Connection","keep-alive");
+    res.setHeader("X-Serasmart-Route",route.task);
+    res.setHeader("X-Serasmart-Model",headerSafe(used.id));
+    const open=()=>!res.destroyed&&!res.writableEnded;
+    const send=(obj)=>{if(open())res.write(`data: ${JSON.stringify(obj)}\n\n`);};
+    const routeInfo={task:route.task,model:used.id,provider:used.provider||inferProvider(used.id),reasons:route.reasons||[],apps};
+    if(job)job.routeInfo=routeInfo;
+    send({serasmart_route:routeInfo});
+    // Waiting for the person (or a slow app) keeps the connection and the idle timer alive.
+    const ping=setInterval(()=>{timer.touch();if(open())res.write(": ping\n\n");},15000);
+    let runs=[];
+    try{
+      const source={kind:"chat",conversationId:job?.conversationId||null,requestId:job?.id||null};
+      const out=await runAppTools({userId:req.user.id,appTools,convo,first,ask:(withTools)=>ask(used.id,withTools),signal,source,
+        onRun:(run,all)=>{runs=all.slice();if(job){job.toolRuns=all.slice();job.updatedAt=Date.now();}send({serasmart_tool:run});}});
+      runs=out.runs;
+      const text=signal.aborted?"":sanitizeQuestions(String(out.msg?.content||""));
+      if(job){
+        if(job.cancelled||signal.aborted)endJob(job,"cancelled");
+        else{job.text=text;saveJobMessage(job,{content:text||"Nu am primit răspuns.",routeInfo,toolRuns:publicRuns(runs)});endJob(job,"done");}
+      }
+      if(text)send({choices:[{delta:{content:text}}]});
+      if(open()){res.write("data: [DONE]\n\n");res.end();}
+    }catch(e){
+      const message=e?.status?`The AI could not finish with the apps: ${e.message}`:roError(e);
+      if(job&&job.status==="running"){saveJobMessage(job,{content:`Eroare: ${message}`,routeInfo,toolRuns:publicRuns(runs),error:true});endJob(job,"error",{error:message});}
+      send({error:message});if(open())res.end();
+    }finally{clearInterval(ping);callTimer.clear();stopSignal.removeEventListener("abort",abort);}
+    return {handled:true,paid:true};
+  }
+  // Automations with apps (0.7.29): the same rounds; an action that is not always allowed waits for the person in Apps
+  // (and the automation says so), for as long as it takes. Returns null when the model does not take tools.
+  const automationStops=new Map(); // automation id -> AbortController
+  async function automationWithApps({item,user,cfg,model,messages,appTools,onWait}){
+    const tools=appTools.map(t=>t.schema),apps=[...new Set(appTools.map(t=>t.app))];
+    const convo=[...messages];
+    const firstOther=convo.findIndex(m=>m.role!=="system");
+    convo.splice(firstOther<0?convo.length:firstOther,0,appsNote(apps,item.timeZone));
+    const ask=async(withTools)=>{
+      const r=await fetch(`${String(cfg.baseUrl).replace(/\/+$/,"")}/chat/completions`,{method:"POST",headers:{"Content-Type":"application/json",...(cfg.apiKey?{Authorization:`Bearer ${cfg.apiKey}`}:{})},body:JSON.stringify({model,messages:convo,stream:false,temperature:0.25,...(withTools?{tools}:{})}),signal:AbortSignal.timeout(NONSTREAM_MS)});
+      const text=await r.text();
+      if(!r.ok)throw Object.assign(new Error(`OmniRoute HTTP ${r.status}: ${text.slice(0,300)}`),{status:r.status});
+      let data;try{data=JSON.parse(text)}catch{throw new Error("The AI sent an answer that could not be read.")}
+      if(!data?.choices?.[0]?.message)throw new Error("The AI sent an empty answer.");
+      return data;
+    };
+    let first;
+    try{first=await ask(true)}catch{return null}
+    const ctl=new AbortController();automationStops.set(item.id,ctl);
+    try{
+      const out=await runAppTools({userId:user.id,appTools,convo,first:first.choices[0].message,ask:async(withTools)=>(await ask(withTools)).choices[0].message,signal:ctl.signal,source:{kind:"automation",automationId:item.id,name:String(item.title||"")},onWait});
+      const actions=out.runs.filter(r=>r.status!=="error"||r.app).map(r=>`- ${r.app}: ${r.title} — ${({done:"done",denied:"denied",error:"failed"})[r.status]||r.status}`).join("\n");
+      return {model:first.model,choices:[{message:{role:"assistant",content:String(out.msg?.content||"")+(actions?`\n\n${actions}`:"")}}]};
+    }finally{if(automationStops.get(item.id)===ctl)automationStops.delete(item.id)}
+  }
+
   app.get("/api/plugins", auth, (req,res) => {const db=store.read();res.json({data:db.plugins.filter(x=>x.userId===req.user.id).map(publicPlugin)});});
   // Built-in plugins (0.7.18): the list with what this account already added, and adding one with a click.
   app.get("/api/plugins/builtin", auth, (req,res) => {
@@ -3796,7 +4007,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     if(req.cloudToken){copy.cloudToken=sealSecret(req.cloudToken);copy.cloudTokenHash=tokenHash(req.cloudToken);}
     db.automations.push(copy);store.write(db);res.json({data:publicAutomation(copy)});
   });
-  app.delete("/api/automations/:id", auth, (req,res) => {const db=store.read(),before=db.automations.length;db.automations=db.automations.filter(x=>!(x.id===req.params.id&&x.userId===req.user.id));if(db.automations.length===before)return res.status(404).json({error:"Automatizarea nu a fost găsită."});store.write(db);res.json({ok:true});});
+  app.delete("/api/automations/:id", auth, (req,res) => {const db=store.read(),before=db.automations.length;db.automations=db.automations.filter(x=>!(x.id===req.params.id&&x.userId===req.user.id));if(db.automations.length===before)return res.status(404).json({error:"Automatizarea nu a fost găsită."});store.write(db);automationStops.get(req.params.id)?.abort("deleted");res.json({ok:true});});
 
   function mediaExtension(mime,name="") {
     const fromName=path.extname(String(name||"")).replace(/^\./,"").toLowerCase();
@@ -4040,6 +4251,23 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }
     return out;
   }
+  // What the AI is told when the answer becomes a file (0.7.29): only the file's content, in a shape the file builder
+  // (lib/documents.cjs) turns into real slides, sheets and headings; a change returns the whole changed file.
+  const FILE_SHAPES={
+    pptx:"Each slide starts with a «## Slide title» heading followed by short bullet points (at most 6 per slide); a Markdown table becomes a table slide.",
+    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells.",
+    csv:"One Markdown table with a header row, or plain CSV.",
+    docx:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables.",
+    pdf:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables."
+  };
+  function fileAnswerInstruction(format,edit){
+    const name={docx:"Word (DOCX)",pptx:"PowerPoint (PPTX)",xlsx:"Excel (XLSX)",pdf:"PDF"}[format]||format.toUpperCase();
+    return [`FILE ANSWER: ${BRAND_NAME} turns your whole answer into a ${name} file and sends it to the user as a download, automatically. You can create and change files: never say you cannot create, attach or send files.`,
+      "Write only the file's content, in the user's language, with no greeting, no «here is your file» and no remarks before or after it.",
+      FILE_SHAPES[format]||"Write valid content for this format, without explanations outside it.",
+      edit?"The user wants a change to an existing file (attached in this message, or the one you made earlier in this chat). Return the complete updated file with every requested change made and everything else kept as it was; never only the changed part.":""
+    ].filter(Boolean).join(" ");
+  }
   async function prepareMessages(rawMessages, assistantId, userId, options={}) {
     const db=store.read();
     const messages=await rehydrateLibraryImages(sanitizeChatMessages(rawMessages),userId);
@@ -4050,6 +4278,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     system.push(`Formule matematice: scrie-le în LaTeX, $…$ în text și $$…$$ pe un rând separat (de exemplu $$x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$$), inclusiv în conținutul unui fișier Word. ${BRAND_NAME} le afișează ca formule în chat și le transformă în ecuații Microsoft Word (Inserare → Ecuație), editabile. Nu folosi $ pentru sume de bani lângă cifre (scrie «10 USD» sau «10 lei»).`);
     system.push(`Capabilități ${BRAND_NAME}: aplicația are memorie persistentă, poate primi context din alte conversații ale aceluiași Proiect, poate căuta internetul în timp real, poate căuta fragmente relevante într-un repository GitHub configurat, iar Owner-ul poate rula cod JavaScript sau Python doar prin butonul explicit de rulare și poate lucra cu serverul SSH configurat. Nu afirma că aceste capabilități nu există atunci când contextul lor este prezent. Nu pretinde că un cod a fost executat dacă nu ai primit explicit un rezultat de rulare. Pentru proiecte mari, lucrează modular și folosește contextul relevant recuperat, fără a cere utilizatorului să copieze manual întreaga bază de cod.`);
     system.push("Fiabilitate: pentru informații actuale despre biblioteci, API-uri, modele, versiuni, prețuri sau servicii folosește prioritar contextul WEB LIVE dacă este disponibil și include la final o secțiune scurtă «Surse» cu linkurile folosite. Pentru cod, separă clar ce ai analizat de ce a fost efectiv rulat/testat. Pentru medical, juridic și financiar poți analiza și cita surse, dar păstrează recomandarea de validare umană atunci când decizia are consecințe importante.");
+    // 0.7.29: the app turns this answer into the file and sends it; the AI must not answer that it cannot.
+    if(options.fileFormat)system.push(fileAnswerInstruction(options.fileFormat,options.fileEdit));
     const assistant=db.assistants.find(a=>a.id===assistantId&&a.userId===userId);if(assistant?.systemPrompt)system.push(assistant.systemPrompt);
     const skillText=skillSystemText(skillsForMessage((db.skills||[]).filter(x=>x.userId===userId),typedText(latest?.content)||latestText));if(skillText)system.push(skillText);
     const user=db.users.find(u=>u.id===userId);
@@ -4087,7 +4317,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       projectId:typeof req.body?.projectId==="string"?req.body.projectId:null,
       conversationId:typeof req.body?.conversationId==="string"?req.body.conversationId.slice(0,100):null,clarify:true,
       webAllowed:hasPermission(req,"web_search"),deepAllowed:hasPermission(req,"deep_research")&&(!features||features.deepResearch),githubAllowed:hasPermission(req,"github_access"),pluginsAllowed:hasPermission(req,"plugins"),
-      owner:ownerRequest(req),responseMode:String(req.body?.responseMode||"rapid")
+      owner:ownerRequest(req),responseMode:String(req.body?.responseMode||"rapid"),
+      fileFormat:EXPORT_FORMATS.has(String(req.body?.fileFormat||"").toLowerCase())?String(req.body.fileFormat).toLowerCase():"",fileEdit:req.body?.fileEdit===true
     });
     const sent=typeof req.body?.model==="string"?req.body.model.trim().slice(0,200):"";
     const requestedModel=sent||String(cfg.model||"").trim();
@@ -4300,11 +4531,11 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     res.json({data:results,media,omni:await omniCheck,checkedAt:Date.now()});
   });
 
-  async function fetchChatCandidate(cfg,model,messages,stream,timer=chatTimer(stream,null)){
+  async function fetchChatCandidate(cfg,model,messages,stream,timer=chatTimer(stream,null),extra={}){
     return await fetch(`${String(cfg.baseUrl).replace(/\/+$/,"")}/chat/completions`,{
       method:"POST",
       headers:{"Content-Type":"application/json",...(cfg.apiKey?{Authorization:`Bearer ${cfg.apiKey}`}:{})},
-      body:JSON.stringify({model,messages,stream,temperature:0.4}),
+      body:JSON.stringify({model,messages,stream,temperature:0.4,...extra}),
       signal:timer.attemptSignal()
     });
   }
@@ -4364,6 +4595,14 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     try{
       const route=await resolveChatRoute(req,messages,requestedModel,{chosen});
       if(bill?.free)freeOnly(route,req);
+      // Connected apps (0.7.29): with tools the answer comes through chatWithApps; when no model takes tools, the
+      // normal answer below follows (without the apps).
+      const appTools=await appToolsFor(req);
+      if(appTools.length&&!clientGone.signal.aborted){
+        const withApps=await chatWithApps({req,res,cfg,route,messages,appTools,timer,job,signal:clientGone.signal,bill,usage});
+        if(withApps.paid)paid=true;
+        if(withApps.handled)return;
+      }
       const errors=[];let upstream=null,usedModel="",directCandidate=null;
       for(const candidate of route.candidates){
         if(clientGone.signal.aborted)return;
@@ -4671,7 +4910,20 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       const directAllowed=freeDirectAllowed(ctx)&&cfg.directChatEnabled!==false;
       const directModel=await isDirectModel(cfg,directAllowed,selectedModel),fallback=automaticModel||cfg.chatFallbackOnFailure===true;
       // A free message runs on a free model only: OmniRoute is skipped unless the chosen model is free.
-      if(!directModel&&!(bill?.free&&!creditsLib.isFreeModel(selectedModel)))try{
+      // 0.7.29: with connected apps the automation works in them (sorting emails, adding events…); an action that is not
+      // always allowed waits for the person in Apps. When the model does not take tools, the plain answer below follows.
+      const omniAllowed=!directModel&&!(bill?.free&&!creditsLib.isFreeModel(selectedModel));
+      const appTools=omniAllowed&&hasPermission(ctx,"plugins")?await appToolsForUser(item.userId):[];
+      if(appTools.length)try{
+        data=await automationWithApps({item,user,cfg,model:selectedModel,messages,appTools,onWait:(run)=>{
+          const f=store.read(),t=f.automations.find(x=>x.id===item.id);
+          if(t){t.lastStatus="waiting_approval";t.lastResult=`Waiting for your approval: ${run.app} · ${run.title}. Open ${BRAND_NAME} to allow or deny it.`;store.write(f);}
+          const note={title:String(item.title||"Automation").slice(0,120),body:`Waiting for your approval: ${run.app} · ${run.title}`};
+          if(item.notify!==false&&typeof onAutomationResult==="function"){try{onAutomationResult({...note,automationId:item.id,userId:item.userId})}catch{}}
+          if(item.notify!==false&&ctx.cloudToken&&cloudBase())cloudFetch("/api/notifications/self",{method:"POST",headers:{Authorization:`Bearer ${ctx.cloudToken}`},body:{type:"automation",...note},timeout:8000}).then(r=>r.text()).catch(()=>{});
+        }});
+      }catch(e){errors.push(`Apps: ${e.status?e.message:roError(e)}`)}
+      if(!data&&omniAllowed)try{
         const r=await fetch(`${String(cfg.baseUrl).replace(/\/+$/,"")}/chat/completions`,{method:"POST",headers:{"Content-Type":"application/json",...(cfg.apiKey?{Authorization:`Bearer ${cfg.apiKey}`}:{})},body:JSON.stringify({model:selectedModel,messages,stream:false,temperature:0.25}),signal:AbortSignal.timeout(NONSTREAM_MS)});
         if(r.ok)data=await r.json();
         else errors.push(`OmniRoute HTTP ${r.status}: ${(await r.text()).slice(0,300)}`);
@@ -4718,9 +4970,9 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
         // Re-read: the automation may have been disabled, edited or deleted while an earlier one was running.
         const a=store.read().automations.find(x=>x.id===id);
         if(!a||a.enabled!==true||!a.nextRunAt||a.nextRunAt>Date.now()||runningAutomations.has(id))continue;
-        try{await runAutomation(a,openSecret(a.cloudToken));}
-        catch(e){
-          const f=store.read(),t=f.automations.find(x=>x.id===id);if(!t)continue;
+        // Not awaited: an automation may wait for the person's approval, and the others must still run on time.
+        runAutomation(a,openSecret(a.cloudToken)).catch(e=>{
+          const f=store.read(),t=f.automations.find(x=>x.id===id);if(!t)return;
           t.lastRunAt=Date.now();
           const reason=e.status?e.message:roError(e);
           if(e.status===401){
@@ -4739,7 +4991,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
           }
           recordRun(t,["needs_login","permission_denied"].includes(t.lastStatus)?t.lastStatus:"error",t.model,t.lastResult);
           store.write(f);
-        }
+        });
       }
     }finally{automationBusy=false;}
   },30000);
@@ -4770,6 +5022,6 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
 
   const server=app.listen(port,host);
   server.on("error",e=>logError(`Gateway listen ${host}:${port}: ${e?.message||e}`));
-  return {server,port,host,close:()=>new Promise(resolve=>{clearInterval(automationTimer);for(const t of timers)clearTimeout(t);embeddingIndex.flush?.();server.close(resolve);server.closeAllConnections?.();})};
+  return {server,port,host,close:()=>new Promise(resolve=>{clearInterval(automationTimer);for(const t of timers)clearTimeout(t);embeddingIndex.flush?.();connectors.close();for(const a of toolAsks.values())a.done("deny");server.close(resolve);server.closeAllConnections?.();})};
 }
 module.exports={startLocalGateway};

@@ -564,10 +564,10 @@ function Header({deniedCount,lockedModels=[],onMenu,model,onSelectModel,models,o
     <ModelPicker model={model} onSelect={onSelectModel} models={models} onRefresh={onRefreshModels} refreshing={refreshingModels} policyEnforced={policyEnforced} deniedCount={deniedCount} locked={lockedModels}/>
     <div className="topSpacer"/>
     {showOmni&&(()=>{
-      // 0.7.29: only a dot, green when the AI service answers and red when not; the explanation is in the tooltip.
+      // 0.7.29: only a dot, green when the AI service answers and red when not.
       const label=omni===true?tr("OmniRoute connected"):omni==="key"?tr("OmniRoute needs an API key"):omni==="offline"?tr("Can't reach the server, reconnecting…"):tr("OmniRoute stopped");
-      const help=omni===true?tr("OmniRoute is answering."):omni==="key"?tr("OmniRoute is running but needs an API key: make one in OmniRoute → API Manager and put it in Settings → AI & OmniRoute. Until then the direct APIs (Groq, Gemini…) answer, if you pick them in the list."):omni==="offline"?"":tr("OmniRoute is not answering. Pick a model from a direct API (Groq, Gemini…) in the list, or turn on the automatic fallback.");
-      return <span className={cx("statusDot",omni===true?"ok":"bad")} role="status" aria-label={label} title={help?`${label}. ${help}`:label}/>;
+      // 0.7.30: no text on screen, not even on hover (the Owner's choice); screen readers still hear it.
+      return <span className={cx("statusDot",omni===true?"ok":"bad")} role="status" aria-label={label}/>;
     })()}
     <ThemeSwitch/>
     <LanguageMenu/>

@@ -1,4 +1,4 @@
-// 0.7.29, asked by the Owner: the AI service status is only a dot (green / red); the logo is only the S, animated as
+// 0.7.29 / 0.7.30, asked by the Owner: the AI service status is only a dot (green / red); the logo is only the S, animated as
 // designed in Figma; every interface heading rises and settles letter by letter (spring-text-engine); a Dot & Ring
 // cursor; a voice orb (orbloom) while the microphone records; no companies' logos.
 const fs = require("fs"), path = require("path");
@@ -33,5 +33,13 @@ const orb = read("voiceOrb.jsx");
 expect(/preset: "core-teal-01"/.test(orb) && /base: "#07262b"/.test(orb) && /quality: "balanced"/.test(orb) && /reducedMotion: "user"/.test(orb) && /orb-no-webgl/.test(orb) && /role="status"/.test(orb), "the voice orb as specified, with a text state and a WebGL fallback");
 expect(/React\.lazy\(\(\)=>import\("\.\/voiceOrb\.jsx"\)\)/.test(main) && /\(recording\|\|transcribing\)&&<Suspense/.test(main), "loaded only when the microphone is used");
 
-expect(!/simpleicons|<img src=\{src\}/.test(read("pages/Plugins.jsx")), "no companies' logos in Apps");
+// 0.7.30: the apps' own logos, carried with the app (no request to another site), letters when there is none;
+// the status dot shows no text at all, not even on hover.
+expect(!/simpleicons\.org/.test(read("pages/Plugins.jsx") + read("pages/Connectors.jsx")), "the logos come with the app");
+const icons = fs.readdirSync(path.join(SRC, "..", "public", "brands"));
+const { CATALOG } = require("../lib/connectors.cjs");
+for (const e of CATALOG.filter((x) => x.logo)) expect(icons.includes(e.logo + ".svg"), "a logo for " + e.name);
+expect(JSON.stringify(JSON.parse(read("brands.js").match(/new Set\((\[[^\]]*\])\)/)[1]).sort()) === JSON.stringify(icons.map((f) => f.replace(/\.svg$/, "")).sort()), "brands.js lists exactly the logos carried");
+expect(/<AppLogo logo=\{run\.logo\}/.test(read("pages/Connectors.jsx")) && /onError=\{\(\) => setFailed\(true\)\}/.test(read("pages/Connectors.jsx")), "logos in the approval cards, letters if one fails");
+expect(!/statusDot[^\n]*title=/.test(main), "no tooltip on the status dot");
 console.log("0.7.29 look OK");

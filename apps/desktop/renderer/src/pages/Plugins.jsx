@@ -4,6 +4,7 @@ import { Plus, Search, Check, Play, Pencil, Trash2, ExternalLink, Plug, Puzzle, 
 import { api, toast, cx, isHttpUrl, openLink, useAccess, deniedMessage, useModal, ToolShell, Switch, GATEWAY, OAUTH_REDIRECT_PATH } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
 import { ConnectorsPanel } from "./Connectors.jsx";
+import { brandIcon } from "../brands.js";
 import { t as tr, useLanguage } from "../i18n.jsx";
 
 const PLUGIN_APP_LINKS={
@@ -131,9 +132,11 @@ export function pluginTriggerHint(name,trigger){
   const n=String(name||"").trim(),t=trigger||("@"+n.toLowerCase().replace(/\s+/g,"-"));
   return n.length>=3?tr("Used when you write «{name}» or {trigger}",{name:n,trigger:t}):tr("Used when you write {trigger}",{trigger:t});
 }
-// 0.7.29: letters, never the companies' logos.
+// 0.7.30: the app's own logo (carried with the app, no request to another site), otherwise its letters.
 function PluginLogo({entry,large=false}){
-  return <span className={cx("pluginLogo",large&&"large")}><span>{entry?.mark||initials(entry?.name)}</span></span>;
+  const [failed,setFailed]=useState(false);
+  const src=failed?"":brandIcon(entry?.slug);
+  return <span className={cx("pluginLogo",large&&"large",src&&"brand")}>{src?<img src={src} alt="" draggable="false" onError={()=>setFailed(true)}/>:<span>{entry?.mark||initials(entry?.name)}</span>}</span>;
 }
 
 function PluginForm({initial,editing,onSaved,onCancel}){

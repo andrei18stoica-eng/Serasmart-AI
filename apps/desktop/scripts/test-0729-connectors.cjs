@@ -240,7 +240,7 @@ async function gateway() {
 function sources() {
   const ui = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "pages", "Connectors.jsx"), "utf8");
   expect(/Allow once/.test(ui) && /Always allow/.test(ui) && /"Deny"/.test(ui) && /\/api\/connectors\/approve/.test(ui), "the approval card");
-  expect(!/<img/.test(ui), "no company logos: letters stand in for them");
+  expect(/brandIcon\(logo\)/.test(ui) && /initials\(name\)/.test(ui), "the app's own logo, or its letters");
   const main = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "main.jsx"), "utf8");
   expect(/j\?\.serasmart_tool/.test(main) && /<ToolRunCard key=\{r\.id\} run=\{r\}\/>/.test(main), "the chat shows the app's actions");
   const settings = fs.readFileSync(path.join(__dirname, "..", "lib", "serversettings.cjs"), "utf8");

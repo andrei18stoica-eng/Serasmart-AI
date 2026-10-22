@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.29",
+  "version": "0.7.30",
   "private": true,
-  "description": "Serasmart AI 0.7.29 - the AI sends and edits Word, PowerPoint, Excel and PDF files; connected apps with Allow once, Always allow or Deny",
+  "description": "Serasmart AI 0.7.30 - the apps show their own logos; the status dot shows no text",
   "main": "main.cjs",
   "repository": {
     "type": "git",

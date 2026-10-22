@@ -796,7 +796,6 @@ export const LOCALES = {
   "Ask questions about any public GitHub repository.": "Pune întrebări despre orice depozit public GitHub.",
   "Search, read and draft emails.": "Caută, citește și scrie ciorne de email.",
   "Search, read and create files.": "Caută, citește și creează fișiere.",
-  "See, create and move events.": "Vezi, creează și mută evenimente.",
   "Read, write and edit documents.": "Citește, scrie și modifică documente.",
   "Read and edit spreadsheets.": "Citește și modifică foi de calcul.",
   "API plugins": "Pluginuri API",
@@ -1003,7 +1002,8 @@ export const LOCALES = {
   "Save": "Salvează",
   "Voice activity": "Activitate vocală",
   "Writing out what you said…": "Scriu ce ai spus…",
-  "Listening… press the microphone again to stop.": "Te ascult… apasă din nou microfonul ca să te oprești."
+  "Listening… press the microphone again to stop.": "Te ascult… apasă din nou microfonul ca să te oprești.",
+  "See your calendars, events and free time (Google allows reading only, for now).": "Vezi calendarele, evenimentele și timpul liber (deocamdată Google permite doar citirea)."
  },
  "es": {
   "AI model: {model}": "Modelo de IA: {model}",

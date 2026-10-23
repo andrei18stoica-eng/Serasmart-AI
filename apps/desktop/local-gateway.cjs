@@ -4748,6 +4748,60 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   function i18nRead(lang){try{const d=JSON.parse(fs.readFileSync(path.join(i18nDir,lang+".json"),"utf8"));return d&&typeof d==="object"?d:{}}catch{return {}}}
   function i18nWrite(lang,data){fs.mkdirSync(i18nDir,{recursive:true});const f=path.join(i18nDir,lang+".json"),tmp=f+"."+process.pid+".tmp";fs.writeFileSync(tmp,JSON.stringify(data));fs.renameSync(tmp,f);}
   const placeholdersOf=(text)=>String(text).match(/\{\w+\}/g)?.sort().join()||"";
+  // Translates `keys` into `lang` in batches and saves after each batch, so a stop halfway keeps what was done. A batch
+  // that fails is tried again (`retries`), then skipped; the next batch still runs. Free models only for the prefill.
+  async function i18nTranslate(req,lang,keys,{retries=0,free=false,size=60}={}){
+    const name=I18N_NAMES[lang];let done=0;
+    for(let i=0;i<keys.length;i+=size){
+      const part=keys.slice(i,i+size).filter(k=>!Object.prototype.hasOwnProperty.call(i18nRead(lang),k));
+      if(!part.length)continue;
+      const messages=[{role:"system",content:`You translate the interface of an AI chat app from English into ${name}. Reply with one JSON object and nothing else: every English text is a key, its ${name} translation the value. Keep {placeholders}, « », punctuation, leading and trailing spaces, and these names exactly as they are: ${BRAND_NAME}, OmniRoute, Owner, Gemini, Grok, ChatGPT, Deep Research, GitHub. Short, natural interface wording; informal "you".`},{role:"user",content:JSON.stringify(part)}];
+      for(let attempt=0;attempt<=retries;attempt++){
+        try{
+          const {text}=await completeTextRouted(req,messages,"",null,free?{free:true}:null);
+          const json=JSON.parse(text.slice(text.indexOf("{"),text.lastIndexOf("}")+1)),out={};
+          for(const k of part){const v=json?.[k];if(typeof v==="string"&&v.trim()&&v.length<=800&&!/[<>]/.test(v)&&placeholdersOf(v)===placeholdersOf(k))out[k]=v;}
+          if(Object.keys(out).length){const have=i18nRead(lang);if(Object.keys(have).length<I18N_MAX_KEYS){i18nWrite(lang,{...have,...out});done+=Object.keys(out).length;}}
+          break;
+        }catch(e){console.warn(`[i18n] ${lang}: ${roError(e)}`);if(attempt===retries&&!retries)return done;}
+      }
+    }
+    return done;
+  }
+  // 0.7.34: the whole interface (lib/i18n-keys.json) translated ahead of time, one language after another, in the
+  // background. Started by the Owner; one run at a time; the run's progress is in GET /api/i18n/prefill.
+  let i18nAllKeys=null;const i18nPrefillState={running:false,queue:[],current:"",done:{},startedAt:0};
+  function i18nKeys(){if(!i18nAllKeys){try{i18nAllKeys=JSON.parse(fs.readFileSync(path.join(__dirname,"lib","i18n-keys.json"),"utf8")).filter(k=>typeof k==="string")}catch{i18nAllKeys=[]}}return i18nAllKeys;}
+  function i18nPrefill(req,langs){
+    for(const l of langs)if(I18N_NAMES[l]&&!i18nPrefillState.queue.includes(l)&&i18nPrefillState.current!==l)i18nPrefillState.queue.push(l);
+    if(i18nPrefillState.running)return;
+    i18nPrefillState.running=true;i18nPrefillState.startedAt=Date.now();
+    (async()=>{
+      try{
+        while(i18nPrefillState.queue.length){
+          const lang=i18nPrefillState.current=i18nPrefillState.queue.shift();
+          const have=i18nRead(lang),todo=i18nKeys().filter(k=>!Object.prototype.hasOwnProperty.call(have,k));
+          if(!todo.length){i18nPrefillState.done[lang]=0;continue;}
+          while(i18nBusy.has(lang)){try{await i18nBusy.get(lang)}catch{}}
+          const work=i18nTranslate(req,lang,todo,{retries:2,free:true,size:40});
+          i18nBusy.set(lang,work);work.finally(()=>i18nBusy.delete(lang));
+          i18nPrefillState.done[lang]=await work.catch(()=>0);
+        }
+      }finally{i18nPrefillState.running=false;i18nPrefillState.current="";}
+    })();
+  }
+  app.get("/api/i18n/prefill",auth,(req,res)=>{
+    if(!ownerRequest(req))return res.status(403).json({error:"Owner only."});
+    const total=i18nKeys().length,langs={};
+    for(const l of Object.keys(I18N_NAMES)){const have=i18nRead(l);langs[l]=i18nKeys().filter(k=>Object.prototype.hasOwnProperty.call(have,k)).length;}
+    res.json({data:{total,languages:langs,running:i18nPrefillState.running,current:i18nPrefillState.current,queue:i18nPrefillState.queue}});
+  });
+  app.post("/api/i18n/prefill",auth,(req,res)=>{
+    if(!ownerRequest(req))return res.status(403).json({error:"Owner only."});
+    const asked=Array.isArray(req.body?.languages)?req.body.languages.filter(l=>I18N_NAMES[l]):Object.keys(I18N_NAMES);
+    i18nPrefill(req,asked);
+    res.json({data:{started:true,queue:[i18nPrefillState.current,...i18nPrefillState.queue].filter(Boolean),total:i18nKeys().length}});
+  });
   app.get("/api/i18n/:lang",(req,res)=>{
     if(!I18N_NAMES[req.params.lang])return res.status(404).json({error:"Unknown language."});
     res.set("Cache-Control","no-cache");res.json({data:i18nRead(req.params.lang)});
@@ -4764,21 +4818,11 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     if(asked>6&&!ownerRequest(req))return res.status(429).json({error:"Too many translation requests. Try again later.",data:have});
     i18nAsks.set(askKey,asked);if(i18nAsks.size>5000)i18nAsks.clear();
     if(!i18nBusy.has(lang)){
-      const work=(async()=>{
-        const out={};
-        for(let i=0;i<missing.length;i+=60){
-          const part=missing.slice(i,i+60);
-          const messages=[{role:"system",content:`You translate the interface of an AI chat app from English into ${name}. Reply with one JSON object and nothing else: every English text is a key, its ${name} translation the value. Keep {placeholders}, « », punctuation, leading and trailing spaces, and these names exactly as they are: ${BRAND_NAME}, OmniRoute, Owner, Gemini, Grok, ChatGPT, Deep Research, GitHub. Short, natural interface wording; informal "you".`},{role:"user",content:JSON.stringify(part)}];
-          try{
-            const {text}=await completeTextRouted(req,messages,"",null,null);
-            const json=JSON.parse(text.slice(text.indexOf("{"),text.lastIndexOf("}")+1));
-            for(const k of part){const v=json?.[k];if(typeof v==="string"&&v.trim()&&v.length<=800&&!/[<>]/.test(v)&&placeholdersOf(v)===placeholdersOf(k))out[k]=v;}
-          }catch(e){console.warn(`[i18n] ${lang}: ${roError(e)}`);break;}
-        }
-        if(Object.keys(out).length)i18nWrite(lang,{...i18nRead(lang),...out});
-      })();
+      const work=i18nTranslate(req,lang,missing,{retries:0});
       i18nBusy.set(lang,work);work.finally(()=>i18nBusy.delete(lang));
     }
+    // 0.7.34: when the Owner opens a language, the rest of the app is translated into it in the background too.
+    if(ownerRequest(req))i18nPrefill(req,[lang]);
     try{await i18nBusy.get(lang)}catch{}
     res.json({data:i18nRead(lang)});
   });

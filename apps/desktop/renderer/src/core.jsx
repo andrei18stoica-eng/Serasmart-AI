@@ -153,7 +153,7 @@ export async function writeClipboardText(value) {
 }
 export function openLink(href){
   const url=String(href||"").trim();
-  if(!/^(https?:|mailto:)/i.test(url)){toast(`Acest link nu poate fi deschis din ${BRAND_NAME}.`);return;}
+  if(!/^(https?:|mailto:)/i.test(url)){toast(T("This link cannot be opened from {brand}.",{brand:BRAND_NAME}));return;}
   if(!window.Serasmart?.openExternal){window.open(url,"_blank","noopener,noreferrer");return;}
   Promise.resolve(window.Serasmart.openExternal(url)).then(r=>{if(r&&r.ok===false)toast(r.error||T("The link could not be opened in the browser."))}).catch(e=>toast(T("The link could not be opened: {error}",{error:e.message})));
 }

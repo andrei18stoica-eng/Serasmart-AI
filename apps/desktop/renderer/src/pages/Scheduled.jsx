@@ -65,7 +65,7 @@ function payloadFrom(f){
 }
 export function validateTask(f,{needsFuture=true}={}){
   if(!f.title.trim())return tr("Write a name for the task.");
-  if(f.title.trim().length>120)return "Numele poate avea maximum 120 de caractere.";
+  if(f.title.trim().length>120)return tr("The name can have at most 120 characters.");
   if(!f.prompt.trim())return tr("Write what {brand} should do.",{brand:BRAND_NAME});
   if(f.prompt.trim().length>8000)return tr("The instructions can have at most 8,000 characters.");
   if(TIMED.includes(f.frequency)&&!/^([01]\d|2[0-3]):[0-5]\d$/.test(f.time||""))return tr("Choose a valid time (00:00–23:59).");

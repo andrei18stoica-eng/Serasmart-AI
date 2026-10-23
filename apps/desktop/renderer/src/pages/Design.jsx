@@ -28,7 +28,7 @@ function Progress({job,onCancel}){
   return <div className="designProgress" role="status" aria-live="polite">
     <LoaderCircle size={30} className="spin"/>
     <h3>{job.type==="revise"?tr("Applying the changes…"):tr("Creating the design…")}</h3>
-    <p>{tr(STEPS[Math.min(STEPS.length-1,Math.floor(s/10))]}</p>
+    <p>{tr(STEPS[Math.min(STEPS.length-1,Math.floor(s/10))])}</p>
     <div className="progressBar" aria-hidden="true"><span style={{transform:`scaleX(${pct/100})`}}/></div>
     <small>{tr("{s} s · it usually takes about a minute",{s})}</small>
     {job.prompt&&<blockquote>{job.prompt}</blockquote>}

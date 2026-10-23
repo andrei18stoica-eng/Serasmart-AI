@@ -209,7 +209,7 @@ async function extractVideoFrames(blob,count=4) {
 }
 async function libraryItemToAttachment(item) {
   const d=(await api(`/api/library/${item.id}`)).data;
-  if(!d?.id)throw new Error("Fișierul nu a fost găsit în Bibliotecă.");
+  if(!d?.id)throw new Error(tr("The file was not found in the Library."));
   const kind=mediaKind(d.mime,d.name)||d.kind;
   const base={name:d.name,mime:d.mime||"",size:d.size||0,libraryId:d.id};
   if(kind==="image"){
@@ -779,7 +779,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
     try{
       const d=await api("/api/tools/code/run",{method:"POST",body:JSON.stringify({language:contextMenu.language||"javascript",code:contextMenu.codeText})});
       const r=d.data||{};
-      const report=[`Rezultat real de rulare ${BRAND_NAME}:`,`Limbaj: ${r.language||contextMenu.language}`,`Cod de ieșire: ${r.code}`,r.timedOut?"Timp depășit: DA":"Timp depășit: NU",r.stdout?`STDOUT:\n${r.stdout}`:"STDOUT: (gol)",r.stderr?`STDERR:\n${r.stderr}`:"STDERR: (gol)"].join("\n");
+      const empty=tr("(empty)");const report=[tr("Real {brand} run result:",{brand:BRAND_NAME}),tr("Language: {lang}",{lang:r.language||contextMenu.language}),tr("Exit code: {code}",{code:r.code}),tr("Timed out: {answer}",{answer:r.timedOut?tr("YES"):tr("NO")}),r.stdout?`STDOUT:\n${r.stdout}`:`STDOUT: ${empty}`,r.stderr?`STDERR:\n${r.stderr}`:`STDERR: ${empty}`].join("\n");
       onCodeResult?.(report);setContextMenu(null);toast(tr("The code ran. The result was put in the message box."),"ok");
     }catch(e){toast(tr("Run code: {error}",{error:e.message}))}
     finally{setRunning(false)}
@@ -1116,15 +1116,21 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
   </div>;
 }
 
-const ADMIN_STATUS_LABELS={pending:"În așteptare",active:"Activ",rejected:"Respins",suspended:"Suspendat",blocked:"Blocat"};
-const AUDIT_LABELS={"admin.user_status":"Status cont modificat","admin.permissions":"Permisiuni modificate","admin.model_override":"Model activat / blocat","admin.sessions_revoke":"Sesiuni închise","admin.paid_ai":"AI plătit modificat","auth.register":"Cont nou","auth.login":"Autentificare","auth.logout":"Deconectare"};
+const ADMIN_STATUS_LABELS={pending:"Pending",active:"Active",rejected:"Rejected",suspended:"Suspended",blocked:"Blocked"};
+const statusLabel=s=>ADMIN_STATUS_LABELS[s]?tr(ADMIN_STATUS_LABELS[s]):s;
+const AUDIT_LABELS={"admin.user_status":"Account status changed","admin.permissions":"Permissions changed","admin.model_override":"Model allowed / blocked","admin.sessions_revoke":"Sessions closed","admin.paid_ai":"Paid AI changed","auth.register":"New account","auth.login":"Sign-in","auth.logout":"Sign-out"};
 function AdminPanel({onClose}) {
+  // 0.7.34: the whole app translated into every language ahead of time (the server does it in the background).
+  async function translateAll(){
+    try{const d=await api("/api/i18n/prefill",{method:"POST",body:"{}"});toast(tr("Translating {n} texts into {count} languages in the background. You can close this window.",{n:d.data?.total||0,count:(d.data?.queue||[]).length}),"ok")}
+    catch(e){toast(e.message)}
+  }
   const permissionLabels={
     chat:"Chat AI",cerebras:"Cerebras",gemini:"Gemini",groq:"Groq",cloudflare:"Cloudflare AI",
-    openrouter:"OpenRouter (poate genera costuri)",image_generation:"Generare imagini",video_generation:"Generare videoclipuri",document_generation:"Fișiere: PDF / Word / PowerPoint / Excel / CSV / ZIP / cod",
-    file_upload:"Încărcare fișiere",web_search:"Căutare web",deep_research:"Deep Research",
-    automations:"Scheduled (sarcini programate)",plugins:"Pluginuri",github_access:"GitHub",openai:"OpenAI (plătit)",anthropic:"Claude / Anthropic (plătit)",
-    code:`Code ${BRAND_NAME} (prin API-urile OpenAI / Claude, nu prin abonamentele tale)`
+    openrouter:"OpenRouter (may cost money)",image_generation:"Picture making",video_generation:"Video making",document_generation:"Files: PDF / Word / PowerPoint / Excel / CSV / ZIP / code",
+    file_upload:"File uploads",web_search:"Web search",deep_research:"Deep Research",
+    automations:"Scheduled (scheduled tasks)",plugins:"Plugins",github_access:"GitHub",openai:"OpenAI (paid)",anthropic:"Claude / Anthropic (paid)",
+    code:"Code {brand} (through the OpenAI / Claude APIs, not your subscriptions)"
   };
   const [users,setUsers]=useState([]),[selectedId,setSelectedId]=useState(null),[filter,setFilter]=useState("all");
   const [paidAi,setPaidAi]=useState(false),[auditRows,setAuditRows]=useState([]),[busy,setBusy]=useState(false),[error,setError]=useState(""),[pending,setPending]=useState({}),[actionBusy,setActionBusy]=useState(false);
@@ -1146,10 +1152,10 @@ function AdminPanel({onClose}) {
   const visible=users.filter(x=>filter==="all"||x.status===filter);
   async function setStatus(user,status){
     if(!user||user.role==="owner"||actionBusy)return;
-    if(["blocked","rejected","suspended"].includes(status)&&!confirm(`Confirmi statusul „${ADMIN_STATUS_LABELS[status]}” pentru ${user.email}? Sesiunile active ale contului vor fi închise.`))return;
+    if(["blocked","rejected","suspended"].includes(status)&&!confirm(tr("Set the status «{status}» for {email}? The account's active sessions will be closed.",{status:statusLabel(status),email:user.email})))return;
     setActionBusy(true);
-    try{await api(`/api/admin/users/${user.id}/status`,{method:"PATCH",body:JSON.stringify({status})});await load();toast(`Statusul pentru ${user.email} este acum „${ADMIN_STATUS_LABELS[status]}”.`,"ok")}
-    catch(e){toast("Administrare: "+e.message)}
+    try{await api(`/api/admin/users/${user.id}/status`,{method:"PATCH",body:JSON.stringify({status})});await load();toast(tr("The status of {email} is now «{status}».",{email:user.email,status:statusLabel(status)}),"ok")}
+    catch(e){toast(tr("Admin: {error}",{error:e.message}))}
     finally{if(mounted.current)setActionBusy(false)}
   }
   async function togglePermission(user,key,value){
@@ -1158,11 +1164,11 @@ function AdminPanel({onClose}) {
     try{
       const d=await api(`/api/admin/users/${user.id}/permissions`,{method:"PATCH",body:JSON.stringify({permissions:{[key]:value}})});
       if(mounted.current)setUsers(rows=>rows.map(x=>x.id===user.id?{...x,permissions:d.permissions||{...x.permissions,[key]:value}}:x));
-    }catch(e){toast("Permisiuni: "+e.message)}
+    }catch(e){toast(tr("Permissions: {error}",{error:e.message}))}
     finally{if(mounted.current)setPending(p=>{const n={...p};delete n[`${user.id}:${key}`];return n})}
   }
   const [modelIds,setModelIds]=useState(null),[modelQuery,setModelQuery]=useState(""),[modelsError,setModelsError]=useState(""),[modelsTry,setModelsTry]=useState(0),[personalIds,setPersonalIds]=useState(()=>new Set());
-  useEffect(()=>{let live=true;api("/api/models").then(ms=>{if(!live)return;setPersonalIds(new Set((ms?.personalModels||[]).map(x=>String(x).toLowerCase())));setModelIds([...new Set((ms?.data||[]).map(x=>String(typeof x==="string"?x:x?.id||"")).filter(Boolean))].sort((a,b)=>a.localeCompare(b)))}).catch(e=>{if(live){setModelIds([]);setModelsError(e?.message||"eroare necunoscută")}});return()=>{live=false}},[modelsTry]);
+  useEffect(()=>{let live=true;api("/api/models").then(ms=>{if(!live)return;setPersonalIds(new Set((ms?.personalModels||[]).map(x=>String(x).toLowerCase())));setModelIds([...new Set((ms?.data||[]).map(x=>String(typeof x==="string"?x:x?.id||"")).filter(Boolean))].sort((a,b)=>a.localeCompare(b)))}).catch(e=>{if(live){setModelIds([]);setModelsError(e?.message||tr("unknown error"))}});return()=>{live=false}},[modelsTry]);
   async function setModelMode(user,model,mode){
     if(!user||user.role==="owner")return;
     const k=`${user.id}:model:${model}`;
@@ -1171,92 +1177,93 @@ function AdminPanel({onClose}) {
     try{
       const d=await api(`/api/admin/users/${user.id}/models`,{method:"PATCH",body:JSON.stringify({model,mode})});
       if(mounted.current)setUsers(rows=>rows.map(x=>x.id===user.id?{...x,permissions:d.permissions||x.permissions}:x));
-      toast(`${model}: ${{allow:"activat",deny:"blocat",default:"implicit"}[mode]} pentru ${user.email}.`,"ok");
+      toast(tr("{model}: {mode} for {email}.",{model,mode:tr({allow:"Allowed",deny:"Blocked",default:"Default"}[mode]),email:user.email}),"ok");
     }catch(e){toast("Model: "+e.message)}
     finally{if(mounted.current)setPending(p=>{const n={...p};delete n[k];return n})}
   }
   async function revokeSessions(user){
     if(!user||user.role==="owner"||actionBusy)return;
-    if(!confirm(`Închizi toate sesiunile active pentru ${user.email}?`))return;
+    if(!confirm(tr("Close all active sessions for {email}?",{email:user.email})))return;
     setActionBusy(true);
-    try{await api(`/api/admin/users/${user.id}/sessions/revoke`,{method:"POST",body:"{}"});await load();toast("Sesiunile au fost închise.","ok")}
-    catch(e){toast("Sesiuni: "+e.message)}
+    try{await api(`/api/admin/users/${user.id}/sessions/revoke`,{method:"POST",body:"{}"});await load();toast(tr("The sessions were closed."),"ok")}
+    catch(e){toast(tr("Sessions: {error}",{error:e.message}))}
     finally{if(mounted.current)setActionBusy(false)}
   }
   async function togglePaid(){
     if(actionBusy)return;
     const next=!paidAi;
     const message=next
-      ?"Permiți AI plătit și celorlalte conturi eligibile? Fiecare utilizator are nevoie în continuare de permisiunea individuală OpenAI / Claude / OpenRouter."
-      :"Oprești AI-ul plătit pentru conturile normale? Owner-ul își păstrează accesul la modelele plătite.";
+      ?tr("Allow paid AI for the other eligible accounts? Each user still needs their own OpenAI / Claude / OpenRouter permission.")
+      :tr("Turn off paid AI for normal accounts? The Owner keeps access to the paid models.");
     if(!confirm(message))return;
     setActionBusy(true);
     try{const d=await api("/api/admin/ai",{method:"PATCH",body:JSON.stringify({paidAiEnabled:next})});setPaidAi(!!d.paidAiEnabled)}
-    catch(e){toast("AI plătit: "+e.message)}
+    catch(e){toast(tr("Paid AI: {error}",{error:e.message}))}
     finally{if(mounted.current)setActionBusy(false)}
   }
-  return <ToolShell title={`${BRAND_SHORT} Control Center`} subtitle="Owner: utilizatori, aprobări, permisiuni, sesiuni și servicii AI." onClose={onClose}>
+  return <ToolShell title={`${BRAND_SHORT} Control Center`} subtitle={tr("Owner: users, approvals, permissions, sessions and AI services.")} onClose={onClose}>
     <div className="adminPanel">
       {error&&<div className="authError" role="alert">{error}</div>}
       <div className="adminSummary">
         <div><span>Utilizatori</span><b>{users.length}</b></div>
-        <div className={pendingCount?"warn":""}><span>În așteptare</span><b>{pendingCount}</b></div>
-        <div><span>Activi</span><b>{activeCount}</b></div>
-        <button className={cx("adminPaidAi",paidAi&&"on")} onClick={togglePaid} disabled={actionBusy} aria-pressed={paidAi} title="Controlează AI-ul plătit pentru conturile normale. Owner-ul rămâne permis."><span>AI plătit · utilizatori</span><b>{paidAi?"PORNIT":"OPRIT"}</b></button>
+        <div className={pendingCount?"warn":""}><span>{tr("Pending")}</span><b>{pendingCount}</b></div>
+        <div><span>{tr("Active users")}</span><b>{activeCount}</b></div>
+        <button className={cx("adminPaidAi",paidAi&&"on")} onClick={togglePaid} disabled={actionBusy} aria-pressed={paidAi} title={tr("Controls paid AI for normal accounts. The Owner stays allowed.")}><span>{tr("Paid AI · users")}</span><b>{paidAi?tr("ON"):tr("OFF")}</b></button>
       </div>
       <div className="adminToolbar">
         <div className="adminFilters" role="tablist">
-          {[["all","Toți"],["pending","În așteptare"],["active","Activi"],["suspended","Suspendați"],["blocked","Blocați"],["rejected","Respinși"]].map(([k,label])=><button key={k} role="tab" aria-selected={filter===k} className={filter===k?"active":""} onClick={()=>setFilter(k)}>{label}</button>)}
+          {[["all","All"],["pending","Pending"],["active","Active users"],["suspended","Suspended users"],["blocked","Blocked users"],["rejected","Rejected users"]].map(([k,label])=><button key={k} role="tab" aria-selected={filter===k} className={filter===k?"active":""} onClick={()=>setFilter(k)}>{tr(label)}</button>)}
         </div>
-        <button className="secondary" onClick={load} disabled={busy}><RotateCcw size={15}/> {busy?"Actualizez…":"Actualizează"}</button>
+        <button className="secondary" onClick={translateAll} title={tr("Translate the whole app into every language")}><Globe2 size={15}/> {tr("Translate the app")}</button>
+        <button className="secondary" onClick={load} disabled={busy}><RotateCcw size={15}/> {busy?tr("Updating…"):tr("Refresh")}</button>
       </div>
       <div className="adminLayout">
         <div className="adminUsers">
           {visible.map(u=><button key={u.id} className={cx("adminUserRow",selectedId===u.id&&"active")} onClick={()=>setSelectedId(u.id)}>
             <span className="accountAvatar">{(u.name||u.email||"U")[0].toUpperCase()}</span>
             <span className="adminUserCopy"><b>{u.name||u.email}</b><small>{u.email}</small></span>
-            <span className={cx("adminStatus","s-"+u.status)}>{u.role==="owner"?"Owner":ADMIN_STATUS_LABELS[u.status]||u.status}</span>
+            <span className={cx("adminStatus","s-"+u.status)}>{u.role==="owner"?"Owner":statusLabel(u.status)}</span>
           </button>)}
-          {!visible.length&&<div className="seraPluginEmpty">{busy?"Se încarcă utilizatorii…":"Nu există utilizatori în această categorie."}</div>}
+          {!visible.length&&<div className="seraPluginEmpty">{busy?tr("Loading users…"):tr("There are no users in this group.")}</div>}
         </div>
         <div className="adminDetail">
-          {!selected?<div className="seraPluginEmpty">Selectează un utilizator.</div>:<>
+          {!selected?<div className="seraPluginEmpty">{tr("Select a user.")}</div>:<>
             <div className="adminIdentity">
               <div className="accountAvatar big">{(selected.name||selected.email||"U")[0].toUpperCase()}</div>
-              <div><h3>{selected.name||"Utilizator"}</h3><p>{selected.email}</p><small>{selected.role==="owner"?"Owner":"Utilizator"} · {ADMIN_STATUS_LABELS[selected.status]||selected.status} · {plural(Number(selected.active_sessions||0),"sesiune activă","sesiuni active")}</small></div>
+              <div><h3>{selected.name||tr("User")}</h3><p>{selected.email}</p><small>{selected.role==="owner"?"Owner":tr("User")} · {statusLabel(selected.status)} · {Number(selected.active_sessions||0)===1?tr("1 active session"):tr("{n} active sessions",{n:Number(selected.active_sessions||0)})}</small></div>
             </div>
             {selected.role!=="owner"&&<div className="adminApprovalActions">
-              {selected.status!=="active"&&<button className="primary" onClick={()=>setStatus(selected,"active")} disabled={actionBusy}><Check size={15}/> Aprobă / Reactivează</button>}
-              {selected.status!=="suspended"&&<button className="secondary" onClick={()=>setStatus(selected,"suspended")} disabled={actionBusy}>Suspendă</button>}
-              {selected.status!=="blocked"&&<button className="dangerButton" onClick={()=>setStatus(selected,"blocked")} disabled={actionBusy}>Blochează</button>}
+              {selected.status!=="active"&&<button className="primary" onClick={()=>setStatus(selected,"active")} disabled={actionBusy}><Check size={15}/> {tr("Approve / Reactivate")}</button>}
+              {selected.status!=="suspended"&&<button className="secondary" onClick={()=>setStatus(selected,"suspended")} disabled={actionBusy}>{tr("Suspend")}</button>}
+              {selected.status!=="blocked"&&<button className="dangerButton" onClick={()=>setStatus(selected,"blocked")} disabled={actionBusy}>{tr("Block")}</button>}
               {selected.status==="pending"&&<button className="secondary" onClick={()=>setStatus(selected,"rejected")} disabled={actionBusy}><X size={15}/> Respinge</button>}
-              <button className="secondary" onClick={()=>revokeSessions(selected)} disabled={actionBusy}>Închide sesiunile</button>
+              <button className="secondary" onClick={()=>revokeSessions(selected)} disabled={actionBusy}>{tr("Close sessions")}</button>
             </div>}
-            <div className="adminPermissionHead"><div><h4>Permisiuni</h4><p>Se aplică pe server pentru acest cont.</p></div></div>
+            <div className="adminPermissionHead"><div><h4>{tr("Permissions")}</h4><p>{tr("Applied on the server for this account.")}</p></div></div>
             <div className="adminPermissions">
               {Object.entries(permissionLabels).map(([key,label])=>{
                 const checked=selected.role==="owner"?true:selected.permissions?.[key]===true;
                 const busyKey=!!pending[`${selected.id}:${key}`];
                 return <label key={key} className={cx("adminPermission",selected.role==="owner"&&"locked")}>
-                  <span><b>{label}</b><small>{key}</small></span>
+                  <span><b>{tr(label,{brand:BRAND_NAME})}</b><small>{key}</small></span>
                   <input type="checkbox" checked={checked} disabled={selected.role==="owner"||busyKey} onChange={e=>togglePermission(selected,key,e.target.checked)}/>
                 </label>;
               })}
             </div>
             {selected.role!=="owner"&&<>
-              <div className="adminPermissionHead"><div><h4>Modele AI pentru acest cont</h4><p>«Implicit» urmează permisiunile de mai sus; «Activat» deschide modelul chiar dacă permisiunile îl țin închis; «Blocat» îl închide. Abonamentele personale ale Owner-ului rămân doar ale lui.</p></div></div>
-              {selected.permissions?.chat!==true&&<div className="adminModelHint" role="note">«Activat» nu are efect cât timp «Chat AI» este oprit pentru acest cont: pornește întâi permisiunea Chat de mai sus.</div>}
-              <input className="adminModelSearch" type="search" placeholder="Caută un model…" value={modelQuery} onChange={e=>setModelQuery(e.target.value)} aria-label="Caută un model"/>
+              <div className="adminPermissionHead"><div><h4>{tr("AI models for this account")}</h4><p>{tr("«Default» follows the permissions above; «Allowed» opens the model even if the permissions keep it closed; «Blocked» closes it. The Owner's personal subscriptions stay the Owner's only.")}</p></div></div>
+              {selected.permissions?.chat!==true&&<div className="adminModelHint" role="note">{tr("«Allowed» has no effect while «Chat AI» is off for this account: turn on the Chat permission above first.")}</div>}
+              <input className="adminModelSearch" type="search" placeholder={tr("Search for a model…")} value={modelQuery} onChange={e=>setModelQuery(e.target.value)} aria-label={tr("Search for a model")}/>
               <div className="adminModels">
-                {modelIds===null&&<div className="seraPluginEmpty">Se încarcă modelele…</div>}
-                {modelIds!==null&&!modelIds.length&&<div className="seraPluginEmpty">{modelsError?`Nu am putut încărca lista de modele: ${modelsError}`:"Lista de modele este goală."} <button type="button" className="secondary" onClick={()=>{setModelIds(null);setModelsError("");setModelsTry(n=>n+1)}}>Reîncearcă</button></div>}
+                {modelIds===null&&<div className="seraPluginEmpty">{tr("Loading the models…")}</div>}
+                {modelIds!==null&&!modelIds.length&&<div className="seraPluginEmpty">{modelsError?tr("The model list could not be loaded: {error}",{error:modelsError}):tr("The model list is empty.")} <button type="button" className="secondary" onClick={()=>{setModelIds(null);setModelsError("");setModelsTry(n=>n+1)}}>{tr("Retry")}</button></div>}
                 {[...new Set([...(modelIds||[]),...Object.keys(selected.permissions?.model_overrides||{})])].sort((a,b)=>a.localeCompare(b)).filter(m=>m.toLowerCase().includes(modelQuery.trim().toLowerCase())).slice(0,200).map(m=>{
                   const ov=Object.entries(selected.permissions?.model_overrides||{}).find(([k])=>k.toLowerCase()===m.toLowerCase())?.[1];
                   const mode=ov==="allow"||ov==="deny"?ov:"default",busyKey=!!pending[`${selected.id}:model:${m}`],personal=personalIds.has(m.toLowerCase());
                   return <div key={m} className={cx("adminModelRow",mode)}>
-                    <span title={personal?`${m}: abonamentul tău personal rămâne doar al tău (condițiile furnizorului nu permit împărțirea contului). Dă-i persoanei modelul prin API (openai/…, anthropic/…).`:m}>{m}{personal&&<small className="adminModelNote"> · doar Owner</small>}</span>
+                    <span title={personal?`${m}: `+tr("your personal subscription stays yours only (the provider's terms do not allow sharing the account). Give the person the model through the API (openai/…, anthropic/…)."):m}>{m}{personal&&<small className="adminModelNote"> · {tr("Owner only")}</small>}</span>
                     <div className="adminModelModes" role="group" aria-label={`Acces la ${m}`}>
-                      {[["default","Implicit"],["allow","Activat"],["deny","Blocat"]].map(([v,label])=><button key={v} type="button" className={cx(mode===v&&"on")} aria-pressed={mode===v} disabled={busyKey||(personal&&v==="allow"&&mode!=="allow")} title={personal&&v==="allow"?"Abonamentele personale ale Owner-ului nu se pot da altor conturi.":undefined} onClick={()=>mode!==v&&setModelMode(selected,m,v)}>{label}</button>)}
+                      {[["default","Default"],["allow","Allowed"],["deny","Blocked"]].map(([v,label])=><button key={v} type="button" className={cx(mode===v&&"on")} aria-pressed={mode===v} disabled={busyKey||(personal&&v==="allow"&&mode!=="allow")} title={personal&&v==="allow"?tr("The Owner's personal subscriptions cannot be given to other accounts."):undefined} onClick={()=>mode!==v&&setModelMode(selected,m,v)}>{tr(label)}</button>)}
                     </div>
                   </div>;
                 })}
@@ -1266,10 +1273,10 @@ function AdminPanel({onClose}) {
         </div>
       </div>
       <details className="adminAudit">
-        <summary>Jurnal administrativ ({auditRows.length})</summary>
+        <summary>{tr("Admin log ({n})",{n:auditRows.length})}</summary>
         <div className="adminAuditList">
-          {auditRows.map((x,i)=><div key={x.id||i}><b>{AUDIT_LABELS[x.action]||x.action}{x.details?.status?` · ${ADMIN_STATUS_LABELS[x.details.status]||x.details.status}`:""}</b><span>{x.actor_email||"sistem"} → {x.target_email||"—"}</span><small>{fmtTime(x.created_at)}</small></div>)}
-          {!auditRows.length&&<div><span>Nu există înregistrări.</span></div>}
+          {auditRows.map((x,i)=><div key={x.id||i}><b>{AUDIT_LABELS[x.action]?tr(AUDIT_LABELS[x.action]):x.action}{x.details?.status?` · ${statusLabel(x.details.status)}`:""}</b><span>{x.actor_email||tr("system")} → {x.target_email||"—"}</span><small>{fmtTime(x.created_at)}</small></div>)}
+          {!auditRows.length&&<div><span>{tr("No entries.")}</span></div>}
         </div>
       </details>
     </div>
@@ -1286,16 +1293,16 @@ function ExplorePanel({onClose,assistants,onUseAssistant,onImageMode,onOpenLibra
   function openSite(e){
     e?.preventDefault?.();
     let u=site.trim();if(!u)return;if(!/^https?:\/\//i.test(u))u=`https://${u}`;
-    if(!isHttpUrl(u)){toast("Adresa nu este validă.");return;}
+    if(!isHttpUrl(u)){toast(tr("The address is not valid."));return;}
     openLink(u);
   }
   const imageOk=can("image_generation");
-  return <ToolShell title="Explorează" subtitle="Un singur loc pentru hărți, imagini, asistenți și site-uri." onClose={onClose}>
+  return <ToolShell title={tr("Explore")} subtitle={tr("One place for maps, pictures, assistants and websites.")} onClose={onClose}>
     <div className="exploreGrid">
-      <form className="exploreCard" onSubmit={e=>{e.preventDefault();openMap("google")}}><div className="exploreIcon"><MapIcon size={22}/></div><h3>Hărți</h3><p>Caută o adresă, localitate sau punct de interes.</p><input value={mapQuery} onChange={e=>setMapQuery(e.target.value)} placeholder="Ex. o adresă sau un oraș" aria-label="Locul căutat"/><div className="exploreActions"><button className="primary" disabled={!mapQuery.trim()}>Google Maps</button><button type="button" className="secondary" disabled={!mapQuery.trim()} onClick={()=>openMap("osm")}>OpenStreetMap</button></div></form>
-      <section className="exploreCard"><div className="exploreIcon"><ImageIcon size={22}/></div><h3>Imagini</h3><p>{imageOk?"Pornește direct o conversație pentru generarea unei imagini.":deniedMessage("image_generation")}</p><button className={cx("primary",!imageOk&&"locked")} onClick={onImageMode}>Creează o imagine</button><button className="secondary" onClick={()=>onOpenLibrary("image")}>Imaginile din Bibliotecă</button></section>
-      <section className="exploreCard wide"><div className="exploreIcon"><Bot size={22}/></div><h3>Asistenți</h3><p>Alege rapid un asistent pentru o conversație nouă.</p><div className="gptGrid">{assistants.map(a=><button key={a.id} className="gptCard" onClick={()=>onUseAssistant(a.id)}><span className="gptAvatar">{a.icon||a.name?.[0]||"A"}</span><span><b>{a.name}</b><small>{a.builtIn?"Asistent principal":"Asistent personalizat"}</small></span></button>)}{!assistants.length&&<div className="emptyState small">Nu ai asistenți. Creează unul din bara laterală.</div>}</div></section>
-      <form className="exploreCard" onSubmit={openSite}><div className="exploreIcon"><Globe2 size={22}/></div><h3>Site-uri</h3><p>Deschide rapid un site în browser.</p><div className="quickSites"><button type="button" onClick={()=>openLink("https://www.google.com")}>Google</button><button type="button" onClick={()=>openLink("https://www.wikipedia.org")}>Wikipedia</button><button type="button" onClick={()=>openLink("https://www.youtube.com")}>YouTube</button><button type="button" onClick={()=>openLink("https://github.com")}>GitHub</button></div><div className="siteOpen"><input value={site} onChange={e=>setSite(e.target.value)} placeholder="exemplu.ro" aria-label="Adresa site-ului"/><button className="smallBtn" disabled={!site.trim()}><ExternalLink size={14}/> Deschide</button></div></form>
+      <form className="exploreCard" onSubmit={e=>{e.preventDefault();openMap("google")}}><div className="exploreIcon"><MapIcon size={22}/></div><h3>{tr("Maps")}</h3><p>{tr("Look up an address, a town or a landmark.")}</p><input value={mapQuery} onChange={e=>setMapQuery(e.target.value)} placeholder={tr("An address or a town")} aria-label={tr("Place to look up")}/><div className="exploreActions"><button className="primary" disabled={!mapQuery.trim()}>Google Maps</button><button type="button" className="secondary" disabled={!mapQuery.trim()} onClick={()=>openMap("osm")}>OpenStreetMap</button></div></form>
+      <section className="exploreCard"><div className="exploreIcon"><ImageIcon size={22}/></div><h3>{tr("Pictures")}</h3><p>{imageOk?tr("Start a conversation that makes a picture."):deniedMessage("image_generation")}</p><button className={cx("primary",!imageOk&&"locked")} onClick={onImageMode}>{tr("Make a picture")}</button><button className="secondary" onClick={()=>onOpenLibrary("image")}>{tr("Pictures in the Library")}</button></section>
+      <section className="exploreCard wide"><div className="exploreIcon"><Bot size={22}/></div><h3>{tr("Assistants")}</h3><p>{tr("Pick an assistant for a new conversation.")}</p><div className="gptGrid">{assistants.map(a=><button key={a.id} className="gptCard" onClick={()=>onUseAssistant(a.id)}><span className="gptAvatar">{a.icon||a.name?.[0]||"A"}</span><span><b>{a.name}</b><small>{a.builtIn?tr("Main assistant"):tr("Custom assistant")}</small></span></button>)}{!assistants.length&&<div className="emptyState small">{tr("You have no assistants. Make one from the sidebar.")}</div>}</div></section>
+      <form className="exploreCard" onSubmit={openSite}><div className="exploreIcon"><Globe2 size={22}/></div><h3>{tr("Websites")}</h3><p>{tr("Open a website in the browser.")}</p><div className="quickSites"><button type="button" onClick={()=>openLink("https://www.google.com")}>Google</button><button type="button" onClick={()=>openLink("https://www.wikipedia.org")}>Wikipedia</button><button type="button" onClick={()=>openLink("https://www.youtube.com")}>YouTube</button><button type="button" onClick={()=>openLink("https://github.com")}>GitHub</button></div><div className="siteOpen"><input value={site} onChange={e=>setSite(e.target.value)} placeholder="example.com" aria-label={tr("Website address")}/><button className="smallBtn" disabled={!site.trim()}><ExternalLink size={14}/> {tr("Open")}</button></div></form>
     </div>
   </ToolShell>;
 }
@@ -1307,8 +1314,8 @@ function ConversationFilesPanel({conversation,onClose}) {
     if(busy!==null)return;setBusy(i);
     try{if(x.fromAssistant&&x.id)await downloadGeneratedFile(x);else await downloadLibraryFile(x)}catch(e){toast(e.message)}finally{setBusy(null)}
   }
-  return <ToolShell title="Fișiere din conversație" subtitle="Toate fișierele atașate sau generate în conversația curentă." onClose={onClose}>
-    <div className="conversationFiles">{files.length===0?<div className="emptyState"><Paperclip size={28}/>Nu există fișiere în această conversație.</div>:files.map((x,i)=><div className="conversationFile" key={i}><FileText size={20}/><div><b>{x.name}</b><span>{x.fromAssistant?`Generat de ${BRAND_NAME}`:"Atașat de tine"} · {kindLabel(x.kind||x.type||mediaKind(x.mime||x.mimeType,x.name),x.mime||x.mimeType,x.name)} · {fmtTime(x.createdAt)}</span></div>{(x.libraryId||x.id)&&<button className="smallBtn" onClick={()=>download(x,i)} disabled={busy!==null}><Download size={14}/> {busy===i?"Se descarcă…":"Descarcă"}</button>}</div>)}</div>
+  return <ToolShell title={tr("Files in this conversation")} subtitle={tr("Every file attached or made in this conversation.")} onClose={onClose}>
+    <div className="conversationFiles">{files.length===0?<div className="emptyState"><Paperclip size={28}/>{tr("There are no files in this conversation.")}</div>:files.map((x,i)=><div className="conversationFile" key={i}><FileText size={20}/><div><b>{x.name}</b><span>{x.fromAssistant?tr("Made by {brand}",{brand:BRAND_NAME}):tr("Attached by you")} · {kindLabel(x.kind||x.type||mediaKind(x.mime||x.mimeType,x.name),x.mime||x.mimeType,x.name)} · {fmtTime(x.createdAt)}</span></div>{(x.libraryId||x.id)&&<button className="smallBtn" onClick={()=>download(x,i)} disabled={busy!==null}><Download size={14}/> {busy===i?tr("Downloading…"):tr("Download")}</button>}</div>)}</div>
   </ToolShell>;
 }
 // Windows only: Settings shows saved keys masked, so this copies them for the server's setup script (aistoica.ro).
@@ -1358,29 +1365,29 @@ function FirstRunGuide({onDone,onOpenSettings}) {
   function openKeys(){openLink("https://aistudio.google.com/apikey")}
   async function saveAndTest(e){
     e?.preventDefault?.();
-    const clean=key.trim();if(!clean){setStatus("Lipește mai întâi cheia.");return}
+    const clean=key.trim();if(!clean){setStatus(tr("Paste the key first."));return}
     if(busy)return;
-    setBusy(true);setStatus("Salvez cheia și o testez…");
+    setBusy(true);setStatus(tr("Saving the key and testing it…"));
     try{
       const saved=await window.Serasmart?.setConfig?.({geminiApiKey:clean});
-      if(!saved)throw new Error(`Setările pot fi salvate doar din aplicația ${BRAND_NAME}.`);
+      if(!saved)throw new Error(tr("Settings can only be saved from the {brand} app.",{brand:BRAND_NAME}));
       const d=await api("/api/providers/test",{method:"POST",body:"{}"});
       const gem=(d.data||[]).find(x=>x.provider==="gemini");
       if(!mounted.current)return;
-      if(gem?.ok){setStatus("Gata! Cheia funcționează.");setTimeout(()=>onDone(true),700)}
-      else setStatus("Cheia nu a funcționat: "+(gem?.error||"verifică dacă ai copiat-o complet."));
+      if(gem?.ok){setStatus(tr("Done! The key works."));setTimeout(()=>onDone(true),700)}
+      else setStatus(tr("The key did not work: {error}",{error:gem?.error||tr("check that you copied all of it.")}));
     }catch(err){if(mounted.current)setStatus(err.message)}finally{if(mounted.current)setBusy(false)}
   }
-  return <Modal title={`Bun venit în ${BRAND_NAME}`} subtitle="3 pași, gratuit, fără card. Durează un minut." className="modal firstRun" onClose={()=>onDone(false)}>
+  return <Modal title={tr("Welcome to {brand}",{brand:BRAND_NAME})} subtitle={tr("3 steps, free, no card. It takes a minute.")} className="modal firstRun" onClose={()=>onDone(false)}>
     <form onSubmit={saveAndTest}>
       <ol className="firstRunSteps">
-        <li><b>Creează o cheie Gemini gratuită</b><span>Se deschide pagina Google. Apasă „Create API key” și copiaz-o.</span><button type="button" className="secondary" onClick={openKeys}>Deschide pagina Google</button></li>
-        <li><b>Lipește cheia aici</b><input value={key} onChange={e=>setKey(e.target.value)} placeholder="AIza…" aria-label="Cheia Gemini" autoComplete="off"/></li>
-        <li><b>Salvează și testează</b><button className="primary" disabled={busy}>{busy?"Se verifică…":"Salvează și testează"}</button></li>
+        <li><b>{tr("Make a free Gemini key")}</b><span>{tr("The Google page opens. Press «Create API key» and copy it.")}</span><button type="button" className="secondary" onClick={openKeys}>{tr("Open the Google page")}</button></li>
+        <li><b>{tr("Paste the key here")}</b><input value={key} onChange={e=>setKey(e.target.value)} placeholder="AIza…" aria-label={tr("Gemini key")} autoComplete="off"/></li>
+        <li><b>{tr("Save and test")}</b><button className="primary" disabled={busy}>{busy?tr("Checking…"):tr("Save and test")}</button></li>
       </ol>
     </form>
     {status&&<div className="toolStatus" role="status">{status}</div>}
-    <p className="settingsHelp">Poți adăuga oricând și alte API-uri gratuite (Groq, Cerebras, Cloudflare pentru imagini) din Setări → API-uri AI. <button type="button" className="linkBtn" onClick={onOpenSettings}>Deschide Setările</button></p>
+    <p className="settingsHelp">{tr("You can add other free APIs any time (Groq, Cerebras, Cloudflare for pictures) in Settings → AI APIs.")} <button type="button" className="linkBtn" onClick={onOpenSettings}>{tr("Open Settings")}</button></p>
   </Modal>;
 }
 
@@ -1745,25 +1752,25 @@ function EntityModal({type,item,onClose,onSave,onDelete}) {
   }
   async function remove(){
     if(busy)return;
-    const label=type==="project"?`proiectul „${item.name}”? Conversațiile lui rămân, dar nu vor mai aparține niciunui proiect.`:`asistentul „${item.name}”?`;
-    if(!confirm(`Ștergi ${label}`))return;
+    const question=type==="project"?tr("Delete the project «{name}»? Its conversations stay, but will no longer belong to any project.",{name:item.name}):tr("Delete the assistant «{name}»?",{name:item.name});
+    if(!confirm(question))return;
     setBusy(true);setError("");
     try{await onDelete()}catch(err){if(mounted.current){setError(err.message);setBusy(false)}}
   }
-  const title=type==="project"?(isEdit?"Editează proiectul":"Proiect nou"):(isEdit?"Editează asistentul":"Asistent personalizat");
+  const title=type==="project"?(isEdit?tr("Edit the project"):tr("New project")):(isEdit?tr("Edit the assistant"):tr("Custom assistant"));
   return <Modal title={title} className="modal smallModal" onClose={onClose}>
     <form onSubmit={submit}>
-      <label>Nume<input value={name} onChange={e=>setName(e.target.value)} placeholder={type==="project"?"Ex. Proiecte Primărie":"Ex. Profesor de matematică"} maxLength={200} autoFocus/></label>
-      {type==="assistant"&&<label>Instrucțiuni pentru asistent<textarea className="promptArea" value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder="Cum vrei să lucreze acest asistent?"/></label>}
-      {type==="project"&&<label><span className="labelLine">Instrucțiuni comune proiectului <span className="optional">opțional</span></span><textarea className="promptArea" value={instructions} onChange={e=>setInstructions(e.target.value)} placeholder="Ex. Folosește documentele proiectului, păstrează ton administrativ și reține deciziile importante."/></label>}
+      <label>{tr("Name")}<input value={name} onChange={e=>setName(e.target.value)} placeholder={type==="project"?tr("E.g. Spring marketing campaign"):tr("E.g. Maths teacher")} maxLength={200} autoFocus/></label>
+      {type==="assistant"&&<label>{tr("Instructions for the assistant")}<textarea className="promptArea" value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder={tr("How do you want this assistant to work?")}/></label>}
+      {type==="project"&&<label><span className="labelLine">{tr("Shared project instructions")} <span className="optional">{tr("optional")}</span></span><textarea className="promptArea" value={instructions} onChange={e=>setInstructions(e.target.value)} placeholder={tr("E.g. Use the project documents, keep a formal tone and remember the important decisions.")}/></label>}
       {error&&<div className="inlineError" role="alert">{error}</div>}
-      <div className="modalActions">{isEdit&&onDelete&&<button type="button" className="dangerButton pushLeft" onClick={remove} disabled={busy}><Trash2 size={15}/> Șterge</button>}<button type="button" className="secondary" onClick={onClose}>Anulează</button><button className="primary" disabled={!name.trim()||busy}>{busy?"Se salvează…":isEdit?"Salvează":"Creează"}</button></div>
+      <div className="modalActions">{isEdit&&onDelete&&<button type="button" className="dangerButton pushLeft" onClick={remove} disabled={busy}><Trash2 size={15}/> {tr("Delete")}</button>}<button type="button" className="secondary" onClick={onClose}>{tr("Cancel")}</button><button className="primary" disabled={!name.trim()||busy}>{busy?tr("Saving…"):isEdit?tr("Save"):tr("Create")}</button></div>
     </form>
   </Modal>;
 }
 
 function GithubSolveModal({model,onClose,onBackup}) {
-  const [path,setPath]=useState(""),[instruction,setInstruction]=useState("Analizează fișierul, identifică problema și corectează-l."),[busy,setBusy]=useState(""),[result,setResult]=useState(null),[error,setError]=useState("");
+  const [path,setPath]=useState(""),[instruction,setInstruction]=useState(()=>tr("Analyse the file, find the problem and fix it.")),[busy,setBusy]=useState(""),[result,setResult]=useState(null),[error,setError]=useState("");
   const mounted=useRef(true);
   useEffect(()=>()=>{mounted.current=false},[]);
   async function solve(e){
@@ -1774,31 +1781,31 @@ function GithubSolveModal({model,onClose,onBackup}) {
     catch(err){if(mounted.current)setError(err.message)}
     finally{if(mounted.current)setBusy("")}
   }
-  async function copy(){const ok=await writeClipboardText(result?.proposal||"");toast(ok?"Propunerea a fost copiată în clipboard.":"Nu am putut copia propunerea.",ok?"ok":"error")}
+  async function copy(){const ok=await writeClipboardText(result?.proposal||"");toast(ok?tr("The proposal was copied to the clipboard."):tr("The proposal could not be copied."),ok?"ok":"error")}
   async function apply(){
     if(!result?.proposal||busy)return;
-    if(!confirm(`Aplic modificarea direct în GitHub pentru ${result.path} (ramura ${result.branch||"implicită"})? Se creează un backup local pentru revenire.`))return;
+    if(!confirm(tr("Apply the change straight in GitHub for {path} (branch {branch})? A local backup is made so you can go back.",{path:result.path,branch:result.branch||tr("default")})))return;
     setBusy("apply");setError("");
     try{
       const a=await api("/api/github/apply",{method:"POST",body:JSON.stringify({path:result.path,content:result.proposal,sha:result.sha,branch:result.branch,message:`${BRAND_NAME}: rezolvare `+result.path})});
       if(a.data?.backupId)onBackup?.({id:a.data.backupId,path:a.data.path,branch:a.data.branch,commit:a.data.commit,createdAt:Date.now()});
-      toast("Modificarea a fost aplicată în GitHub. Commit: "+(a.data?.commit||"creat"),"ok");
+      toast(tr("The change was applied in GitHub. Commit: {commit}",{commit:a.data?.commit||tr("created")}),"ok");
       onClose();
     }catch(err){if(mounted.current){setError(err.message);setBusy("")}}
   }
   const failedCheck=result?.check?.supported&&!result.check.ok;
-  return <Modal title="GitHub Solve" subtitle={`${BRAND_NAME} citește fișierul din repository-ul configurat și propune o corectură.`} className="modal githubModal" onClose={onClose}>
+  return <Modal title="GitHub Solve" subtitle={tr("{brand} reads the file from the configured repository and proposes a fix.",{brand:BRAND_NAME})} className="modal githubModal" onClose={onClose}>
     <form onSubmit={solve}>
-      <label>Calea fișierului din repository<input value={path} onChange={e=>setPath(e.target.value)} placeholder="ex. apps/mobile/app/index.js" autoFocus/></label>
-      <label>Ce trebuie rezolvat<textarea className="promptArea" value={instruction} onChange={e=>setInstruction(e.target.value)}/></label>
+      <label>{tr("File path in the repository")}<input value={path} onChange={e=>setPath(e.target.value)} placeholder="apps/mobile/app/index.js" autoFocus/></label>
+      <label>{tr("What needs fixing")}<textarea className="promptArea" value={instruction} onChange={e=>setInstruction(e.target.value)}/></label>
       {error&&<div className="inlineError" role="alert">{error}</div>}
-      <div className="modalActions"><button type="button" className="secondary" onClick={onClose}>Închide</button><button className="primary" disabled={!path.trim()||!!busy}>{busy==="solve"?"Se analizează…":"Generează rezolvarea"}</button></div>
+      <div className="modalActions"><button type="button" className="secondary" onClick={onClose}>{tr("Close")}</button><button className="primary" disabled={!path.trim()||!!busy}>{busy==="solve"?tr("Analysing…"):tr("Make the fix")}</button></div>
     </form>
     {result&&<div className="githubResult">
-      <div className={cx("providerRow",failedCheck?"bad":"good")}>{failedCheck?<X size={15}/>:<Check size={15}/>}<span>{failedCheck?"Verificarea de sintaxă a găsit o eroare. Propunerea NU poate fi aplicată.":result.check?.supported?"Verificarea de sintaxă a trecut.":"Propunere generată (fără verificare de sintaxă pentru acest tip de fișier)."} · {result.path}{result.branch?` · ${result.branch}`:""}</span></div>
-      {failedCheck&&<pre className="proposalPreview error">{String(result.check.stderr||result.check.stdout||"Verificare eșuată").slice(0,2500)}</pre>}
+      <div className={cx("providerRow",failedCheck?"bad":"good")}>{failedCheck?<X size={15}/>:<Check size={15}/>}<span>{failedCheck?tr("The syntax check found an error. The proposal can NOT be applied."):result.check?.supported?tr("The syntax check passed."):tr("Proposal made (no syntax check for this file type).")} · {result.path}{result.branch?` · ${result.branch}`:""}</span></div>
+      {failedCheck&&<pre className="proposalPreview error">{String(result.check.stderr||result.check.stdout||tr("Check failed")).slice(0,2500)}</pre>}
       <pre className="proposalPreview">{String(result.proposal||"").slice(0,20000)}</pre>
-      <div className="modalActions"><button type="button" className="secondary" onClick={copy}><Copy size={15}/> Copiază</button><button type="button" className="primary" onClick={apply} disabled={failedCheck||!!busy}>{busy==="apply"?"Se aplică…":"Aplică în GitHub"}</button></div>
+      <div className="modalActions"><button type="button" className="secondary" onClick={copy}><Copy size={15}/> {tr("Copy")}</button><button type="button" className="primary" onClick={apply} disabled={failedCheck||!!busy}>{busy==="apply"?tr("Applying…"):tr("Apply in GitHub")}</button></div>
     </div>}
   </Modal>;
 }
@@ -1884,7 +1891,7 @@ function App() {
   async function followJob(convId,jobId){
     if(!convId||!jobId||controllersRef.current.get(convId))return;
     const controller=startGeneration(convId);controller.requestId=jobId;
-    setGen(convId,{stage:"Răspunsul continuă pe server…"});
+    setGen(convId,{stage:tr("The answer continues on the server…")});
     let lastText="";
     try{
       while(!controller.signal.aborted){
@@ -1896,7 +1903,7 @@ function App() {
           lastText=j.text||"";
           // 0.7.29: an action in a connected app that waits for the person is shown again, with its buttons.
           const asking=j.toolRuns?.find(r=>r.status==="ask");
-          setGen(convId,{stage:asking?tr("Waiting for your approval in {app}…",{app:asking.app}):j.text?"Scrie răspunsul…":tr("Thinking…")});
+          setGen(convId,{stage:asking?tr("Waiting for your approval in {app}…",{app:asking.app}):j.text?tr("Writing the answer…"):tr("Thinking…")});
           setConversations(v=>v.map(c=>c.id!==convId?c:{...c,messages:upsertMessage(c.messages,{id:jobId,role:"assistant",content:j.text||"",routeInfo:j.routeInfo||undefined,...(j.toolRuns?.length?{toolRuns:j.toolRuns}:{}),streaming:j.status==="running",createdAt:j.startedAt})}));
         }
         if(j.status!=="running")break;
@@ -1947,7 +1954,7 @@ function App() {
     if(current){
       const id=current.id;
       setConversations(v=>v.map(x=>x.id===id?{...x,model:value}:x));
-      patchConversation(id,{model:value}).catch(e=>toast("Modelul nu a putut fi salvat pentru conversație: "+e.message));
+      patchConversation(id,{model:value}).catch(e=>toast(tr("The model could not be saved for the conversation: {error}",{error:e.message})));
     }
   }
   // A file renamed in the Library or the viewer keeps its new name in the conversations on screen too.
@@ -1995,7 +2002,7 @@ function App() {
   useEffect(()=>{
     setAuthLostHandler(message=>{
       const text=String(message||"").trim();
-      const notice=/așteaptă aprobarea|asteapta aprobarea|nu este activ/i.test(text)?text:/^(Autentificare necesară|Sesiune)/i.test(text)||!text?"Sesiunea ta a expirat sau a fost închisă. Autentifică-te din nou.":`${text.replace(/[.!]?$/,".")} Autentifică-te din nou.`;
+      const notice=/așteaptă aprobarea|asteapta aprobarea|nu este activ/i.test(text)?text:/^(Autentificare necesară|Sesiune)/i.test(text)||!text?tr("Your session expired or was closed. Sign in again."):`${text.replace(/[.!]?$/,".")} ${tr("Sign in again.")}`;
       logout({skipServer:true,notice});
     });
     return()=>setAuthLostHandler(null);
@@ -2129,15 +2136,15 @@ function App() {
     const flush=()=>{flushTimer=null;showConversation(working)};
     const scheduleFlush=()=>{if(!flushTimer)flushTimer=setTimeout(flush,40)};
     showConversation(working);
-    setGen(convId,{stage:"Analizează cererea…"});
+    setGen(convId,{stage:tr("Reading the request…")});
     try{
-      if(!effectiveModel&&!isOwner&&cloudConfigured)throw new Error("Nu există niciun model AI permis pentru acest cont. Cere Owner-ului acces la un model.");
+      if(!effectiveModel&&!isOwner&&cloudConfigured)throw new Error(tr("No AI model is allowed for this account. Ask the Owner for access to a model."));
       const payload=toProviderMessages(messages,extra);
-      if(!payload.some(m=>m.role==="user"))throw new Error("Mesajul este gol.");
-      setGen(convId,{stage:"Verifică memoria, fișierele și contextul relevant…"});
+      if(!payload.some(m=>m.role==="user"))throw new Error(tr("The message is empty."));
+      setGen(convId,{stage:tr("Checking memory, files and relevant context…")});
       const r=await fetch(`${GATEWAY}/api/chat/stream`,{method:"POST",headers:authHeaders({"Content-Type":"application/json"}),body:JSON.stringify({model:effectiveModel,requestId:assistantMessage.id,conversationId:baseConv.id||null,assistantId:baseConv.assistantId||null,projectId:baseConv.projectId||null,responseMode,messages:payload,fileFormat:format||undefined,fileEdit:edit||undefined,timeZone:localZone()}),signal:controller.signal});
       if(!r.ok){const text=await r.text().catch(()=>"");throw apiError(r.status,text,"/api/chat/stream")}
-      setGen(convId,{stage:"Așteaptă răspunsul AI-ului ales…"});
+      setGen(convId,{stage:tr("Waiting for the chosen AI to answer…")});
       const handleLine=line=>{
         if(!line.startsWith("data:"))return;
         const raw=line.slice(5).trim();if(!raw||raw==="[DONE]")return;
@@ -2161,7 +2168,7 @@ function App() {
         if(routeInfo?.model&&!routeInfo.servedBy&&typeof j?.model==="string"&&j.model&&!j.model.includes(String(routeInfo.model).split("/").pop()))routeInfo={...routeInfo,servedBy:j.model};
         const delta=j?.choices?.[0]?.delta?.content||j?.choices?.[0]?.message?.content||"";
         if(delta){
-          if(!started){started=true;setGen(convId,{stage:format?tr("Writing your {format} file…",{format:format.toUpperCase()}):"Scrie răspunsul…"})}
+          if(!started){started=true;setGen(convId,{stage:format?tr("Writing your {format} file…",{format:format.toUpperCase()}):tr("Writing the answer…")})}
           answer+=delta;
           // 0.7.30: a file request does not fill the chat with the file's text; the file comes as a card when it is ready.
           const shown=format&&!/```intrebari/.test(answer)?"":answer;
@@ -2179,29 +2186,29 @@ function App() {
       buf+=dec.decode();
       for(const line of buf.split(/\r?\n/))handleLine(line);
       if(streamError&&!answer)throw new Error(streamError);
-      let note=streamError?`\n\n_Răspunsul a fost întrerupt: ${streamError}_`:"",files=[];
+      let note=streamError?`\n\n_${tr("The answer was interrupted: {error}",{error:streamError})}_`:"",files=[];
       if(format&&!splitQuestions(answer,false)){
         if(!can("document_generation"))note+=`\n\n_${deniedMessage("document_generation")}_`;
         else{
-          setGen(convId,{stage:`Creează fișierul ${format.toUpperCase()}…`});
+          setGen(convId,{stage:tr("Making the {format} file…",{format:format.toUpperCase()})});
           try{
             const previousAssistant=[...messages].reverse().find(m=>m.role==="assistant"&&!m.error&&!m.mediaKind);
             const previousSource=previousAssistant?(previousAssistant.artifactSource||messageText(previousAssistant)):"";
             const content=standaloneExportRequest(messageText(lastUser))&&previousSource?previousSource:answer;
-            if(!String(content||"").trim())throw new Error("nu există conținut pentru fișier");
-            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - fișier`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:{})})});
+            if(!String(content||"").trim())throw new Error(tr("there is no content for the file"));
+            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - ${tr("file")}`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:{})})});
             if(exported?.data){
               files=[exported.data];
               // 0.7.34: no automatic download any more; the card under the answer opens the file inside the app first.
             }
-          }catch(err){note+=`\n\n_Fișierul ${format.toUpperCase()} nu a putut fi creat: ${err.message}. Poți încerca din nou cu butoanele de sub răspuns._`}
+          }catch(err){note+=`\n\n_${tr("The {format} file could not be made: {error}. You can try again with the buttons under the answer.",{format:format.toUpperCase(),error:err.message})}_`}
         }
       }
       clearTimeout(flushTimer);
       const doneRuns=toolRuns.map(({args,...r})=>r);
       // The file's text stays with the message (artifactSource, used when the file is changed later); the chat shows one line.
       const madeFile=files[0];
-      const shownText=madeFile?tr("Here is your {format} file: {name}",{format:format.toUpperCase(),name:madeFile.name||""})+note:(answer||"Nu am primit răspuns.")+note;
+      const shownText=madeFile?tr("Here is your {format} file: {name}",{format:format.toUpperCase(),name:madeFile.name||""})+note:(answer||tr("No answer came back."))+note;
       working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:shownText,...(madeFile?{artifactSource:answer}:{}),attachments:files,streaming:false}],updatedAt:Date.now()};
       showConversation(working);
       const saved=await saveConversation(working);
@@ -2222,7 +2229,7 @@ function App() {
         :{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns:toolRuns.map(({args,...r})=>r.status==="ask"?{...r,status:"denied"}:r)}:{}),content:`Eroare: ${friendlyError(e.message)}`,streaming:false,error:true};
       working={...working,messages:[...messages,finalMessage],updatedAt:Date.now()};
       showConversation(working);
-      if(storage.get(TOKEN_KEY)){try{await saveConversation(working)}catch(saveError){if(!isAuthLost(saveError.status,saveError.message))toast("Conversația nu a putut fi salvată: "+saveError.message)}}
+      if(storage.get(TOKEN_KEY)){try{await saveConversation(working)}catch(saveError){if(!isAuthLost(saveError.status,saveError.message))toast(tr("The conversation could not be saved: {error}",{error:saveError.message}))}}
     }finally{finishGeneration(convId,controller)}
     if(resume)followJob(convId,assistantMessage.id);
   }
@@ -2231,7 +2238,7 @@ function App() {
   async function generateMediaAssistant(baseConv,messages,kind,prompt){
     const convId=baseConv.id;
     const controller=startGeneration(convId);
-    setGen(convId,{stage:kind==="video"?"Generează videoclipul… poate dura câteva minute":"Creează imaginea și pregătește fișierul…"});
+    setGen(convId,{stage:kind==="video"?tr("Making the video… this can take a few minutes"):tr("Making the picture and preparing the file…")});
     const base={id:uid(),role:"assistant",createdAt:Date.now(),streaming:false,mediaKind:kind,mediaPrompt:prompt};
     controller.requestId=base.id;
     let resume=false;
@@ -2250,7 +2257,7 @@ function App() {
         if(!controller.signal.aborted)creditProblem(e);
         message=controller.signal.aborted
           ?{...base,content:"",stopped:true}
-          :{...base,content:`Generarea ${kind==="video"?"videoclipului":"imaginii"} nu a reușit: ${friendlyError(e.message)}`,mediaGenerationError:true,...(kind==="video"&&/Setări\s*→\s*Video|nevoie de o cheie/i.test(e.message)?{needsVideoSetup:true}:{})};
+          :{...base,content:(kind==="video"?tr("The video could not be made: {error}",{error:friendlyError(e.message)}):tr("The picture could not be made: {error}",{error:friendlyError(e.message)})),mediaGenerationError:true,...(kind==="video"&&/Setări\s*→\s*Video|nevoie de o cheie/i.test(e.message)?{needsVideoSetup:true}:{})};
       }
       const conv={...baseConv,messages:[...messages,message],updatedAt:Date.now()};
       showConversation(conv);
@@ -2258,7 +2265,7 @@ function App() {
       try{
         const saved=await saveConversation(conv);
         if(!message.mediaGenerationError&&!message.stopped)api("/api/memory/capture",{method:"POST",body:JSON.stringify({conversationId:saved.id,userText:prompt,assistantText:`${kind==="video"?"Videoclip":"Imagine"} generată: ${message.attachments?.[0]?.name||""}`})}).catch(()=>{});
-      }catch(err){if(!isAuthLost(err.status,err.message))toast("Conversația nu a putut fi salvată: "+err.message)}
+      }catch(err){if(!isAuthLost(err.status,err.message))toast(tr("The conversation could not be saved: {error}",{error:err.message}))}
     }finally{finishGeneration(convId,controller)}
     if(resume)followJob(convId,base.id);
   }
@@ -2273,7 +2280,7 @@ function App() {
     if(media){
       const perm=media==="video"?"video_generation":"image_generation";
       if(!can(perm)){deny(perm);return}
-      if(!text){toast(media==="video"?"Descrie videoclipul pe care vrei să-l creez.":"Descrie imaginea pe care vrei s-o creez.","info");return}
+      if(!text){toast(media==="video"?tr("Describe the video you want me to make."):tr("Describe the picture you want me to make."),"info");return}
     }
     const fileReq=media||answer?null:fileRequestFor(text,attachments.map(a=>a.name),current?.messages||[]);
     const format=media?null:answer?answerFormat(text,current?.messages||[]):fileReq?.format||null;
@@ -2282,25 +2289,25 @@ function App() {
     const content=parts.length===1&&parts[0].type==="text"?parts[0].text:parts;
     const transient=usable.flatMap(a=>a.transientParts||[]);
     const extra=transient.length?{[userId]:transient}:{};
-    const userMsg={id:userId,role:"user",content,displayText:text||`Fișier atașat: ${attachments.map(a=>a.name).join(", ")}`,attachments:attachments.map(a=>({name:a.name,type:a.type,mime:a.mime||"",size:a.size||0,libraryId:a.libraryId||null,transcript:a.transcript||""})),createdAt:Date.now()};
+    const userMsg={id:userId,role:"user",content,displayText:text||tr("Attached file: {names}",{names:attachments.map(a=>a.name).join(", ")}),attachments:attachments.map(a=>({name:a.name,type:a.type,mime:a.mime||"",size:a.size||0,libraryId:a.libraryId||null,transcript:a.transcript||""})),createdAt:Date.now()};
     const base=current?{...current}:{title:titleFrom(text||attachments[0]?.name),projectId:selectedProject,assistantId:selectedAssistant,model,messages:[]};
     const conv={...base,title:base.messages?.length?base.title:titleFrom(text||attachments[0]?.name),model,messages:[...(base.messages||[]),userMsg],updatedAt:Date.now()};
     const previous={draft,attachments,mediaMode};
     if(!answer){setDraft("");setAttachments([]);setMediaMode(null);}
     let saved;
     try{saved=await saveConversation(conv)}
-    catch(e){if(!answer){setDraft(previous.draft);setAttachments(previous.attachments);setMediaMode(previous.mediaMode)}if(!isAuthLost(e.status,e.message))toast("Mesajul nu a putut fi trimis: "+e.message);return}
+    catch(e){if(!answer){setDraft(previous.draft);setAttachments(previous.attachments);setMediaMode(previous.mediaMode)}if(!isAuthLost(e.status,e.message))toast(tr("The message could not be sent: {error}",{error:e.message}));return}
     if(base.archived)patchConversation(saved.id,{archived:false}).catch(()=>{});
     if(media)await generateMediaAssistant(saved,saved.messages||conv.messages,media,text);
     else await streamAssistant(saved,saved.messages||conv.messages,{extra,format,edit:!!fileReq?.edit,sourceName:fileReq?.source||""});
   }
   async function regenerate(index,needsConfirm){
     if(!current||generations[current.id])return;
-    if(needsConfirm&&!confirm("Regenerarea înlocuiește acest răspuns și șterge mesajele de după el. Continui?"))return;
+    if(needsConfirm&&!confirm(tr("Regenerating replaces this answer and deletes the messages after it. Continue?")))return;
     const target=current.messages[index];
     const msgs=current.messages.slice(0,index);
     const lastUser=[...msgs].reverse().find(m=>m.role==="user");
-    if(!lastUser){toast("Nu există un mesaj de la tine pentru acest răspuns.");return}
+    if(!lastUser){toast(tr("There is no message from you for this answer."));return}
     if(target?.mediaKind){const perm=target.mediaKind==="video"?"video_generation":"image_generation";if(!can(perm)){deny(perm);return}}
     let saved;
     try{saved=await saveConversation({...current,messages:msgs})}catch(e){toast(e.message);return}
@@ -2338,16 +2345,16 @@ function App() {
     }
     setEntityModal(null);
   }
-  async function share(){if(!current)return;const ok=await writeClipboardText(current.messages.map(m=>`${m.role==="user"?"Eu":`${BRAND_NAME}`}:\n${messageText(m)}`).join("\n\n"));toast(ok?"Conversația a fost copiată în clipboard.":"Nu am putut copia conversația în clipboard.",ok?"ok":"error")}
+  async function share(){if(!current)return;const ok=await writeClipboardText(current.messages.map(m=>`${m.role==="user"?tr("Me"):BRAND_NAME}:\n${messageText(m)}`).join("\n\n"));toast(ok?tr("The conversation was copied to the clipboard."):tr("The conversation could not be copied to the clipboard."),ok?"ok":"error")}
   function saveGithubBackup(backup){storage.set(GITHUB_BACKUP_KEY,JSON.stringify(backup));setLastGithubBackup(backup)}
   async function githubRollback(){
     const last=lastGithubBackup;
-    if(!last?.id){toast("Nu există un backup GitHub recent.","info");return;}
-    if(!confirm(`Revii la versiunea anterioară pentru ${last.path}?`))return;
+    if(!last?.id){toast(tr("There is no recent GitHub backup."),"info");return;}
+    if(!confirm(tr("Go back to the previous version of {path}?",{path:last.path})))return;
     try{
       const d=await api(`/api/github/rollback/${last.id}`,{method:"POST",body:"{}"});
       storage.remove(GITHUB_BACKUP_KEY);setLastGithubBackup(null);
-      toast("Revenire GitHub efectuată. Commit: "+(d.data?.commit||"creat"),"ok");
+      toast(tr("GitHub rollback done. Commit: {commit}",{commit:d.data?.commit||tr("created")}),"ok");
     }catch(e){toast("Revenire GitHub: "+e.message)}
   }
   function openTool(name,filter){
@@ -2376,22 +2383,22 @@ function App() {
       }
       if(d?.data?.preferences)apply(d.data.preferences);
       return true;
-    }catch(e){apply(before);toast("Setarea nu a putut fi salvată: "+e.message);return false}
+    }catch(e){apply(before);toast(tr("The setting could not be saved: {error}",{error:e.message}));return false}
     finally{setPrefBusy("")}
   }
   async function moveCurrent(projectId){if(!current)return;try{await patchConversation(current.id,{projectId});setSelectedProject(projectId)}catch(e){toast(e.message)}}
   async function archiveConversation(id){
-    try{await patchConversation(id,{archived:true});if(currentId===id)setCurrentId(null);toast("Conversația a fost arhivată. O găsești în secțiunea „Arhivate” din bara laterală.","info")}
+    try{await patchConversation(id,{archived:true});if(currentId===id)setCurrentId(null);toast(tr("The conversation was archived. You will find it under «Archived» in the sidebar."),"info")}
     catch(e){toast(e.message)}
   }
-  async function unarchiveConversation(id){try{await patchConversation(id,{archived:false});toast("Conversația a fost restaurată.","ok")}catch(e){toast(e.message)}}
+  async function unarchiveConversation(id){try{await patchConversation(id,{archived:false});toast(tr("The conversation was restored."),"ok")}catch(e){toast(e.message)}}
   async function deleteConversation(id){
     const conv=conversations.find(x=>x.id===id);if(!conv)return;
-    if(!confirm(`Ștergi definitiv conversația „${conv.title||"Conversație"}”?`))return;
+    if(!confirm(tr("Delete the conversation «{title}» for good?",{title:conv.title||tr("Conversation")})))return;
     const controller=controllersRef.current.get(id);
     if(controller){try{controller.abort("deleted")}catch{}}
     try{await api(`/api/conversations/${id}`,{method:"DELETE"});setConversations(v=>v.filter(x=>x.id!==id));if(currentId===id)setCurrentId(null)}
-    catch(e){toast("Ștergere: "+e.message)}
+    catch(e){toast(tr("Delete: {error}",{error:e.message}))}
   }
   function toggleMenu(){
     if(window.innerWidth<=900){setSidebar(v=>!v);return;}
@@ -2419,7 +2426,7 @@ function App() {
     loadData();
   }
 
-  if(boot)return <div className="loadingScreen"><BrandMark/><span>Se pornește {BRAND_NAME}…</span></div>;
+  if(boot)return <div className="loadingScreen"><BrandMark/><span>{tr("Starting {brand}…",{brand:BRAND_NAME})}</span></div>;
   if(!user)return <AuthScreen onAuth={onAuth} notice={authNotice}/>;
   const hasMessages=!!current?.messages?.length;
   const activeAssistantId=current?current.assistantId:selectedAssistant;
@@ -2429,13 +2436,13 @@ function App() {
     <main className="mainArea">
       <Header deniedCount={deniedModels} lockedModels={lockedModels} onMenu={toggleMenu} model={model} onSelectModel={chooseModel} models={models} onRefreshModels={()=>refreshModels()} refreshingModels={refreshingModels} policyEnforced={modelPolicyEnforced} omni={omni} showOmni={machineSettingsAllowed} onShare={share} current={current} projects={projects} onDetach={()=>moveCurrent(null)} onMoveProject={moveCurrent} onFiles={()=>setFilesPanel(true)} onGitHub={()=>setGithubModal(true)} onGitHubRollback={githubRollback} hasGitHubBackup={!!lastGithubBackup} onArchive={()=>current&&archiveConversation(current.id)} onUnarchive={()=>current&&unarchiveConversation(current.id)} onDelete={()=>current&&deleteConversation(current.id)}/>
       <InstallApp banner/>
-      {loadError&&<div className="loadErrorBanner" role="alert"><span>Nu am putut încărca datele: {loadError}</span><button onClick={()=>loadData()}>Reîncearcă</button>{GATEWAY!==DEFAULT_GATEWAY&&<button onClick={resetGatewayAndReload}>Folosește serviciul local implicit</button>}</div>}
-      {updateReady&&!updateDismissed&&<div className="updateBanner" role="status"><button className="updateInstall" onClick={()=>window.Serasmart?.installUpdate?.()}>Actualizare {BRAND_NAME} disponibilă — instalează acum</button><button className="updateClose" onClick={()=>setUpdateDismissed(true)} aria-label="Ascunde notificarea" title="Mai târziu"><X size={14}/></button></div>}
+      {loadError&&<div className="loadErrorBanner" role="alert"><span>{tr("The data could not be loaded: {error}",{error:loadError})}</span><button onClick={()=>loadData()}>{tr("Retry")}</button>{GATEWAY!==DEFAULT_GATEWAY&&<button onClick={resetGatewayAndReload}>{tr("Use the default local service")}</button>}</div>}
+      {updateReady&&!updateDismissed&&<div className="updateBanner" role="status"><button className="updateInstall" onClick={()=>window.Serasmart?.installUpdate?.()}>{tr("{brand} update available — install now",{brand:BRAND_NAME})}</button><button className="updateClose" onClick={()=>setUpdateDismissed(true)} aria-label={tr("Hide the notice")} title={tr("Later")}><X size={14}/></button></div>}
       <div className="chatScroll" ref={chatRef} onScroll={updateChatScrollState}><ConversationView user={user} recentTitle={conversations.find(c=>c.id!==currentId&&!c.archived&&(c.messages||[]).length)?.title} onPick={(text,mode)=>{if(mode)setMediaMode(mode);else{setMediaMode(null);setDraft(text)}}} conversation={current} busy={busy} busyStage={currentGen?.stage} busySteps={currentGen?.steps||[]} onRegenerate={regenerate} onRate={rate} canRunCode={isOwner} onCodeResult={text=>setDraft(v=>(v?v+"\n\n":"")+text)} onAnswer={text=>send(text)} onOpenSettings={tab=>setSettings(tab||true)}/></div>
       {showJumpBottom&&hasMessages&&<button className="jumpToLatest" onClick={()=>jumpToLatest({smooth:true})} title={tr("Go to the latest message")} aria-label={tr("Go to the latest message")}><ChevronDown size={19}/><span>{tr("Latest message")}</span></button>}
       <Composer centered={!hasMessages} draft={draft} setDraft={setDraft} onSend={send} onStop={stopGeneration} busy={busy} attachments={attachmentsState} setAttachments={setAttachments} onOpenLibrary={()=>openTool("library","all")} responseMode={responseMode} setResponseMode={setResponseMode} mediaMode={mediaModeState} setMediaMode={setMediaMode} mentionsVersion={mentionsVersion} mediaPolicy={{imagePaid:machineCfgRef.current?.imageCostPolicy==="allow_paid"}}/>
     </main>
-    {settings&&<SettingsModal user={user} models={models} onDataDeleted={()=>loadData()} onAccountDeleted={()=>{setSettings(false);logout({skipServer:true,notice:"Contul a fost șters."})}} initialTab={typeof settings==="string"?settings:"general"} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy} machineSettingsAllowed={machineSettingsAllowed} onClose={()=>setSettings(false)} onSaved={cfg=>{machineCfgRef.current={...(machineCfgRef.current||{}),...cfg};setCloudConfigured(!!String(cfg?.controlApiUrl||"").trim());Promise.resolve(window.Serasmart?.ensureOmni?.()).catch(()=>{});setTimeout(()=>loadData(),800)}}/>}
+    {settings&&<SettingsModal user={user} models={models} onDataDeleted={()=>loadData()} onAccountDeleted={()=>{setSettings(false);logout({skipServer:true,notice:tr("The account was deleted.")})}} initialTab={typeof settings==="string"?settings:"general"} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy} machineSettingsAllowed={machineSettingsAllowed} onClose={()=>setSettings(false)} onSaved={cfg=>{machineCfgRef.current={...(machineCfgRef.current||{}),...cfg};setCloudConfigured(!!String(cfg?.controlApiUrl||"").trim());Promise.resolve(window.Serasmart?.ensureOmni?.()).catch(()=>{});setTimeout(()=>loadData(),800)}}/>}
     {entityModal&&<EntityModal type={entityModal.type} item={entityModal.item} onClose={()=>setEntityModal(null)} onSave={saveEntity} onDelete={entityModal.item&&!entityModal.item.builtIn?deleteEntity:null}/>}
     {toolPanel?.name==="explore"&&<ExplorePanel onClose={closeTool} assistants={assistants} onUseAssistant={startWithAssistant} onImageMode={startImageMode} onOpenLibrary={filter=>openTool("library",filter)}/>}
     {toolPanel?.name==="library"&&<LibraryPage onClose={closeTool} onAttach={attachFromLibrary} toAttachment={libraryItemToAttachment} initialFilter={toolPanel.filter||"all"} onOpenDesign={id=>openTool("design",id)}/>}

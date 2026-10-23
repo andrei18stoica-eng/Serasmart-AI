@@ -1450,3 +1450,39 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .officeTabs button.active{background:var(--panel);color:var(--text);font-weight:600}
 .officeEmpty{color:#6b7280;text-align:center;padding:30px}
 @media (max-width:600px){.officePaper{margin:0;border-radius:0;padding:24px 20px}.officeSlide{padding:18px 20px}}
+
+/* 0.7.35: translation progress on the language button */
+.langProgress{font-size:11px;font-weight:600;color:var(--accent);margin-left:2px;font-variant-numeric:tabular-nums}
+.langNote{margin:0 4px 8px;font-size:12px;line-height:1.4;color:var(--muted,var(--text));opacity:.8}
+
+/* 0.7.35: settings in the shape of Claude's — groups in the menu, sections with rows, the profile photo, sessions */
+.settingsNavGroup{margin:12px 10px 4px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
+.settingsNav button.navLink{color:var(--muted)}
+.settingsSections{display:grid;gap:8px}
+.setSection{padding:4px 0 18px;border-bottom:1px solid var(--surface-3)}
+.setSection:last-child{border-bottom:0}
+.setSection h3{margin:6px 0 12px;font-size:16px}
+.setRow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--surface-3)}
+.setSection h3+.setRow{border-top:0}
+.setRowText{display:grid;gap:3px;min-width:0}
+.setRowText b{font-size:14px;color:var(--text-strong);font-weight:600}
+.setRowText span{font-size:12px;color:var(--muted);line-height:1.45}
+.setRow>button{flex-shrink:0;display:flex;align-items:center;gap:6px}
+.labelHelp{font-size:12px;color:var(--muted);font-weight:400}
+.accountId{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;color:var(--text-2);word-break:break-all}
+.photoControls{display:flex;align-items:center;gap:12px}
+.photoControls button{display:flex;align-items:center;gap:6px}
+.profilePhoto{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,var(--accent-bg),var(--accent));color:#fff;font-weight:700;font-size:22px;overflow:hidden;flex-shrink:0}
+.profilePhoto img,.accountAvatar.hasPhoto img{width:100%;height:100%;object-fit:cover;display:block}
+.accountAvatar.hasPhoto{overflow:hidden;padding:0;background:none}
+.stickySave{position:sticky;bottom:0;padding:10px 0;background:linear-gradient(transparent,var(--panel) 30%);z-index:1}
+.sessionTableWrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.sessionTable{width:100%;border-collapse:collapse;font-size:12.5px}
+.sessionTable th{text-align:left;font-weight:600;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.sessionTable td{padding:10px 12px;border-bottom:1px solid var(--surface-3);color:var(--text-2);vertical-align:middle;white-space:nowrap}
+.sessionTable tr:last-child td{border-bottom:0}
+.sessionTable tr.current td{background:var(--surface)}
+.sessionDevice{display:flex;align-items:center;gap:9px}
+.sessionDevice svg{color:var(--accent);flex-shrink:0}
+.sessionDevice b{color:var(--text-strong);font-weight:600;margin-right:6px}
+@media(max-width:760px){.settingsNavGroup{grid-column:1/-1}.setRow{flex-direction:column;align-items:flex-start}.photoControls{flex-wrap:wrap}}

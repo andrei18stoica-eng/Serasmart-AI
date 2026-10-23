@@ -8,12 +8,12 @@ import {
   FileText, Image as ImageIcon, HardDrive, ToggleLeft, ToggleRight,
   Compass, Map as MapIcon, Globe2, Archive, ArchiveRestore, ExternalLink, SlidersHorizontal, Volume2,
   PanelTopOpen, ShieldCheck, UserCheck, Download, Bell, Lock, Pencil, Palette, Clapperboard, Eye, Maximize2, LoaderCircle, SquareTerminal, Gauge,
-  Mail, Sun, Moon
+  Mail, Sun, Moon, CreditCard, KeyRound, UserCircle
 } from "lucide-react";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/dm-sans";
 import "./styles.css";
-import { t as tr, LANGUAGES, getLanguage, setLanguage, useLanguage } from "./i18n.jsx";
+import { t as tr, LANGUAGES, getLanguage, setLanguage, useLanguage, languageProgress } from "./i18n.jsx";
 import { useTheme, setTheme, resolvedTheme } from "./theme.js";
 import {
   DEFAULT_GATEWAY, TOKEN_KEY, USER_KEY, PERMISSIONS_KEY, MODEL_CACHE_KEY, MODEL_SELECTED_KEY, MANUAL_MODEL_KEY, RESPONSE_MODE_KEY, GITHUB_BACKUP_KEY,
@@ -30,12 +30,12 @@ import { ScheduledPage } from "./pages/Scheduled.jsx";
 import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
 import { detectSpeechLang, voiceFor, speakableText } from "./speechLang.mjs";
-import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat } from "./documentIntent.mjs";
+import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat, answerFileFormat } from "./documentIntent.mjs";
 import { ExtensionsPage } from "./pages/Extensions.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
 import { UsagePage, CreditsDialog } from "./pages/Usage.jsx";
-import { useAccountSettings, ProfileTab, NotifyTab, PrivacyTab, SecurityTab } from "./pages/AccountSettings.jsx";
+import { useAccountSettings, ProfileTab, NotifyTab, PrivacyTab, SecurityTab, AccountAvatar } from "./pages/AccountSettings.jsx";
 import { LibraryPage } from "./pages/Library.jsx";
 import { DesignPage } from "./pages/Design.jsx";
 import { splitQuestions, QuestionCard, QuestionsPending } from "./questions.jsx";
@@ -114,7 +114,7 @@ function RouteBadge({info}) {
   if(!info?.model)return null;
   const provider=providerLabel(info.provider,info.model);
   const served=info.servedBy?` → ${info.servedBy}`:"";
-  return <div className="routeBadge" title={info.servedBy?tr("You chose {model}; OmniRoute sent the question to {served}.",{model:info.model,served:info.servedBy}):tr("{brand} used {provider} · {model}",{brand:BRAND_NAME,provider,model:info.model})}>
+  return <div className="routeBadge" title={info.servedBy?tr("You chose {model}; {brand} sent the question to {served}.",{brand:BRAND_NAME,model:info.model,served:info.servedBy}):tr("{brand} used {provider} · {model}",{brand:BRAND_NAME,provider,model:info.model})}>
     <Sparkles size={12}/><span><b>{info.servedBy&&/\//.test(info.servedBy)?providerLabel("",info.servedBy):provider}</b><em>{info.model}{served}</em></span><small>{tr(routeTaskLabel(info.task))}</small>
   </div>;
 }
@@ -446,7 +446,7 @@ function Sidebar({open,setOpen,user,search,setSearch,projects,assistants,convers
     </div>
     <div className="accountArea">
       <SideUsage onOpen={()=>onTool("usage")}/>
-      <div className="accountBadge"><div className="accountAvatar">{(user?.name||user?.email||"S")[0].toUpperCase()}</div><div className="accountText"><b>{user?.name||tr("{brand} account",{brand:BRAND_SHORT})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div>
+      <div className="accountBadge"><AccountAvatar user={user}/><div className="accountText"><b>{user?.name||tr("{brand} account",{brand:BRAND_SHORT})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div>
         <div className="accountButtons"><button onClick={onSettings} aria-label={tr("Settings")} title={tr("Settings")}><Settings size={17}/></button><button onClick={onLogout} aria-label={tr("Sign out")} title={tr("Sign out")}><LogOut size={17}/></button></div></div>
     </div>
   </aside>;
@@ -461,10 +461,10 @@ function groupModels(list){
   const add=(key,name,x,opts)=>{if(!groups.has(key))groups.set(key,{name,items:[],...opts});groups.get(key).items.push(x)};
   for(const x of list){
     const id=String(x||"");
-    if(COMBO_IDS.has(id)||!id.includes("/")){add("combo","OmniRoute combinations",id,{combo:true,short:v=>v});continue;}
+    if(COMBO_IDS.has(id)||!id.includes("/")){add("combo","Combinations",id,{combo:true,short:v=>v});continue;}
     const prefix=id.split("/")[0].toLowerCase(),known=MODEL_PROVIDERS.find(([k])=>k===prefix);
     if(known)add(known[0],known[1],id,{short:v=>v.slice(prefix.length+1)});
-    else add("omni","Other OmniRoute models",id,{short:v=>v});
+    else add("omni","Other models",id,{short:v=>v});
   }
   // Your own combinations ("Ai principal" …) before OmniRoute's automatic auto/* ones.
   const combo=groups.get("combo");
@@ -508,14 +508,14 @@ function ModelPicker({model,onSelect,models,onRefresh,refreshing,policyEnforced,
             <span className="modelOptionCopy"><b>{g.short(x)}</b><small>{tr("Not allowed by the Owner")}</small></span>
           </button>:<button key={x} className={cx("modelOption",x===model&&"active")} onClick={()=>{onSelect(x);setOpen(false)}} role="option" aria-selected={x===model}>
             <span className="modelOptionIcon"><Sparkles size={15}/></span>
-            <span className="modelOptionCopy"><b>{g.short(x)}</b><small>{x===model?tr("Selected"):g.combo?tr("OmniRoute combination"):tr("Use this AI")}</small></span>
+            <span className="modelOptionCopy"><b>{g.short(x)}</b><small>{x===model?tr("Selected"):g.combo?tr("Combination"):tr("Use this AI")}</small></span>
             {x===model&&<Check size={16}/>}
           </button>)}
         </div>)}
         {!all.length&&<div className="modelEmpty">{tr("No models available.")} {policyEnforced?tr("Ask the Owner for access to at least one model."):IS_WEB?tr("The server's Owner has to add an AI key."):tr("Start OmniRoute or add an API key in Settings.")}</div>}
         {all.length>0&&!filtered.length&&<div className="modelEmpty">{tr("No model matches.")}</div>}
       </div>
-      <div className="modelPickerFoot">{refreshing?tr("Refreshing the list…"):policyEnforced||lockedMap.size?tr("The Owner decides which models your account can use.")+(lockedMap.size?" "+tr("The locked ones are not allowed for you."):deniedCount>0?" "+tr("{n} OmniRoute models are hidden by the Owner.",{n:deniedCount}):""):(IS_WEB?tr("The models come from OmniRoute and the APIs set up on the server."):tr("The models come from OmniRoute and the APIs set up on this PC."))}</div>
+      <div className="modelPickerFoot">{refreshing?tr("Refreshing the list…"):policyEnforced||lockedMap.size?tr("The Owner decides which models your account can use.")+(lockedMap.size?" "+tr("The locked ones are not allowed for you."):deniedCount>0?" "+tr("{n} models are hidden by the Owner.",{n:deniedCount}):""):(IS_WEB?tr("The models come from OmniRoute and the APIs set up on the server."):tr("The models come from OmniRoute and the APIs set up on this PC."))}</div>
     </div>}
     </div>
   </div>;
@@ -539,10 +539,13 @@ function LanguageMenu() {
   useEffect(()=>{if(!open)setQ("")},[open]);
   const name=(LANGUAGES.find(([c])=>c===lang)||LANGUAGES[0])[1];
   const shown=LANGUAGES.filter(([c,n])=>!q||n.toLowerCase().includes(q.toLowerCase())||c.includes(q.toLowerCase()));
+  // 0.7.35: while the server translates the whole app into the chosen language, the button shows how far it is.
+  const p=languageProgress(lang),pct=p&&p.total?Math.min(100,Math.floor(p.have*100/p.total)):100,translating=lang!=="en"&&p&&pct<100;
   return <div className="langWrap" ref={ref}>
-    <button className={cx("langButton",open&&"open")} onClick={()=>setOpen(v=>!v)} aria-haspopup="menu" aria-expanded={open} aria-label={tr("Language: {name}",{name})} title={tr("Language")}><Globe2 size={16}/><span>{name}</span><ChevronDown size={14}/></button>
+    <button className={cx("langButton",open&&"open")} onClick={()=>setOpen(v=>!v)} aria-haspopup="menu" aria-expanded={open} aria-label={tr("Language: {name}",{name})} title={tr("Language")}><Globe2 size={16}/><span>{name}</span>{translating&&<small className="langProgress" title={tr("Translating the app into {name}… {pct}%",{name,pct})}>{pct}%</small>}<ChevronDown size={14}/></button>
     {open&&<div className="langMenu" role="menu" aria-label={tr("Language")}>
       <label className="langSearch"><Search size={14}/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder={tr("Search {n} languages",{n:LANGUAGES.length})} aria-label={tr("Search languages")}/></label>
+      {translating&&<p className="langNote" role="status">{tr("Translating the app into {name}… {pct}%. The texts change on their own as they are ready.",{name,pct})}</p>}
       <div className="langGrid">{shown.map(([c,n])=><button key={c} role="menuitemradio" aria-checked={c===lang} lang={c} className={cx(c===lang&&"on")} onClick={()=>{setLanguage(c);setOpen(false)}}><span>{n}</span>{c===lang&&<Check size={14}/>}</button>)}</div>
     </div>}
   </div>;
@@ -1472,7 +1475,7 @@ const WEB_SETTINGS={
 };
 // The tabs every account has (0.7.23): saved for the account on the server, each with its own buttons.
 const ACCOUNT_TABS=["profile","notify","privacy","security"];
-function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initialTab="general",preferences,onPreferences,prefBusy,models=[],onAccountDeleted,onDataDeleted}) {
+function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSettingsAllowed=true,initialTab="general",preferences,onPreferences,prefBusy,models=[],onAccountDeleted,onDataDeleted}) {
   const {isOwner}=useAccess();
   const bridge=window.Serasmart?.getConfig?window.Serasmart:IS_WEB&&isOwner?WEB_SETTINGS:null;
   const webServer=bridge===WEB_SETTINGS;
@@ -1527,18 +1530,28 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
   const keyProps={cfg,keys,setKeys};
   // The site's server allows paid pictures when nothing was chosen (no imageCostPolicy in .env); Windows saves "free_only".
   const imageCost=cfg?.imageCostPolicy||(webServer?"allow_paid":"free_only");
-  const tabs=[["profile",User,"Profile",true],["general",SlidersHorizontal,"General",!!bridge],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge],["video",Play,"Video",machineSettingsAllowed&&!!bridge],["voice",Volume2,"Voice and microphone",!!bridge],["notify",Bell,"Notifications",true],["privacy",ShieldCheck,"Privacy",true],["security",Lock,"Security",true],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge]];
+  // 0.7.35: the settings in groups, like Claude's: the account first, then this computer / the server (Owner), then
+  // Extensions. Billing, Usage, Memory and the Extensions items open their own pages.
+  const machineGroup=webServer?"Server":"This computer";
+  const tabs=[["profile",UserCircle,"General",true,""],["security",KeyRound,"Account",true,""],["privacy",ShieldCheck,"Privacy",true,""],["notify",Bell,"Notifications",true,""],
+    ["@billing",CreditCard,"Billing",!!onOpenTool,"",()=>onOpenTool("usage")],["@usage",Gauge,"Usage",!!onOpenTool,"",()=>onOpenTool("usage")],["@memory",Brain,"Memory",!!onOpenTool,"",()=>onOpenTool("memory")],
+    ["general",SlidersHorizontal,"App",!!bridge,machineGroup],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge,machineGroup],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge,machineGroup],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge,machineGroup],["video",Play,"Video",machineSettingsAllowed&&!!bridge,machineGroup],["voice",Volume2,"Voice and microphone",!!bridge,machineGroup],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge,machineGroup],
+    ["@skills",Sparkles,"Skills",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","skills")],["@connectors",Plug,"Connectors",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","connectors")],["@plugins",Puzzle,"Plugins",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","plugins")]];
   const onAccountTab=accountOnly||ACCOUNT_TABS.includes(tab);
   return <div className="modalBackdrop" {...backdropProps}><div className="settingsModal" ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><h2>{tr("{brand} settings",{brand:BRAND_NAME})}</h2><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
     {!cfg&&!onAccountTab?<div className="settingsLoading">{error||tr("Loading the settings…")}{error&&<ServerUpdate/>}</div>:<>
     <div className="settingsBody"><div className="settingsNav" role="tablist" aria-orientation="vertical">
-      {tabs.filter(t=>t[3]).map(([k,Icon,label])=><button key={k} role="tab" aria-selected={tab===k} className={tab===k?"active":""} onClick={()=>setTab(k)}><Icon size={17}/> {tr(label)}</button>)}
+      {tabs.filter(t=>t[3]).map(([k,Icon,label,,group,go],i,list)=><React.Fragment key={k}>
+        {group&&group!==list[i-1]?.[4]&&<div className="settingsNavGroup">{tr(group)}</div>}
+        {go?<button className="navLink" onClick={()=>{onClose();go()}}><Icon size={17}/> {tr(label)}</button>
+          :<button role="tab" aria-selected={tab===k} className={tab===k?"active":""} onClick={()=>setTab(k)}><Icon size={17}/> {tr(label)}</button>}
+      </React.Fragment>)}
     </div>
     <div className="settingsPane">
       {tab==="profile"&&<ProfileTab account={account} models={models} preferences={preferences} onPreferences={onPreferences} prefBusy={prefBusy}/>}
       {tab==="privacy"&&<PrivacyTab account={account} onDataDeleted={onDataDeleted}/>}
-      {tab==="security"&&<SecurityTab account={account} onAccountDeleted={onAccountDeleted}/>}
-      {tab==="general"&&cfg&&<><h3>{tr("General")}</h3>
+      {tab==="security"&&<SecurityTab account={account} onAccountDeleted={onAccountDeleted} onLogoutAll={onLogoutAll}/>}
+      {tab==="general"&&cfg&&<><h3>{tr("App")}</h3>
         {!IS_WEB&&<>
         <label className="toggleRow"><div><b>{tr("Start {brand} with Windows",{brand:BRAND_NAME})}</b><span>{tr("The app starts on its own and can stay in the background.")}</span></div><input type="checkbox" checked={!!cfg.startWithWindows} onChange={e=>set({startWithWindows:e.target.checked})}/></label>
         <label className="toggleRow"><div><b>{tr("Close to the notification area")}</b><span>{tr("The X button hides the app without stopping the services.")}</span></div><input type="checkbox" checked={cfg.closeToTray!==false} onChange={e=>set({closeToTray:e.target.checked})}/></label>
@@ -1723,7 +1736,7 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
       </>}
       {tab==="notify"&&<NotifyTab account={account}>{webServer&&<PhoneNotifications/>}</NotifyTab>}
       {tab==="account"&&cfg&&<><h3>{tr("Owner on this PC")}</h3>
-        <div className="accountSettingsCard"><div className="accountAvatar big">{(user?.name||user?.email||"S")[0].toUpperCase()}</div><div><b>{user?.name||tr("{brand} account",{brand:BRAND_NAME})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div></div>
+        <div className="accountSettingsCard"><AccountAvatar user={user} className="accountAvatar big"/><div><b>{user?.name||tr("{brand} account",{brand:BRAND_NAME})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div></div>
         <p className="settingsHelp">{IS_WEB?tr("Chats, memory, the library, designs, projects, apps and automations are kept on the {brand} server.",{brand:BRAND_NAME}):tr("Chats, memory, the library, designs, projects, apps and automations are kept on this computer.")}</p>
         {machineSettingsAllowed&&!webServer&&<>
           <label><span className="labelLine">{tr("Owner email on this PC")} <span className="optional">{tr("optional")}</span></span><input type="email" value={cfg.ownerEmail||""} onChange={e=>set({ownerEmail:e.target.value})} placeholder={tr("name@example.com")} autoComplete="off"/></label>
@@ -2187,6 +2200,9 @@ function App() {
       for(const line of buf.split(/\r?\n/))handleLine(line);
       if(streamError&&!answer)throw new Error(streamError);
       let note=streamError?`\n\n_${tr("The answer was interrupted: {error}",{error:streamError})}_`:"",files=[];
+      // 0.7.35: an answer that is a file (named «….pptx», or written slide by slide) is sent as that file.
+      let madeName="";
+      if(!format&&!streamError){const guess=answerFileFormat(answer);if(guess){format=guess.format;madeName=guess.name}}
       if(format&&!splitQuestions(answer,false)){
         if(!can("document_generation"))note+=`\n\n_${deniedMessage("document_generation")}_`;
         else{
@@ -2196,7 +2212,7 @@ function App() {
             const previousSource=previousAssistant?(previousAssistant.artifactSource||messageText(previousAssistant)):"";
             const content=standaloneExportRequest(messageText(lastUser))&&previousSource?previousSource:answer;
             if(!String(content||"").trim())throw new Error(tr("there is no content for the file"));
-            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - ${tr("file")}`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:{})})});
+            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - ${tr("file")}`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:madeName?{fileName:madeName.replace(/\.[^.]+$/,"")}:{})})});
             if(exported?.data){
               files=[exported.data];
               // 0.7.34: no automatic download any more; the card under the answer opens the file inside the app first.
@@ -2442,7 +2458,7 @@ function App() {
       {showJumpBottom&&hasMessages&&<button className="jumpToLatest" onClick={()=>jumpToLatest({smooth:true})} title={tr("Go to the latest message")} aria-label={tr("Go to the latest message")}><ChevronDown size={19}/><span>{tr("Latest message")}</span></button>}
       <Composer centered={!hasMessages} draft={draft} setDraft={setDraft} onSend={send} onStop={stopGeneration} busy={busy} attachments={attachmentsState} setAttachments={setAttachments} onOpenLibrary={()=>openTool("library","all")} responseMode={responseMode} setResponseMode={setResponseMode} mediaMode={mediaModeState} setMediaMode={setMediaMode} mentionsVersion={mentionsVersion} mediaPolicy={{imagePaid:machineCfgRef.current?.imageCostPolicy==="allow_paid"}}/>
     </main>
-    {settings&&<SettingsModal user={user} models={models} onDataDeleted={()=>loadData()} onAccountDeleted={()=>{setSettings(false);logout({skipServer:true,notice:tr("The account was deleted.")})}} initialTab={typeof settings==="string"?settings:"general"} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy} machineSettingsAllowed={machineSettingsAllowed} onClose={()=>setSettings(false)} onSaved={cfg=>{machineCfgRef.current={...(machineCfgRef.current||{}),...cfg};setCloudConfigured(!!String(cfg?.controlApiUrl||"").trim());Promise.resolve(window.Serasmart?.ensureOmni?.()).catch(()=>{});setTimeout(()=>loadData(),800)}}/>}
+    {settings&&<SettingsModal onOpenTool={(name,filter)=>{setSettings(false);openTool(name,filter)}} onLogoutAll={()=>{setSettings(false);logout({notice:tr("You were signed out on every device.")})}} user={user} models={models} onDataDeleted={()=>loadData()} onAccountDeleted={()=>{setSettings(false);logout({skipServer:true,notice:tr("The account was deleted.")})}} initialTab={typeof settings==="string"?settings:"profile"} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy} machineSettingsAllowed={machineSettingsAllowed} onClose={()=>setSettings(false)} onSaved={cfg=>{machineCfgRef.current={...(machineCfgRef.current||{}),...cfg};setCloudConfigured(!!String(cfg?.controlApiUrl||"").trim());Promise.resolve(window.Serasmart?.ensureOmni?.()).catch(()=>{});setTimeout(()=>loadData(),800)}}/>}
     {entityModal&&<EntityModal type={entityModal.type} item={entityModal.item} onClose={()=>setEntityModal(null)} onSave={saveEntity} onDelete={entityModal.item&&!entityModal.item.builtIn?deleteEntity:null}/>}
     {toolPanel?.name==="explore"&&<ExplorePanel onClose={closeTool} assistants={assistants} onUseAssistant={startWithAssistant} onImageMode={startImageMode} onOpenLibrary={filter=>openTool("library",filter)}/>}
     {toolPanel?.name==="library"&&<LibraryPage onClose={closeTool} onAttach={attachFromLibrary} toAttachment={libraryItemToAttachment} initialFilter={toolPanel.filter||"all"} onOpenDesign={id=>openTool("design",id)}/>}

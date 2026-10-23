@@ -4,7 +4,7 @@
 // whole pack (a plugin: several skills, counted as one) or single skills; their text stays in the library, not in the store.
 const path = require("path");
 
-const MAX_SKILLS = 200; // 50 until 0.7.31 (the Pro x2 plan allows 100)
+const MAX_SKILLS = null; // 0.7.35: no fixed cap any more (was 200; 50 until 0.7.31). Only the plan limits count.
 const MAX_ACTIVE = 4;
 const MAX_INSTRUCTIONS = 40000; // 8000 until 0.7.31; library skills are longer
 

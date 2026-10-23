@@ -395,27 +395,129 @@ function slideChunks(content, maxChars = 750, maxLines = 12) {
   flush();
   return slides.length ? slides : [{ title: "", body: [plainMarkdownText(content).slice(0, maxChars)] }];
 }
+// 0.7.35: the deck can carry its own look and speaker notes. The AI may write, anywhere in the answer:
+//  - «SLIDE 3 — Title» / «Slide 3: Title» lines (read like «## Title»);
+//  - «Notes:» / «Note prezentator:» / «Speaker notes:» → the slide's speaker notes;
+//  - «Source:» / «Sursă:» / «Surse:» → a small source line at the bottom of the slide;
+//  - a formatting section at the end («FORMATARE PPTX», «Formatting», «Style») with colours and a font:
+//    «Fundal principal / Background: #FCFAF3», «Accente / Accent: #AA9162», «Titluri / Titles: #29343A»,
+//    «Text: #525B61», «Surse / Sources: #77766E», «Casete / Boxes: #EFE9DC», «Font exclusiv / Font: Times New Roman».
+// Lines with tabs become table rows. A first slide numbered 1 becomes the cover.
+const PPTX_STYLE_START = /^\s*(?:#+\s*)?(?:formatare(?:\s+pptx)?|formatting|format(?:are)?\s+pptx|style|stil(?:ul)?(?:\s+prezent[aă]rii)?|design)\s*:?\s*$/i;
+const NOTES_LINE = /^\s*(?:\*\*)?(?:note(?:le)?(?:\s+(?:prezentator|pentru prezentator|vorbitor))?|notes|speaker notes|presenter notes)(?:\*\*)?\s*:\s*(.*)$/i;
+const SOURCE_LINE = /^\s*(?:\*\*)?(?:surs[aăe]|sources?)(?:\*\*)?\s*:\s*(.+)$/i;
+const SLIDE_LINE = /^\s*(?:#+\s*)?(?:\*\*)?(?:slide|slaid|diapozitiv(?:ul)?)\s+(\d{1,3})(?:\*\*)?\s*(?:[—–:.-]\s*)?(.*)$/i;
+function hexAfter(line) { const m = line.match(/#([0-9a-f]{6})\b/i); return m ? m[1].toUpperCase() : null; }
+function pptxStyle(lines) {
+  const st = {};
+  for (const raw of lines) {
+    const l = raw.toLowerCase(), hex = hexAfter(raw);
+    if (/font/.test(l)) { const f = raw.split(":").slice(1).join(":").replace(/[.;*]+$/, "").trim(); if (f && f.length < 40 && !/\d+\s*pt/i.test(f)) st.font = f; continue; }
+    if (!hex) continue;
+    if (/fundal\s+secundar|secondary background|background 2/.test(l)) st.bg2 = hex;
+    else if (/fundal|background/.test(l)) st.bg = st.bg || hex;
+    else if (/caset|box|card|panel/.test(l)) st.box = hex;
+    else if (/delimit|border|line|linii/.test(l)) st.line = hex;
+    else if (/accent/.test(l)) st.accent = hex;
+    else if (/titl|title|heading/.test(l)) st.title = hex;
+    else if (/surs|source|caption/.test(l)) st.muted = hex;
+    else if (/text|body/.test(l)) st.text = hex;
+  }
+  return st;
+}
+// Splits the answer into {cover, sections:[{title, body, notes, source}], style}.
+function pptxSource(content) {
+  let lines = String(content || "").replace(/\r/g, "").split("\n");
+  const styleAt = lines.findIndex((l, i) => i > 0 && PPTX_STYLE_START.test(l));
+  const style = styleAt > 0 ? pptxStyle(lines.slice(styleAt)) : {};
+  if (styleAt > 0) lines = lines.slice(0, styleAt);
+  const sections = []; let cur = null, mode = "body", tableRows = [];
+  const flushTable = () => { if (!tableRows.length) return; const rows = tableRows.map((r) => "| " + r.join(" | ") + " |"); rows.splice(1, 0, "| " + tableRows[0].map(() => "---").join(" | ") + " |"); cur.body.push(...rows, ""); tableRows = []; };
+  const start = (title, number) => { if (cur) flushTable(); cur = { title: title.trim(), number, body: [], notes: [], source: [] }; sections.push(cur); mode = "body"; };
+  let preface = [];
+  for (const line of lines) {
+    const sm = line.match(SLIDE_LINE), hm = line.match(/^##\s+(.+)$/);
+    if (sm && (sm[2] || "").trim() !== "" && !/^\d/.test(sm[2])) { start(sm[2].replace(/\*\*/g, ""), Number(sm[1])); continue; }
+    if (hm && !/^#/.test(hm[1])) { start(hm[1].replace(/\*\*/g, ""), null); continue; }
+    if (!cur) { preface.push(line); continue; }
+    const nm = line.match(NOTES_LINE);
+    if (nm) { flushTable(); mode = "notes"; if (nm[1].trim()) cur.notes.push(nm[1].trim()); continue; }
+    const so = mode === "body" && line.match(SOURCE_LINE);
+    if (so) { flushTable(); cur.source.push(so[1].trim()); continue; }
+    if (mode === "notes") { if (line.trim()) cur.notes.push(line.trim()); continue; }
+    if (line.includes("\t") && line.split("\t").filter((c) => c.trim()).length >= 2) { tableRows.push(line.split("\t").map((c) => c.trim())); continue; }
+    flushTable(); cur.body.push(line);
+  }
+  if (cur) flushTable();
+  return { preface, sections, style };
+}
 async function createPptxBytes(title, content) {
   const pptx = new PptxGenJS();
   pptx.layout = "LAYOUT_WIDE";
-  pptx.author = `${BRAND_NAME}`; pptx.company = `${BRAND_NAME}`; pptx.lang = "ro-RO";
-  let s = pptx.addSlide(); s.background = { color: "F7F9FC" };
-  s.addText(String(title || `${BRAND_NAME}`), { x: 0.8, y: 2.3, w: 11.7, h: 0.8, fontFace: "Aptos Display", fontSize: 28, bold: true, color: "172033", align: "center", margin: 0 });
-  s.addText(`Document generat cu ${BRAND_NAME}`, { x: 1.2, y: 3.25, w: 10.9, h: 0.4, fontFace: "Aptos", fontSize: 14, color: "52627A", align: "center", margin: 0 });
-  for (const part of slideChunks(content)) {
-    s = pptx.addSlide(); s.background = { color: "FFFFFF" };
-    s.addText(part.title || String(title || `${BRAND_NAME}`), { x: 0.65, y: 0.45, w: 12, h: 0.55, fontFace: "Aptos Display", fontSize: 23, bold: true, color: "172033", margin: 0, fit: "shrink" });
-    if (part.code) {
-      s.addText(part.code.join("\n") || " ", { x: 0.8, y: 1.25, w: 11.7, h: 5.65, fontFace: "Consolas", fontSize: 12, color: "1F2937", fill: { color: "F2F4F7" }, valign: "top", margin: 0.12 });
-    } else if (part.table) {
-      const cols = Math.max(1, ...part.table.map((r) => r.length));
-      const rows = part.table.map((r, ri) => Array.from({ length: cols }, (_, c) => ({ text: plainMarkdownText(r[c] ?? "").slice(0, 400), options: ri === 0 ? { bold: true, fill: { color: "E8EDF5" } } : {} })));
-      s.addTable(rows, { x: 0.6, y: 1.25, w: 12.1, fontFace: "Aptos", fontSize: 12, color: "26354A", border: { type: "solid", pt: 0.5, color: "C8CED8" }, autoPage: true, autoPageRepeatHeader: true, autoPageHeaderRows: 1 });
-    } else {
-      const chars = part.body.join("").length;
-      s.addText(part.body.join("\n"), { x: 0.8, y: 1.25, w: 11.7, h: 5.65, fontFace: "Aptos", fontSize: chars > 600 ? 15 : chars > 400 ? 16 : 18, color: "26354A", valign: "top", margin: 0.08, fit: "shrink", breakLine: false });
-    }
+  pptx.author = `${BRAND_NAME}`; pptx.company = `${BRAND_NAME}`;
+  const { preface, sections, style } = pptxSource(content);
+  const font = style.font || "Aptos", head = style.font || "Aptos Display";
+  const bg = style.bg || "FFFFFF", coverBg = style.bg || "F7F9FC", accent = style.accent || "3B5BDB", titleC = style.title || "172033", textC = style.text || "26354A", muted = style.muted || "6B7A90";
+  const boxC = style.box || "E8EDF5", lineC = style.line || "C8CED8";
+  const slidesOut = [];
+  // The cover: the first slide when it is numbered 1 (or the only lines before the first slide), else the title.
+  let cover = null, rest = sections;
+  if (sections[0] && sections[0].number === 1) { cover = sections[0]; rest = sections.slice(1); }
+  const coverTitle = cover ? cover.title : String(title || BRAND_NAME);
+  const coverLines = (cover ? cover.body : preface.filter((l) => !/^\s*#\s/.test(l)).slice(0, 4)).map((l) => plainMarkdownText(l.replace(/^[-*•]\s+/, ""))).filter((l) => l.trim()).slice(0, 6);
+  // One slide per section: its text on top and its first table under it; only a very long section goes on.
+  const parts = [];
+  for (const sec of rest) {
+    const blocks = parseDocumentBlocks(sec.body.join("\n")).filter((b) => b.type !== "blank" && b.type !== "rule");
+    const tables = blocks.filter((b) => b.type === "table"), codes = blocks.filter((b) => b.type === "code");
+    const items = blocks.filter((b) => !["table", "code", "heading"].includes(b.type) || (b.type === "heading" && b.level > 2)).map((b) => ({ text: plainMarkdownText(b.text || ""), bullet: b.type === "bullet", number: b.type === "number" ? b.number : null, head: b.type === "heading" }));
+    const textItems = items.filter((x) => x.text.trim());
+    const pages = []; let page = [], chars = 0;
+    for (const it of textItems) { if (chars + it.text.length > 1300 && page.length) { pages.push(page); page = []; chars = 0; } page.push(it); chars += it.text.length; }
+    if (page.length || !pages.length) pages.push(page);
+    pages.forEach((pg, i) => parts.push({ title: sec.title, items: pg, table: i === 0 ? tables[0]?.rows : null, code: i === 0 && !tables.length ? codes[0]?.lines : null, notes: i === 0 ? sec.notes : [], source: sec.source }));
+    for (const t of tables.slice(1)) parts.push({ title: sec.title, items: [], table: t.rows, notes: [], source: sec.source });
   }
+  if (!sections.length) for (const c of slideChunks(content)) parts.push({ title: c.title, items: (c.body || []).map((t) => ({ text: t })), table: c.table, code: c.code, notes: [], source: [] });
+  const total = parts.length + 1, num = (n) => `${String(n).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+  let s = pptx.addSlide(); s.background = { color: coverBg };
+  s.addShape(pptx.ShapeType.rect, { x: 0.8, y: 2.05, w: 1.2, h: 0.06, fill: { color: accent }, line: { color: accent } });
+  s.addText(coverTitle, { x: 0.8, y: 2.25, w: 11.7, h: 1.1, fontFace: head, fontSize: 40, bold: true, color: titleC, margin: 0, fit: "shrink" });
+  if (coverLines.length) s.addText(coverLines.join("\n"), { x: 0.8, y: 3.45, w: 11.7, h: 2.2, fontFace: font, fontSize: 18, color: textC, valign: "top", margin: 0, fit: "shrink" });
+  s.addText(num(1), { x: 11.3, y: 6.95, w: 1.5, h: 0.3, fontFace: font, fontSize: 11, color: muted, align: "right", margin: 0 });
+  if (cover?.notes.length) s.addNotes(cover.notes.join("\n"));
+  parts.forEach((part, i) => {
+    s = pptx.addSlide(); s.background = { color: bg };
+    s.addShape(pptx.ShapeType.rect, { x: 0.65, y: 1.08, w: 0.9, h: 0.045, fill: { color: accent }, line: { color: accent } });
+    s.addText(part.title || String(title || BRAND_NAME), { x: 0.65, y: 0.4, w: 12, h: 0.62, fontFace: head, fontSize: 26, bold: true, color: titleC, margin: 0, fit: "shrink" });
+    const bottom = part.source.length ? 6.35 : 6.75;
+    const items = part.items || [], chars = items.reduce((n, x) => n + x.text.length, 0);
+    // A short line that ends with «:» or a line before a list reads as a small heading; the rest are bullets.
+    const many = items.length >= 3;
+    const runs = items.map((it, k) => {
+      const next = items[k + 1], label = /:$/.test(it.text) || it.head || (it.number && next && next.bullet) || (!it.bullet && !it.number && it.text.length < 60 && next && (next.bullet || /;$/.test(next.text)) && !/[.;]$/.test(it.text));
+      const opts = label ? { bold: true, color: titleC, breakLine: true, paraSpaceBefore: k ? 6 : 0 } : { breakLine: true, bullet: !it.number && (it.bullet || many) ? { code: "25AA" } : false, indentLevel: 0 };
+      return { text: (it.number ? `${it.number}. ` : "") + it.text, options: opts };
+    });
+    const size = chars > 1000 ? 15 : chars > 700 ? 16 : chars > 450 ? 18 : chars > 250 ? 20 : 22;
+    let top = 1.3;
+    if (part.table) {
+      const rowsN = part.table.length, textH = runs.length ? Math.min(2.6, 0.38 * runs.length + 0.2) : 0;
+      if (runs.length) s.addText(runs, { x: 0.8, y: top, w: 11.7, h: textH, fontFace: font, fontSize: Math.min(size, 18), color: textC, valign: "top", margin: 0.05, fit: "shrink" });
+      const cols = Math.max(1, ...part.table.map((r) => r.length));
+      const rows = part.table.map((r, ri) => Array.from({ length: cols }, (_, c) => ({ text: plainMarkdownText(r[c] ?? "").slice(0, 400), options: ri === 0 ? { bold: true, fill: { color: boxC }, color: titleC } : {} })));
+      const ty = top + textH + (runs.length ? 0.15 : 0), th = bottom - ty;
+      s.addTable(rows, { x: 0.8, y: ty, w: 11.7, fontFace: font, fontSize: rowsN > 9 ? 12 : 14, color: textC, border: { type: "solid", pt: 0.5, color: lineC }, rowH: Math.min(0.45, th / Math.max(1, rowsN)), autoPage: false });
+    } else if (part.code) {
+      if (runs.length) { s.addText(runs, { x: 0.8, y: top, w: 11.7, h: 1.2, fontFace: font, fontSize: 16, color: textC, valign: "top", margin: 0.05, fit: "shrink" }); top += 1.3; }
+      s.addText(part.code.join("\n") || " ", { x: 0.8, y: top, w: 11.7, h: bottom - top, fontFace: "Consolas", fontSize: 12, color: "1F2937", fill: { color: "F2F4F7" }, valign: "top", margin: 0.12 });
+    } else if (runs.length) {
+      s.addText(runs, { x: 0.8, y: top, w: 11.7, h: bottom - top, fontFace: font, fontSize: size, color: textC, valign: "top", margin: 0.08, fit: "shrink", paraSpaceAfter: 4 });
+    }
+    if (part.source.length) s.addText(part.source.join(" · "), { x: 0.8, y: 6.45, w: 10.2, h: 0.35, fontFace: font, fontSize: 12, italic: true, color: muted, margin: 0, fit: "shrink" });
+    s.addText(num(i + 2), { x: 11.3, y: 6.95, w: 1.5, h: 0.3, fontFace: font, fontSize: 11, color: muted, align: "right", margin: 0 });
+    if (part.notes.length) s.addNotes(part.notes.join("\n"));
+  });
   const out = await pptx.write({ outputType: "arraybuffer" });
   return Buffer.from(out);
 }
@@ -686,4 +788,4 @@ async function createExportBytes(format, rawTitle, rawContent, opts = {}) {
   return { bytes: Buffer.from(stripOuterFence(content), "utf8"), mime: PLAIN_TEXT_MIME[format] || "text/plain; charset=utf-8" };
 }
 
-module.exports = { formulaOf, safeGeneratedName, EXPORT_FORMATS, createExportBytes, xlsxSheets, markdownTableRows, parseDocumentBlocks, plainMarkdownText, sanitizeText, parseNumberCell, safeZipPath, sheetNameFrom, findWindowsFont };
+module.exports = { pptxSource, formulaOf, safeGeneratedName, EXPORT_FORMATS, createExportBytes, xlsxSheets, markdownTableRows, parseDocumentBlocks, plainMarkdownText, sanitizeText, parseNumberCell, safeZipPath, sheetNameFrom, findWindowsFont };

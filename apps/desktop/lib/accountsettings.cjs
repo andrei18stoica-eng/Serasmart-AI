@@ -22,11 +22,13 @@ const FIELDS = {
   tone: { type: "choice", options: Object.keys(TONES) },
   responseLanguage: { type: "choice", options: Object.keys(LANGUAGES) },
   preferredModel: { type: "text", max: 200 },
+  // 0.7.35: profile photo, made small in the app (a square of 256 px) and kept as a data URL.
+  avatar: { type: "image", max: 400000 },
   notifyAutomations: { type: "bool" },
   notifyCredits: { type: "bool" },
   retentionDays: { type: "number", options: RETENTION }
 };
-const DEFAULTS = { nickname: "", occupation: "", about: "", customInstructions: "", tone: "default", responseLanguage: "auto", preferredModel: "", notifyAutomations: true, notifyCredits: true, retentionDays: 0 };
+const DEFAULTS = { nickname: "", occupation: "", about: "", customInstructions: "", tone: "default", responseLanguage: "auto", preferredModel: "", avatar: "", notifyAutomations: true, notifyCredits: true, retentionDays: 0 };
 
 const clean = (v, max) => String(v ?? "").replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, "").trim().slice(0, max);
 
@@ -45,6 +47,10 @@ function validateAccountSettings(body = {}) {
     if (f.type === "text") {
       const t = clean(v, f.max + 1);
       if (t.length > f.max) return { error: `„${key}” poate avea cel mult ${f.max} de caractere.` };
+      out[key] = t;
+    } else if (f.type === "image") {
+      const t = String(v ?? "");
+      if (t && (t.length > f.max || !/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/]+=*$/.test(t))) return { error: "The profile photo must be a PNG, JPEG or WebP picture." };
       out[key] = t;
     } else if (f.type === "choice") {
       if (!f.options.includes(String(v))) return { error: `Valoare necunoscută pentru „${key}”.` };

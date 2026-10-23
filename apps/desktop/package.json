@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.30",
+  "version": "0.7.31",
   "private": true,
-  "description": "Serasmart AI 0.7.30 - the apps show their own logos; the status dot shows no text",
+  "description": "Serasmart AI 0.7.31 - plugins made of several skills and single skills from open-source libraries, each with its author and licence",
   "main": "main.cjs",
   "repository": {
     "type": "git",

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Plus, Pencil, Trash2, Sparkles, Check } from "lucide-react";
 import { api, toast, cx, Switch } from "../core.jsx";
 import { t as tr, useLanguage } from "../i18n.jsx";
+import { SkillLibraryList } from "./SkillLibrary.jsx";
 
 // Skills (0.7.18): instructions saved once and called with /name in the chat, or kept always on.
 const BLANK={name:"",slug:"",description:"",instructions:""};
@@ -34,7 +35,7 @@ function SkillForm({initial,onCancel,onSaved}){
     <label>{tr("Name")}<input value={f.name} onChange={e=>set("name",e.target.value)} maxLength={60} placeholder={tr("e.g. Reply to complaints")} required/></label>
     <label>{tr("Command in chat")}<div className="skillSlug"><span>/</span><input value={f.slug} onChange={e=>set("slug",e.target.value.toLowerCase().replace(/[^a-z0-9-]/g,""))} maxLength={32} placeholder={tr("made from the name")}/></div></label>
     <label>{tr("Short description")}<input value={f.description} onChange={e=>set("description",e.target.value)} maxLength={300} placeholder={tr("What it does, in one sentence")}/></label>
-    <label>{tr("Instructions for the AI")}<textarea value={f.instructions} onChange={e=>set("instructions",e.target.value)} maxLength={8000} rows={8} placeholder={tr("What the AI must do every time you use this skill: tone, structure, what to include, what to avoid.")} required/></label>
+    <label>{tr("Instructions for the AI")}<textarea value={f.instructions} onChange={e=>set("instructions",e.target.value)} maxLength={40000} rows={8} placeholder={tr("What the AI must do every time you use this skill: tone, structure, what to include, what to avoid.")} required/></label>
     <div className="formActions"><button type="button" className="secondary" onClick={onCancel}>{tr("Cancel")}</button><button className="primary" disabled={busy}>{busy?tr("Saving…"):tr("Save the skill")}</button></div>
   </form>;
 }
@@ -65,7 +66,7 @@ export function SkillsPanel(){
           <span className="taskIcon big"><Sparkles size={26}/></span><h3>{tr("No skills yet")}</h3>
           <p>{tr("A skill is a set of instructions the AI follows when you call it. Add one below or make your own.")}</p>
         </div>:<div className="skillList">{items.map(x=><div key={x.id} className={cx("skillCard",!x.enabled&&"off")}>
-          <div className="skillCardText"><b>/{x.slug} <span>{x.name}</span></b><small>{x.description||String(x.instructions||"").slice(0,140)}</small></div>
+          <div className="skillCardText"><b>/{x.slug} <span>{x.name}</span></b><small>{x.description||String(x.instructions||"").slice(0,140)}</small>{x.source&&<small className="libSource">{tr("{pack} · by {author} · {license}",{pack:x.source.pack,author:x.source.author,license:x.source.license})}</small>}</div>
           <div className="skillCardActions">
             <label className="skillAuto" title={tr("Always on: used on every message, without /name")}><Switch checked={!!x.auto} label={tr("Always on {slug}",{slug:x.slug})} disabled={busy===x.id} onChange={v=>patch(x,{auto:v})}/><span>{tr("Always on")}</span></label>
             <Switch checked={x.enabled} label={tr("On {slug}",{slug:x.slug})} disabled={busy===x.id} onChange={v=>patch(x,{enabled:v})}/>
@@ -80,6 +81,7 @@ export function SkillsPanel(){
             <button className="smallBtn addBtn" onClick={()=>addTemplate(t)} disabled={busy==="t:"+t.slug} aria-label={tr("Add {name}",{name:tplName(t)})}>{busy==="t:"+t.slug?<Check size={13}/>:<Plus size={13}/>} {tr("Add")}</button>
           </div>)}
         </div></section>}
+        <SkillLibraryList/>
       </>}
     </div>
   </div>;

@@ -4,6 +4,7 @@ import { api, toast, cx, isHttpUrl, openLink, useAccess, deniedMessage, useModal
 import { BRAND_NAME } from "../brand.js";
 import { brandIcon } from "../brands.js";
 import { t as tr, useLanguage } from "../i18n.jsx";
+import { SkillPacks } from "./SkillLibrary.jsx";
 
 const PLUGIN_APP_LINKS={
   "Gmail":"https://mail.google.com/","Google Drive":"https://drive.google.com/","GitHub":"https://github.com/login","Outlook Email":"https://outlook.office.com/mail/",
@@ -310,7 +311,7 @@ export function PluginsPanel(){
   const {can}=useAccess();
   useLanguage();
   // 0.7.29: the first tab is the connected apps (like Claude's connectors); the API plugins stay in the other tabs.
-  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState(null),[result,setResult]=useState(null);
+  const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[tab,setTab]=useState("packs"),[result,setResult]=useState(null);
   const [query,setQuery]=useState(""),[selected,setSelected]=useState(null),[testing,setTesting]=useState(null),[cardNotes,setCardNotes]=useState({});
   const [formInit,setFormInit]=useState(BLANK_PLUGIN),[editing,setEditing]=useState(null),[builtins,setBuiltins]=useState([]),[adding,setAdding]=useState("");
   const mounted=useRef(true);
@@ -367,7 +368,7 @@ export function PluginsPanel(){
   const filtered=PLUGIN_CATALOG.filter(x=>!normalized||[x.name,x.description,x.group,tr(x.description),tr(x.group)].some(v=>v.toLowerCase().includes(normalized)));
   const groups=PLUGIN_GROUPS.map(group=>({group,items:filtered.filter(x=>x.group===group)})).filter(x=>x.items.length);
   const skills=SKILLS.filter(x=>!normalized||x.name.toLowerCase().includes(normalized)||x.description.toLowerCase().includes(normalized));
-  const tabs=[["installed",`${tr("API plugins")}${items.length?` (${items.length})`:""}`],["directory",tr("Plugin directory")],["create",editing?tr("Edit plugin"):tr("Create plugin")]];
+  const tabs=[["packs",tr("Skill plugins")],["installed",`${tr("API plugins")}${items.length?` (${items.length})`:""}`],["directory",tr("Plugin directory")],["create",editing?tr("Edit plugin"):tr("Create plugin")]];
   return <div className="pluginsPanel">
     <p className="panelLead">{tr("Write a plugin's name in chat (for example «Calendar») or @name and {brand} uses it for the answer.",{brand:BRAND_NAME})}</p>
     <div className="pageTabs" role="tablist" aria-label={tr("Plugin sections")}>
@@ -375,6 +376,7 @@ export function PluginsPanel(){
     </div>
     <div className="pageBody" role="tabpanel">
       <ResultNote result={result}/>
+      {tab==="packs"&&<SkillPacks/>}
       {tab==="installed"&&(loading?<div className="emptyState small">{tr("Loading the plugins…")}</div>:!items.length?<div className="taskEmpty">
         <span className="taskIcon big"><Puzzle size={26}/></span><h3>{tr("No API plugins yet")}</h3><p>{tr("Pick one from the directory or make your own from an API. Then write its name in chat and {brand} uses it.",{brand:BRAND_NAME})}</p>
         <div className="taskExamples"><button className="primary" onClick={()=>setTab("directory")}>{tr("Open the directory")}</button><button className="secondary" onClick={()=>setTab("create")}><Plus size={14}/> {tr("Create plugin")}</button></div>

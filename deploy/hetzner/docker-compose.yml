@@ -37,8 +37,9 @@ services:
       AUTH_ATTEMPTS_PER_15_MIN: ${AUTH_ATTEMPTS_PER_15_MIN:-20}
       SESSION_TTL_DAYS: ${SESSION_TTL_DAYS:-30}
       PG_POOL_MAX: ${PG_POOL_MAX:-10}
-      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-120}
-      AUTH_ME_PER_MINUTE: ${AUTH_ME_PER_MINUTE:-600}
+      # Requests per minute: unlimited unless these are set (0.7.37).
+      API_REQUESTS_PER_MINUTE: ${API_REQUESTS_PER_MINUTE:-}
+      SESSION_CHECKS_PER_MINUTE: ${SESSION_CHECKS_PER_MINUTE:-}
       REGISTRATIONS_PER_HOUR: ${REGISTRATIONS_PER_HOUR:-10}
       # Email domains refused at sign-up and sign-in (spam bots); uberip.com is always blocked.
       BLOCKED_EMAIL_DOMAINS: ${BLOCKED_EMAIL_DOMAINS:-}

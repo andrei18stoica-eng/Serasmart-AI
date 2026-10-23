@@ -52,7 +52,7 @@ claim it. You can remove the variable after the first start.
 
 - Failed sign-ins: `AUTH_ATTEMPTS_PER_15_MIN` per IP (default 20).
 - New accounts (access requests): `REGISTRATIONS_PER_HOUR` per IP (default 10), successful ones included.
-- Other requests: `RATE_LIMIT_PER_MINUTE` per IP (default 120); session checks (`/auth/me`) have their own `AUTH_ME_PER_MINUTE` (default 600).
+- Other requests: unlimited (0.7.37). A cap can be set with `API_REQUESTS_PER_MINUTE` and, for session checks (`/auth/me`), `SESSION_CHECKS_PER_MINUTE`; both count per session, not per IP (all website accounts arrive through the same gateway).
 - Passwords: at least 8 characters for every account.
 - `TRUST_PROXY_HOPS`: number of reverse proxies in front of the API (1 = Caddy, 2 = Cloudflare proxy + Caddy). It decides which client IP the limits and the audit log see.
 

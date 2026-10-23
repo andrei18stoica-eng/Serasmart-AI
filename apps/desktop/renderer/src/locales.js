@@ -1054,6 +1054,7 @@ export const LOCALES = {
   "New skill": "Skill nou",
   "No skills yet": "Nu ai încă skill-uri",
   "Licences and authors": "Licențe și autori",
+  "Document": "Document",
   "You chose {model}; {brand} sent the question to {served}.": "Ai ales {model}; {brand} a trimis întrebarea la {served}.",
   "Combinations": "Combinații",
   "Other models": "Alte modele",

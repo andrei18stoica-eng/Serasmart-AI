@@ -1,440 +1,440 @@
-881|Betaalde AI gewijzigd
-882|Betaalde AI · gebruikers
-883|Betaalde AI: {error}
-884|Betaald per gebruik, met de sleutel of de rechten die de Owner geeft
-885|Betaald per gebruik, met de rechten die de Owner geeft
-886|Betaald per gebruik; dezelfde sleutel maakt ook afbeeldingen en video's met Grok Imagine. Zet het aan met «Ook betaalde API's toestaan».
-887|Paneel
-888|Deel {n}
-889|Wachtwoord
-890|Wachtwoord gewijzigd. De andere apparaten moeten opnieuw inloggen.
-891|Plak eerst de sleutel.
-892|Plak de sleutel hier
-893|Betalingen
-894|Betalingen, bestellingen, catalogus en klanten.
-895|In afwachting
-896|Prestaties
-897|Rechten
-898|Rechten gewijzigd
-899|Rechten: {error}
-900|Persoonlijke AI-astroloog
-901|Telefoon
-902|Meldingen op de telefoon
-903|Kies een assistent voor een nieuw gesprek.
-904|Kies er een uit de lijst of maak je eigen vanuit een API. Typ dan de naam in de chat en {brand} gebruikt hem.
-905|Kies onder het berichtvak wie de afbeelding maakt, of Automatisch: de beste beschikbare.
-906|Kies onder het berichtvak wie de video maakt, of Automatisch: eerst de gratis, dan Gemini Veo, Grok Imagine en de andere sleutels (betaald, als je ze toestaat in Instellingen).
-907|Afbeelding
-908|Afbeelding / beeldherkenning
-909|HD-afbeelding
-910|Afbeeldingen genereren
-911|Afbeeldingen genereren, API's, modellen en automatische poging bij een andere provider.
-912|Afbeelding gemaakt door
-913|Afbeelding gemaakt door {brand}
-914|Afbeeldingen maken
-915|Afbeeldingsmodus: het volgende bericht maakt een afbeelding. Klik nogmaals op Afbeelding om te stoppen.
-916|Afbeeldingsmodel
-917|Afbeeldingsproviders
-918|Afbeelding: het volgende bericht maakt een afbeelding.
-919|Afbeeldingen
-920|Afbeeldingen en video's (niet gegenereerd in de test, dus er wordt geen tegoed gebruikt):
-921|Afbeeldingen in de Bibliotheek
-922|Afbeeldingen gemaakt door
-923|Vastzetten
-924|Dit vastzetten
-925|Vastgezet — klik om los te maken
-926|Plek om te zoeken
-927|Weekplan
-928|Plan mijn week
-929|Abonnement begonnen
-930|Structuur plannen…
-931|Abonnementen en credits zijn nog niet actief: elk account werkt zoals voorheen (de gratis laag en de regels van de Owner).
-932|Abonnementen en extra credits
-933|Schaken en strategie leren
-934|Pluginlijst
-935|Pluginsecties
-936|Plugin instellen
-937|Plugins
-938|Pollinations API-sleutel
-939|Pollinations-model
-940|Pollinations-videomodel
-941|Populair
-942|Poster
-943|Postgres-databases: bevragen, branches maken en beheren.
-944|Berichten voor Instagram, Facebook, LinkedIn of TikTok.
-945|Voorkeuren
-946|Voorkeursmodel
-947|Antwoord voorbereiden…
-948|Vragen voorbereiden…
-949|Voorbereiden…
-950|Presentatie
-951|Tik op Deel (het vierkant met de pijl omhoog), of ••• → Deel.
-952|Klik één keer op de microfoon om te beginnen met opnemen en nog eens om te stoppen. {brand} schrijft op wat je zei en verstuurt het.
-953|Voorbeeld
-954|Breedte van het voorbeeld
-955|Voorbeeld van {name}
-956|Voorbeeld: {name}
-957|Afgelopen 30 dagen
-958|Afgelopen 7 dagen
-959|Voorrang tijdens piekuren
-960|Prisma Postgres-databases en migraties.
-961|Privacy
-962|Privacy en gegevens
-963|Productanalyse, flags en experimenten.
-964|Productmanagement
-965|Productiviteit
-966|Professioneel
-967|Professionele e-mail
-968|Profiel
-969|Profielfoto
-970|Profielfoto verwijderd.
-971|Profielfoto opgeslagen.
-972|Profiel opgeslagen.
-973|Programmeren
-974|Programmeertalen
-975|Programmeren met Codex en Claude Code: kies het model en begin een codegesprek.
-976|Projecten
-977|Projecten en werk
-978|Projecten, databases, SQL en logs.
-979|Projecten, deploys en logs.
-980|Projecten, taken en CRM
-981|Corrector
-982|Voorstel gemaakt (geen syntaxcontrole voor dit bestandstype).
-983|Bescherming actief: {brand} probeert direct Cloudflare en Pollinations. Hugging Face, Together, OpenAI, Stability, fal.ai en Replicate worden geblokkeerd als ze betaald tegoed zouden kunnen gebruiken. Bij OpenRouter wordt de prijs vóór de aanroep gecontroleerd.
-984|Beschermt persoonsgegevens
-985|Ontwerp van eiwitten en moleculen
-986|Providers
-987|Providers gebruikt in de chat
-988|Kwaliteit
-989|Vragen over je gezondheidsgegevens
-990|Snelle bedragen
-991|Snel antwoord
-992|Voorlezen
-993|Spreadsheets lezen en bewerken.
-994|Je Gmail-e-mails lezen en ordenen
-995|Documenten lezen, schrijven en bewerken.
-996|Voorlezen is niet beschikbaar op deze computer.
-997|Verzoek lezen…
-998|Tekst lezen…
-999|Klaar voor gebruik
-1000|Echt resultaat van de {brand}-uitvoering:
-1001|Live internet
-1002|Recent
-1003|Opnieuw verbinden in OmniRoute
-1004|Neem je stem op
-1005|Vernieuwen
-1006|Modellenlijst vernieuwen
-1007|Lijst vernieuwen…
-1008|Antwoord opnieuw genereren
-1009|Opnieuw genereren vervangt dit antwoord en verwijdert de berichten erna. Doorgaan?
-1010|Afgewezen
-1011|Afgewezen gebruikers
-1012|{brand} herladen
-1013|Verwijderen
-1014|Blootgestelde persoonsgegevens verwijderen
-1015|Uit project halen
-1016|De plugin «{name}» verwijderen?
-1017|{name} verwijderen
-1018|Hernoemen
-1019|Bestand hernoemen
-1020|Hernoemen: {error}
-1021|Replicate API-token
-1022|Replicate-model
-1023|Replicate-videomodel
-1024|Repositories, issues, pull requests en bestanden.
-1025|Onderzoek
-1026|Onderzoek en wetenschap
-1027|Bronnen om de Koran te bestuderen
-1028|Herstellen uit archief
-1029|Chat herstellen
-1030|Chat {name} herstellen
-1031|Resultaat
-1032|Resultaten
-1033|Opnieuw proberen
-1034|Code uitvoeren / testen
-1035|Voer AI-modellen uit op Replicate.
-1036|Code uitvoeren: {error}
-1037|Uitvoeringsgeschiedenis
-1038|Nu uitvoeren
-1039|Beheer je webwinkel
-1040|Bezig
-1041|Code uitvoeren en SSH zijn alleen voor de Owner.
-1042|Code uitvoeren, GitHub Solve en SSH zijn alleen voor het Owner-account (zie «E-mail van de Owner op deze pc»).
-1043|Uitvoeren…
-1044|Voert geplande taken en controles uit op het tijdstip dat je kiest.
-1045|SEO-onderzoek
-1046|Pad van de SSH-privésleutel
-1047|SSH-server · adres
-1048|SSH-gebruiker
-1049|Verkoop
-1050|Zaterdag en zondag om {time}
-1051|Opslaan
-1052|Opslaan en vastzetten
-1053|Opslaan en testen
-1054|Profiel opslaan
-1055|Instellingen opslaan
-1056|Wijziging opslaan
-1057|Skill opslaan
-1058|Opgeslagen en vastgezet in het geheugen.
-1059|Opgeslagen.
-1060|Sleutel opslaan en testen…
-1061|Plugin opslaan en testen…
-1062|Opslaan…
-1063|Scant code op beveiligingsproblemen.
-1064|Plannen
-1065|Gepland
-1066|Gepland (geplande taken)
-1067|Wetenschap
-1068|Wetenschappelijk onderzoek
-1069|Scrol en kies Zet op beginscherm, dan Voeg toe.
-1070|Zoeken
-1071|Automatisch zoeken in GitHub
-1072|Gegevens van het web zoeken en extraheren
-1073|Bestanden en mappen zoeken en lezen.
-1074|De bestanden van je bedrijf zoeken en lezen.
-1075|E-mails en berichten zoeken en versturen
-1076|Apps zoeken
-1077|Zoeken op naam
-1078|Chats doorzoeken
-1079|Een model zoeken
-1080|Een model zoeken…
-1081|Talen zoeken
-1082|Geheugen doorzoeken
-1083|Modellen zoeken
-1084|Eerdere chats doorzoeken
-1085|Plugins zoeken
-1086|Plugins en skills zoeken
-1087|Zoekresultaten
-1088|De Bibliotheek doorzoeken
-1089|De lijst doorzoeken (naam, categorie)
-1090|De bibliotheek doorzoeken
-1091|Wetenschappelijke literatuur doorzoeken
-1092|Zoek op het web het laatste nieuws over
-1093|Zoeken in {n} talen
-1094|Bestanden zoeken, lezen en maken.
-1095|E-mails zoeken, lezen en concepten schrijven.
-1096|Pagina's en databases zoeken, lezen, maken en bewerken.
-1097|Zoekt op Wikipedia (Roemeens, daarna Engels) en geeft de samenvatting van het artikel.
-1098|Zoekt actuele informatie en online bronnen.
-1099|Zoekt zelf actuele bronnen bij vragen over recente informatie, versies en API's.
-1100|Beveiliging
-1101|Beveiligingsanalyse van code
-1102|Abonnementen bekijken
-1103|Bekijk je agenda's, afspraken en vrije tijd (Google staat voorlopig alleen lezen toe).
-1104|Seedance, Veo, Wan en andere modellen via dezelfde API.
-1105|Kiezen
-1106|Selecteer een gebruiker.
-1107|Geselecteerd
-1108|Versturen
-1109|Testmelding versturen
-1110|Toegangsverzoek versturen
-1111|Code opnieuw versturen
-1112|Code opnieuw versturen ({s} s)
-1113|Bericht versturen
-1114|Server verbonden ✓
-1115|Sessies gesloten
-1116|Sessies: {error}
-1117|Status «{status}» instellen voor {email}? De actieve sessies van het account worden gesloten.
-1118|Instellingen
-1119|Instellingen kunnen alleen in de {brand}-app worden opgeslagen.
-1120|Instellingen opgeslagen.
-1121|Meerdere afbeeldingsmodellen met één sleutel.
-1122|Gaan we verder met «{title}»?
-1123|Gedeelde projectinstructies
-1124|Kort en direct
-1125|Korte beschrijving
-1126|Korte video (~6 s)
-1127|Meer tonen (nog {n})
-1128|Menu tonen of verbergen
-1129|De eerste 60.000 tekens worden getoond.
-1130|Toont een melding wanneer de taak een resultaat heeft.
-1131|Inloggen
-1132|Opnieuw inloggen
-1133|Log opnieuw in.
-1134|Inloggen bij {brand}
-1135|Log in bij {name} in het venster dat is geopend en kom dan hier terug.
-1136|Uitloggen
-1137|Uitloggen bij {brand} op alle apparaten, ook dit?
-1138|Andere apparaten uitloggen
-1139|Inloggen
-1140|Inloggen vereist.
-1141|Uitloggen
-1142|Uitloggen…
-1143|Site-update ({domain})
-1144|Websites en deploys.
-1145|Websites, pagina's en CMS-items.
-1146|Grootte
-1147|Skill-plugins
-1148|Skills
-1149|Slack-kanalen en -berichten
-1150|Berichten voor sociale media
-1151|Software-engineering
-1152|Iets anders
-1153|Iets anders…
-1154|Sorteren
-1155|Spreek: de tekst verschijnt in het vak en wordt vanzelf verstuurd
-1156|Stability API-sleutel
-1157|Stability-engine
-1158|Start
-1159|OmniRoute automatisch starten
-1160|Start OmniRoute of voeg een API-sleutel toe in Instellingen.
-1161|Begin een gesprek dat een afbeelding maakt.
-1162|{brand} starten met Windows
-1163|{brand} starten…
-1164|Starten…
-1165|Geavanceerde ADMET-modellen
-1166|Nog wakker? Laten we het samen afmaken.
-1167|Stoppen en versturen
-1168|Stoppen met voorlezen
-1169|Antwoord stoppen
-1170|Spraakopname stoppen
-1171|Stop eerst de spraakopname.
-1172|Gestopt na fouten
-1173|Gestopt door de Owner
-1174|Krachttraining voor Garmin
-1175|Structuren, moleculen en eiwitten
-1176|Student
-1177|Gelukt
-1178|Stel een plan voor de nieuwe week voor: prioriteiten, deadlines en een kleine stap voor elke dag.
-1179|Een document samenvatten
-1180|Vat het bijgevoegde document samen in vijf duidelijke punten.
-1181|Samenvatting
-1182|Vat een tekst of document samen in de hoofdideeën.
-1183|Opschorten
-1184|Opgeschort
-1185|Opgeschorte gebruikers
-1186|Tablet
-1187|Tarotlezingen
-1188|Taken die {brand} zelf uitvoert op het tijdstip dat je kiest.
-1189|Taken, lijsten, documenten en opmerkingen.
-1190|Taken, projecten en opmerkingen.
-1191|Teambeheer met gedeelde credits
-1192|Technische details: {details}
-1193|Testen
-1194|Nu testen
-1195|Test geslaagd: {result}
-1196|Sleutels testen
-1197|Microfoon testen
-1198|Server testen
-1199|Tests
-1200|SSH-verbinding testen…
-1201|Testen…
-1202|Texas Hold'em-poker met AI
-1203|Tekst van het item
-1204|Tekst gelezen voor de AI
-1205|De AI-provider antwoordde niet op tijd. Probeer het opnieuw.
-1206|De gratis limiet van de AI-provider is bereikt. Kies een ander model of probeer het later.
-1207|Het API-adres moet een volledige link zijn, bijvoorbeeld https://example.com/webhook.
-1208|De Google-pagina gaat open. Klik op «Create API key» en kopieer hem.
-1209|De Bibliotheek is leeg. Sleep bestanden hierheen of klik op «Bestanden toevoegen».
-1210|De OAuth Client ID ontbreekt.
-1211|Kon de OAuth-pagina niet openen.
-1212|Het Owner-account kan niet worden verwijderd.
-1213|De Owner keurt accounts goed en beslist welke AI-diensten ze mogen gebruiken.
-1214|De Owner beslist welke modellen je account mag gebruiken.
-1215|Het e-mailadres van de Owner is ongeldig.
-1216|De Owner moet eerst een Asana OAuth-app toevoegen in Instellingen.
-1217|De Owner moet eerst een Box OAuth-app toevoegen in Instellingen.
-1218|De Owner moet eerst een Google OAuth-app toevoegen in Instellingen.
-1219|De Owner moet eerst een HubSpot OAuth-app toevoegen in Instellingen.
-1220|De Owner moet eerst een Lovable OAuth-app toevoegen in Instellingen.
-1221|De persoonlijke abonnementen van de Owner kunnen niet aan andere accounts worden gegeven.
-1222|De X-knop verbergt de app zonder de diensten te stoppen.
-1223|Het account en al zijn gegevens (chats, geheugen, bestanden, instellingen) worden voorgoed verwijderd.
-1224|Het account wordt gemaakt op de server van {brand}.
-1225|Het account wordt gemaakt op deze computer en je kunt het meteen gebruiken.
-1226|Het account is niet actief.
-1227|Het account wacht op goedkeuring van de Owner.
-1228|Het account is gemaakt en wacht op goedkeuring van de Owner.
-1229|Het account is verwijderd.
-1230|Het adres is ongeldig.
-1231|Het antwoord gaat door op de server…
-1232|Het antwoord is onderbroken: {error}
-1233|Het antwoord is gestopt voor het einde.
-1234|Het antwoord is gestopt.
-1235|Kon de app niet openen — {error}
-1236|Kon de app niet openen.
-1237|De app start vanzelf en kan op de achtergrond blijven.
-1238|De app is geopend.
-1239|Kon de apps niet laden: {error}
-1240|Het audiospoor is uitgeschreven voor {brand}.
-1241|Het begin van het document, als tekst.
-1242|De browser kan geen audio opnemen.
-1243|De wijziging geldt voor deze chat.
-1244|De wijziging is toegepast in GitHub. Commit: {commit}
-1245|Kon de code niet naar het klembord kopiëren.
-1246|De code is verlopen. Vraag een nieuwe aan.
-1247|De code is niet juist.
-1248|De code is uitgevoerd. Het resultaat staat in het berichtvak.
-1249|Kon het gesprek niet naar het klembord kopiëren.
-1250|Kon het gesprek niet opslaan: {error}
-1251|Het gesprek is gearchiveerd. Je vindt het bij «Gearchiveerd» in de zijbalk.
-1252|Het gesprek is naar het klembord gekopieerd.
-1253|Het gesprek is hersteld.
-1254|Kon de gegevens niet laden: {error}
-1255|De dag van de maand moet tussen 1 en 28 liggen.
-1256|Het standaardmodel
-1257|Het e-mailadres is ongeldig.
-1258|De exacte tijd en datum in Roemenië en in grote steden in de wereld.
-1259|Exporteren mislukt:
-1260|Het bestand heeft geen tekst om te tonen.
-1261|Het bestand is niet meer beschikbaar.
-1262|Het bestand staat niet meer in de Bibliotheek.
-1263|Het bestand heet nu «{name}».
-1264|Het bestand wordt in je Bibliotheek opgeslagen (tot 2 GB per bestand)…
-1265|Het bestand of bericht is te groot voor de dienst {brand} (HTTP 413).
-1266|Het bestand is aan de Bibliotheek toegevoegd.
-1267|Het bestand is niet gevonden in de Bibliotheek.
-1268|De eerste pagina, als tekst.
-1269|De headernaam mag alleen letters, cijfers en koppeltekens bevatten.
-1270|De instructies mogen maximaal 8.000 tekens hebben.
-1271|Het interval moet tussen 1 en 168 uur liggen.
-1272|De sleutel werkte niet: {error}
-1273|De sleutel wordt gedeeld met Afbeeldingen.
-1274|De sleutels zijn versleuteld op deze pc.
-1275|Kon de sleutels niet kopiëren.
-1276|De sleutels blijven op de server en worden alleen gemaskeerd getoond.
-1277|De taal waarin ik schrijf
-1278|De laatste update ({when}) is mislukt — details
-1279|Kon de link niet openen in de browser.
-1280|Kon de link niet openen: {error}
-1281|Het lokale account met dit e-mailadres krijgt Owner-rechten: code uitvoeren, GitHub Solve, de server beheren. Geldt alleen als {brand} Cloud niet is ingesteld. Log opnieuw in na de wijziging.
-1282|Het adres van de lokale dienst is ongeldig. Voorbeeld: {url}
-1283|De geblokkeerde zijn voor jou niet toegestaan.
-1284|De login is verlopen voor: {names}. OmniRoute-paneel op de server → Providers → elk account → Reconnect (of voeg een API-sleutel toe).
-1285|Kon het bericht niet versturen: {error}
-1286|Het bericht is leeg.
-1287|De microfoon is geblokkeerd. Sta toegang tot de microfoon toe in de browser.
-1288|De microfoon is niet beschikbaar: {error}
-1289|Kon het model voor het gesprek niet opslaan: {error}
-1290|Kon de modellenlijst niet laden: {error}
-1291|De modellenlijst is leeg.
-1292|De modellen komen uit OmniRoute en de API's die op de server zijn ingesteld.
-1293|De modellen komen uit OmniRoute en de API's die op deze pc zijn ingesteld.
-1294|De naam mag maximaal 100 tekens hebben.
-1295|De naam mag maximaal 120 tekens hebben.
-1296|Het nieuwe wachtwoord moet minstens 8 tekens hebben.
-1297|De andere apparaten zijn uitgelogd.
-1298|Het wachtwoord mag maximaal 256 tekens hebben.
-1299|Het wachtwoord mag maximaal 72 tekens hebben.
-1300|Het wachtwoord moet minstens 10 tekens hebben.
-1301|Het wachtwoord moet minstens 8 tekens hebben.
-1302|Kon de afbeelding niet maken: {error}
-1303|Kon de afbeelding niet lezen.
-1304|De afbeelding is groter dan 10 MB.
-1305|De plugin is opgeslagen, maar de test is mislukt: {error}
-1306|De plugins komen uit opensourceprojecten (MIT- en Apache 2.0-licenties); elke kaart toont de auteur en linkt naar de bron.
-1307|Kon de plugins niet laden: {error}
-1308|Het voorbeeld is niet beschikbaar.
-1309|Het voorbeeld is niet beschikbaar. Het bestand is waarschijnlijk uit de Bibliotheek verwijderd.
-1310|De voorbeeldlink is niet beschikbaar.
-1311|De prijs verandert met het aantal credits.
-1312|Kon het voorstel niet kopiëren.
-1313|Het voorstel is naar het klembord gekopieerd.
-1314|De API-sleutel van de provider is fout of heeft geen toegang tot dit model.
-1315|De opname is leeg.
-1316|Het verzoek is mislukt (HTTP {status}).
-1317|Het terugkeeradres om bij de provider te registreren:
-1318|De server controleert GitHub elk uur en installeert de nieuwe versie zelf.
-1319|De server gaf geen geldige sessie terug.
-1320|De Owner van de server moet een AI-sleutel toevoegen.
+893|Betaalde AI gewijzigd
+894|Betaalde AI · gebruikers
+895|Betaalde AI: {error}
+896|Betaald per gebruik, met de sleutel of de rechten die de Owner geeft
+897|Betaald per gebruik, met de rechten die de Owner geeft
+898|Betaald per gebruik; dezelfde sleutel maakt ook afbeeldingen en video's met Grok Imagine. Zet het aan met «Ook betaalde API's toestaan».
+899|Paneel
+900|Deel {n}
+901|Wachtwoord
+902|Wachtwoord gewijzigd. De andere apparaten moeten opnieuw inloggen.
+903|Plak eerst de sleutel.
+904|Plak de sleutel hier
+905|Betalingen
+906|Betalingen, bestellingen, catalogus en klanten.
+907|In afwachting
+908|Prestaties
+909|Rechten
+910|Rechten gewijzigd
+911|Rechten: {error}
+912|Persoonlijke AI-astroloog
+913|Telefoon
+914|Meldingen op de telefoon
+915|Kies een assistent voor een nieuw gesprek.
+916|Kies er een uit de lijst of maak je eigen vanuit een API. Typ dan de naam in de chat en {brand} gebruikt hem.
+917|Kies onder het berichtvak wie de afbeelding maakt, of Automatisch: de beste beschikbare.
+918|Kies onder het berichtvak wie de video maakt, of Automatisch: eerst de gratis, dan Gemini Veo, Grok Imagine en de andere sleutels (betaald, als je ze toestaat in Instellingen).
+919|Afbeelding
+920|Afbeelding / beeldherkenning
+921|HD-afbeelding
+922|Afbeeldingen genereren
+923|Afbeeldingen genereren, API's, modellen en automatische poging bij een andere provider.
+924|Afbeelding gemaakt door
+925|Afbeelding gemaakt door {brand}
+926|Afbeeldingen maken
+927|Afbeeldingsmodus: het volgende bericht maakt een afbeelding. Klik nogmaals op Afbeelding om te stoppen.
+928|Afbeeldingsmodel
+929|Afbeeldingsproviders
+930|Afbeelding: het volgende bericht maakt een afbeelding.
+931|Afbeeldingen
+932|Afbeeldingen en video's (niet gegenereerd in de test, dus er wordt geen tegoed gebruikt):
+933|Afbeeldingen in de Bibliotheek
+934|Afbeeldingen gemaakt door
+935|Vastzetten
+936|Dit vastzetten
+937|Vastgezet — klik om los te maken
+938|Plek om te zoeken
+940|Weekplan
+941|Plan mijn week
+942|Abonnement begonnen
+943|Structuur plannen…
+944|Abonnementen en credits zijn nog niet actief: elk account werkt zoals voorheen (de gratis laag en de regels van de Owner).
+945|Abonnementen en extra credits
+947|Schaken en strategie leren
+948|Pluginlijst
+949|Pluginsecties
+950|Plugin instellen
+951|Plugins
+952|Pollinations API-sleutel
+953|Pollinations-model
+954|Pollinations-videomodel
+955|Populair
+956|Poster
+957|Postgres-databases: bevragen, branches maken en beheren.
+958|Berichten voor Instagram, Facebook, LinkedIn of TikTok.
+959|Voorkeuren
+960|Voorkeursmodel
+961|Antwoord voorbereiden…
+962|Vragen voorbereiden…
+963|Voorbereiden…
+964|Presentatie
+965|Tik op Deel (het vierkant met de pijl omhoog), of ••• → Deel.
+966|Klik één keer op de microfoon om te beginnen met opnemen en nog eens om te stoppen. {brand} schrijft op wat je zei en verstuurt het.
+967|Voorbeeld
+968|Breedte van het voorbeeld
+969|Voorbeeld van {name}
+970|Voorbeeld: {name}
+971|Afgelopen 30 dagen
+972|Afgelopen 7 dagen
+973|Voorrang tijdens piekuren
+974|Prisma Postgres-databases en migraties.
+975|Privacy
+976|Privacy en gegevens
+977|Productanalyse, flags en experimenten.
+978|Productmanagement
+979|Productiviteit
+980|Professioneel
+981|Professionele e-mail
+982|Profiel
+983|Profielfoto
+984|Profielfoto verwijderd.
+985|Profielfoto opgeslagen.
+986|Profiel opgeslagen.
+987|Programmeren
+988|Programmeertalen
+989|Programmeren met Codex en Claude Code: kies het model en begin een codegesprek.
+990|Projecten
+991|Projecten en werk
+992|Projecten, databases, SQL en logs.
+993|Projecten, deploys en logs.
+994|Projecten, taken en CRM
+995|Corrector
+996|Voorstel gemaakt (geen syntaxcontrole voor dit bestandstype).
+997|Bescherming actief: {brand} probeert direct Cloudflare en Pollinations. Hugging Face, Together, OpenAI, Stability, fal.ai en Replicate worden geblokkeerd als ze betaald tegoed zouden kunnen gebruiken. Bij OpenRouter wordt de prijs vóór de aanroep gecontroleerd.
+998|Beschermt persoonsgegevens
+999|Ontwerp van eiwitten en moleculen
+1000|Providers
+1001|Providers gebruikt in de chat
+1002|Kwaliteit
+1003|Vragen over je gezondheidsgegevens
+1004|Snelle bedragen
+1005|Snel antwoord
+1006|Voorlezen
+1007|Spreadsheets lezen en bewerken.
+1008|Je Gmail-e-mails lezen en ordenen
+1009|Documenten lezen, schrijven en bewerken.
+1010|Voorlezen is niet beschikbaar op deze computer.
+1011|Verzoek lezen…
+1012|Tekst lezen…
+1013|Klaar voor gebruik
+1014|Echt resultaat van de {brand}-uitvoering:
+1015|Live internet
+1016|Recent
+1017|Opnieuw verbinden in OmniRoute
+1018|Neem je stem op
+1019|Vernieuwen
+1020|Modellenlijst vernieuwen
+1021|Lijst vernieuwen…
+1022|Antwoord opnieuw genereren
+1023|Opnieuw genereren vervangt dit antwoord en verwijdert de berichten erna. Doorgaan?
+1024|Afgewezen
+1025|Afgewezen gebruikers
+1026|{brand} herladen
+1027|Verwijderen
+1028|Blootgestelde persoonsgegevens verwijderen
+1029|Uit project halen
+1030|De plugin «{name}» verwijderen?
+1031|{name} verwijderen
+1032|Hernoemen
+1033|Bestand hernoemen
+1034|Hernoemen: {error}
+1035|Replicate API-token
+1036|Replicate-model
+1037|Replicate-videomodel
+1038|Repositories, issues, pull requests en bestanden.
+1039|Onderzoek
+1040|Onderzoek en wetenschap
+1041|Bronnen om de Koran te bestuderen
+1042|Herstellen uit archief
+1043|Chat herstellen
+1044|Chat {name} herstellen
+1045|Resultaat
+1046|Resultaten
+1047|Opnieuw proberen
+1048|Code uitvoeren / testen
+1049|Voer AI-modellen uit op Replicate.
+1050|Code uitvoeren: {error}
+1051|Uitvoeringsgeschiedenis
+1052|Nu uitvoeren
+1053|Beheer je webwinkel
+1054|Bezig
+1055|Code uitvoeren en SSH zijn alleen voor de Owner.
+1056|Code uitvoeren, GitHub Solve en SSH zijn alleen voor het Owner-account (zie «E-mail van de Owner op deze pc»).
+1057|Uitvoeren…
+1058|Voert geplande taken en controles uit op het tijdstip dat je kiest.
+1059|SEO-onderzoek
+1060|Pad van de SSH-privésleutel
+1061|SSH-server · adres
+1062|SSH-gebruiker
+1063|Verkoop
+1064|Zaterdag en zondag om {time}
+1065|Opslaan
+1066|Opslaan en vastzetten
+1067|Opslaan en testen
+1068|Profiel opslaan
+1069|Instellingen opslaan
+1070|Wijziging opslaan
+1071|Skill opslaan
+1072|Opgeslagen en vastgezet in het geheugen.
+1073|Opgeslagen.
+1074|Sleutel opslaan en testen…
+1075|Plugin opslaan en testen…
+1076|Opslaan…
+1077|Scant code op beveiligingsproblemen.
+1078|Plannen
+1079|Gepland
+1080|Gepland (geplande taken)
+1081|Wetenschap
+1082|Wetenschappelijk onderzoek
+1083|Scrol en kies Zet op beginscherm, dan Voeg toe.
+1084|Zoeken
+1085|Automatisch zoeken in GitHub
+1086|Gegevens van het web zoeken en extraheren
+1087|Bestanden en mappen zoeken en lezen.
+1088|De bestanden van je bedrijf zoeken en lezen.
+1089|E-mails en berichten zoeken en versturen
+1090|Apps zoeken
+1091|Zoeken op naam
+1092|Chats doorzoeken
+1093|Een model zoeken
+1094|Een model zoeken…
+1095|Talen zoeken
+1096|Geheugen doorzoeken
+1097|Modellen zoeken
+1098|Eerdere chats doorzoeken
+1099|Plugins zoeken
+1100|Plugins en skills zoeken
+1101|Zoekresultaten
+1102|De Bibliotheek doorzoeken
+1103|De lijst doorzoeken (naam, categorie)
+1104|De bibliotheek doorzoeken
+1105|Wetenschappelijke literatuur doorzoeken
+1106|Zoek op het web het laatste nieuws over
+1107|Zoeken in {n} talen
+1108|Bestanden zoeken, lezen en maken.
+1109|E-mails zoeken, lezen en concepten schrijven.
+1110|Pagina's en databases zoeken, lezen, maken en bewerken.
+1111|Zoekt op Wikipedia (Roemeens, daarna Engels) en geeft de samenvatting van het artikel.
+1112|Zoekt actuele informatie en online bronnen.
+1113|Zoekt zelf actuele bronnen bij vragen over recente informatie, versies en API's.
+1114|Beveiliging
+1115|Beveiligingsanalyse van code
+1116|Abonnementen bekijken
+1117|Bekijk je agenda's, afspraken en vrije tijd (Google staat voorlopig alleen lezen toe).
+1118|Seedance, Veo, Wan en andere modellen via dezelfde API.
+1119|Kiezen
+1120|Selecteer een gebruiker.
+1121|Geselecteerd
+1122|Versturen
+1123|Testmelding versturen
+1124|Toegangsverzoek versturen
+1125|Code opnieuw versturen
+1126|Code opnieuw versturen ({s} s)
+1127|Bericht versturen
+1128|Server verbonden ✓
+1129|Sessies gesloten
+1130|Sessies: {error}
+1131|Status «{status}» instellen voor {email}? De actieve sessies van het account worden gesloten.
+1132|Instellingen
+1133|Instellingen kunnen alleen in de {brand}-app worden opgeslagen.
+1134|Instellingen opgeslagen.
+1135|Meerdere afbeeldingsmodellen met één sleutel.
+1136|Gaan we verder met «{title}»?
+1137|Gedeelde projectinstructies
+1138|Kort en direct
+1139|Korte beschrijving
+1140|Korte video (~6 s)
+1141|Meer tonen (nog {n})
+1142|Menu tonen of verbergen
+1143|De eerste 60.000 tekens worden getoond.
+1144|Toont een melding wanneer de taak een resultaat heeft.
+1145|Inloggen
+1146|Opnieuw inloggen
+1147|Log opnieuw in.
+1148|Inloggen bij {brand}
+1149|Log in bij {name} in het venster dat is geopend en kom dan hier terug.
+1150|Uitloggen
+1151|Uitloggen bij {brand} op alle apparaten, ook dit?
+1152|Andere apparaten uitloggen
+1153|Inloggen
+1154|Inloggen vereist.
+1155|Uitloggen
+1156|Uitloggen…
+1157|Site-update ({domain})
+1158|Websites en deploys.
+1159|Websites, pagina's en CMS-items.
+1160|Grootte
+1161|Skill-plugins
+1162|Skills
+1163|Slack-kanalen en -berichten
+1164|Berichten voor sociale media
+1165|Software-engineering
+1166|Iets anders
+1167|Iets anders…
+1168|Sorteren
+1169|Spreek: de tekst verschijnt in het vak en wordt vanzelf verstuurd
+1170|Stability API-sleutel
+1171|Stability-engine
+1172|Start
+1173|OmniRoute automatisch starten
+1174|Start OmniRoute of voeg een API-sleutel toe in Instellingen.
+1175|Begin een gesprek dat een afbeelding maakt.
+1176|{brand} starten met Windows
+1177|{brand} starten…
+1178|Starten…
+1179|Geavanceerde ADMET-modellen
+1180|Nog wakker? Laten we het samen afmaken.
+1181|Stoppen en versturen
+1182|Stoppen met voorlezen
+1183|Antwoord stoppen
+1184|Spraakopname stoppen
+1185|Stop eerst de spraakopname.
+1186|Gestopt na fouten
+1187|Gestopt door de Owner
+1188|Krachttraining voor Garmin
+1189|Structuren, moleculen en eiwitten
+1190|Student
+1192|Gelukt
+1193|Stel een plan voor de nieuwe week voor: prioriteiten, deadlines en een kleine stap voor elke dag.
+1194|Een document samenvatten
+1195|Vat het bijgevoegde document samen in vijf duidelijke punten.
+1196|Samenvatting
+1197|Vat een tekst of document samen in de hoofdideeën.
+1198|Opschorten
+1199|Opgeschort
+1200|Opgeschorte gebruikers
+1201|Tablet
+1202|Tarotlezingen
+1203|Taken die {brand} zelf uitvoert op het tijdstip dat je kiest.
+1204|Taken, lijsten, documenten en opmerkingen.
+1205|Taken, projecten en opmerkingen.
+1206|Teambeheer met gedeelde credits
+1207|Technische details: {details}
+1208|Testen
+1209|Nu testen
+1210|Test geslaagd: {result}
+1211|Sleutels testen
+1212|Microfoon testen
+1213|Server testen
+1214|Tests
+1215|SSH-verbinding testen…
+1216|Testen…
+1217|Texas Hold'em-poker met AI
+1218|Tekst van het item
+1219|Tekst gelezen voor de AI
+1220|De AI-provider antwoordde niet op tijd. Probeer het opnieuw.
+1221|De gratis limiet van de AI-provider is bereikt. Kies een ander model of probeer het later.
+1222|Het API-adres moet een volledige link zijn, bijvoorbeeld https://example.com/webhook.
+1223|De Google-pagina gaat open. Klik op «Create API key» en kopieer hem.
+1224|De Bibliotheek is leeg. Sleep bestanden hierheen of klik op «Bestanden toevoegen».
+1225|De OAuth Client ID ontbreekt.
+1226|Kon de OAuth-pagina niet openen.
+1227|Het Owner-account kan niet worden verwijderd.
+1228|De Owner keurt accounts goed en beslist welke AI-diensten ze mogen gebruiken.
+1229|De Owner beslist welke modellen je account mag gebruiken.
+1230|Het e-mailadres van de Owner is ongeldig.
+1231|De Owner moet eerst een Asana OAuth-app toevoegen in Instellingen.
+1232|De Owner moet eerst een Box OAuth-app toevoegen in Instellingen.
+1233|De Owner moet eerst een Google OAuth-app toevoegen in Instellingen.
+1234|De Owner moet eerst een HubSpot OAuth-app toevoegen in Instellingen.
+1235|De Owner moet eerst een Lovable OAuth-app toevoegen in Instellingen.
+1236|De persoonlijke abonnementen van de Owner kunnen niet aan andere accounts worden gegeven.
+1237|De X-knop verbergt de app zonder de diensten te stoppen.
+1238|Het account en al zijn gegevens (chats, geheugen, bestanden, instellingen) worden voorgoed verwijderd.
+1239|Het account wordt gemaakt op de server van {brand}.
+1240|Het account wordt gemaakt op deze computer en je kunt het meteen gebruiken.
+1241|Het account is niet actief.
+1242|Het account wacht op goedkeuring van de Owner.
+1243|Het account is gemaakt en wacht op goedkeuring van de Owner.
+1244|Het account is verwijderd.
+1245|Het adres is ongeldig.
+1246|Het antwoord gaat door op de server…
+1247|Het antwoord is onderbroken: {error}
+1248|Het antwoord is gestopt voor het einde.
+1249|Het antwoord is gestopt.
+1250|Kon de app niet openen — {error}
+1251|Kon de app niet openen.
+1252|De app start vanzelf en kan op de achtergrond blijven.
+1253|De app is geopend.
+1254|Kon de apps niet laden: {error}
+1255|Het audiospoor is uitgeschreven voor {brand}.
+1256|Het begin van het document, als tekst.
+1257|De browser kan geen audio opnemen.
+1258|De wijziging geldt voor deze chat.
+1259|De wijziging is toegepast in GitHub. Commit: {commit}
+1260|Kon de code niet naar het klembord kopiëren.
+1261|De code is verlopen. Vraag een nieuwe aan.
+1262|De code is niet juist.
+1263|De code is uitgevoerd. Het resultaat staat in het berichtvak.
+1264|Kon het gesprek niet naar het klembord kopiëren.
+1265|Kon het gesprek niet opslaan: {error}
+1266|Het gesprek is gearchiveerd. Je vindt het bij «Gearchiveerd» in de zijbalk.
+1267|Het gesprek is naar het klembord gekopieerd.
+1268|Het gesprek is hersteld.
+1269|Kon de gegevens niet laden: {error}
+1270|De dag van de maand moet tussen 1 en 28 liggen.
+1271|Het standaardmodel
+1272|Het e-mailadres is ongeldig.
+1273|De exacte tijd en datum in Roemenië en in grote steden in de wereld.
+1274|Exporteren mislukt:
+1275|Het bestand heeft geen tekst om te tonen.
+1276|Het bestand is niet meer beschikbaar.
+1277|Het bestand staat niet meer in de Bibliotheek.
+1278|Het bestand heet nu «{name}».
+1279|Het bestand wordt in je Bibliotheek opgeslagen (tot 2 GB per bestand)…
+1280|Het bestand of bericht is te groot voor de dienst {brand} (HTTP 413).
+1281|Het bestand is aan de Bibliotheek toegevoegd.
+1282|Het bestand is niet gevonden in de Bibliotheek.
+1283|De eerste pagina, als tekst.
+1284|De headernaam mag alleen letters, cijfers en koppeltekens bevatten.
+1285|De instructies mogen maximaal 8.000 tekens hebben.
+1286|Het interval moet tussen 1 en 168 uur liggen.
+1287|De sleutel werkte niet: {error}
+1288|De sleutel wordt gedeeld met Afbeeldingen.
+1289|De sleutels zijn versleuteld op deze pc.
+1290|Kon de sleutels niet kopiëren.
+1291|De sleutels blijven op de server en worden alleen gemaskeerd getoond.
+1292|De taal waarin ik schrijf
+1293|De laatste update ({when}) is mislukt — details
+1294|Kon de link niet openen in de browser.
+1295|Kon de link niet openen: {error}
+1296|Het lokale account met dit e-mailadres krijgt Owner-rechten: code uitvoeren, GitHub Solve, de server beheren. Geldt alleen als {brand} Cloud niet is ingesteld. Log opnieuw in na de wijziging.
+1297|Het adres van de lokale dienst is ongeldig. Voorbeeld: {url}
+1298|De geblokkeerde zijn voor jou niet toegestaan.
+1299|De login is verlopen voor: {names}. OmniRoute-paneel op de server → Providers → elk account → Reconnect (of voeg een API-sleutel toe).
+1300|Kon het bericht niet versturen: {error}
+1301|Het bericht is leeg.
+1302|De microfoon is geblokkeerd. Sta toegang tot de microfoon toe in de browser.
+1303|De microfoon is niet beschikbaar: {error}
+1304|Kon het model voor het gesprek niet opslaan: {error}
+1305|Kon de modellenlijst niet laden: {error}
+1306|De modellenlijst is leeg.
+1307|De modellen komen uit OmniRoute en de API's die op de server zijn ingesteld.
+1308|De modellen komen uit OmniRoute en de API's die op deze pc zijn ingesteld.
+1309|De naam mag maximaal 100 tekens hebben.
+1310|De naam mag maximaal 120 tekens hebben.
+1311|Het nieuwe wachtwoord moet minstens 8 tekens hebben.
+1312|De andere apparaten zijn uitgelogd.
+1313|Het wachtwoord mag maximaal 256 tekens hebben.
+1314|Het wachtwoord mag maximaal 72 tekens hebben.
+1315|Het wachtwoord moet minstens 10 tekens hebben.
+1316|Het wachtwoord moet minstens 8 tekens hebben.
+1317|Kon de afbeelding niet maken: {error}
+1318|Kon de afbeelding niet lezen.
+1319|De afbeelding is groter dan 10 MB.
+1320|De plugin is opgeslagen, maar de test is mislukt: {error}
+1321|De plugins komen uit opensourceprojecten (MIT- en Apache 2.0-licenties); elke kaart toont de auteur en linkt naar de bron.
+1322|Kon de plugins niet laden: {error}
+1323|Het voorbeeld is niet beschikbaar.
+1324|Het voorbeeld is niet beschikbaar. Het bestand is waarschijnlijk uit de Bibliotheek verwijderd.
+1325|De voorbeeldlink is niet beschikbaar.
+1326|De prijs verandert met het aantal credits.
+1327|Kon het voorstel niet kopiëren.
+1328|Het voorstel is naar het klembord gekopieerd.
+1329|De API-sleutel van de provider is fout of heeft geen toegang tot dit model.
+1330|De opname is leeg.
+1331|Het verzoek is mislukt (HTTP {status}).
+1332|Het terugkeeradres om bij de provider te registreren:
+1333|De server controleert GitHub elk uur en installeert de nieuwe versie zelf.
+1334|De server gaf geen geldige sessie terug.
+1335|De Owner van de server moet een AI-sleutel toevoegen.

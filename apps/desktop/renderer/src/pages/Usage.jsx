@@ -134,7 +134,137 @@ function OwnerPanel({ plans }) {
   </section>;
 }
 
-export function UsagePage({ onClose }) {
+// 0.7.38 (asked by the Owner): Billing and Usage were the same page. Billing is now the subscription (the plan, the
+// plans, extra credits; the Owner gives plans there); Usage is what was used: everyone sees their own, the Owner
+// also sees every account's (and opens any of them), with a button that lists the plan of every account.
+const PERIODS = [7, 30, 90];
+const fmtWhen = (ms) => ms ? new Date(ms).toLocaleString(getLanguage(), { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "—";
+const minutes = (s) => Math.round((Number(s) || 0) / 60);
+function planLabel(r) {
+  if (r.unlimited) return tr("Unlimited");
+  if (r.plan) return `${r.plan.name}${r.plan.billing === "yearly" ? " · " + tr("One year") : ""}`;
+  return r.mode === "trial" && r.trial ? tr("Free trial") : tr("No plan");
+}
+function planWhen(r) {
+  if (r.unlimited) return "";
+  if (!r.plan) return r.mode === "trial" && r.trial?.endsAt ? tr("Ends {when}", { when: fmtWhen(r.trial.endsAt) }) : "";
+  return r.plan.renewsAt ? tr("Next credits: {when}", { when: fmtWhen(r.plan.renewsAt) }) : r.plan.endsAt ? tr("Ends {when}", { when: fmtWhen(r.plan.endsAt) }) : "";
+}
+
+function UsageStats({ totals }) {
+  return <div className="usageStats five">
+    <div><small>{tr("Messages")}</small><b>{num(totals.chat)}</b></div>
+    <div><small>{tr("Pictures")}</small><b>{num(totals.image)}</b></div>
+    <div><small>{tr("Video")}</small><b>{num(totals.video)}</b></div>
+    <div><small>{tr("Voice minutes")}</small><b>{num(minutes(totals.seconds))}</b></div>
+    <div><small>{tr("Credits used")}</small><b>{num(totals.credits)}</b></div>
+  </div>;
+}
+function DailyBars({ daily }) {
+  const field = daily.some((d) => d.credits) ? "credits" : "chat";
+  const max = Math.max(1, ...daily.map((d) => d[field]));
+  return <div className="usageBars" role="img" aria-label={tr(field === "credits" ? "Credits per day" : "Messages")}>
+    {daily.map((d) => <span key={d.date} title={`${d.date} · ${num(d[field])} ${field === "credits" ? tr("credits") : tr("Messages")}`}><i style={{ height: `${Math.round((d[field] / max) * 100)}%` }} /></span>)}
+  </div>;
+}
+function UsageDetail({ data }) {
+  const empty = !data.totals.chat && !data.totals.image && !data.totals.video && !data.totals.transcribe;
+  return <>
+    <UsageStats totals={data.totals} />
+    {empty ? <div className="emptyState small">{tr("No usage in this period.")}</div> : <>
+      <section className="usageSection"><h3>{tr("Credits per day")}</h3><DailyBars daily={data.daily} /></section>
+      {data.models?.length > 0 && <section className="usageSection"><h3>{tr("Models used")}</h3>
+        <div className="usageTable">{data.models.map((m) => <div className="usageRow three" key={m.model}><span title={m.model}>{m.model}</span><span>{num(m.count)}</span><span>{num(m.credits)} {tr("credits")}</span></div>)}</div>
+      </section>}
+      {data.recent?.length > 0 && <section className="usageSection"><h3><Clock size={17} /> {tr("Recent")}</h3>
+        <div className="usageTable history">{data.recent.map((h, i) => <div className="usageRow" key={i}>
+          <span>{tr(KIND[h.kind] || h.kind)}<small>{h.model || ""}</small></span><span>{fmtWhen(h.at)}</span><span>{h.credits ? `${num(h.credits)} ${tr("credits")}` : ""}</span>
+        </div>)}</div>
+      </section>}
+    </>}
+    <p className="settingsHelp">{tr("Credits are counted at plan prices, also when the account is not charged.")}</p>
+  </>;
+}
+function PlansDialog({ onClose }) {
+  useLanguage();
+  const [rows, setRows] = useState(null), [error, setError] = useState("");
+  useEffect(() => { api("/api/usage/accounts?days=7").then((d) => setRows(d.data || [])).catch((e) => setError(e.message)); }, []);
+  return <Modal title={tr("Plans of every account")} onClose={onClose} className="modal plansDialog">
+    {error && <div className="emptyState small">{error}</div>}
+    {!rows && !error && <div className="emptyState small">{tr("Loading…")}</div>}
+    {rows && <div className="usageTable" role="table" aria-label={tr("Plans of every account")}>
+      <div role="row" className="usageRow head"><span>{tr("Account")}</span><span>{tr("Plan")}</span><span>{tr("this week")}</span><span>{tr("Extra credits")}</span></div>
+      {rows.map((r) => <div role="row" className="usageRow" key={r.id}>
+        <span title={r.email}>{r.name || r.email}<small>{r.email}</small></span>
+        <span>{planLabel(r)}<small>{planWhen(r)}</small></span>
+        <span>{r.unlimited ? "—" : r.week ? `${num(r.week.used)} / ${num(r.week.budget)}` : "—"}</span>
+        <span>{r.unlimited ? "—" : num(r.extras)}</span>
+      </div>)}
+    </div>}
+  </Modal>;
+}
+function AccountsUsage({ days, onOpen }) {
+  const [rows, setRows] = useState(null), [error, setError] = useState("");
+  useEffect(() => { setRows(null); api(`/api/usage/accounts?days=${days}`).then((d) => setRows(d.data || [])).catch((e) => setError(e.message)); }, [days]);
+  if (error) return <div className="emptyState small">{error}</div>;
+  if (!rows) return <div className="emptyState small">{tr("Loading…")}</div>;
+  return <div className="usageTable accounts" role="table" aria-label={tr("All accounts")}>
+    <div role="row" className="usageRow head"><span>{tr("Account")}</span><span>{tr("Plan")}</span><span>{tr("Messages")}</span><span>{tr("Pictures")}</span><span>{tr("Video")}</span><span>{tr("Credits used")}</span><span>{tr("Last active")}</span></div>
+    {rows.map((r) => <button type="button" role="row" className="usageRow" key={r.id} onClick={() => onOpen(r)}>
+      <span title={r.email}>{r.name || r.email}<small>{r.email}</small></span>
+      <span>{planLabel(r)}</span>
+      <span>{num(r.totals.chat)}</span><span>{num(r.totals.image)}</span><span>{num(r.totals.video)}</span>
+      <span>{num(r.totals.credits)}</span><span>{r.lastAt ? fmtWhen(r.lastAt) : "—"}</span>
+    </button>)}
+  </div>;
+}
+
+export function UsagePage({ onClose, onBilling }) {
+  useLanguage();
+  const { isOwner } = useAccess();
+  const [days, setDays] = useState(30), [tab, setTab] = useState("me"), [account, setAccount] = useState(null);
+  const [d, setD] = useState(null), [error, setError] = useState(""), [plans, setPlans] = useState(false);
+  const mounted = useRef(true);
+  useEffect(() => () => { mounted.current = false; }, []);
+  useEffect(() => {
+    setD(null); setError("");
+    const path = account ? `/api/usage/accounts/${encodeURIComponent(account.id)}?days=${days}` : `/api/usage?days=${days}`;
+    if (tab === "all" && !account) return;
+    api(path).then((x) => mounted.current && setD(x)).catch((e) => mounted.current && setError(e.message));
+  }, [days, tab, account]);
+  const actions = isOwner ? <button className="secondary" onClick={() => setPlans(true)}><Users size={15} /> {tr("Plans of every account")}</button> : null;
+  return <ToolShell title={tr("Usage")} subtitle={tr("How much you used: messages, pictures, video and voice.")} onClose={onClose} className="pageModal usagePage" actions={actions}>
+    <div className="pageBody">
+      <div className="usageBar">
+        {isOwner && <div className="segmented" role="tablist">
+          <button role="tab" aria-selected={tab === "me"} className={cx(tab === "me" && "on")} onClick={() => { setTab("me"); setAccount(null); }}>{tr("My usage")}</button>
+          <button role="tab" aria-selected={tab === "all"} className={cx(tab === "all" && "on")} onClick={() => { setTab("all"); setAccount(null); }}>{tr("All accounts")}</button>
+        </div>}
+        <div className="segmented" role="group" aria-label={tr("Length")}>{PERIODS.map((n) => <button key={n} className={cx(days === n && "on")} aria-pressed={days === n} onClick={() => setDays(n)}>{n === 7 ? tr("7 days") : n === 30 ? tr("30 days") : tr("90 days")}</button>)}</div>
+      </div>
+      {tab === "all" && !account && <AccountsUsage days={days} onOpen={setAccount} />}
+      {(tab === "me" || account) && <>
+        {account && <button className="linkBtn usageBack" onClick={() => setAccount(null)}>← {tr("Back to all accounts")}</button>}
+        {error && <div className="emptyState small">{error}</div>}
+        {!d && !error && <div className="emptyState small">{tr("Loading…")}</div>}
+        {d && <>
+          <section className="usageHero">
+            <div className="usageHeroHead">
+              <span className="taskIcon"><Gauge size={20} /></span>
+              <div><b>{account ? (d.account?.name || d.account?.email) : tr("Your plan")}: {planLabel(d)}</b><small>{account ? d.account?.email : planWhen(d)}</small></div>
+              {!account && onBilling && <button className="secondary usageToBilling" onClick={onBilling}><CreditCard size={15} /> {tr("Billing")}</button>}
+            </div>
+            {!d.unlimited && d.week && <><Meter percent={d.week.percent} /><div className="usageWeek"><span><b>{d.week.percent}%</b> {tr("of this week's credits used")}</span><span>{num(d.week.used)} / {num(d.week.budget)}</span></div></>}
+          </section>
+          <UsageDetail data={d} />
+        </>}
+      </>}
+    </div>
+    {plans && <PlansDialog onClose={() => setPlans(false)} />}
+  </ToolShell>;
+}
+
+export function BillingPage({ onClose, onUsage }) {
   useLanguage();
   const { isOwner } = useAccess();
   const [d, setD] = useState(null), [error, setError] = useState("");
@@ -142,43 +272,37 @@ export function UsagePage({ onClose }) {
   useEffect(() => () => { mounted.current = false; }, []);
   useEffect(() => { api("/api/credits?peek=1").then((x) => mounted.current && setD(x)).catch((e) => mounted.current && setError(e.message)); }, []);
   const cat = d?.catalog;
-  return <ToolShell title={tr("Usage")} subtitle={tr("Your plan, this week's credits and extra credits.")} onClose={onClose} className="pageModal usagePage">
+  return <ToolShell title={tr("Billing")} subtitle={tr("Your subscription, the plans and extra credits.")} onClose={onClose} className="pageModal usagePage">
     <div className="pageBody">
       {error && <div className="emptyState small">{error}</div>}
       {!d && !error && <div className="emptyState small">{tr("Loading…")}</div>}
       {d && <>
         {!d.enabled && <p className="settingsHelp usageOff">{tr("Plans and credits are not turned on yet: every account works as before (the free tier and the Owner's rules).")}</p>}
-        {d.enabled && d.unlimited && <p className="settingsHelp usageOff">{tr("Your account is not charged (Owner).")}</p>}
-        {d.enabled && !d.unlimited && <section className="usageHero">
+        <section className="usageHero">
           <div className="usageHeroHead">
-            <span className="taskIcon"><Gauge size={20} /></span>
-            <div><b>{d.plan ? tr("{plan} plan", { plan: d.plan.name }) : d.mode === "trial" ? tr("Free trial") : tr("Free")}</b>
-              <small>{d.plan ? (d.plan.renewsAt ? tr("Next credits: {when}", { when: when(d.plan.renewsAt) }) : tr("Ends {when}", { when: when(d.plan.endsAt) })) : d.mode === "trial" ? tr("{left} of {total} credits · ends {when}", { left: num(d.trial.left), total: num(d.trial.credits), when: when(d.trial.endsAt) }) : tr("{left} of {limit} free messages left today", { left: d.free.left, limit: d.free.limit })}</small></div>
+            <span className="taskIcon"><CreditCard size={20} /></span>
+            <div><b>{tr("Subscription")}: {d.unlimited ? tr("Unlimited") : d.plan ? tr("{plan} plan", { plan: d.plan.name }) : d.mode === "trial" ? tr("Free trial") : tr("No plan")}</b>
+              <small>{d.unlimited ? tr("Your account is not charged (Owner).") : d.plan ? (d.plan.renewsAt ? tr("Next credits: {when}", { when: when(d.plan.renewsAt) }) : tr("Ends {when}", { when: when(d.plan.endsAt) })) : d.mode === "trial" ? tr("{left} of {total} credits · ends {when}", { left: num(d.trial.left), total: num(d.trial.credits), when: when(d.trial.endsAt) }) : tr("{left} of {limit} free messages left today", { left: d.free.left, limit: d.free.limit })}</small></div>
+            {onUsage && <button className="secondary usageToBilling" onClick={onUsage}><Gauge size={15} /> {tr("Usage")}</button>}
           </div>
-          {d.week && <>
+          {d.enabled && !d.unlimited && d.week && <>
             <Meter percent={d.week.percent} />
             <div className="usageWeek"><span><b>{d.week.percent}%</b> {tr("of this week's credits used")}</span><span>{tr("{n} left · week {w} of 4", { n: num(d.week.left), w: d.week.tranche })}</span></div>
             {d.plan?.periodEndsAt && <WeekParts periodEndsAt={d.plan.periodEndsAt} current={d.week.tranche} />}
           </>}
-          <div className="usageStats">
+          {d.enabled && !d.unlimited && <div className="usageStats">
             <div><small>{tr("Available now")}</small><b>{num(d.available)}</b></div>
             <div><small>{tr("Extra credits")}</small><b>{num(d.extras)}</b></div>
             <div><small>{tr("Free messages today")}</small><b>{d.free.left}/{d.free.limit}</b></div>
-          </div>
-        </section>}
+          </div>}
+        </section>
         <section className="usageSection">
           <h3>{tr("Plans and extra credits")}</h3>
           <div className="planGrid">{cat.plans.map((p) => <PlanCard key={p.key} plan={p} current={d.plan?.key === p.key} popular={p.key === "pro"} />)}<ExtraCreditsCard min={cat.minPack} /></div>
           <p className="settingsHelp">{tr("Without a plan: {n} messages a day on the free models, after a {days}-day trial with {credits} credits. Card payments open soon; until then plans are given by the Owner.", { n: cat.free.dailyMessages, days: cat.trial.days, credits: num(cat.trial.credits) })}</p>
           <p className="settingsHelp">{tr("A plan's credits come in four equal parts, one every 7 days counted from the day your plan started (for example, a plan started on a Wednesday gets its credits every Wednesday). What you don't use moves to the next week. At 100% the paid models stop until the next part, or you buy extra credits; meanwhile you keep {n} messages a day on the free models.", { n: cat.freeDaily.planExhausted })}</p>
         </section>
-        {d.enabled && !d.unlimited && d.history?.length > 0 && <section className="usageSection">
-          <h3><Clock size={17} /> {tr("Recent")}</h3>
-          <div className="usageTable history">{d.history.slice(0, 40).map((h, i) => <div className="usageRow" key={i}>
-            <span>{tr(KIND[h.kind] || h.kind)}<small>{h.model || h.note || ""}</small></span><span>{new Date(h.at).toLocaleString(getLanguage(), { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</span><span className={h.credits < 0 ? "plus" : ""}>{!h.credits ? "" : h.credits < 0 ? `+${num(-h.credits)}` : `−${num(h.credits)}`}</span>
-          </div>)}</div>
-        </section>}
-        {isOwner && d.enabled && <OwnerPanel plans={cat.plans} />}
+        {isOwner && <OwnerPanel plans={cat.plans} />}
       </>}
     </div>
   </ToolShell>;

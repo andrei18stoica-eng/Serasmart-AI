@@ -34,7 +34,7 @@ import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentForm
 import { ExtensionsPage } from "./pages/Extensions.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
-import { UsagePage, CreditsDialog } from "./pages/Usage.jsx";
+import { UsagePage, BillingPage, CreditsDialog } from "./pages/Usage.jsx";
 import { useAccountSettings, ProfileTab, NotifyTab, PrivacyTab, SecurityTab, AccountAvatar } from "./pages/AccountSettings.jsx";
 import { LibraryPage } from "./pages/Library.jsx";
 import { DesignPage } from "./pages/Design.jsx";
@@ -1543,7 +1543,7 @@ function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSetti
   // Extensions. Billing, Usage, Memory and the Extensions items open their own pages.
   const machineGroup=webServer?"Server":"This computer";
   const tabs=[["profile",UserCircle,"General",true,""],["security",KeyRound,"Account",true,""],["privacy",ShieldCheck,"Privacy",true,""],["notify",Bell,"Notifications",true,""],
-    ["@billing",CreditCard,"Billing",!!onOpenTool,"",()=>onOpenTool("usage")],["@usage",Gauge,"Usage",!!onOpenTool,"",()=>onOpenTool("usage")],["@memory",Brain,"Memory",!!onOpenTool,"",()=>onOpenTool("memory")],
+    ["@billing",CreditCard,"Billing",!!onOpenTool,"",()=>onOpenTool("billing")],["@usage",Gauge,"Usage",!!onOpenTool,"",()=>onOpenTool("usage")],["@memory",Brain,"Memory",!!onOpenTool,"",()=>onOpenTool("memory")],
     ["general",SlidersHorizontal,"App",!!bridge,machineGroup],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge,machineGroup],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge,machineGroup],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge,machineGroup],["video",Play,"Video",machineSettingsAllowed&&!!bridge,machineGroup],["voice",Volume2,"Voice and microphone",!!bridge,machineGroup],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge,machineGroup],
     ["@skills",Sparkles,"Skills",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","skills")],["@connectors",Plug,"Connectors",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","connectors")],["@plugins",Puzzle,"Plugins",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","plugins")]];
   const onAccountTab=accountOnly||ACCOUNT_TABS.includes(tab);
@@ -2473,8 +2473,9 @@ function App() {
     {toolPanel?.name==="explore"&&<ExplorePanel onClose={closeTool} assistants={assistants} onUseAssistant={startWithAssistant} onImageMode={startImageMode} onOpenLibrary={filter=>openTool("library",filter)}/>}
     {toolPanel?.name==="library"&&<LibraryPage onClose={closeTool} onAttach={attachFromLibrary} toAttachment={libraryItemToAttachment} initialFilter={toolPanel.filter||"all"} onOpenDesign={id=>openTool("design",id)}/>}
     {toolPanel?.name==="design"&&can("document_generation")&&<DesignPage onClose={closeTool} model={model} models={models} initialId={toolPanel.filter||null}/>}
-    {toolPanel?.name==="usage"&&<UsagePage onClose={closeTool}/>}
-    {creditsDialog&&<CreditsDialog info={creditsDialog} onClose={()=>setCreditsDialog(null)} onBuy={()=>{setCreditsDialog(null);openTool("usage")}}/>}
+    {toolPanel?.name==="usage"&&<UsagePage onClose={closeTool} onBilling={()=>openTool("billing")}/>}
+    {toolPanel?.name==="billing"&&<BillingPage onClose={closeTool} onUsage={()=>openTool("usage")}/>}
+    {creditsDialog&&<CreditsDialog info={creditsDialog} onClose={()=>setCreditsDialog(null)} onBuy={()=>{setCreditsDialog(null);openTool("billing")}}/>}
     {toolPanel?.name==="memory"&&<MemoryPage onClose={closeTool} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy}/>}
     {toolPanel?.name==="admin"&&isOwner&&<AdminPanel onClose={closeTool}/>}
     {toolPanel?.name==="extensions"&&<ExtensionsPage onClose={closeTool} initialTab={toolPanel.filter}/>}

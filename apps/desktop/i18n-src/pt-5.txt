@@ -1,0 +1,17 @@
+577|Quanto usou: mensagens, imagens, vídeo e voz.
+1631|A sua subscrição, os planos e os créditos extra.
+737|O meu consumo
+83|Todas as contas
+946|Planos de todas as contas
+713|Mensagens
+1492|Minutos de voz
+327|Créditos usados
+325|Os créditos são calculados aos preços dos planos, mesmo quando a conta não paga.
+726|Modelos usados
+795|Sem consumo neste período.
+16|7 dias
+939|Plano
+326|Créditos por dia
+1191|Subscrição
+786|Sem plano
+170|Voltar a todas as contas

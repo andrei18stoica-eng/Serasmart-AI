@@ -1,436 +1,436 @@
-1321|De dienst heeft het opslaan van het bestand niet bevestigd.
-1322|De sessie is ongeldig of verlopen.
-1323|De sessies zijn gesloten.
-1324|Kon de instelling niet opslaan: {error}
-1325|Kon de instellingen niet opslaan.
-1326|Het inloggen is geopend in de browser. Rond het daar af; {brand} slaat de verbinding zelf op.
-1327|Het inloggen is niet binnen 2 minuten afgerond. Probeer het opnieuw.
-1328|De site heeft de nieuwste versie.
-1329|De site-update is mislukt. De details staan in Instellingen → Algemeen.
-1330|De site is bijgewerkt naar versie {v}. De pagina wordt herladen.
-1331|De site is bijgewerkt. De pagina wordt herladen.
-1332|De site werkt zichzelf bij als er een nieuwe versie uitkomt (elk uur gecontroleerd).
-1333|De site-instellingen: opgeslagen op de server en meteen toegepast op alle accounts. De sleutels blijven op de server en worden alleen gemaskeerd getoond. Het e-mailadres van de Owner en de registraties blijven in het .env-bestand op de server.
-1334|De skill /{slug} is opgeslagen.
-1335|Kon de skillbibliotheek niet laden: {error}
-1336|Kon de skills niet laden: {error}
-1337|De gedicteerde tekst staat in het vak; verstuur hem als de AI klaar is met antwoorden.
-1338|De status van {email} is nu «{status}».
-1339|De syntaxcontrole vond een fout. Het voorstel kan NIET worden toegepast.
-1340|De syntaxcontrole is geslaagd.
-1341|De taak is nog niet uitgevoerd. Klik op «Nu uitvoeren» om een resultaat te zien.
-1342|De taak is bijgewerkt.
-1343|De taak «{name}» is gemaakt.
-1344|Kon de taken niet laden: {error}
-1345|Kon de tekst niet naar het klembord kopiëren.
-1346|Kon de tekst niet lezen
-1347|De tekst die je hebt geselecteerd
-1348|De twee nieuwe wachtwoorden komen niet overeen.
-1349|Kon de video niet maken: {error}
-1350|De spraakopname is mislukt.
-1351|Het hele bericht
-1352|Het venster kon dit deel van de app niet tonen. Klik op «Herladen». Als het opnieuw gebeurt, kopieer dan de details hieronder en stuur ze naar de beheerder van de app.
-1353|De dienst {brand} heeft niet gevonden wat werd gevraagd (HTTP 404).
-1354|De dienst {brand} had een fout (HTTP {status}).
-1355|Kon het {format}-bestand niet maken: {error}. Je kunt het opnieuw proberen met de knoppen onder het antwoord.
-1356|Hun modellen verschijnen in de lijst (Groq, Gemini, Cerebras…). Ze antwoorden als je ze kiest of als er geen model is gekozen.
-1357|Hun modellen verschijnen in de lijst en antwoorden direct, zonder OmniRoute.
-1358|Thema
-1359|Er zijn nieuwe wijzigingen op GitHub.
-1360|Er zijn geen bestanden in dit gesprek.
-1361|Er zijn geen gebruikers in deze groep.
-1362|Er is geen bericht van jou voor dit antwoord.
-1363|Er is geen recente GitHub-back-up.
-1364|Deze acties worden uitgevoerd zonder te vragen. Verwijder er een en de AI vraagt het weer.
-1365|Met deze tools kan {brand} actuele informatie controleren en de relevante delen van een GitHub-repository ophalen.
-1366|Denken
-1367|Denken staat aan: nauwkeuriger antwoorden, iets langzamer. Klik voor Snel.
-1368|Denken…
-1369|Deze app accepteert alleen apps die hij heeft goedgekeurd; Serasmart staat nog niet op zijn lijst.
-1370|Deze browser kan geen meldingen ontvangen. Gebruik de {brand}-app die op de telefoon is geïnstalleerd (Chrome op Android of Safari op iPhone).
-1371|Deze computer
-1372|Dit document is leeg.
-1373|Dit e-mailadres wordt niet geaccepteerd.
-1374|Dit bestandstype kan hier niet worden geopend. Gebruik «Downloaden».
-1375|Dit bestandstype heeft geen voorbeeld. Je kunt het downloaden.
-1376|Deze link kan niet door {brand} worden geopend.
-1377|De creditdelen van deze periode
-1378|Deze dienst heeft ook de OAuth Client Secret nodig.
-1379|Deze tekst staat niet in je chats.
-1380|Deze werkmap is leeg.
-1381|Duizenden apps via je Zapier-acties.
-1382|Tijd
-1383|Tijd verstreken: {answer}
-1384|Vandaag
-1385|De officiële BNR-wisselkoersen van vandaag: euro, dollar, pond en de rest (bnr.ro).
-1386|Together API-sleutel
-1387|Token
-1388|Token (optioneel)
-1389|Token opgeslagen — laat leeg om het te houden
-1390|Toon
-1391|Te groot om te lezen
-1392|Te veel pogingen. Wacht 15 minuten en probeer het opnieuw.
-1393|Te veel inlogpogingen. Probeer het over een paar minuten opnieuw.
-1394|Te veel foute codes. Vraag een nieuwe code aan.
-1395|Tools
-1396|Topmodellen (de sterkste Claude, GPT, Gemini en Grok)
-1397|Opwaarderen
-1398|Eten en calorieën bijhouden
-1399|Transcriptiemodel
-1400|De app vertalen
-1401|De hele app in elke taal vertalen
-1402|Vertaalt natuurlijk, met behoud van toon en opmaak.
-1403|De app wordt vertaald naar {name}… {pct}%
-1404|De app wordt vertaald naar {name}… {pct}%. De teksten veranderen vanzelf zodra ze klaar zijn.
-1405|{n} teksten worden op de achtergrond vertaald in {count} talen. Je kunt dit venster sluiten.
-1406|Vertaler
-1407|Probeert de modellen op volgorde tot er een nog quotum heeft.
-1408|Opnieuw proberen
-1409|Uitzetten op dit apparaat
-1410|Betaalde AI uitzetten voor gewone accounts? De Owner houdt toegang tot de betaalde modellen.
-1411|{name} uitzetten
-1412|Aanzetten voor dit apparaat
-1413|{name} aanzetten
-1414|Uitgezet
-1415|Uitgezet door de Owner voor je account.
-1416|Niet beschikbaar
-1417|Onder het berichtvak, in de Afbeeldingsmodus, kun je elke keer kiezen wie hem maakt. Bij «Automatisch»: als je in de chat een Gemini-, ChatGPT- of Grok-model hebt gekozen, maakt het bedrijf van dat model de afbeelding (eerst het abonnement in OmniRoute, dan zijn API); anders wordt deze instelling gebruikt.
-1418|Onder het berichtvak, in de Videomodus, kun je elke keer kiezen wie hem maakt. Bij «Automatisch»: als je in de chat een Gemini- of Grok-model hebt gekozen, maakt het bedrijf van dat model de video (eerst het abonnement in OmniRoute, dan zijn API); anders wordt deze instelling gebruikt.
-1419|Laatste wijziging op GitHub ongedaan maken
-1420|Onbekende fout.
-1421|Onbeperkt
-1422|Deblokkeren
-1423|Uitgevinkt: zijn modellen verdwijnen uit de lijst en antwoorden nooit, ook niet als reserve. De OmniRoute-combo's blijven; wat erin zit, kies je in het OmniRoute-paneel.
-1424|Naamloos ontwerp
-1425|Actuele documentatie voor codebibliotheken.
-1426|De site nu bijwerken
-1427|De site nu bijwerken? De server downloadt de nieuwste versie van GitHub en herstart de site (1–5 minuten, waarin hij niet antwoordt).
-1428|Update:
-1429|De site wordt bijgewerkt… dit duurt 1–5 minuten; de pagina herlaadt vanzelf.
-1430|Bijwerken…
-1431|Uploaden
-1432|Upload elk bestand
-1433|Audio uploaden
-1434|Afbeeldingen uploaden
-1435|Video uploaden
-1436|1 bestand uploaden… grote bestanden kunnen even duren.
-1437|Bestand uploaden…
-1438|{n} bestanden uploaden… grote bestanden kunnen even duren.
-1439|Gebruik
-1440|Gebruiken in de chat
-1441|Vanzelf gebruiken als het relevant is
-1442|Geheugen gebruiken
-1443|De standaard lokale dienst gebruiken
-1444|Directe API's gebruiken
-1445|Gebruik het e-mailadres van je {brand}-account.
-1446|Deze AI gebruiken
-1447|Gebruikt
-1448|Meteen gebruikt, zonder weeklimiet
-1449|Gebruikt als je {trigger} typt
-1450|Gebruikt als je «{name}» of {trigger} typt
-1451|Nuttig antwoord
-1452|Gebruiker
-1453|Gebruikt de relevante chats van hetzelfde project zonder dat je ze met de hand hoeft te kopiëren.
-1454|Hulpmiddelen
-1455|12 maanden geldig
-1456|Veo met dezelfde Gemini-sleutel als de chat; het model kies je hierboven, bij «Video's gemaakt door».
-1457|Versie
-1458|Versie op de server: {v}.
-1459|Versie {v} is beschikbaar.
-1460|Versie {v} is beschikbaar. Hij wordt vanzelf gedownload; je krijgt een melding als hij klaar is.
-1461|Video
-1462|Video genereren
-1463|Video genereren met AI-modellen
-1464|Video genereren, API's, modellen en automatische poging bij een andere provider.
-1465|Video gemaakt door
-1466|Video's maken
-1467|Videomodus
-1468|Videomodus: het volgende bericht maakt een video. Klik nogmaals op Video om te stoppen.
-1469|Video: het volgende bericht maakt een video.
-1470|Video's gemaakt door
-1471|Video's gemaakt met AI
-1472|Video's van elke lengte
-1473|Stem
-1474|Spraakactiviteit
-1475|Stem en microfoon
-1476|Spraakinvoer
-1477|Spraakherkenning werkte niet. Klik op de microfoon en probeer het opnieuw.
-1478|Spraakherkenning is gestopt; controleer de tekst en verstuur hem.
-1479|Spraak naar tekst
-1480|Wachten
-1481|Wacht tot het bestand klaar is met uploaden.
-1482|Wachten tot {when}
-1483|Wacht op toegang
-1484|Wachten op het antwoord van de gekozen AI…
-1485|Wachten tot de stem is uitgeschreven.
-1486|Wacht op je goedkeuring
-1487|Wacht op je goedkeuring in {app}…
-1488|Wil
-1489|Een prijs in de gaten houden
-1490|Manieren van werken
-1491|We konden de e-mail met de code niet versturen. Controleer het adres en probeer het opnieuw.
-1492|We hebben je een code van 6 cijfers gemaild. Vul hem in om te bevestigen dat het adres van jou is.
-1493|We hebben een code van 6 cijfers gestuurd naar {email}. Zie je hem niet, kijk dan in je spam. De code verloopt over 15 minuten.
-1494|We hebben je een code gemaild.
-1495|We hebben je een nieuwe code gestuurd.
-1496|Zwak antwoord
-1497|Weer
-1498|Het huidige weer en de verwachting voor 3 dagen voor elke stad (Open-Meteo, zonder account).
-1499|Zoeken op het web
-1500|Webzoeken voor AI-agents
-1501|Webzoeken gemaakt voor AI.
-1502|Webzoeken met bronnen
-1503|Website
-1504|Adres van de website
-1505|Websites
-1506|Weekendmodus. Waar heb je zin in?
-1507|Wekelijks
-1508|Elke week, {day} om {time}
-1509|Welkom terug
-1510|Welkom bij {brand}
-1511|Wat bouwen we vandaag?
-1512|Waar werken we vandaag aan?
-1513|Wat beschrijft je werk het best?
-1514|Wat er in staat
-1515|Wat het doet, in één zin
-1516|Wat moet er opgelost worden
-1517|Wat moet ik veranderen
-1518|Hoe moet {brand} je noemen?
-1519|Wat moet {brand} doen? Bijv. Vind het belangrijke nieuws van vandaag en maak een samenvatting met links.
-1520|Hoe de AI je noemt
-1521|Wat de AI elke keer moet doen als je deze skill gebruikt: toon, structuur, wat erin moet, wat te vermijden.
-1522|Wat de plugin doet
-1523|Wat alles kost
-1524|Wat de AI zou helpen je te leren kennen: interesses, projecten, ervaringsniveau.
-1525|Waar je mee werkt
-1526|Wat {brand} over je weet
-1527|Wat {brand} over je onthoudt en hoe het eerdere chats gebruikt.
-1528|Als een verzoek op meerdere manieren kan worden opgevat, vraagt {brand} het eerst, met keuzes die je met één klik selecteert.
-1529|Als iemand zich aanmeldt, laat je telefoon zien wie lid wil worden van {brand} en vraagt of je het toestaat. Op Android antwoord je vanuit de melding met Toestaan of Weigeren; op iPhone tik je erop en kies je in de app. Het verzoek wacht tot je antwoordt.
-1530|Als je om een afbeelding of video vraagt, zet {brand} het echte bestand in de chat, met een downloadknop.
-1531|Als je om een afbeelding vraagt, probeert {brand} de providers in de ingestelde volgorde, zet het echte bestand in de chat en bewaart het in de Bibliotheek.
-1532|Als je om een video vraagt, probeert {brand} de providers op volgorde, downloadt het echte MP4-bestand, zet het in de chat en bewaart het in de Bibliotheek.
-1533|Als je iets vraagt, zoekt het in je andere chats (ook gearchiveerde) en gebruikt wat ermee te maken heeft. Zo kun je een onderwerp in een nieuwe chat voortzetten.
-1534|Windows-app
-1535|Met de Cloud API ingesteld beheert de Owner accounts, goedkeuringen en rechten centraal. Laat leeg om alleen deze pc te gebruiken.
-1536|Met de xAI-sleutel uit AI-API's.
-1537|Met de xAI-sleutel uit AI-API's; 1–15 seconden.
-1538|Zonder abonnement: {n} berichten per dag op de gratis modellen, na een proefperiode van {days} dagen met {credits} credits. Kaartbetalingen komen binnenkort; tot dan wijst de Owner de abonnementen toe.
-1539|Word-, Excel-, PowerPoint- en PDF-bestanden
-1540|Workers, KV, R2 en D1 in je Cloudflare-account.
-1541|Werkdagen (maandag–vrijdag)
-1542|Bezig in
-1543|Bezig in {app}…
-1544|Laat aan het werk? Ik ben er als je me nodig hebt.
-1545|Prijs berekenen…
-1546|Bezig…
-1547|Trainingen en gezondheidsgegevens
-1548|Werkt meteen
-1549|Werkt: {result}
-1550|De dag afronden? Ik kan helpen met wat er nog is.
-1551|Typ een naam voor de plugin.
-1552|Typ een naam voor de taak.
-1553|Typ de naam van een plugin in de chat (bijvoorbeeld «Agenda») of @naam en {brand} gebruikt hem voor het antwoord.
-1554|Schrijf een korte, vriendelijke e-mail die
-1555|Een e-mail schrijven
-1556|Schrijf één keer wat {brand} moet doen en kies wanneer. Bijvoorbeeld: «Elke werkdag om 08:30 een samenvatting van het nieuws.»
-1557|Schrijf wat {brand} moet doen.
-1558|Schrijf je antwoord
-1559|Schrijf een eigen antwoord
-1560|Schrijft een duidelijke, beleefde e-mail met onderwerp op basis van een paar ideeën.
-1561|HTML en CSS schrijven…
-1562|Schrijven en content
-1563|Opschrijven wat je zei…
-1564|Je stem uitschrijven…
-1565|Antwoord schrijven…
-1566|Je {format}-bestand schrijven…
-1567|Je {format}-bestand schrijven… {n} woorden
-1568|Verkeerd e-mailadres of wachtwoord.
-1569|JA
-1570|Ja
-1571|Gisteren
-1572|Je hebt /{slug} toegevoegd. Typ het in de chat om het te gebruiken.
-1573|Je kunt altijd meer gratis API's toevoegen (Groq, Cerebras, Cloudflare voor afbeeldingen) in Instellingen → AI-API's.
-1574|Je kunt één keer per minuut een nieuwe code aanvragen.
-1575|Je kunt meerdere diensten verbinden. {brand} probeert de providers op volgorde en gaat door naar de volgende als er een niet werkt.
-1576|Je kunt de plugin zonder OAuth gebruiken om de app direct te openen. OAuth of een API is alleen nodig als {brand} privégegevens in die dienst moet lezen of wijzigen.
-1577|Jij kiest
-1578|Je koos {model}; OmniRoute stuurde de vraag naar {served}.
-1579|Je koos {model}; {brand} stuurde de vraag naar {served}.
-1580|Je krijgt een code per e-mail om het adres te bevestigen, daarna keurt de Owner het account goed.
-1581|Je hebt geen assistenten. Maak er een via de zijbalk.
-1582|Je hebt de nieuwste versie.
-1583|Je laat {brand} kiezen
-1584|Je bent op alle apparaten uitgelogd.
-1585|YouTube-statistieken en zoekwoorden
-1586|Jouw AI, elk model
-1587|Je ChatGPT-abonnement, verbonden in OmniRoute
-1588|Je Claude-abonnement, verbonden in OmniRoute
-1589|Je Google Calendar-afspraken
-1590|Je Helium 10-gegevens
-1591|Je Outlook-e-mails
-1592|Je Plaid-dashboard: items, gebruik en problemen.
-1593|Je Wix-websites, -pagina's en -winkel.
-1594|Er wordt niets van je account afgeschreven (Owner).
-1595|Het wachtwoord van je account
-1596|Je account, de app, stem, AI-diensten en updates.
-1597|Je antwoorden
-1598|Je apps
-1599|Je verbonden apps: de AI leest ze en werkt erin met jouw goedkeuring.
-1600|Je keuze: {value}
-1601|Je ontwerpen
-1602|Je bestanden, afbeeldingen, video's en ontwerpen, klaar voor gebruik in gesprekken.
-1603|Je gezondheidsgegevens
-1604|Je notities en vergadertranscripten.
-1605|Je naam
-1606|Je API's en webhooks, en plugins die meteen werken.
-1607|Je afbeeldingen en video's: zoeken, uploaden, bewerken.
-1608|Je abonnement
-1609|Je abonnement, de credits van deze week en extra credits.
-1610|Je abonnement, de credits van deze week en wat elke actie kost.
-1611|Je profiel, hoe de AI antwoordt, meldingen, privacy en beveiliging.
-1612|Je resources op Render
-1613|Je sessie is verlopen of gesloten. Log opnieuw in.
-1614|Je skills
-1615|Je taken en projecten: toevoegen, afronden, verzetten.
-1616|Je werk
-1617|door jou toegevoegd
-1618|alle chats
-1619|alle bestanden in de Bibliotheek
-1620|het hele geheugen
-1621|alle accountgegevens (chats, geheugen, bestanden, projecten, assistenten, skills, automatiseringen, apps, ontwerpen)
-1622|antwoorden · {s} s
-1623|maximaal {n} credits
-1624|automatisch
-1625|door {author}
-1626|door {author} · {license}
-1627|categorieën
-1628|categorie
-1629|controleer of je hem volledig hebt gekopieerd.
-1630|code
-1631|de verbinding werkt
-1632|gemaakt
-1633|credits
-1634|standaard
-1635|bijv. Klachten beantwoorden
-1636|bijv. een naam of bijnaam
-1637|bijv. stel verduidelijkende vragen voordat je uitgebreide antwoorden geeft
-1638|bijv. student, webdesigner, boekhouder
-1639|bijv. webdesigner, boekhouder, leraar
-1640|fout
-1641|fal API-sleutel
-1642|fal-videomodel
-1643|fal.ai-model
-1644|bestand
-1645|voor {n} credits · eenmalige betaling
-1646|van een geplande taak
-1647|uit de geschiedenis
-1648|van {n}
-1649|github_pat_... of ghp_...
-1650|inbegrepen
-1651|item
-1652|items
-1653|automatisch bewaard
-1654|afgeleid van de naam
-1655|geheugen
-1656|minimaal {n} credits
-1657|naam@voorbeeld.nl
-1658|volgende: {when}
-1659|zonder account
-1660|geen
-1661|niet inbegrepen
-1662|nu
-1663|van de credits van deze week gebruikt
-1664|uit
-1665|één keer
-1666|alleen bij wijzigingen
-1667|optioneel
-1668|optioneel / PKCE
-1669|betaald
-1670|vastgezet
-1671|alleen lezen
-1672|echt resultaat
-1673|verplicht
-1674|ingesteld door de Owner
-1675|sinds {when}
-1676|bron
-1677|systeem
-1678|het bestand
-1679|de sleutel werkt · {models} modellen, {combos} combo's · {s} s
-1680|er is geen inhoud voor het bestand
-1681|deze
-1682|deze week
-1683|vandaag
-1684|morgen
-1685|onbekende fout
-1686|tot {s} s
-1687|gebruikt als je bovenaan in de lijst geen ander hebt gekozen
-1688|met sleutel
-1689|xAI API-sleutel
-1690|gisteren
-1691|je persoonlijke abonnement blijft alleen van jou (de voorwaarden van de provider staan het delen van een account niet toe). Geef de persoon het model via de API (openai/…, anthropic/…).
-1692|{brand}-account
-1693|{brand} kan fouten maken. Controleer belangrijke informatie.
-1694|{brand} controleert de gepubliceerde prijs als die er is en start niet als het geen nulkosten kan bevestigen. Gemini Veo, fal.ai en Replicate blijven in deze modus geblokkeerd.
-1695|{brand} schrijft de opname uit…
-1696|{brand} houdt hier rekening mee in elke chat van dit account.
-1697|{brand} bewaart zelf je voorkeuren, beslissingen en blijvende details en gebruikt ze als ze ertoe doen.
-1698|{brand} had een probleem
-1699|{brand} leest het bestand uit de ingestelde repository en stelt een oplossing voor.
-1700|{brand} voert de instructies zelf uit op het gekozen tijdstip, terwijl de app draait.
-1701|{brand} slaat de plugin op als directe link en opent de officiële app. Log zoals altijd in via de browser.
-1702|{brand}-dienst
-1703|Adres van de {brand}-dienst
-1704|{brand}-instellingen
-1705|{brand}-update beschikbaar — nu installeren
-1706|{brand} gebruikte {provider} · {model}
-1707|{brand} gebruikt dit alleen om je beter te antwoorden; je kunt het hier altijd bekijken en wijzigen.
-1708|{days} om {time}
-1709|Nog {left} van {limit} gratis berichten vandaag
-1710|{left} van {total} credits · eindigt {when}
-1711|{model}: {mode} voor {email}.
-1712|{name} ({email}) kan nu {brand} gebruiken.
-1713|{name} ({email}) kan {brand} niet gebruiken.
-1714|{name} is verbonden. Vraag het in de chat; de AI vraagt het vóór elke actie.
-1715|{name} is geïnstalleerd
-1716|{name} is klaar. Typ in de chat, bijvoorbeeld: {trigger}, of vraag het gewoon.
-1717|{name} is toegevoegd: de {n} skills ervan werken met /naam in de chat.
-1718|{name}: verbonden.
-1719|{name}: opgeslagen om direct te openen, zonder OAuth. Log zoals altijd in via de officiële app.
-1720|{name}: de plugin is verbonden.
-1721|{name}: de plugin is opgeslagen.
-1722|{n} OmniRoute-modellen zijn verborgen door de Owner.
-1723|{n} per dag
-1724|{n} per minuut
-1725|{n} per week
-1726|{n} acties
-1727|{n} actieve sessies
-1728|{n} apps
-1729|{n} tegelijk
-1730|{n} automatiseringen
-1731|{n} bestanden toegevoegd aan de Bibliotheek.
-1732|nog {n} · week {w} van 4
-1733|{n} model beschikbaar
-1734|{n} modellen zijn verborgen door de Owner.
-1735|{n} modellen beschikbaar
-1736|{n} niet toegestaan
-1737|{n} personen
-1738|{n} seconden
-1739|{n} skills
-1740|{n} versies
-1741|{pack} · door {author} · {license}
-1742|{plan}-abonnement
-1743|{plan}-abonnement: {percent}% van deze week gebruikt
-1744|{price} per jaar · 2 maanden gratis
-1745|{p}% van de credits van deze week gebruikt
-1746|{s} s · duurt meestal ongeveer een minuut
-1747|«Toegestaan» heeft geen effect zolang «Chat AI» voor dit account uit staat: zet eerst de Chat-toestemming hierboven aan.
-1748|«Standaard» volgt de rechten hierboven; «Toegestaan» opent het model ook als de rechten het gesloten houden; «Geblokkeerd» sluit het. De persoonlijke abonnementen van de Owner blijven alleen van de Owner.
-1749|«Nano Banana»; het model kies je hierboven, bij «Afbeeldingen gemaakt door». Dezelfde sleutel als bij AI-API's en Video.
-1750|«{feature}» is voor je account uitgezet door de Owner.
-1751|«{model}» is voor jou niet toegestaan door de Owner.
-1752|«{name}» is uitgevoerd. Het resultaat staat in de geschiedenis.
-1753|⚡ Snel
-1754|✨ Kwaliteit
-1755|🎬 Kwaliteit
-1756|🛡️ Alleen gratis
+1336|De dienst heeft het opslaan van het bestand niet bevestigd.
+1337|De sessie is ongeldig of verlopen.
+1338|De sessies zijn gesloten.
+1339|Kon de instelling niet opslaan: {error}
+1340|Kon de instellingen niet opslaan.
+1341|Het inloggen is geopend in de browser. Rond het daar af; {brand} slaat de verbinding zelf op.
+1342|Het inloggen is niet binnen 2 minuten afgerond. Probeer het opnieuw.
+1343|De site heeft de nieuwste versie.
+1344|De site-update is mislukt. De details staan in Instellingen → Algemeen.
+1345|De site is bijgewerkt naar versie {v}. De pagina wordt herladen.
+1346|De site is bijgewerkt. De pagina wordt herladen.
+1347|De site werkt zichzelf bij als er een nieuwe versie uitkomt (elk uur gecontroleerd).
+1348|De site-instellingen: opgeslagen op de server en meteen toegepast op alle accounts. De sleutels blijven op de server en worden alleen gemaskeerd getoond. Het e-mailadres van de Owner en de registraties blijven in het .env-bestand op de server.
+1349|De skill /{slug} is opgeslagen.
+1350|Kon de skillbibliotheek niet laden: {error}
+1351|Kon de skills niet laden: {error}
+1352|De gedicteerde tekst staat in het vak; verstuur hem als de AI klaar is met antwoorden.
+1353|De status van {email} is nu «{status}».
+1354|De syntaxcontrole vond een fout. Het voorstel kan NIET worden toegepast.
+1355|De syntaxcontrole is geslaagd.
+1356|De taak is nog niet uitgevoerd. Klik op «Nu uitvoeren» om een resultaat te zien.
+1357|De taak is bijgewerkt.
+1358|De taak «{name}» is gemaakt.
+1359|Kon de taken niet laden: {error}
+1360|Kon de tekst niet naar het klembord kopiëren.
+1361|Kon de tekst niet lezen
+1362|De tekst die je hebt geselecteerd
+1363|De twee nieuwe wachtwoorden komen niet overeen.
+1364|Kon de video niet maken: {error}
+1365|De spraakopname is mislukt.
+1366|Het hele bericht
+1367|Het venster kon dit deel van de app niet tonen. Klik op «Herladen». Als het opnieuw gebeurt, kopieer dan de details hieronder en stuur ze naar de beheerder van de app.
+1368|De dienst {brand} heeft niet gevonden wat werd gevraagd (HTTP 404).
+1369|De dienst {brand} had een fout (HTTP {status}).
+1370|Kon het {format}-bestand niet maken: {error}. Je kunt het opnieuw proberen met de knoppen onder het antwoord.
+1371|Hun modellen verschijnen in de lijst (Groq, Gemini, Cerebras…). Ze antwoorden als je ze kiest of als er geen model is gekozen.
+1372|Hun modellen verschijnen in de lijst en antwoorden direct, zonder OmniRoute.
+1373|Thema
+1374|Er zijn nieuwe wijzigingen op GitHub.
+1375|Er zijn geen bestanden in dit gesprek.
+1376|Er zijn geen gebruikers in deze groep.
+1377|Er is geen bericht van jou voor dit antwoord.
+1378|Er is geen recente GitHub-back-up.
+1379|Deze acties worden uitgevoerd zonder te vragen. Verwijder er een en de AI vraagt het weer.
+1380|Met deze tools kan {brand} actuele informatie controleren en de relevante delen van een GitHub-repository ophalen.
+1381|Denken
+1382|Denken staat aan: nauwkeuriger antwoorden, iets langzamer. Klik voor Snel.
+1383|Denken…
+1384|Deze app accepteert alleen apps die hij heeft goedgekeurd; Serasmart staat nog niet op zijn lijst.
+1385|Deze browser kan geen meldingen ontvangen. Gebruik de {brand}-app die op de telefoon is geïnstalleerd (Chrome op Android of Safari op iPhone).
+1386|Deze computer
+1387|Dit document is leeg.
+1388|Dit e-mailadres wordt niet geaccepteerd.
+1389|Dit bestandstype kan hier niet worden geopend. Gebruik «Downloaden».
+1390|Dit bestandstype heeft geen voorbeeld. Je kunt het downloaden.
+1391|Deze link kan niet door {brand} worden geopend.
+1392|De creditdelen van deze periode
+1393|Deze dienst heeft ook de OAuth Client Secret nodig.
+1394|Deze tekst staat niet in je chats.
+1395|Deze werkmap is leeg.
+1396|Duizenden apps via je Zapier-acties.
+1397|Tijd
+1398|Tijd verstreken: {answer}
+1399|Vandaag
+1400|De officiële BNR-wisselkoersen van vandaag: euro, dollar, pond en de rest (bnr.ro).
+1401|Together API-sleutel
+1402|Token
+1403|Token (optioneel)
+1404|Token opgeslagen — laat leeg om het te houden
+1405|Toon
+1406|Te groot om te lezen
+1407|Te veel pogingen. Wacht 15 minuten en probeer het opnieuw.
+1408|Te veel inlogpogingen. Probeer het over een paar minuten opnieuw.
+1409|Te veel foute codes. Vraag een nieuwe code aan.
+1410|Tools
+1411|Topmodellen (de sterkste Claude, GPT, Gemini en Grok)
+1412|Opwaarderen
+1413|Eten en calorieën bijhouden
+1414|Transcriptiemodel
+1415|De app vertalen
+1416|De hele app in elke taal vertalen
+1417|Vertaalt natuurlijk, met behoud van toon en opmaak.
+1418|De app wordt vertaald naar {name}… {pct}%
+1419|De app wordt vertaald naar {name}… {pct}%. De teksten veranderen vanzelf zodra ze klaar zijn.
+1420|{n} teksten worden op de achtergrond vertaald in {count} talen. Je kunt dit venster sluiten.
+1421|Vertaler
+1422|Probeert de modellen op volgorde tot er een nog quotum heeft.
+1423|Opnieuw proberen
+1424|Uitzetten op dit apparaat
+1425|Betaalde AI uitzetten voor gewone accounts? De Owner houdt toegang tot de betaalde modellen.
+1426|{name} uitzetten
+1427|Aanzetten voor dit apparaat
+1428|{name} aanzetten
+1429|Uitgezet
+1430|Uitgezet door de Owner voor je account.
+1431|Niet beschikbaar
+1432|Onder het berichtvak, in de Afbeeldingsmodus, kun je elke keer kiezen wie hem maakt. Bij «Automatisch»: als je in de chat een Gemini-, ChatGPT- of Grok-model hebt gekozen, maakt het bedrijf van dat model de afbeelding (eerst het abonnement in OmniRoute, dan zijn API); anders wordt deze instelling gebruikt.
+1433|Onder het berichtvak, in de Videomodus, kun je elke keer kiezen wie hem maakt. Bij «Automatisch»: als je in de chat een Gemini- of Grok-model hebt gekozen, maakt het bedrijf van dat model de video (eerst het abonnement in OmniRoute, dan zijn API); anders wordt deze instelling gebruikt.
+1434|Laatste wijziging op GitHub ongedaan maken
+1435|Onbekende fout.
+1436|Onbeperkt
+1437|Deblokkeren
+1438|Uitgevinkt: zijn modellen verdwijnen uit de lijst en antwoorden nooit, ook niet als reserve. De OmniRoute-combo's blijven; wat erin zit, kies je in het OmniRoute-paneel.
+1439|Naamloos ontwerp
+1440|Actuele documentatie voor codebibliotheken.
+1441|De site nu bijwerken
+1442|De site nu bijwerken? De server downloadt de nieuwste versie van GitHub en herstart de site (1–5 minuten, waarin hij niet antwoordt).
+1443|Update:
+1444|De site wordt bijgewerkt… dit duurt 1–5 minuten; de pagina herlaadt vanzelf.
+1445|Bijwerken…
+1446|Uploaden
+1447|Upload elk bestand
+1448|Audio uploaden
+1449|Afbeeldingen uploaden
+1450|Video uploaden
+1451|1 bestand uploaden… grote bestanden kunnen even duren.
+1452|Bestand uploaden…
+1453|{n} bestanden uploaden… grote bestanden kunnen even duren.
+1454|Gebruik
+1455|Gebruiken in de chat
+1456|Vanzelf gebruiken als het relevant is
+1457|Geheugen gebruiken
+1458|De standaard lokale dienst gebruiken
+1459|Directe API's gebruiken
+1460|Gebruik het e-mailadres van je {brand}-account.
+1461|Deze AI gebruiken
+1462|Gebruikt
+1463|Meteen gebruikt, zonder weeklimiet
+1464|Gebruikt als je {trigger} typt
+1465|Gebruikt als je «{name}» of {trigger} typt
+1466|Nuttig antwoord
+1467|Gebruiker
+1468|Gebruikt de relevante chats van hetzelfde project zonder dat je ze met de hand hoeft te kopiëren.
+1469|Hulpmiddelen
+1470|12 maanden geldig
+1471|Veo met dezelfde Gemini-sleutel als de chat; het model kies je hierboven, bij «Video's gemaakt door».
+1472|Versie
+1473|Versie op de server: {v}.
+1474|Versie {v} is beschikbaar.
+1475|Versie {v} is beschikbaar. Hij wordt vanzelf gedownload; je krijgt een melding als hij klaar is.
+1476|Video
+1477|Video genereren
+1478|Video genereren met AI-modellen
+1479|Video genereren, API's, modellen en automatische poging bij een andere provider.
+1480|Video gemaakt door
+1481|Video's maken
+1482|Videomodus
+1483|Videomodus: het volgende bericht maakt een video. Klik nogmaals op Video om te stoppen.
+1484|Video: het volgende bericht maakt een video.
+1485|Video's gemaakt door
+1486|Video's gemaakt met AI
+1487|Video's van elke lengte
+1488|Stem
+1489|Spraakactiviteit
+1490|Stem en microfoon
+1491|Spraakinvoer
+1493|Spraakherkenning werkte niet. Klik op de microfoon en probeer het opnieuw.
+1494|Spraakherkenning is gestopt; controleer de tekst en verstuur hem.
+1495|Spraak naar tekst
+1496|Wachten
+1497|Wacht tot het bestand klaar is met uploaden.
+1498|Wachten tot {when}
+1499|Wacht op toegang
+1500|Wachten op het antwoord van de gekozen AI…
+1501|Wachten tot de stem is uitgeschreven.
+1502|Wacht op je goedkeuring
+1503|Wacht op je goedkeuring in {app}…
+1504|Wil
+1505|Een prijs in de gaten houden
+1506|Manieren van werken
+1507|We konden de e-mail met de code niet versturen. Controleer het adres en probeer het opnieuw.
+1508|We hebben je een code van 6 cijfers gemaild. Vul hem in om te bevestigen dat het adres van jou is.
+1509|We hebben een code van 6 cijfers gestuurd naar {email}. Zie je hem niet, kijk dan in je spam. De code verloopt over 15 minuten.
+1510|We hebben je een code gemaild.
+1511|We hebben je een nieuwe code gestuurd.
+1512|Zwak antwoord
+1513|Weer
+1514|Het huidige weer en de verwachting voor 3 dagen voor elke stad (Open-Meteo, zonder account).
+1515|Zoeken op het web
+1516|Webzoeken voor AI-agents
+1517|Webzoeken gemaakt voor AI.
+1518|Webzoeken met bronnen
+1519|Website
+1520|Adres van de website
+1521|Websites
+1522|Weekendmodus. Waar heb je zin in?
+1523|Wekelijks
+1524|Elke week, {day} om {time}
+1525|Welkom terug
+1526|Welkom bij {brand}
+1527|Wat bouwen we vandaag?
+1528|Waar werken we vandaag aan?
+1529|Wat beschrijft je werk het best?
+1530|Wat er in staat
+1531|Wat het doet, in één zin
+1532|Wat moet er opgelost worden
+1533|Wat moet ik veranderen
+1534|Hoe moet {brand} je noemen?
+1535|Wat moet {brand} doen? Bijv. Vind het belangrijke nieuws van vandaag en maak een samenvatting met links.
+1536|Hoe de AI je noemt
+1537|Wat de AI elke keer moet doen als je deze skill gebruikt: toon, structuur, wat erin moet, wat te vermijden.
+1538|Wat de plugin doet
+1539|Wat alles kost
+1540|Wat de AI zou helpen je te leren kennen: interesses, projecten, ervaringsniveau.
+1541|Waar je mee werkt
+1542|Wat {brand} over je weet
+1543|Wat {brand} over je onthoudt en hoe het eerdere chats gebruikt.
+1544|Als een verzoek op meerdere manieren kan worden opgevat, vraagt {brand} het eerst, met keuzes die je met één klik selecteert.
+1545|Als iemand zich aanmeldt, laat je telefoon zien wie lid wil worden van {brand} en vraagt of je het toestaat. Op Android antwoord je vanuit de melding met Toestaan of Weigeren; op iPhone tik je erop en kies je in de app. Het verzoek wacht tot je antwoordt.
+1546|Als je om een afbeelding of video vraagt, zet {brand} het echte bestand in de chat, met een downloadknop.
+1547|Als je om een afbeelding vraagt, probeert {brand} de providers in de ingestelde volgorde, zet het echte bestand in de chat en bewaart het in de Bibliotheek.
+1548|Als je om een video vraagt, probeert {brand} de providers op volgorde, downloadt het echte MP4-bestand, zet het in de chat en bewaart het in de Bibliotheek.
+1549|Als je iets vraagt, zoekt het in je andere chats (ook gearchiveerde) en gebruikt wat ermee te maken heeft. Zo kun je een onderwerp in een nieuwe chat voortzetten.
+1550|Windows-app
+1551|Met de Cloud API ingesteld beheert de Owner accounts, goedkeuringen en rechten centraal. Laat leeg om alleen deze pc te gebruiken.
+1552|Met de xAI-sleutel uit AI-API's.
+1553|Met de xAI-sleutel uit AI-API's; 1–15 seconden.
+1554|Zonder abonnement: {n} berichten per dag op de gratis modellen, na een proefperiode van {days} dagen met {credits} credits. Kaartbetalingen komen binnenkort; tot dan wijst de Owner de abonnementen toe.
+1555|Word-, Excel-, PowerPoint- en PDF-bestanden
+1556|Workers, KV, R2 en D1 in je Cloudflare-account.
+1557|Werkdagen (maandag–vrijdag)
+1558|Bezig in
+1559|Bezig in {app}…
+1560|Laat aan het werk? Ik ben er als je me nodig hebt.
+1561|Prijs berekenen…
+1562|Bezig…
+1563|Trainingen en gezondheidsgegevens
+1564|Werkt meteen
+1565|Werkt: {result}
+1566|De dag afronden? Ik kan helpen met wat er nog is.
+1567|Typ een naam voor de plugin.
+1568|Typ een naam voor de taak.
+1569|Typ de naam van een plugin in de chat (bijvoorbeeld «Agenda») of @naam en {brand} gebruikt hem voor het antwoord.
+1570|Schrijf een korte, vriendelijke e-mail die
+1571|Een e-mail schrijven
+1572|Schrijf één keer wat {brand} moet doen en kies wanneer. Bijvoorbeeld: «Elke werkdag om 08:30 een samenvatting van het nieuws.»
+1573|Schrijf wat {brand} moet doen.
+1574|Schrijf je antwoord
+1575|Schrijf een eigen antwoord
+1576|Schrijft een duidelijke, beleefde e-mail met onderwerp op basis van een paar ideeën.
+1577|HTML en CSS schrijven…
+1578|Schrijven en content
+1579|Opschrijven wat je zei…
+1580|Je stem uitschrijven…
+1581|Antwoord schrijven…
+1582|Je {format}-bestand schrijven…
+1583|Je {format}-bestand schrijven… {n} woorden
+1584|Verkeerd e-mailadres of wachtwoord.
+1585|JA
+1586|Ja
+1587|Gisteren
+1588|Je hebt /{slug} toegevoegd. Typ het in de chat om het te gebruiken.
+1589|Je kunt altijd meer gratis API's toevoegen (Groq, Cerebras, Cloudflare voor afbeeldingen) in Instellingen → AI-API's.
+1590|Je kunt één keer per minuut een nieuwe code aanvragen.
+1591|Je kunt meerdere diensten verbinden. {brand} probeert de providers op volgorde en gaat door naar de volgende als er een niet werkt.
+1592|Je kunt de plugin zonder OAuth gebruiken om de app direct te openen. OAuth of een API is alleen nodig als {brand} privégegevens in die dienst moet lezen of wijzigen.
+1593|Jij kiest
+1594|Je koos {model}; OmniRoute stuurde de vraag naar {served}.
+1595|Je koos {model}; {brand} stuurde de vraag naar {served}.
+1596|Je krijgt een code per e-mail om het adres te bevestigen, daarna keurt de Owner het account goed.
+1597|Je hebt geen assistenten. Maak er een via de zijbalk.
+1598|Je hebt de nieuwste versie.
+1599|Je laat {brand} kiezen
+1600|Je bent op alle apparaten uitgelogd.
+1601|YouTube-statistieken en zoekwoorden
+1602|Jouw AI, elk model
+1603|Je ChatGPT-abonnement, verbonden in OmniRoute
+1604|Je Claude-abonnement, verbonden in OmniRoute
+1605|Je Google Calendar-afspraken
+1606|Je Helium 10-gegevens
+1607|Je Outlook-e-mails
+1608|Je Plaid-dashboard: items, gebruik en problemen.
+1609|Je Wix-websites, -pagina's en -winkel.
+1610|Er wordt niets van je account afgeschreven (Owner).
+1611|Het wachtwoord van je account
+1612|Je account, de app, stem, AI-diensten en updates.
+1613|Je antwoorden
+1614|Je apps
+1615|Je verbonden apps: de AI leest ze en werkt erin met jouw goedkeuring.
+1616|Je keuze: {value}
+1617|Je ontwerpen
+1618|Je bestanden, afbeeldingen, video's en ontwerpen, klaar voor gebruik in gesprekken.
+1619|Je gezondheidsgegevens
+1620|Je notities en vergadertranscripten.
+1621|Je naam
+1622|Je API's en webhooks, en plugins die meteen werken.
+1623|Je afbeeldingen en video's: zoeken, uploaden, bewerken.
+1624|Je abonnement
+1625|Je abonnement, de credits van deze week en extra credits.
+1626|Je abonnement, de credits van deze week en wat elke actie kost.
+1627|Je profiel, hoe de AI antwoordt, meldingen, privacy en beveiliging.
+1628|Je resources op Render
+1629|Je sessie is verlopen of gesloten. Log opnieuw in.
+1630|Je skills
+1632|Je taken en projecten: toevoegen, afronden, verzetten.
+1633|Je werk
+1634|door jou toegevoegd
+1635|alle chats
+1636|alle bestanden in de Bibliotheek
+1637|het hele geheugen
+1638|alle accountgegevens (chats, geheugen, bestanden, projecten, assistenten, skills, automatiseringen, apps, ontwerpen)
+1639|antwoorden · {s} s
+1640|maximaal {n} credits
+1641|automatisch
+1642|door {author}
+1643|door {author} · {license}
+1644|categorieën
+1645|categorie
+1646|controleer of je hem volledig hebt gekopieerd.
+1647|code
+1648|de verbinding werkt
+1649|gemaakt
+1650|credits
+1651|standaard
+1652|bijv. Klachten beantwoorden
+1653|bijv. een naam of bijnaam
+1654|bijv. stel verduidelijkende vragen voordat je uitgebreide antwoorden geeft
+1655|bijv. student, webdesigner, boekhouder
+1656|bijv. webdesigner, boekhouder, leraar
+1657|fout
+1658|fal API-sleutel
+1659|fal-videomodel
+1660|fal.ai-model
+1661|bestand
+1662|voor {n} credits · eenmalige betaling
+1663|van een geplande taak
+1664|uit de geschiedenis
+1665|van {n}
+1666|github_pat_... of ghp_...
+1667|inbegrepen
+1668|item
+1669|items
+1670|automatisch bewaard
+1671|afgeleid van de naam
+1672|geheugen
+1673|minimaal {n} credits
+1674|naam@voorbeeld.nl
+1675|volgende: {when}
+1676|zonder account
+1677|geen
+1678|niet inbegrepen
+1679|nu
+1680|van de credits van deze week gebruikt
+1681|uit
+1682|één keer
+1683|alleen bij wijzigingen
+1684|optioneel
+1685|optioneel / PKCE
+1686|betaald
+1687|vastgezet
+1688|alleen lezen
+1689|echt resultaat
+1690|verplicht
+1691|ingesteld door de Owner
+1692|sinds {when}
+1693|bron
+1694|systeem
+1695|het bestand
+1696|de sleutel werkt · {models} modellen, {combos} combo's · {s} s
+1697|er is geen inhoud voor het bestand
+1698|deze
+1699|deze week
+1700|vandaag
+1701|morgen
+1702|onbekende fout
+1703|tot {s} s
+1704|gebruikt als je bovenaan in de lijst geen ander hebt gekozen
+1705|met sleutel
+1706|xAI API-sleutel
+1707|gisteren
+1708|je persoonlijke abonnement blijft alleen van jou (de voorwaarden van de provider staan het delen van een account niet toe). Geef de persoon het model via de API (openai/…, anthropic/…).
+1709|{brand}-account
+1710|{brand} kan fouten maken. Controleer belangrijke informatie.
+1711|{brand} controleert de gepubliceerde prijs als die er is en start niet als het geen nulkosten kan bevestigen. Gemini Veo, fal.ai en Replicate blijven in deze modus geblokkeerd.
+1712|{brand} schrijft de opname uit…
+1713|{brand} houdt hier rekening mee in elke chat van dit account.
+1714|{brand} bewaart zelf je voorkeuren, beslissingen en blijvende details en gebruikt ze als ze ertoe doen.
+1715|{brand} had een probleem
+1716|{brand} leest het bestand uit de ingestelde repository en stelt een oplossing voor.
+1717|{brand} voert de instructies zelf uit op het gekozen tijdstip, terwijl de app draait.
+1718|{brand} slaat de plugin op als directe link en opent de officiële app. Log zoals altijd in via de browser.
+1719|{brand}-dienst
+1720|Adres van de {brand}-dienst
+1721|{brand}-instellingen
+1722|{brand}-update beschikbaar — nu installeren
+1723|{brand} gebruikte {provider} · {model}
+1724|{brand} gebruikt dit alleen om je beter te antwoorden; je kunt het hier altijd bekijken en wijzigen.
+1725|{days} om {time}
+1726|Nog {left} van {limit} gratis berichten vandaag
+1727|{left} van {total} credits · eindigt {when}
+1728|{model}: {mode} voor {email}.
+1729|{name} ({email}) kan nu {brand} gebruiken.
+1730|{name} ({email}) kan {brand} niet gebruiken.
+1731|{name} is verbonden. Vraag het in de chat; de AI vraagt het vóór elke actie.
+1732|{name} is geïnstalleerd
+1733|{name} is klaar. Typ in de chat, bijvoorbeeld: {trigger}, of vraag het gewoon.
+1734|{name} is toegevoegd: de {n} skills ervan werken met /naam in de chat.
+1735|{name}: verbonden.
+1736|{name}: opgeslagen om direct te openen, zonder OAuth. Log zoals altijd in via de officiële app.
+1737|{name}: de plugin is verbonden.
+1738|{name}: de plugin is opgeslagen.
+1739|{n} OmniRoute-modellen zijn verborgen door de Owner.
+1740|{n} per dag
+1741|{n} per minuut
+1742|{n} per week
+1743|{n} acties
+1744|{n} actieve sessies
+1745|{n} apps
+1746|{n} tegelijk
+1747|{n} automatiseringen
+1748|{n} bestanden toegevoegd aan de Bibliotheek.
+1749|nog {n} · week {w} van 4
+1750|{n} model beschikbaar
+1751|{n} modellen zijn verborgen door de Owner.
+1752|{n} modellen beschikbaar
+1753|{n} niet toegestaan
+1754|{n} personen
+1755|{n} seconden
+1756|{n} skills
+1757|{n} versies
+1758|{pack} · door {author} · {license}
+1759|{plan}-abonnement
+1760|{plan}-abonnement: {percent}% van deze week gebruikt
+1761|{price} per jaar · 2 maanden gratis
+1762|{p}% van de credits van deze week gebruikt
+1763|{s} s · duurt meestal ongeveer een minuut
+1764|«Toegestaan» heeft geen effect zolang «Chat AI» voor dit account uit staat: zet eerst de Chat-toestemming hierboven aan.
+1765|«Standaard» volgt de rechten hierboven; «Toegestaan» opent het model ook als de rechten het gesloten houden; «Geblokkeerd» sluit het. De persoonlijke abonnementen van de Owner blijven alleen van de Owner.
+1766|«Nano Banana»; het model kies je hierboven, bij «Afbeeldingen gemaakt door». Dezelfde sleutel als bij AI-API's en Video.
+1767|«{feature}» is voor je account uitgezet door de Owner.
+1768|«{model}» is voor jou niet toegestaan door de Owner.
+1769|«{name}» is uitgevoerd. Het resultaat staat in de geschiedenis.
+1770|⚡ Snel
+1771|✨ Kwaliteit
+1772|🎬 Kwaliteit
+1773|🛡️ Alleen gratis

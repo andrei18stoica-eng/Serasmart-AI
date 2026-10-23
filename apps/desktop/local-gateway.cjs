@@ -22,6 +22,7 @@ const { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinLis
 const { officePreview, officeKind } = require("./lib/officepreview.cjs");
 const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill, libraryIndex, libraryNotice, librarySkill, libraryPack } = require("./lib/skills.cjs");
 const creditsLib = require("./lib/credits.cjs");
+const usageLib = require("./lib/usage.cjs");
 const { createConnectors } = require("./lib/connectors.cjs");
 const accountLib = require("./lib/accountsettings.cjs");
 const { DESIGN_KINDS, MAX_VERSIONS: MAX_DESIGN_VERSIONS, designMessages, reviseMessages, extractHtml, htmlTitle, previewToken, verifyPreviewToken } = require("./lib/design.cjs");
@@ -1349,7 +1350,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       skills:mine("skills").map(publicSkill),automations:mine("automations").map(publicAutomation),plugins:mine("plugins").map(publicPlugin),
       connectedApps:connectors.list(uid),alwaysAllowed:connectors.approvals(uid),
       designs:mine("designs").map(publicDesign),library:mine("library").map(({filePath,...x})=>x),
-      credits:metered(req)?{status:credits.status(uid),history:credits.history(uid,300)}:null
+      credits:metered(req)?{status:credits.status(uid),history:credits.history(uid,300)}:null,
+      usage:usageLog.summary(uid,usageLib.KEEP_DAYS)
     };
     res.setHeader("Content-Disposition",`attachment; filename="${BRAND_SHORT.toLowerCase()}-date-${new Date().toISOString().slice(0,10)}.json"`);
     res.type("application/json").send(JSON.stringify(data,null,2));
@@ -1387,7 +1389,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       let ok=false;try{ok=!!req.user.passwordHash&&await bcrypt.compare(password,req.user.passwordHash)}catch{}
       if(!ok)return res.status(401).json({error:"Parola nu este corectă."});
     }
-    await deleteUserData(req.user.id,"all");
+    await deleteUserData(req.user.id,"all");usageLog.remove(req.user.id);
     const db=store.read();db.users=db.users.filter(u=>u.id!==req.user.id);store.write(db);
     res.json({ok:true});
   });
@@ -1966,6 +1968,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   // The Owner (and the single person of a PC with no Owner email) is never charged. Credits are set aside before the
   // work starts and taken only when the answer, picture or video comes out; a failed request gives them back.
   const credits=creditsLib.createCredits(dataDir,{timeZone:String(startCfg.timeZone||"Europe/Bucharest")});
+  const usageLog=usageLib.createUsage(dataDir,{timeZone:String(startCfg.timeZone||"Europe/Bucharest")});
   function creditsOn(){const v=getOmniConfig()?.creditsEnabled;return v===true||String(v).toLowerCase()==="true";}
   const meteredUser=(user,cloudUser=null)=>creditsOn()&&!!user&&!personalAllowed(user,cloudUser);
   const metered=(req)=>meteredUser(req?.user,req?.cloudUser);
@@ -1993,7 +1996,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   // free models only). With no credits left, a model the person chose is refused (buy credits or wait), while the
   // default model ("no model chosen") answers through a free model. Throws when the account can pay with neither.
   function chatBill(user,cloudUser,model,{chosen=true}={}){
-    if(!meteredUser(user,cloudUser))return null;
+    // 0.7.38: an account that is not charged still gets {userId}, so its answers are counted in Usage.
+    if(!meteredUser(user,cloudUser))return user?.id?{userId:user.id}:null;
     const s=credits.status(user.id),tier=creditsLib.modelTier(model),freeModel=creditsLib.isFreeModel(model);
     if(tier==="top"&&!freeModel&&!s.features.tiers.includes("top"))throw planUpgrade(`«${model}» is a top model, available from the ${planWith(p=>p.tiers.includes("top"))} plan. Choose another model or upgrade your plan.`);
     const amount=creditsLib.cost("chat",{model});
@@ -2002,7 +2006,10 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     credits.reserve(user.id,amount);
     return null;
   }
-  function chatSettle(bill,model,web){if(bill?.hold)return credits.settle(bill.hold,creditsLib.cost("chat",{model,web}),{kind:"chat",model});return null;}
+  function chatSettle(bill,model,web){
+    if(bill?.userId)usageLog.record(bill.userId,"chat",{model,credits:creditsLib.cost("chat",{model,web}),charged:!!bill.hold});
+    if(bill?.hold)return credits.settle(bill.hold,creditsLib.cost("chat",{model,web}),{kind:"chat",model});return null;
+  }
   function chatRelease(bill){if(bill?.hold)credits.release(bill.hold);else if(bill?.free)credits.refundFree(bill.userId);}
   // On a free message only the free models answer (OmniRoute candidates and the direct APIs).
   function freeOnly(route,req){
@@ -2028,6 +2035,14 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     let done=false;
     res.once("finish",()=>{done=true;if(res.statusCode<400)settle();else credits.release(bill.hold);});
     res.once("close",()=>{if(!done)credits.release(bill.hold);});
+  }
+  // 0.7.38: Usage counts every picture / video / recording that came out, charged or not (lib/usage.cjs).
+  function trackMedia(req,res,kind,opts={},job=null,bill=null){
+    const uid=req?.user?.id;if(!uid)return;
+    const rec=()=>usageLog.record(uid,kind,{model:opts.model,seconds:opts.seconds,credits:creditsLib.cost(kind,opts),charged:!!bill?.hold});
+    if(job){const prev=job.onEnd;job.onEnd=(ok)=>{try{prev?.(ok)}finally{if(ok)rec();}};return;}
+    let done=false;
+    res.once("finish",()=>{if(done)return;done=true;if(res.statusCode<400)rec();});
   }
   const accountByEmail=(email)=>store.read().users.find(u=>normalizeEmail(u.email)===normalizeEmail(email));
   function creditView(req){
@@ -2064,6 +2079,35 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       creditsOwner(req);
       const users=store.read().users;
       res.json({enabled:creditsOn(),data:users.map(u=>{const s=credits.status(u.id);return {id:u.id,email:u.email,name:u.name,role:u.role||"user",unlimited:!meteredUser(u),mode:s.mode,plan:s.plan,week:s.week,trial:s.trial,extras:s.extras,available:s.available,free:s.free};})});
+    }catch(e){sendError(res,e,500)}
+  });
+  // ---- Usage (0.7.38, lib/usage.cjs) ----
+  // Everyone sees their own consumption; the Owner sees every account's, with its plan, and can open any of them.
+  const usageDays=(req)=>Math.max(1,Math.min(usageLib.KEEP_DAYS,Math.floor(Number(req.query.days)||30)));
+  function planView(u){
+    // The Owner (never charged) shows as Unlimited; every other account shows its plan, with credits on or off.
+    const s=credits.status(u.id),unlimited=!!u&&personalAllowed(u,null);
+    return {unlimited,mode:s.mode,plan:s.plan?{key:s.plan.key,name:s.plan.name,billing:s.plan.billing,startedAt:s.plan.startedAt,renewsAt:s.plan.renewsAt,endsAt:s.plan.endsAt}:null,week:s.week?{used:s.week.used,budget:s.week.budget,percent:s.week.percent}:null,trial:creditsOn()?s.trial:null,extras:s.extras};
+  }
+  app.get("/api/usage", auth, (req,res) => {
+    try{res.json({creditsEnabled:creditsOn(),...planView(req.user),...usageLog.summary(req.user.id,usageDays(req))});}
+    catch(e){sendError(res,e,500)}
+  });
+  app.get("/api/usage/accounts", auth, (req,res) => {
+    try{
+      if(!ownerRequest(req))throw policyFailure("Only the Owner sees the usage of every account.",403);
+      const days=usageDays(req);
+      const data=store.read().users.map(u=>({id:u.id,email:u.email,name:u.name,role:u.role||"user",status:u.status||"active",...planView(u),...usageLog.totalsFor(u.id,days)}));
+      data.sort((a,b)=>(b.totals.credits-a.totals.credits)||((b.lastAt||0)-(a.lastAt||0)));
+      res.json({creditsEnabled:creditsOn(),days,data});
+    }catch(e){sendError(res,e,500)}
+  });
+  app.get("/api/usage/accounts/:id", auth, (req,res) => {
+    try{
+      if(!ownerRequest(req))throw policyFailure("Only the Owner sees the usage of every account.",403);
+      const u=store.read().users.find(x=>x.id===req.params.id);
+      if(!u)return res.status(404).json({error:"The account was not found."});
+      res.json({creditsEnabled:creditsOn(),account:{id:u.id,email:u.email,name:u.name,role:u.role||"user"},...planView(u),...usageLog.summary(u.id,usageDays(req))});
     }catch(e){sendError(res,e,500)}
   });
   app.post("/api/credits/accounts/plan", auth, (req,res) => {
@@ -3229,6 +3273,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
         res.once("close",()=>{if(res.statusCode>=400)quotaAdd(req.user.id,"planImage",-1);});
       }
       if(bill)mediaSettle(bill,res,"image",{hd,model:billModel},job);else reserveQuota(req,res,"image");
+      trackMedia(req,res,"image",{hd,model:billModel},job,bill);
       const freeTier=!quotaUnlimited(req)&&!bill;
       const chosen=requestedModel?null:await chosenMaker(req,"image",maker,freeTier);
       // Free tier: whatever model the chat is on («via»), the picture comes from the free providers; a model asked for by
@@ -3372,6 +3417,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       const chosen=requestedModel?null:await chosenMaker(req,"video",maker,freeTier);
       // Free tier: a short video from the free providers, whatever model the chat is on.
       const explicitModel=requestedModel,duration=freeTier?Math.min(askedDuration,6):bill?billSeconds:askedDuration;
+      trackMedia(req,res,"video",{get model(){return billOpts.model},seconds:duration},job,bill);
       const made=mediaConfigFor(getOmniConfig(),"video",freeTier?"":via),errors=[];
       const cfg=freeTier?{...made.cfg,videoProviders:""}:made.cfg,madeBy=freeTier?"":made.madeBy;
       // A ChatGPT model is chosen in the chat: OpenAI makes no video any more; the others make it, and the answer says so.
@@ -4201,6 +4247,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       const ms=Number(req.body?.durationMs),seconds=Number.isFinite(ms)&&ms>0?Math.min(600,ms/1000):Math.min(600,bytes.length/4000);
       const bill=mediaBill(req,"transcribe",{seconds});
       if(bill)mediaSettle(bill,res,"transcribe",{seconds});
+      trackMedia(req,res,"transcribe",{seconds},null,bill);
       const result=await transcribeMedia(req,{bytes,mime,name:"Vocal."+mediaExtension(mime,""),language:req.body?.language,signal});
       res.json({text:String(result?.text||"").trim()});
     }catch(e){if(!signal.aborted)sendError(res,e)}

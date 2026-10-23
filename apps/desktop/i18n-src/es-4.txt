@@ -1,0 +1,436 @@
+1321|El servicio no confirmó que el archivo se guardara.
+1322|La sesión no es válida o ha caducado.
+1323|Se cerraron las sesiones.
+1324|No se pudo guardar el ajuste: {error}
+1325|No se pudieron guardar los ajustes.
+1326|El inicio de sesión se abrió en el navegador. Termínalo allí; {brand} guarda la conexión por sí solo.
+1327|El inicio de sesión no se terminó en 2 minutos. Inténtalo de nuevo.
+1328|El sitio tiene la última versión.
+1329|La actualización del sitio falló. Los detalles están en Ajustes → General.
+1330|El sitio se actualizó a la versión {v}. La página se recarga.
+1331|El sitio se actualizó. La página se recarga.
+1332|El sitio se actualizará solo cuando aparezca una nueva versión (se comprueba una vez por hora).
+1333|Ajustes del sitio: se guardan en el servidor y se aplican al momento a todas las cuentas. Las claves se quedan en el servidor y solo se muestran ocultas. El correo del Owner y los registros siguen en el archivo .env del servidor.
+1334|Se guardó el skill /{slug}.
+1335|No se pudo cargar la biblioteca de skills: {error}
+1336|No se pudieron cargar los skills: {error}
+1337|El texto dictado está en el cuadro; envíalo cuando la IA termine su respuesta.
+1338|El estado de {email} ahora es «{status}».
+1339|La comprobación de sintaxis encontró un error. La propuesta NO se puede aplicar.
+1340|La comprobación de sintaxis pasó.
+1341|La tarea aún no se ha ejecutado. Pulsa «Ejecutar ahora» para ver un resultado.
+1342|La tarea se actualizó.
+1343|Se creó la tarea «{name}».
+1344|No se pudieron cargar las tareas: {error}
+1345|No se pudo copiar el texto al portapapeles.
+1346|No se pudo leer el texto
+1347|El texto que seleccionaste
+1348|Las dos contraseñas nuevas no coinciden.
+1349|No se pudo crear el vídeo: {error}
+1350|La grabación de voz falló.
+1351|Todo el mensaje
+1352|La ventana no pudo mostrar esta parte de la app. Pulsa «Recargar». Si vuelve a pasar, copia los detalles de abajo y envíalos al administrador de la app.
+1353|El servicio {brand} no encontró lo que se pidió (HTTP 404).
+1354|El servicio {brand} tuvo un error (HTTP {status}).
+1355|No se pudo crear el archivo {format}: {error}. Puedes intentarlo de nuevo con los botones debajo de la respuesta.
+1356|Sus modelos aparecen en la lista (Groq, Gemini, Cerebras…). Responden cuando los eliges o cuando no hay ningún modelo elegido.
+1357|Sus modelos aparecen en la lista y responden directamente, sin OmniRoute.
+1358|Tema
+1359|Hay cambios nuevos en GitHub.
+1360|No hay archivos en esta conversación.
+1361|No hay usuarios en este grupo.
+1362|No hay ningún mensaje tuyo para esta respuesta.
+1363|No hay ninguna copia reciente de GitHub.
+1364|Estas acciones se ejecutan sin preguntar. Quita una y la IA te volverá a preguntar.
+1365|Estas herramientas permiten a {brand} consultar información actual y traer partes relevantes de un repositorio de GitHub.
+1366|Pensar
+1367|Pensar está activado: respuestas más cuidadas, un poco más lentas. Pulsa para Rápido.
+1368|Pensando…
+1369|Esta app solo deja entrar apps que ha aprobado; Serasmart aún no está en su lista.
+1370|Este navegador no puede recibir notificaciones. Usa la app {brand} instalada en el teléfono (Chrome en Android o Safari en iPhone).
+1371|Este ordenador
+1372|Este documento está vacío.
+1373|Esta dirección de correo no se acepta.
+1374|Este tipo de archivo no se puede abrir aquí. Usa «Descargar».
+1375|Este tipo de archivo no tiene vista previa. Puedes descargarlo.
+1376|Este enlace no se puede abrir desde {brand}.
+1377|Partes de crédito de este periodo
+1378|Este servicio también necesita el Client Secret de OAuth.
+1379|Este texto no está en tus chats.
+1380|Este libro de cálculo está vacío.
+1381|Miles de apps a través de tus acciones de Zapier.
+1382|Hora
+1383|Tiempo agotado: {answer}
+1384|Hoy
+1385|Los tipos de cambio oficiales del BNR de hoy: euro, dólar, libra y los demás (bnr.ro).
+1386|Clave de API de Together
+1387|Token
+1388|Token (opcional)
+1389|Token guardado — déjalo vacío para conservarlo
+1390|Tono
+1391|Demasiado grande para leer
+1392|Demasiados intentos. Espera 15 minutos y vuelve a intentarlo.
+1393|Demasiados intentos de inicio de sesión. Inténtalo de nuevo en unos minutos.
+1394|Demasiados códigos incorrectos. Pide un código nuevo.
+1395|Herramientas
+1396|Modelos de primer nivel (los Claude, GPT, Gemini y Grok más potentes)
+1397|Recargar
+1398|Controlar comidas y calorías
+1399|Modelo de transcripción
+1400|Traducir la app
+1401|Traducir toda la app a todos los idiomas
+1402|Traduce con naturalidad, manteniendo el tono y el formato.
+1403|Traduciendo la app al {name}… {pct} %
+1404|Traduciendo la app al {name}… {pct} %. Los textos cambian solos a medida que están listos.
+1405|Traduciendo {n} textos a {count} idiomas en segundo plano. Puedes cerrar esta ventana.
+1406|Traductor
+1407|Prueba los modelos en orden hasta que uno tenga cuota disponible.
+1408|Intentar de nuevo
+1409|Desactivar en este dispositivo
+1410|¿Desactivar la IA de pago para las cuentas normales? El Owner mantiene el acceso a los modelos de pago.
+1411|Desactivar {name}
+1412|Activar para este dispositivo
+1413|Activar {name}
+1414|Desactivado
+1415|Desactivado por el Owner para tu cuenta.
+1416|No disponible
+1417|Debajo del cuadro de mensaje, en modo Imagen, puedes elegir cada vez quién la hace. En «Automático», si elegiste un modelo de Gemini, ChatGPT o Grok en el chat, la empresa de ese modelo hace la imagen (primero la suscripción en OmniRoute, luego su API); si no, se usa este ajuste.
+1418|Debajo del cuadro de mensaje, en modo Vídeo, puedes elegir cada vez quién lo hace. En «Automático», si elegiste un modelo de Gemini o Grok en el chat, la empresa de ese modelo hace el vídeo (primero la suscripción en OmniRoute, luego su API); si no, se usa este ajuste.
+1419|Deshacer el último cambio en GitHub
+1420|Error desconocido.
+1421|Ilimitado
+1422|Desfijar
+1423|Sin marcar: sus modelos salen de la lista y nunca responden, ni siquiera como respaldo. Las combinaciones de OmniRoute se quedan; lo que contienen se elige en el panel de OmniRoute.
+1424|Diseño sin título
+1425|Documentación actualizada de bibliotecas de código.
+1426|Actualizar el sitio ahora
+1427|¿Actualizar el sitio ahora? El servidor descarga la última versión de GitHub y reinicia el sitio (1–5 minutos, durante los que no responde).
+1428|Actualización:
+1429|Actualizando el sitio… tarda 1–5 minutos; la página se recarga sola.
+1430|Actualizando…
+1431|Subir
+1432|Subir cualquier archivo
+1433|Subir audio
+1434|Subir imágenes
+1435|Subir vídeo
+1436|Subiendo 1 archivo… los archivos grandes pueden tardar.
+1437|Subiendo el archivo…
+1438|Subiendo {n} archivos… los archivos grandes pueden tardar.
+1439|Uso
+1440|Usar en el chat
+1441|Usarlo por sí solo cuando sea relevante
+1442|Usar la memoria
+1443|Usar el servicio local predeterminado
+1444|Usar las APIs directas
+1445|Usa el correo de tu cuenta de {brand}.
+1446|Usar esta IA
+1447|Usado
+1448|Se usan al momento, sin límite semanal
+1449|Se usa cuando escribes {trigger}
+1450|Se usa cuando escribes «{name}» o {trigger}
+1451|Respuesta útil
+1452|Usuario
+1453|Usa los chats relevantes del mismo proyecto sin copiarlos a mano.
+1454|Utilidades
+1455|Válidos 12 meses
+1456|Veo con la misma clave de Gemini que se usa para el chat; el modelo se elige arriba, en «Vídeos hechos por».
+1457|Versión
+1458|Versión en el servidor: {v}.
+1459|La versión {v} está disponible.
+1460|La versión {v} está disponible. Se descarga sola; recibirás una notificación cuando esté lista.
+1461|Vídeo
+1462|Generación de vídeo
+1463|Generación de vídeo con modelos de IA
+1464|Generación de vídeo, APIs, modelos y probar otro proveedor por sí solo.
+1465|Vídeo hecho por
+1466|Creación de vídeo
+1467|Modo de vídeo
+1468|Modo vídeo: el próximo mensaje crea un vídeo. Pulsa Vídeo otra vez para salir.
+1469|Vídeo: el próximo mensaje crea un vídeo.
+1470|Vídeos hechos por
+1471|Vídeos hechos con IA
+1472|Vídeos de cualquier duración
+1473|Voz
+1474|Actividad de voz
+1475|Voz y micrófono
+1476|Entrada de voz
+1477|El reconocimiento de voz no funcionó. Pulsa el micrófono e inténtalo de nuevo.
+1478|El reconocimiento de voz se detuvo; revisa el texto y envíalo.
+1479|Voz a texto
+1480|Esperar
+1481|Espera a que el archivo termine de subirse.
+1482|Espera hasta {when}
+1483|Esperando el inicio de sesión
+1484|Esperando la respuesta de la IA elegida…
+1485|Esperando a que se escriba la voz.
+1486|Esperando tu aprobación
+1487|Esperando tu aprobación en {app}…
+1488|Quiere
+1489|Vigilar un precio
+1490|Formas de trabajar
+1491|No pudimos enviar el correo con el código. Comprueba la dirección e inténtalo de nuevo.
+1492|Te enviamos un código de 6 dígitos al correo. Introdúcelo para confirmar que la dirección es tuya.
+1493|Enviamos un código de 6 dígitos a {email}. Si no lo ves, mira en Spam. El código caduca en 15 minutos.
+1494|Te enviamos un código por correo.
+1495|Te enviamos un código nuevo.
+1496|Respuesta floja
+1497|El tiempo
+1498|El tiempo ahora y la previsión a 3 días para cualquier ciudad (Open-Meteo, sin cuenta).
+1499|Búsqueda web
+1500|Búsqueda web para agentes de IA
+1501|Búsqueda web hecha para la IA.
+1502|Búsqueda web con fuentes
+1503|Sitio web
+1504|Dirección del sitio web
+1505|Sitios web
+1506|Modo fin de semana. ¿Qué te apetece hacer?
+1507|Semanal
+1508|Cada semana, {day} a las {time}
+1509|Bienvenido de nuevo
+1510|Te damos la bienvenida a {brand}
+1511|¿Qué construimos hoy?
+1512|¿En qué trabajamos hoy?
+1513|¿Qué describe mejor tu trabajo?
+1514|Qué contiene
+1515|Qué hace, en una frase
+1516|Qué hay que arreglar
+1517|Qué debo cambiar
+1518|¿Cómo quieres que te llame {brand}?
+1519|¿Qué debe hacer {brand}? P. ej. Busca las noticias importantes de hoy y dame un resumen con enlaces.
+1520|Cómo te llama la IA
+1521|Lo que la IA debe hacer cada vez que usas este skill: tono, estructura, qué incluir, qué evitar.
+1522|Qué hace el plugin
+1523|Lo que cuesta cada cosa
+1524|Lo que ayudaría a la IA a saber de ti: intereses, proyectos, nivel de experiencia.
+1525|A qué te dedicas
+1526|Lo que {brand} sabe de ti
+1527|Lo que {brand} recuerda de ti y cómo usa los chats anteriores.
+1528|Cuando una petición se puede entender de varias formas, {brand} pregunta primero, con opciones que eliges con un clic.
+1529|Cuando alguien se registra, tu teléfono muestra quién quiere unirse a {brand} y te pregunta si lo permites. En Android respondes desde la notificación con Permitir o Denegar; en iPhone la tocas y eliges en la app. La solicitud espera hasta que respondas.
+1530|Cuando pides una imagen o un vídeo, {brand} pone el archivo real en el chat, con un botón de descarga.
+1531|Cuando pides una imagen, {brand} prueba los proveedores en el orden fijado, pone el archivo real en el chat y lo guarda en la Biblioteca.
+1532|Cuando pides un vídeo, {brand} prueba los proveedores en orden, descarga el archivo MP4 real, lo pone en el chat y lo guarda en la Biblioteca.
+1533|Cuando preguntas algo, busca en tus otros chats (también los archivados) y usa lo que esté relacionado. Así puedes continuar un tema en un chat nuevo.
+1534|App de Windows
+1535|Con la API Cloud configurada, el Owner gestiona cuentas, aprobaciones y permisos de forma central. Déjalo vacío para usar solo este PC.
+1536|Con la clave de xAI de APIs de IA.
+1537|Con la clave de xAI de APIs de IA; 1–15 segundos.
+1538|Sin plan: {n} mensajes al día en los modelos gratuitos, tras una prueba de {days} días con {credits} créditos. Los pagos con tarjeta abren pronto; hasta entonces los planes los da el Owner.
+1539|Archivos de Word, Excel, PowerPoint y PDF
+1540|Workers, KV, R2 y D1 en tu cuenta de Cloudflare.
+1541|Días laborables (lunes–viernes)
+1542|Trabajando en
+1543|Trabajando en {app}…
+1544|¿Trabajando hasta tarde? Aquí estoy cuando me necesites.
+1545|Calculando el precio…
+1546|Trabajando…
+1547|Entrenamientos y datos de salud
+1548|Funciona al momento
+1549|Funciona: {result}
+1550|¿Cerrando el día? Puedo ayudarte con lo que queda.
+1551|Escribe un nombre para el plugin.
+1552|Escribe un nombre para la tarea.
+1553|Escribe el nombre de un plugin en el chat (por ejemplo «Calendario») o @nombre y {brand} lo usa para la respuesta.
+1554|Escribe un correo breve y amable que
+1555|Escribir un correo
+1556|Escribe una vez lo que debe hacer {brand} y elige cuándo. Por ejemplo: «Cada día laborable a las 08:30, dame un resumen de noticias.»
+1557|Escribe lo que debe hacer {brand}.
+1558|Escribe tu respuesta
+1559|Escribe tu propia respuesta
+1560|Escribe un correo claro y educado con asunto a partir de unas pocas ideas.
+1561|Escribiendo HTML y CSS…
+1562|Escritura y contenido
+1563|Escribiendo lo que dijiste…
+1564|Escribiendo tu voz…
+1565|Escribiendo la respuesta…
+1566|Escribiendo tu archivo {format}…
+1567|Escribiendo tu archivo {format}… {n} palabras
+1568|Correo o contraseña incorrectos.
+1569|SÍ
+1570|Sí
+1571|Ayer
+1572|Añadiste /{slug}. Escríbelo en el chat para usarlo.
+1573|Puedes añadir otras APIs gratuitas cuando quieras (Groq, Cerebras, Cloudflare para imágenes) en Ajustes → APIs de IA.
+1574|Puedes pedir un código nuevo una vez por minuto.
+1575|Puedes conectar varios servicios. {brand} prueba los proveedores en orden y pasa al siguiente si uno falla.
+1576|Puedes usar el plugin sin OAuth para abrir la app directamente. OAuth o una API solo hacen falta si quieres que {brand} lea o cambie datos privados en ese servicio.
+1577|Tú eliges
+1578|Elegiste {model}; OmniRoute envió la pregunta a {served}.
+1579|Elegiste {model}; {brand} envió la pregunta a {served}.
+1580|Recibes un código por correo para confirmar la dirección y luego el Owner aprueba la cuenta.
+1581|No tienes asistentes. Crea uno desde la barra lateral.
+1582|Tienes la última versión.
+1583|Dejas que {brand} elija
+1584|Se cerró tu sesión en todos los dispositivos.
+1585|Estadísticas y palabras clave de YouTube
+1586|Tu IA, todos los modelos
+1587|Tu suscripción de ChatGPT, conectada en OmniRoute
+1588|Tu suscripción de Claude, conectada en OmniRoute
+1589|Tus eventos de Google Calendar
+1590|Tus datos de Helium 10
+1591|Tus correos de Outlook
+1592|Tu panel de Plaid: elementos, uso e incidencias.
+1593|Tus sitios, páginas y tienda de Wix.
+1594|A tu cuenta no se le cobra (Owner).
+1595|La contraseña de tu cuenta
+1596|Tu cuenta, la app, la voz, los servicios de IA y las actualizaciones.
+1597|Tus respuestas
+1598|Tus apps
+1599|Tus apps conectadas: la IA lee y trabaja en ellas con tu aprobación.
+1600|Tu elección: {value}
+1601|Tus diseños
+1602|Tus archivos, imágenes, vídeos y diseños, listos para usar en las conversaciones.
+1603|Tus datos de salud
+1604|Tus notas y transcripciones de reuniones.
+1605|Tu nombre
+1606|Tus propias APIs y webhooks, y plugins que funcionan al momento.
+1607|Tus imágenes y vídeos: buscar, subir, cambiar.
+1608|Tu plan
+1609|Tu plan, los créditos de esta semana y los créditos extra.
+1610|Tu plan, los créditos de esta semana y lo que cuesta cada acción.
+1611|Tu perfil, cómo te responde la IA, notificaciones, privacidad y seguridad.
+1612|Tus recursos en Render
+1613|Tu sesión caducó o se cerró. Inicia sesión de nuevo.
+1614|Tus skills
+1615|Tus tareas y proyectos: añadir, terminar, reprogramar.
+1616|Tu trabajo
+1617|añadido por ti
+1618|todos los chats
+1619|todos los archivos de la Biblioteca
+1620|toda la memoria
+1621|todos los datos de la cuenta (chats, memoria, archivos, proyectos, asistentes, skills, automatizaciones, apps, diseños)
+1622|respuestas · {s} s
+1623|como máximo {n} créditos
+1624|automático
+1625|de {author}
+1626|de {author} · {license}
+1627|categorías
+1628|categoría
+1629|comprueba que la copiaste entera.
+1630|código
+1631|la conexión funciona
+1632|creado
+1633|créditos
+1634|predeterminada
+1635|p. ej. Responder a quejas
+1636|p. ej. un nombre o un apodo
+1637|p. ej. haz preguntas de aclaración antes de dar respuestas detalladas
+1638|p. ej. estudiante, diseñador web, contable
+1639|p. ej. diseñador web, contable, profesor
+1640|error
+1641|Clave de API de fal
+1642|Modelo de vídeo de fal
+1643|Modelo de fal.ai
+1644|archivo
+1645|por {n} créditos · pago único
+1646|de una tarea programada
+1647|del historial
+1648|desde {n}
+1649|github_pat_... o ghp_...
+1650|incluido
+1651|elemento
+1652|elementos
+1653|guardado automáticamente
+1654|hecho a partir del nombre
+1655|memoria
+1656|mínimo {n} créditos
+1657|nombre@ejemplo.com
+1658|próxima: {when}
+1659|sin cuenta
+1660|ninguno
+1661|no incluido
+1662|ahora
+1663|de los créditos de esta semana usados
+1664|desactivado
+1665|una vez
+1666|solo con cambios
+1667|opcional
+1668|opcional / PKCE
+1669|de pago
+1670|fijado
+1671|solo lectura
+1672|resultado real
+1673|obligatorio
+1674|fijado por el Owner
+1675|desde {when}
+1676|fuente
+1677|sistema
+1678|el archivo
+1679|la clave funciona · {models} modelos, {combos} combinaciones · {s} s
+1680|no hay contenido para el archivo
+1681|este
+1682|esta semana
+1683|hoy
+1684|mañana
+1685|error desconocido
+1686|hasta {s} s
+1687|se usa cuando no elegiste otro en la lista de arriba
+1688|con clave
+1689|Clave de API de xAI
+1690|ayer
+1691|tu suscripción personal sigue siendo solo tuya (los términos del proveedor no permiten compartir la cuenta). Da a la persona el modelo por la API (openai/…, anthropic/…).
+1692|Cuenta de {brand}
+1693|{brand} puede cometer errores. Comprueba la información importante.
+1694|{brand} comprueba el precio publicado cuando lo hay y no empieza si no puede confirmar un coste cero. Gemini Veo, fal.ai y Replicate siguen bloqueados en este modo.
+1695|{brand} está escribiendo la grabación…
+1696|{brand} tiene esto en cuenta en cada chat de esta cuenta.
+1697|{brand} guarda por sí solo tus preferencias, decisiones y detalles duraderos y los usa cuando importan.
+1698|{brand} tuvo un problema
+1699|{brand} lee el archivo del repositorio configurado y propone una corrección.
+1700|{brand} ejecuta las instrucciones por sí solo a la hora elegida, mientras la app está en marcha.
+1701|{brand} guarda el plugin como enlace directo y abre la app oficial. Inicias sesión como siempre en el navegador.
+1702|Servicio {brand}
+1703|Dirección del servicio {brand}
+1704|Ajustes de {brand}
+1705|Actualización de {brand} disponible — instalar ahora
+1706|{brand} usó {provider} · {model}
+1707|{brand} usa esto solo para responderte mejor; puedes verlo y cambiarlo aquí cuando quieras.
+1708|{days} a las {time}
+1709|Te quedan {left} de {limit} mensajes gratis hoy
+1710|{left} de {total} créditos · termina {when}
+1711|{model}: {mode} para {email}.
+1712|{name} ({email}) ya puede usar {brand}.
+1713|{name} ({email}) no podrá usar {brand}.
+1714|{name} está conectado. Pregunta en el chat; la IA te pregunta antes de cada acción.
+1715|{name} está instalado
+1716|{name} está listo. Escribe en el chat, por ejemplo: {trigger}, o simplemente pregunta.
+1717|Se añadió {name}: sus {n} skills funcionan con /nombre en el chat.
+1718|{name}: conectado.
+1719|{name}: guardado para abrirse directamente, sin OAuth. Inicia sesión como siempre en la app oficial.
+1720|{name}: el plugin se conectó.
+1721|{name}: el plugin se guardó.
+1722|El Owner ocultó {n} modelos de OmniRoute.
+1723|{n} al día
+1724|{n} por minuto
+1725|{n} a la semana
+1726|{n} acciones
+1727|{n} sesiones activas
+1728|{n} apps
+1729|{n} a la vez
+1730|{n} automatizaciones
+1731|Se añadieron {n} archivos a la Biblioteca.
+1732|Quedan {n} · semana {w} de 4
+1733|{n} modelo disponible
+1734|El Owner ocultó {n} modelos.
+1735|{n} modelos disponibles
+1736|{n} no permitidos
+1737|{n} personas
+1738|{n} segundos
+1739|{n} skills
+1740|{n} versiones
+1741|{pack} · de {author} · {license}
+1742|Plan {plan}
+1743|Plan {plan}: {percent} % de esta semana usado
+1744|{price} al año · 2 meses gratis
+1745|{p} % de los créditos de esta semana usados
+1746|{s} s · suele tardar alrededor de un minuto
+1747|«Permitido» no tiene efecto mientras «Chat AI» esté desactivado para esta cuenta: activa primero el permiso de Chat de arriba.
+1748|«Predeterminado» sigue los permisos de arriba; «Permitido» abre el modelo aunque los permisos lo mantengan cerrado; «Bloqueado» lo cierra. Las suscripciones personales del Owner siguen siendo solo del Owner.
+1749|«Nano Banana»; el modelo se elige arriba, en «Imágenes hechas por». La misma clave que para APIs de IA y Vídeo.
+1750|El Owner desactivó «{feature}» para tu cuenta.
+1751|El Owner no te permite usar «{model}».
+1752|«{name}» se ejecutó. El resultado está en el historial.
+1753|⚡ Rápido
+1754|✨ Calidad
+1755|🎬 Calidad
+1756|🛡️ Solo gratis

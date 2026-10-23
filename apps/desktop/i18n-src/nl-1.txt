@@ -1,0 +1,440 @@
+1|(kopie)
+2|(leeg)
+3|(de nieuwste)
+4|(je kunt er meer dan één kiezen)
+5|({email}) wil lid worden van {brand}. Toestaan?
+6|, plak hem hier en klik op «Sleutels testen».
+7|/ 30 dagen
+8|1 actieve sessie
+9|1 app
+10|1 automatisering
+11|1 persoon
+12|1 skill
+13|1 versie
+14|3 stappen, gratis, zonder kaart. Het duurt een minuut.
+15|30 dagen
+16|90 dagen
+17|Een presentatie van 6 dia's over zonne-energie voor middelbare scholieren.
+18|Een browser in de cloud die webpagina's leest en gebruikt (zonder account).
+19|Een rustige avond is goed om na te denken. Wat doen we nu?
+20|Een duidelijke offerte met stappen, prijs en termijn.
+21|Een paar vragen voordat ik begin
+22|Een token met beperkte toegang en de rechten Models: Read. Hetzelfde token wordt voor GitHub gebruikt.
+23|Een landingspagina voor een fitness-app, met voordelen, 3 abonnementen en een downloadknop.
+24|Een melding bij 25, 50, 75 en 90% van de credits van de week. De melding bij 100% verschijnt altijd.
+25|Een melding in de app (en op de telefoon, als die is aangemeld) wanneer een automatisering klaar is.
+26|Een minimalistisch visitekaartje in zwart-wit voor een architect.
+27|Een modern cv voor een junior programmeur met 2 jaar ervaring in React.
+28|Een persoonlijk account, bevestigd per e-mail en beveiligd met je wachtwoord.
+29|De credits van een abonnement komen in vier gelijke delen, één elke 7 dagen vanaf de dag waarop je abonnement begon (een abonnement dat op woensdag begon, krijgt bijvoorbeeld elke woensdag credits). Wat je niet gebruikt, gaat mee naar de volgende week. Bij 100% stoppen de betaalde modellen tot het volgende deel, of je koopt extra credits; intussen houd je {n} berichten per dag op de gratis modellen.
+30|Een plugin is een set skills. Voeg hem één keer toe en typ /naam in de chat voor elke skill ervan. Een plugin telt als één skill in je abonnement.
+31|Een poster voor een rockconcert in de open lucht, in neonkleuren.
+32|Een presentatiewebsite voor een café: menu, openingstijden, galerij en contactformulier.
+33|Een rustige nacht is goed om je te concentreren. Waar denk je aan?
+34|Een skill is een set instructies die de AI volgt wanneer je hem aanroept. Voeg er hieronder een toe of maak je eigen.
+35|Een token met de template «Workers AI». De Account ID staat op dash.cloudflare.com → AI → Workers AI. Hetzelfde token als bij Afbeeldingen.
+36|AI
+37|AI en OmniRoute
+38|AI-API's
+39|AI en machine learning
+40|AI-coach voor je Garmin-gegevens
+41|AI-model: {model}
+42|AI-modellen voor biologie
+43|AI-modellen voor afbeeldingen en video
+44|AI-modellen voor dit account
+45|AI-muziek met artiesten
+46|AI-tools voor WordPress
+47|API-toegang
+48|API-adres
+49|API-sleutel
+50|Alleen API
+51|API-plugins
+52|API-token
+53|API's
+54|AUTO_FREE vindt zelf het eerste beschikbare gratis model.
+55|Over jou
+56|Toegang voor andere accounts: Control Center → het account → «Code {brand}». Zij gebruiken de API's van OpenAI / Claude, betaald per gebruik, niet jouw abonnementen: de voorwaarden van ChatGPT en Claude staan het delen van een account niet toe.
+57|Toegankelijkheid
+58|Account
+59|Account-ID
+60|Account verwijderd.
+61|Accountstatus gewijzigd
+62|Accounts en chats worden bewaard op de server van {brand}.
+63|Accounts en chats worden bewaard op deze computer.
+64|Acties
+65|Actief
+66|Actieve sessies
+67|Actieve gebruikers
+68|Toevoegen
+69|Bestanden toevoegen
+70|Voeg iets belangrijks toe dat {brand} moet onthouden… (Ctrl+Enter slaat op)
+71|Voeg de sleutel toe of kies «Geen» als authenticatie.
+72|Voeg de repository toe in Instellingen → AI en OmniRoute → GitHub, zodat {brand} de code zelf leest bij programmeervragen.
+73|{name} toevoegen
+74|Toegevoegd
+75|Komt bovenop elk abonnement, of zelfs zonder
+76|Toevoegen…
+77|Beheerlogboek ({n})
+78|Beheer: {error}
+79|Middagsprint: wat maken we vandaag af?
+80|Opnieuw
+81|Alles
+82|Alle chats
+83|Alle gegevens
+84|Alle, de beste eerst (ChatGPT, Gemini, Grok, de gratis)
+85|Alle, de beste eerst (de gratis, Gemini Veo, Grok)
+86|Toestaan
+87|Eén keer toestaan
+88|Betaalde AI toestaan voor de andere geschikte accounts? Elke gebruiker heeft nog steeds zijn eigen OpenAI- / Claude- / OpenRouter-toestemming nodig.
+89|Betaalde providers toestaan
+90|Toegestaan
+91|Bijna klaar…
+92|Het is bijna weekend. Wat ronden we eerst af?
+93|Ook betaalde API's toestaan (OpenAI, Grok)
+94|Altijd toestaan
+95|Altijd toegestaan
+96|Altijd in het Engels
+97|Altijd in het Roemeens
+98|Altijd aan
+99|Altijd aan {slug}
+100|Altijd aan: gebruikt in elk bericht, zonder /naam
+101|Er bestaat al een account met dit e-mailadres.
+102|Een adres of stad
+103|Berichten analyseren en inplannen
+104|Blockchaingegevens analyseren
+105|Analyseer het bestand, vind het probleem en los het op.
+106|Gebruikersgedrag analyseren
+107|Trainingen analyseren en schema's maken
+108|De gegevens van je product analyseren
+109|Analyseert code en werkt met GitHub.
+110|Analyseert geüploade bestanden, tabellen en documenten.
+111|Analyseren…
+112|Bezig met antwoorden
+113|Taal van de antwoorden
+114|Antwoorden uit de documentatie van Cloudflare (zonder account).
+115|Antwoorden uit je gegevens
+116|Antwoorden gaan door, ook als de app gesloten is
+117|Elke app met een externe MCP-server (een adres dat begint met https://). Laat het token leeg als de app een eigen login heeft.
+118|Elk aantal credits dat je wilt
+119|App
+120|Toegepast op de server voor dit account.
+121|Toepassen in GitHub
+122|De wijziging direct in GitHub toepassen voor {path} (branch {branch})? Er wordt een lokale back-up gemaakt om terug te kunnen gaan.
+123|Wijzigingen toepassen…
+124|Toepassen…
+125|Goedkeuren / Heractiveren
+126|Apps
+127|Apps en automatiseringen
+128|App-secties
+129|Archiveren
+130|Gearchiveerd
+131|Asana OAuth Client ID
+132|Asana OAuth client secret
+133|Asana accepteert alleen OAuth-apps die door de eigenaar zijn geregistreerd. Maak er een in Asana ({where}) met dit terugkeeradres: {url}
+134|Asana-toegang voor iedereen
+135|Verduidelijkende vragen stellen (met antwoordkeuzes)
+136|Vraag om toegang of kies een ander model.
+137|Stel vragen over elke openbare GitHub-repository.
+138|Vraag de Owner om toegang tot minstens één model.
+139|Vraag de Owner om toegang tot OpenAI- of Claude-modellen.
+140|Assistenten
+141|Minstens 10 tekens
+142|Maximaal 2 GB per bestand
+143|Bij het starten downloadt {brand} zelf de nieuwe versie van GitHub Releases en laat het weten wanneer die klaar is om te installeren.
+144|Bijvoegen: {error}
+145|Door jou bijgevoegd
+146|Bijgevoegd bestand: {names}
+147|Google Drive-rechten controleren
+148|Authenticatie
+149|Automatische reserve: directe API
+150|Automatische reserve
+151|Automatische site-update
+152|Automatische site-updates staan uit.
+153|Automatische update:
+154|Automatische updates (Windows-app)
+155|Automatisch · de beste beschikbare
+156|Automatisch — mijn volgorde
+157|Automatisch — het eerste beschikbare afbeeldingsmodel
+158|Automatisering
+159|Automatisering en bediening op afstand
+160|Resultaten van automatiseringen
+161|Automatisering «{name}»
+162|Automatiseringen
+163|Beschikbaar
+164|Beschikbaar voor je account
+165|Nu beschikbaar
+166|BNR-wisselkoersen
+167|Terug
+168|Terug naar de standaard lokale dienst. Probeer opnieuw in te loggen.
+169|Bases, tabellen en records: zoeken, maken en bijwerken.
+170|Facturering
+171|Geboortehoroscopen en horoscoop
+172|Blokkeren
+173|Blockchain
+174|Geblokkeerd
+175|Geblokkeerde gebruikers
+176|Borden, items en updates.
+177|Borden, plakbriefjes en diagrammen (Miro Enterprise).
+178|Box OAuth Client ID
+179|Box OAuth client secret
+180|Box accepteert alleen OAuth-apps die door de eigenaar zijn geregistreerd. Maak er een in Box ({where}) met dit terugkeeradres: {url}
+181|Box-toegang voor iedereen
+182|Bugrapporten met opnames en logs.
+183|Apps bouwen en publiceren
+184|Webapps bouwen en publiceren
+185|Bedrijven
+186|Zakelijk en operaties
+187|Zakelijke bankrekeningen en transacties.
+188|Visitekaartje
+189|Ondernemer
+190|Credits kopen
+191|Kopen voor {price}
+192|C:\Users\jij\.ssh\id_ed25519
+193|Kan de server niet bereiken, opnieuw verbinden…
+194|Annuleren
+195|Kan de dienst {brand} niet bereiken. Controleer of de app draait en of er internet is.
+196|Kan de opname niet lezen.
+197|Kaartbetalingen komen binnenkort
+198|Let op: de providers die je instelt kunnen tegoed gebruiken tegen hun prijzen.
+199|Let op: video maken kan snel tegoed verbruiken. De kosten hangen af van model, duur en resolutie.
+200|Cerebras API-sleutel
+201|Cerebras-modellen · gescheiden door komma's
+202|Wijzigen
+203|Wachtwoord wijzigen
+204|Gewijzigd
+205|Wijzigen… (bijv. maak de achtergrond donkerblauw en voeg een prijssectie toe)
+206|Wijzigen…
+207|Chat
+208|Chatopties
+209|Chat met alle beste AI's, geheugen, bestanden, afbeeldingen, video's en automatiseringen.
+210|Alleen ChatGPT · GPT Image
+211|ChatGPT, Gemini en Grok
+212|Chats
+213|Oudere chats worden vanzelf verwijderd (vastgezette blijven). Je gegevens blijven op de server van {brand} en worden nooit verkocht of voor advertenties gebruikt.
+214|Chats, geheugen, bibliotheek, ontwerpen, projecten, apps en automatiseringen worden bewaard op de server van {brand}.
+215|Chats, geheugen, bibliotheek, ontwerpen, projecten, apps en automatiseringen worden bewaard op deze computer.
+216|Controle mislukt
+217|Nu naar updates zoeken
+218|Links, domeinen en telefoonnummers controleren
+219|Prijs controleren
+220|Controleer de prijs van het product dat ik volg op de winkelpagina en laat het me alleen weten als die onder de prijs zakt die ik heb ingesteld.
+221|Gecontroleerd: {when}.
+222|Controleren hoe het eruitziet op een telefoon…
+223|Geheugen, bestanden en relevante context controleren…
+224|Controleren…
+225|Controleert OmniRoute (de sleutel en een model van Gemini, Grok, OpenAI en Claude) en elke opgeslagen API. Sla de instellingen op vóór de test.
+226|Simulaties voor scheikunde en biologie
+227|Kies App installeren of Toevoegen aan beginscherm.
+228|Kies een PNG-, JPEG- of WebP-afbeelding.
+229|Kies een datum en tijd in de toekomst.
+230|Kies een geldige tijd (00:00–23:59).
+231|Kies een AI
+232|Kies minstens één dag van de week.
+233|Kiezen uit de Bibliotheek
+234|Kies de AI
+235|Kies datum en tijd voor de eenmalige taak.
+236|{plan} kiezen
+237|Kleuren en lettertypen kiezen…
+238|Automatisch gekozen
+239|Gekozen dagen
+240|Advertenties in Duitsland
+241|Claude / Anthropic (betaald)
+242|Claude via API
+243|Zoekopdracht wissen
+244|Client ID van de app die bij de provider is gemaakt
+245|Sluiten
+246|Alle actieve sessies van {email} sluiten?
+247|Sessies sluiten
+248|Menu sluiten
+249|Voorbeeld sluiten
+250|Minimaliseren naar het systeemvak
+251|Cloudflare API-token
+252|Cloudflare-modellen · gescheiden door komma's
+253|Code
+254|Code en GitHub
+255|Code uit de e-mail
+256|Code {brand} (via de API's van OpenAI / Claude, niet je abonnementen)
+257|Code {brand} is beschikbaar voor de Owner en voor de accounts waaraan de Owner toegang heeft gegeven.
+258|Koffie en een duidelijk plan? Zeg waar we beginnen.
+259|Cohere API-sleutel
+260|Cohere-modellen · gescheiden door komma's
+261|Combo
+262|Combo's
+263|Combo's voor alle accounts
+264|Opdracht in de chat
+265|Communicatie
+266|Bedrijfskaarten, uitgaven en facturen.
+267|Modellen naast elkaar vergelijken
+268|Compatibiliteits-API.
+269|E-mail bevestigen
+270|Bevestig je e-mailadres
+271|Verbinden
+272|Verbind Codex of Claude Code in OmniRoute.
+273|Een app verbinden
+274|Verbind elke API of webhook.
+275|Eigen API verbinden
+276|Meer dan 350 gegevensbronnen verbinden
+277|Verbinden met OAuth (toegang tot gegevens)
+278|Verbinden zonder OAuth en {name} openen
+279|Verbind je apps: de AI kan erin zoeken, lezen, maken en bewerken, en vraagt het vóór elke actie.
+280|Verbonden
+281|Verbonden apps
+282|Verbonden apps (Gmail, Drive, Notion, GitHub…)
+283|Verbonden met OAuth
+284|Verbinden…
+285|Connectors
+286|Context tussen de chats van het project
+287|Regelt betaalde AI voor gewone accounts. De Owner blijft ingeschakeld.
+288|Gesprek
+289|Gesprekken en contacten.
+290|Gekopieerd
+291|Kopieert de sleutels die op deze pc zijn opgeslagen, zodat de site {domain} dezelfde modellen heeft.
+292|Kopiëren
+293|Chat kopiëren
+294|Account-ID kopiëren
+295|Chat naar het klembord kopiëren
+296|Code kopiëren
+297|Sleutels voor de server kopiëren
+298|Bericht kopiëren
+299|Selectie kopiëren
+300|Kopiëren…
+301|Kostenbescherming
+302|Kon niet bijvoegen:
+303|Kon niet controleren:
+304|Kon de meldingsstatus niet lezen:
+305|Kon de instellingen niet lezen:
+306|Maken
+307|Een plugin maken
+308|Account maken
+309|Ontwerpen maken en bewerken
+310|Plugin maken
+311|Het account maken
+312|De taak maken
+313|Maak je {brand}-account
+314|Documenten en afbeeldingen maken, combineren en bewerken
+315|Advertenties maken, lanceren en analyseren
+316|Gemaakt
+317|Ontwerp maken…
+318|Creatief
+319|Creativiteit
+320|Creditmeldingen
+321|Credits toegevoegd
+322|Credits op
+323|Huidig
+324|Huidige chat
+325|Huidig wachtwoord
+326|Huidig abonnement
+327|Aangepast
+328|Eigen app
+329|Eigen assistent
+330|Eigen header
+331|Eigen instructies
+332|Klantenservice
+333|Klanten
+334|Klanten, betalingen, facturen en producten.
+335|Dagelijks
+336|Dagelijks om {time}
+337|Donker
+338|Gegevens
+339|Gegevens en acties in HubSpot
+340|Gegevens en analyse
+341|Databases
+342|Datum
+343|Dag
+344|Dag van de maand
+345|Dagen
+346|Beslissingen
+347|Deep Research
+348|Standaard
+349|Verwijderen
+350|Account verwijderen
+351|Alles verwijderen
+352|Gegevens verwijderen
+353|Alles verwijderen wat {brand} voor dit account onthoudt? Dit kan niet ongedaan worden gemaakt.
+354|Het account verwijderen
+355|Het account en al zijn gegevens verwijderen? Dit kan niet ongedaan worden gemaakt. Typ het wachtwoord van het account om te bevestigen.
+356|De assistent «{name}» verwijderen?
+357|Chat verwijderen
+358|Chat {name} verwijderen
+359|Het gesprek «{title}» definitief verwijderen?
+360|Het ontwerp «{name}» met alle versies verwijderen?
+361|De plugin «{name}» verwijderen?
+362|Het project «{name}» verwijderen? De gesprekken blijven, maar horen dan bij geen enkel project meer.
+363|Opgeslagen sleutel verwijderen
+364|Opgeslagen token verwijderen
+365|De skill /{slug} verwijderen?
+366|De taak «{name}» verwijderen? De geschiedenis van de uitvoeringen gaat verloren.
+367|Dit verwijderen
+368|Dit uit het geheugen verwijderen?
+369|{name} verwijderen
+370|{what} verwijderen? Dit kan niet ongedaan worden gemaakt. Typ DELETE om te bevestigen.
+371|«{name}» uit de Bibliotheek verwijderen? Het kan dan niet meer worden gedownload, ook niet uit de gesprekken waarin het is gebruikt.
+372|Verwijderen: {error}
+373|Verwijderd: {what}.
+374|Verwijderen…
+375|Geweigerd
+376|Weigeren
+377|Beschrijf een website, een poster of een presentatie; {brand} maakt een HTML-mock-up die je kunt bekijken, aanpassen en downloaden.
+378|Beschrijf de pagina, poster of presentatie. {brand} schrijft één HTML-bestand dat je meteen ziet, met woorden aanpast en downloadt.
+379|Beschrijf de afbeelding die ik moet maken.
+380|Beschrijf de afbeelding die je wilt…
+381|Beschrijf de video die ik moet maken.
+382|Beschrijf de video die je wilt…
+383|Beschrijf wat we moeten bouwen
+384|Beschrijf wat we moeten bouwen…
+385|Beschrijving
+386|Design
+387|Design en creativiteit
+388|Ontwerp op een gedeeld canvas
+389|Titel van het ontwerp
+390|Type ontwerp
+391|Uitgebreid
+392|Ontwikkelaarstools
+393|Ontwikkeling
+394|Apparaat
+395|Apparaten die de verzoeken ontvangen: {n}.
+396|Handmatig gekozen directe API
+397|Direct en eerlijk
+398|Verwerpen
+399|Wijziging verwerpen
+400|Loskoppelen
+401|{name} loskoppelen? De AI kan er dan niet meer bij.
+402|Doe grondig onderzoek, controleer meerdere bronnen en leg het uitgebreid uit:
+403|Geen directe kosten toestaan
+404|Geen betaalde taken starten
+405|Document
+406|Document / lange context
+407|Documentatie
+408|Documenten
+409|Documenten, spreadsheets en presentaties in Drive
+410|Klaar! De sleutel werkt.
+411|Klaar. Dit apparaat ontvangt de toegangsverzoeken (1 apparaat in totaal).
+412|Klaar. Dit apparaat ontvangt de toegangsverzoeken ({n} apparaten in totaal).
+413|Downloaden
+414|HTML downloaden
+415|Al mijn gegevens downloaden
+416|{name} downloaden
+417|Downloaden: {error}
+418|Bestanden om te downloaden
+419|Downloaden…
+420|Loslaten om de bestanden aan de Bibliotheek toe te voegen
+421|Loslaten om de bestanden bij te voegen
+422|Dupliceren
+423|Bijv. Wiskundeleraar
+424|Bijv. Nieuwsoverzicht
+425|Bijv. Marketingcampagne voor de lente
+426|Bijv. Gebruik de projectdocumenten, houd een formele toon en onthoud belangrijke beslissingen.
+427|Bijv. Weer
+428|Bijv. gemini/gemini-3.5-flash
+429|Bewerken
+430|Plugin bewerken
+431|Assistent bewerken
+432|Assistent {name} bewerken
+433|Project bewerken
+434|Project {name} bewerken
+435|Taak bewerken
+436|Dit bewerken
+437|{name} bewerken
+438|«{name}» bewerken
+439|Onderwijs
+440|Onderwijs en lesgeven

@@ -1,0 +1,436 @@
+1321|Služba nepotvrdila uložení souboru.
+1322|Relace není platná nebo vypršela.
+1323|Relace byly zavřeny.
+1324|Nastavení se nepodařilo uložit: {error}
+1325|Nastavení se nepodařilo uložit.
+1326|Přihlášení se otevřelo v prohlížeči. Dokončete ho tam; {brand} spojení uloží sám.
+1327|Přihlášení nebylo dokončeno do 2 minut. Zkuste to znovu.
+1328|Web má nejnovější verzi.
+1329|Aktualizace webu selhala. Podrobnosti jsou v Nastavení → Obecné.
+1330|Web byl aktualizován na verzi {v}. Stránka se znovu načte.
+1331|Web byl aktualizován. Stránka se znovu načte.
+1332|Web se aktualizuje sám, až vyjde nová verze (kontrola každou hodinu).
+1333|Nastavení webu: uložená na serveru a hned použitá pro všechny účty. Klíče zůstávají na serveru a zobrazují se jen maskované. E-mail Ownera a registrace zůstávají v souboru .env na serveru.
+1334|Skill /{slug} byl uložen.
+1335|Knihovnu skillů se nepodařilo načíst: {error}
+1336|Skilly se nepodařilo načíst: {error}
+1337|Nadiktovaný text je v poli; odešlete ho, až AI dokončí odpověď.
+1338|Stav {email} je teď «{status}».
+1339|Kontrola syntaxe našla chybu. Návrh NELZE použít.
+1340|Kontrola syntaxe prošla.
+1341|Úkol ještě neběžel. Klikněte na «Spustit teď» pro zobrazení výsledku.
+1342|Úkol byl aktualizován.
+1343|Úkol «{name}» byl vytvořen.
+1344|Úkoly se nepodařilo načíst: {error}
+1345|Text se nepodařilo zkopírovat do schránky.
+1346|Text se nepodařilo přečíst
+1347|Text, který jste vybrali
+1348|Nová hesla se neshodují.
+1349|Video se nepodařilo vytvořit: {error}
+1350|Nahrávání hlasu selhalo.
+1351|Celá zpráva
+1352|Okno nemohlo zobrazit tuto část aplikace. Klikněte na «Znovu načíst». Pokud se to stane znovu, zkopírujte podrobnosti níže a pošlete je správci aplikace.
+1353|Služba {brand} nenašla, co bylo požadováno (HTTP 404).
+1354|Ve službě {brand} došlo k chybě (HTTP {status}).
+1355|Soubor {format} se nepodařilo vytvořit: {error}. Můžete to zkusit znovu tlačítky pod odpovědí.
+1356|Jejich modely se objeví v seznamu (Groq, Gemini, Cerebras…). Odpovídají, když je vyberete nebo když není vybrán žádný model.
+1357|Jejich modely se objeví v seznamu a odpovídají přímo, bez OmniRoute.
+1358|Motiv
+1359|Na GitHubu jsou nové změny.
+1360|V této konverzaci nejsou žádné soubory.
+1361|V této skupině nejsou žádní uživatelé.
+1362|K této odpovědi neexistuje vaše zpráva.
+1363|Neexistuje žádná nedávná záloha na GitHubu.
+1364|Tyto akce se provádějí bez ptaní. Odeberte jednu a AI se bude znovu ptát.
+1365|Tyto nástroje umožňují {brand} ověřovat aktuální informace a načíst relevantní části repozitáře GitHub.
+1366|Přemýšlet
+1367|Přemýšlení je zapnuté: přesnější odpovědi, o něco pomaleji. Klikněte pro Rychle.
+1368|Přemýšlím…
+1369|Tato aplikace přijímá jen jí schválené aplikace; Serasmart zatím na jejím seznamu není.
+1370|Tento prohlížeč nemůže přijímat oznámení. Použijte aplikaci {brand} nainstalovanou v telefonu (Chrome na Androidu nebo Safari na iPhonu).
+1371|Tento počítač
+1372|Tento dokument je prázdný.
+1373|Tato e-mailová adresa není přijímána.
+1374|Tento typ souboru zde nelze otevřít. Použijte «Stáhnout».
+1375|Tento typ souboru nemá náhled. Můžete ho stáhnout.
+1376|Tento odkaz nemůže {brand} otevřít.
+1377|Části kreditů tohoto období
+1378|Tato služba potřebuje i OAuth Client Secret.
+1379|Tento text není ve vašich chatech.
+1380|Tento sešit je prázdný.
+1381|Tisíce aplikací přes vaše akce v Zapieru.
+1382|Čas
+1383|Čas vypršel: {answer}
+1384|Dnes
+1385|Dnešní oficiální kurzy BNR: euro, dolar, libra a další (bnr.ro).
+1386|API klíč Together
+1387|Token
+1388|Token (volitelný)
+1389|Token uložen — nechte prázdné, chcete-li ho ponechat
+1390|Tón
+1391|Příliš velké na přečtení
+1392|Příliš mnoho pokusů. Počkejte 15 minut a zkuste to znovu.
+1393|Příliš mnoho pokusů o přihlášení. Zkuste to znovu za pár minut.
+1394|Příliš mnoho chybných kódů. Vyžádejte si nový kód.
+1395|Nástroje
+1396|Špičkové modely (nejsilnější Claude, GPT, Gemini a Grok)
+1397|Dobít
+1398|Sledování jídla a kalorií
+1399|Model přepisu
+1400|Přeložit aplikaci
+1401|Přeložit celou aplikaci do všech jazyků
+1402|Překládá přirozeně, se zachováním tónu a formátování.
+1403|Překládám aplikaci do: {name}… {pct} %
+1404|Překládám aplikaci do: {name}… {pct} %. Texty se mění samy, jakmile jsou hotové.
+1405|Překládám {n} textů do {count} jazyků na pozadí. Toto okno můžete zavřít.
+1406|Překladatel
+1407|Zkouší modely postupně, dokud některý nemá ještě kvótu.
+1408|Zkusit znovu
+1409|Vypnout na tomto zařízení
+1410|Vypnout placenou AI pro běžné účty? Owner si ponechá přístup k placeným modelům.
+1411|Vypnout {name}
+1412|Zapnout pro toto zařízení
+1413|Zapnout {name}
+1414|Vypnuto
+1415|Vypnuto Ownerem pro váš účet.
+1416|Nedostupné
+1417|Pod polem zprávy můžete v režimu Obrázek pokaždé zvolit, kdo ho vytvoří. Při «Automaticky»: pokud jste v chatu vybrali model Gemini, ChatGPT nebo Grok, obrázek vytvoří firma toho modelu (nejdřív předplatné v OmniRoute, pak její API); jinak se použije toto nastavení.
+1418|Pod polem zprávy můžete v režimu Video pokaždé zvolit, kdo ho vytvoří. Při «Automaticky»: pokud jste v chatu vybrali model Gemini nebo Grok, video vytvoří firma toho modelu (nejdřív předplatné v OmniRoute, pak její API); jinak se použije toto nastavení.
+1419|Vrátit poslední změnu na GitHubu
+1420|Neznámá chyba.
+1421|Neomezeně
+1422|Odblokovat
+1423|Nezaškrtnuto: jeho modely zmizí ze seznamu a nikdy neodpoví, ani jako záloha. Kombinace OmniRoute zůstávají; co obsahují, zvolíte v panelu OmniRoute.
+1424|Návrh bez názvu
+1425|Aktuální dokumentace knihoven kódu.
+1426|Aktualizovat web teď
+1427|Aktualizovat web teď? Server stáhne nejnovější verzi z GitHubu a restartuje web (1–5 minut, během nichž neodpovídá).
+1428|Aktualizace:
+1429|Aktualizuji web… trvá to 1–5 minut; stránka se znovu načte sama.
+1430|Aktualizuji…
+1431|Nahrát
+1432|Nahrajte libovolný soubor
+1433|Nahrát zvuk
+1434|Nahrát obrázky
+1435|Nahrát video
+1436|Nahrávám 1 soubor… velké soubory mohou chvíli trvat.
+1437|Nahrávám soubor…
+1438|Nahrávám {n} souborů… velké soubory mohou chvíli trvat.
+1439|Využití
+1440|Použít v chatu
+1441|Použít samo, když je to relevantní
+1442|Používat paměť
+1443|Použít výchozí místní službu
+1444|Použít přímá API
+1445|Použijte e-mail svého účtu {brand}.
+1446|Použít tuto AI
+1447|Využito
+1448|Použity hned, bez týdenního limitu
+1449|Použije se, když napíšete {trigger}
+1450|Použije se, když napíšete «{name}» nebo {trigger}
+1451|Užitečná odpověď
+1452|Uživatel
+1453|Používá relevantní chaty stejného projektu, aniž byste je museli ručně kopírovat.
+1454|Nástroje
+1455|Platné 12 měsíců
+1456|Veo se stejným klíčem Gemini jako chat; model vyberete výše v «Videa vytváří».
+1457|Verze
+1458|Verze na serveru: {v}.
+1459|Je dostupná verze {v}.
+1460|Je dostupná verze {v}. Stáhne se sama; až bude připravená, dostanete oznámení.
+1461|Video
+1462|Generování videa
+1463|Generování videa pomocí AI modelů
+1464|Generování videa, API, modely a automatický pokus u jiného poskytovatele.
+1465|Video vytvořil
+1466|Tvorba videí
+1467|Režim videa
+1468|Režim videa: další zpráva vytvoří video. Znovu klikněte na Video pro ukončení.
+1469|Video: další zpráva vytvoří video.
+1470|Videa vytváří
+1471|Videa vytvořená s AI
+1472|Videa libovolné délky
+1473|Hlas
+1474|Hlasová aktivita
+1475|Hlas a mikrofon
+1476|Hlasový vstup
+1477|Rozpoznávání řeči nefungovalo. Klikněte na mikrofon a zkuste to znovu.
+1478|Rozpoznávání řeči se zastavilo; zkontrolujte text a odešlete ho.
+1479|Řeč na text
+1480|Čekat
+1481|Počkejte, až se soubor dokončí nahrávat.
+1482|Čekat do {when}
+1483|Čeká na přístup
+1484|Čekám na odpověď zvolené AI…
+1485|Čekám na přepis hlasu.
+1486|Čeká na vaše schválení
+1487|Čeká na vaše schválení v {app}…
+1488|Chce
+1489|Hlídat cenu
+1490|Způsoby práce
+1491|E-mail s kódem se nepodařilo odeslat. Zkontrolujte adresu a zkuste to znovu.
+1492|Poslali jsme vám e-mailem šestimístný kód. Zadejte ho, abyste potvrdili, že adresa je vaše.
+1493|Poslali jsme šestimístný kód na {email}. Pokud ho nevidíte, podívejte se do spamu. Platnost kódu vyprší za 15 minut.
+1494|Poslali jsme vám kód e-mailem.
+1495|Poslali jsme vám nový kód.
+1496|Slabá odpověď
+1497|Počasí
+1498|Aktuální počasí a předpověď na 3 dny pro jakékoli město (Open-Meteo, bez účtu).
+1499|Vyhledávání na webu
+1500|Vyhledávání na webu pro AI agenty
+1501|Vyhledávání na webu vytvořené pro AI.
+1502|Vyhledávání na webu se zdroji
+1503|Web
+1504|Adresa webu
+1505|Weby
+1506|Víkendový režim. Na co máte chuť?
+1507|Týdně
+1508|Každý týden, {day} v {time}
+1509|Vítejte zpět
+1510|Vítejte v {brand}
+1511|Co dnes postavíme?
+1512|Na čem dnes budeme pracovat?
+1513|Co nejlépe popisuje vaši práci?
+1514|Co obsahuje
+1515|Co dělá, jednou větou
+1516|Co je potřeba opravit
+1517|Co mám změnit
+1518|Jak vás má {brand} oslovovat?
+1519|Co má {brand} udělat? Např. Najdi dnešní důležité zprávy a udělej shrnutí s odkazy.
+1520|Jak vás AI oslovuje
+1521|Co má AI udělat pokaždé, když použijete tento skill: tón, struktura, co zahrnout, čemu se vyhnout.
+1522|Co plugin dělá
+1523|Kolik co stojí
+1524|Co by AI pomohlo vás poznat: zájmy, projekty, úroveň zkušeností.
+1525|Čím se zabýváte
+1526|Co o vás {brand} ví
+1527|Co si o vás {brand} pamatuje a jak používá předchozí chaty.
+1528|Když jde žádost pochopit více způsoby, {brand} se nejdřív zeptá, s možnostmi, které vyberete jedním kliknutím.
+1529|Když se někdo zaregistruje, váš telefon ukáže, kdo se chce připojit k {brand}, a zeptá se, zda to povolíte. Na Androidu odpovíte z oznámení tlačítkem Povolit nebo Zamítnout; na iPhonu na něj klepnete a vyberete v aplikaci. Žádost čeká, dokud neodpovíte.
+1530|Když požádáte o obrázek nebo video, {brand} vloží do chatu skutečný soubor s tlačítkem ke stažení.
+1531|Když požádáte o obrázek, {brand} zkouší poskytovatele v nastaveném pořadí, vloží skutečný soubor do chatu a uloží ho do Knihovny.
+1532|Když požádáte o video, {brand} zkouší poskytovatele postupně, stáhne skutečný soubor MP4, vloží ho do chatu a uloží do Knihovny.
+1533|Když se na něco zeptáte, prohledá vaše další chaty (i archivované) a použije, co souvisí. Téma tak můžete pokračovat v novém chatu.
+1534|Aplikace pro Windows
+1535|S nastaveným Cloud API spravuje Owner účty, schválení a oprávnění centrálně. Nechte prázdné, chcete-li používat jen tento počítač.
+1536|S klíčem xAI z AI API.
+1537|S klíčem xAI z AI API; 1–15 sekund.
+1538|Bez tarifu: {n} zpráv denně na bezplatných modelech po {days}denní zkušební době s {credits} kredity. Platby kartou brzy; do té doby tarify přiděluje Owner.
+1539|Soubory Word, Excel, PowerPoint a PDF
+1540|Workers, KV, R2 a D1 ve vašem účtu Cloudflare.
+1541|Pracovní dny (pondělí–pátek)
+1542|Pracuje v
+1543|Pracuje v {app}…
+1544|Pracujete dlouho do noci? Jsem tu, když mě budete potřebovat.
+1545|Počítám cenu…
+1546|Pracuji…
+1547|Tréninky a zdravotní data
+1548|Funguje hned
+1549|Funguje: {result}
+1550|Končíte den? Můžu pomoct se zbytkem.
+1551|Napište název pluginu.
+1552|Napište název úkolu.
+1553|Napište do chatu název pluginu (například «Kalendář») nebo @název a {brand} ho použije pro odpověď.
+1554|Napiš krátký, přátelský e-mail, který
+1555|Napsat e-mail
+1556|Napište jednou, co má {brand} dělat, a zvolte kdy. Například: «Každý pracovní den v 08:30 udělej shrnutí zpráv.»
+1557|Napište, co má {brand} udělat.
+1558|Napište svou odpověď
+1559|Napište vlastní odpověď
+1560|Z několika nápadů napíše jasný, zdvořilý e-mail s předmětem.
+1561|Píšu HTML a CSS…
+1562|Psaní a obsah
+1563|Zapisuji, co jste řekli…
+1564|Přepisuji váš hlas…
+1565|Píšu odpověď…
+1566|Píšu váš soubor {format}…
+1567|Píšu váš soubor {format}… {n} slov
+1568|Nesprávný e-mail nebo heslo.
+1569|ANO
+1570|Ano
+1571|Včera
+1572|Přidali jste /{slug}. Napište to do chatu pro použití.
+1573|Kdykoli můžete přidat další bezplatná API (Groq, Cerebras, Cloudflare pro obrázky) v Nastavení → AI API.
+1574|O nový kód můžete žádat jednou za minutu.
+1575|Můžete připojit více služeb. {brand} zkouší poskytovatele postupně a přejde na dalšího, když některý nefunguje.
+1576|Plugin můžete používat bez OAuth k přímému otevření aplikace. OAuth nebo API je potřeba jen tehdy, když chcete, aby {brand} četl nebo měnil soukromá data v té službě.
+1577|Vyberete vy
+1578|Vybrali jste {model}; OmniRoute poslal dotaz na {served}.
+1579|Vybrali jste {model}; {brand} poslal dotaz na {served}.
+1580|E-mailem dostanete kód pro potvrzení adresy, pak Owner účet schválí.
+1581|Nemáte žádné asistenty. Vytvořte si jednoho v postranním panelu.
+1582|Máte nejnovější verzi.
+1583|Necháváte vybrat {brand}
+1584|Byli jste odhlášeni ze všech zařízení.
+1585|Statistiky a klíčová slova YouTube
+1586|Vaše AI, každý model
+1587|Vaše předplatné ChatGPT připojené v OmniRoute
+1588|Vaše předplatné Claude připojené v OmniRoute
+1589|Vaše události v Kalendáři Google
+1590|Vaše data z Helium 10
+1591|Vaše e-maily v Outlooku
+1592|Váš panel Plaid: položky, využití a problémy.
+1593|Vaše weby, stránky a obchod na Wix.
+1594|Z vašeho účtu se nic neúčtuje (Owner).
+1595|Heslo vašeho účtu
+1596|Váš účet, aplikace, hlas, AI služby a aktualizace.
+1597|Vaše odpovědi
+1598|Vaše aplikace
+1599|Vaše připojené aplikace: AI je čte a pracuje v nich s vaším souhlasem.
+1600|Vaše volba: {value}
+1601|Vaše návrhy
+1602|Vaše soubory, obrázky, videa a návrhy připravené k použití v konverzacích.
+1603|Vaše zdravotní data
+1604|Vaše poznámky a přepisy schůzek.
+1605|Vaše jméno
+1606|Vaše API a webhooky a pluginy, které fungují hned.
+1607|Vaše obrázky a videa: hledání, nahrávání, úpravy.
+1608|Váš tarif
+1609|Váš tarif, kredity tohoto týdne a kredity navíc.
+1610|Váš tarif, kredity tohoto týdne a kolik stojí každá akce.
+1611|Váš profil, jak AI odpovídá, oznámení, soukromí a zabezpečení.
+1612|Vaše zdroje na Renderu
+1613|Vaše relace vypršela nebo byla ukončena. Přihlaste se znovu.
+1614|Vaše skilly
+1615|Vaše úkoly a projekty: přidávání, dokončování, přeplánování.
+1616|Vaše práce
+1617|přidáno vámi
+1618|všechny chaty
+1619|všechny soubory v Knihovně
+1620|celou paměť
+1621|všechna data účtu (chaty, paměť, soubory, projekty, asistenti, skilly, automatizace, aplikace, návrhy)
+1622|odpovědi · {s} s
+1623|nejvýše {n} kreditů
+1624|automaticky
+1625|autor: {author}
+1626|autor: {author} · {license}
+1627|kategorie
+1628|kategorie
+1629|zkontrolujte, že jste ho zkopírovali celý.
+1630|kód
+1631|připojení funguje
+1632|vytvořeno
+1633|kredity
+1634|výchozí
+1635|např. Odpovídání na stížnosti
+1636|např. jméno nebo přezdívka
+1637|např. před podrobnými odpověďmi pokládej upřesňující otázky
+1638|např. student, webdesignér, účetní
+1639|např. webdesignér, účetní, učitel
+1640|chyba
+1641|API klíč fal
+1642|Video model fal
+1643|Model fal.ai
+1644|soubor
+1645|za {n} kreditů · jednorázová platba
+1646|z naplánovaného úkolu
+1647|z historie
+1648|od {n}
+1649|github_pat_... nebo ghp_...
+1650|v ceně
+1651|položka
+1652|položky
+1653|uloženo automaticky
+1654|odvozeno z názvu
+1655|paměť
+1656|nejméně {n} kreditů
+1657|jmeno@priklad.cz
+1658|další: {when}
+1659|bez účtu
+1660|žádné
+1661|není v ceně
+1662|teď
+1663|z kreditů tohoto týdne využito
+1664|vyp
+1665|jednou
+1666|jen při změnách
+1667|volitelné
+1668|volitelné / PKCE
+1669|placené
+1670|připnuto
+1671|jen pro čtení
+1672|skutečný výsledek
+1673|povinné
+1674|nastaveno Ownerem
+1675|od {when}
+1676|zdroj
+1677|systém
+1678|soubor
+1679|klíč funguje · {models} modelů, {combos} kombinací · {s} s
+1680|pro soubor není žádný obsah
+1681|tento
+1682|tento týden
+1683|dnes
+1684|zítra
+1685|neznámá chyba
+1686|až {s} s
+1687|použije se, když jste v seznamu nahoře nevybrali jiný
+1688|s klíčem
+1689|API klíč xAI
+1690|včera
+1691|vaše osobní předplatné zůstává jen vaše (podmínky poskytovatele nedovolují sdílet účet). Dejte osobě model přes API (openai/…, anthropic/…).
+1692|Účet {brand}
+1693|{brand} může dělat chyby. Ověřujte důležité informace.
+1694|{brand} kontroluje zveřejněnou cenu, pokud existuje, a nespustí se, pokud nemůže potvrdit nulové náklady. Gemini Veo, fal.ai a Replicate zůstávají v tomto režimu blokované.
+1695|{brand} přepisuje záznam…
+1696|{brand} to bere v úvahu v každém chatu tohoto účtu.
+1697|{brand} si sám ukládá vaše preference, rozhodnutí a trvalé údaje a používá je, když na nich záleží.
+1698|{brand} narazil na problém
+1699|{brand} přečte soubor z nastaveného repozitáře a navrhne opravu.
+1700|{brand} sám provede pokyny ve zvolený čas, když aplikace běží.
+1701|{brand} uloží plugin jako přímý odkaz a otevře oficiální aplikaci. Přihlaste se jako obvykle v prohlížeči.
+1702|Služba {brand}
+1703|Adresa služby {brand}
+1704|Nastavení {brand}
+1705|Je dostupná aktualizace {brand} — nainstalovat teď
+1706|{brand} použil {provider} · {model}
+1707|{brand} to používá jen k lepším odpovědím; kdykoli to tu můžete zobrazit a změnit.
+1708|{days} v {time}
+1709|Dnes zbývá {left} z {limit} bezplatných zpráv
+1710|{left} z {total} kreditů · končí {when}
+1711|{model}: {mode} pro {email}.
+1712|{name} ({email}) teď může používat {brand}.
+1713|{name} ({email}) nebude moci používat {brand}.
+1714|{name} je připojen. Ptejte se v chatu; AI se před každou akcí zeptá.
+1715|{name} je nainstalován
+1716|{name} je připraven. Napište do chatu, například: {trigger}, nebo se prostě zeptejte.
+1717|{name} byl přidán: jeho {n} skillů funguje přes /název v chatu.
+1718|{name}: připojeno.
+1719|{name}: uloženo pro přímé otevírání, bez OAuth. Přihlaste se jako obvykle v oficiální aplikaci.
+1720|{name}: plugin byl připojen.
+1721|{name}: plugin byl uložen.
+1722|Owner skryl {n} modelů OmniRoute.
+1723|{n} denně
+1724|{n} za minutu
+1725|{n} týdně
+1726|{n} akcí
+1727|{n} aktivních relací
+1728|{n} aplikací
+1729|{n} najednou
+1730|{n} automatizací
+1731|Do Knihovny přidáno {n} souborů.
+1732|zbývá {n} · týden {w} ze 4
+1733|{n} dostupný model
+1734|Owner skryl {n} modelů.
+1735|{n} dostupných modelů
+1736|{n} nepovolených
+1737|{n} osob
+1738|{n} sekund
+1739|{n} skillů
+1740|{n} verzí
+1741|{pack} · autor: {author} · {license}
+1742|Tarif {plan}
+1743|Tarif {plan}: využito {percent} % tohoto týdne
+1744|{price} ročně · 2 měsíce zdarma
+1745|využito {p} % kreditů tohoto týdne
+1746|{s} s · obvykle to trvá asi minutu
+1747|«Povoleno» nemá účinek, dokud je «Chat AI» pro tento účet vypnutý: nejdřív výše zapněte oprávnění Chat.
+1748|«Výchozí» se řídí oprávněními výše; «Povoleno» otevře model, i když ho oprávnění drží zavřený; «Blokováno» ho zavře. Osobní předplatná Ownera zůstávají jen Ownerovi.
+1749|«Nano Banana»; model vyberete výše v «Obrázky vytváří». Stejný klíč jako u AI API a Videa.
+1750|Funkci «{feature}» Owner pro váš účet vypnul.
+1751|Owner vám nepovoluje «{model}».
+1752|«{name}» proběhlo. Výsledek je v historii.
+1753|⚡ Rychle
+1754|✨ Kvalita
+1755|🎬 Kvalita
+1756|🛡️ Jen zdarma

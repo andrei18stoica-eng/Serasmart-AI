@@ -1,0 +1,440 @@
+1|(kopya)
+2|(boş)
+3|(en yenisi)
+4|(birden fazla seçebilirsiniz)
+5|({email}) {brand} hizmetine katılmak istiyor. İzin verilsin mi?
+6|, buraya yapıştırın ve «Anahtarları test et» düğmesine tıklayın.
+7|/ 30 gün
+8|1 etkin oturum
+9|1 uygulama
+10|1 otomasyon
+11|1 kişi
+12|1 skill
+13|1 sürüm
+14|3 adım, ücretsiz, kart gerekmez. Bir dakika sürer.
+15|30 gün
+16|90 gün
+17|Lise öğrencileri için güneş enerjisi hakkında 6 slaytlık bir sunum.
+18|Web sayfalarını okuyan ve kullanan bulutta bir tarayıcı (hesap gerekmez).
+19|Sakin bir akşam düşünmek için iyidir. Şimdi ne yapalım?
+20|Adımlar, fiyat ve süre içeren net bir hizmet teklifi.
+21|Başlamadan önce birkaç soru
+22|Kapsamı sınırlı ve Models: Read izinli bir token. Aynı token GitHub için de kullanılır.
+23|Bir fitness uygulaması için avantajlar, 3 paket ve indirme düğmesi içeren bir açılış sayfası.
+24|Haftanın kredilerinin %25, %50, %75 ve %90'ında bir mesaj. %100 mesajı her zaman görünür.
+25|Bir otomasyon bittiğinde uygulamada (ve aboneyse telefonda) bir mesaj.
+26|Bir mimar için siyah beyaz minimalist kartvizit.
+27|React'te 2 yıl deneyimli bir junior programcı için modern bir özgeçmiş.
+28|E-postayla onaylanmış ve şifrenizle korunan kişisel bir hesap.
+29|Bir paketin kredileri dört eşit parça halinde gelir; paketinizin başladığı günden itibaren her 7 günde bir (örneğin çarşamba başlayan bir paket her çarşamba kredi alır). Kullanmadığınız kısım sonraki haftaya aktarılır. %100'de ücretli modeller bir sonraki parçaya kadar durur ya da ekstra kredi alırsınız; bu sırada ücretsiz modellerde günde {n} mesajınız kalır.
+30|Bir plugin bir skill setidir. Bir kez ekleyin ve içindeki herhangi bir skill için sohbete /ad yazın. Bir plugin paketinizde tek bir skill sayılır.
+31|Açık hava rock konseri için neon renklerde bir afiş.
+32|Bir kafe için tanıtım sitesi: menü, çalışma saatleri, galeri ve iletişim formu.
+33|Sakin bir gece odaklanmak için iyidir. Aklınızda ne var?
+34|Skill, çağırdığınızda yapay zekânın uyguladığı talimatlar setidir. Aşağıdan bir tane ekleyin veya kendinizinkini oluşturun.
+35|«Workers AI» şablonlu bir token. Account ID şurada: dash.cloudflare.com → AI → Workers AI. Görsellerdeki ile aynı token.
+36|Yapay zekâ
+37|Yapay zekâ ve OmniRoute
+38|Yapay zekâ API'leri
+39|Yapay zekâ ve makine öğrenimi
+40|Garmin verileriniz için yapay zekâ koçu
+41|Yapay zekâ modeli: {model}
+42|Biyoloji için yapay zekâ modelleri
+43|Görsel ve video için yapay zekâ modelleri
+44|Bu hesap için yapay zekâ modelleri
+45|Sanatçılarla yapay zekâ müziği
+46|WordPress için yapay zekâ araçları
+47|API erişimi
+48|API adresi
+49|API anahtarı
+50|Yalnızca API
+51|API pluginleri
+52|API token'ı
+53|API'ler
+54|AUTO_FREE ilk uygun ücretsiz modeli kendisi bulur.
+55|Hakkınızda
+56|Diğer hesaplar için erişim: Control Center → hesap → «Code {brand}». Sizin aboneliklerinizi değil, kullanım başına ücretli OpenAI / Claude API'lerini kullanırlar: ChatGPT ve Claude koşulları hesap paylaşımına izin vermez.
+57|Erişilebilirlik
+58|Hesap
+59|Hesap kimliği
+60|Hesap silindi.
+61|Hesap durumu değişti
+62|Hesaplar ve sohbetler {brand} sunucusunda saklanır.
+63|Hesaplar ve sohbetler bu bilgisayarda saklanır.
+64|İşlemler
+65|Etkin
+66|Etkin oturumlar
+67|Etkin kullanıcılar
+68|Ekle
+69|Dosya ekle
+70|{brand}'ın hatırlaması gereken önemli bir şey ekleyin… (Ctrl+Enter kaydeder)
+71|Anahtarı ekleyin veya kimlik doğrulama olarak «Hiçbiri»ni seçin.
+72|Depoyu Ayarlar → Yapay zekâ ve OmniRoute → GitHub bölümünden ekleyin; böylece {brand} programlama sorularında kodu kendisi okur.
+73|{name} ekle
+74|Eklendi
+75|Her pakete eklenir, paket olmadan da
+76|Ekleniyor…
+77|Yönetim günlüğü ({n})
+78|Yönetim: {error}
+79|Öğleden sonra sprinti: bugün neyi bitiriyoruz?
+80|Tekrar
+81|Tümü
+82|Tüm sohbetler
+83|Tüm veriler
+84|Tümü, en iyiler önce (ChatGPT, Gemini, Grok, ücretsizler)
+85|Tümü, en iyiler önce (ücretsizler, Gemini Veo, Grok)
+86|İzin ver
+87|Bir kez izin ver
+88|Ücretli yapay zekâya uygun diğer hesaplar için izin verilsin mi? Her kullanıcının yine de kendi OpenAI / Claude / OpenRouter iznine ihtiyacı vardır.
+89|Ücretli sağlayıcılara izin ver
+90|İzin verildi
+91|Neredeyse hazır…
+92|Hafta sonu neredeyse geldi. Önce neyi kapatıyoruz?
+93|Ücretli API'lere de izin ver (OpenAI, Grok)
+94|Her zaman izin ver
+95|Her zaman izinli
+96|Her zaman İngilizce
+97|Her zaman Romence
+98|Her zaman açık
+99|Her zaman açık {slug}
+100|Her zaman açık: /ad olmadan her mesajda kullanılır
+101|Bu e-postayla zaten bir hesap var.
+102|Bir adres veya şehir
+103|Gönderileri analiz etme ve planlama
+104|Blokzincir verilerini analiz etme
+105|Dosyayı analiz et, sorunu bul ve düzelt.
+106|Kullanıcı davranışını analiz etme
+107|Antrenmanları analiz etme ve plan yapma
+108|Ürününüzün verilerini analiz etme
+109|Kodu analiz eder ve GitHub ile çalışır.
+110|Yüklenen dosyaları, tabloları ve belgeleri analiz eder.
+111|Analiz ediliyor…
+112|Yanıtlıyor
+113|Yanıt dili
+114|Cloudflare belgelerinden yanıtlar (hesap gerekmez).
+115|Verilerinizden yanıtlar
+116|Uygulama kapalıyken bile yanıtlar devam eder
+117|Uzak MCP sunucusu olan herhangi bir uygulama (https:// ile başlayan bir adres). Uygulamanın kendi girişi varsa token'ı boş bırakın.
+118|İstediğiniz kadar kredi
+119|Uygulama
+120|Bu hesap için sunucuda uygulandı.
+121|GitHub'da uygula
+122|Değişiklik {path} için doğrudan GitHub'da uygulansın mı ({branch} dalı)? Geri dönebilmek için yerel bir yedek alınır.
+123|Değişiklikler uygulanıyor…
+124|Uygulanıyor…
+125|Onayla / Yeniden etkinleştir
+126|Uygulamalar
+127|Uygulamalar ve otomasyonlar
+128|Uygulama bölümleri
+129|Arşivle
+130|Arşivlenenler
+131|Asana OAuth Client ID
+132|Asana OAuth client secret
+133|Asana yalnızca sahibi tarafından kaydedilmiş OAuth uygulamalarını kabul eder. Asana'da ({where}) şu dönüş adresiyle bir tane oluşturun: {url}
+134|Herkes için Asana erişimi
+135|Netleştirici sorular sorma (yanıt seçenekleriyle)
+136|Erişim isteyin veya başka bir model seçin.
+137|Herhangi bir herkese açık GitHub deposu hakkında sorun.
+138|Owner'dan en az bir modele erişim isteyin.
+139|Owner'dan OpenAI veya Claude modellerine erişim isteyin.
+140|Asistanlar
+141|En az 10 karakter
+142|Dosya başına en fazla 2 GB
+143|{brand} başlangıçta yeni sürümü GitHub Releases'tan kendisi indirir ve kuruluma hazır olduğunda haber verir.
+144|Ekle: {error}
+145|Sizin eklediğiniz
+146|Ekli dosya: {names}
+147|Google Drive izinlerini denetleme
+148|Kimlik doğrulama
+149|Otomatik yedek: doğrudan API
+150|Otomatik yedek
+151|Sitenin otomatik güncellenmesi
+152|Sitenin otomatik güncellemeleri kapalı.
+153|Otomatik güncelleme:
+154|Otomatik güncellemeler (Windows uygulaması)
+155|Otomatik · en iyi uygun olan
+156|Otomatik — benim sıram
+157|Otomatik — ilk uygun görsel modeli
+158|Otomasyon
+159|Otomasyon ve uzaktan kontrol
+160|Otomasyon sonuçları
+161|«{name}» otomasyonu
+162|Otomasyonlar
+163|Kullanılabilir
+164|Hesabınız için kullanılabilir
+165|Şimdi kullanılabilir
+166|BNR döviz kurları
+167|Geri
+168|Varsayılan yerel hizmete dönüldü. Yeniden giriş yapmayı deneyin.
+169|Tabanlar, tablolar ve kayıtlar: arama, oluşturma ve güncelleme.
+170|Faturalama
+171|Doğum haritaları ve burç yorumu
+172|Engelle
+173|Blokzincir
+174|Engellendi
+175|Engellenen kullanıcılar
+176|Panolar, öğeler ve güncellemeler.
+177|Panolar, yapışkan notlar ve diyagramlar (Miro Enterprise).
+178|Box OAuth Client ID
+179|Box OAuth client secret
+180|Box yalnızca sahibi tarafından kaydedilmiş OAuth uygulamalarını kabul eder. Box'ta ({where}) şu dönüş adresiyle bir tane oluşturun: {url}
+181|Herkes için Box erişimi
+182|Kayıt ve günlüklerle hata raporları.
+183|Uygulama geliştirme ve yayınlama
+184|Web uygulaması geliştirme ve yayınlama
+185|Şirketler
+186|İş ve operasyonlar
+187|Şirket banka hesapları ve işlemleri.
+188|Kartvizit
+189|Girişimci
+190|Kredi satın al
+191|{price} karşılığında satın al
+192|C:\Users\siz\.ssh\id_ed25519
+193|Sunucuya ulaşılamıyor, yeniden bağlanılıyor…
+194|İptal
+195|{brand} hizmetine ulaşılamıyor. Uygulamanın çalıştığını ve internet bağlantısını kontrol edin.
+196|Kayıt okunamıyor.
+197|Kartla ödeme yakında geliyor
+198|Dikkat: ayarladığınız sağlayıcılar kendi fiyatlarıyla bakiye kullanabilir.
+199|Dikkat: video oluşturma bakiyeyi hızla tüketebilir. Maliyet modele, süreye ve çözünürlüğe bağlıdır.
+200|Cerebras API anahtarı
+201|Cerebras modelleri · virgülle ayrılmış
+202|Değiştir
+203|Şifreyi değiştir
+204|Değiştirildi
+205|Değiştir… (örn. arka planı lacivert yap ve bir fiyat bölümü ekle)
+206|Değiştiriliyor…
+207|Sohbet
+208|Sohbet seçenekleri
+209|En iyi yapay zekâlarla sohbet edin; bellek, dosyalar, görseller, videolar ve otomasyonlar.
+210|Yalnızca ChatGPT · GPT Image
+211|ChatGPT, Gemini ve Grok
+212|Sohbetler
+213|Eski sohbetler kendiliğinden silinir (sabitlenenler kalır). Verileriniz {brand} sunucusunda kalır ve asla satılmaz ya da reklam için kullanılmaz.
+214|Sohbetler, bellek, kitaplık, tasarımlar, projeler, uygulamalar ve otomasyonlar {brand} sunucusunda saklanır.
+215|Sohbetler, bellek, kitaplık, tasarımlar, projeler, uygulamalar ve otomasyonlar bu bilgisayarda saklanır.
+216|Kontrol başarısız
+217|Güncellemeleri şimdi denetle
+218|Bağlantıları, alan adlarını ve telefon numaralarını kontrol etme
+219|Fiyatı kontrol et
+220|Takip ettiğim ürünün fiyatını mağaza sayfasında kontrol et ve yalnızca belirlediğim fiyatın altına düştüyse bana haber ver.
+221|Kontrol edildi: {when}.
+222|Telefonda nasıl göründüğü kontrol ediliyor…
+223|Bellek, dosyalar ve ilgili bağlam kontrol ediliyor…
+224|Kontrol ediliyor…
+225|OmniRoute'u (anahtarı ve birer Gemini, Grok, OpenAI ve Claude modelini) ve kayıtlı her API'yi kontrol eder. Testten önce ayarları kaydedin.
+226|Kimya ve biyoloji simülasyonları
+227|Uygulamayı yükle veya Ana ekrana ekle'yi seçin.
+228|PNG, JPEG veya WebP bir görsel seçin.
+229|Gelecekte bir tarih ve saat seçin.
+230|Geçerli bir saat seçin (00:00–23:59).
+231|Bir yapay zekâ seçin
+232|Haftanın en az bir gününü seçin.
+233|Kitaplıktan seç
+234|Yapay zekâyı seçin
+235|Tek seferlik görevin tarih ve saatini seçin.
+236|{plan} seç
+237|Renkler ve yazı tipleri seçiliyor…
+238|Otomatik seçildi
+239|Seçilen günler
+240|Almanya'da ilanlar
+241|Claude / Anthropic (ücretli)
+242|API üzerinden Claude
+243|Aramayı temizle
+244|Sağlayıcıda oluşturulan uygulamanın Client ID'si
+245|Kapat
+246|{email} için tüm etkin oturumlar kapatılsın mı?
+247|Oturumları kapat
+248|Menüyü kapat
+249|Önizlemeyi kapat
+250|Sistem tepsisine küçült
+251|Cloudflare API token'ı
+252|Cloudflare modelleri · virgülle ayrılmış
+253|Code
+254|Kod ve GitHub
+255|E-postadaki kod
+256|Code {brand} (aboneliklerinizle değil, OpenAI / Claude API'leri üzerinden)
+257|Code {brand}, Owner ve Owner'ın erişim verdiği hesaplar için kullanılabilir.
+258|Kahve ve net bir plan mı? Nereden başlayalım, söyleyin.
+259|Cohere API anahtarı
+260|Cohere modelleri · virgülle ayrılmış
+261|Kombinasyon
+262|Kombinasyonlar
+263|Tüm hesaplar için kombinasyonlar
+264|Sohbette komut
+265|İletişim
+266|Şirket kartları, harcamalar ve faturalar.
+267|Modelleri yan yana karşılaştırma
+268|Uyumluluk API'si.
+269|E-postayı onayla
+270|E-postanızı onaylayın
+271|Bağlan
+272|Codex veya Claude Code'u OmniRoute'ta bağlayın.
+273|Bir uygulama bağla
+274|Herhangi bir API veya webhook bağlayın.
+275|Özel API bağla
+276|350'den fazla veri kaynağı bağlama
+277|OAuth ile bağlan (veri erişimi)
+278|OAuth olmadan bağlan ve {name} aç
+279|Uygulamalarınızı bağlayın: yapay zekâ bunlarda arama yapabilir, okuyabilir, oluşturabilir ve düzenleyebilir; her işlemden önce sorar.
+280|Bağlandı
+281|Bağlı uygulamalar
+282|Bağlı uygulamalar (Gmail, Drive, Notion, GitHub…)
+283|OAuth ile bağlandı
+284|Bağlanıyor…
+285|Bağlayıcılar
+286|Proje sohbetleri arasında bağlam
+287|Normal hesaplar için ücretli yapay zekâyı denetler. Owner etkin kalır.
+288|Konuşma
+289|Konuşmalar ve kişiler.
+290|Kopyalandı
+291|Bu bilgisayarda kayıtlı anahtarları kopyalar; böylece {domain} sitesi aynı modellere sahip olur.
+292|Kopyala
+293|Sohbeti kopyala
+294|Hesap kimliğini kopyala
+295|Sohbeti panoya kopyala
+296|Kodu kopyala
+297|Sunucu için anahtarları kopyala
+298|Mesajı kopyala
+299|Seçimi kopyala
+300|Kopyalanıyor…
+301|Maliyet koruması
+302|Eklenemedi:
+303|Kontrol edilemedi:
+304|Bildirim durumu okunamadı:
+305|Ayarlar okunamadı:
+306|Oluştur
+307|Plugin oluştur
+308|Hesap oluştur
+309|Tasarım oluşturma ve düzenleme
+310|Plugin oluştur
+311|Hesabı oluştur
+312|Görevi oluştur
+313|{brand} hesabınızı oluşturun
+314|Belge ve grafik oluşturma, birleştirme ve düzenleme
+315|Reklam oluşturma, başlatma ve analiz etme
+316|Oluşturuldu
+317|Tasarım oluşturuluyor…
+318|Yaratıcı
+319|Yaratıcılık
+320|Kredi uyarıları
+321|Kredi eklendi
+322|Krediler bitti
+323|Mevcut
+324|Mevcut sohbet
+325|Mevcut şifre
+326|Mevcut paket
+327|Özel
+328|Özel uygulama
+329|Özel asistan
+330|Özel header
+331|Özel talimatlar
+332|Müşteri desteği
+333|Müşteriler
+334|Müşteriler, ödemeler, faturalar ve ürünler.
+335|Her gün
+336|Her gün {time}
+337|Koyu
+338|Veri
+339|HubSpot'ta veri ve işlemler
+340|Veri ve analiz
+341|Veritabanları
+342|Tarih
+343|Gün
+344|Ayın günü
+345|Günler
+346|Kararlar
+347|Deep Research
+348|Varsayılan
+349|Sil
+350|Hesabı sil
+351|Tümünü sil
+352|Verileri sil
+353|{brand}'ın bu hesap için hatırladığı her şey silinsin mi? Geri alınamaz.
+354|Hesabı sil
+355|Hesap ve tüm verileri silinsin mi? Geri alınamaz. Onaylamak için hesabın şifresini yazın.
+356|«{name}» asistanı silinsin mi?
+357|Sohbeti sil
+358|{name} sohbetini sil
+359|«{title}» konuşması kalıcı olarak silinsin mi?
+360|«{name}» tasarımı tüm sürümleriyle silinsin mi?
+361|«{name}» plugini silinsin mi?
+362|«{name}» projesi silinsin mi? Konuşmaları kalır ama artık hiçbir projeye ait olmaz.
+363|Kayıtlı anahtarı sil
+364|Kayıtlı token'ı sil
+365|/{slug} skill'i silinsin mi?
+366|«{name}» görevi silinsin mi? Çalıştırma geçmişi kaybolacak.
+367|Bunu sil
+368|Bu bellekten silinsin mi?
+369|{name} sil
+370|{what} silinsin mi? Geri alınamaz. Onaylamak için DELETE yazın.
+371|«{name}» Kitaplık'tan silinsin mi? Kullanıldığı konuşmalardan da artık indirilemeyecek.
+372|Silme: {error}
+373|Silindi: {what}.
+374|Siliniyor…
+375|Reddedildi
+376|Reddet
+377|Bir site, afiş veya sunum tarif edin; {brand} görebileceğiniz, değiştirebileceğiniz ve indirebileceğiniz bir HTML taslağı yapar.
+378|Sayfayı, afişi veya sunumu tarif edin. {brand} hemen gördüğünüz, sözlerle değiştirdiğiniz ve indirdiğiniz tek bir HTML dosyası yazar.
+379|Yapmamı istediğiniz görseli tarif edin.
+380|İstediğiniz görseli tarif edin…
+381|Yapmamı istediğiniz videoyu tarif edin.
+382|İstediğiniz videoyu tarif edin…
+383|Ne yapacağımızı tarif edin
+384|Ne yapacağımızı tarif edin…
+385|Açıklama
+386|Design
+387|Tasarım ve yaratıcılık
+388|Ortak bir tuvalde tasarlayın
+389|Tasarım başlığı
+390|Tasarım türü
+391|Ayrıntılı
+392|Geliştirici araçları
+393|Geliştirme
+394|Cihaz
+395|İstekleri alan cihazlar: {n}.
+396|Elle seçilen doğrudan API
+397|Doğrudan ve dürüst
+398|Vazgeç
+399|Değişiklikten vazgeç
+400|Bağlantıyı kes
+401|{name} bağlantısı kesilsin mi? Yapay zekâ artık ona erişemeyecek.
+402|Kapsamlı bir araştırma yap, birden fazla kaynağı kontrol et ve ayrıntılı açıkla:
+403|Doğrudan maliyete izin verme
+404|Ücretli işler başlatma
+405|Belge
+406|Belge / uzun bağlam
+407|Belgeler
+408|Belgeler
+409|Drive'daki belgeler, tablolar ve sunumlar
+410|Tamam! Anahtar çalışıyor.
+411|Tamam. Bu cihaz erişim isteklerini alacak (toplam 1 cihaz).
+412|Tamam. Bu cihaz erişim isteklerini alacak (toplam {n} cihaz).
+413|İndir
+414|HTML indir
+415|Tüm verilerimi indir
+416|{name} indir
+417|İndirme: {error}
+418|İndirilebilir dosyalar
+419|İndiriliyor…
+420|Dosyaları Kitaplık'a eklemek için bırakın
+421|Dosyaları eklemek için bırakın
+422|Çoğalt
+423|Örn. Matematik öğretmeni
+424|Örn. Haber özeti
+425|Örn. Bahar pazarlama kampanyası
+426|Örn. Proje belgelerini kullan, resmî bir üslup koru ve önemli kararları hatırla.
+427|Örn. Hava durumu
+428|Örn. gemini/gemini-3.5-flash
+429|Düzenle
+430|Plugini düzenle
+431|Asistanı düzenle
+432|{name} asistanını düzenle
+433|Projeyi düzenle
+434|{name} projesini düzenle
+435|Görevi düzenle
+436|Bunu düzenle
+437|{name} düzenle
+438|«{name}» düzenle
+439|Eğitim
+440|Eğitim ve öğretim

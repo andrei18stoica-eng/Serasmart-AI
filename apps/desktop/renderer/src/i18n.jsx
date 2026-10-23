@@ -24,6 +24,16 @@ const listeners = new Set();
 let version = 0;
 const notify = () => { version++; listeners.forEach((fn) => fn()); };
 const CACHE = "serasmart-i18n-";
+// 0.7.37: every language travels with the app as its own file (renderer/src/i18n/<lang>.json, built from
+// i18n-src/<lang>.txt); only the chosen one is loaded. The server translation stays for texts added later.
+const BUNDLED = import.meta.glob("./i18n/*.json", { import: "default" });
+const bundled = {};
+async function loadBundled(lang) {
+  if (lang === "en" || bundled[lang]) return;
+  const load = BUNDLED[`./i18n/${lang}.json`];
+  if (!load) return;
+  try { bundled[lang] = await load(); if (lang === current) notify(); } catch {}
+}
 const remote = {}; // lang → { English: translation } from the server
 function loadCache(lang) { try { const d = JSON.parse(localStorage.getItem(CACHE + lang) || "null"); if (d && typeof d === "object") remote[lang] = d; } catch {} }
 function saveCache(lang) { try { localStorage.setItem(CACHE + lang, JSON.stringify(remote[lang] || {})); } catch {} }
@@ -36,7 +46,7 @@ function merge(lang, data) {
 const fetched = new Set();
 // 0.7.35: how far the server is with translating the whole app into a language ({total, have, running}).
 const progress = {};
-export function languageProgress(lang = current) { return progress[lang] || null; }
+export function languageProgress(lang = current) { return BUNDLED[`./i18n/${lang}.json`] ? null : progress[lang] || null; }
 async function fetchRemote(lang, again = false) {
   if (lang === "en" || (fetched.has(lang) && !again)) return;
   fetched.add(lang);
@@ -50,7 +60,7 @@ async function fetchRemote(lang, again = false) {
 let follow = null;
 const prepared = new Set();
 // Romanian travels whole with the app (locales.js), so only the other languages are asked for.
-const shippedWhole = (lang) => Object.keys(LOCALES[lang] || {}).length >= 1000;
+const shippedWhole = (lang) => Object.keys(LOCALES[lang] || {}).length >= 1000 || !!BUNDLED[`./i18n/${lang}.json`];
 async function prepare(lang) {
   clearTimeout(follow); follow = null;
   if (lang === "en" || shippedWhole(lang)) return;
@@ -90,7 +100,7 @@ function apply() {
   document.documentElement.dir = RTL.has(current) ? "rtl" : "ltr";
 }
 apply();
-if (current !== "en") { loadCache(current); fetchRemote(current).then(() => { const p = progress[current]; if (!p || p.have < p.total) prepare(current); }); }
+if (current !== "en") { loadCache(current); loadBundled(current); fetchRemote(current).then(() => { const p = progress[current]; if (!p || p.have < p.total) prepare(current); }); }
 
 export function getLanguage() { return current; }
 export function setLanguage(code) {
@@ -99,7 +109,7 @@ export function setLanguage(code) {
   try { localStorage.setItem(KEY, code); } catch {}
   missing.clear();
   apply();
-  if (code !== "en") { loadCache(code); fetchRemote(code); prepare(code); }
+  if (code !== "en") { loadCache(code); loadBundled(code); fetchRemote(code); prepare(code); }
   notify();
 }
 function subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); }
@@ -108,9 +118,9 @@ function subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); }
 export function t(text, vars) {
   let s = text;
   if (current !== "en" && typeof text === "string") {
-    const found = LOCALES[current]?.[text] ?? remote[current]?.[text];
+    const found = LOCALES[current]?.[text] ?? bundled[current]?.[text] ?? remote[current]?.[text];
     if (found) s = found;
-    else if (text.trim() && missing.size < 600 && !tried.has(current + "\t" + text)) { missing.add(text); askLater(); }
+    else if (text.trim() && missing.size < 600 && !tried.has(current + "\t" + text) && (bundled[current] || !BUNDLED[`./i18n/${current}.json`])) { missing.add(text); askLater(); }
   }
   return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] ?? m)) : s;
 }

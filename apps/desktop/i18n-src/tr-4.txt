@@ -1,0 +1,436 @@
+1321|Hizmet dosyanın kaydedildiğini onaylamadı.
+1322|Oturum geçerli değil veya süresi doldu.
+1323|Oturumlar kapatıldı.
+1324|Ayar kaydedilemedi: {error}
+1325|Ayarlar kaydedilemedi.
+1326|Giriş tarayıcıda açıldı. Orada tamamlayın; {brand} bağlantıyı kendisi kaydeder.
+1327|Giriş 2 dakika içinde tamamlanmadı. Tekrar deneyin.
+1328|Site en son sürümde.
+1329|Site güncellemesi başarısız oldu. Ayrıntılar Ayarlar → Genel bölümünde.
+1330|Site {v} sürümüne güncellendi. Sayfa yeniden yüklenecek.
+1331|Site güncellendi. Sayfa yeniden yüklenecek.
+1332|Yeni bir sürüm çıktığında site kendini günceller (saatte bir kontrol).
+1333|Site ayarları: sunucuda kaydedilir ve hemen tüm hesaplara uygulanır. Anahtarlar sunucuda kalır ve yalnızca maskelenmiş gösterilir. Owner e-postası ve kayıtlar sunucudaki .env dosyasında kalır.
+1334|/{slug} skill'i kaydedildi.
+1335|Skill kitaplığı yüklenemedi: {error}
+1336|Skill'ler yüklenemedi: {error}
+1337|Dikte edilen metin kutuda; yapay zekâ yanıtı bitirince gönderin.
+1338|{email} durumu artık «{status}».
+1339|Sözdizimi kontrolü bir hata buldu. Öneri UYGULANAMAZ.
+1340|Sözdizimi kontrolü geçti.
+1341|Görev henüz çalışmadı. Bir sonuç görmek için «Şimdi çalıştır»a tıklayın.
+1342|Görev güncellendi.
+1343|«{name}» görevi oluşturuldu.
+1344|Görevler yüklenemedi: {error}
+1345|Metin panoya kopyalanamadı.
+1346|Metin okunamadı
+1347|Seçtiğiniz metin
+1348|İki yeni şifre eşleşmiyor.
+1349|Video oluşturulamadı: {error}
+1350|Ses kaydı başarısız oldu.
+1351|Mesajın tamamı
+1352|Pencere uygulamanın bu bölümünü gösteremedi. «Yeniden yükle»ye tıklayın. Tekrar olursa aşağıdaki ayrıntıları kopyalayıp uygulamanın yöneticisine gönderin.
+1353|{brand} hizmeti istenen şeyi bulamadı (HTTP 404).
+1354|{brand} hizmetinde bir hata oluştu (HTTP {status}).
+1355|{format} dosyası oluşturulamadı: {error}. Yanıtın altındaki düğmelerle tekrar deneyebilirsiniz.
+1356|Modelleri listede görünür (Groq, Gemini, Cerebras…). Onları seçtiğinizde veya hiçbir model seçili değilken yanıtlarlar.
+1357|Modelleri listede görünür ve OmniRoute olmadan doğrudan yanıtlar.
+1358|Tema
+1359|GitHub'da yeni değişiklikler var.
+1360|Bu konuşmada dosya yok.
+1361|Bu grupta kullanıcı yok.
+1362|Bu yanıt için sizin bir mesajınız yok.
+1363|Yakın tarihli bir GitHub yedeği yok.
+1364|Bu işlemler sormadan çalışır. Birini kaldırın, yapay zekâ yeniden sorar.
+1365|Bu araçlar {brand}'ın güncel bilgileri kontrol etmesini ve bir GitHub deposunun ilgili kısımlarını getirmesini sağlar.
+1366|Düşün
+1367|Düşün açık: daha doğru yanıtlar, biraz daha yavaş. Hızlı için tıklayın.
+1368|Düşünüyor…
+1369|Bu uygulama yalnızca onayladığı uygulamaları kabul ediyor; Serasmart henüz listesinde değil.
+1370|Bu tarayıcı bildirim alamıyor. Telefonda yüklü {brand} uygulamasını kullanın (Android'de Chrome veya iPhone'da Safari).
+1371|Bu bilgisayar
+1372|Bu belge boş.
+1373|Bu e-posta adresi kabul edilmiyor.
+1374|Bu dosya türü burada açılamaz. «İndir»i kullanın.
+1375|Bu dosya türünün önizlemesi yok. İndirebilirsiniz.
+1376|Bu bağlantı {brand} tarafından açılamaz.
+1377|Bu dönemin kredi bölümleri
+1378|Bu hizmetin OAuth Client Secret'a da ihtiyacı var.
+1379|Bu metin sohbetlerinizde yok.
+1380|Bu çalışma kitabı boş.
+1381|Zapier işlemleriniz üzerinden binlerce uygulama.
+1382|Saat
+1383|Süre doldu: {answer}
+1384|Bugün
+1385|Bugünkü resmî BNR kurları: euro, dolar, sterlin ve diğerleri (bnr.ro).
+1386|Together API anahtarı
+1387|Token
+1388|Token (isteğe bağlı)
+1389|Token kaydedildi — korumak için boş bırakın
+1390|Üslup
+1391|Okumak için çok büyük
+1392|Çok fazla deneme. 15 dakika bekleyip tekrar deneyin.
+1393|Çok fazla giriş denemesi. Birkaç dakika sonra tekrar deneyin.
+1394|Çok fazla yanlış kod. Yeni bir kod isteyin.
+1395|Araçlar
+1396|Üst düzey modeller (en güçlü Claude, GPT, Gemini ve Grok)
+1397|Yükle
+1398|Yemek ve kalori takibi
+1399|Döküm modeli
+1400|Uygulamayı çevir
+1401|Tüm uygulamayı her dile çevir
+1402|Üslubu ve biçimi koruyarak doğal biçimde çevirir.
+1403|Uygulama {name} diline çevriliyor… %{pct}
+1404|Uygulama {name} diline çevriliyor… %{pct}. Metinler hazır oldukça kendiliğinden değişir.
+1405|{n} metin arka planda {count} dile çevriliyor. Bu pencereyi kapatabilirsiniz.
+1406|Çevirmen
+1407|Modelleri sırayla dener, kotası kalan birini bulana kadar.
+1408|Tekrar dene
+1409|Bu cihazda kapat
+1410|Normal hesaplar için ücretli yapay zekâ kapatılsın mı? Owner ücretli modellere erişimini korur.
+1411|{name} kapat
+1412|Bu cihaz için aç
+1413|{name} aç
+1414|Kapalı
+1415|Owner tarafından hesabınız için kapatıldı.
+1416|Kullanılamıyor
+1417|Mesaj kutusunun altında, Görsel modunda kimin yapacağını her seferinde seçebilirsiniz. «Otomatik»te, sohbette bir Gemini, ChatGPT veya Grok modeli seçtiyseniz görseli o modelin şirketi yapar (önce OmniRoute'taki abonelik, sonra API'si); aksi halde bu ayar kullanılır.
+1418|Mesaj kutusunun altında, Video modunda kimin yapacağını her seferinde seçebilirsiniz. «Otomatik»te, sohbette bir Gemini veya Grok modeli seçtiyseniz videoyu o modelin şirketi yapar (önce OmniRoute'taki abonelik, sonra API'si); aksi halde bu ayar kullanılır.
+1419|GitHub'daki son değişikliği geri al
+1420|Bilinmeyen hata.
+1421|Sınırsız
+1422|Engeli kaldır
+1423|İşaretsiz: modelleri listeden çıkar ve yedek olarak bile asla yanıt vermez. OmniRoute kombinasyonları kalır; ne içerdiklerini OmniRoute panelinde seçersiniz.
+1424|Adsız tasarım
+1425|Kod kitaplıkları için güncel belgeler.
+1426|Siteyi şimdi güncelle
+1427|Site şimdi güncellensin mi? Sunucu en son sürümü GitHub'dan indirir ve siteyi yeniden başlatır (1–5 dakika, bu sürede yanıt vermez).
+1428|Güncelleme:
+1429|Site güncelleniyor… 1–5 dakika sürer; sayfa kendiliğinden yeniden yüklenir.
+1430|Güncelleniyor…
+1431|Yükle
+1432|Herhangi bir dosya yükleyin
+1433|Ses yükle
+1434|Görsel yükle
+1435|Video yükle
+1436|1 dosya yükleniyor… büyük dosyalar biraz sürebilir.
+1437|Dosya yükleniyor…
+1438|{n} dosya yükleniyor… büyük dosyalar biraz sürebilir.
+1439|Kullanım
+1440|Sohbette kullan
+1441|İlgili olduğunda kendiliğinden kullan
+1442|Belleği kullan
+1443|Varsayılan yerel hizmeti kullan
+1444|Doğrudan API'leri kullan
+1445|{brand} hesabınızın e-postasını kullanın.
+1446|Bu yapay zekâyı kullan
+1447|Kullanılan
+1448|Hemen kullanılır, haftalık sınır yok
+1449|{trigger} yazdığınızda kullanılır
+1450|«{name}» veya {trigger} yazdığınızda kullanılır
+1451|Faydalı yanıt
+1452|Kullanıcı
+1453|Aynı projenin ilgili sohbetlerini elle kopyalamanıza gerek kalmadan kullanır.
+1454|Yardımcı araçlar
+1455|12 ay geçerli
+1456|Sohbetteki aynı Gemini anahtarıyla Veo; modeli yukarıda, «Videoları yapan» bölümünde seçersiniz.
+1457|Sürüm
+1458|Sunucudaki sürüm: {v}.
+1459|{v} sürümü mevcut.
+1460|{v} sürümü mevcut. Kendiliğinden indirilir; hazır olduğunda bildirim alırsınız.
+1461|Video
+1462|Video üretimi
+1463|Yapay zekâ modelleriyle video üretimi
+1464|Video üretimi, API'ler, modeller ve başka bir sağlayıcıda otomatik deneme.
+1465|Videoyu yapan
+1466|Video oluşturma
+1467|Video modu
+1468|Video modu: sonraki mesaj bir video oluşturur. Çıkmak için Video'ya tekrar tıklayın.
+1469|Video: sonraki mesaj bir video oluşturur.
+1470|Videoları yapan
+1471|Yapay zekâyla yapılmış videolar
+1472|Her uzunlukta videolar
+1473|Ses
+1474|Ses etkinliği
+1475|Ses ve mikrofon
+1476|Sesli giriş
+1477|Ses tanıma çalışmadı. Mikrofona tıklayıp tekrar deneyin.
+1478|Ses tanıma durdu; metni kontrol edip gönderin.
+1479|Sesten metne
+1480|Bekle
+1481|Dosyanın yüklenmesi bitene kadar bekleyin.
+1482|{when} tarihine kadar bekle
+1483|Erişim bekleniyor
+1484|Seçilen yapay zekânın yanıtı bekleniyor…
+1485|Sesin yazıya dökülmesi bekleniyor.
+1486|Onayınızı bekliyor
+1487|{app} içinde onayınızı bekliyor…
+1488|İstiyor
+1489|Bir fiyatı takip et
+1490|Çalışma biçimleri
+1491|Kodu içeren e-postayı gönderemedik. Adresi kontrol edip tekrar deneyin.
+1492|Size e-postayla 6 haneli bir kod gönderdik. Adresin size ait olduğunu onaylamak için girin.
+1493|{email} adresine 6 haneli bir kod gönderdik. Görmüyorsanız spam klasörüne bakın. Kodun süresi 15 dakika içinde dolar.
+1494|Size e-postayla bir kod gönderdik.
+1495|Size yeni bir kod gönderdik.
+1496|Zayıf yanıt
+1497|Hava durumu
+1498|Herhangi bir şehir için güncel hava durumu ve 3 günlük tahmin (Open-Meteo, hesap gerekmez).
+1499|Web araması
+1500|Yapay zekâ ajanları için web araması
+1501|Yapay zekâ için yapılmış web araması.
+1502|Kaynaklı web araması
+1503|Site
+1504|Site adresi
+1505|Siteler
+1506|Hafta sonu modu. Canınız ne istiyor?
+1507|Haftalık
+1508|Her hafta, {day} {time}
+1509|Tekrar hoş geldiniz
+1510|{brand}'a hoş geldiniz
+1511|Bugün ne yapıyoruz?
+1512|Bugün ne üzerinde çalışıyoruz?
+1513|İşinizi en iyi ne tanımlar?
+1514|Ne içeriyor
+1515|Ne yapıyor, tek cümleyle
+1516|Neyin düzeltilmesi gerekiyor
+1517|Neyi değiştireyim
+1518|{brand} size nasıl hitap etsin?
+1519|{brand} ne yapsın? Örn. Bugünün önemli haberlerini bul ve bağlantılı bir özet yap.
+1520|Yapay zekâ size nasıl hitap ediyor
+1521|Bu skill'i her kullandığınızda yapay zekânın ne yapması gerektiği: üslup, yapı, nelerin dahil edileceği, nelerden kaçınılacağı.
+1522|Plugin ne yapar
+1523|Her şey ne kadar tutar
+1524|Yapay zekânın sizi tanımasına ne yardımcı olur: ilgi alanları, projeler, deneyim düzeyi.
+1525|Ne iş yapıyorsunuz
+1526|{brand} sizin hakkınızda ne biliyor
+1527|{brand}'ın sizin hakkınızda neleri hatırladığı ve önceki sohbetleri nasıl kullandığı.
+1528|Bir istek birden fazla şekilde anlaşılabiliyorsa {brand} önce sorar; seçenekleri tek tıkla seçersiniz.
+1529|Biri kaydolduğunda telefonunuz {brand}'a kimin katılmak istediğini gösterir ve izin verip vermediğinizi sorar. Android'de bildirimden İzin ver veya Reddet ile yanıtlarsınız; iPhone'da ona dokunup uygulamada seçersiniz. İstek siz yanıtlayana kadar bekler.
+1530|Bir görsel veya video istediğinizde {brand} gerçek dosyayı indirme düğmesiyle sohbete koyar.
+1531|Bir görsel istediğinizde {brand} sağlayıcıları ayarlanan sırayla dener, gerçek dosyayı sohbete koyar ve Kitaplık'a kaydeder.
+1532|Bir video istediğinizde {brand} sağlayıcıları sırayla dener, gerçek MP4 dosyasını indirir, sohbete koyar ve Kitaplık'a kaydeder.
+1533|Bir şey sorduğunuzda diğer sohbetlerinizde (arşivlenenler dahil) arar ve ilgili olanı kullanır. Böylece bir konuya yeni bir sohbette devam edebilirsiniz.
+1534|Windows uygulaması
+1535|Cloud API ayarlıyken Owner hesapları, onayları ve izinleri merkezi olarak yönetir. Yalnızca bu bilgisayarı kullanmak için boş bırakın.
+1536|Yapay zekâ API'lerindeki xAI anahtarıyla.
+1537|Yapay zekâ API'lerindeki xAI anahtarıyla; 1–15 saniye.
+1538|Paket yok: {credits} krediyle {days} günlük denemeden sonra ücretsiz modellerde günde {n} mesaj. Kartla ödeme yakında; o zamana kadar paketleri Owner atar.
+1539|Word, Excel, PowerPoint ve PDF dosyaları
+1540|Cloudflare hesabınızdaki Workers, KV, R2 ve D1.
+1541|Hafta içi (pazartesi–cuma)
+1542|Şurada çalışıyor:
+1543|{app} içinde çalışıyor…
+1544|Geç saate kadar mı çalışıyorsunuz? İhtiyacınız olursa buradayım.
+1545|Fiyat hesaplanıyor…
+1546|Çalışıyor…
+1547|Antrenmanlar ve sağlık verileri
+1548|Hemen çalışır
+1549|Çalışıyor: {result}
+1550|Günü kapatıyor musunuz? Kalanlarda yardımcı olabilirim.
+1551|Plugin için bir ad yazın.
+1552|Görev için bir ad yazın.
+1553|Sohbete bir plugin adı (örneğin «Takvim») veya @ad yazın, {brand} yanıt için onu kullanır.
+1554|Şunu yapan kısa ve samimi bir e-posta yaz:
+1555|E-posta yaz
+1556|{brand}'ın ne yapacağını bir kez yazın ve ne zaman yapacağını seçin. Örneğin: «Her hafta içi saat 08:30'da haberlerin bir özetini yap.»
+1557|{brand}'ın ne yapacağını yazın.
+1558|Yanıtınızı yazın
+1559|Kendi yanıtınızı yazın
+1560|Birkaç fikirden konusu olan net ve kibar bir e-posta yazar.
+1561|HTML ve CSS yazılıyor…
+1562|Yazı ve içerik
+1563|Söyledikleriniz yazılıyor…
+1564|Sesiniz yazıya dökülüyor…
+1565|Yanıt yazılıyor…
+1566|{format} dosyanız yazılıyor…
+1567|{format} dosyanız yazılıyor… {n} kelime
+1568|E-posta veya şifre yanlış.
+1569|EVET
+1570|Evet
+1571|Dün
+1572|/{slug} eklendi. Kullanmak için sohbete yazın.
+1573|İstediğiniz zaman Ayarlar → Yapay zekâ API'leri bölümünden daha fazla ücretsiz API ekleyebilirsiniz (Groq, Cerebras, görseller için Cloudflare).
+1574|Dakikada bir kez yeni kod isteyebilirsiniz.
+1575|Birden fazla hizmet bağlayabilirsiniz. {brand} sağlayıcıları sırayla dener ve biri çalışmazsa sonrakine geçer.
+1576|Plugini uygulamayı doğrudan açmak için OAuth olmadan kullanabilirsiniz. OAuth veya API yalnızca {brand}'ın o hizmetteki özel verileri okumasını ya da değiştirmesini istiyorsanız gerekir.
+1577|Siz seçersiniz
+1578|{model} seçtiniz; OmniRoute soruyu {served} modeline gönderdi.
+1579|{model} seçtiniz; {brand} soruyu {served} modeline gönderdi.
+1580|Adresi onaylamak için e-postayla bir kod alırsınız, sonra Owner hesabı onaylar.
+1581|Asistanınız yok. Yan çubuktan bir tane oluşturun.
+1582|En son sürüme sahipsiniz.
+1583|Seçimi {brand}'a bırakıyorsunuz
+1584|Tüm cihazlardan çıkış yaptınız.
+1585|YouTube istatistikleri ve anahtar kelimeleri
+1586|Yapay zekânız, her model
+1587|OmniRoute'ta bağlı ChatGPT aboneliğiniz
+1588|OmniRoute'ta bağlı Claude aboneliğiniz
+1589|Google Takvim etkinlikleriniz
+1590|Helium 10 verileriniz
+1591|Outlook e-postalarınız
+1592|Plaid panonuz: öğeler, kullanım ve sorunlar.
+1593|Wix siteleriniz, sayfalarınız ve mağazanız.
+1594|Hesabınızdan hiçbir ücret alınmaz (Owner).
+1595|Hesabınızın şifresi
+1596|Hesabınız, uygulama, ses, yapay zekâ hizmetleri ve güncellemeler.
+1597|Yanıtlarınız
+1598|Uygulamalarınız
+1599|Bağlı uygulamalarınız: yapay zekâ onayınızla onları okur ve içlerinde çalışır.
+1600|Seçiminiz: {value}
+1601|Tasarımlarınız
+1602|Dosyalarınız, görselleriniz, videolarınız ve tasarımlarınız; konuşmalarda kullanıma hazır.
+1603|Sağlık verileriniz
+1604|Notlarınız ve toplantı dökümleriniz.
+1605|Adınız
+1606|API'leriniz ve webhook'larınız, ayrıca hemen çalışan pluginler.
+1607|Görselleriniz ve videolarınız: arama, yükleme, düzenleme.
+1608|Paketiniz
+1609|Paketiniz, bu haftanın kredileri ve ekstra krediler.
+1610|Paketiniz, bu haftanın kredileri ve her işlemin maliyeti.
+1611|Profiliniz, yapay zekânın nasıl yanıtladığı, bildirimler, gizlilik ve güvenlik.
+1612|Render'daki kaynaklarınız
+1613|Oturumunuzun süresi doldu veya kapatıldı. Yeniden giriş yapın.
+1614|Skill'leriniz
+1615|Görevleriniz ve projeleriniz: ekleme, tamamlama, yeniden planlama.
+1616|İşiniz
+1617|sizin eklediğiniz
+1618|tüm sohbetler
+1619|Kitaplık'taki tüm dosyalar
+1620|tüm bellek
+1621|tüm hesap verileri (sohbetler, bellek, dosyalar, projeler, asistanlar, skill'ler, otomasyonlar, uygulamalar, tasarımlar)
+1622|yanıtlar · {s} sn
+1623|en fazla {n} kredi
+1624|otomatik
+1625|yazar: {author}
+1626|yazar: {author} · {license}
+1627|kategoriler
+1628|kategori
+1629|tamamını kopyaladığınızı kontrol edin.
+1630|kod
+1631|bağlantı çalışıyor
+1632|oluşturuldu
+1633|kredi
+1634|varsayılan
+1635|örn. Şikâyetlere yanıt verme
+1636|örn. bir ad veya takma ad
+1637|örn. ayrıntılı yanıt vermeden önce netleştirici sorular sor
+1638|örn. öğrenci, web tasarımcısı, muhasebeci
+1639|örn. web tasarımcısı, muhasebeci, öğretmen
+1640|hata
+1641|fal API anahtarı
+1642|fal video modeli
+1643|fal.ai modeli
+1644|dosya
+1645|{n} kredi için · tek seferlik ödeme
+1646|zamanlanmış bir görevden
+1647|geçmişten
+1648|gönderen: {n}
+1649|github_pat_... veya ghp_...
+1650|dahil
+1651|öğe
+1652|öğeler
+1653|otomatik saklandı
+1654|addan türetildi
+1655|bellek
+1656|en az {n} kredi
+1657|ad@ornek.com
+1658|sonraki: {when}
+1659|hesap gerekmez
+1660|hiçbiri
+1661|dahil değil
+1662|şimdi
+1663|bu haftanın kredilerinden kullanılan
+1664|kapalı
+1665|bir kez
+1666|yalnızca değişiklik olduğunda
+1667|isteğe bağlı
+1668|isteğe bağlı / PKCE
+1669|ücretli
+1670|sabitlendi
+1671|salt okunur
+1672|gerçek sonuç
+1673|zorunlu
+1674|Owner tarafından ayarlandı
+1675|{when} tarihinden beri
+1676|kaynak
+1677|sistem
+1678|dosya
+1679|anahtar çalışıyor · {models} model, {combos} kombinasyon · {s} sn
+1680|dosya için içerik yok
+1681|bu
+1682|bu hafta
+1683|bugün
+1684|yarın
+1685|bilinmeyen hata
+1686|en fazla {s} sn
+1687|üstteki listeden başka birini seçmediğinizde kullanılır
+1688|anahtarlı
+1689|xAI API anahtarı
+1690|dün
+1691|kişisel aboneliğiniz yalnızca sizin kalır (sağlayıcının koşulları hesap paylaşımına izin vermez). Kişiye modeli API üzerinden verin (openai/…, anthropic/…).
+1692|{brand} hesabı
+1693|{brand} hata yapabilir. Önemli bilgileri kontrol edin.
+1694|{brand} yayımlanmış fiyat varsa onu kontrol eder ve sıfır maliyeti doğrulayamazsa başlamaz. Gemini Veo, fal.ai ve Replicate bu modda engelli kalır.
+1695|{brand} kaydı yazıya döküyor…
+1696|{brand} bunu bu hesabın her sohbetinde dikkate alır.
+1697|{brand} tercihlerinizi, kararlarınızı ve kalıcı ayrıntılarınızı kendisi saklar ve önemli olduklarında kullanır.
+1698|{brand} bir sorunla karşılaştı
+1699|{brand} dosyayı ayarlı depodan okur ve bir düzeltme önerir.
+1700|{brand} uygulama çalışırken talimatları seçilen saatte kendisi uygular.
+1701|{brand} plugini doğrudan bağlantı olarak kaydeder ve resmî uygulamayı açar. Tarayıcıda her zamanki gibi giriş yapın.
+1702|{brand} hizmeti
+1703|{brand} hizmetinin adresi
+1704|{brand} ayarları
+1705|{brand} güncellemesi mevcut — şimdi yükle
+1706|{brand} şunu kullandı: {provider} · {model}
+1707|{brand} bunu yalnızca size daha iyi yanıt vermek için kullanır; buradan istediğiniz zaman görebilir ve değiştirebilirsiniz.
+1708|{days} {time}
+1709|Bugün {limit} ücretsiz mesajdan {left} kaldı
+1710|{total} krediden {left} · bitiş {when}
+1711|{model}: {email} için {mode}.
+1712|{name} ({email}) artık {brand} kullanabilir.
+1713|{name} ({email}) {brand} kullanamayacak.
+1714|{name} bağlandı. Sohbette sorun; yapay zekâ her işlemden önce sorar.
+1715|{name} yüklendi
+1716|{name} hazır. Sohbete yazın, örneğin: {trigger}, ya da sadece sorun.
+1717|{name} eklendi: {n} skill'i sohbette /ad ile çalışır.
+1718|{name}: bağlandı.
+1719|{name}: OAuth olmadan doğrudan açılmak üzere kaydedildi. Resmî uygulamada her zamanki gibi giriş yapın.
+1720|{name}: plugin bağlandı.
+1721|{name}: plugin kaydedildi.
+1722|{n} OmniRoute modeli Owner tarafından gizlendi.
+1723|günde {n}
+1724|dakikada {n}
+1725|haftada {n}
+1726|{n} işlem
+1727|{n} etkin oturum
+1728|{n} uygulama
+1729|aynı anda {n}
+1730|{n} otomasyon
+1731|Kitaplık'a {n} dosya eklendi.
+1732|{n} kaldı · hafta {w} / 4
+1733|{n} kullanılabilir model
+1734|{n} model Owner tarafından gizlendi.
+1735|{n} kullanılabilir model
+1736|{n} izin verilmeyen
+1737|{n} kişi
+1738|{n} saniye
+1739|{n} skill
+1740|{n} sürüm
+1741|{pack} · yazar: {author} · {license}
+1742|{plan} paketi
+1743|{plan} paketi: bu haftanın %{percent} kadarı kullanıldı
+1744|Yılda {price} · 2 ay ücretsiz
+1745|bu haftanın kredilerinin %{p} kadarı kullanıldı
+1746|{s} sn · genellikle yaklaşık bir dakika sürer
+1747|Bu hesap için «Chat AI» kapalıyken «İzinli»nin etkisi olmaz: önce yukarıdan Chat iznini açın.
+1748|«Varsayılan» yukarıdaki izinleri izler; «İzinli» izinler kapalı tutsa bile modeli açar; «Engelli» kapatır. Owner'ın kişisel abonelikleri yalnızca Owner'a aittir.
+1749|«Nano Banana»; modeli yukarıda, «Görselleri yapan» bölümünde seçersiniz. Yapay zekâ API'leri ve Video ile aynı anahtar.
+1750|«{feature}» Owner tarafından hesabınız için kapatıldı.
+1751|«{model}» için Owner size izin vermiyor.
+1752|«{name}» çalıştırıldı. Sonuç geçmişte.
+1753|⚡ Hızlı
+1754|✨ Kalite
+1755|🎬 Kalite
+1756|🛡️ Yalnızca ücretsiz

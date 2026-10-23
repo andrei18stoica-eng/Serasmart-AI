@@ -339,9 +339,21 @@ app.use(cors({
 }));
 app.use(express.json({ limit: "4mb" }));
 const limiterDefaults = { standardHeaders: "draft-8", legacyHeaders: false, message: { error: MSG.tooMany } };
-// The desktop gateway validates its session on every request, so /auth/me has its own, larger budget.
-app.use(rateLimit({ ...limiterDefaults, windowMs: 60_000, limit: Number(process.env.RATE_LIMIT_PER_MINUTE || 120), skip: req => req.path === "/auth/me" || req.path === "/health" }));
-const meLimiter = rateLimit({ ...limiterDefaults, windowMs: 60_000, limit: Number(process.env.AUTH_ME_PER_MINUTE || 600) });
+// 0.7.37: on the website every account reaches this API through the same gateway container, so counting by IP made
+// all the accounts share one budget (120 a minute): with a few people chatting, /api/ai/access answered 429 and the
+// chat showed "Too many attempts". A request with a session is counted per session; one without, per IP.
+function sessionOrIpKey(req) {
+  const header = String(req.headers.authorization || "");
+  if (/^Bearer\s+\S{16,}/i.test(header)) return `s:${sha256(header.replace(/^Bearer\s+/i, "").trim()).slice(0, 32)}`;
+  return `ip:${rateLimit.ipKeyGenerator(req.ip || "")}`;
+}
+// Requests per minute are unlimited (the Owner's decision, 0.7.37). A server that wants a cap sets API_REQUESTS_PER_MINUTE
+// (and SESSION_CHECKS_PER_MINUTE for /auth/me, which the gateway calls for every request); the cap then counts per session.
+// The old RATE_LIMIT_PER_MINUTE / AUTH_ME_PER_MINUTE (120 / 600 in older .env files) are no longer read.
+const perMinute = name => { const n = Number(process.env[name] || 0); return Number.isFinite(n) && n > 0 ? n : 0; };
+const noLimit = (_req, _res, next) => next();
+if (perMinute("API_REQUESTS_PER_MINUTE")) app.use(rateLimit({ ...limiterDefaults, windowMs: 60_000, limit: perMinute("API_REQUESTS_PER_MINUTE"), keyGenerator: sessionOrIpKey, skip: req => req.path === "/auth/me" || req.path === "/health" }));
+const meLimiter = perMinute("SESSION_CHECKS_PER_MINUTE") ? rateLimit({ ...limiterDefaults, windowMs: 60_000, limit: perMinute("SESSION_CHECKS_PER_MINUTE"), keyGenerator: sessionOrIpKey }) : noLimit;
 // Password guessing protection: at most 20 failed sign-in attempts per IP every 15 minutes.
 const authLimiter = rateLimit({ ...limiterDefaults, windowMs: 15 * 60_000, limit: Number(process.env.AUTH_ATTEMPTS_PER_15_MIN || 20), skipSuccessfulRequests: true });
 // Successful sign-ups count too, so nobody can flood the Owner with access requests.
@@ -832,7 +844,7 @@ app.get("/api/notifications", auth, async (req, res, next) => {
 
 // An account's own notice (0.7.18): the result of one of its automations, sent by the gateway with the account's own
 // session. It lands in the account's notifications and on its phones (Web Push, when the account turned it on).
-const selfNoticeLimiter = rateLimit({ ...limiterDefaults, windowMs: 60 * 60_000, limit: Number(process.env.SELF_NOTICES_PER_HOUR || 60) });
+const selfNoticeLimiter = rateLimit({ ...limiterDefaults, windowMs: 60 * 60_000, limit: Number(process.env.SELF_NOTICES_PER_HOUR || 60), keyGenerator: sessionOrIpKey });
 const SELF_NOTICE_TYPES = new Set(["automation"]);
 app.post("/api/notifications/self", auth, selfNoticeLimiter, async (req, res, next) => {
   try {

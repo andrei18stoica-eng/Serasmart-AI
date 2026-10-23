@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.35",
+  "version": "0.7.37",
   "private": true,
-  "description": "Serasmart AI 0.7.35 - decks sent as real PowerPoint files in your colours, the app translated for everyone, settings like Claude, no fixed skill cap",
+  "description": "Serasmart AI 0.7.37 - every language built in; no more Too many attempts",
   "main": "main.cjs",
   "repository": {
     "type": "git",

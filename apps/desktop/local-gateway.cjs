@@ -4316,6 +4316,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     const name={docx:"Word (DOCX)",pptx:"PowerPoint (PPTX)",xlsx:"Excel (XLSX)",pdf:"PDF"}[format]||format.toUpperCase();
     return [`FILE ANSWER: ${BRAND_NAME} turns your whole answer into a ${name} file and sends it to the user as a download, automatically. You can create and change files: never say you cannot create, attach or send files.`,
       "Write only the file's content, in the user's language, with no greeting, no «here is your file» and no remarks before or after it.",
+      "The file's title is what the user asked for: start with «# <Title>» (for a deck, the first slide's title), named after the subject of the request or the exact name the user gave; never use the chat's name. If the request does not say what the file is about, ask one short question about it instead of writing the file.",
       FILE_SHAPES[format]||"Write valid content for this format, without explanations outside it.",
       edit?"The user wants a change to an existing file (attached in this message, or the one you made earlier in this chat). Return the complete updated file with every requested change made and everything else kept as it was; never only the changed part.":""
     ].filter(Boolean).join(" ");
@@ -4772,6 +4773,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   const placeholdersOf=(text)=>String(text).match(/\{\w+\}/g)?.sort().join()||"";
   // Translates `keys` into `lang` in batches and saves after each batch, so a stop halfway keeps what was done. A batch
   // that fails is tried again (`retries`), then skipped; the next batch still runs. Free models only for the prefill.
+  const i18nErrors=new Map();
   async function i18nTranslate(req,lang,keys,{retries=0,free=false,size=60}={}){
     const name=I18N_NAMES[lang];let done=0;
     for(let i=0;i<keys.length;i+=size){
@@ -4780,12 +4782,14 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       const messages=[{role:"system",content:`You translate the interface of an AI chat app from English into ${name}. Reply with one JSON object and nothing else: every English text is a key, its ${name} translation the value. Keep {placeholders}, « », punctuation, leading and trailing spaces, and these names exactly as they are: ${BRAND_NAME}, OmniRoute, Owner, Gemini, Grok, ChatGPT, Deep Research, GitHub. Short, natural interface wording; informal "you".`},{role:"user",content:JSON.stringify(part)}];
       for(let attempt=0;attempt<=retries;attempt++){
         try{
-          const {text}=await completeTextRouted(req,messages,"",null,free?{free:true}:null);
+          // 0.7.36: free models first; when they cannot answer (none set up on the server, or out of quota) the
+          // next try goes through the normal route (the main combination), so the translation still happens.
+          const {text}=await completeTextRouted(req,messages,"",null,free&&attempt===0?{free:true}:null);
           const json=JSON.parse(text.slice(text.indexOf("{"),text.lastIndexOf("}")+1)),out={};
           for(const k of part){const v=json?.[k];if(typeof v==="string"&&v.trim()&&v.length<=800&&!/[<>]/.test(v)&&placeholdersOf(v)===placeholdersOf(k))out[k]=v;}
           if(Object.keys(out).length){const have=i18nRead(lang);if(Object.keys(have).length<I18N_MAX_KEYS){i18nWrite(lang,{...have,...out});done+=Object.keys(out).length;}}
           break;
-        }catch(e){console.warn(`[i18n] ${lang}: ${roError(e)}`);if(attempt===retries&&!retries)return done;}
+        }catch(e){console.warn(`[i18n] ${lang}: ${roError(e)}`);i18nErrors.set(lang,String(roError(e)).slice(0,300));if(attempt===retries&&!retries)return done;}
       }
     }
     return done;
@@ -4835,6 +4839,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }
   }
   const i18nProgress=(lang)=>({total:i18nKeys().length,have:i18nHas(lang),running:i18nPrefillState.current.has(lang)||i18nPrefillState.queue.includes(lang)});
+  // The last reason a batch failed, for the Owner only (it may name models or providers).
+  const i18nProgressFor=(req,lang)=>({...i18nProgress(lang),...(ownerRequest(req)&&i18nErrors.has(lang)?{error:i18nErrors.get(lang)}:{})});
   app.get("/api/i18n/prefill",auth,(req,res)=>{
     if(!ownerRequest(req))return res.status(403).json({error:"Owner only."});
     const langs={};for(const l of Object.keys(I18N_NAMES))langs[l]=i18nHas(l);
@@ -4858,7 +4864,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       i18nPrepares.set(k,n);if(i18nPrepares.size>5000)i18nPrepares.clear();
       i18nPrefill(req,[lang]);
     }
-    res.json({data:i18nProgress(lang)});
+    res.json({data:i18nProgressFor(req,lang)});
   });
   app.get("/api/i18n/:lang",(req,res)=>{
     if(!I18N_NAMES[req.params.lang])return res.status(404).json({error:"Unknown language."});

@@ -21,7 +21,8 @@ const authLine = server.split("\n").find(l => l.includes("const authLimiter"));
 assert.ok(authLine && !authLine.includes("sessionOrIpKey"), "sign-in attempts are still counted per IP");
 
 // The key itself: a session is hashed (never stored as is), the rest falls back to the IP.
-const rateLimit = require(path.join(root, "apps", "server", "node_modules", "express-rate-limit"));
+// apps/server/node_modules is not installed where the desktop tests run, so ipKeyGenerator is stubbed.
+const rateLimit = { ipKeyGenerator: ip => String(ip) };
 const body = server.slice(server.indexOf("function sessionOrIpKey"), server.indexOf("// Requests per minute are unlimited"));
 const sha256 = v => crypto.createHash("sha256").update(String(v)).digest("hex");
 const key = new Function("rateLimit", "sha256", `${body}; return sessionOrIpKey;`)(rateLimit, sha256);

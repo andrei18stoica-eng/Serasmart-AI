@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Menu, Plus, Search, Folder, Bot, Settings, LogOut, Share2, MoreHorizontal,
@@ -882,8 +882,17 @@ function MediaMakerPick({kind}) {
     </select>
   </label>;
 }
-function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAttachments,onOpenLibrary,responseMode,setResponseMode,mediaMode,setMediaMode,mentionsVersion,mediaPolicy}) {
+// 0.7.36: the text being typed lives here, not in App: a key press re-renders only the message box, not the whole
+// conversation, the sidebar and the header (that made typing lag in long chats).
+const draftStore=(()=>{let value="";const subs=new Set();return{
+  get:()=>value,
+  set:(next)=>{const v=typeof next==="function"?next(value):next;if(v===value)return;value=String(v??"");subs.forEach(fn=>fn())},
+  subscribe:(fn)=>{subs.add(fn);return()=>subs.delete(fn)}
+}})();
+function useDraft(){return [useSyncExternalStore(draftStore.subscribe,draftStore.get,draftStore.get),draftStore.set]}
+function Composer({centered,onSend,onStop,busy,attachments,setAttachments,onOpenLibrary,responseMode,setResponseMode,mediaMode,setMediaMode,mentionsVersion,mediaPolicy}) {
   const {can,deny}=useAccess();
+  const [draft,setDraft]=useDraft();
   const ta=useRef(null),fileInput=useRef(null),imageInput=useRef(null),videoInput=useRef(null),audioInput=useRef(null),recorderRef=useRef(null),streamRef=useRef(null),chunksRef=useRef([]),attachRef=useRef(null),mountedRef=useRef(true),autoSendRef=useRef(false),speechRef=useRef(null),stoppedRef=useRef(false),startingRef=useRef(false),draftRef=useRef(draft);
   const [menu,setMenu]=useState(false),[voiceTick,setVoiceTick]=useState(0),[recording,setRecording]=useState(false),[transcribing,setTranscribing]=useState(false),[uploading,setUploading]=useState(0),[mentions,setMentions]=useState([]),[mentionIndex,setMentionIndex]=useState(0),[mentionClosedFor,setMentionClosedFor]=useState(null),[dragOver,setDragOver]=useState(false);
   const pluginsOk=can("plugins"),automationsOk=can("automations");
@@ -1834,7 +1843,7 @@ function App() {
   // replaced as soon as a better one appears, so a direct API picked while OmniRoute was offline does not stay selected.
   const autoPickRef=useRef("");
   const [selectedProject,setSelectedProject]=useState(null),[selectedAssistant,setSelectedAssistant]=useState(null);
-  const [draft,setDraft]=useState(""),[attachmentsState,setAttachments]=useState([]),[responseMode,setResponseModeState]=useState(()=>storage.get(RESPONSE_MODE_KEY,"rapid")==="thinking"?"thinking":"rapid"),[mediaModeState,setMediaMode]=useState(null);
+  const setDraft=draftStore.set,[attachmentsState,setAttachments]=useState([]),[responseMode,setResponseModeState]=useState(()=>storage.get(RESPONSE_MODE_KEY,"rapid")==="thinking"?"thinking":"rapid"),[mediaModeState,setMediaMode]=useState(null);
   const [generations,setGenerations]=useState({});
   const [search,setSearch]=useState(""),[sidebar,setSidebar]=useState(false),[sidebarCollapsed,setSidebarCollapsed]=useState(()=>storage.get(SIDEBAR_COLLAPSED_KEY)==="1");
   const [omni,setOmni]=useState(false),[cloudConfigured,setCloudConfigured]=useState(null),[showJumpBottom,setShowJumpBottom]=useState(false);
@@ -2288,7 +2297,7 @@ function App() {
   }
   async function send(answerText){
     const answer=typeof answerText==="string";
-    const text=answer?answerText.trim():draft.trim();
+    const draft=draftStore.get(),text=answer?answerText.trim():draft.trim();
     const attachments=answer?[]:attachmentsState,mediaMode=answer?null:mediaModeState;
     const usable=attachments.filter(a=>a.part||a.parts?.length);
     if(!text&&!usable.length)return;
@@ -2457,7 +2466,7 @@ function App() {
       {updateReady&&!updateDismissed&&<div className="updateBanner" role="status"><button className="updateInstall" onClick={()=>window.Serasmart?.installUpdate?.()}>{tr("{brand} update available — install now",{brand:BRAND_NAME})}</button><button className="updateClose" onClick={()=>setUpdateDismissed(true)} aria-label={tr("Hide the notice")} title={tr("Later")}><X size={14}/></button></div>}
       <div className="chatScroll" ref={chatRef} onScroll={updateChatScrollState}><ConversationView user={user} recentTitle={conversations.find(c=>c.id!==currentId&&!c.archived&&(c.messages||[]).length)?.title} onPick={(text,mode)=>{if(mode)setMediaMode(mode);else{setMediaMode(null);setDraft(text)}}} conversation={current} busy={busy} busyStage={currentGen?.stage} busySteps={currentGen?.steps||[]} onRegenerate={regenerate} onRate={rate} canRunCode={isOwner} onCodeResult={text=>setDraft(v=>(v?v+"\n\n":"")+text)} onAnswer={text=>send(text)} onOpenSettings={tab=>setSettings(tab||true)}/></div>
       {showJumpBottom&&hasMessages&&<button className="jumpToLatest" onClick={()=>jumpToLatest({smooth:true})} title={tr("Go to the latest message")} aria-label={tr("Go to the latest message")}><ChevronDown size={19}/><span>{tr("Latest message")}</span></button>}
-      <Composer centered={!hasMessages} draft={draft} setDraft={setDraft} onSend={send} onStop={stopGeneration} busy={busy} attachments={attachmentsState} setAttachments={setAttachments} onOpenLibrary={()=>openTool("library","all")} responseMode={responseMode} setResponseMode={setResponseMode} mediaMode={mediaModeState} setMediaMode={setMediaMode} mentionsVersion={mentionsVersion} mediaPolicy={{imagePaid:machineCfgRef.current?.imageCostPolicy==="allow_paid"}}/>
+      <Composer centered={!hasMessages} onSend={send} onStop={stopGeneration} busy={busy} attachments={attachmentsState} setAttachments={setAttachments} onOpenLibrary={()=>openTool("library","all")} responseMode={responseMode} setResponseMode={setResponseMode} mediaMode={mediaModeState} setMediaMode={setMediaMode} mentionsVersion={mentionsVersion} mediaPolicy={{imagePaid:machineCfgRef.current?.imageCostPolicy==="allow_paid"}}/>
     </main>
     {settings&&<SettingsModal onOpenTool={(name,filter)=>{setSettings(false);openTool(name,filter)}} onLogoutAll={()=>{setSettings(false);logout({notice:tr("You were signed out on every device.")})}} user={user} models={models} onDataDeleted={()=>loadData()} onAccountDeleted={()=>{setSettings(false);logout({skipServer:true,notice:tr("The account was deleted.")})}} initialTab={typeof settings==="string"?settings:"profile"} preferences={user?.preferences} onPreferences={updatePreferences} prefBusy={prefBusy} machineSettingsAllowed={machineSettingsAllowed} onClose={()=>setSettings(false)} onSaved={cfg=>{machineCfgRef.current={...(machineCfgRef.current||{}),...cfg};setCloudConfigured(!!String(cfg?.controlApiUrl||"").trim());Promise.resolve(window.Serasmart?.ensureOmni?.()).catch(()=>{});setTimeout(()=>loadData(),800)}}/>}
     {entityModal&&<EntityModal type={entityModal.type} item={entityModal.item} onClose={()=>setEntityModal(null)} onSave={saveEntity} onDelete={entityModal.item&&!entityModal.item.builtIn?deleteEntity:null}/>}

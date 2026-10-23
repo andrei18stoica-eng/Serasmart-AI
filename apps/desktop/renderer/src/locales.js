@@ -1054,6 +1054,7 @@ export const LOCALES = {
   "New skill": "Skill nou",
   "No skills yet": "Nu ai încă skill-uri",
   "Licences and authors": "Licențe și autori",
+  "by {author}": "de {author}",
   "Skill plugins": "Pluginuri de skill-uri",
   "The skill library could not be loaded: {error}": "Nu am putut încărca biblioteca de skill-uri: {error}",
   "by {author} · {license}": "de {author} · {license}",

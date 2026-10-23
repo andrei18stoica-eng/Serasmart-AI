@@ -490,9 +490,20 @@ function parseNumberCell(value) {
   else if (/^-?\d+\.\d+$/.test(t)) n = Number(t);
   return Number.isFinite(n) ? n : null;
 }
+// 0.7.33: a cell written as an Excel formula ("=SUM(B2:B9)", English function names, commas between arguments)
+// stays a live formula; Excel works it out when the file opens. Formulas that reach outside the file (web calls,
+// DDE, macros) stay plain text.
+const RISKY_FORMULA = /\||\b(WEBSERVICE|FILTERXML|CALL|REGISTER(\.ID)?|EXEC|DDE|RTD|IMAGE|HYPERLINK|INFO|CELL)\s*\(/i;
+function formulaOf(value) {
+  const t = String(value ?? "").trim();
+  if (t.length < 2 || t.length > 8000 || !/^=[A-Za-z_(]/.test(t) || RISKY_FORMULA.test(t)) return null;
+  return t.slice(1);
+}
 function xlsxCellXml(value, row, col, style = 0) {
   const ref = excelColumnName(col) + (row + 1);
   const raw = value == null ? "" : value;
+  const formula = typeof raw === "string" ? formulaOf(raw) : null;
+  if (formula) return `<c r="${ref}" s="${style}"><f>${xmlEscape(formula)}</f></c>`;
   const n = typeof raw === "number" ? (Number.isFinite(raw) ? raw : null) : parseNumberCell(raw);
   if (n !== null) return `<c r="${ref}" s="${style}"><v>${n}</v></c>`;
   let text = sanitizeText(raw);
@@ -536,7 +547,7 @@ async function createXlsxBytes(title, content) {
   const overrides = sheets.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("");
   zip.file("[Content_Types].xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>${overrides}<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`);
   zip.folder("_rels").file(".rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`);
-  zip.folder("xl").file("workbook.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((sh, i) => `<sheet name="${xmlEscape(sh.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join("")}</sheets></workbook>`);
+  zip.folder("xl").file("workbook.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((sh, i) => `<sheet name="${xmlEscape(sh.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join("")}</sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`);
   zip.folder("xl").folder("_rels").file("workbook.xml.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`);
   zip.folder("xl").file("styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Aptos"/></font><font><b/><sz val="11"/><name val="Aptos"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs></styleSheet>`);
   sheets.forEach((sh, i) => zip.folder("xl").folder("worksheets").file(`sheet${i + 1}.xml`, xlsxSheetXml(sh.rows)));
@@ -675,4 +686,4 @@ async function createExportBytes(format, rawTitle, rawContent, opts = {}) {
   return { bytes: Buffer.from(stripOuterFence(content), "utf8"), mime: PLAIN_TEXT_MIME[format] || "text/plain; charset=utf-8" };
 }
 
-module.exports = { safeGeneratedName, EXPORT_FORMATS, createExportBytes, xlsxSheets, markdownTableRows, parseDocumentBlocks, plainMarkdownText, sanitizeText, parseNumberCell, safeZipPath, sheetNameFrom, findWindowsFont };
+module.exports = { formulaOf, safeGeneratedName, EXPORT_FORMATS, createExportBytes, xlsxSheets, markdownTableRows, parseDocumentBlocks, plainMarkdownText, sanitizeText, parseNumberCell, safeZipPath, sheetNameFrom, findWindowsFont };

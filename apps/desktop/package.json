@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.32",
+  "version": "0.7.33",
   "private": true,
-  "description": "Serasmart AI 0.7.32 - the skill library keeps only skills whose licence and authors allow publishing them, with the licence texts shown",
+  "description": "Serasmart AI 0.7.33 - Serasmart Documents plugin (Word, PowerPoint, Excel with live formulas, PDF), Anthropic business and finance plugins, read aloud in the answer's language",
   "main": "main.cjs",
   "repository": {
     "type": "git",

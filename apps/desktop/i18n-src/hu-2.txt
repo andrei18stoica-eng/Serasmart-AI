@@ -1,0 +1,440 @@
+441|E-mail
+442|E-mail- és SMS-kampányok, listák és eredmények.
+443|E-mail- és naptárasszisztens
+444|E-mail megerősítve.
+445|E-mail megerősítve. A hozzáférésed az Owner jóváhagyására vár.
+446|Hostingernél tárolt e-mail
+447|Végpont / webhook / egyéni API
+448|A fiók összes munkamenetét lezárja, ezen az eszközön is.
+449|Lejár: {when}
+450|Szórakozás
+451|Hiba
+452|Hibák, issue-k és kiadások.
+453|Jó estét. Valamit befejezni, vagy terv holnapra?
+454|Gyakoriság (óra)
+455|Néhány óránként
+456|Az ebben a beszélgetésben csatolt vagy létrehozott összes fájl.
+457|Óránként
+458|Minden modell és eszköz, amit a csomagod enged
+459|Ezeknek a listáknak minden modellje megjelenik a felső modellistában. Ha hiányzik a kulcs, vagy a szolgáltató 429/404/503-at ad vagy nem válaszol, a(z) {brand} a következő modellt, majd a következő szolgáltatót próbálja.
+460|{n} óránként
+461|Pontos idő
+462|Példák
+463|Kilépési kód: {code}
+464|Magyarázd el egyszerűen
+465|AI-val készült magyarázó videók
+466|Bármely témát úgy magyaráz el, hogy egy kezdő is megértse.
+467|Felfedezés
+468|Tudományos kutatások felfedezése
+469|Bővítmények
+470|Extra kreditek
+471|FLUX.1 Schnell a HF Inference Routeren keresztül, csak ha a költségvédelem engedi.
+472|FLUX.1 Schnell · az első szolgáltató ingyenes módban.
+473|FLUX.1 Schnell. A promóciós kreditek korlátozottak lehetnek.
+474|Sikertelen itt:
+475|Tartalék médiaszolgáltató.
+476|Fantasy football elemzések
+477|Gyors és fejlett modellek
+478|Gyors generáló modellek a fal.run-on keresztül.
+479|Gyors mód. Kattints a Gondolkodáshoz: pontosabb válaszok, kicsit lassabban.
+480|Fájl
+481|Fájlnév
+482|A fájl útvonala a tárolóban
+483|Fájlfeltöltés: {error}
+484|Fájlok feltöltése
+485|Fájlok
+486|Fájlok és adatok
+487|Fájlok és eszközök
+488|A chat fájljai
+489|A beszélgetés fájljai
+490|Fájlok: PDF / Word / PowerPoint / Excel / CSV / ZIP / kód
+491|Pénzügyek
+492|Pénzügy és könyvelés
+493|Tudományos cikkek keresése és olvasása
+494|Dizájnok keresése, készítése és szerkesztése.
+495|Issue-k, projektek és megjegyzések keresése, létrehozása és frissítése.
+496|Előbb erősítsd meg az e-mail-címed a kapott kóddal. Ha nem találod, nézd meg a spamet, vagy kérj újat.
+497|Előbb írd le, mit építsünk.
+498|Javítja a nyelvtant, az ékezeteket és a központozást a jelentés megváltoztatása nélkül.
+499|Ellenőrzéseknél (árak, hirdetések): nincs értesítés, ha az eredmény ugyanaz, mint legutóbb.
+500|Kódkérdéseknél válasz előtt megkeresi a releváns fájlokat a tárolóban.
+501|Programozási kérdéseknél a(z) {brand} magától megtalálja a releváns fájlokat ebben a tárolóban.
+502|A Google-alkalmazások csatlakoztatásához az Alkalmazásokban: egy «Webalkalmazás» típusú OAuth-kliens a Google Cloudból, ezzel a visszatérési címmel: {url}
+503|Tudományhoz és kutatáshoz
+504|Örökre
+505|Űrlapok és a válaszok elemzése
+506|Ingyenes
+507|Ingyenes üzenetek ma
+508|Felhasznált ingyenes üzenetek
+509|Ingyenes próba
+510|Gyakoriság
+511|Friss reggel. Mivel kezdjük?
+512|Péntek. Zárjuk jól a hetet.
+513|Barátságos
+514|Teljes név
+515|GPT Image az OpenAI API-ján keresztül.
+516|Játékok
+517|Gemini API-kulcs
+518|Gemini és Grok
+519|Gemini-kulcs
+520|Gemini modell (Nano Banana)
+521|Gemini modell (Veo)
+522|Gemini modellek · vesszővel elválasztva
+523|Csak Gemini · Nano Banana
+524|Csak Gemini · Veo
+525|Csak Gemini: az OmniRoute-ban csatlakoztatott Geminin keresztül (előfizetés, API nélkül) vagy az AI API-k Gemini-kulcsával. Az alábbi többi szolgáltatót nem használjuk.
+526|A Gemini API-n keresztül fizetős: ha a kulccsal szeretnéd használni, válaszd lent a «Fizetős szolgáltatók engedélyezése» lehetőséget.
+527|Általános
+528|Generálás
+529|Generálás újra
+530|Szerezd meg az ingyenes kulcsot
+531|Telepítsd a(z) {brand} alkalmazást a telefonodra, ingyen
+532|Előkészítés…
+533|GitHub OAuth Client ID
+534|GitHub OAuth client secret
+535|GitHub modellek · vesszővel elválasztva
+536|A visszaállítás a GitHubon kész. Commit: {commit}
+537|GitHub-hozzáférés mindenkinek
+538|GitHub-token (privát tárolóhoz)
+539|Készíts rövid összefoglalót a mai legfontosabb hírekről és a technológiáról, a források linkjeivel.
+540|Vissza a chathez, ahol voltál
+541|Visszaállsz a(z) {path} előző verziójára?
+542|Ugrás az utolsó üzenethez
+543|Jó napot
+544|Jó napot, {name}
+545|Jó estét
+546|Jó estét, {name}
+547|Jó reggelt
+548|Jó reggelt, {name}
+549|Google
+550|Google OAuth Client ID
+551|Google OAuth client secret
+552|Google-alkalmazások (Gmail, Drive, Calendar, Docs, Sheets)
+553|Irányítás
+554|Grok modellek · vesszővel elválasztva
+555|Grok képmodell
+556|Grok videómodell
+557|Groq API-kulcs
+558|Groq modellek · vesszővel elválasztva
+559|HD képek
+560|Fejléc neve
+561|Egészség
+562|Egészségügy
+563|Segíts megtervezni a hetet. A prioritásaim:
+564|Itt a(z) {format} fájlod: {name}
+565|Műveletek elrejtése
+566|Figyelmeztetés elrejtése
+567|Lépések elrejtése
+568|Hogyan dolgozzon ez az asszisztens?
+569|Hogy telik a napod? Mit vehetek le a válladról?
+570|Hány kredit?
+571|Hogyan válaszol az AI
+572|Hogyan válassz
+573|Hogyan telepítsd
+574|Hogyan válaszoljak neked, mindig. Pl. «Röviden magyarázz, példákkal. Ha kódot írsz, kommenteld.»
+575|HubSpot OAuth Client ID
+576|HubSpot OAuth client secret
+577|A HubSpot csak a tulajdonos által regisztrált OAuth-alkalmazásokat fogadja el. Hozz létre egyet a HubSpotban ({where}) ezzel a visszatérési címmel: {url}
+578|HubSpot-hozzáférés mindenkinek
+579|Hugging Face modellek · vesszővel elválasztva
+580|Emberi erőforrások
+581|Nem érem el a(z) {brand} szolgáltatást itt: {url}. Ellenőrizd a címet, vagy használd ezt: {local}.
+582|1 kulcsot másoltam a szerverhez. Illeszd be, amikor a szerveren futó szkript kéri (jobb klikk). 2 perc múlva törlődik a vágólapról.
+583|{n} kulcsot másoltam a szerverhez. Illeszd be őket, amikor a szerveren futó szkript kéri (jobb klikk). 2 perc múlva törlődnek a vágólapról.
+584|Nem másoltam: {names} — a szerver által el nem fogadott karaktereket tartalmaznak.
+585|Nem hallottam semmit. Kattints a mikrofonra, és beszélj újra.
+586|IP-cím
+587|IP vagy domain
+588|Ha a választott Gemini modell nem létezik a kulcsodhoz, a(z) {brand} magától kipróbálja a többi Gemini-nevet, majd az itt engedélyezett szolgáltatókat.
+589|Ha a választott modell nem válaszol, magától átvált a közvetlen API-kra. Kikapcsolva: csak a választott modell válaszol, különben a hibát látod.
+590|Ha a szolgáltatás leáll, a(z) {brand} megpróbálja újraindítani.
+591|Importálás az előzményekből
+592|Importálod a tartós részleteket (preferenciák, döntések, projektrészletek) a chat-előzményekből?
+593|{n} elem importálva az előzményekből.
+594|Importálás…
+595|Egy chatben
+596|A(z) {brand} része
+597|A(z) {brand} része · fiók nélkül
+598|Benne van, de alapból tiltja a költségvédelem.
+599|Információk a Zoom-értekezletekből
+600|Infrastruktúra
+601|Telepítés
+602|A(z) {brand} alkalmazás telepítése
+603|Telepítve
+604|Utasítások
+605|Utasítások az AI-nak
+606|Utasítások az asszisztensnek
+607|Utasítások a(z) {brand} számára
+608|Egyszer mentett utasítások, amelyeket akkor használsz, amikor akarsz: írd be a chatbe: /név (például /összefoglaló), vagy tarts egy skillt mindig bekapcsolva.
+609|Utasítások, amelyeket az AI követ, amikor /név-vel meghívod őket.
+610|Felülettervezés és prototípusok
+611|Érvénytelen válasz a(z) {brand} szolgáltatástól (HTTP {status}).
+612|Érvénytelen válasz a fájl feltöltésekor.
+613|Számlák, rendelések és tranzakciók.
+614|Issue-k, pull requestek és kódtárolók
+615|Mentéskor törlődik
+616|Hétvége van. Valami a munkához, vagy csak neked?
+617|Jira issue-k és Confluence-oldalak: keresés, létrehozás, szerkesztés.
+618|Jira, Confluence, Loom és még több
+619|Chatek megőrzése
+620|Naprakészen tartja az AI-t a hírekkel
+621|Kulcs / token
+622|Kulcs mentve — hagyd üresen a megtartásához
+623|Kulcsok a szerverhez
+624|LTX Video. Használhatja a kezdő krediteket, utána fizetős keretet.
+625|Nyelv
+626|A diktálás, átírás és felolvasás nyelve
+627|Nyelv: {lang}
+628|Nyelv: {name}
+629|Utolsó tevékenység
+630|Utolsó frissítés: {when}, sikeres.
+631|Később
+632|Utolsó üzenet
+633|Utolsó kiadott verzió: {v}.
+634|Jog, biztonság és megfelelés
+635|Leadek, kapcsolatok és lehetőségek.
+636|Hagyd meg a(z) {url} címet, hacsak nem külön {brand}-szervert használsz. A címet mentés előtt ellenőrizzük.
+637|Jogi
+638|Jogi elemzés
+639|Hossz
+640|Kezdjük jól a napot. Mit csinálunk először?
+641|Könyvtár
+642|Könyvtárszűrők
+643|Licencek és szerzők
+644|Világos
+645|Figyelek… kattints újra a mikrofonra a leállításhoz.
+646|Figyelek… kattints a mikrofonra a leállításhoz
+647|Élő internet és GitHub
+648|Élő internet, GitHub és szerver
+649|A memória betöltése…
+650|A Könyvtár betöltése…
+651|Programozási modellek betöltése…
+652|Kombinációk betöltése…
+653|A dizájn betöltése…
+654|Előzmények betöltése…
+655|Modellek betöltése…
+656|Pluginek betöltése…
+657|Előnézet betöltése…
+658|Profil betöltése…
+659|Kérés betöltése…
+660|Beállítások betöltése…
+661|Feladatok betöltése…
+662|Szöveg betöltése…
+663|Felhasználók betöltése…
+664|Betöltés…
+665|Kijelentkezés
+666|Kijelentkezés minden eszközről
+667|A Workers naplói és statisztikái.
+668|Naplók, metrikák, monitorok és incidensek.
+669|Keress címet, várost vagy helyet.
+670|Frissítések keresése…
+671|Lovable OAuth Client ID
+672|Lovable OAuth client secret
+673|A Lovable csak a tulajdonos által regisztrált OAuth-alkalmazásokat fogadja el. Hozz létre egyet a Lovable-ben ({where}) ezzel a visszatérési címmel: {url}
+674|Lovable-hozzáférés mindenkinek
+675|Másolat készült, kikapcsolva: «{name}».
+676|Készítette: {brand}
+677|Fő asszisztens
+678|Fő kombináció (automatikus)
+679|Ingyenes Gemini-kulcs létrehozása
+680|Kép készítése
+681|A javítás elkészítése
+682|PDF, DOCX és PPTX fájlokat készít és kezel.
+683|Képeket készít AI-val.
+684|A kép készítése és a fájl előkészítése…
+685|A videó készítése… néhány percig tarthat
+686|A(z) {format} fájl készítése…
+687|Adatbázisok kezelése és lekérdezése
+688|Térképek
+689|Marketing
+690|Matematika / logika
+691|Én
+692|Értekezletek átiratai és összefoglalói.
+693|Értekezletek
+694|Memória
+695|Memória és chatek
+696|A memória üres.
+697|A memória ki van kapcsolva: a(z) {brand} nem tárol és nem használ semmi újat, amíg be nem kapcsolod.
+698|Memóriabeállítások
+699|Memória, projektek és fájlkönyvtár
+700|Menü
+701|Üzenet
+702|Üzenet a(z) {brand} számára
+703|Üzenet, fejlett modell
+704|Üzenet, gyors modell
+705|Üzenet, csúcsmodell
+706|Módszer
+707|A mikrofonhoz való hozzáférést megtagadták. Engedélyezd a mikrofont a böngészőben.
+708|Mikrofon elérhető és engedélyezett ✓
+709|Mikrofon bekapcsolva — beszélj most
+710|A mikrofon nem érhető el vagy nincs engedélyezve
+711|Microsoft Teams csapatok és chatek
+712|Mistral API-kulcs
+713|Mistral modellek · vesszővel elválasztva
+714|Modell engedélyezve / tiltva
+715|Kézzel választott modell
+716|Modell az új chatekhez
+717|Modell a Designhoz
+718|Modellek, adatkészletek és Spaces.
+719|Modernizálás
+720|Újra hétfő. Rendezzük el a hetet.
+721|Hétfő–péntek {time}-kor
+722|Havonta
+723|Minden hónap {day}. napján, {time}-kor
+724|Reggeli hírek
+725|A legnépszerűbb
+726|Áthelyezés projektbe
+727|Zene és podcastok
+728|NEM
+729|NVIDIA / NIM API, OpenAI-kompatibilis.
+730|NVIDIA API-kulcs
+731|NVIDIA modellek · vesszővel elválasztva
+732|Név
+733|Navigáció
+734|Kell segítség a nap hátralévő részére?
+735|Figyelmet igényel
+736|Hozzáférés kell
+737|Új hozzáférési kérelem
+738|Új fiók
+739|Ezen a szerveren ki vannak kapcsolva az új fiókok.
+740|Figyelemre méltó újdonságok
+741|Új asszisztens
+742|Új chat
+743|Új chat vele: {name}
+744|Új dizájn
+745|Új elem a memóriába
+746|Új jelszó
+747|Új projekt
+748|Új skill
+749|Új feladat
+750|Új hét. Megtervezzük együtt?
+751|Legújabbak
+752|Hírek minden reggel
+753|Következő kreditek: {when}
+754|Következő futás
+755|Nem
+756|Ennek a fióknak nincs engedélyezett AI modellje. Kérj az Ownertől hozzáférést egy modellhez.
+757|Még nincsenek API pluginek
+758|Nem érkezett válasz.
+759|Még nincs csatlakoztatott alkalmazás. Válassz egyet lent: bejelentkezés után a(z) {brand} kereshet, olvashat, létrehozhat és szerkeszthet benne, és minden művelet előtt megkérdez.
+760|Nem található alkalmazás. Hozzáadhatod az «Egyéni alkalmazás» opcióval, ha van MCP-címe.
+761|Nincs változás
+762|Nincs mentett chatkulcs. Adj hozzá például egy Gemini- vagy Groq-kulcsot, és mentsd.
+763|Ebben a projektben még nincs chat. Írj egy üzenetet, hogy elkezdj egyet.
+764|Nincs megjeleníthető chat.
+765|Még nincs chat.
+766|Még nincs elérhető programozási modell.
+767|Még nincs egyéni asszisztens.
+768|Nincs kiválasztott nap
+769|Még nincs dizájn. Írd le az elsőt jobbra.
+770|Egyik eszköz sem kapta meg. Kapcsold be fent az értesítéseket.
+771|Nincs elem.
+772|Egy fájl sem felel meg a szűrőnek.
+773|Nincs elérhető modell
+774|Nincs egyező modell.
+775|Nincs elérhető modell.
+776|Nem található plugin. Létrehozhatod a «Plugin létrehozása» lapon.
+777|Nincs projekt
+778|Még nincs projekt. Hozz létre egyet az oldalsó menüből.
+779|Nincs olvasható szöveg
+780|Nincs csatlakoztatott tároló
+781|Még nincs ütemezett feladat
+782|Még nincs skill
+783|Nincs szöveges eredmény.
+784|Nincs {name} modell az OmniRoute-ban. Csatlakoztasd az OmniRoute panelen (Providers), majd nyisd meg újra ezt az oldalt.
+785|Nincs
+786|A beállított AI-k közül most egyik sem tudott válaszolni. Ellenőrizd a választott modellt vagy az API-kulcsokat.
+787|Az Owner nem engedélyezi
+788|Nem része a csomagodnak
+789|Nincs telepítve — npm install -g omniroute
+790|Még nem futott
+791|Erre a keresésre nincs találat.
+792|Nincs találat.
+793|Még semmi. Beszélgetés közben a(z) {brand} megjegyzi a preferenciáidat és a fontos döntéseket. Lent te is hozzáadhatsz valamit.
+794|Értesítés elküldve 1 eszközre.
+795|Értesítés elküldve {n} eszközre.
+796|Értesítések
+797|A(z) {brand} értesítései le vannak tiltva. Kapcsold be őket a telefon beállításaiban (Értesítések → {brand}), és kattints újra.
+798|Az értesítések ki vannak kapcsolva ezen az eszközön.
+799|Az értesítéseket nem engedélyezted. Bekapcsolhatod őket a telefon beállításaiban, a(z) {brand} alatt.
+800|Értesíts
+801|Notion-dokumentumok és munkafolyamatok
+802|OAuth-hiba — {error}
+803|KI
+804|BE
+805|Ajánlat egy ügyfélnek
+806|Hivatalos és közösségi modellek a Predictions API-n keresztül.
+807|Hivatalos videómodellek a Predictions API-n keresztül.
+808|Legrégebbiek
+809|Az OmniRoute 3.8 kulcs nélkül nem válaszol. Hozz létre egyet az OmniRoute-ban:
+810|OmniRoute API-kulcs
+811|OmniRoute-cím
+812|OmniRoute-kombináció
+813|OmniRoute-kombinációk
+814|OmniRoute-parancs
+815|OmniRoute csatlakoztatva
+816|Az OmniRoute-nak még nincsenek kombinációi.
+817|Az OmniRoute válaszol.
+818|Az OmniRoute nem válaszol. Válassz a listából egy közvetlen API modellt (Groq, Gemini…), vagy kapcsold be az automatikus tartalékot.
+819|Az OmniRoute fut, de API-kulcs kell neki: hozd létre az OmniRoute → API Manager részben, és add meg a Beállítások → AI és OmniRoute alatt. Addig a közvetlen API-k válaszolnak (Groq, Gemini…), ha kiválasztod őket a listából.
+820|OmniRoute-kulcs
+821|Az OmniRoute-nak API-kulcs kell
+822|Az OmniRoute leállt
+823|iPhone-on az értesítések csak a telepített alkalmazásból működnek: nyisd meg a(z) {domain} oldalt Safariban → Megosztás → Főképernyőhöz adás, aztán nyisd meg a(z) {brand} alkalmazást a képernyőről, és gyere vissza ide.
+824|{slug} bekapcsolása
+825|Egyszer
+826|Egyszer: {date}, {time}
+827|Egy hely térképekhez, képekhez, asszisztensekhez és weboldalakhoz.
+828|Egy év
+829|Csak közvetlen költség nélküli szolgáltatók
+830|Csak a kijelölt kódblokk
+831|Csak a munkalépéseket mutatjuk, a modell belső gondolatmenetét nem.
+832|Csak ha valami változik
+833|Megnyitás
+834|Beállítások megnyitása
+835|Beállítások → Videó megnyitása
+836|Megnyit egy weboldalt a böngészőben.
+837|Megnyitás teljes képernyőn
+838|Megnyitás a Designban
+839|Megnyitás a böngészőben
+840|A Google-oldal megnyitása
+841|Nyisd meg a böngésző menüjét (⋮ vagy ≡).
+842|A chat megnyitása
+843|{name} dizájn megnyitása
+844|A lista megnyitása
+845|{name} előnézetének megnyitása
+846|A feladat megnyitása
+847|Nyisd meg a(z) {domain} oldalt Safariban (iPhone-on csak a Safari tudja telepíteni az alkalmazást).
+848|{name} megnyitása
+849|Az OpenAI (ChatGPT) már nem készít videókat: a Sora 2026. szeptember 24-én bezárt, az alkalmazás és az API is. A ChatGPT képei továbbra is működnek.
+850|OpenAI (fizetős)
+851|OpenAI API-kulcs
+852|OpenAI-kompatibilis, gyors válaszok.
+853|OpenAI-kompatibilis.
+854|OpenAI modellek · vesszővel elválasztva
+855|OpenAI képmodell
+856|OpenAI API-n keresztül
+857|OpenAI-kompatibilis router; ugyanaz a token, mint a Képeknél.
+858|OpenRouter (kerülhet pénzbe)
+859|OpenRouter API-kulcs
+860|OpenRouter modell
+861|OpenRouter képmodell
+862|OpenRouter videómodell
+863|Megnyitás…
+864|Közvetlenül megnyitja az alkalmazást
+865|Működés
+866|Opcionális: egy GitHub OAuth App (GitHub → Settings → Developer settings) ezzel a callback URL-lel: {url}. Enélkül a GitHub személyes tokennel csatlakozik.
+867|A próbálkozások sorrendje
+868|Egyéb
+869|Más OmniRoute-modellek
+870|A többi fiók az összes ingyenes modellt használja (Gemini, Groq, Mistral, OpenRouter :free…). Az előfizetéseid (Codex, Claude Code, Copilot, Kiro, a webes fiókok) csak a tieid maradnak: a feltételeik nem engedik a fiók megosztását. OmniRoute-kombinációt csak akkor használnak, ha itt bejelölöd; csak ingyenes modellekből álló kombinációkat jelölj be.
+871|Más válasz: {question}
+872|További részletek
+873|További modellek
+874|Egyebek
+875|Különben csak akkor indul, ha beírod a nevét vagy a @triggert a chatbe.
+876|Az Owner e-mail-címe ezen a gépen
+877|Owner ezen a gépen
+878|Csak Owner
+879|Owner: felhasználók, jóváhagyások, jogosultságok, munkamenetek és AI-szolgáltatások.
+880|PNG, JPEG vagy WebP, legfeljebb 10 MB.

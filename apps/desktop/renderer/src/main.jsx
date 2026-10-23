@@ -29,6 +29,7 @@ import { AccessRequestDialog, PhoneNotifications } from "./accessRequest.jsx";
 import { ScheduledPage } from "./pages/Scheduled.jsx";
 import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
+import { detectSpeechLang, voiceFor, speakableText } from "./speechLang.mjs";
 import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat } from "./documentIntent.mjs";
 import { ExtensionsPage } from "./pages/Extensions.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
@@ -130,10 +131,6 @@ function friendlyError(raw){
 }
 
 function safeFileTitle(value){return String(value||`${BRAND_NAME}`).replace(/[\\/:*?"<>|]+/g," ").replace(/\s+/g," ").trim().slice(0,90)||`${BRAND_NAME}`;}
-async function exportMessageFile(message,format,title) {
-  const d=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(title),content:messageText(message)})});
-  await downloadGeneratedFile(d.data);
-}
 
 // The last file the AI made in this chat (its format), so "add a slide" or "translate it" changes that file (0.7.29).
 function lastMadeFormat(messages){
@@ -607,12 +604,11 @@ function CopyMessageButton({message,className=""}) {
   return <button className={className} onClick={copy} title={copied?"Copiat":"Copiază mesajul"} aria-label="Copiază mesajul">{copied?<Check size={15}/>:<Copy size={15}/>}</button>;
 }
 
-const EXPORT_FORMATS=[["pdf","PDF"],["docx","Word"],["pptx","PowerPoint"]];
+// 0.7.33: the Download (PDF / Word / PowerPoint) button under each answer was removed at the Owner's request;
+// files are asked for in the chat ("make it a Word file") and come as a real file card.
 function MessageActions({message,title,disabled,onRegenerate,onRate}) {
-  const {can,deny}=useAccess();
-  const [speaking,setSpeaking]=useState(false),[exporting,setExporting]=useState(""),[exportMenu,setExportMenu]=useState(false);
-  const speakingRef=useRef(false),exportRef=useRef(null);
-  useDismiss(exportMenu,()=>setExportMenu(false),exportRef);
+  const [speaking,setSpeaking]=useState(false);
+  const speakingRef=useRef(false);
   useEffect(()=>()=>{if(speakingRef.current){try{window.speechSynthesis.cancel()}catch{}}},[]);
   function stopSpeaking(){speakingRef.current=false;setSpeaking(false);}
   function speak(){
@@ -620,24 +616,15 @@ function MessageActions({message,title,disabled,onRegenerate,onRate}) {
     try{
       window.speechSynthesis.cancel();
       if(speaking){stopSpeaking();return;}
-      const u=new SpeechSynthesisUtterance(text);u.lang=speechLocale();u.rate=1;u.onend=stopSpeaking;u.onerror=stopSpeaking;
+      // 0.7.33: read in the answer's own language, with an installed voice for it when there is one.
+      const spoken=speakableText(text)||text,lang=detectSpeechLang(spoken,speechLocale());
+      const u=new SpeechSynthesisUtterance(spoken);u.lang=lang;u.rate=1;u.onend=stopSpeaking;u.onerror=stopSpeaking;
+      const voice=voiceFor(lang,window.speechSynthesis.getVoices?.()||[]);if(voice)u.voice=voice;
       speakingRef.current=true;setSpeaking(true);window.speechSynthesis.speak(u);
     }catch{stopSpeaking();toast("Citirea cu voce nu este disponibilă pe acest calculator.")}
   }
-  async function exp(format){
-    if(!can("document_generation")){deny("document_generation");return;}
-    if(exporting)return;
-    setExporting(format);
-    try{await exportMessageFile(message,format,title)}catch(e){toast("Export: "+e.message)}finally{setExporting("")}
-  }
-  const exportLocked=!can("document_generation");
   return <div className="messageActions">
     <CopyMessageButton message={message}/>
-    {/* PDF / Word / PowerPoint behind one "Descarcă" button instead of three format labels in the row. */}
-    <div className="exportWrap" ref={exportRef}>
-      <button className={cx(exportLocked&&"locked",exportMenu&&"selected")} onClick={()=>{if(exportLocked){deny("document_generation");return;}setExportMenu(v=>!v)}} disabled={!!exporting} title={exportLocked?deniedMessage("document_generation"):"Descarcă răspunsul (PDF, Word, PowerPoint)"} aria-label="Descarcă răspunsul" aria-haspopup="menu" aria-expanded={exportMenu}>{exporting?<LoaderCircle size={15} className="spin"/>:<Download size={15}/>}</button>
-      {exportMenu&&<div className="exportMenu" role="menu">{EXPORT_FORMATS.map(([f,label])=><button key={f} role="menuitem" onClick={()=>{setExportMenu(false);exp(f)}}><FileText size={15}/><span>{label}</span><small>.{f}</small></button>)}</div>}
-    </div>
     <button onClick={speak} title={speaking?"Oprește citirea":"Citește cu voce"} aria-label={speaking?"Oprește citirea":"Citește cu voce"} aria-pressed={speaking}><Volume2 size={15}/></button>
     <button className={message.rating===1?"selected":""} onClick={()=>onRate(1)} disabled={disabled} title="Răspuns util" aria-label="Răspuns util" aria-pressed={message.rating===1}><ThumbsUp size={15}/></button>
     <button className={message.rating===-1?"selected":""} onClick={()=>onRate(-1)} disabled={disabled} title="Răspuns slab" aria-label="Răspuns slab" aria-pressed={message.rating===-1}><ThumbsDown size={15}/></button>

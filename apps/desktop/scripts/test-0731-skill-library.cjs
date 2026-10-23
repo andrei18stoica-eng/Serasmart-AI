@@ -14,6 +14,8 @@ function units() {
   const all = lib.packs.flatMap(p => p.skills);
   expect(all.length >= 300, "the library has the skills: " + all.length);
   for (const p of lib.packs) {
+    // Serasmart's own plugin is the only one not taken from an open-source repository.
+    if (p.source === "serasmart") { expect(p.id === "serasmart-documents" && p.author === "Serasmart AI", "Serasmart's own pack"); continue; }
     expect(/^(MIT|Apache-2\.0)$/.test(p.license) && p.author && p.skills.length, `pack ${p.id} has an author and an open licence`);
     const src = lib.sources.find(s => s.id === p.source);
     expect(src && /^https:\/\/github\.com\//.test(src.repo) && fs.existsSync(path.join(dir, "licenses", src.licenseFile)), `pack ${p.id} names its source and licence text`);
@@ -26,11 +28,17 @@ function units() {
   expect(!anthropic.includes("brand-guidelines") && !lib.packs.some(p => /anthropic|claude/i.test(p.name)), "no Anthropic branding");
   expect(!lib.packs.some(p => p.source === "composio") && !lib.sources.some(s => s.id === "composio"), "Composio left out");
   const slugs = new Set(all.map(s => s.slug));
+  // 0.7.33: Anthropic's knowledge-work and financial-services plugins (Apache 2.0), without the partner-built ones;
+  // Serasmart Documents with its four skills, written for Serasmart (not taken from Anthropic's docx/pptx/xlsx/pdf).
+  expect(["kw-sales", "kw-legal", "kw-small-business", "fin-financial-analysis"].every(id => lib.packs.some(p => p.id === id)), "Anthropic business and finance plugins are in");
+  expect(!lib.packs.some(p => /zoom|apollo|slack|common-room|brand-voice|lseg|spglobal|cowork|pdf-viewer/.test(p.id)), "partner-built and Cowork-only plugins left out");
+  const docs = lib.packs.find(p => p.id === "serasmart-documents");
+  expect(docs && docs.skills.map(s => s.slug).join() === "word,powerpoint,excel,pdf" && docs.skills.every(s => /Serasmart AI/.test(s.instructions)), "Serasmart Documents has its four skills");
   for (const out of ["anti-reversing-techniques", "alphagenome", "timesfm-forecasting"]) expect(!slugs.has(out), out + " left out");
   for (const out of ["social-publishing", "hermes-tweet", "protect-mcp", "signed-audit-trails", "review-agent-governance"]) expect(!lib.packs.some(p => p.id === "wsh-" + out), out + " left out");
   expect(["frontend-design", "canvas-design", "internal-comms", "theme-factory", "mcp-builder"].every(s => anthropic.includes(s)), "Anthropic's Apache 2.0 skills are in");
   expect(new Set(all.map(s => s.slug)).size === all.length && all.every(s => /^[a-z0-9-]{1,32}$/.test(s.slug)), "slugs are unique and fit /commands");
-  expect(all.every(s => s.instructions.length <= MAX_INSTRUCTIONS && !/^---\n/.test(s.instructions)), "instructions fit and have no front matter");
+  expect(all.every(s => s.instructions.length <= MAX_INSTRUCTIONS && !/^---\n(name|description):/.test(s.instructions)), "instructions fit and have no front matter");
   expect(fs.readFileSync(path.join(dir, "NOTICE.md"), "utf8").includes("Left out on purpose"), "NOTICE lists what was left out");
   expect(JSON.stringify(libraryIndex()).length < 400000 && !JSON.stringify(libraryIndex()).includes('"instructions"'), "the index stays light");
 
@@ -80,6 +88,9 @@ async function gateway() {
     expect(/### \/test-driven-development/.test(systems.at(-1)) && /Jesse Vincent/.test(systems.at(-1)), "a pack's skill reaches the model");
     await chat("/frontend-design o pagină");
     expect(/### \/frontend-design/.test(systems.at(-1)) && /Anthropic/.test(systems.at(-1)), "a single library skill reaches the model");
+    // 0.7.33: a file answer gets Serasmart Documents' guidance for its format, without adding anything.
+    await call("/api/chat", { method: "POST", token, body: { model: "Ai principal", fileFormat: "xlsx", messages: [{ role: "user", content: "un excel cu bugetul" }] } });
+    expect(/SERASMART DOCUMENTS/.test(systems.at(-1)) && /=SUM\(B2:B10\)/.test(systems.at(-1)), "the Excel guidance reaches the model");
     r = await call("/api/skills/library/notice", { token });
     expect(r.status === 200 && /Left out on purpose/.test(r.j.notice) && r.j.licenses.some(l => /Apache License/.test(l.text)) && r.j.licenses.some(l => /MIT License/.test(l.text)), "the licence texts are shown");
     expect((await call(`/api/skills/${packId}`, { method: "DELETE", token })).status === 200, "a pack is removed");
@@ -91,4 +102,14 @@ async function gateway() {
   }
 }
 
-(async () => { units(); await gateway(); console.log("test-0731-skill-library: ok"); })().catch((e) => { console.error(e); process.exit(1); });
+async function formulas() {
+  const JSZip = require("jszip");
+  const { createExportBytes, formulaOf } = require("../lib/documents.cjs");
+  expect(formulaOf("=SUM(B2:B4)") === "SUM(B2:B4)" && formulaOf('=WEBSERVICE("http://x")') === null && formulaOf("=cmd|' /c calc'!A0") === null && formulaOf("= 5") === null, "safe formulas only");
+  const out = await createExportBytes("xlsx", "Buget", "| Item | Lei |\n|---|---|\n| A | 10 |\n| B | 20 |\n| Total | =SUM(B2:B3) |\n| Web | =WEBSERVICE(\"http://x\") |");
+  const zip = await JSZip.loadAsync(out.bytes || out.buffer || out);
+  const sheet = await zip.file("xl/worksheets/sheet1.xml").async("string"), book = await zip.file("xl/workbook.xml").async("string");
+  expect(/<f>SUM\(B2:B3\)<\/f>/.test(sheet) && !/<f>WEBSERVICE/.test(sheet) && /fullCalcOnLoad="1"/.test(book), "an Excel formula stays live and is worked out on opening");
+}
+
+(async () => { units(); await formulas(); await gateway(); console.log("test-0731-skill-library: ok"); })().catch((e) => { console.error(e); process.exit(1); });

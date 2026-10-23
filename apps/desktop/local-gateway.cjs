@@ -4271,7 +4271,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   // (lib/documents.cjs) turns into real slides, sheets and headings; a change returns the whole changed file.
   const FILE_SHAPES={
     pptx:"Each slide starts with a «## Slide title» heading followed by short bullet points (at most 6 per slide); a Markdown table becomes a table slide.",
-    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells.",
+    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells. Cells may hold Excel formulas such as =SUM(B2:B10) (English function names, commas between arguments; the header is row 1).",
     csv:"One Markdown table with a header row, or plain CSV.",
     docx:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables.",
     pdf:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables."
@@ -4296,6 +4296,9 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     system.push("Fiabilitate: pentru informații actuale despre biblioteci, API-uri, modele, versiuni, prețuri sau servicii folosește prioritar contextul WEB LIVE dacă este disponibil și include la final o secțiune scurtă «Surse» cu linkurile folosite. Pentru cod, separă clar ce ai analizat de ce a fost efectiv rulat/testat. Pentru medical, juridic și financiar poți analiza și cita surse, dar păstrează recomandarea de validare umană atunci când decizia are consecințe importante.");
     // 0.7.29: the app turns this answer into the file and sends it; the AI must not answer that it cannot.
     if(options.fileFormat)system.push(fileAnswerInstruction(options.fileFormat,options.fileEdit));
+    // 0.7.33: Serasmart's own Documents plugin guides every Word / PowerPoint / Excel / PDF answer.
+    const docSkill=options.fileFormat&&librarySkill({docx:"word",pptx:"powerpoint",xlsx:"excel",pdf:"pdf"}[options.fileFormat]);
+    if(docSkill&&docSkill.pack?.id==="serasmart-documents")system.push(`SERASMART DOCUMENTS — how to write this file:\n${docSkill.instructions}`);
     const assistant=db.assistants.find(a=>a.id===assistantId&&a.userId===userId);if(assistant?.systemPrompt)system.push(assistant.systemPrompt);
     const skillText=skillSystemText(skillsForMessage((db.skills||[]).filter(x=>x.userId===userId),typedText(latest?.content)||latestText));if(skillText)system.push(skillText);
     const user=db.users.find(u=>u.id===userId);

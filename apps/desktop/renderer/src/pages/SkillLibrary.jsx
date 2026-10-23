@@ -7,6 +7,7 @@ import { t as tr, useLanguage } from "../i18n.jsx";
 // single skills are added one by one (Extensions → Skills → Library). Every card names the author and the licence.
 
 const CATEGORY_NAMES={
+  documents:"Documents",
   creative:"Design and creativity",workflows:"Ways of working",science:"Science",business:"Business",development:"Development",
   languages:"Programming languages",security:"Security",documentation:"Documentation","ai-ml":"AI and machine learning",
   marketing:"Marketing",infrastructure:"Infrastructure",operations:"Operations",utilities:"Utilities",quality:"Quality",
@@ -32,7 +33,8 @@ function useSkillLibrary(){
 }
 
 function Source({author,license,repo}){
-  return <small className="libSource">{tr("by {author} · {license}",{author,license})}{repo&&<> · <button type="button" className="linkBtn" onClick={()=>openLink(repo)}>{tr("source")} <ExternalLink size={11}/></button></>}</small>;
+  // Serasmart's own plugin has no outside licence to name.
+  return <small className="libSource">{license===author?tr("by {author}",{author}):tr("by {author} · {license}",{author,license})}{repo&&<> · <button type="button" className="linkBtn" onClick={()=>openLink(repo)}>{tr("source")} <ExternalLink size={11}/></button></>}</small>;
 }
 
 // 0.7.32: the attribution and the full licence texts, shown on request (MIT and Apache 2.0 ask for them).

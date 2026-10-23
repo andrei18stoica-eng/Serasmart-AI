@@ -68,6 +68,16 @@ const packs = [];
 const skipped = [];
 const licenses = {};
 
+// 0. Serasmart's own plugins (0.7.33), written for Serasmart AI and kept in this repository (apps/desktop/skills).
+{
+  const dir = path.join(__dirname, "..", "skills", "serasmart-documents");
+  SOURCES.push({ id: "serasmart", repo: "", commit: "", license: "Serasmart AI", copyright: "Copyright SeranoConsult SRL (Serasmart AI)", licenseFile: "" });
+  const skills = fs.readdirSync(dir).filter(f => f.endsWith(".md")).sort((a, b) => ["word.md", "powerpoint.md", "excel.md", "pdf.md"].indexOf(a) - ["word.md", "powerpoint.md", "excel.md", "pdf.md"].indexOf(b))
+    .map(f => readSkill(path.join(dir, f), skipped, "serasmart")).filter(Boolean);
+  packs.push({ id: "serasmart-documents", name: "Serasmart Documents", category: "documents", source: "serasmart", author: "Serasmart AI", license: "Serasmart AI",
+    description: "Word, PowerPoint, Excel and PDF files made the Serasmart way: the right structure for each kind of document, live Excel formulas, editable equations.", skills });
+}
+
 // 1. Anthropic's skills: only the ones whose own LICENSE.txt is Apache 2.0. docx, pdf, pptx and xlsx are
 // "All rights reserved" (source-available, not open source) and doc-coauthoring has no licence file: left out.
 {
@@ -137,6 +147,44 @@ const licenses = {};
 // in its README) and its skills do not say who wrote them, so the right to publish them cannot be shown.
 skipped.push("ComposioHQ/awesome-claude-skills: no LICENSE file in the repository and no author per skill");
 
+// 6. Anthropic's knowledge-work and financial-services plugins (0.7.33, Apache 2.0, each plugin folder checked).
+// Left out: partner-built plugins (other companies' code for their own services), Cowork-only and viewer plugins.
+// A skill whose text is the same as one already in the library is not added twice.
+const seenText = new Set(packs.flatMap(p => p.skills.map(s => s.instructions)));
+function anthropicPlugins(repoDir, repo, sourceId, folders, idPrefix, category) {
+  const root = path.join(ROOT, repoDir);
+  const rootLicence = fs.readFileSync(path.join(root, "LICENSE"), "utf8");
+  if (!/Apache License\s+Version 2\.0/.test(rootLicence)) throw new Error(`${repoDir} is not Apache 2.0`);
+  licenses["apache-2.0.txt"] = licenses["apache-2.0.txt"] || rootLicence;
+  SOURCES.push({ id: sourceId, repo, commit: commitOf(root), license: "Apache-2.0", copyright: "Copyright Anthropic, PBC", licenseFile: "apache-2.0.txt" });
+  for (const [folder, name] of folders) {
+    const dir = path.join(root, folder);
+    const own = ["LICENSE", "LICENSE.txt"].map(f => path.join(dir, f)).find(f => fs.existsSync(f));
+    if (own && !/Apache License\s+Version 2\.0/.test(fs.readFileSync(own, "utf8"))) { skipped.push(`${sourceId}/${name}: own licence is not Apache 2.0`); continue; }
+    let meta = {}; try { meta = JSON.parse(fs.readFileSync(path.join(dir, ".claude-plugin", "plugin.json"), "utf8")); } catch {}
+    const skills = skillsIn(path.join(dir, "skills"), skipped, `${sourceId}/${name}`).filter(sk => {
+      const lic = path.join(dir, "skills", sk.slug, "LICENSE.txt");
+      if (fs.existsSync(lic) && !/Apache License\s+Version 2\.0/.test(fs.readFileSync(lic, "utf8"))) { skipped.push(`${sourceId}/${name}/${sk.slug}: own licence is not Apache 2.0`); return false; }
+      if (seenText.has(sk.instructions)) return false;
+      seenText.add(sk.instructions); return true;
+    });
+    if (!skills.length) continue;
+    packs.push({ id: `${idPrefix}-${name}`, name: titleOf(name), category, source: sourceId, author: "Anthropic", license: "Apache-2.0",
+      description: String(meta.description || "").replace(/\bClaude\b/g, "the AI").slice(0, 400), skills });
+  }
+}
+{
+  const kw = "anthropics_knowledge-work-plugins";
+  const out = new Set(["partner-built", "cowork-plugin-management", "pdf-viewer"]);
+  const folders = fs.readdirSync(path.join(ROOT, kw)).filter(d => !out.has(d) && fs.existsSync(path.join(ROOT, kw, d, "skills"))).sort().map(d => [d, d]);
+  for (const d of out) skipped.push(`knowledge-work/${d}: ${d === "partner-built" ? "other companies' plugins for their own services" : "made for Anthropic's own apps"}`);
+  anthropicPlugins(kw, "https://github.com/anthropics/knowledge-work-plugins", "knowledgework", folders, "kw", "business");
+  const fs2 = "anthropics_financial-services-plugins", base = path.join(ROOT, fs2, "plugins");
+  const fin = ["vertical-plugins", "agent-plugins"].flatMap(g => fs.readdirSync(path.join(base, g)).sort().map(d => [`plugins/${g}/${d}`, d]));
+  skipped.push("financial-services/partner-built (LSEG, S&P Global): other companies' plugins for their own paid data");
+  anthropicPlugins(fs2, "https://github.com/anthropics/financial-services-plugins", "financialservices", fin, "fin", "finance");
+}
+
 // Slugs must be unique across the whole library and fit the /command limit of 32 characters.
 const seen = new Set();
 for (const pack of packs) for (const s of pack.skills) {
@@ -151,7 +199,8 @@ fs.writeFileSync(path.join(OUT, "library.json"), JSON.stringify({ version: 1, so
 const notice = ["# Skill library — third-party notices", "",
   "The skill packs in library.json are copied from the open-source repositories below, each under its own licence.",
   "Each skill's front matter was removed and its slug shortened where needed; the instructions are otherwise unchanged.", "",
-  ...SOURCES.map(s => `- ${s.repo} (commit ${s.commit}) — ${s.license}, ${s.copyright}. Licence text: licenses/${s.licenseFile}`), "",
+  ...SOURCES.filter(s => s.repo).map(s => `- ${s.repo} (commit ${s.commit}) — ${s.license}, ${s.copyright}. Licence text: licenses/${s.licenseFile}`), "",
+  "Serasmart Documents (word, powerpoint, excel, pdf) is written by Serasmart AI (SeranoConsult SRL) and is not copied from any other source.", "",
   "Packs by authors other than the repository owner (same licence as their pack):", "",
   ...packs.filter(p => p.source === "wshobson" && p.author !== "Seth Hobson").map(p => `- ${p.name}: ${p.author}, ${p.license}`), "",
   "Left out on purpose:", "", ...skipped.map(s => `- ${s}`), ""].join("\n");

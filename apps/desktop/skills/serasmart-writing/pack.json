@@ -1,0 +1,15 @@
+{
+ "id": "serasmart-writing",
+ "name": "Serasmart Writing",
+ "category": "creative",
+ "position": 1,
+ "description": "Write with the user, not for them: co-author long documents, keep a brand's look and voice, research-backed articles, changelogs and résumés tailored to a job.",
+ "order": [
+  "coauthor",
+  "brand-guidelines",
+  "brand-voice",
+  "research-writer",
+  "changelog",
+  "resume-tailor"
+ ]
+}

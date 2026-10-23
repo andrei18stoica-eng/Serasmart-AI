@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.33",
+  "version": "0.7.34",
   "private": true,
-  "description": "Serasmart AI 0.7.33 - Serasmart Documents plugin (Word, PowerPoint, Excel with live formulas, PDF), Anthropic business and finance plugins, read aloud in the answer's language",
+  "description": "Serasmart AI 0.7.34 - look inside Word, PowerPoint and Excel files before downloading, Serasmart plugins, the whole app in every language",
   "main": "main.cjs",
   "repository": {
     "type": "git",

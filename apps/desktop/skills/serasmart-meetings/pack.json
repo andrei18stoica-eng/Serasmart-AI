@@ -1,0 +1,12 @@
+{
+ "id": "serasmart-meetings",
+ "name": "Serasmart Meetings & Team",
+ "category": "productivity",
+ "position": 3,
+ "description": "Prepare meetings, turn recordings and notes into decisions and tasks, and keep the team informed with short updates and digests.",
+ "order": [
+  "meeting-prep",
+  "meeting-notes",
+  "team-updates"
+ ]
+}

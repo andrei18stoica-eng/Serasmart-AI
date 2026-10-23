@@ -1,0 +1,12 @@
+{
+ "id": "serasmart-dev",
+ "name": "Serasmart Developer",
+ "category": "development",
+ "position": 5,
+ "description": "For people who build software and AI agents: a growth report from your own code, rules that keep AI agents safe, and audit trails you can trust.",
+ "order": [
+  "dev-growth",
+  "agent-guardrails",
+  "audit-trail"
+ ]
+}

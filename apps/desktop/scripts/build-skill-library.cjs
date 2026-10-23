@@ -68,14 +68,19 @@ const packs = [];
 const skipped = [];
 const licenses = {};
 
-// 0. Serasmart's own plugins (0.7.33), written for Serasmart AI and kept in this repository (apps/desktop/skills).
+// 0. Serasmart's own plugins (0.7.33+), written for Serasmart AI and kept in this repository: apps/desktop/skills/<pack>/
+// with a pack.json (id, name, description, category, order) and one .md per skill. They come first in the library.
 {
-  const dir = path.join(__dirname, "..", "skills", "serasmart-documents");
+  const root = path.join(__dirname, "..", "skills");
   SOURCES.push({ id: "serasmart", repo: "", commit: "", license: "Serasmart AI", copyright: "Copyright SeranoConsult SRL (Serasmart AI)", licenseFile: "" });
-  const skills = fs.readdirSync(dir).filter(f => f.endsWith(".md")).sort((a, b) => ["word.md", "powerpoint.md", "excel.md", "pdf.md"].indexOf(a) - ["word.md", "powerpoint.md", "excel.md", "pdf.md"].indexOf(b))
-    .map(f => readSkill(path.join(dir, f), skipped, "serasmart")).filter(Boolean);
-  packs.push({ id: "serasmart-documents", name: "Serasmart Documents", category: "documents", source: "serasmart", author: "Serasmart AI", license: "Serasmart AI",
-    description: "Word, PowerPoint, Excel and PDF files made the Serasmart way: the right structure for each kind of document, live Excel formulas, editable equations.", skills });
+  const dirs = fs.readdirSync(root).filter((d) => fs.existsSync(path.join(root, d, "pack.json")));
+  const metas = dirs.map((d) => ({ d, meta: JSON.parse(fs.readFileSync(path.join(root, d, "pack.json"), "utf8")) })).sort((a, b) => (a.meta.position ?? 99) - (b.meta.position ?? 99));
+  for (const { d, meta } of metas) {
+    const order = meta.order || [];
+    const files = fs.readdirSync(path.join(root, d)).filter((f) => f.endsWith(".md")).sort((x, y) => ((order.indexOf(x.slice(0, -3)) + 1 || 999) - (order.indexOf(y.slice(0, -3)) + 1 || 999)) || x.localeCompare(y));
+    const skills = files.map((f) => readSkill(path.join(root, d, f), skipped, "serasmart")).filter(Boolean);
+    packs.push({ id: meta.id, name: meta.name, category: meta.category || "business", source: "serasmart", author: "Serasmart AI", license: "Serasmart AI", description: meta.description, skills });
+  }
 }
 
 // 1. Anthropic's skills: only the ones whose own LICENSE.txt is Apache 2.0. docx, pdf, pptx and xlsx are
@@ -200,7 +205,7 @@ const notice = ["# Skill library — third-party notices", "",
   "The skill packs in library.json are copied from the open-source repositories below, each under its own licence.",
   "Each skill's front matter was removed and its slug shortened where needed; the instructions are otherwise unchanged.", "",
   ...SOURCES.filter(s => s.repo).map(s => `- ${s.repo} (commit ${s.commit}) — ${s.license}, ${s.copyright}. Licence text: licenses/${s.licenseFile}`), "",
-  "Serasmart Documents (word, powerpoint, excel, pdf) is written by Serasmart AI (SeranoConsult SRL) and is not copied from any other source.", "",
+  "The Serasmart packs (apps/desktop/skills) are written by Serasmart AI (SeranoConsult SRL) and are not copied from any other source.", "",
   "Packs by authors other than the repository owner (same licence as their pack):", "",
   ...packs.filter(p => p.source === "wshobson" && p.author !== "Seth Hobson").map(p => `- ${p.name}: ${p.author}, ${p.license}`), "",
   "Left out on purpose:", "", ...skipped.map(s => `- ${s}`), ""].join("\n");

@@ -1,0 +1,11 @@
+{
+ "id": "serasmart-builder",
+ "name": "Serasmart Skill Builder",
+ "category": "workflows",
+ "position": 7,
+ "description": "Make your own Serasmart skills and plugins: turn a way of working into instructions the AI follows every time.",
+ "order": [
+  "make-skill",
+  "make-plugin"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "id": "serasmart-science",
+ "name": "Serasmart Science",
+ "category": "science",
+ "position": 6,
+ "description": "Research helpers written by Serasmart AI: DNA and protein sequences, evolution trees, metabolic models, forecasting, scenario analysis, medical images, biomedical knowledge and computational chemistry.",
+ "order": [
+  "sequences",
+  "phylogenetics",
+  "metabolic-models",
+  "forecasting",
+  "scenarios",
+  "medical-imaging",
+  "biomedical-knowledge",
+  "comp-chemistry",
+  "glycans",
+  "spatial-omics"
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "id": "serasmart-business",
+ "name": "Serasmart Business",
+ "category": "business",
+ "position": 2,
+ "description": "Everyday work of a small company: invoices and files in order, finding and contacting clients, watching competitors, market data from public sources, domain names and fair prize draws.",
+ "order": [
+  "invoice-organizer",
+  "file-organizer",
+  "lead-research",
+  "prospect-outreach",
+  "community-signals",
+  "competitor-ads",
+  "market-data",
+  "domain-names",
+  "fair-draw"
+ ]
+}

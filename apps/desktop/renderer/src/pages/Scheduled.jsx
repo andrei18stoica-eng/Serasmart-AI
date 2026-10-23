@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { CalendarClock, Plus, Play, Pencil, Copy, Trash2, ArrowLeft, ChevronDown, RotateCcw, Clock, Bell, BellOff, Sparkles } from "lucide-react";
 import { api, toast, cx, plural, ToolShell, Modal, Switch, relativeDay, shortDate, clockTime, Markdown } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
+import { t as tr, useLanguage, getLanguage } from "../i18n.jsx";
 
-export const DAY_NAMES=["duminică","luni","marți","miercuri","joi","vineri","sâmbătă"];
+// 0.7.34: day names in the chosen language (Intl), not fixed Romanian ones. 7 January 2024 was a Sunday.
+const dayName=(d,width="long")=>{try{return new Intl.DateTimeFormat(getLanguage(),{weekday:width}).format(new Date(2024,0,7+Number(d)))}catch{return String(d)}};
 const WEEK_ORDER=[1,2,3,4,5,6,0];
-const SHORT_DAYS={1:"L",2:"Ma",3:"Mi",4:"J",5:"V",6:"S",0:"D"};
 const WORKDAYS=[1,2,3,4,5];
 const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
 const sameDays=(a,b)=>{const x=[...new Set((a||[]).map(Number))].sort(),y=[...b].sort();return x.length===y.length&&x.every((v,i)=>v===y[i]);};
@@ -14,33 +15,33 @@ export function localTimeZone(){try{return Intl.DateTimeFormat().resolvedOptions
 export function humanSchedule(x){
   const t=x?.time||"09:00";
   switch(x?.frequency){
-    case "once":return x.runAt?`O singură dată: ${shortDate(x.runAt)}, ${clockTime(x.runAt)}`:"O singură dată";
-    case "hourly":return "La fiecare oră";
-    case "interval":{const n=Number(x.intervalHours||1);return n<=1?"La fiecare oră":`La fiecare ${plural(n,"oră","ore")}`;}
-    case "weekly":return `Săptămânal, ${DAY_NAMES[Number(x.weekday)]||"luni"} la ${t}`;
+    case "once":return x.runAt?tr("Once: {date}, {time}",{date:shortDate(x.runAt),time:clockTime(x.runAt)}):tr("Once");
+    case "hourly":return tr("Every hour");
+    case "interval":{const n=Number(x.intervalHours||1);return n<=1?tr("Every hour"):tr("Every {n} hours",{n});}
+    case "weekly":return tr("Weekly, {day} at {time}",{day:dayName(x.weekday??1),time:t});
     case "selected_days":{
       const days=[...new Set((x.days||[]).map(Number))].filter(d=>d>=0&&d<=6);
-      if(days.length===7)return `Zilnic la ${t}`;
-      if(sameDays(days,WORKDAYS))return `Luni–Vineri la ${t}`;
-      if(sameDays(days,[0,6]))return `Sâmbătă și duminică la ${t}`;
-      const names=WEEK_ORDER.filter(d=>days.includes(d)).map(d=>DAY_NAMES[d]);
-      return names.length?`${cap(names.join(", "))} la ${t}`:"Nicio zi aleasă";
+      if(days.length===7)return tr("Daily at {time}",{time:t});
+      if(sameDays(days,WORKDAYS))return tr("Monday–Friday at {time}",{time:t});
+      if(sameDays(days,[0,6]))return tr("Saturday and Sunday at {time}",{time:t});
+      const names=WEEK_ORDER.filter(d=>days.includes(d)).map(d=>dayName(d));
+      return names.length?tr("{days} at {time}",{days:cap(names.join(", ")),time:t}):tr("No day chosen");
     }
-    case "monthly":return `Lunar, pe ${x.monthday||1}, la ${t}`;
-    default:return `Zilnic la ${t}`;
+    case "monthly":return tr("Monthly, on day {day}, at {time}",{day:x.monthday||1,time:t});
+    default:return tr("Daily at {time}",{time:t});
   }
 }
 
 const STATUS={
-  ok:["Reușită","ok"],delivered:["Reușită","ok"],no_change:["Fără schimbări","neutral"],checked_no_change:["Fără schimbări","neutral"],
-  error:["Eroare","error"],disabled_after_errors:["Oprită după erori","error"],needs_login:["Necesită autentificare","warn"],permission_denied:["Oprită de Owner","warn"]
+  ok:["Succeeded","ok"],delivered:["Succeeded","ok"],no_change:["No changes","neutral"],checked_no_change:["No changes","neutral"],
+  error:["Error","error"],disabled_after_errors:["Stopped after errors","error"],needs_login:["Needs sign-in","warn"],permission_denied:["Stopped by the Owner","warn"]
 };
 export function StatusPill({status,ran=true}){
-  const [label,kind]=STATUS[status]||(ran?["Modificată","idle"]:["Nerulată încă","idle"]);
-  return <span className={cx("statusPill",kind)}>{label}</span>;
+  const [label,kind]=STATUS[status]||(ran?["Changed","idle"]:["Not run yet","idle"]);
+  return <span className={cx("statusPill",kind)}>{tr(label)}</span>;
 }
 
-const FREQUENCIES=[["once","O singură dată"],["hourly","La fiecare oră"],["interval","La câteva ore"],["daily","Zilnic"],["weekdays","Zile lucrătoare (luni–vineri)"],["selected_days","Zile alese"],["weekly","Săptămânal"],["monthly","Lunar"]];
+const FREQUENCIES=[["once","Once"],["hourly","Every hour"],["interval","Every few hours"],["daily","Daily"],["weekdays","Working days (Monday–Friday)"],["selected_days","Chosen days"],["weekly","Weekly"],["monthly","Monthly"]];
 const TIMED=["daily","weekdays","selected_days","weekly","monthly"];
 function toLocalInput(ts){
   if(!ts)return "";
@@ -63,24 +64,26 @@ function payloadFrom(f){
     timeZone:localTimeZone(),...(f.model?{model:f.model}:{})};
 }
 export function validateTask(f,{needsFuture=true}={}){
-  if(!f.title.trim())return "Scrie un nume pentru sarcină.";
-  if(f.title.trim().length>120)return "Numele poate avea maximum 120 de caractere.";
-  if(!f.prompt.trim())return `Scrie ce trebuie să facă ${BRAND_NAME}.`;
-  if(f.prompt.trim().length>8000)return "Instrucțiunile pot avea maximum 8000 de caractere.";
-  if(TIMED.includes(f.frequency)&&!/^([01]\d|2[0-3]):[0-5]\d$/.test(f.time||""))return "Alege o oră validă (00:00–23:59).";
-  if(f.frequency==="interval"&&!(Number.isInteger(Number(f.intervalHours))&&f.intervalHours>=1&&f.intervalHours<=168))return "Intervalul trebuie să fie între 1 și 168 de ore.";
-  if(f.frequency==="monthly"&&!(Number.isInteger(Number(f.monthday))&&f.monthday>=1&&f.monthday<=28))return "Ziua lunii trebuie să fie între 1 și 28.";
-  if(f.frequency==="selected_days"&&!f.days.length)return "Alege cel puțin o zi a săptămânii.";
-  if(f.frequency==="once"){const at=Date.parse(f.runAt||"");if(!Number.isFinite(at))return "Alege data și ora pentru sarcina unică.";if(needsFuture&&at<=Date.now()+30000)return "Alege o dată și o oră din viitor.";}
+  if(!f.title.trim())return tr("Write a name for the task.");
+  if(f.title.trim().length>120)return tr("The name can have at most 120 characters.");
+  if(!f.prompt.trim())return tr("Write what {brand} should do.",{brand:BRAND_NAME});
+  if(f.prompt.trim().length>8000)return tr("The instructions can have at most 8,000 characters.");
+  if(TIMED.includes(f.frequency)&&!/^([01]\d|2[0-3]):[0-5]\d$/.test(f.time||""))return tr("Choose a valid time (00:00–23:59).");
+  if(f.frequency==="interval"&&!(Number.isInteger(Number(f.intervalHours))&&f.intervalHours>=1&&f.intervalHours<=168))return tr("The interval must be between 1 and 168 hours.");
+  if(f.frequency==="monthly"&&!(Number.isInteger(Number(f.monthday))&&f.monthday>=1&&f.monthday<=28))return tr("The day of the month must be between 1 and 28.");
+  if(f.frequency==="selected_days"&&!f.days.length)return tr("Choose at least one day of the week.");
+  if(f.frequency==="once"){const at=Date.parse(f.runAt||"");if(!Number.isFinite(at))return tr("Choose the date and time for the one-time task.");if(needsFuture&&at<=Date.now()+30000)return tr("Choose a date and time in the future.");}
   return "";
 }
 const EXAMPLES=[
-  {label:"Știri în fiecare dimineață",title:"Știri de dimineață",prompt:"Fă-mi un rezumat scurt al celor mai importante știri de azi din România și din tehnologie, cu linkuri către surse.",frequency:"weekdays",time:"08:30"},
-  {label:"Plan pentru săptămână",title:"Plan pentru săptămână",prompt:"Propune-mi un plan pentru săptămâna care începe: priorități, termene și câte un pas mic pentru fiecare zi.",frequency:"weekly",weekday:1,time:"09:00"},
-  {label:"Urmărește un preț",title:"Verifică prețul",prompt:"Verifică prețul la iPhone 16 pe eMAG și spune-mi doar dacă a scăzut sub 4000 de lei.",frequency:"daily",time:"10:00",watch:true}
+  // 0.7.34: no country, city, shop or product names in the examples.
+  {label:"News every morning",title:"Morning news",prompt:"Give me a short summary of today's most important news and technology news, with links to the sources.",frequency:"weekdays",time:"08:30"},
+  {label:"Plan for the week",title:"Plan for the week",prompt:"Suggest a plan for the week that is starting: priorities, deadlines and one small step for each day.",frequency:"weekly",weekday:1,time:"09:00"},
+  {label:"Watch a price",title:"Check the price",prompt:"Check the price of the product I follow on the shop's page and tell me only if it dropped below the price I set.",frequency:"daily",time:"10:00",watch:true}
 ];
 
 function TaskForm({initial,editing,models,onClose,onSave}){
+  useLanguage();
   const [f,setF]=useState(initial),[error,setError]=useState(""),[saving,setSaving]=useState(false);
   const mounted=useRef(true);
   useEffect(()=>()=>{mounted.current=false},[]);
@@ -96,25 +99,25 @@ function TaskForm({initial,editing,models,onClose,onSave}){
     catch(err){if(mounted.current){setError(err.message);setSaving(false)}}
   }
   function toggleDay(d){set({days:f.days.includes(d)?f.days.filter(x=>x!==d):[...f.days,d]})}
-  return <Modal title={editing?"Editează sarcina":"Sarcină nouă"} subtitle={`${BRAND_NAME} rulează instrucțiunile singur, la ora aleasă, cât timp aplicația este pornită.`} className="modal taskFormModal" onClose={onClose}>
+  return <Modal title={editing?tr("Edit the task"):tr("New task")} subtitle={tr("{brand} runs the instructions by itself at the chosen time, while the app is running.",{brand:BRAND_NAME})} className="modal taskFormModal" onClose={onClose}>
     <form className="taskForm" onSubmit={submit} noValidate>
-      <label>Nume<input value={f.title} maxLength={120} onChange={e=>set({title:e.target.value})} placeholder="Ex. Rezumat de știri" autoFocus/></label>
-      <label>Instrucțiuni<textarea value={f.prompt} maxLength={8000} onChange={e=>set({prompt:e.target.value})} placeholder={`Ce trebuie să facă ${BRAND_NAME}? Ex. Caută știrile importante de azi și fă-mi un rezumat cu linkuri.`}/></label>
+      <label>{tr("Name")}<input value={f.title} maxLength={120} onChange={e=>set({title:e.target.value})} placeholder={tr("E.g. News summary")} autoFocus/></label>
+      <label>{tr("Instructions")}<textarea value={f.prompt} maxLength={8000} onChange={e=>set({prompt:e.target.value})} placeholder={tr("What should {brand} do? E.g. Find today's important news and give me a summary with links.",{brand:BRAND_NAME})}/></label>
       <div className="taskFormGrid">
-        <label>Frecvență<select value={f.frequency} onChange={e=>set({frequency:e.target.value})}>{FREQUENCIES.map(([k,l])=><option key={k} value={k}>{l}</option>)}</select></label>
-        {TIMED.includes(f.frequency)&&<label>Ora<input type="time" value={f.time} onChange={e=>set({time:e.target.value})}/></label>}
-        {f.frequency==="interval"&&<label>La fiecare (ore)<input type="number" min="1" max="168" value={f.intervalHours} onChange={e=>set({intervalHours:Math.max(1,Math.min(168,Math.round(Number(e.target.value)||1)))})}/></label>}
-        {f.frequency==="once"&&<label>Dată<input type="datetime-local" value={f.runAt} onChange={e=>set({runAt:e.target.value})}/></label>}
-        {f.frequency==="weekly"&&<label>Ziua<select value={f.weekday} onChange={e=>set({weekday:Number(e.target.value)})}>{WEEK_ORDER.map(d=><option key={d} value={d}>{cap(DAY_NAMES[d])}</option>)}</select></label>}
-        {f.frequency==="monthly"&&<label>Ziua din lună<input type="number" min="1" max="28" value={f.monthday} onChange={e=>set({monthday:Math.max(1,Math.min(28,Math.round(Number(e.target.value)||1)))})}/></label>}
-        <label>Model<select value={f.model} onChange={e=>set({model:e.target.value})}><option value="">Modelul implicit</option>{modelOptions.map(m=><option key={m} value={m}>{m}</option>)}</select></label>
+        <label>{tr("Frequency")}<select value={f.frequency} onChange={e=>set({frequency:e.target.value})}>{FREQUENCIES.map(([k,l])=><option key={k} value={k}>{tr(l)}</option>)}</select></label>
+        {TIMED.includes(f.frequency)&&<label>{tr("Time")}<input type="time" value={f.time} onChange={e=>set({time:e.target.value})}/></label>}
+        {f.frequency==="interval"&&<label>{tr("Every (hours)")}<input type="number" min="1" max="168" value={f.intervalHours} onChange={e=>set({intervalHours:Math.max(1,Math.min(168,Math.round(Number(e.target.value)||1)))})}/></label>}
+        {f.frequency==="once"&&<label>{tr("Date")}<input type="datetime-local" value={f.runAt} onChange={e=>set({runAt:e.target.value})}/></label>}
+        {f.frequency==="weekly"&&<label>{tr("Day")}<select value={f.weekday} onChange={e=>set({weekday:Number(e.target.value)})}>{WEEK_ORDER.map(d=><option key={d} value={d}>{cap(dayName(d))}</option>)}</select></label>}
+        {f.frequency==="monthly"&&<label>{tr("Day of the month")}<input type="number" min="1" max="28" value={f.monthday} onChange={e=>set({monthday:Math.max(1,Math.min(28,Math.round(Number(e.target.value)||1)))})}/></label>}
+        <label>Model<select value={f.model} onChange={e=>set({model:e.target.value})}><option value="">{tr("The default model")}</option>{modelOptions.map(m=><option key={m} value={m}>{m}</option>)}</select></label>
       </div>
-      {f.frequency==="selected_days"&&<div className="dayPicker" role="group" aria-label="Zile">{WEEK_ORDER.map(d=><button type="button" key={d} aria-pressed={f.days.includes(d)} aria-label={DAY_NAMES[d]} className={f.days.includes(d)?"active":""} onClick={()=>toggleDay(d)}>{SHORT_DAYS[d]}</button>)}</div>}
+      {f.frequency==="selected_days"&&<div className="dayPicker" role="group" aria-label={tr("Days")}>{WEEK_ORDER.map(d=><button type="button" key={d} aria-pressed={f.days.includes(d)} aria-label={dayName(d)} className={f.days.includes(d)?"active":""} onClick={()=>toggleDay(d)}>{dayName(d,"short")}</button>)}</div>}
       <p className="taskPreview"><Clock size={13}/> {humanSchedule(payloadFrom({...f,runAt:f.runAt||""}))}</p>
-      <label className="checkRow"><input type="checkbox" checked={f.notify} onChange={e=>set({notify:e.target.checked})}/><span><b>Notifică-mă</b><small>Afișează o notificare desktop când sarcina are un rezultat.</small></span></label>
-      <label className="checkRow"><input type="checkbox" checked={f.watch} onChange={e=>set({watch:e.target.checked})}/><span><b>Doar când se schimbă ceva</b><small>Pentru verificări (prețuri, anunțuri): nu notifică dacă rezultatul e la fel ca data trecută.</small></span></label>
+      <label className="checkRow"><input type="checkbox" checked={f.notify} onChange={e=>set({notify:e.target.checked})}/><span><b>{tr("Notify me")}</b><small>{tr("Shows a notification when the task has a result.")}</small></span></label>
+      <label className="checkRow"><input type="checkbox" checked={f.watch} onChange={e=>set({watch:e.target.checked})}/><span><b>{tr("Only when something changes")}</b><small>{tr("For checks (prices, listings): no notification when the result is the same as last time.")}</small></span></label>
       {error&&<div className="inlineError" role="alert">{error}</div>}
-      <div className="modalActions"><button type="button" className="secondary" onClick={onClose}>Anulează</button><button className="primary" disabled={saving}>{saving?"Se salvează…":editing?"Salvează":"Creează sarcina"}</button></div>
+      <div className="modalActions"><button type="button" className="secondary" onClick={onClose}>{tr("Cancel")}</button><button className="primary" disabled={saving}>{saving?tr("Saving…"):editing?tr("Save"):tr("Create the task")}</button></div>
     </form>
   </Modal>;
 }
@@ -122,18 +125,19 @@ function TaskForm({initial,editing,models,onClose,onSave}){
 function RunHistory({task,runs}){
   const [open,setOpen]=useState(null);
   const list=runs?.data||(task.lastRunAt?[{id:"last",at:task.lastRunAt,status:task.lastStatus,model:task.model,result:task.lastResult}]:[]);
-  if(runs?.loading&&!runs?.data)return <div className="emptyState small">Se încarcă istoricul…</div>;
-  if(!list.length)return <div className="emptyState small"><Clock size={22}/>Sarcina nu a rulat încă. Apasă „Rulează acum” ca să vezi un rezultat.</div>;
+  if(runs?.loading&&!runs?.data)return <div className="emptyState small">{tr("Loading the history…")}</div>;
+  if(!list.length)return <div className="emptyState small"><Clock size={22}/>{tr("The task has not run yet. Press «Run now» to see a result.")}</div>;
   return <div className="runList">
     {runs?.error&&<div className="inlineError" role="alert">{runs.error}</div>}
     {list.map((r,i)=>{const key=r.id||i,isOpen=open===key;return <div className={cx("runItem",isOpen&&"open")} key={key}>
       <button className="runHead" aria-expanded={isOpen} onClick={()=>setOpen(isOpen?null:key)}><StatusPill status={r.status}/><span className="runWhen">{relativeDay(r.at)}</span><small className="runModel">{r.model||""}</small><ChevronDown size={16}/></button>
-      {isOpen&&<div className="runResult assistantBody">{r.result?<Markdown text={r.result}/>:<p>Fără rezultat text.</p>}</div>}
+      {isOpen&&<div className="runResult assistantBody">{r.result?<Markdown text={r.result}/>:<p>{tr("No text result.")}</p>}</div>}
     </div>})}
   </div>;
 }
 
 export function ScheduledPage({onClose,model,models}){
+  useLanguage();
   const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[loadError,setLoadError]=useState("");
   const [openId,setOpenId]=useState(null),[form,setForm]=useState(null),[running,setRunning]=useState(null),[busy,setBusy]=useState(null),[runs,setRuns]=useState({});
   const mounted=useRef(true);
@@ -160,27 +164,27 @@ export function ScheduledPage({onClose,model,models}){
   }
   async function run(x){
     if(running)return;setRunning(x.id);
-    try{await api(`/api/automations/${x.id}/run`,{method:"POST",body:"{}"});toast(`„${x.title}” a rulat. Rezultatul apare în istoric.`,"ok")}
+    try{await api(`/api/automations/${x.id}/run`,{method:"POST",body:"{}"});toast(tr("«{name}» ran. The result is in the history.",{name:x.title}),"ok")}
     catch(e){toast(`„${x.title}”: ${e.message}`)}
     finally{if(mounted.current){setRunning(null);await load();loadRuns(x.id)}}
   }
   async function duplicate(x){
     if(busy)return;setBusy(x.id);
-    try{const d=await api(`/api/automations/${x.id}/duplicate`,{method:"POST",body:"{}"});await load();if(d.data?.id&&mounted.current)setOpenId(d.data.id);toast(`Am creat o copie oprită: „${d.data?.title||x.title+" (copie)"}”.`,"ok")}
+    try{const d=await api(`/api/automations/${x.id}/duplicate`,{method:"POST",body:"{}"});await load();if(d.data?.id&&mounted.current)setOpenId(d.data.id);toast(tr("Made a copy, turned off: «{name}».",{name:d.data?.title||x.title+" "+tr("(copy)")}),"ok")}
     catch(e){toast(e.message)}
     finally{if(mounted.current)setBusy(null)}
   }
   async function remove(x){
-    if(!confirm(`Ștergi sarcina „${x.title}”? Istoricul rulărilor se pierde.`))return;
+    if(!confirm(tr("Delete the task «{name}»? Its run history is lost.",{name:x.title})))return;
     try{await api(`/api/automations/${x.id}`,{method:"DELETE"});if(mounted.current)setOpenId(null);await load()}catch(e){toast(e.message)}
   }
   async function save(payload){
     if(form.editing){
       await api(`/api/automations/${form.editing.id}`,{method:"PATCH",body:JSON.stringify(payload)});
-      toast("Sarcina a fost actualizată.","ok");
+      toast(tr("The task was updated."),"ok");
     }else{
       const d=await api("/api/automations",{method:"POST",body:JSON.stringify({...payload,enabled:true})});
-      toast(`Sarcina „${d.data?.title||payload.title}” a fost creată.`,"ok");
+      toast(tr("The task «{name}» was created.",{name:d.data?.title||payload.title}),"ok");
     }
     if(!mounted.current)return;
     const editedId=form.editing?.id;
@@ -188,45 +192,45 @@ export function ScheduledPage({onClose,model,models}){
     if(editedId)loadRuns(editedId);
   }
   const newTask=(preset={})=>setForm({initial:{...blankForm(model||""),...preset},editing:null});
-  const header=<button className="primary" onClick={()=>newTask()}><Plus size={16}/> Sarcină nouă</button>;
-  return <ToolShell title="Scheduled" subtitle={`Sarcini pe care ${BRAND_NAME} le rulează singur, la ora aleasă.`} onClose={onClose} className="pageModal scheduledPage" actions={header}>
+  const header=<button className="primary" onClick={()=>newTask()}><Plus size={16}/> {tr("New task")}</button>;
+  return <ToolShell title="Scheduled" subtitle={tr("Tasks {brand} runs by itself at the time you choose.",{brand:BRAND_NAME})} onClose={onClose} className="pageModal scheduledPage" actions={header}>
     <div className="pageBody">
-      {loadError&&<div className="inlineError" role="alert">Nu am putut încărca sarcinile: {loadError} <button className="linkBtn" onClick={()=>{setLoading(true);load()}}>Reîncearcă</button></div>}
+      {loadError&&<div className="inlineError" role="alert">{tr("The tasks could not be loaded: {error}",{error:loadError})} <button className="linkBtn" onClick={()=>{setLoading(true);load()}}>{tr("Try again")}</button></div>}
       {selected?<div className="taskDetail">
         <button className="backButton" onClick={()=>setOpenId(null)}><ArrowLeft size={16}/> Toate sarcinile</button>
         <div className="taskDetailHead">
           <span className="taskIcon big"><CalendarClock size={22}/></span>
-          <div className="taskDetailTitle"><h3>{selected.title}</h3><p>{humanSchedule(selected)}{selected.enabled?` · următoarea: ${relativeDay(selected.nextRunAt)}`:" · oprită"}</p></div>
+          <div className="taskDetailTitle"><h3>{selected.title}</h3><p>{humanSchedule(selected)}{selected.enabled?" · "+tr("next: {when}",{when:relativeDay(selected.nextRunAt)}):" · "+tr("off")}</p></div>
           <StatusPill status={selected.lastStatus} ran={!!selected.lastRunAt}/>
-          <Switch checked={selected.enabled} disabled={busy===selected.id} label={`${selected.enabled?"Oprește":"Pornește"} ${selected.title}`} onChange={()=>toggle(selected)}/>
+          <Switch checked={selected.enabled} disabled={busy===selected.id} label={tr(selected.enabled?"Turn off {name}":"Turn on {name}",{name:selected.title})} onChange={()=>toggle(selected)}/>
         </div>
         <div className="taskActions">
-          <button className="primary" onClick={()=>run(selected)} disabled={!!running}>{running===selected.id?<RotateCcw size={15} className="spin"/>:<Play size={15}/>} {running===selected.id?"Rulează…":"Rulează acum"}</button>
-          <button className="secondary" onClick={()=>setForm({initial:formFrom(selected),editing:selected})}><Pencil size={15}/> Editează</button>
-          <button className="secondary" onClick={()=>duplicate(selected)} disabled={busy===selected.id}><Copy size={15}/> Duplică</button>
-          <button className="dangerButton" onClick={()=>remove(selected)}><Trash2 size={15}/> Șterge</button>
+          <button className="primary" onClick={()=>run(selected)} disabled={!!running}>{running===selected.id?<RotateCcw size={15} className="spin"/>:<Play size={15}/>} {running===selected.id?tr("Running…"):tr("Run now")}</button>
+          <button className="secondary" onClick={()=>setForm({initial:formFrom(selected),editing:selected})}><Pencil size={15}/> {tr("Edit")}</button>
+          <button className="secondary" onClick={()=>duplicate(selected)} disabled={busy===selected.id}><Copy size={15}/> {tr("Duplicate")}</button>
+          <button className="dangerButton" onClick={()=>remove(selected)}><Trash2 size={15}/> {tr("Delete")}</button>
         </div>
         <div className="taskInfoGrid">
-          <div><span>Program</span><b>{humanSchedule(selected)}</b></div>
-          <div><span>Următoarea rulare</span><b>{selected.enabled&&selected.nextRunAt?relativeDay(selected.nextRunAt):"—"}</b></div>
-          <div><span>Model</span><b title={selected.model||""}>{selected.model||"Implicit"}</b></div>
-          <div><span>Notificări</span><b>{selected.notify!==false?<><Bell size={13}/> Da</>:<><BellOff size={13}/> Nu</>}{selected.timingMode==="condition_watch"?" · doar la schimbări":""}</b></div>
+          <div><span>{tr("Schedule")}</span><b>{humanSchedule(selected)}</b></div>
+          <div><span>{tr("Next run")}</span><b>{selected.enabled&&selected.nextRunAt?relativeDay(selected.nextRunAt):"—"}</b></div>
+          <div><span>Model</span><b title={selected.model||""}>{selected.model||tr("Default")}</b></div>
+          <div><span>{tr("Notifications")}</span><b>{selected.notify!==false?<><Bell size={13}/> {tr("Yes")}</>:<><BellOff size={13}/> {tr("No")}</>}{selected.timingMode==="condition_watch"?" · "+tr("only on changes"):""}</b></div>
         </div>
-        <section className="taskSection"><h4>Instrucțiuni</h4><div className="taskPromptFull">{selected.prompt}</div></section>
-        <section className="taskSection"><h4>Istoric rulări</h4><RunHistory task={selected} runs={runs[selected.id]}/></section>
-      </div>:loading?<div className="emptyState small">Se încarcă sarcinile…</div>:!items.length?<div className="taskEmpty">
+        <section className="taskSection"><h4>{tr("Instructions")}</h4><div className="taskPromptFull">{selected.prompt}</div></section>
+        <section className="taskSection"><h4>{tr("Run history")}</h4><RunHistory task={selected} runs={runs[selected.id]}/></section>
+      </div>:loading?<div className="emptyState small">{tr("Loading the tasks…")}</div>:!items.length?<div className="taskEmpty">
         <span className="taskIcon big"><CalendarClock size={26}/></span>
-        <h3>Nicio sarcină programată încă</h3>
-        <p>Scrie o dată ce vrei să facă {BRAND_NAME} și alege când. De exemplu: „În fiecare zi lucrătoare la 08:30, fă-mi un rezumat al știrilor din România.”</p>
-        <div className="taskExamples">{EXAMPLES.map(({label,...preset})=><button key={label} className="secondary" onClick={()=>newTask(preset)}><Sparkles size={14}/> {label}</button>)}</div>
+        <h3>{tr("No scheduled task yet")}</h3>
+        <p>{tr("Write once what {brand} should do and choose when. For example: «Every working day at 08:30, give me a news summary.»",{brand:BRAND_NAME})}</p>
+        <div className="taskExamples">{EXAMPLES.map(({label,...preset})=><button key={label} className="secondary" onClick={()=>newTask({...preset,title:tr(preset.title),prompt:tr(preset.prompt)})}><Sparkles size={14}/> {tr(label)}</button>)}</div>
       </div>:<div className="taskList" role="list">
         {items.map(x=><div key={x.id} className={cx("taskRow",!x.enabled&&"off")} role="listitem">
-          <button className="taskRowMain" onClick={()=>setOpenId(x.id)} title="Deschide sarcina">
+          <button className="taskRowMain" onClick={()=>setOpenId(x.id)} title={tr("Open the task")}>
             <span className="taskIcon"><CalendarClock size={18}/></span>
-            <span className="taskText"><b>{x.title}</b><small className="taskPromptLine">{String(x.prompt||"").replace(/\s+/g," ")}</small><span className="taskMeta"><Clock size={12}/> {humanSchedule(x)} · {x.enabled?`următoarea: ${relativeDay(x.nextRunAt)}`:"oprită"}</span></span>
+            <span className="taskText"><b>{x.title}</b><small className="taskPromptLine">{String(x.prompt||"").replace(/\s+/g," ")}</small><span className="taskMeta"><Clock size={12}/> {humanSchedule(x)} · {x.enabled?tr("next: {when}",{when:relativeDay(x.nextRunAt)}):tr("off")}</span></span>
           </button>
           <StatusPill status={x.lastStatus} ran={!!x.lastRunAt}/>
-          <Switch checked={x.enabled} disabled={busy===x.id} label={`${x.enabled?"Oprește":"Pornește"} ${x.title}`} onChange={()=>toggle(x)}/>
+          <Switch checked={x.enabled} disabled={busy===x.id} label={tr(x.enabled?"Turn off {name}":"Turn on {name}",{name:x.title})} onChange={()=>toggle(x)}/>
         </div>)}
       </div>}
     </div>

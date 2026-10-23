@@ -123,8 +123,8 @@ async function main() {
 
   // The interface: Control Center has the three-state button per model.
   const ui = fs.readFileSync(path.join(__dirname, "../renderer/src/main.jsx"), "utf8");
-  expect(/setModelMode\(selected,m,v\)/.test(ui) && /\/models`,\{method:"PATCH"/.test(ui) && /\["default","Implicit"\],\["allow","Activat"\],\["deny","Blocat"\]/.test(ui), "Control Center needs Implicit / Activat / Blocat per model");
-  expect(/personal&&v==="allow"/.test(ui) && /doar Owner/.test(ui) && /personalModels:filtered/.test(fs.readFileSync(path.join(__dirname, "../local-gateway.cjs"), "utf8")), "Control Center marks the Owner's subscriptions and does not offer «Activat» for them");
+  expect(/setModelMode\(selected,m,v\)/.test(ui) && /\/models`,\{method:"PATCH"/.test(ui) && /\["default","Default"\],\["allow","Allowed"\],\["deny","Blocked"\]/.test(ui), "Control Center needs Default / Allowed / Blocked per model");
+  expect(/personal&&v==="allow"/.test(ui) && /tr\("Owner only"\)/.test(ui) && /personalModels:filtered/.test(fs.readFileSync(path.join(__dirname, "../local-gateway.cjs"), "utf8")), "Control Center marks the Owner's subscriptions and does not offer «Allowed» for them");
   expect(/adminModelHint/.test(ui) && /permissions\?\.chat!==true/.test(ui), "Control Center says «Activat» needs Chat AI on");
   console.log("test-0717-quotas-grants: OK");
 }

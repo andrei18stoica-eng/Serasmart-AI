@@ -2,6 +2,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { Check, LoaderCircle, MessageCircleQuestion, Send, Sparkles } from "lucide-react";
 import { cx } from "./core.jsx";
 import { BRAND_NAME } from "./brand.js";
+import { t as tr } from "./i18n.jsx";
 
 const FENCE="```intrebari";
 export const PICK_FOR_ME="Alege tu variantele potrivite și continuă.";
@@ -93,37 +94,37 @@ export function QuestionCard({questions,answeredWith=null,disabled=false,onSubmi
     return (parsed?.byQuestion?.[i]||[]).filter(x=>!labels.includes(x));
   };
   return <div className={cx("questionCard",readOnly&&"answered")} onKeyDown={e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();submit()}}}>
-    <div className="questionCardHead"><MessageCircleQuestion size={16}/><span>{readOnly?(parsed?.auto?`Ai lăsat ${BRAND_NAME} să aleagă`:"Răspunsurile tale"):"Câteva întrebări înainte să încep"}</span></div>
+    <div className="questionCardHead"><MessageCircleQuestion size={16}/><span>{readOnly?(parsed?.auto?tr("You let {brand} choose",{brand:BRAND_NAME}):tr("Your answers")):tr("A few questions before I start")}</span></div>
     {questions.map((q,i)=>{
       const other=otherChosen(i);
       return <div className="questionBlock" key={i}>
         {q.header&&<span className="questionChip">{q.header}</span>}
-        <p className="questionText" id={`q-${i}-${q.question.length}`}>{q.question}{q.multiSelect&&!readOnly&&<small> (poți alege mai multe)</small>}</p>
+        <p className="questionText" id={`q-${i}-${q.question.length}`}>{q.question}{q.multiSelect&&!readOnly&&<small> {tr("(you can pick several)")}</small>}</p>
         <div className="questionOptions" role={q.multiSelect?"group":"radiogroup"} aria-labelledby={`q-${i}-${q.question.length}`} ref={el=>{groupRefs.current[i]=el}} onKeyDown={e=>onGroupKey(e,i)}>
           {q.options.map((o,j)=>{const on=chosen(i,j);return <button type="button" key={j} className={cx("questionOption",on&&"selected")} role={q.multiSelect?"checkbox":"radio"} aria-checked={on} aria-disabled={readOnly||disabled} tabIndex={readOnly?-1:0} onClick={()=>pick(i,j)}>
             <span className={cx("questionMark",q.multiSelect?"box":"dot")} aria-hidden="true">{on&&(q.multiSelect?<Check size={12}/>:<i/>)}</span>
             <span className="questionLabel"><b>{o.label}</b>{o.description&&<small>{o.description}</small>}</span>
             {!readOnly&&<kbd aria-hidden="true">{j+1}</kbd>}
           </button>})}
-          {readOnly?(Array.isArray(other)&&other.length>0&&<div className="questionOption selected static"><span className="questionMark dot" aria-hidden="true"><i/></span><span className="questionLabel"><b>Altceva</b><small>{other.join(", ")}</small></span></div>)
+          {readOnly?(Array.isArray(other)&&other.length>0&&<div className="questionOption selected static"><span className="questionMark dot" aria-hidden="true"><i/></span><span className="questionLabel"><b>{tr("Something else")}</b><small>{other.join(", ")}</small></span></div>)
             :<div className={cx("questionOtherWrap",other&&"selected")}>
               <button type="button" className={cx("questionOption",other&&"selected")} role={q.multiSelect?"checkbox":"radio"} aria-checked={!!other} aria-disabled={disabled} onClick={()=>pickOther(i)}>
                 <span className={cx("questionMark",q.multiSelect?"box":"dot")} aria-hidden="true">{other&&(q.multiSelect?<Check size={12}/>:<i/>)}</span>
-                <span className="questionLabel"><b>Altceva…</b><small>Scrie propriul răspuns</small></span>
+                <span className="questionLabel"><b>{tr("Something else…")}</b><small>{tr("Write your own answer")}</small></span>
                 <kbd aria-hidden="true">{q.options.length+1}</kbd>
               </button>
-              {other&&<input className="questionOtherInput" value={answers[i].otherText} onChange={e=>update(i,a=>({...a,otherText:e.target.value}))} onKeyDown={e=>{if(e.key==="Enter"){e.preventDefault();submit()}}} placeholder="Scrie răspunsul tău" aria-label={`Alt răspuns: ${q.question}`} disabled={disabled}/>}
+              {other&&<input className="questionOtherInput" value={answers[i].otherText} onChange={e=>update(i,a=>({...a,otherText:e.target.value}))} onKeyDown={e=>{if(e.key==="Enter"){e.preventDefault();submit()}}} placeholder={tr("Write your answer")} aria-label={tr("Other answer: {question}",{question:q.question})} disabled={disabled}/>}
             </div>}
         </div>
       </div>;
     })}
     {!readOnly&&<div className="questionActions">
-      <button type="button" className="secondary" onClick={()=>!disabled&&onSubmit?.(PICK_FOR_ME)} disabled={disabled}><Sparkles size={14}/> Alege tu</button>
-      <button type="button" className="primary" onClick={submit} disabled={!ready||disabled}><Send size={14}/> Trimite</button>
+      <button type="button" className="secondary" onClick={()=>!disabled&&onSubmit?.(PICK_FOR_ME)} disabled={disabled}><Sparkles size={14}/> {tr("You choose")}</button>
+      <button type="button" className="primary" onClick={submit} disabled={!ready||disabled}><Send size={14}/> {tr("Send")}</button>
     </div>}
   </div>;
 }
 
 export function QuestionsPending(){
-  return <div className="questionCard pending" role="status"><LoaderCircle size={16} className="spin"/> Pregătesc întrebările…</div>;
+  return <div className="questionCard pending" role="status"><LoaderCircle size={16} className="spin"/> {tr("Preparing the questions…")}</div>;
 }

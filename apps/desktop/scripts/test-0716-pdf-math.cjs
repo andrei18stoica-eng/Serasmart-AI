@@ -40,12 +40,13 @@ async function main() {
   const plain = await createExportBytes("pdf", "Test", content, { standardFonts: true });
   expect(plain.bytes.length > 500, "the PDF must be made without the math fonts too");
 
-  // The site image has the fonts; the chat downloads the requested file at once and the card's main action downloads.
+  // The site image has the fonts. Since 0.7.34 the made file is not downloaded on its own: the card opens it inside
+  // the app (asked by the Owner) and a separate button downloads it.
   const docker = fs.readFileSync(path.join(__dirname, "../../cloud/Dockerfile"), "utf8");
   expect(/fonts-liberation2/.test(docker) && /fonts-dejavu-core/.test(docker), "the site image must install the PDF fonts");
   const ui = fs.readFileSync(path.join(__dirname, "../renderer/src/main.jsx"), "utf8");
-  expect(/files=\[exported\.data\];\s*\/\/[^\n]*\n\s*downloadGeneratedFile\(exported\.data\)/.test(ui), "the requested file must be downloaded right away");
-  expect(/className="generatedDownload" onClick=\{download\}/.test(ui) && /className="generatedOpen"/.test(ui), "the file card must download, with a separate Open button");
+  expect(!/downloadGeneratedFile\(exported\.data\)/.test(ui), "the made file is not downloaded on its own");
+  expect(/className="generatedDownload" onClick=\{openable\?\(\)=>setViewing\(true\):download\}/.test(ui) && /className="generatedOpen" onClick=\{download\}/.test(ui), "the file card opens the file, with a separate Download button");
   console.log("test-0716-pdf-math: OK");
 }
 

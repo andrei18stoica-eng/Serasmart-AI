@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import { SquareTerminal, GitBranch, Sparkles, ShieldCheck } from "lucide-react";
 import { api, toast, ToolShell } from "../core.jsx";
 import { BRAND_NAME } from "../brand.js";
+import { t as tr, useLanguage } from "../i18n.jsx";
 
 // "Code Serasmart AI": start a programming conversation with Codex or Claude Code. The Owner uses the subscriptions
 // connected in OmniRoute; an account the Owner gave access to (Control Center → "Code Serasmart AI") uses the paid APIs.
 const GROUPS = [
-  ["codex", "Codex", "Abonamentul tău ChatGPT, conectat în OmniRoute"],
-  ["claude-code", "Claude Code", "Abonamentul tău Claude, conectat în OmniRoute"],
-  ["openai-api", "OpenAI prin API", "Plătit pe consum, cu cheia sau permisiunile date de Owner"],
-  ["claude-api", "Claude prin API", "Plătit pe consum, cu permisiunile date de Owner"]
+  ["codex", "Codex", "Your ChatGPT subscription, connected in OmniRoute"],
+  ["claude-code", "Claude Code", "Your Claude subscription, connected in OmniRoute"],
+  ["openai-api", "OpenAI through the API", "Paid per use, with the key or the permissions the Owner gave"],
+  ["claude-api", "Claude through the API", "Paid per use, with the permissions the Owner gave"]
 ];
 const short = (id) => String(id).split("/").slice(1).join("/") || id;
 
 export function CodePage({ onClose, onStart }) {
+  useLanguage();
   const [info, setInfo] = useState(null), [busy, setBusy] = useState(""), [error, setError] = useState("");
   useEffect(() => {
     let active = true;
@@ -28,29 +30,29 @@ export function CodePage({ onClose, onStart }) {
     finally { setBusy(""); }
   }
   const models = info?.models || [];
-  return <ToolShell title={`Code ${BRAND_NAME}`} subtitle="Programare cu Codex și Claude Code: alegi modelul și pornești o conversație de cod." onClose={onClose} className="pageModal codePage">
+  return <ToolShell title={`Code ${BRAND_NAME}`} subtitle={tr("Programming with Codex and Claude Code: pick the model and start a coding conversation.")} onClose={onClose} className="pageModal codePage">
     <div className="pageBody">
       {error && <div className="inlineError" role="alert">{error}</div>}
-      {!info && !error && <div className="emptyState"><SquareTerminal size={30}/>Se încarcă modelele de cod…</div>}
-      {info && !info.allowed && <div className="emptyState"><ShieldCheck size={30}/>Code {BRAND_NAME} este disponibil pentru Owner și pentru conturile cărora Owner-ul le-a dat acces.</div>}
+      {!info && !error && <div className="emptyState"><SquareTerminal size={30}/>{tr("Loading the coding models…")}</div>}
+      {info && !info.allowed && <div className="emptyState"><ShieldCheck size={30}/>{tr("Code {brand} is available to the Owner and to the accounts the Owner gave access to.",{brand:BRAND_NAME})}</div>}
       {info?.allowed && <>
         {GROUPS.map(([key, title, note]) => {
           const list = models.filter((m) => m.group === key);
           if (!list.length && (key === "openai-api" || key === "claude-api")) return null;
           if (!list.length && !info.subscriptions) return null;
           return <section className="codeGroup" key={key}>
-            <div className="codeGroupHead"><b>{title}</b><small>{note}</small></div>
+            <div className="codeGroupHead"><b>{tr(title)}</b><small>{tr(note)}</small></div>
             {list.length ? <div className="codeModels">{list.map((m) => <button key={m.id} type="button" className="codeModel" onClick={() => start(m.id)} disabled={!!busy}>
-              <SquareTerminal size={16}/><span><b>{short(m.id)}</b><small>{m.id}</small></span><em>{busy === m.id ? "Se pornește…" : "Începe"}</em>
-            </button>)}</div> : <p className="settingsHelp">Niciun model {title} în OmniRoute. Conectează-l în panoul OmniRoute (Providers), apoi redeschide pagina.</p>}
+              <SquareTerminal size={16}/><span><b>{short(m.id)}</b><small>{m.id}</small></span><em>{busy === m.id ? tr("Starting…") : tr("Start")}</em>
+            </button>)}</div> : <p className="settingsHelp">{tr("No {name} model in OmniRoute. Connect it in the OmniRoute panel (Providers), then open this page again.",{name:tr(title)})}</p>}
           </section>;
         })}
-        {!models.length && <div className="emptyState"><Sparkles size={30}/>Nu există încă niciun model de cod disponibil.{info.subscriptions ? " Conectează Codex sau Claude Code în OmniRoute." : " Cere Owner-ului acces la modelele OpenAI sau Claude."}</div>}
+        {!models.length && <div className="emptyState"><Sparkles size={30}/>{tr("No coding model is available yet.")} {info.subscriptions ? tr("Connect Codex or Claude Code in OmniRoute.") : tr("Ask the Owner for access to the OpenAI or Claude models.")}</div>}
         <section className="codeGroup">
-          <div className="codeGroupHead"><b><GitBranch size={14}/> GitHub</b><small>{info.repo ? `${info.repo} · ${info.branch}` : "Niciun repository conectat"}</small></div>
-          <p className="settingsHelp">{info.repo ? `La întrebările de cod, ${BRAND_NAME} caută singur fișierele relevante din acest repository.` : `Pune repository-ul în Setări → AI & OmniRoute → GitHub, ca ${BRAND_NAME} să citească singur codul la întrebările de programare.`}</p>
+          <div className="codeGroupHead"><b><GitBranch size={14}/> GitHub</b><small>{info.repo ? `${info.repo} · ${info.branch}` : tr("No repository connected")}</small></div>
+          <p className="settingsHelp">{info.repo ? tr("For coding questions, {brand} finds the relevant files in this repository by itself.",{brand:BRAND_NAME}) : tr("Add the repository in Settings → AI & OmniRoute → GitHub so {brand} reads the code by itself for programming questions.",{brand:BRAND_NAME})}</p>
         </section>
-        {info.owner && <p className="settingsHelp codeAccessNote">Acces pentru alte conturi: Control Center → contul → „Code {BRAND_NAME}”. Ele folosesc API-urile OpenAI / Claude, plătite pe consum, nu abonamentele tale: condițiile ChatGPT și Claude nu permit împărțirea contului.</p>}
+        {info.owner && <p className="settingsHelp codeAccessNote">{tr("Access for other accounts: Control Center → the account → «Code {brand}». They use the OpenAI / Claude APIs, paid per use, not your subscriptions: the ChatGPT and Claude terms do not allow sharing an account.",{brand:BRAND_NAME})}</p>}
       </>}
     </div>
   </ToolShell>;

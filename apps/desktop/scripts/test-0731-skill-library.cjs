@@ -15,7 +15,7 @@ function units() {
   expect(all.length >= 300, "the library has the skills: " + all.length);
   for (const p of lib.packs) {
     // Serasmart's own plugin is the only one not taken from an open-source repository.
-    if (p.source === "serasmart") { expect(p.id === "serasmart-documents" && p.author === "Serasmart AI", "Serasmart's own pack"); continue; }
+    if (p.source === "serasmart") { expect(/^serasmart-/.test(p.id) && p.author === "Serasmart AI" && p.skills.every((sk) => /Serasmart AI/.test(sk.instructions)), "Serasmart's own pack: " + p.id); continue; }
     expect(/^(MIT|Apache-2\.0)$/.test(p.license) && p.author && p.skills.length, `pack ${p.id} has an author and an open licence`);
     const src = lib.sources.find(s => s.id === p.source);
     expect(src && /^https:\/\/github\.com\//.test(src.repo) && fs.existsSync(path.join(dir, "licenses", src.licenseFile)), `pack ${p.id} names its source and licence text`);
@@ -34,6 +34,9 @@ function units() {
   expect(!lib.packs.some(p => /zoom|apollo|slack|common-room|brand-voice|lseg|spglobal|cowork|pdf-viewer/.test(p.id)), "partner-built and Cowork-only plugins left out");
   const docs = lib.packs.find(p => p.id === "serasmart-documents");
   expect(docs && docs.skills.map(s => s.slug).join() === "word,powerpoint,excel,pdf" && docs.skills.every(s => /Serasmart AI/.test(s.instructions)), "Serasmart Documents has its four skills");
+  // 0.7.34: a Serasmart pack for each kind of plugin that could not be taken (no licence, a company's own service, Cowork-only).
+  const own = lib.packs.filter(p => p.source === "serasmart").map(p => p.id);
+  expect(["serasmart-writing", "serasmart-business", "serasmart-meetings", "serasmart-social", "serasmart-dev", "serasmart-science", "serasmart-builder"].every(id => own.includes(id)) && lib.packs.slice(0, own.length).every(p => p.source === "serasmart"), "Serasmart's own packs come first: " + own);
   for (const out of ["anti-reversing-techniques", "alphagenome", "timesfm-forecasting"]) expect(!slugs.has(out), out + " left out");
   for (const out of ["social-publishing", "hermes-tweet", "protect-mcp", "signed-audit-trails", "review-agent-governance"]) expect(!lib.packs.some(p => p.id === "wsh-" + out), out + " left out");
   expect(["frontend-design", "canvas-design", "internal-comms", "theme-factory", "mcp-builder"].every(s => anthropic.includes(s)), "Anthropic's Apache 2.0 skills are in");

@@ -35,6 +35,23 @@ function Source({author,license,repo}){
   return <small className="libSource">{tr("by {author} · {license}",{author,license})}{repo&&<> · <button type="button" className="linkBtn" onClick={()=>openLink(repo)}>{tr("source")} <ExternalLink size={11}/></button></>}</small>;
 }
 
+// 0.7.32: the attribution and the full licence texts, shown on request (MIT and Apache 2.0 ask for them).
+export function LicenceNotice(){
+  useLanguage();
+  const [data,setData]=useState(null),[open,setOpen]=useState(false);
+  async function toggle(){
+    if(!open&&!data){try{setData(await api("/api/skills/library/notice"))}catch(e){toast(e.message);return}}
+    setOpen(o=>!o);
+  }
+  return <div className="licenceNotice">
+    <button type="button" className="linkBtn" aria-expanded={open} onClick={toggle}>{open?<ChevronDown size={13}/>:<ChevronRight size={13}/>} {tr("Licences and authors")}</button>
+    {open&&data&&<div className="licenceText">
+      <pre>{data.notice}</pre>
+      {data.licenses.map(l=><details key={l.name}><summary>{l.name}</summary><pre>{l.text}</pre></details>)}
+    </div>}
+  </div>;
+}
+
 export function SkillPacks(){
   useLanguage();
   const {lib,busy,run}=useSkillLibrary();
@@ -64,6 +81,7 @@ export function SkillPacks(){
     {groups.map(({c,items})=><section className="catalogSection" key={c}><h3>{categoryName(c)}</h3><div className="packGrid">{items.map(card)}</div></section>)}
     {!packs.length&&<div className="emptyState small">{tr("Nothing found.")}</div>}
     <p className="libNote">{tr("The plugins come from open-source projects (MIT and Apache 2.0 licences); each card names its author and links to the source.")}</p>
+    <LicenceNotice/>
   </div>;
 }
 
@@ -87,5 +105,6 @@ export function SkillLibraryList(){
     </div>)}</div>
     {list.length>shown&&<button className="secondary moreBtn" onClick={()=>setShown(n=>n+30)}>{tr("Show more ({n} left)",{n:list.length-shown})}</button>}
     {!list.length&&<div className="emptyState small">{tr("Nothing found.")}</div>}
+    <LicenceNotice/>
   </section>;
 }

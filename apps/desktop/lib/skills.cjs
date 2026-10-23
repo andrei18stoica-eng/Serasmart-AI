@@ -40,6 +40,14 @@ function librarySkill(slug) { return library().bySlug.get(String(slug || "")) ||
 function libraryPack(id) { return library().byPack.get(String(id || "")) || null; }
 function sourceOf(pack) { return library().sources.find(s => s.id === pack.source) || null; }
 
+// 0.7.32: the attribution and licence texts the MIT and Apache 2.0 licences ask to be shown with the skills.
+function libraryNotice() {
+  const fs = require("fs"), dir = path.join(__dirname, "skill-library");
+  const read = (f) => { try { return fs.readFileSync(f, "utf8"); } catch { return ""; } };
+  let names = []; try { names = fs.readdirSync(path.join(dir, "licenses")).sort(); } catch {}
+  return { notice: read(path.join(dir, "NOTICE.md")), licenses: names.map(n => ({ name: n, text: read(path.join(dir, "licenses", n)) })) };
+}
+
 // The library without the instructions (they are long): what the Extensions pages list.
 function libraryIndex() {
   const lib = library();
@@ -142,4 +150,4 @@ function publicSkill(s) {
   return out;
 }
 
-module.exports = { SKILL_TEMPLATES, MAX_SKILLS, MAX_ACTIVE, MAX_INSTRUCTIONS, library, libraryIndex, librarySkill, libraryPack, resolveSkills, slugify, validateSkill, skillsForMessage, skillSystemText, publicSkill };
+module.exports = { SKILL_TEMPLATES, MAX_SKILLS, MAX_ACTIVE, MAX_INSTRUCTIONS, library, libraryIndex, libraryNotice, librarySkill, libraryPack, resolveSkills, slugify, validateSkill, skillsForMessage, skillSystemText, publicSkill };

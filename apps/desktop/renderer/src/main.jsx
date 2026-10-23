@@ -30,7 +30,7 @@ import { ScheduledPage } from "./pages/Scheduled.jsx";
 import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
 import { detectSpeechLang, voiceFor, speakableText } from "./speechLang.mjs";
-import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat, answerFileFormat, asksForFile } from "./documentIntent.mjs";
+import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat, answerFileFormat, asksForFile, fileTitleFor } from "./documentIntent.mjs";
 import { ExtensionsPage } from "./pages/Extensions.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
@@ -2222,7 +2222,7 @@ function App() {
             const previousSource=previousAssistant?(previousAssistant.artifactSource||messageText(previousAssistant)):"";
             const content=standaloneExportRequest(messageText(lastUser))&&previousSource?previousSource:answer;
             if(!String(content||"").trim())throw new Error(tr("there is no content for the file"));
-            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - ${tr("file")}`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:madeName?{fileName:madeName.replace(/\.[^.]+$/,"")}:{})})});
+            const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(fileTitleFor(messageText(lastUser),content,madeName)||tr("Document")),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:madeName?{fileName:madeName.replace(/\.[^.]+$/,"")}:{})})});
             if(exported?.data){
               files=[exported.data];
               // 0.7.34: no automatic download any more; the card under the answer opens the file inside the app first.

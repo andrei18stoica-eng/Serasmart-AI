@@ -795,9 +795,16 @@ const EXPORT_FORMATS = new Set(["pdf", "docx", "pptx", "xlsx", "csv", "json", "m
 async function createExportBytes(format, rawTitle, rawContent, opts = {}) {
   const title = sanitizeText(rawTitle), content = sanitizeText(rawContent);
   // Word, PDF and Excel: the «Formatting» section and the «Fișier: …» lines are taken off and give the look.
-  const styled = () => { const { lines, style } = splitStyle(content); return { body: withoutMeta(lines).join("\n"), style }; };
-  if (format === "pdf") { const { body, style } = styled(); return { bytes: await createPdfBytes(title, body, { ...opts, style }), mime: "application/pdf" }; }
-  if (format === "docx") { const { body, style } = styled(); return { bytes: await createDocxBytes(title, body, style), mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }; }
+  // 0.7.36: a file that starts with its own «# Title» shows that title once (not the title again above it).
+  const styled = () => {
+    const { lines, style } = splitStyle(content), rest = withoutMeta(lines);
+    const first = rest.findIndex((l) => l.trim());
+    const own = first >= 0 && rest[first].match(/^#\s+(.+)$/);
+    if (own) rest.splice(first, 1);
+    return { body: rest.join("\n"), style, heading: own ? plainMarkdownText(own[1]).trim() : "" };
+  };
+  if (format === "pdf") { const { body, style, heading } = styled(); return { bytes: await createPdfBytes(heading || title, body, { ...opts, style }), mime: "application/pdf" }; }
+  if (format === "docx") { const { body, style, heading } = styled(); return { bytes: await createDocxBytes(heading || title, body, style), mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }; }
   if (format === "pptx") return { bytes: await createPptxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.presentationml.presentation" };
   if (format === "xlsx") { const { body, style } = styled(); return { bytes: await createXlsxBytes(title, body, style), mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }; }
   if (format === "csv") return { bytes: createCsvBytes(content), mime: "text/csv; charset=utf-8" };

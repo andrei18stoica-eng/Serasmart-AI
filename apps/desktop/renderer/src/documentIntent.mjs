@@ -71,3 +71,29 @@ export function answerFileFormat(answer){
 // Only when the person asked for a file: their message names a file, a format or a deck / document / project.
 const FILE_WORDS=/\b(?:pptx?|docx?|xlsx?|pdf|powerpoint|prezentar\w*|presentation|slide\w*|word|excel|document\w*|fisier\w*|files?|proiect\w*|project|referat\w*|raport\w*|report|tabel\w*|spreadsheet|foaie de calcul)\b/;
 export function asksForFile(value){return FILE_WORDS.test(normalizeIntent(value));}
+
+// 0.7.36: the file's name and its title inside come from what was asked, never from the chat's name. In order: a name
+// the person gave («numit „Buget 2026”», «named …», «cu titlul …»), the «Fișier: …» line of the answer, the file's own
+// first heading (or its first slide), then the subject of the request («… despre regnul animal»).
+const NAME_GIVEN=/(?:\b(?:numit[aă]?|denumit[aă]?|cu numele|cu titlul|titlul|numele fi[sș]ierului|named|called|titled|with the title|file name)\b)\s*[:\-–]?\s*[„"«'“]([^"”»'\n]{2,90})["”»'“]|(?:\b(?:numit[aă]?|denumit[aă]?|cu numele|cu titlul|named|called|titled)\b)\s+([^\n,.;!?]{2,60})/i;
+const SUBJECT=/\b(?:despre|privind|pe tema|cu tema|about|on the topic of|on)\s+([^\n.;!?]{3,80})/i;
+function cleanTitle(t){return String(t||"").replace(/\*\*|__|`/g,"").replace(/\.(pptx|docx|xlsx|pdf|csv|md|txt)$/i,"").replace(/[\\/:*?"<>|]+/g," ").replace(/\s+/g," ").trim().slice(0,90);}
+export function fileTitleFor(requestText,answerText,madeName=""){
+  const req=String(requestText||"");
+  const given=req.match(NAME_GIVEN);
+  if(given)return cleanTitle(given[1]||given[2]);
+  if(madeName)return cleanTitle(madeName);
+  const ans=String(answerText||"");
+  const heading=ans.match(/^\s*#{1,2}\s+(.+)$/m)||ans.match(/^\s*(?:\*\*)?(?:slide|diapozitiv(?:ul)?)\s+1\s*(?:\*\*)?\s*[—–:.-]\s*(.+)$/im);
+  if(heading&&cleanTitle(heading[1]).length>=3)return cleanTitle(heading[1]);
+  const subject=req.match(SUBJECT);
+  if(subject){const words=subject[1].replace(/\b(?:te rog|please|in|în)\b.*$/i,"").trim().split(/\s+/).slice(0,8).join(" ");if(words.length>=3)return cleanTitle(words.charAt(0).toUpperCase()+words.slice(1));}
+  // Last: the request itself without the asking words («fă-mi un excel cu bugetul pe mai» → «Bugetul pe mai»).
+  const bare=normalizeIntent(req).replace(/[?!.]+$/,"").replace(/^(?:te rog,? )?(?:(?:poti|ai putea|vreau|as vrea|am nevoie de|imi trebuie)\s+(?:sa\s+)?(?:(?:imi|mi)\s+)?)?(?:(?:fa-mi|fami|faci|fa|creeaza-mi|creeaza|genereaza-mi|genereaza|scrie-mi|scrie|realizeaza|pregateste|make me|make|create|generate|write|build|i want|i need|can you make)\s+)?(?:(?:un|o|a|an|the|niste)\s+)?(?:(?:document|fisier|file|prezentare|presentation|word|excel|powerpoint|pdf|pptx|docx|xlsx|tabel|table|spreadsheet|in|în)\s*)*(?:(?:cu|despre|with|about|for|pentru|de)\s+)?(?:(?:un|o|a|an|the)\s+)?/i,"").trim();
+  if(bare.length>=2&&bare.split(/\s+/).length<=10&&!/^(?:cu|despre|with)$/.test(bare)){
+    const orig=req.trim().replace(/[?!.]+$/,"");const at=orig.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").lastIndexOf(bare);
+    const text=at>=0?orig.slice(at,at+bare.length):bare;
+    return cleanTitle(text.charAt(0).toUpperCase()+text.slice(1));
+  }
+  return "";
+}

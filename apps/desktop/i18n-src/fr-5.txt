@@ -1,0 +1,18 @@
+577|Ce que vous avez utilisé : messages, images, vidéo et voix.
+1631|Votre abonnement, les forfaits et les crédits supplémentaires.
+737|Ma consommation
+83|Tous les comptes
+946|Forfaits de tous les comptes
+713|Messages
+1492|Minutes de voix
+327|Crédits utilisés
+325|Les crédits sont calculés aux prix des forfaits, même quand le compte n'est pas facturé.
+726|Modèles utilisés
+795|Aucune consommation sur cette période.
+16|7 jours
+939|Forfait
+326|Crédits par jour
+1191|Abonnement
+786|Aucun forfait
+170|Retour à tous les comptes
+1117|Consultez vos agendas et vos disponibilités, et ajoutez, modifiez ou supprimez des événements.

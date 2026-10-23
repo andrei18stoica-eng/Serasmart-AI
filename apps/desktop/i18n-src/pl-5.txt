@@ -1,0 +1,18 @@
+577|Ile wykorzystano: wiadomości, obrazy, wideo i głos.
+1631|Twoja subskrypcja, plany i dodatkowe kredyty.
+737|Moje zużycie
+83|Wszystkie konta
+946|Plany wszystkich kont
+713|Wiadomości
+1492|Minuty głosu
+327|Wykorzystane kredyty
+325|Kredyty liczone są według cen planów, także gdy konto nie płaci.
+726|Użyte modele
+795|Brak zużycia w tym okresie.
+16|7 dni
+939|Plan
+326|Kredyty dziennie
+1191|Subskrypcja
+786|Brak planu
+170|Wróć do wszystkich kont
+1117|Przeglądaj kalendarze i wolny czas oraz dodawaj, zmieniaj lub usuwaj wydarzenia.

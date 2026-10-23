@@ -1486,3 +1486,47 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .sessionDevice svg{color:var(--accent);flex-shrink:0}
 .sessionDevice b{color:var(--text-strong);font-weight:600;margin-right:6px}
 @media(max-width:760px){.settingsNavGroup{grid-column:1/-1}.setRow{flex-direction:column;align-items:flex-start}.photoControls{flex-wrap:wrap}}
+
+/* 0.7.38: Settings scroll — the menu and the page scroll on their own inside the window (before, the window cut off
+   whatever did not fit: on a phone the menu took the whole height and the page could not be reached). */
+.settingsModal{display:flex;flex-direction:column;max-height:90vh;max-height:90dvh;overflow:hidden}
+.settingsModal>.modalHead{flex:none}
+.settingsModal>.settingsBody{flex:1 1 auto;min-height:0;min-height:min(430px,60vh)}
+.settingsBody{overflow:hidden}
+.settingsNav{overflow-y:auto;min-height:0;overscroll-behavior:contain}
+.settingsPane{max-height:none;min-height:0;overflow-y:auto}
+@media(max-width:760px){
+  .modalBackdrop:has(.settingsModal){padding:8px}
+  .settingsModal{width:100%;max-height:calc(100dvh - 16px);padding:14px}
+  .settingsModal>.settingsBody{display:flex;flex-direction:column;min-height:0}
+  .settingsNav{display:flex;flex-direction:row;flex:none;overflow-x:auto;overflow-y:hidden;gap:6px;padding:10px 0;border-right:0;border-bottom:1px solid var(--surface-3);scrollbar-width:thin}
+  .settingsNav button{flex:none;white-space:nowrap;padding:8px 10px}
+  .settingsNavGroup{display:none}
+  .settingsPane{flex:1 1 auto;padding:14px 2px;-webkit-overflow-scrolling:touch}
+}
+
+/* 0.7.38: Usage (what was used) and Billing (the subscription). */
+.usageBar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:14px 0}
+.usageBar .segmented{display:inline-flex;gap:4px;background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:3px}
+.usageBar .segmented button{border:0;background:transparent;color:var(--text-3);border-radius:8px;padding:7px 12px;cursor:pointer;font-size:13px}
+.usageBar .segmented button.on{background:var(--surface-2);color:var(--text-strong)}
+.usageStats.five{grid-template-columns:repeat(5,minmax(0,1fr));margin:14px 0}
+.usageBars{display:flex;align-items:flex-end;gap:2px;height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--panel)}
+.usageBars span{flex:1;height:100%;display:flex;align-items:flex-end;min-width:2px}
+.usageBars i{display:block;width:100%;min-height:2px;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--accent),var(--accent-strong))}
+.usageRow.three{grid-template-columns:minmax(0,2fr) minmax(0,.6fr) minmax(0,1fr)}
+.usageTable.accounts .usageRow{grid-template-columns:minmax(0,2fr) minmax(0,1.2fr) repeat(3,minmax(0,.6fr)) minmax(0,.8fr) minmax(0,1.1fr)}
+.usageTable button.usageRow{width:100%;border:0;border-top:1px solid var(--surface-3);background:transparent;color:inherit;text-align:left;font:inherit;font-size:13px;cursor:pointer}
+@media (hover:hover) and (pointer:fine){.usageTable button.usageRow:hover{background:var(--surface)}}
+.usageBack{margin:0 0 10px;border:0;background:transparent;color:var(--accent);cursor:pointer;padding:4px 0}
+.usageHeroHead .usageToBilling{margin-left:auto;display:flex;align-items:center;gap:6px;padding:8px 12px}
+.plansDialog{width:min(820px,96vw);max-height:88vh;overflow:auto}
+@media(max-width:760px){
+  .usageStats.five{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .usageTable.accounts .usageRow{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,.8fr)}
+  .usageTable.accounts .usageRow>span:nth-child(n+3):not(:nth-child(6)){display:none}
+  .plansDialog .usageRow{grid-template-columns:minmax(0,1.5fr) minmax(0,1.2fr)}
+  .plansDialog .usageRow>span:nth-child(n+3){display:none}
+}
+.usagePage .pageBody{align-content:start;align-items:start}
+.usagePage .usageTable{align-content:start}

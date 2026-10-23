@@ -1,440 +1,440 @@
-441|E-post
-442|E-post- och sms-kampanjer, listor och resultat.
-443|Assistent för e-post och kalender
-444|E-postadressen är bekräftad.
-445|E-postadressen är bekräftad. Din åtkomst väntar på godkännande från Ownern.
-446|E-post hos Hostinger
-447|Endpoint / webhook / eget API
-448|Avslutar alla sessioner för det här kontot, även på den här enheten.
-449|Slutar {when}
-450|Underhållning
-451|Fel
-452|Fel, ärenden och releaser.
-453|God kväll. Något att göra klart, eller en plan för i morgon?
-454|Var (timme)
-455|Med några timmars mellanrum
-456|Alla filer som bifogats eller skapats i den här konversationen.
-457|Varje timme
-458|Alla modeller och verktyg ditt abonnemang tillåter
-459|Varje modell i de här listorna visas i modellistan högst upp. Om nyckeln saknas, eller leverantören svarar 429/404/503 eller inte svarar, provar {brand} nästa modell och sedan nästa leverantör.
-460|Var {n}:e timme
-461|Exakt tid
-462|Exempel
-463|Avslutningskod: {code}
-464|Förklara enkelt
-465|Förklarande videor gjorda med AI
-466|Förklarar vilket ämne som helst så att en nybörjare förstår.
-467|Utforska
-468|Utforska vetenskaplig forskning
-469|Tillägg
-470|Extra krediter
-471|FLUX.1 Schnell via HF Inference Router, bara om kostnadsskyddet tillåter det.
-472|FLUX.1 Schnell · den första leverantören i gratisläget.
-473|FLUX.1 Schnell. Kampanjkrediter kan vara begränsade.
-474|Misslyckades i
-475|Reservleverantör för media.
-476|Analyser av fantasy football
-477|Snabba och avancerade modeller
-478|Snabba genereringsmodeller via fal.run.
-479|Snabbt läge. Klicka för Tänk: mer exakta svar, lite långsammare.
-480|Fil
-481|Filnamn
-482|Filens sökväg i förrådet
-483|Filuppladdning: {error}
-484|Filuppladdning
-485|Filer
-486|Filer och data
-487|Filer och verktyg
-488|Filer i den här chatten
-489|Filer i den här konversationen
-490|Filer: PDF / Word / PowerPoint / Excel / CSV / ZIP / kod
-491|Ekonomi
-492|Ekonomi och redovisning
-493|Hitta och läsa vetenskapliga artiklar
-494|Hitta, skapa och redigera designer.
-495|Hitta, skapa och uppdatera ärenden, projekt och kommentarer.
-496|Bekräfta först din e-postadress med koden du fick. Om du inte hittar den, titta i skräpposten eller begär en ny.
-497|Beskriv först vad vi ska bygga.
-498|Rättar grammatik, accenter och skiljetecken utan att ändra betydelsen.
-499|För kontroller (priser, annonser): ingen avisering när resultatet är detsamma som förra gången.
-500|Vid kodfrågor söker den efter relevanta filer i förrådet innan den svarar.
-501|Vid programmeringsfrågor hittar {brand} själv de relevanta filerna i det här förrådet.
-502|För att ansluta Google-appar i Appar: en OAuth-klient av typen «Webbapplikation» från Google Cloud, med den här returadressen: {url}
-503|För vetenskap och forskning
-504|För alltid
-505|Formulär och analys av svar
-506|Gratis
-507|Gratis meddelanden i dag
-508|Använda gratis meddelanden
-509|Gratis provperiod
-510|Frekvens
-511|Frisk morgon. Var börjar vi?
-512|Fredag. Låt oss avsluta veckan bra.
-513|Vänlig
-514|Fullständigt namn
-515|GPT Image via OpenAI:s API.
-516|Spel
-517|Gemini API-nyckel
-518|Gemini och Grok
-519|Gemini-nyckel
-520|Gemini-modell (Nano Banana)
-521|Gemini-modell (Veo)
-522|Gemini-modeller · kommaseparerade
-523|Endast Gemini · Nano Banana
-524|Endast Gemini · Veo
-525|Endast Gemini: via Gemini anslutet i OmniRoute (abonnemang, utan API) eller via Gemini-nyckeln i AI-API:er. De andra leverantörerna nedan används inte.
-526|Gemini via API är betalt: för att använda det med nyckeln, välj «Tillåt betalda leverantörer» nedan.
-527|Allmänt
-528|Generera
-529|Generera igen
-530|Hämta den gratis nyckeln
-531|Installera {brand} som app på telefonen, gratis
-532|Förbereder…
-533|GitHub OAuth Client ID
-534|GitHub OAuth client secret
-535|GitHub-modeller · kommaseparerade
-536|Återställning i GitHub klar. Commit: {commit}
-537|GitHub-åtkomst för alla
-538|GitHub-token (för ett privat förråd)
-539|Gör en kort sammanfattning av dagens viktigaste nyheter och teknik, med länkar till källorna.
-540|Gå tillbaka till chatten där du var
-541|Gå tillbaka till föregående version av {path}?
-542|Gå till senaste meddelandet
-543|God eftermiddag
-544|God eftermiddag, {name}
-545|God kväll
-546|God kväll, {name}
-547|God morgon
-548|God morgon, {name}
-549|Google
-550|Google OAuth Client ID
-551|Google OAuth client secret
-552|Google-appar (Gmail, Drive, Calendar, Docs, Sheets)
-553|Styrning
-554|Grok-modeller · kommaseparerade
-555|Grok-bildmodell
-556|Grok-videomodell
-557|Groq API-nyckel
-558|Groq-modeller · kommaseparerade
-559|HD-bilder
-560|Headerns namn
-561|Hälsa
-562|Hälso- och sjukvård
-563|Hjälp mig planera veckan. Mina prioriteringar är:
-564|Här är din {format}-fil: {name}
-565|Dölj åtgärder
-566|Dölj varningen
-567|Dölj stegen
-568|Hur vill du att den här assistenten ska arbeta?
-569|Hur går dagen? Vad kan jag ta av dina axlar?
-570|Hur många krediter?
-571|Hur AI:n svarar
-572|Hur du väljer
-573|Hur du installerar
-574|Hur jag ska svara dig, varje gång. T.ex. «Förklara kort, med exempel. När du skriver kod, kommentera den.»
-575|HubSpot OAuth Client ID
-576|HubSpot OAuth client secret
-577|HubSpot tar bara emot OAuth-appar registrerade av ägaren. Skapa en i HubSpot ({where}) med den här returadressen: {url}
-578|HubSpot-åtkomst för alla
-579|Hugging Face-modeller · kommaseparerade
-580|Personal / HR
-581|Jag når inte tjänsten {brand} på {url}. Kontrollera adressen eller använd {local}.
-582|Jag kopierade 1 nyckel för servern. Klistra in den när skriptet på servern ber om den (högerklick). Den rensas från urklipp om 2 minuter.
-583|Jag kopierade {n} nycklar för servern. Klistra in dem när skriptet på servern ber om dem (högerklick). De rensas från urklipp om 2 minuter.
-584|Jag kopierade inte {names}: de innehåller tecken som servern inte accepterar.
-585|Jag hörde ingenting. Klicka på mikrofonen och prata igen.
-586|IP-adress
-587|IP eller domän
-588|Om den valda Gemini-modellen inte finns för din nyckel provar {brand} själv de andra Gemini-namnen och sedan leverantörerna som tillåts här.
-589|Om den valda modellen inte svarar byter den själv till direkt-API:erna. Av: bara den valda modellen svarar, annars ser du felet.
-590|Om tjänsten stannar försöker {brand} starta om den.
-591|Importera från historiken
-592|Importera de bestående detaljerna (preferenser, beslut, projektdetaljer) från chatthistoriken?
-593|Importerade {n} objekt från historiken.
-594|Importerar…
-595|I en chatt
-596|Ingår i {brand}
-597|Ingår i {brand} · utan konto
-598|Ingår, men blockeras som standard av kostnadsskyddet.
-599|Information från Zoom-möten
-600|Infrastruktur
-601|Installera
-602|Installera {brand}-appen
-603|Installerad
-604|Instruktioner
-605|Instruktioner för AI:n
-606|Instruktioner för assistenten
-607|Instruktioner för {brand}
-608|Instruktioner som sparas en gång och används när du vill: skriv /namn i chatten (till exempel /sammanfattning) eller ha en skill alltid på.
-609|Instruktioner som AI:n följer när du anropar dem med /namn.
-610|Gränssnittsdesign och prototyper
-611|Ogiltigt svar från tjänsten {brand} (HTTP {status}).
-612|Ogiltigt svar vid uppladdning av filen.
-613|Fakturor, beställningar och transaktioner.
-614|Ärenden, pull requests och kodförråd
-615|Raderas när du sparar
-616|Det är helg. Något för jobbet, eller bara för dig?
-617|Jira-ärenden och Confluence-sidor: söka, skapa, redigera.
-618|Jira, Confluence, Loom med mera
-619|Behåll chattar
-620|Håller AI:n uppdaterad med nyheterna
-621|Nyckel / token
-622|Nyckel sparad — lämna tomt för att behålla den
-623|Nycklar för servern
-624|LTX Video. Kan använda startkrediterna, sedan betald kredit.
-625|Språk
-626|Språk för diktering, transkribering och uppläsning
-627|Språk: {lang}
-628|Språk: {name}
-629|Senaste aktivitet
-630|Senaste uppdatering: {when}, lyckades.
-631|Senare
-632|Senaste meddelandet
-633|Senast publicerade version: {v}.
-634|Lag, säkerhet och regelefterlevnad
-635|Leads, kontakter och affärsmöjligheter.
-636|Låt {url} stå kvar om du inte använder en separat {brand}-server. Adressen kontrolleras innan den sparas.
-637|Juridik
-638|Juridisk analys
-639|Längd
-640|Låt oss börja dagen bra. Vad gör vi först?
-641|Bibliotek
-642|Biblioteksfilter
-643|Licenser och upphovspersoner
-644|Ljust
-645|Lyssnar… klicka på mikrofonen igen för att stoppa.
-646|Lyssnar… klicka på mikrofonen för att stoppa
-647|Live-internet och GitHub
-648|Live-internet, GitHub och server
-649|Läser in minnet…
-650|Läser in Biblioteket…
-651|Läser in programmeringsmodeller…
-652|Läser in kombinationer…
-653|Läser in designen…
-654|Läser in historiken…
-655|Läser in modeller…
-656|Läser in plugins…
-657|Läser in förhandsvisningen…
-658|Läser in profilen…
-659|Läser in förfrågan…
-660|Läser in inställningarna…
-661|Läser in uppgifterna…
-662|Läser in texten…
-663|Läser in användarna…
-664|Läser in…
-665|Logga ut
-666|Logga ut från alla enheter
-667|Loggar och statistik för dina Workers.
-668|Loggar, mätvärden, övervakning och incidenter.
-669|Sök efter en adress, stad eller plats.
-670|Söker efter uppdateringar…
-671|Lovable OAuth Client ID
-672|Lovable OAuth client secret
-673|Lovable tar bara emot OAuth-appar registrerade av ägaren. Skapa en i Lovable ({where}) med den här returadressen: {url}
-674|Lovable-åtkomst för alla
-675|Skapade en kopia, avstängd: «{name}».
-676|Gjord av {brand}
-677|Huvudassistent
-678|Huvudkombination (automatisk)
-679|Skapa en gratis Gemini-nyckel
-680|Skapa en bild
-681|Gör åtgärden
-682|Skapar och arbetar med PDF, DOCX och PPTX.
-683|Skapar bilder med AI.
-684|Skapar bilden och förbereder filen…
-685|Skapar videon… det kan ta några minuter
-686|Skapar {format}-filen…
-687|Hantera och fråga databaser
-688|Kartor
-689|Marknadsföring
-690|Matematik / logik
-691|Jag
-692|Mötesutskrifter och sammanfattningar.
-693|Möten
-694|Minne
-695|Minne och chattar
-696|Minnet är tomt.
-697|Minnet är avstängt: {brand} sparar eller använder inget nytt förrän du slår på det.
-698|Minnesinställningar
-699|Minne, projekt och filbibliotek
-700|Meny
-701|Meddelande
-702|Skriv till {brand}
-703|Meddelande, avancerad modell
-704|Meddelande, snabb modell
-705|Meddelande, toppmodell
-706|Metod
-707|Åtkomst till mikrofonen nekades. Tillåt mikrofonen i webbläsaren.
-708|Mikrofonen är tillgänglig och tillåten ✓
-709|Mikrofonen är på — prata nu
-710|Mikrofonen är inte tillgänglig eller tillåten
-711|Microsoft Teams-team och -chattar
-712|Mistral API-nyckel
-713|Mistral-modeller · kommaseparerade
-714|Modell tillåten / blockerad
-715|Manuellt vald modell
-716|Modell för nya chattar
-717|Modell för design
-718|Modeller, dataset och Spaces.
-719|Modernisering
-720|Måndag igen. Låt oss ordna veckan.
-721|Måndag–fredag kl. {time}
-722|Månadsvis
-723|Varje månad den {day}:e kl. {time}
-724|Morgonnyheter
-725|Mest populär
-726|Flytta till projekt
-727|Musik och poddar
-728|NEJ
-729|NVIDIA / NIM-API, kompatibelt med OpenAI.
-730|NVIDIA API-nyckel
-731|NVIDIA-modeller · kommaseparerade
-732|Namn
-733|Navigering
-734|Behöver du hjälp med resten av dagen?
-735|Behöver uppmärksamhet
-736|Behöver åtkomst
-737|Ny åtkomstförfrågan
-738|Nytt konto
-739|Nya konton är avstängda på den här servern.
-740|Nyheter värda att notera
-741|Ny assistent
-742|Ny chatt
-743|Ny chatt med {name}
-744|Ny design
-745|Nytt objekt i minnet
-746|Nytt lösenord
-747|Nytt projekt
-748|Ny skill
-749|Ny uppgift
-750|Ny vecka. Ska vi planera den tillsammans?
-751|Senaste
-752|Nyheter varje morgon
-753|Nästa krediter: {when}
-754|Nästa körning
-755|Nej
-756|Ingen AI-modell är tillåten för det här kontot. Be Ownern om åtkomst till en modell.
-757|Inga API-plugins ännu
-758|Inget svar kom.
-759|Inga anslutna appar ännu. Välj en nedan: efter inloggningen kan {brand} söka, läsa, skapa och redigera i den, och frågar före varje åtgärd.
-760|Inga appar hittades. Du kan lägga till den med «Egen app» om den har en MCP-adress.
-761|Inga ändringar
-762|Inga chattnycklar sparade. Lägg till exempelvis en Gemini- eller Groq-nyckel och spara.
-763|Inga chattar i det här projektet ännu. Skriv ett meddelande för att starta en.
-764|Inga chattar att visa.
-765|Inga chattar ännu.
-766|Inga programmeringsmodeller tillgängliga ännu.
-767|Inga egna assistenter ännu.
-768|Inga dagar valda
-769|Inga designer ännu. Beskriv den första till höger.
-770|Ingen enhet tog emot den. Slå på aviseringar ovan.
-771|Inga objekt.
-772|Inga filer matchar filtret.
-773|Inga modeller tillgängliga
-774|Inga modeller matchar.
-775|Inga modeller tillgängliga.
-776|Inga plugins hittades. Du kan skapa ett på fliken «Skapa plugin».
-777|Inget projekt
-778|Inga projekt ännu. Skapa ett från sidomenyn.
-779|Ingen läsbar text
-780|Inget förråd anslutet
-781|Inga schemalagda uppgifter ännu
-782|Inga skills ännu
-783|Inget textresultat.
-784|Inga {name}-modeller i OmniRoute. Anslut den i OmniRoute-panelen (Providers) och öppna sedan den här sidan igen.
-785|Ingen
-786|Ingen av de inställda AI:erna kunde svara just nu. Kontrollera den valda modellen eller API-nycklarna.
-787|Inte tillåtet av Ownern
-788|Ingår inte i ditt abonnemang
-789|Inte installerat — npm install -g omniroute
-790|Inte körd ännu
-791|Inget hittades för den här sökningen.
-792|Inget hittades.
-793|Inget ännu. Medan vi pratar sparar {brand} dina preferenser och viktiga beslut. Du kan också lägga till något nedan.
-794|Avisering skickad till 1 enhet.
-795|Avisering skickad till {n} enheter.
-796|Aviseringar
-797|Aviseringar från {brand} är blockerade. Slå på dem i telefonens inställningar (Aviseringar → {brand}) och klicka igen.
-798|Aviseringar är avstängda på den här enheten.
-799|Aviseringar tilläts inte. Du kan slå på dem i telefonens inställningar, under {brand}.
-800|Meddela mig
-801|Notion-dokument och arbetsflöden
-802|OAuth-fel — {error}
-803|AV
-804|PÅ
-805|Offert till en kund
-806|Officiella modeller och communitymodeller via Predictions API.
-807|Officiella videomodeller via Predictions API.
-808|Äldsta
-809|OmniRoute 3.8 svarar inte utan nyckel. Skapa den i OmniRoute:
-810|OmniRoute API-nyckel
-811|OmniRoute-adress
-812|OmniRoute-kombination
-813|OmniRoute-kombinationer
-814|OmniRoute-kommando
-815|OmniRoute anslutet
-816|OmniRoute har inga kombinationer ännu.
-817|OmniRoute svarar.
-818|OmniRoute svarar inte. Välj en modell från ett direkt-API i listan (Groq, Gemini…) eller slå på den automatiska reserven.
-819|OmniRoute körs men behöver en API-nyckel: skapa den i OmniRoute → API Manager och ange den i Inställningar → AI och OmniRoute. Fram till dess svarar direkt-API:erna (Groq, Gemini…), om du väljer dem i listan.
-820|OmniRoute-nyckel
-821|OmniRoute behöver en API-nyckel
-822|OmniRoute har stoppats
-823|På iPhone fungerar aviseringar bara från den installerade appen: öppna {domain} i Safari → Dela → Lägg till på hemskärmen, öppna sedan {brand} från skärmen och kom tillbaka hit.
-824|Slå på {slug}
-825|En gång
-826|En gång: {date}, {time}
-827|Ett ställe för kartor, bilder, assistenter och webbplatser.
-828|Ett år
-829|Endast leverantörer utan direkt kostnad
-830|Endast det valda kodblocket
-831|Bara arbetsstegen visas, inte modellens interna resonemang.
-832|Bara när något ändras
-833|Öppna
-834|Öppna Inställningar
-835|Öppna Inställningar → Video
-836|Öppnar en webbplats i webbläsaren.
-837|Öppna i helskärm
-838|Öppna i Design
-839|Öppna i webbläsaren
-840|Öppna Google-sidan
-841|Öppna webbläsarens meny (⋮ eller ≡).
-842|Öppna chatten
-843|Öppna designen {name}
-844|Öppna listan
-845|Öppna förhandsvisningen av {name}
-846|Öppna uppgiften
-847|Öppna {domain} i Safari (på iPhone kan bara Safari installera appen).
-848|Öppna {name}
-849|OpenAI (ChatGPT) gör inte längre videor: Sora stängdes den 24 september 2026, både appen och API:et. ChatGPT:s bilder fungerar fortfarande.
-850|OpenAI (betald)
-851|OpenAI API-nyckel
-852|Kompatibelt med OpenAI, snabba svar.
-853|Kompatibelt med OpenAI.
-854|OpenAI-modeller · kommaseparerade
-855|OpenAI-bildmodell
-856|OpenAI via API
-857|Router kompatibel med OpenAI; samma token som för Bilder.
-858|OpenRouter (kan kosta)
-859|OpenRouter API-nyckel
-860|OpenRouter-modell
-861|OpenRouter-bildmodell
-862|OpenRouter-videomodell
-863|Öppnar…
-864|Öppnar appen direkt
-865|Drift
-866|Valfritt: en GitHub OAuth App (GitHub → Settings → Developer settings) med den här callback-URL:en: {url}. Utan den ansluter GitHub med en personlig token.
-867|Ordning för försöken
-868|Annat
-869|Andra OmniRoute-modeller
-870|De andra kontona använder alla gratismodeller (Gemini, Groq, Mistral, OpenRouter :free…). Dina abonnemang (Codex, Claude Code, Copilot, Kiro, webbkontona) förblir bara dina: deras villkor tillåter inte att kontot delas. De använder en OmniRoute-kombination bara om du kryssar i den här; kryssa bara i kombinationer gjorda av gratismodeller.
-871|Annat svar: {question}
-872|Fler detaljer
-873|Fler modeller
-874|Övrigt
-875|Annars startar den bara när du skriver dess namn eller @utlösare i chatten.
-876|Ownerns e-post på den här datorn
-877|Owner på den här datorn
-878|Endast Owner
-879|Owner: användare, godkännanden, behörigheter, sessioner och AI-tjänster.
-880|PNG, JPEG eller WebP, upp till 10 MB.
+447|E-post
+448|E-post- och sms-kampanjer, listor och resultat.
+449|Assistent för e-post och kalender
+450|E-postadressen är bekräftad.
+451|E-postadressen är bekräftad. Din åtkomst väntar på godkännande från Ownern.
+452|E-post hos Hostinger
+453|Endpoint / webhook / eget API
+454|Avslutar alla sessioner för det här kontot, även på den här enheten.
+455|Slutar {when}
+456|Underhållning
+457|Fel
+458|Fel, ärenden och releaser.
+459|God kväll. Något att göra klart, eller en plan för i morgon?
+460|Var (timme)
+461|Med några timmars mellanrum
+462|Alla filer som bifogats eller skapats i den här konversationen.
+463|Varje timme
+464|Alla modeller och verktyg ditt abonnemang tillåter
+465|Varje modell i de här listorna visas i modellistan högst upp. Om nyckeln saknas, eller leverantören svarar 429/404/503 eller inte svarar, provar {brand} nästa modell och sedan nästa leverantör.
+466|Var {n}:e timme
+467|Exakt tid
+468|Exempel
+469|Avslutningskod: {code}
+470|Förklara enkelt
+471|Förklarande videor gjorda med AI
+472|Förklarar vilket ämne som helst så att en nybörjare förstår.
+473|Utforska
+474|Utforska vetenskaplig forskning
+475|Tillägg
+476|Extra krediter
+477|FLUX.1 Schnell via HF Inference Router, bara om kostnadsskyddet tillåter det.
+478|FLUX.1 Schnell · den första leverantören i gratisläget.
+479|FLUX.1 Schnell. Kampanjkrediter kan vara begränsade.
+480|Misslyckades i
+481|Reservleverantör för media.
+482|Analyser av fantasy football
+483|Snabba och avancerade modeller
+484|Snabba genereringsmodeller via fal.run.
+485|Snabbt läge. Klicka för Tänk: mer exakta svar, lite långsammare.
+486|Fil
+487|Filnamn
+488|Filens sökväg i förrådet
+489|Filuppladdning: {error}
+490|Filuppladdning
+491|Filer
+492|Filer och data
+493|Filer och verktyg
+494|Filer i den här chatten
+495|Filer i den här konversationen
+496|Filer: PDF / Word / PowerPoint / Excel / CSV / ZIP / kod
+497|Ekonomi
+498|Ekonomi och redovisning
+499|Hitta och läsa vetenskapliga artiklar
+500|Hitta, skapa och redigera designer.
+501|Hitta, skapa och uppdatera ärenden, projekt och kommentarer.
+502|Bekräfta först din e-postadress med koden du fick. Om du inte hittar den, titta i skräpposten eller begär en ny.
+503|Beskriv först vad vi ska bygga.
+504|Rättar grammatik, accenter och skiljetecken utan att ändra betydelsen.
+505|För kontroller (priser, annonser): ingen avisering när resultatet är detsamma som förra gången.
+506|Vid kodfrågor söker den efter relevanta filer i förrådet innan den svarar.
+507|Vid programmeringsfrågor hittar {brand} själv de relevanta filerna i det här förrådet.
+508|För att ansluta Google-appar i Appar: en OAuth-klient av typen «Webbapplikation» från Google Cloud, med den här returadressen: {url}
+509|För vetenskap och forskning
+510|För alltid
+511|Formulär och analys av svar
+512|Gratis
+513|Gratis meddelanden i dag
+514|Använda gratis meddelanden
+515|Gratis provperiod
+516|Frekvens
+517|Frisk morgon. Var börjar vi?
+518|Fredag. Låt oss avsluta veckan bra.
+519|Vänlig
+520|Fullständigt namn
+521|GPT Image via OpenAI:s API.
+522|Spel
+523|Gemini API-nyckel
+524|Gemini och Grok
+525|Gemini-nyckel
+526|Gemini-modell (Nano Banana)
+527|Gemini-modell (Veo)
+528|Gemini-modeller · kommaseparerade
+529|Endast Gemini · Nano Banana
+530|Endast Gemini · Veo
+531|Endast Gemini: via Gemini anslutet i OmniRoute (abonnemang, utan API) eller via Gemini-nyckeln i AI-API:er. De andra leverantörerna nedan används inte.
+532|Gemini via API är betalt: för att använda det med nyckeln, välj «Tillåt betalda leverantörer» nedan.
+533|Allmänt
+534|Generera
+535|Generera igen
+536|Hämta den gratis nyckeln
+537|Installera {brand} som app på telefonen, gratis
+538|Förbereder…
+539|GitHub OAuth Client ID
+540|GitHub OAuth client secret
+541|GitHub-modeller · kommaseparerade
+542|Återställning i GitHub klar. Commit: {commit}
+543|GitHub-åtkomst för alla
+544|GitHub-token (för ett privat förråd)
+545|Gör en kort sammanfattning av dagens viktigaste nyheter och teknik, med länkar till källorna.
+546|Gå tillbaka till chatten där du var
+547|Gå tillbaka till föregående version av {path}?
+548|Gå till senaste meddelandet
+549|God eftermiddag
+550|God eftermiddag, {name}
+551|God kväll
+552|God kväll, {name}
+553|God morgon
+554|God morgon, {name}
+555|Google
+556|Google OAuth Client ID
+557|Google OAuth client secret
+558|Google-appar (Gmail, Drive, Calendar, Docs, Sheets)
+559|Styrning
+560|Grok-modeller · kommaseparerade
+561|Grok-bildmodell
+562|Grok-videomodell
+563|Groq API-nyckel
+564|Groq-modeller · kommaseparerade
+565|HD-bilder
+566|Headerns namn
+567|Hälsa
+568|Hälso- och sjukvård
+569|Hjälp mig planera veckan. Mina prioriteringar är:
+570|Här är din {format}-fil: {name}
+571|Dölj åtgärder
+572|Dölj varningen
+573|Dölj stegen
+574|Hur vill du att den här assistenten ska arbeta?
+575|Hur går dagen? Vad kan jag ta av dina axlar?
+576|Hur många krediter?
+578|Hur AI:n svarar
+579|Hur du väljer
+580|Hur du installerar
+581|Hur jag ska svara dig, varje gång. T.ex. «Förklara kort, med exempel. När du skriver kod, kommentera den.»
+582|HubSpot OAuth Client ID
+583|HubSpot OAuth client secret
+584|HubSpot tar bara emot OAuth-appar registrerade av ägaren. Skapa en i HubSpot ({where}) med den här returadressen: {url}
+585|HubSpot-åtkomst för alla
+586|Hugging Face-modeller · kommaseparerade
+587|Personal / HR
+588|Jag når inte tjänsten {brand} på {url}. Kontrollera adressen eller använd {local}.
+589|Jag kopierade 1 nyckel för servern. Klistra in den när skriptet på servern ber om den (högerklick). Den rensas från urklipp om 2 minuter.
+590|Jag kopierade {n} nycklar för servern. Klistra in dem när skriptet på servern ber om dem (högerklick). De rensas från urklipp om 2 minuter.
+591|Jag kopierade inte {names}: de innehåller tecken som servern inte accepterar.
+592|Jag hörde ingenting. Klicka på mikrofonen och prata igen.
+593|IP-adress
+594|IP eller domän
+595|Om den valda Gemini-modellen inte finns för din nyckel provar {brand} själv de andra Gemini-namnen och sedan leverantörerna som tillåts här.
+596|Om den valda modellen inte svarar byter den själv till direkt-API:erna. Av: bara den valda modellen svarar, annars ser du felet.
+597|Om tjänsten stannar försöker {brand} starta om den.
+598|Importera från historiken
+599|Importera de bestående detaljerna (preferenser, beslut, projektdetaljer) från chatthistoriken?
+600|Importerade {n} objekt från historiken.
+601|Importerar…
+602|I en chatt
+603|Ingår i {brand}
+604|Ingår i {brand} · utan konto
+605|Ingår, men blockeras som standard av kostnadsskyddet.
+606|Information från Zoom-möten
+607|Infrastruktur
+608|Installera
+609|Installera {brand}-appen
+610|Installerad
+611|Instruktioner
+612|Instruktioner för AI:n
+613|Instruktioner för assistenten
+614|Instruktioner för {brand}
+615|Instruktioner som sparas en gång och används när du vill: skriv /namn i chatten (till exempel /sammanfattning) eller ha en skill alltid på.
+616|Instruktioner som AI:n följer när du anropar dem med /namn.
+617|Gränssnittsdesign och prototyper
+618|Ogiltigt svar från tjänsten {brand} (HTTP {status}).
+619|Ogiltigt svar vid uppladdning av filen.
+620|Fakturor, beställningar och transaktioner.
+621|Ärenden, pull requests och kodförråd
+622|Raderas när du sparar
+623|Det är helg. Något för jobbet, eller bara för dig?
+624|Jira-ärenden och Confluence-sidor: söka, skapa, redigera.
+625|Jira, Confluence, Loom med mera
+626|Behåll chattar
+627|Håller AI:n uppdaterad med nyheterna
+628|Nyckel / token
+629|Nyckel sparad — lämna tomt för att behålla den
+630|Nycklar för servern
+631|LTX Video. Kan använda startkrediterna, sedan betald kredit.
+632|Språk
+633|Språk för diktering, transkribering och uppläsning
+634|Språk: {lang}
+635|Språk: {name}
+636|Senaste aktivitet
+637|Senaste uppdatering: {when}, lyckades.
+638|Senare
+639|Senaste meddelandet
+640|Senast publicerade version: {v}.
+641|Lag, säkerhet och regelefterlevnad
+642|Leads, kontakter och affärsmöjligheter.
+643|Låt {url} stå kvar om du inte använder en separat {brand}-server. Adressen kontrolleras innan den sparas.
+644|Juridik
+645|Juridisk analys
+646|Längd
+647|Låt oss börja dagen bra. Vad gör vi först?
+648|Bibliotek
+649|Biblioteksfilter
+650|Licenser och upphovspersoner
+651|Ljust
+652|Lyssnar… klicka på mikrofonen igen för att stoppa.
+653|Lyssnar… klicka på mikrofonen för att stoppa
+654|Live-internet och GitHub
+655|Live-internet, GitHub och server
+656|Läser in minnet…
+657|Läser in Biblioteket…
+658|Läser in programmeringsmodeller…
+659|Läser in kombinationer…
+660|Läser in designen…
+661|Läser in historiken…
+662|Läser in modeller…
+663|Läser in plugins…
+664|Läser in förhandsvisningen…
+665|Läser in profilen…
+666|Läser in förfrågan…
+667|Läser in inställningarna…
+668|Läser in uppgifterna…
+669|Läser in texten…
+670|Läser in användarna…
+671|Läser in…
+672|Logga ut
+673|Logga ut från alla enheter
+674|Loggar och statistik för dina Workers.
+675|Loggar, mätvärden, övervakning och incidenter.
+676|Sök efter en adress, stad eller plats.
+677|Söker efter uppdateringar…
+678|Lovable OAuth Client ID
+679|Lovable OAuth client secret
+680|Lovable tar bara emot OAuth-appar registrerade av ägaren. Skapa en i Lovable ({where}) med den här returadressen: {url}
+681|Lovable-åtkomst för alla
+682|Skapade en kopia, avstängd: «{name}».
+683|Gjord av {brand}
+684|Huvudassistent
+685|Huvudkombination (automatisk)
+686|Skapa en gratis Gemini-nyckel
+687|Skapa en bild
+688|Gör åtgärden
+689|Skapar och arbetar med PDF, DOCX och PPTX.
+690|Skapar bilder med AI.
+691|Skapar bilden och förbereder filen…
+692|Skapar videon… det kan ta några minuter
+693|Skapar {format}-filen…
+694|Hantera och fråga databaser
+695|Kartor
+696|Marknadsföring
+697|Matematik / logik
+698|Jag
+699|Mötesutskrifter och sammanfattningar.
+700|Möten
+701|Minne
+702|Minne och chattar
+703|Minnet är tomt.
+704|Minnet är avstängt: {brand} sparar eller använder inget nytt förrän du slår på det.
+705|Minnesinställningar
+706|Minne, projekt och filbibliotek
+707|Meny
+708|Meddelande
+709|Skriv till {brand}
+710|Meddelande, avancerad modell
+711|Meddelande, snabb modell
+712|Meddelande, toppmodell
+714|Metod
+715|Åtkomst till mikrofonen nekades. Tillåt mikrofonen i webbläsaren.
+716|Mikrofonen är tillgänglig och tillåten ✓
+717|Mikrofonen är på — prata nu
+718|Mikrofonen är inte tillgänglig eller tillåten
+719|Microsoft Teams-team och -chattar
+720|Mistral API-nyckel
+721|Mistral-modeller · kommaseparerade
+722|Modell tillåten / blockerad
+723|Manuellt vald modell
+724|Modell för nya chattar
+725|Modell för design
+727|Modeller, dataset och Spaces.
+728|Modernisering
+729|Måndag igen. Låt oss ordna veckan.
+730|Måndag–fredag kl. {time}
+731|Månadsvis
+732|Varje månad den {day}:e kl. {time}
+733|Morgonnyheter
+734|Mest populär
+735|Flytta till projekt
+736|Musik och poddar
+738|NEJ
+739|NVIDIA / NIM-API, kompatibelt med OpenAI.
+740|NVIDIA API-nyckel
+741|NVIDIA-modeller · kommaseparerade
+742|Namn
+743|Navigering
+744|Behöver du hjälp med resten av dagen?
+745|Behöver uppmärksamhet
+746|Behöver åtkomst
+747|Ny åtkomstförfrågan
+748|Nytt konto
+749|Nya konton är avstängda på den här servern.
+750|Nyheter värda att notera
+751|Ny assistent
+752|Ny chatt
+753|Ny chatt med {name}
+754|Ny design
+755|Nytt objekt i minnet
+756|Nytt lösenord
+757|Nytt projekt
+758|Ny skill
+759|Ny uppgift
+760|Ny vecka. Ska vi planera den tillsammans?
+761|Senaste
+762|Nyheter varje morgon
+763|Nästa krediter: {when}
+764|Nästa körning
+765|Nej
+766|Ingen AI-modell är tillåten för det här kontot. Be Ownern om åtkomst till en modell.
+767|Inga API-plugins ännu
+768|Inget svar kom.
+769|Inga anslutna appar ännu. Välj en nedan: efter inloggningen kan {brand} söka, läsa, skapa och redigera i den, och frågar före varje åtgärd.
+770|Inga appar hittades. Du kan lägga till den med «Egen app» om den har en MCP-adress.
+771|Inga ändringar
+772|Inga chattnycklar sparade. Lägg till exempelvis en Gemini- eller Groq-nyckel och spara.
+773|Inga chattar i det här projektet ännu. Skriv ett meddelande för att starta en.
+774|Inga chattar att visa.
+775|Inga chattar ännu.
+776|Inga programmeringsmodeller tillgängliga ännu.
+777|Inga egna assistenter ännu.
+778|Inga dagar valda
+779|Inga designer ännu. Beskriv den första till höger.
+780|Ingen enhet tog emot den. Slå på aviseringar ovan.
+781|Inga objekt.
+782|Inga filer matchar filtret.
+783|Inga modeller tillgängliga
+784|Inga modeller matchar.
+785|Inga modeller tillgängliga.
+787|Inga plugins hittades. Du kan skapa ett på fliken «Skapa plugin».
+788|Inget projekt
+789|Inga projekt ännu. Skapa ett från sidomenyn.
+790|Ingen läsbar text
+791|Inget förråd anslutet
+792|Inga schemalagda uppgifter ännu
+793|Inga skills ännu
+794|Inget textresultat.
+796|Inga {name}-modeller i OmniRoute. Anslut den i OmniRoute-panelen (Providers) och öppna sedan den här sidan igen.
+797|Ingen
+798|Ingen av de inställda AI:erna kunde svara just nu. Kontrollera den valda modellen eller API-nycklarna.
+799|Inte tillåtet av Ownern
+800|Ingår inte i ditt abonnemang
+801|Inte installerat — npm install -g omniroute
+802|Inte körd ännu
+803|Inget hittades för den här sökningen.
+804|Inget hittades.
+805|Inget ännu. Medan vi pratar sparar {brand} dina preferenser och viktiga beslut. Du kan också lägga till något nedan.
+806|Avisering skickad till 1 enhet.
+807|Avisering skickad till {n} enheter.
+808|Aviseringar
+809|Aviseringar från {brand} är blockerade. Slå på dem i telefonens inställningar (Aviseringar → {brand}) och klicka igen.
+810|Aviseringar är avstängda på den här enheten.
+811|Aviseringar tilläts inte. Du kan slå på dem i telefonens inställningar, under {brand}.
+812|Meddela mig
+813|Notion-dokument och arbetsflöden
+814|OAuth-fel — {error}
+815|AV
+816|PÅ
+817|Offert till en kund
+818|Officiella modeller och communitymodeller via Predictions API.
+819|Officiella videomodeller via Predictions API.
+820|Äldsta
+821|OmniRoute 3.8 svarar inte utan nyckel. Skapa den i OmniRoute:
+822|OmniRoute API-nyckel
+823|OmniRoute-adress
+824|OmniRoute-kombination
+825|OmniRoute-kombinationer
+826|OmniRoute-kommando
+827|OmniRoute anslutet
+828|OmniRoute har inga kombinationer ännu.
+829|OmniRoute svarar.
+830|OmniRoute svarar inte. Välj en modell från ett direkt-API i listan (Groq, Gemini…) eller slå på den automatiska reserven.
+831|OmniRoute körs men behöver en API-nyckel: skapa den i OmniRoute → API Manager och ange den i Inställningar → AI och OmniRoute. Fram till dess svarar direkt-API:erna (Groq, Gemini…), om du väljer dem i listan.
+832|OmniRoute-nyckel
+833|OmniRoute behöver en API-nyckel
+834|OmniRoute har stoppats
+835|På iPhone fungerar aviseringar bara från den installerade appen: öppna {domain} i Safari → Dela → Lägg till på hemskärmen, öppna sedan {brand} från skärmen och kom tillbaka hit.
+836|Slå på {slug}
+837|En gång
+838|En gång: {date}, {time}
+839|Ett ställe för kartor, bilder, assistenter och webbplatser.
+840|Ett år
+841|Endast leverantörer utan direkt kostnad
+842|Endast det valda kodblocket
+843|Bara arbetsstegen visas, inte modellens interna resonemang.
+844|Bara när något ändras
+845|Öppna
+846|Öppna Inställningar
+847|Öppna Inställningar → Video
+848|Öppnar en webbplats i webbläsaren.
+849|Öppna i helskärm
+850|Öppna i Design
+851|Öppna i webbläsaren
+852|Öppna Google-sidan
+853|Öppna webbläsarens meny (⋮ eller ≡).
+854|Öppna chatten
+855|Öppna designen {name}
+856|Öppna listan
+857|Öppna förhandsvisningen av {name}
+858|Öppna uppgiften
+859|Öppna {domain} i Safari (på iPhone kan bara Safari installera appen).
+860|Öppna {name}
+861|OpenAI (ChatGPT) gör inte längre videor: Sora stängdes den 24 september 2026, både appen och API:et. ChatGPT:s bilder fungerar fortfarande.
+862|OpenAI (betald)
+863|OpenAI API-nyckel
+864|Kompatibelt med OpenAI, snabba svar.
+865|Kompatibelt med OpenAI.
+866|OpenAI-modeller · kommaseparerade
+867|OpenAI-bildmodell
+868|OpenAI via API
+869|Router kompatibel med OpenAI; samma token som för Bilder.
+870|OpenRouter (kan kosta)
+871|OpenRouter API-nyckel
+872|OpenRouter-modell
+873|OpenRouter-bildmodell
+874|OpenRouter-videomodell
+875|Öppnar…
+876|Öppnar appen direkt
+877|Drift
+878|Valfritt: en GitHub OAuth App (GitHub → Settings → Developer settings) med den här callback-URL:en: {url}. Utan den ansluter GitHub med en personlig token.
+879|Ordning för försöken
+880|Annat
+881|Andra OmniRoute-modeller
+882|De andra kontona använder alla gratismodeller (Gemini, Groq, Mistral, OpenRouter :free…). Dina abonnemang (Codex, Claude Code, Copilot, Kiro, webbkontona) förblir bara dina: deras villkor tillåter inte att kontot delas. De använder en OmniRoute-kombination bara om du kryssar i den här; kryssa bara i kombinationer gjorda av gratismodeller.
+883|Annat svar: {question}
+884|Fler detaljer
+885|Fler modeller
+886|Övrigt
+887|Annars startar den bara när du skriver dess namn eller @utlösare i chatten.
+888|Ownerns e-post på den här datorn
+889|Owner på den här datorn
+890|Endast Owner
+891|Owner: användare, godkännanden, behörigheter, sessioner och AI-tjänster.
+892|PNG, JPEG eller WebP, upp till 10 MB.

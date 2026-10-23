@@ -85,10 +85,17 @@ async function gateway() {
       sawTools++;
       if (rejectTools) { res.statusCode = 400; return res.end(JSON.stringify({ error: { message: "tools are not supported" } })); }
       appsSystem = body.messages.filter((m) => m.role === "system" && /CONNECTED APPS:/.test(m.content)).map((m) => m.content).join("\n");
-      expect(body.stream === false && /CONNECTED APPS: Notes/.test(appsSystem), "the AI is told which apps are connected");
+      expect(/CONNECTED APPS: Notes/.test(appsSystem), "the AI is told which apps are connected");
       const last = body.messages.at(-1);
-      if (last.role === "tool") return res.end(JSON.stringify({ choices: [{ message: { role: "assistant", content: "Done: " + last.content } }] }));
+      if (last.role === "tool") { expect(body.stream === false, "the rounds after a tool are not streamed"); return res.end(JSON.stringify({ choices: [{ message: { role: "assistant", content: "Done: " + last.content } }] })); }
       const create = body.tools.find((t) => /create_note$/.test(t.function.name));
+      // 0.7.38: the first answer streams (text as it comes; a tool call in pieces).
+      if (body.stream) {
+        res.setHeader("content-type", "text/event-stream");
+        if (/just chat/.test(String(last.content))) return res.end('data: {"choices":[{"delta":{"content":"Hello "}}]}\n\ndata: {"choices":[{"delta":{"content":"there."}}]}\n\ndata: [DONE]\n\n');
+        const args = JSON.stringify({ title: "Hello" });
+        return res.end(`data: ${JSON.stringify({ choices: [{ delta: { tool_calls: [{ index: 0, id: "call_1", type: "function", function: { name: create.function.name, arguments: args.slice(0, 5) } }] } }] })}\n\ndata: ${JSON.stringify({ choices: [{ delta: { tool_calls: [{ index: 0, function: { arguments: args.slice(5) } }] } }] })}\n\ndata: [DONE]\n\n`);
+      }
       return res.end(JSON.stringify({ choices: [{ message: { role: "assistant", content: null, tool_calls: [{ id: "call_1", type: "function", function: { name: create.function.name, arguments: JSON.stringify({ title: "Hello" }) } }] } }] }));
     }
     res.setHeader("content-type", "text/event-stream");
@@ -100,8 +107,8 @@ async function gateway() {
   const base = "http://127.0.0.1:8873";
   const call = async (p, { method = "GET", body, token } = {}) => { const r = await fetch(base + p, { method, headers: { "content-type": "application/json", ...(token ? { authorization: "Bearer " + token } : {}) }, body: body ? JSON.stringify(body) : undefined }); const text = await r.text(); let j = {}; try { j = JSON.parse(text); } catch {} return { status: r.status, j, text }; };
   // Reads the chat answer; at each approval request, answers with decide(run).
-  async function chat(token, decide) {
-    const r = await fetch(base + "/api/chat/stream", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + token }, body: JSON.stringify({ messages: [{ role: "user", content: "Make a note called Hello" }] }) });
+  async function chat(token, decide, content = "Make a note called Hello") {
+    const r = await fetch(base + "/api/chat/stream", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + token }, body: JSON.stringify({ messages: [{ role: "user", content }] }) });
     expect(r.ok, "chat answers: " + r.status);
     const events = []; let buf = "", text = "";
     const reader = r.body.getReader(), dec = new TextDecoder();
@@ -131,6 +138,9 @@ async function gateway() {
     r = await call("/api/connectors/connect", { method: "POST", token: user, body: { url: `http://127.0.0.1:${appPort}/mcp`, name: "Notes", token: "secret-1" } });
     expect(r.status === 200 && r.j.data.status === "connected" && r.j.data.connector.toolCount === 2, "connected with a token: " + r.text);
     const connId = r.j.data.connector.id;
+    // 0.7.38: with an app connected, a message that needs no app streams like a normal answer.
+    const plainWithApps = await chat(user, null, "just chat");
+    expect(plainWithApps.text === "Hello there." && plainWithApps.runs.length === 0 && plainWithApps.events.filter((e) => e.choices).length === 2, "with apps, plain text streams in pieces: " + JSON.stringify(plainWithApps.events).slice(0, 300));
     expect((await call(`/api/connectors/${connId}/tools`, { token: other })).j.data?.length === 0, "another account does not see the app's actions");
     r = await call(`/api/connectors/${connId}/tools`, { token: user });
     expect(r.j.data.map((t) => t.name).sort().join() === "create_note,search_notes" && r.j.data.find((t) => t.name === "search_notes").readOnly, "the app's actions: " + r.text);

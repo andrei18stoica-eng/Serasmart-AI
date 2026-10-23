@@ -133,6 +133,7 @@ async function insertWordMath(buffer, maths) {
 
 // ---------- PDF ----------
 const PAGE = [595.28, 841.89], MARGIN = 48, TOP = 50, BOTTOM = 56;
+const SERIF_PAIRS = [["times.ttf", "timesbd.ttf"], ["Times New Roman.ttf", "Times New Roman Bold.ttf"], ["LiberationSerif-Regular.ttf", "LiberationSerif-Bold.ttf"], ["DejaVuSerif.ttf", "DejaVuSerif-Bold.ttf"], ["NotoSerif-Regular.ttf", "NotoSerif-Bold.ttf"]];
 const FONT_PAIRS = [["segoeui.ttf", "segoeuib.ttf"], ["arial.ttf", "arialbd.ttf"], ["calibri.ttf", "calibrib.ttf"], ["DejaVuSans.ttf", "DejaVuSans-Bold.ttf"], ["LiberationSans-Regular.ttf", "LiberationSans-Bold.ttf"], ["NotoSans-Regular.ttf", "NotoSans-Bold.ttf"], ["Arial.ttf", "Arial Bold.ttf"]];
 const MONO_FONTS = ["consola.ttf", "DejaVuSansMono.ttf", "LiberationMono-Regular.ttf", "cour.ttf", "Courier New.ttf"];
 function fontDirs() {
@@ -190,10 +191,11 @@ function wrapByWidth(text, font, size, maxWidth) {
 function wrapCode(line, font, size, maxWidth) { return line ? breakWord(line, font, size, maxWidth) : [""]; }
 
 async function createPdfBytes(title, content, opts = {}) {
-  const pdf = await PDFDocument.create();
+  const pdf = await PDFDocument.create(), style = opts.style || {};
   let regular = null, bold = null, mono = null;
   if (!opts.standardFonts) {
-    const pair = FONT_PAIRS.map(([r, b]) => [findFont(r), findFont(b)]).find(([r]) => r);
+    const pairs = /times|serif|georgia|garamond|cambria/i.test(style.font || "") ? [...SERIF_PAIRS, ...FONT_PAIRS] : FONT_PAIRS;
+    const pair = pairs.map(([r, b]) => [findFont(r), findFont(b)]).find(([r]) => r);
     if (pair) {
       try {
         pdf.registerFontkit(fontkit);
@@ -209,9 +211,11 @@ async function createPdfBytes(title, content, opts = {}) {
   const mathFonts = !opts.standardFonts && hasMath(content) ? await loadMathFonts(pdf, (name) => { const p = findFont(name); try { return p ? fs.readFileSync(p) : null; } catch { return null; } }).catch(() => null) : null;
   if (!mono) mono = await pdf.embedFont(StandardFonts.Courier);
   const fit = new Map([[regular, fitterFor(regular)], [bold, fitterFor(bold)], [mono, fitterFor(mono)]]);
-  const ink = rgb(0.12, 0.15, 0.2), muted = rgb(0.38, 0.42, 0.5), line = rgb(0.8, 0.83, 0.88);
-  let page = pdf.addPage(PAGE), y = PAGE[1] - TOP;
-  const newPage = () => { page = pdf.addPage(PAGE); y = PAGE[1] - TOP; };
+  const hex = (h, d) => h ? rgb(parseInt(h.slice(0, 2), 16) / 255, parseInt(h.slice(2, 4), 16) / 255, parseInt(h.slice(4, 6), 16) / 255) : d;
+  const ink = hex(style.text, rgb(0.12, 0.15, 0.2)), muted = hex(style.muted, rgb(0.38, 0.42, 0.5)), line = hex(style.line, rgb(0.8, 0.83, 0.88)), headInk = hex(style.title, ink), boxFill = hex(style.box, rgb(0.91, 0.93, 0.96)), accentInk = hex(style.accent, line);
+  const addPage = () => { const p = pdf.addPage(PAGE); if (style.bg) p.drawRectangle({ x: 0, y: 0, width: PAGE[0], height: PAGE[1], color: hex(style.bg) }); return p; };
+  let page = addPage(), y = PAGE[1] - TOP;
+  const newPage = () => { page = addPage(); y = PAGE[1] - TOP; };
   const ensure = (h) => { if (y - h < BOTTOM) newPage(); };
   const avail = PAGE[0] - 2 * MARGIN;
   // A paragraph with formulas in it: words and formulas wrapped together, each line as tall as its tallest formula.
@@ -279,7 +283,7 @@ async function createPdfBytes(title, content, opts = {}) {
       if (y - h < BOTTOM) { newPage(); if (ri > 0 && !repeat) drawRow(rows[0], 0, true); }
       for (let c = 0; c < cols; c++) {
         const x = MARGIN + c * cw;
-        page.drawRectangle({ x, y: y - h, width: cw, height: h, borderColor: line, borderWidth: 0.6, color: ri === 0 ? rgb(0.91, 0.93, 0.96) : undefined });
+        page.drawRectangle({ x, y: y - h, width: cw, height: h, borderColor: line, borderWidth: 0.6, color: ri === 0 ? boxFill : undefined });
         ls[c].forEach((l, k) => page.drawText(l || " ", { x: x + pad, y: y - pad - (k + 1) * lh + 2, size, font: ri === 0 ? bold : regular, color: ink }));
       }
       y -= h;
@@ -287,7 +291,8 @@ async function createPdfBytes(title, content, opts = {}) {
     rows.forEach((r, ri) => drawRow(r, ri, false));
     y -= 10;
   };
-  write(title || `${BRAND_NAME}`, { font: bold, size: 20, after: 14 });
+  write(title || `${BRAND_NAME}`, { font: bold, size: 20, after: style.accent ? 6 : 14, color: headInk });
+  if (style.accent) { page.drawLine({ start: { x: MARGIN, y }, end: { x: MARGIN + 60, y }, thickness: 2, color: accentInk }); y -= 14; }
   for (const b of parseDocumentBlocks(content, { math: !!mathFonts })) {
     if (b.type === "blank") { y -= 6; continue; }
     if (b.type === "math") {
@@ -302,11 +307,11 @@ async function createPdfBytes(title, content, opts = {}) {
       y -= eq.d * k + 9;
       continue;
     }
-    if (b.type === "heading") { y -= 4; write(b.text, { font: bold, size: b.level === 1 ? 17 : b.level === 2 ? 15 : b.level === 3 ? 13 : 12, after: 6 }); continue; }
+    if (b.type === "heading") { y -= 4; write(b.text, { font: bold, size: b.level === 1 ? 17 : b.level === 2 ? 15 : b.level === 3 ? 13 : 12, after: 6, color: headInk }); continue; }
     if (b.type === "bullet") { write("• " + b.text, { indent: 10 + 12 * b.level, after: 3 }); continue; }
     if (b.type === "number") { write(String(b.number) + ". " + b.text, { indent: 10 + 12 * b.level, after: 3 }); continue; }
     if (b.type === "quote") { write(b.text, { indent: 14, color: muted, after: 4 }); continue; }
-    if (b.type === "rule") { ensure(12); y -= 6; page.drawLine({ start: { x: MARGIN, y }, end: { x: PAGE[0] - MARGIN, y }, thickness: 0.6, color: line }); y -= 6; continue; }
+    if (b.type === "rule") { ensure(12); y -= 6; page.drawLine({ start: { x: MARGIN, y }, end: { x: PAGE[0] - MARGIN, y }, thickness: 0.6, color: accentInk }); y -= 6; continue; }
     if (b.type === "code") { code(b.lines); continue; }
     if (b.type === "table") { table(b.rows); continue; }
     write(b.text, { after: 5 });
@@ -315,11 +320,12 @@ async function createPdfBytes(title, content, opts = {}) {
 }
 
 // ---------- Word ----------
-async function createDocxBytes(title, content) {
+async function createDocxBytes(title, content, style = {}) {
   const maths = [];
+  const titleC = style.title || undefined, textC = style.text || undefined, boxC = style.box || "E8EDF5", lineC = style.line || "C8CED8";
   const runs = (text, size, extra) => inlineRuns(text, size, extra, maths);
   const children = [
-    new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: String(title || `${BRAND_NAME}`), bold: true, size: 36 })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, ...(style.accent ? { border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: style.accent, space: 6 } } } : {}), children: [new TextRun({ text: String(title || `${BRAND_NAME}`), bold: true, size: 36, color: titleC })] }),
     new Paragraph({ text: "" })
   ];
   for (const b of parseDocumentBlocks(content, { math: true })) {
@@ -332,13 +338,13 @@ async function createDocxBytes(title, content) {
     }
     if (b.type === "heading") {
       const level = b.level <= 1 ? HeadingLevel.HEADING_1 : b.level === 2 ? HeadingLevel.HEADING_2 : HeadingLevel.HEADING_3;
-      children.push(new Paragraph({ heading: level, children: runs(b.text, b.level <= 1 ? 30 : 26) }));
+      children.push(new Paragraph({ heading: level, children: runs(b.text, b.level <= 1 ? 30 : 26, titleC ? { color: titleC } : {}) }));
       continue;
     }
     if (b.type === "bullet") { children.push(new Paragraph({ bullet: { level: b.level || 0 }, children: runs(b.text, 22) })); continue; }
     if (b.type === "number") { children.push(new Paragraph({ indent: { left: 360 * (b.level || 0) }, children: [new TextRun({ text: String(b.number) + ". ", bold: true, size: 22 }), ...runs(b.text, 22)] })); continue; }
     if (b.type === "quote") { children.push(new Paragraph({ indent: { left: 720 }, children: runs(b.text, 22, { italics: true, color: "5F6B7A" }) })); continue; }
-    if (b.type === "rule") { children.push(new Paragraph({ text: "", border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "C8CED8", space: 1 } } })); continue; }
+    if (b.type === "rule") { children.push(new Paragraph({ text: "", border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: style.accent || lineC, space: 1 } } })); continue; }
     if (b.type === "code") {
       for (const l of b.lines.length ? b.lines : [""]) children.push(new Paragraph({ spacing: { after: 0 }, shading: { type: ShadingType.CLEAR, fill: "F2F4F7", color: "auto" }, children: [new TextRun({ text: l || " ", font: "Consolas", size: 19 })] }));
       children.push(new Paragraph({ text: "" }));
@@ -351,8 +357,8 @@ async function createDocxBytes(title, content) {
         rows: b.rows.map((r, ri) => new TableRow({
           tableHeader: ri === 0,
           children: Array.from({ length: cols }, (_, c) => new TableCell({
-            shading: ri === 0 ? { type: ShadingType.CLEAR, fill: "E8EDF5", color: "auto" } : undefined,
-            children: [new Paragraph({ children: runs(r[c] ?? "", 20, { bold: ri === 0 }) })]
+            shading: ri === 0 ? { type: ShadingType.CLEAR, fill: boxC, color: "auto" } : undefined,
+            children: [new Paragraph({ children: runs(r[c] ?? "", 20, { bold: ri === 0, ...(ri === 0 && titleC ? { color: titleC } : {}) }) })]
           }))
         }))
       }));
@@ -361,7 +367,11 @@ async function createDocxBytes(title, content) {
     }
     children.push(new Paragraph({ children: runs(b.text, 22), spacing: { after: 120 } }));
   }
-  const doc = new Document({ sections: [{ properties: {}, children }] });
+  const doc = new Document({
+    ...(style.bg ? { background: { color: style.bg } } : {}),
+    styles: { default: { document: { run: { ...(style.font ? { font: style.font } : {}), ...(textC ? { color: textC } : {}) } } }, paragraphStyles: [1, 2, 3].map((n) => ({ id: `Heading${n}`, name: `Heading ${n}`, basedOn: "Normal", next: "Normal", quickFormat: true, run: { ...(style.font ? { font: style.font } : {}), ...(titleC ? { color: titleC } : {}), bold: true } })) },
+    sections: [{ properties: {}, children }]
+  });
   return insertWordMath(Buffer.from(await Packer.toBuffer(doc)), maths);
 }
 
@@ -403,7 +413,7 @@ function slideChunks(content, maxChars = 750, maxLines = 12) {
 //    «Fundal principal / Background: #FCFAF3», «Accente / Accent: #AA9162», «Titluri / Titles: #29343A»,
 //    «Text: #525B61», «Surse / Sources: #77766E», «Casete / Boxes: #EFE9DC», «Font exclusiv / Font: Times New Roman».
 // Lines with tabs become table rows. A first slide numbered 1 becomes the cover.
-const PPTX_STYLE_START = /^\s*(?:#+\s*)?(?:formatare(?:\s+pptx)?|formatting|format(?:are)?\s+pptx|style|stil(?:ul)?(?:\s+prezent[aă]rii)?|design)\s*:?\s*$/i;
+const PPTX_STYLE_START = /^\s*(?:#+\s*)?(?:\*\*)?(?:formatare|formatting|format(?:are)?|style|stil(?:ul)?|design|aspect)(?:\s+(?:pptx|docx|xlsx|pdf|word|excel|powerpoint|document(?:ului)?|prezent[aă]rii|fi[sș]ierului|tabelului))?(?:\*\*)?\s*:?\s*$/i;
 const NOTES_LINE = /^\s*(?:\*\*)?(?:note(?:le)?(?:\s+(?:prezentator|pentru prezentator|vorbitor))?|notes|speaker notes|presenter notes)(?:\*\*)?\s*:\s*(.*)$/i;
 const SOURCE_LINE = /^\s*(?:\*\*)?(?:surs[aăe]|sources?)(?:\*\*)?\s*:\s*(.+)$/i;
 const SLIDE_LINE = /^\s*(?:#+\s*)?(?:\*\*)?(?:slide|slaid|diapozitiv(?:ul)?)\s+(\d{1,3})(?:\*\*)?\s*(?:[—–:.-]\s*)?(.*)$/i;
@@ -426,11 +436,20 @@ function pptxStyle(lines) {
   return st;
 }
 // Splits the answer into {cover, sections:[{title, body, notes, source}], style}.
-function pptxSource(content) {
+// 0.7.35: the same «Formatting» section works for Word, PDF and Excel: it is taken off the content and gives the
+// colours and the font. Only a section whose lines really carry a hex colour or a font counts.
+function splitStyle(content) {
   let lines = String(content || "").replace(/\r/g, "").split("\n");
-  const styleAt = lines.findIndex((l, i) => i > 0 && PPTX_STYLE_START.test(l));
+  const styleAt = lines.findIndex((l, i) => i > 0 && PPTX_STYLE_START.test(l) && lines.slice(i + 1, i + 14).some((x) => /#[0-9a-f]{6}\b|\bfont\b/i.test(x)));
   const style = styleAt > 0 ? pptxStyle(lines.slice(styleAt)) : {};
   if (styleAt > 0) lines = lines.slice(0, styleAt);
+  return { lines, style };
+}
+// Lines at the top that describe the file instead of being in it («Fișier: x.docx», «Format: Word editabil»).
+const META_LINE = /^\s*(?:\*\*)?(?:fi[sș]ier(?:ul)?|file(?:\s*name)?|format(?:ul)?|nume(?:le)? fi[sș]ierului)(?:\*\*)?\s*:/i;
+function withoutMeta(lines) { const out = [...lines]; for (let i = 0; i < Math.min(out.length, 12); i++) if (META_LINE.test(out[i])) { out.splice(i, 1); i--; } return out; }
+function pptxSource(content) {
+  let { lines, style } = splitStyle(content);
   const sections = []; let cur = null, mode = "body", tableRows = [];
   const flushTable = () => { if (!tableRows.length) return; const rows = tableRows.map((r) => "| " + r.join(" | ") + " |"); rows.splice(1, 0, "| " + tableRows[0].map(() => "---").join(" | ") + " |"); cur.body.push(...rows, ""); tableRows = []; };
   const start = (title, number) => { if (cur) flushTable(); cur = { title: title.trim(), number, body: [], notes: [], source: [] }; sections.push(cur); mode = "body"; };
@@ -643,7 +662,9 @@ function xlsxSheetXml(rows) {
   const cols = widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("");
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${cols}</cols><sheetData>${sheetData}</sheetData></worksheet>`;
 }
-async function createXlsxBytes(title, content) {
+async function createXlsxBytes(title, content, style = {}) {
+  const fontName = xmlEscape(style.font || "Aptos"), head = style.title ? `<color rgb="FF${style.title}"/>` : "", body = style.text ? `<color rgb="FF${style.text}"/>` : "";
+  const headFill = style.box || style.accent ? `<fill><patternFill patternType="solid"><fgColor rgb="FF${style.box || style.accent}"/><bgColor indexed="64"/></patternFill></fill>` : "";
   const sheets = xlsxSheets(title, content);
   const zip = new JSZip();
   const overrides = sheets.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("");
@@ -651,7 +672,7 @@ async function createXlsxBytes(title, content) {
   zip.folder("_rels").file(".rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`);
   zip.folder("xl").file("workbook.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((sh, i) => `<sheet name="${xmlEscape(sh.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join("")}</sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`);
   zip.folder("xl").folder("_rels").file("workbook.xml.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`);
-  zip.folder("xl").file("styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Aptos"/></font><font><b/><sz val="11"/><name val="Aptos"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs></styleSheet>`);
+  zip.folder("xl").file("styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/>${body}<name val="${fontName}"/></font><font><b/><sz val="11"/>${head}<name val="${fontName}"/></font></fonts><fills count="${headFill ? 3 : 2}"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill>${headFill}</fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="${headFill ? 2 : 0}" borderId="0" xfId="0" applyFont="1"${headFill ? ' applyFill="1"' : ""}/></cellXfs></styleSheet>`);
   sheets.forEach((sh, i) => zip.folder("xl").folder("worksheets").file(`sheet${i + 1}.xml`, xlsxSheetXml(sh.rows)));
   return await zip.generateAsync({ type: "nodebuffer", compression: "DEFLATE", compressionOptions: { level: 6 } });
 }
@@ -773,10 +794,12 @@ const PLAIN_TEXT_MIME = {
 const EXPORT_FORMATS = new Set(["pdf", "docx", "pptx", "xlsx", "csv", "json", "md", "txt", "html", "xml", "rtf", "zip", "ipynb", "svg", ...Object.keys(PLAIN_TEXT_MIME)]);
 async function createExportBytes(format, rawTitle, rawContent, opts = {}) {
   const title = sanitizeText(rawTitle), content = sanitizeText(rawContent);
-  if (format === "pdf") return { bytes: await createPdfBytes(title, content, opts), mime: "application/pdf" };
-  if (format === "docx") return { bytes: await createDocxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" };
+  // Word, PDF and Excel: the «Formatting» section and the «Fișier: …» lines are taken off and give the look.
+  const styled = () => { const { lines, style } = splitStyle(content); return { body: withoutMeta(lines).join("\n"), style }; };
+  if (format === "pdf") { const { body, style } = styled(); return { bytes: await createPdfBytes(title, body, { ...opts, style }), mime: "application/pdf" }; }
+  if (format === "docx") { const { body, style } = styled(); return { bytes: await createDocxBytes(title, body, style), mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }; }
   if (format === "pptx") return { bytes: await createPptxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.presentationml.presentation" };
-  if (format === "xlsx") return { bytes: await createXlsxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" };
+  if (format === "xlsx") { const { body, style } = styled(); return { bytes: await createXlsxBytes(title, body, style), mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }; }
   if (format === "csv") return { bytes: createCsvBytes(content), mime: "text/csv; charset=utf-8" };
   if (format === "json") return { bytes: createJsonBytes(title, content), mime: "application/json; charset=utf-8" };
   if (format === "html") return { bytes: createHtmlBytes(title, content), mime: PLAIN_TEXT_MIME.html };

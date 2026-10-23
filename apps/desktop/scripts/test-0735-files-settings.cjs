@@ -30,7 +30,18 @@ const deck = [
   expect(intent.answerFileFormat(deck)?.format === "pptx" && intent.answerFileFormat(deck).name === "Regnul_Animal.pptx", "an answer that is a deck becomes the .pptx");
   expect(intent.answerFileFormat("SLIDE 1 — A\nx\nSLIDE 2 — B\ny\nSLIDE 3 — C\nz")?.format === "pptx" && !intent.answerFileFormat("Salut! Iată ideile mele."), "slide by slide answers are decks; normal answers are not");
   for (const t of ["poti sa editezi pptx-ul si sa pui sigla jos", "îmi modifici slide-ul 3?", "adaugi un slide cu concluzii"]) expect(intent.editedDocumentFormat(t.replace("?", ""), [], "pptx") === "pptx", "an edit asked in the second person changes the file: " + t);
+  // Word, PDF and Excel take the same «Formatting» section; the «Fișier:» line is not written into them.
+  const styledDoc = "# Fotosinteza\nFișier: Fotosinteza.docx\n\n## Introducere\nText.\n\nFormatare document\nFundal principal: #FCFAF3\nTitluri: #29343A\nFont exclusiv: Times New Roman";
+  const docXml = await (await JSZip.loadAsync((await createExportBytes("docx", "Fotosinteza", styledDoc)).bytes)).file("word/document.xml").async("string");
+  const docStyles = await (await JSZip.loadAsync((await createExportBytes("docx", "Fotosinteza", styledDoc)).bytes)).file("word/styles.xml").async("string");
+  expect(/FCFAF3/.test(docXml) && /29343A/.test(docXml) && /Times New Roman/.test(docStyles) && !/Fotosinteza\.docx|Formatare/.test(docXml), "Word takes the colours and the font, without the file line or the formatting section");
+  const xlsStyles = await (await JSZip.loadAsync((await createExportBytes("xlsx", "Buget", "## Buget\n| A | B |\n|---|---|\n| 1 | 2 |\n\nFormatting\nBoxes: #EFE9DC\nFont: Times New Roman")).bytes)).file("xl/styles.xml").async("string");
+  expect(/FFEFE9DC/.test(xlsStyles) && /Times New Roman/.test(xlsStyles), "Excel: header fill and font");
+  const pdfBytes = (await createExportBytes("pdf", "Fotosinteza", styledDoc)).bytes;
+  expect(pdfBytes.length > 1000 && !/Formatare document/.test(pdfBytes.toString("latin1")), "PDF is made with the style");
+  expect(intent.asksForFile("fă-mi proiectul la biologie despre regnul animal") && intent.asksForFile("vreau prezentarea") && !intent.asksForFile("ce este fotosinteza") && !intent.asksForFile("povestește-mi despre animale"), "only a message that asks for a file can turn the answer into one");
   const main = fs.readFileSync(path.join(__dirname, "../renderer/src/main.jsx"), "utf8");
+  expect(/asksForFile\(messageText\(lastUser\)\)\)\{const guess=answerFileFormat\(answer\)/.test(main), "the answer becomes a file only when the person asked for one");
   expect(/answerFileFormat\(answer\)/.test(main) && /madeName\?\{fileName:/.test(main), "the chat makes the file from such an answer, with its name");
   expect(MAX_SKILLS === null, "skills have no fixed cap any more");
   expect(validateAccountSettings({ avatar: "data:image/webp;base64,AAAA" }).value?.avatar && validateAccountSettings({ avatar: "javascript:alert(1)" }).error && validateAccountSettings({ avatar: "" }).value.avatar === "", "the profile photo is a small picture or nothing");

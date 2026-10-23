@@ -31,3 +31,6 @@ Serasmart AI turns your answer into an .xlsx file and sends it to the user. Your
 
 ## Changing an existing workbook
 Return **all** sheets again, with the change made and every other cell kept as it was.
+
+## Colours and font
+If the user gives colours or a font (or a style standard), end the answer with a section `Formatting` and one line each, with hex colours: `Background: #FCFAF3`, `Boxes: #EFE9DC`, `Accent: #AA9162`, `Titles: #29343A`, `Text: #525B61`, `Font: Times New Roman`. Serasmart AI applies it to the whole file and leaves it out of the content.

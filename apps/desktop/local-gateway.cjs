@@ -4307,10 +4307,10 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   // (lib/documents.cjs) turns into real slides, sheets and headings; a change returns the whole changed file.
   const FILE_SHAPES={
     pptx:"Each slide starts with a «## Slide title» heading followed by short bullet points (at most 6 per slide); a Markdown table goes on the slide under its text. Under a slide, «Notes:» starts its speaker notes and «Source:» adds a small source line. Colours or a font the user asked for go in a final «Formatting» section (Background / Accent / Titles / Text / Font lines with hex colours), which styles every slide.",
-    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells. Cells may hold Excel formulas such as =SUM(B2:B10) (English function names, commas between arguments; the header is row 1).",
+    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells. Cells may hold Excel formulas such as =SUM(B2:B10) (English function names, commas between arguments; the header is row 1). Colours or a font the user asked for go in a final «Formatting» section (Background / Boxes / Accent / Titles / Text lines with hex colours, and Font), which styles the whole file and is not shown in it.",
     csv:"One Markdown table with a header row, or plain CSV.",
-    docx:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables.",
-    pdf:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables."
+    docx:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables. Colours or a font the user asked for go in a final «Formatting» section (Background / Boxes / Accent / Titles / Text lines with hex colours, and Font), which styles the whole file and is not shown in it.",
+    pdf:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables. Colours or a font the user asked for go in a final «Formatting» section (Background / Boxes / Accent / Titles / Text lines with hex colours, and Font), which styles the whole file and is not shown in it."
   };
   function fileAnswerInstruction(format,edit){
     const name={docx:"Word (DOCX)",pptx:"PowerPoint (PPTX)",xlsx:"Excel (XLSX)",pdf:"PDF"}[format]||format.toUpperCase();

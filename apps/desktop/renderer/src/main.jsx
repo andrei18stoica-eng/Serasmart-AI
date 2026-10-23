@@ -30,7 +30,7 @@ import { ScheduledPage } from "./pages/Scheduled.jsx";
 import { CodePage } from "./pages/Code.jsx";
 import { requestedMediaGeneration } from "./mediaIntent.mjs";
 import { detectSpeechLang, voiceFor, speakableText } from "./speechLang.mjs";
-import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat, answerFileFormat } from "./documentIntent.mjs";
+import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat, answerFileFormat, asksForFile } from "./documentIntent.mjs";
 import { ExtensionsPage } from "./pages/Extensions.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
@@ -2200,9 +2200,10 @@ function App() {
       for(const line of buf.split(/\r?\n/))handleLine(line);
       if(streamError&&!answer)throw new Error(streamError);
       let note=streamError?`\n\n_${tr("The answer was interrupted: {error}",{error:streamError})}_`:"",files=[];
-      // 0.7.35: an answer that is a file (named «….pptx», or written slide by slide) is sent as that file.
+      // 0.7.35: when the person asked for a file, an answer that is one (named «….pptx», «….docx», «….xlsx», «….pdf», or
+      // written slide by slide) is sent as that file; otherwise the answer stays text.
       let madeName="";
-      if(!format&&!streamError){const guess=answerFileFormat(answer);if(guess){format=guess.format;madeName=guess.name}}
+      if(!format&&!streamError&&asksForFile(messageText(lastUser))){const guess=answerFileFormat(answer);if(guess){format=guess.format;madeName=guess.name}}
       if(format&&!splitQuestions(answer,false)){
         if(!can("document_generation"))note+=`\n\n_${deniedMessage("document_generation")}_`;
         else{

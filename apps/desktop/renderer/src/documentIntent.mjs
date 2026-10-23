@@ -68,3 +68,6 @@ export function answerFileFormat(answer){
   if((text.match(SLIDE_HEAD)||[]).length>=3)return {format:"pptx",name:""};
   return null;
 }
+// Only when the person asked for a file: their message names a file, a format or a deck / document / project.
+const FILE_WORDS=/\b(?:pptx?|docx?|xlsx?|pdf|powerpoint|prezentar\w*|presentation|slide\w*|word|excel|document\w*|fisier\w*|files?|proiect\w*|project|referat\w*|raport\w*|report|tabel\w*|spreadsheet|foaie de calcul)\b/;
+export function asksForFile(value){return FILE_WORDS.test(normalizeIntent(value));}

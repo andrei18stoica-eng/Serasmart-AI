@@ -33,7 +33,7 @@ const files = [];
   const pre = gw.indexOf('app.post("/api/i18n/prefill"'), lang = gw.indexOf('app.post("/api/i18n/:lang"');
   expect(pre > 0 && pre < lang && gw.indexOf('app.get("/api/i18n/prefill"') < gw.indexOf('app.get("/api/i18n/:lang"'), "the prefill routes come before /api/i18n/:lang");
   expect(/app\.post\("\/api\/i18n\/prefill",auth,\(req,res\)=>\{\s*if\(!ownerRequest\(req\)\)return res\.status\(403\)/.test(gw), "only the Owner starts the prefill");
-  expect(/i18nTranslate\(req,lang,todo,\{retries:2,free:true/.test(gw), "the prefill uses free models only and retries a failed batch");
+  expect(/i18nTranslate\(i18nOwnerReq\|\|req,lang,todo,\{retries:2,free:true/.test(gw), "the prefill uses free models only and retries a failed batch");
   expect(/if\(ownerRequest\(req\)\)i18nPrefill\(req,\[lang\]\)/.test(gw), "opening a language as Owner translates the rest of the app into it");
   console.log("test-0734-i18n: ok");
 })().catch((e) => { console.error(e.message || e); process.exit(1); });

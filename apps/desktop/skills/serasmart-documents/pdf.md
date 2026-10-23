@@ -27,3 +27,6 @@ For Romanian: ș/ț with a comma below, „…” quotes, dates like 23.10.2026,
 
 ## Changing an existing PDF
 Return the **whole** document again with the change made and the rest kept as it was.
+
+## Colours and font
+If the user gives colours or a font (or a style standard), end the answer with a section `Formatting` and one line each, with hex colours: `Background: #FCFAF3`, `Boxes: #EFE9DC`, `Accent: #AA9162`, `Titles: #29343A`, `Text: #525B61`, `Font: Times New Roman`. Serasmart AI applies it to the whole file and leaves it out of the content.

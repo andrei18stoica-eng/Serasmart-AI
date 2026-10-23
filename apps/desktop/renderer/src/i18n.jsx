@@ -34,10 +34,38 @@ function merge(lang, data) {
   if (lang === current) notify();
 }
 const fetched = new Set();
-async function fetchRemote(lang) {
-  if (lang === "en" || fetched.has(lang)) return;
+// 0.7.35: how far the server is with translating the whole app into a language ({total, have, running}).
+const progress = {};
+export function languageProgress(lang = current) { return progress[lang] || null; }
+async function fetchRemote(lang, again = false) {
+  if (lang === "en" || (fetched.has(lang) && !again)) return;
   fetched.add(lang);
-  try { const r = await fetch(`${GATEWAY}/api/i18n/${lang}`); if (r.ok) merge(lang, (await r.json()).data); } catch {}
+  try {
+    const r = await fetch(`${GATEWAY}/api/i18n/${lang}`);
+    if (r.ok) { const d = await r.json(); if (d.progress) progress[lang] = d.progress; merge(lang, d.data); if (lang === current) notify(); }
+  } catch {}
+}
+// Picking a language (from the language button, for everyone) asks the server to translate the whole app into it in
+// the background; the screen picks the new texts up every 15 seconds until the language is complete.
+let follow = null;
+const prepared = new Set();
+// Romanian travels whole with the app (locales.js), so only the other languages are asked for.
+const shippedWhole = (lang) => Object.keys(LOCALES[lang] || {}).length >= 1000;
+async function prepare(lang) {
+  clearTimeout(follow); follow = null;
+  if (lang === "en" || shippedWhole(lang)) return;
+  if (storage.get(TOKEN_KEY)) prepared.add(lang);
+  if (storage.get(TOKEN_KEY)) {
+    try { const d = await api(`/api/i18n/${lang}/prepare`, { method: "POST", body: "{}" }); if (d?.data) { progress[lang] = d.data; if (lang === current) notify(); } } catch {}
+  }
+  const started = Date.now();
+  const tick = async () => {
+    if (lang !== current) return;
+    await fetchRemote(lang, true);
+    const p = progress[lang];
+    if (p && p.have < p.total && (p.running || Date.now() - started < 120000) && Date.now() - started < 90 * 60000) follow = setTimeout(tick, 15000);
+  };
+  follow = setTimeout(tick, 4000);
 }
 // Texts shown without a translation, sent in one request a moment after the screen settles.
 const missing = new Set();
@@ -53,7 +81,7 @@ function askLater() {
     asking = true;
     try { merge(lang, (await api(`/api/i18n/${lang}`, { method: "POST", body: JSON.stringify({ keys }) })).data); }
     catch {}
-    finally { asking = false; keys.forEach((k) => missing.delete(k)); if (missing.size) askLater(); }
+    finally { asking = false; keys.forEach((k) => missing.delete(k)); if (missing.size) askLater(); if (!prepared.has(lang) && lang === current) prepare(lang); }
   }, 2500);
 }
 function apply() {
@@ -62,7 +90,7 @@ function apply() {
   document.documentElement.dir = RTL.has(current) ? "rtl" : "ltr";
 }
 apply();
-if (current !== "en") { loadCache(current); fetchRemote(current); }
+if (current !== "en") { loadCache(current); fetchRemote(current).then(() => { const p = progress[current]; if (!p || p.have < p.total) prepare(current); }); }
 
 export function getLanguage() { return current; }
 export function setLanguage(code) {
@@ -71,7 +99,7 @@ export function setLanguage(code) {
   try { localStorage.setItem(KEY, code); } catch {}
   missing.clear();
   apply();
-  if (code !== "en") { loadCache(code); fetchRemote(code); }
+  if (code !== "en") { loadCache(code); fetchRemote(code); prepare(code); }
   notify();
 }
 function subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); }

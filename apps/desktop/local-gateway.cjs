@@ -1023,7 +1023,29 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   const PREFERENCE_KEYS = ["searchPastChats", "memoryEnabled", "askClarifyingQuestions"];
   function userPreferences(user) { return Object.fromEntries(PREFERENCE_KEYS.map((k) => [k, user?.[k] !== false])); }
   const cloudAuthCache = new Map();
-  async function auth(req, res, next) {
+  // 0.7.35: every signed-in request also lets the interface translations notice the Owner (i18nSeen).
+  // 0.7.35, asked by the Owner: accounts other than the Owner never see the name of the router behind the AI
+  // (OmniRoute) — not in errors, route notes, model groups or streamed text. JSON and SSE text are rewritten; files
+  // and other binary answers are left alone.
+  const ROUTER_NAME=/\bOmni[ -]?Route\b/gi;
+  function hideRouterName(req,res){
+    if(ownerRequest(req)||res.__routerHidden)return;
+    res.__routerHidden=true;
+    const swap=(t)=>t.replace(ROUTER_NAME,BRAND_NAME);
+    const json=res.json.bind(res);
+    res.json=(body)=>{try{const t=JSON.stringify(body);return json(t&&ROUTER_NAME.test(t)?JSON.parse(swap(t)):body)}catch{return json(body)}finally{ROUTER_NAME.lastIndex=0}};
+    const write=res.write.bind(res);
+    res.write=(chunk,...rest)=>{
+      const type=String(res.getHeader("Content-Type")||"");
+      if(/event-stream|json|text\/plain/.test(type)){
+        if(typeof chunk==="string")chunk=swap(chunk);
+        else if(Buffer.isBuffer(chunk)){const t=chunk.toString("utf8");if(/omni/i.test(t))chunk=Buffer.from(swap(t),"utf8");}
+      }
+      return write(chunk,...rest);
+    };
+  }
+  function auth(req,res,next){return authCheck(req,res,()=>{try{i18nSeen(req)}catch{}try{hideRouterName(req,res)}catch{}next()});}
+  async function authCheck(req, res, next) {
     const raw = String(req.headers.authorization || "");
     const token = raw.startsWith("Bearer ") ? raw.slice(7).trim() : "";
     if (!token) return res.status(401).json({ error: "Autentificare necesară." });
@@ -1277,7 +1299,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   // ---- Account settings (0.7.23, phase 3): each account's profile, personalisation, default model, notifications,
   // privacy (conversations kept for N days, export, deleting data or the account) and security (sessions, password). ----
   function settingsView(user){
-    return {name:user.name||"",email:user.email,role:roleFor(user,null),local:!cloudBase(),...accountLib.accountSettings(user),preferences:userPreferences(user)};
+    return {name:user.name||"",email:user.email,accountId:String(user.cloudUserId||user.id),role:roleFor(user,null),local:!cloudBase(),...accountLib.accountSettings(user),preferences:userPreferences(user)};
   }
   app.get("/api/me/settings", auth, (req,res) => {
     const user=store.read().users.find(u=>u.id===req.user.id);if(!user)return res.status(404).json({error:"Contul nu a fost găsit."});
@@ -3937,7 +3959,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   });
   function saveNewSkill(req,res,fields){
     const db=store.read(),mine=db.skills.filter(x=>x.userId===req.user.id);
-    if(mine.length>=MAX_SKILLS)return res.status(400).json({error:`Poți avea cel mult ${MAX_SKILLS} skill-uri.`});
+    if(MAX_SKILLS!==null&&mine.length>=MAX_SKILLS)return res.status(400).json({error:`You can have at most ${MAX_SKILLS} skills.`});
     const planMax=planLimit(req,"skills");
     if(planMax!==null&&mine.length>=planMax)return res.status(403).json({error:`Your plan includes ${planMax} skill${planMax===1?"":"s"}. Upgrade your plan to add more.`,code:"plan_upgrade",credits:{}});
     if(mine.some(x=>x.slug===fields.slug))return res.status(409).json({error:`You already have a skill /${fields.slug}. Pick another name.`});
@@ -4284,11 +4306,11 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   // What the AI is told when the answer becomes a file (0.7.29): only the file's content, in a shape the file builder
   // (lib/documents.cjs) turns into real slides, sheets and headings; a change returns the whole changed file.
   const FILE_SHAPES={
-    pptx:"Each slide starts with a «## Slide title» heading followed by short bullet points (at most 6 per slide); a Markdown table becomes a table slide.",
-    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells. Cells may hold Excel formulas such as =SUM(B2:B10) (English function names, commas between arguments; the header is row 1).",
+    pptx:"Each slide starts with a «## Slide title» heading followed by short bullet points (at most 6 per slide); a Markdown table goes on the slide under its text. Under a slide, «Notes:» starts its speaker notes and «Source:» adds a small source line. Colours or a font the user asked for go in a final «Formatting» section (Background / Accent / Titles / Text / Font lines with hex colours), which styles every slide.",
+    xlsx:"Put the data in Markdown tables with a header row; before each table write «## Sheet name» for its sheet. Numbers without units inside the cells. Cells may hold Excel formulas such as =SUM(B2:B10) (English function names, commas between arguments; the header is row 1). Colours or a font the user asked for go in a final «Formatting» section (Background / Boxes / Accent / Titles / Text lines with hex colours, and Font), which styles the whole file and is not shown in it.",
     csv:"One Markdown table with a header row, or plain CSV.",
-    docx:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables.",
-    pdf:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables."
+    docx:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables. Colours or a font the user asked for go in a final «Formatting» section (Background / Boxes / Accent / Titles / Text lines with hex colours, and Font), which styles the whole file and is not shown in it.",
+    pdf:"Use # for the title, ## and ### for sections, normal paragraphs, lists and Markdown tables. Colours or a font the user asked for go in a final «Formatting» section (Background / Boxes / Accent / Titles / Text lines with hex colours, and Font), which styles the whole file and is not shown in it."
   };
   function fileAnswerInstruction(format,edit){
     const name={docx:"Word (DOCX)",pptx:"PowerPoint (PPTX)",xlsx:"Excel (XLSX)",pdf:"PDF"}[format]||format.toUpperCase();
@@ -4770,41 +4792,77 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   }
   // 0.7.34: the whole interface (lib/i18n-keys.json) translated ahead of time, one language after another, in the
   // background. Started by the Owner; one run at a time; the run's progress is in GET /api/i18n/prefill.
-  let i18nAllKeys=null;const i18nPrefillState={running:false,queue:[],current:"",done:{},startedAt:0};
+  // 0.7.35: anyone who picks a language from the language button starts this (POST /api/i18n/:lang/prepare); the
+  // languages asked for are remembered in <data>/i18n/_wanted.json and finished later if the server restarts. Up to
+  // three languages are translated at the same time. The work runs as the Owner when the Owner has been seen since
+  // the server started (so every account gets it, whatever its own permissions), otherwise as the person who asked.
+  let i18nAllKeys=null,i18nOwnerReq=null,i18nResumeAt=0;const I18N_PARALLEL=3;
+  const i18nPrefillState={running:0,queue:[],current:new Set(),done:{},startedAt:0};
   function i18nKeys(){if(!i18nAllKeys){try{i18nAllKeys=JSON.parse(fs.readFileSync(path.join(__dirname,"lib","i18n-keys.json"),"utf8")).filter(k=>typeof k==="string")}catch{i18nAllKeys=[]}}return i18nAllKeys;}
-  function i18nPrefill(req,langs){
-    for(const l of langs)if(I18N_NAMES[l]&&!i18nPrefillState.queue.includes(l)&&i18nPrefillState.current!==l)i18nPrefillState.queue.push(l);
-    if(i18nPrefillState.running)return;
-    i18nPrefillState.running=true;i18nPrefillState.startedAt=Date.now();
-    (async()=>{
-      try{
-        while(i18nPrefillState.queue.length){
-          const lang=i18nPrefillState.current=i18nPrefillState.queue.shift();
-          const have=i18nRead(lang),todo=i18nKeys().filter(k=>!Object.prototype.hasOwnProperty.call(have,k));
-          if(!todo.length){i18nPrefillState.done[lang]=0;continue;}
-          while(i18nBusy.has(lang)){try{await i18nBusy.get(lang)}catch{}}
-          const work=i18nTranslate(req,lang,todo,{retries:2,free:true,size:40});
-          i18nBusy.set(lang,work);work.finally(()=>i18nBusy.delete(lang));
-          i18nPrefillState.done[lang]=await work.catch(()=>0);
-        }
-      }finally{i18nPrefillState.running=false;i18nPrefillState.current="";}
-    })();
+  const i18nHas=(lang)=>{const have=i18nRead(lang);return i18nKeys().filter(k=>Object.prototype.hasOwnProperty.call(have,k)).length;};
+  const wantedFile=()=>path.join(i18nDir,"_wanted.json");
+  function i18nWanted(){try{const d=JSON.parse(fs.readFileSync(wantedFile(),"utf8"));return Array.isArray(d)?d.filter(l=>I18N_NAMES[l]):[]}catch{return []}}
+  function i18nWant(langs){const w=new Set(i18nWanted());let changed=false;for(const l of langs)if(I18N_NAMES[l]&&!w.has(l)){w.add(l);changed=true;}if(changed){try{fs.mkdirSync(i18nDir,{recursive:true});fs.writeFileSync(wantedFile(),JSON.stringify([...w]))}catch{}}}
+  // Called for every signed-in request: remembers the Owner's session and picks up unfinished languages now and then.
+  function i18nSeen(req){
+    if(!ownerRequest(req))return;
+    i18nOwnerReq=req;
+    if(Date.now()<i18nResumeAt)return;i18nResumeAt=Date.now()+10*60*1000;
+    const left=i18nWanted().filter(l=>i18nHas(l)<i18nKeys().length);
+    if(left.length)i18nPrefill(req,left);
   }
+  function i18nPrefill(req,langs){
+    i18nWant(langs);
+    for(const l of langs)if(I18N_NAMES[l]&&!i18nPrefillState.queue.includes(l)&&!i18nPrefillState.current.has(l))i18nPrefillState.queue.push(l);
+    if(!i18nPrefillState.startedAt)i18nPrefillState.startedAt=Date.now();
+    while(i18nPrefillState.running<I18N_PARALLEL&&i18nPrefillState.queue.length){
+      i18nPrefillState.running++;
+      (async()=>{
+        try{
+          while(i18nPrefillState.queue.length){
+            const lang=i18nPrefillState.queue.shift();i18nPrefillState.current.add(lang);
+            try{
+              const have=i18nRead(lang),todo=i18nKeys().filter(k=>!Object.prototype.hasOwnProperty.call(have,k));
+              if(!todo.length){i18nPrefillState.done[lang]=0;continue;}
+              while(i18nBusy.has(lang)){try{await i18nBusy.get(lang)}catch{}}
+              const work=i18nTranslate(i18nOwnerReq||req,lang,todo,{retries:2,free:true,size:40});
+              i18nBusy.set(lang,work);work.finally(()=>i18nBusy.delete(lang));
+              i18nPrefillState.done[lang]=await work.catch(()=>0);
+            }finally{i18nPrefillState.current.delete(lang);}
+          }
+        }finally{i18nPrefillState.running--;}
+      })();
+    }
+  }
+  const i18nProgress=(lang)=>({total:i18nKeys().length,have:i18nHas(lang),running:i18nPrefillState.current.has(lang)||i18nPrefillState.queue.includes(lang)});
   app.get("/api/i18n/prefill",auth,(req,res)=>{
     if(!ownerRequest(req))return res.status(403).json({error:"Owner only."});
-    const total=i18nKeys().length,langs={};
-    for(const l of Object.keys(I18N_NAMES)){const have=i18nRead(l);langs[l]=i18nKeys().filter(k=>Object.prototype.hasOwnProperty.call(have,k)).length;}
-    res.json({data:{total,languages:langs,running:i18nPrefillState.running,current:i18nPrefillState.current,queue:i18nPrefillState.queue}});
+    const langs={};for(const l of Object.keys(I18N_NAMES))langs[l]=i18nHas(l);
+    res.json({data:{total:i18nKeys().length,languages:langs,running:i18nPrefillState.running>0,current:[...i18nPrefillState.current],queue:i18nPrefillState.queue}});
   });
   app.post("/api/i18n/prefill",auth,(req,res)=>{
     if(!ownerRequest(req))return res.status(403).json({error:"Owner only."});
     const asked=Array.isArray(req.body?.languages)?req.body.languages.filter(l=>I18N_NAMES[l]):Object.keys(I18N_NAMES);
     i18nPrefill(req,asked);
-    res.json({data:{started:true,queue:[i18nPrefillState.current,...i18nPrefillState.queue].filter(Boolean),total:i18nKeys().length}});
+    res.json({data:{started:true,queue:[...i18nPrefillState.current,...i18nPrefillState.queue],total:i18nKeys().length}});
+  });
+  // Any account: the language picked in the language button is translated whole, in the background, for everyone.
+  const i18nPrepares=new Map();
+  app.post("/api/i18n/:lang/prepare",auth,(req,res)=>{
+    const lang=req.params.lang;
+    if(!I18N_NAMES[lang])return res.status(404).json({error:"Unknown language."});
+    const p=i18nProgress(lang);
+    if(p.have<p.total&&!p.running){
+      const hour=Math.floor(Date.now()/3600000),k=req.user.id+":"+hour,n=(i18nPrepares.get(k)||0)+1;
+      if(n>10&&!ownerRequest(req))return res.status(429).json({error:"Too many translation requests. Try again later.",data:p});
+      i18nPrepares.set(k,n);if(i18nPrepares.size>5000)i18nPrepares.clear();
+      i18nPrefill(req,[lang]);
+    }
+    res.json({data:i18nProgress(lang)});
   });
   app.get("/api/i18n/:lang",(req,res)=>{
     if(!I18N_NAMES[req.params.lang])return res.status(404).json({error:"Unknown language."});
-    res.set("Cache-Control","no-cache");res.json({data:i18nRead(req.params.lang)});
+    res.set("Cache-Control","no-cache");res.json({data:i18nRead(req.params.lang),progress:i18nProgress(req.params.lang)});
   });
   app.post("/api/i18n/:lang",auth,async(req,res)=>{
     const lang=req.params.lang,name=I18N_NAMES[lang];

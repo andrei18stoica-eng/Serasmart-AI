@@ -133,6 +133,7 @@ async function insertWordMath(buffer, maths) {
 
 // ---------- PDF ----------
 const PAGE = [595.28, 841.89], MARGIN = 48, TOP = 50, BOTTOM = 56;
+const SERIF_PAIRS = [["times.ttf", "timesbd.ttf"], ["Times New Roman.ttf", "Times New Roman Bold.ttf"], ["LiberationSerif-Regular.ttf", "LiberationSerif-Bold.ttf"], ["DejaVuSerif.ttf", "DejaVuSerif-Bold.ttf"], ["NotoSerif-Regular.ttf", "NotoSerif-Bold.ttf"]];
 const FONT_PAIRS = [["segoeui.ttf", "segoeuib.ttf"], ["arial.ttf", "arialbd.ttf"], ["calibri.ttf", "calibrib.ttf"], ["DejaVuSans.ttf", "DejaVuSans-Bold.ttf"], ["LiberationSans-Regular.ttf", "LiberationSans-Bold.ttf"], ["NotoSans-Regular.ttf", "NotoSans-Bold.ttf"], ["Arial.ttf", "Arial Bold.ttf"]];
 const MONO_FONTS = ["consola.ttf", "DejaVuSansMono.ttf", "LiberationMono-Regular.ttf", "cour.ttf", "Courier New.ttf"];
 function fontDirs() {
@@ -190,10 +191,11 @@ function wrapByWidth(text, font, size, maxWidth) {
 function wrapCode(line, font, size, maxWidth) { return line ? breakWord(line, font, size, maxWidth) : [""]; }
 
 async function createPdfBytes(title, content, opts = {}) {
-  const pdf = await PDFDocument.create();
+  const pdf = await PDFDocument.create(), style = opts.style || {};
   let regular = null, bold = null, mono = null;
   if (!opts.standardFonts) {
-    const pair = FONT_PAIRS.map(([r, b]) => [findFont(r), findFont(b)]).find(([r]) => r);
+    const pairs = /times|serif|georgia|garamond|cambria/i.test(style.font || "") ? [...SERIF_PAIRS, ...FONT_PAIRS] : FONT_PAIRS;
+    const pair = pairs.map(([r, b]) => [findFont(r), findFont(b)]).find(([r]) => r);
     if (pair) {
       try {
         pdf.registerFontkit(fontkit);
@@ -209,9 +211,11 @@ async function createPdfBytes(title, content, opts = {}) {
   const mathFonts = !opts.standardFonts && hasMath(content) ? await loadMathFonts(pdf, (name) => { const p = findFont(name); try { return p ? fs.readFileSync(p) : null; } catch { return null; } }).catch(() => null) : null;
   if (!mono) mono = await pdf.embedFont(StandardFonts.Courier);
   const fit = new Map([[regular, fitterFor(regular)], [bold, fitterFor(bold)], [mono, fitterFor(mono)]]);
-  const ink = rgb(0.12, 0.15, 0.2), muted = rgb(0.38, 0.42, 0.5), line = rgb(0.8, 0.83, 0.88);
-  let page = pdf.addPage(PAGE), y = PAGE[1] - TOP;
-  const newPage = () => { page = pdf.addPage(PAGE); y = PAGE[1] - TOP; };
+  const hex = (h, d) => h ? rgb(parseInt(h.slice(0, 2), 16) / 255, parseInt(h.slice(2, 4), 16) / 255, parseInt(h.slice(4, 6), 16) / 255) : d;
+  const ink = hex(style.text, rgb(0.12, 0.15, 0.2)), muted = hex(style.muted, rgb(0.38, 0.42, 0.5)), line = hex(style.line, rgb(0.8, 0.83, 0.88)), headInk = hex(style.title, ink), boxFill = hex(style.box, rgb(0.91, 0.93, 0.96)), accentInk = hex(style.accent, line);
+  const addPage = () => { const p = pdf.addPage(PAGE); if (style.bg) p.drawRectangle({ x: 0, y: 0, width: PAGE[0], height: PAGE[1], color: hex(style.bg) }); return p; };
+  let page = addPage(), y = PAGE[1] - TOP;
+  const newPage = () => { page = addPage(); y = PAGE[1] - TOP; };
   const ensure = (h) => { if (y - h < BOTTOM) newPage(); };
   const avail = PAGE[0] - 2 * MARGIN;
   // A paragraph with formulas in it: words and formulas wrapped together, each line as tall as its tallest formula.
@@ -279,7 +283,7 @@ async function createPdfBytes(title, content, opts = {}) {
       if (y - h < BOTTOM) { newPage(); if (ri > 0 && !repeat) drawRow(rows[0], 0, true); }
       for (let c = 0; c < cols; c++) {
         const x = MARGIN + c * cw;
-        page.drawRectangle({ x, y: y - h, width: cw, height: h, borderColor: line, borderWidth: 0.6, color: ri === 0 ? rgb(0.91, 0.93, 0.96) : undefined });
+        page.drawRectangle({ x, y: y - h, width: cw, height: h, borderColor: line, borderWidth: 0.6, color: ri === 0 ? boxFill : undefined });
         ls[c].forEach((l, k) => page.drawText(l || " ", { x: x + pad, y: y - pad - (k + 1) * lh + 2, size, font: ri === 0 ? bold : regular, color: ink }));
       }
       y -= h;
@@ -287,7 +291,8 @@ async function createPdfBytes(title, content, opts = {}) {
     rows.forEach((r, ri) => drawRow(r, ri, false));
     y -= 10;
   };
-  write(title || `${BRAND_NAME}`, { font: bold, size: 20, after: 14 });
+  write(title || `${BRAND_NAME}`, { font: bold, size: 20, after: style.accent ? 6 : 14, color: headInk });
+  if (style.accent) { page.drawLine({ start: { x: MARGIN, y }, end: { x: MARGIN + 60, y }, thickness: 2, color: accentInk }); y -= 14; }
   for (const b of parseDocumentBlocks(content, { math: !!mathFonts })) {
     if (b.type === "blank") { y -= 6; continue; }
     if (b.type === "math") {
@@ -302,11 +307,11 @@ async function createPdfBytes(title, content, opts = {}) {
       y -= eq.d * k + 9;
       continue;
     }
-    if (b.type === "heading") { y -= 4; write(b.text, { font: bold, size: b.level === 1 ? 17 : b.level === 2 ? 15 : b.level === 3 ? 13 : 12, after: 6 }); continue; }
+    if (b.type === "heading") { y -= 4; write(b.text, { font: bold, size: b.level === 1 ? 17 : b.level === 2 ? 15 : b.level === 3 ? 13 : 12, after: 6, color: headInk }); continue; }
     if (b.type === "bullet") { write("• " + b.text, { indent: 10 + 12 * b.level, after: 3 }); continue; }
     if (b.type === "number") { write(String(b.number) + ". " + b.text, { indent: 10 + 12 * b.level, after: 3 }); continue; }
     if (b.type === "quote") { write(b.text, { indent: 14, color: muted, after: 4 }); continue; }
-    if (b.type === "rule") { ensure(12); y -= 6; page.drawLine({ start: { x: MARGIN, y }, end: { x: PAGE[0] - MARGIN, y }, thickness: 0.6, color: line }); y -= 6; continue; }
+    if (b.type === "rule") { ensure(12); y -= 6; page.drawLine({ start: { x: MARGIN, y }, end: { x: PAGE[0] - MARGIN, y }, thickness: 0.6, color: accentInk }); y -= 6; continue; }
     if (b.type === "code") { code(b.lines); continue; }
     if (b.type === "table") { table(b.rows); continue; }
     write(b.text, { after: 5 });
@@ -315,11 +320,12 @@ async function createPdfBytes(title, content, opts = {}) {
 }
 
 // ---------- Word ----------
-async function createDocxBytes(title, content) {
+async function createDocxBytes(title, content, style = {}) {
   const maths = [];
+  const titleC = style.title || undefined, textC = style.text || undefined, boxC = style.box || "E8EDF5", lineC = style.line || "C8CED8";
   const runs = (text, size, extra) => inlineRuns(text, size, extra, maths);
   const children = [
-    new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: String(title || `${BRAND_NAME}`), bold: true, size: 36 })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, ...(style.accent ? { border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: style.accent, space: 6 } } } : {}), children: [new TextRun({ text: String(title || `${BRAND_NAME}`), bold: true, size: 36, color: titleC })] }),
     new Paragraph({ text: "" })
   ];
   for (const b of parseDocumentBlocks(content, { math: true })) {
@@ -332,13 +338,13 @@ async function createDocxBytes(title, content) {
     }
     if (b.type === "heading") {
       const level = b.level <= 1 ? HeadingLevel.HEADING_1 : b.level === 2 ? HeadingLevel.HEADING_2 : HeadingLevel.HEADING_3;
-      children.push(new Paragraph({ heading: level, children: runs(b.text, b.level <= 1 ? 30 : 26) }));
+      children.push(new Paragraph({ heading: level, children: runs(b.text, b.level <= 1 ? 30 : 26, titleC ? { color: titleC } : {}) }));
       continue;
     }
     if (b.type === "bullet") { children.push(new Paragraph({ bullet: { level: b.level || 0 }, children: runs(b.text, 22) })); continue; }
     if (b.type === "number") { children.push(new Paragraph({ indent: { left: 360 * (b.level || 0) }, children: [new TextRun({ text: String(b.number) + ". ", bold: true, size: 22 }), ...runs(b.text, 22)] })); continue; }
     if (b.type === "quote") { children.push(new Paragraph({ indent: { left: 720 }, children: runs(b.text, 22, { italics: true, color: "5F6B7A" }) })); continue; }
-    if (b.type === "rule") { children.push(new Paragraph({ text: "", border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "C8CED8", space: 1 } } })); continue; }
+    if (b.type === "rule") { children.push(new Paragraph({ text: "", border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: style.accent || lineC, space: 1 } } })); continue; }
     if (b.type === "code") {
       for (const l of b.lines.length ? b.lines : [""]) children.push(new Paragraph({ spacing: { after: 0 }, shading: { type: ShadingType.CLEAR, fill: "F2F4F7", color: "auto" }, children: [new TextRun({ text: l || " ", font: "Consolas", size: 19 })] }));
       children.push(new Paragraph({ text: "" }));
@@ -351,8 +357,8 @@ async function createDocxBytes(title, content) {
         rows: b.rows.map((r, ri) => new TableRow({
           tableHeader: ri === 0,
           children: Array.from({ length: cols }, (_, c) => new TableCell({
-            shading: ri === 0 ? { type: ShadingType.CLEAR, fill: "E8EDF5", color: "auto" } : undefined,
-            children: [new Paragraph({ children: runs(r[c] ?? "", 20, { bold: ri === 0 }) })]
+            shading: ri === 0 ? { type: ShadingType.CLEAR, fill: boxC, color: "auto" } : undefined,
+            children: [new Paragraph({ children: runs(r[c] ?? "", 20, { bold: ri === 0, ...(ri === 0 && titleC ? { color: titleC } : {}) }) })]
           }))
         }))
       }));
@@ -361,7 +367,11 @@ async function createDocxBytes(title, content) {
     }
     children.push(new Paragraph({ children: runs(b.text, 22), spacing: { after: 120 } }));
   }
-  const doc = new Document({ sections: [{ properties: {}, children }] });
+  const doc = new Document({
+    ...(style.bg ? { background: { color: style.bg } } : {}),
+    styles: { default: { document: { run: { ...(style.font ? { font: style.font } : {}), ...(textC ? { color: textC } : {}) } } }, paragraphStyles: [1, 2, 3].map((n) => ({ id: `Heading${n}`, name: `Heading ${n}`, basedOn: "Normal", next: "Normal", quickFormat: true, run: { ...(style.font ? { font: style.font } : {}), ...(titleC ? { color: titleC } : {}), bold: true } })) },
+    sections: [{ properties: {}, children }]
+  });
   return insertWordMath(Buffer.from(await Packer.toBuffer(doc)), maths);
 }
 
@@ -395,27 +405,138 @@ function slideChunks(content, maxChars = 750, maxLines = 12) {
   flush();
   return slides.length ? slides : [{ title: "", body: [plainMarkdownText(content).slice(0, maxChars)] }];
 }
+// 0.7.35: the deck can carry its own look and speaker notes. The AI may write, anywhere in the answer:
+//  - «SLIDE 3 — Title» / «Slide 3: Title» lines (read like «## Title»);
+//  - «Notes:» / «Note prezentator:» / «Speaker notes:» → the slide's speaker notes;
+//  - «Source:» / «Sursă:» / «Surse:» → a small source line at the bottom of the slide;
+//  - a formatting section at the end («FORMATARE PPTX», «Formatting», «Style») with colours and a font:
+//    «Fundal principal / Background: #FCFAF3», «Accente / Accent: #AA9162», «Titluri / Titles: #29343A»,
+//    «Text: #525B61», «Surse / Sources: #77766E», «Casete / Boxes: #EFE9DC», «Font exclusiv / Font: Times New Roman».
+// Lines with tabs become table rows. A first slide numbered 1 becomes the cover.
+const PPTX_STYLE_START = /^\s*(?:#+\s*)?(?:\*\*)?(?:formatare|formatting|format(?:are)?|style|stil(?:ul)?|design|aspect)(?:\s+(?:pptx|docx|xlsx|pdf|word|excel|powerpoint|document(?:ului)?|prezent[aă]rii|fi[sș]ierului|tabelului))?(?:\*\*)?\s*:?\s*$/i;
+const NOTES_LINE = /^\s*(?:\*\*)?(?:note(?:le)?(?:\s+(?:prezentator|pentru prezentator|vorbitor))?|notes|speaker notes|presenter notes)(?:\*\*)?\s*:\s*(.*)$/i;
+const SOURCE_LINE = /^\s*(?:\*\*)?(?:surs[aăe]|sources?)(?:\*\*)?\s*:\s*(.+)$/i;
+const SLIDE_LINE = /^\s*(?:#+\s*)?(?:\*\*)?(?:slide|slaid|diapozitiv(?:ul)?)\s+(\d{1,3})(?:\*\*)?\s*(?:[—–:.-]\s*)?(.*)$/i;
+function hexAfter(line) { const m = line.match(/#([0-9a-f]{6})\b/i); return m ? m[1].toUpperCase() : null; }
+function pptxStyle(lines) {
+  const st = {};
+  for (const raw of lines) {
+    const l = raw.toLowerCase(), hex = hexAfter(raw);
+    if (/font/.test(l)) { const f = raw.split(":").slice(1).join(":").replace(/[.;*]+$/, "").trim(); if (f && f.length < 40 && !/\d+\s*pt/i.test(f)) st.font = f; continue; }
+    if (!hex) continue;
+    if (/fundal\s+secundar|secondary background|background 2/.test(l)) st.bg2 = hex;
+    else if (/fundal|background/.test(l)) st.bg = st.bg || hex;
+    else if (/caset|box|card|panel/.test(l)) st.box = hex;
+    else if (/delimit|border|line|linii/.test(l)) st.line = hex;
+    else if (/accent/.test(l)) st.accent = hex;
+    else if (/titl|title|heading/.test(l)) st.title = hex;
+    else if (/surs|source|caption/.test(l)) st.muted = hex;
+    else if (/text|body/.test(l)) st.text = hex;
+  }
+  return st;
+}
+// Splits the answer into {cover, sections:[{title, body, notes, source}], style}.
+// 0.7.35: the same «Formatting» section works for Word, PDF and Excel: it is taken off the content and gives the
+// colours and the font. Only a section whose lines really carry a hex colour or a font counts.
+function splitStyle(content) {
+  let lines = String(content || "").replace(/\r/g, "").split("\n");
+  const styleAt = lines.findIndex((l, i) => i > 0 && PPTX_STYLE_START.test(l) && lines.slice(i + 1, i + 14).some((x) => /#[0-9a-f]{6}\b|\bfont\b/i.test(x)));
+  const style = styleAt > 0 ? pptxStyle(lines.slice(styleAt)) : {};
+  if (styleAt > 0) lines = lines.slice(0, styleAt);
+  return { lines, style };
+}
+// Lines at the top that describe the file instead of being in it («Fișier: x.docx», «Format: Word editabil»).
+const META_LINE = /^\s*(?:\*\*)?(?:fi[sș]ier(?:ul)?|file(?:\s*name)?|format(?:ul)?|nume(?:le)? fi[sș]ierului)(?:\*\*)?\s*:/i;
+function withoutMeta(lines) { const out = [...lines]; for (let i = 0; i < Math.min(out.length, 12); i++) if (META_LINE.test(out[i])) { out.splice(i, 1); i--; } return out; }
+function pptxSource(content) {
+  let { lines, style } = splitStyle(content);
+  const sections = []; let cur = null, mode = "body", tableRows = [];
+  const flushTable = () => { if (!tableRows.length) return; const rows = tableRows.map((r) => "| " + r.join(" | ") + " |"); rows.splice(1, 0, "| " + tableRows[0].map(() => "---").join(" | ") + " |"); cur.body.push(...rows, ""); tableRows = []; };
+  const start = (title, number) => { if (cur) flushTable(); cur = { title: title.trim(), number, body: [], notes: [], source: [] }; sections.push(cur); mode = "body"; };
+  let preface = [];
+  for (const line of lines) {
+    const sm = line.match(SLIDE_LINE), hm = line.match(/^##\s+(.+)$/);
+    if (sm && (sm[2] || "").trim() !== "" && !/^\d/.test(sm[2])) { start(sm[2].replace(/\*\*/g, ""), Number(sm[1])); continue; }
+    if (hm && !/^#/.test(hm[1])) { start(hm[1].replace(/\*\*/g, ""), null); continue; }
+    if (!cur) { preface.push(line); continue; }
+    const nm = line.match(NOTES_LINE);
+    if (nm) { flushTable(); mode = "notes"; if (nm[1].trim()) cur.notes.push(nm[1].trim()); continue; }
+    const so = mode === "body" && line.match(SOURCE_LINE);
+    if (so) { flushTable(); cur.source.push(so[1].trim()); continue; }
+    if (mode === "notes") { if (line.trim()) cur.notes.push(line.trim()); continue; }
+    if (line.includes("\t") && line.split("\t").filter((c) => c.trim()).length >= 2) { tableRows.push(line.split("\t").map((c) => c.trim())); continue; }
+    flushTable(); cur.body.push(line);
+  }
+  if (cur) flushTable();
+  return { preface, sections, style };
+}
 async function createPptxBytes(title, content) {
   const pptx = new PptxGenJS();
   pptx.layout = "LAYOUT_WIDE";
-  pptx.author = `${BRAND_NAME}`; pptx.company = `${BRAND_NAME}`; pptx.lang = "ro-RO";
-  let s = pptx.addSlide(); s.background = { color: "F7F9FC" };
-  s.addText(String(title || `${BRAND_NAME}`), { x: 0.8, y: 2.3, w: 11.7, h: 0.8, fontFace: "Aptos Display", fontSize: 28, bold: true, color: "172033", align: "center", margin: 0 });
-  s.addText(`Document generat cu ${BRAND_NAME}`, { x: 1.2, y: 3.25, w: 10.9, h: 0.4, fontFace: "Aptos", fontSize: 14, color: "52627A", align: "center", margin: 0 });
-  for (const part of slideChunks(content)) {
-    s = pptx.addSlide(); s.background = { color: "FFFFFF" };
-    s.addText(part.title || String(title || `${BRAND_NAME}`), { x: 0.65, y: 0.45, w: 12, h: 0.55, fontFace: "Aptos Display", fontSize: 23, bold: true, color: "172033", margin: 0, fit: "shrink" });
-    if (part.code) {
-      s.addText(part.code.join("\n") || " ", { x: 0.8, y: 1.25, w: 11.7, h: 5.65, fontFace: "Consolas", fontSize: 12, color: "1F2937", fill: { color: "F2F4F7" }, valign: "top", margin: 0.12 });
-    } else if (part.table) {
-      const cols = Math.max(1, ...part.table.map((r) => r.length));
-      const rows = part.table.map((r, ri) => Array.from({ length: cols }, (_, c) => ({ text: plainMarkdownText(r[c] ?? "").slice(0, 400), options: ri === 0 ? { bold: true, fill: { color: "E8EDF5" } } : {} })));
-      s.addTable(rows, { x: 0.6, y: 1.25, w: 12.1, fontFace: "Aptos", fontSize: 12, color: "26354A", border: { type: "solid", pt: 0.5, color: "C8CED8" }, autoPage: true, autoPageRepeatHeader: true, autoPageHeaderRows: 1 });
-    } else {
-      const chars = part.body.join("").length;
-      s.addText(part.body.join("\n"), { x: 0.8, y: 1.25, w: 11.7, h: 5.65, fontFace: "Aptos", fontSize: chars > 600 ? 15 : chars > 400 ? 16 : 18, color: "26354A", valign: "top", margin: 0.08, fit: "shrink", breakLine: false });
-    }
+  pptx.author = `${BRAND_NAME}`; pptx.company = `${BRAND_NAME}`;
+  const { preface, sections, style } = pptxSource(content);
+  const font = style.font || "Aptos", head = style.font || "Aptos Display";
+  const bg = style.bg || "FFFFFF", coverBg = style.bg || "F7F9FC", accent = style.accent || "3B5BDB", titleC = style.title || "172033", textC = style.text || "26354A", muted = style.muted || "6B7A90";
+  const boxC = style.box || "E8EDF5", lineC = style.line || "C8CED8";
+  const slidesOut = [];
+  // The cover: the first slide when it is numbered 1 (or the only lines before the first slide), else the title.
+  let cover = null, rest = sections;
+  if (sections[0] && sections[0].number === 1) { cover = sections[0]; rest = sections.slice(1); }
+  const coverTitle = cover ? cover.title : String(title || BRAND_NAME);
+  const coverLines = (cover ? cover.body : preface.filter((l) => !/^\s*#\s/.test(l)).slice(0, 4)).map((l) => plainMarkdownText(l.replace(/^[-*•]\s+/, ""))).filter((l) => l.trim()).slice(0, 6);
+  // One slide per section: its text on top and its first table under it; only a very long section goes on.
+  const parts = [];
+  for (const sec of rest) {
+    const blocks = parseDocumentBlocks(sec.body.join("\n")).filter((b) => b.type !== "blank" && b.type !== "rule");
+    const tables = blocks.filter((b) => b.type === "table"), codes = blocks.filter((b) => b.type === "code");
+    const items = blocks.filter((b) => !["table", "code", "heading"].includes(b.type) || (b.type === "heading" && b.level > 2)).map((b) => ({ text: plainMarkdownText(b.text || ""), bullet: b.type === "bullet", number: b.type === "number" ? b.number : null, head: b.type === "heading" }));
+    const textItems = items.filter((x) => x.text.trim());
+    const pages = []; let page = [], chars = 0;
+    for (const it of textItems) { if (chars + it.text.length > 1300 && page.length) { pages.push(page); page = []; chars = 0; } page.push(it); chars += it.text.length; }
+    if (page.length || !pages.length) pages.push(page);
+    pages.forEach((pg, i) => parts.push({ title: sec.title, items: pg, table: i === 0 ? tables[0]?.rows : null, code: i === 0 && !tables.length ? codes[0]?.lines : null, notes: i === 0 ? sec.notes : [], source: sec.source }));
+    for (const t of tables.slice(1)) parts.push({ title: sec.title, items: [], table: t.rows, notes: [], source: sec.source });
   }
+  if (!sections.length) for (const c of slideChunks(content)) parts.push({ title: c.title, items: (c.body || []).map((t) => ({ text: t })), table: c.table, code: c.code, notes: [], source: [] });
+  const total = parts.length + 1, num = (n) => `${String(n).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+  let s = pptx.addSlide(); s.background = { color: coverBg };
+  s.addShape(pptx.ShapeType.rect, { x: 0.8, y: 2.05, w: 1.2, h: 0.06, fill: { color: accent }, line: { color: accent } });
+  s.addText(coverTitle, { x: 0.8, y: 2.25, w: 11.7, h: 1.1, fontFace: head, fontSize: 40, bold: true, color: titleC, margin: 0, fit: "shrink" });
+  if (coverLines.length) s.addText(coverLines.join("\n"), { x: 0.8, y: 3.45, w: 11.7, h: 2.2, fontFace: font, fontSize: 18, color: textC, valign: "top", margin: 0, fit: "shrink" });
+  s.addText(num(1), { x: 11.3, y: 6.95, w: 1.5, h: 0.3, fontFace: font, fontSize: 11, color: muted, align: "right", margin: 0 });
+  if (cover?.notes.length) s.addNotes(cover.notes.join("\n"));
+  parts.forEach((part, i) => {
+    s = pptx.addSlide(); s.background = { color: bg };
+    s.addShape(pptx.ShapeType.rect, { x: 0.65, y: 1.08, w: 0.9, h: 0.045, fill: { color: accent }, line: { color: accent } });
+    s.addText(part.title || String(title || BRAND_NAME), { x: 0.65, y: 0.4, w: 12, h: 0.62, fontFace: head, fontSize: 26, bold: true, color: titleC, margin: 0, fit: "shrink" });
+    const bottom = part.source.length ? 6.35 : 6.75;
+    const items = part.items || [], chars = items.reduce((n, x) => n + x.text.length, 0);
+    // A short line that ends with «:» or a line before a list reads as a small heading; the rest are bullets.
+    const many = items.length >= 3;
+    const runs = items.map((it, k) => {
+      const next = items[k + 1], label = /:$/.test(it.text) || it.head || (it.number && next && next.bullet) || (!it.bullet && !it.number && it.text.length < 60 && next && (next.bullet || /;$/.test(next.text)) && !/[.;]$/.test(it.text));
+      const opts = label ? { bold: true, color: titleC, breakLine: true, paraSpaceBefore: k ? 6 : 0 } : { breakLine: true, bullet: !it.number && (it.bullet || many) ? { code: "25AA" } : false, indentLevel: 0 };
+      return { text: (it.number ? `${it.number}. ` : "") + it.text, options: opts };
+    });
+    const size = chars > 1000 ? 15 : chars > 700 ? 16 : chars > 450 ? 18 : chars > 250 ? 20 : 22;
+    let top = 1.3;
+    if (part.table) {
+      const rowsN = part.table.length, textH = runs.length ? Math.min(2.6, 0.38 * runs.length + 0.2) : 0;
+      if (runs.length) s.addText(runs, { x: 0.8, y: top, w: 11.7, h: textH, fontFace: font, fontSize: Math.min(size, 18), color: textC, valign: "top", margin: 0.05, fit: "shrink" });
+      const cols = Math.max(1, ...part.table.map((r) => r.length));
+      const rows = part.table.map((r, ri) => Array.from({ length: cols }, (_, c) => ({ text: plainMarkdownText(r[c] ?? "").slice(0, 400), options: ri === 0 ? { bold: true, fill: { color: boxC }, color: titleC } : {} })));
+      const ty = top + textH + (runs.length ? 0.15 : 0), th = bottom - ty;
+      s.addTable(rows, { x: 0.8, y: ty, w: 11.7, fontFace: font, fontSize: rowsN > 9 ? 12 : 14, color: textC, border: { type: "solid", pt: 0.5, color: lineC }, rowH: Math.min(0.45, th / Math.max(1, rowsN)), autoPage: false });
+    } else if (part.code) {
+      if (runs.length) { s.addText(runs, { x: 0.8, y: top, w: 11.7, h: 1.2, fontFace: font, fontSize: 16, color: textC, valign: "top", margin: 0.05, fit: "shrink" }); top += 1.3; }
+      s.addText(part.code.join("\n") || " ", { x: 0.8, y: top, w: 11.7, h: bottom - top, fontFace: "Consolas", fontSize: 12, color: "1F2937", fill: { color: "F2F4F7" }, valign: "top", margin: 0.12 });
+    } else if (runs.length) {
+      s.addText(runs, { x: 0.8, y: top, w: 11.7, h: bottom - top, fontFace: font, fontSize: size, color: textC, valign: "top", margin: 0.08, fit: "shrink", paraSpaceAfter: 4 });
+    }
+    if (part.source.length) s.addText(part.source.join(" · "), { x: 0.8, y: 6.45, w: 10.2, h: 0.35, fontFace: font, fontSize: 12, italic: true, color: muted, margin: 0, fit: "shrink" });
+    s.addText(num(i + 2), { x: 11.3, y: 6.95, w: 1.5, h: 0.3, fontFace: font, fontSize: 11, color: muted, align: "right", margin: 0 });
+    if (part.notes.length) s.addNotes(part.notes.join("\n"));
+  });
   const out = await pptx.write({ outputType: "arraybuffer" });
   return Buffer.from(out);
 }
@@ -541,7 +662,9 @@ function xlsxSheetXml(rows) {
   const cols = widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("");
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${cols}</cols><sheetData>${sheetData}</sheetData></worksheet>`;
 }
-async function createXlsxBytes(title, content) {
+async function createXlsxBytes(title, content, style = {}) {
+  const fontName = xmlEscape(style.font || "Aptos"), head = style.title ? `<color rgb="FF${style.title}"/>` : "", body = style.text ? `<color rgb="FF${style.text}"/>` : "";
+  const headFill = style.box || style.accent ? `<fill><patternFill patternType="solid"><fgColor rgb="FF${style.box || style.accent}"/><bgColor indexed="64"/></patternFill></fill>` : "";
   const sheets = xlsxSheets(title, content);
   const zip = new JSZip();
   const overrides = sheets.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("");
@@ -549,7 +672,7 @@ async function createXlsxBytes(title, content) {
   zip.folder("_rels").file(".rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`);
   zip.folder("xl").file("workbook.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((sh, i) => `<sheet name="${xmlEscape(sh.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join("")}</sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`);
   zip.folder("xl").folder("_rels").file("workbook.xml.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`);
-  zip.folder("xl").file("styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Aptos"/></font><font><b/><sz val="11"/><name val="Aptos"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs></styleSheet>`);
+  zip.folder("xl").file("styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/>${body}<name val="${fontName}"/></font><font><b/><sz val="11"/>${head}<name val="${fontName}"/></font></fonts><fills count="${headFill ? 3 : 2}"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill>${headFill}</fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="${headFill ? 2 : 0}" borderId="0" xfId="0" applyFont="1"${headFill ? ' applyFill="1"' : ""}/></cellXfs></styleSheet>`);
   sheets.forEach((sh, i) => zip.folder("xl").folder("worksheets").file(`sheet${i + 1}.xml`, xlsxSheetXml(sh.rows)));
   return await zip.generateAsync({ type: "nodebuffer", compression: "DEFLATE", compressionOptions: { level: 6 } });
 }
@@ -671,10 +794,12 @@ const PLAIN_TEXT_MIME = {
 const EXPORT_FORMATS = new Set(["pdf", "docx", "pptx", "xlsx", "csv", "json", "md", "txt", "html", "xml", "rtf", "zip", "ipynb", "svg", ...Object.keys(PLAIN_TEXT_MIME)]);
 async function createExportBytes(format, rawTitle, rawContent, opts = {}) {
   const title = sanitizeText(rawTitle), content = sanitizeText(rawContent);
-  if (format === "pdf") return { bytes: await createPdfBytes(title, content, opts), mime: "application/pdf" };
-  if (format === "docx") return { bytes: await createDocxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" };
+  // Word, PDF and Excel: the «Formatting» section and the «Fișier: …» lines are taken off and give the look.
+  const styled = () => { const { lines, style } = splitStyle(content); return { body: withoutMeta(lines).join("\n"), style }; };
+  if (format === "pdf") { const { body, style } = styled(); return { bytes: await createPdfBytes(title, body, { ...opts, style }), mime: "application/pdf" }; }
+  if (format === "docx") { const { body, style } = styled(); return { bytes: await createDocxBytes(title, body, style), mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }; }
   if (format === "pptx") return { bytes: await createPptxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.presentationml.presentation" };
-  if (format === "xlsx") return { bytes: await createXlsxBytes(title, content), mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" };
+  if (format === "xlsx") { const { body, style } = styled(); return { bytes: await createXlsxBytes(title, body, style), mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }; }
   if (format === "csv") return { bytes: createCsvBytes(content), mime: "text/csv; charset=utf-8" };
   if (format === "json") return { bytes: createJsonBytes(title, content), mime: "application/json; charset=utf-8" };
   if (format === "html") return { bytes: createHtmlBytes(title, content), mime: PLAIN_TEXT_MIME.html };
@@ -686,4 +811,4 @@ async function createExportBytes(format, rawTitle, rawContent, opts = {}) {
   return { bytes: Buffer.from(stripOuterFence(content), "utf8"), mime: PLAIN_TEXT_MIME[format] || "text/plain; charset=utf-8" };
 }
 
-module.exports = { formulaOf, safeGeneratedName, EXPORT_FORMATS, createExportBytes, xlsxSheets, markdownTableRows, parseDocumentBlocks, plainMarkdownText, sanitizeText, parseNumberCell, safeZipPath, sheetNameFrom, findWindowsFont };
+module.exports = { pptxSource, formulaOf, safeGeneratedName, EXPORT_FORMATS, createExportBytes, xlsxSheets, markdownTableRows, parseDocumentBlocks, plainMarkdownText, sanitizeText, parseNumberCell, safeZipPath, sheetNameFrom, findWindowsFont };

@@ -39,7 +39,7 @@ function query(sql, params = []) {
   if (/^\s*UPDATE users SET email_verified_at=NOW\(\)/.test(q)) { const u = db.users.find(x => x.id === params[0]); if (u) u.email_verified_at = new Date(); return result([]); }
   if (/^\s*DELETE FROM users WHERE id=\$1/.test(q)) { db.users = db.users.filter(x => x.id !== params[0]); return result([]); }
   if (/^\s*INSERT INTO sessions/.test(q)) { db.sessions.set(params[0], { user_id: params[1], expires_at: params[2], user_agent: params[3], ip_address: params[4], created_at: new Date() }); return result([]); }
-  if (/^\s*SELECT token_hash, created_at, expires_at, user_agent, ip_address FROM sessions WHERE user_id=\$1/.test(q)) return result([...db.sessions].filter(([, s]) => s.user_id === params[0] && s.expires_at > new Date()).map(([token_hash, s]) => ({ token_hash, ...s })));
+  if (/^\s*SELECT token_hash, created_at, last_seen_at, expires_at, user_agent, ip_address FROM sessions WHERE user_id=\$1/.test(q)) return result([...db.sessions].filter(([, s]) => s.user_id === params[0] && s.expires_at > new Date()).map(([token_hash, s]) => ({ token_hash, ...s })));
   if (/^\s*DELETE FROM sessions WHERE user_id=\$1 AND LEFT\(token_hash,16\)=\$2 AND token_hash<>\$3/.test(q)) { let n = 0; for (const [h, s] of db.sessions) if (s.user_id === params[0] && h.slice(0, 16) === params[1] && h !== params[2]) { db.sessions.delete(h); n++; } return { rows: [], rowCount: n }; }
   if (/^\s*DELETE FROM sessions WHERE user_id=\$1 AND token_hash<>\$2/.test(q)) { let n = 0; for (const [h, s] of db.sessions) if (s.user_id === params[0] && h !== params[1]) { db.sessions.delete(h); n++; } return { rows: [], rowCount: n }; }
   if (/^\s*UPDATE users SET name=\$2/.test(q)) { const u = db.users.find(x => x.id === params[0]); if (u) u.name = params[1]; return result([]); }
@@ -50,6 +50,7 @@ function query(sql, params = []) {
     return result(u ? [{ ...u, token_hash: params[0] }] : []);
   }
   if (/^\s*DELETE FROM sessions WHERE token_hash/.test(q)) { db.sessions.delete(params[0]); return result([]); }
+  if (/^\s*UPDATE sessions SET last_seen_at=NOW\(\) WHERE token_hash=\$1/.test(q)) { const s = db.sessions.get(params[0]); if (s) s.last_seen_at = new Date(); return result([]); }
   if (/^\s*UPDATE sessions SET expires_at/.test(q)) { const s = db.sessions.get(params[0]); if (s) s.expires_at = params[1]; return result([]); }
   return result([]);
 }
@@ -271,7 +272,7 @@ function freePort() {
   assert.ok(r.status === 200 && db.users.find(u => u.email === "maria@gmail.com").name === "Maria Popescu", "an account renames itself");
   assert.equal((await call("PATCH", "/auth/profile", { token: mariaA, body: { name: " " } })).status, 400, "the name cannot be empty");
   r = await call("GET", "/auth/sessions", { token: mariaA });
-  assert.ok(r.status === 200 && r.data.data.length >= 2 && r.data.data.filter(x => x.current).length === 1 && r.data.data.every(x => /^[0-9a-f]{16}$/.test(x.id)), "an account lists its sessions");
+  assert.ok(r.status === 200 && r.data.data.length >= 2 && r.data.data.filter(x => x.current).length === 1 && r.data.data.every(x => /^[0-9a-f]{16}$/.test(x.id)) && r.data.data.some(x => x.lastSeenAt), "an account lists its sessions, with when each was last used");
   const other = r.data.data.find(x => !x.current);
   r = await call("DELETE", "/auth/sessions/" + other.id, { token: mariaA });
   assert.equal(r.data.revoked, 1, "one session is revoked");

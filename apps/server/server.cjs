@@ -313,6 +313,8 @@ async function auth(req, res, next) {
     if (user.role === "owner" && !isOwnerRow(user)) user.role = "user";
     req.user = user;
     req.sessionTokenHash = tokenHash;
+    // 0.7.35: last use of the session, written at most every 5 minutes.
+    pool.query("UPDATE sessions SET last_seen_at=NOW() WHERE token_hash=$1 AND (last_seen_at IS NULL OR last_seen_at<NOW()-INTERVAL '5 minutes')", [tokenHash]).catch(() => {});
     next();
   } catch (e) {
     next(e);
@@ -625,10 +627,10 @@ app.post("/auth/logout", auth, async (req, res, next) => {
 
 // Account security (0.7.23): the account's own sessions, its password and deleting the account. A session is shown by
 // the first 16 characters of its hash (the token itself is never stored, so nothing here can be used to sign in).
-const sessionView = (row, current) => ({ id: String(row.token_hash).slice(0, 16), createdAt: row.created_at, expiresAt: row.expires_at, userAgent: row.user_agent || "", ip: row.ip_address || "", current: row.token_hash === current });
+const sessionView = (row, current) => ({ id: String(row.token_hash).slice(0, 16), createdAt: row.created_at, lastSeenAt: row.last_seen_at || null, expiresAt: row.expires_at, userAgent: row.user_agent || "", ip: row.ip_address || "", current: row.token_hash === current });
 app.get("/auth/sessions", auth, async (req, res, next) => {
   try {
-    const q = await pool.query("SELECT token_hash, created_at, expires_at, user_agent, ip_address FROM sessions WHERE user_id=$1 AND expires_at>NOW() ORDER BY created_at DESC LIMIT 50", [req.user.id]);
+    const q = await pool.query("SELECT token_hash, created_at, last_seen_at, expires_at, user_agent, ip_address FROM sessions WHERE user_id=$1 AND expires_at>NOW() ORDER BY created_at DESC LIMIT 50", [req.user.id]);
     res.json({ data: q.rows.map(r => sessionView(r, req.sessionTokenHash)) });
   } catch (e) { next(e); }
 });

@@ -44,7 +44,7 @@ export function requestedDocumentFormat(value){
 // Changing a file (0.7.29): "edit the attached file", "modifică documentul", "add a slide about prices", "translate it to
 // English". The format is the attached file's (or, without one, the last file the AI made in this chat), and the answer
 // comes back as the whole changed file. A how/what question stays text.
-const EDIT_VERB=/\b(?:modify|edit|change|fix|correct|update|add|remove|delete|replace|translate|rewrite|shorten|expand|rename|insert|reformat|format|improve|redo|adjust|reorder|move|make it|make the|put|modifica|editeaza|schimba|corecteaza|actualizeaza|adauga|scoate|sterge|inlocuieste|traduce|rescrie|scurteaza|extinde|redenumeste|insereaza|imbunatateste|reformateaza|refa|ajusteaza|muta|pune)\b/;
+const EDIT_VERB=/\b(?:modify|edit|change|fix|correct|update|add|remove|delete|replace|translate|rewrite|shorten|expand|rename|insert|reformat|format|improve|redo|adjust|reorder|move|make it|make the|put|modifica|editeaza|schimba|corecteaza|actualizeaza|adauga|scoate|sterge|inlocuieste|traduce|rescrie|scurteaza|extinde|redenumeste|insereaza|imbunatateste|reformateaza|refa|ajusteaza|muta|pune|editezi|editeze|modifici|modifice|schimbi|schimbe|corectezi|actualizezi|adaugi|adauge|scoti|stergi|inlocuiesti|traduci|rescrii|scurtezi|extinzi|redenumesti|inserezi|imbunatatesti|reformatezi|refaci|ajustezi|muti|pui|puna|mareste|maresti|micsoreaza|micsorezi|coloreaza|colorezi|aranjeaza|aranjezi)\b/;
 const EDITABLE=["docx","pptx","xlsx","pdf","csv","md","txt","html","json","xml","rtf"];
 export function editedDocumentFormat(value,attachmentNames=[],lastMadeFormat=null){
   const t=normalizeIntent(value);
@@ -55,3 +55,19 @@ export function editedDocumentFormat(value,attachmentNames=[],lastMadeFormat=nul
   }
   return lastMadeFormat&&EDITABLE.includes(lastMadeFormat)?lastMadeFormat:null;
 }
+
+// 0.7.35: an answer that is itself a file ("Fișier: Regnul_Animal.pptx", or several «SLIDE 3 — …» headings) becomes
+// that file even when the message did not name a format; the chat shows the file, not the text describing it.
+const NAMED_FILE=/(?:^|\n)\s*(?:\*\*)?(?:fi[sș]ier(?:ul)?|file(?:\s*name)?|nume(?:le)? fi[sș]ierului)(?:\*\*)?\s*:\s*\**\s*([^\n*]{1,120}?\.(pptx|docx|xlsx|pdf))\b/i;
+const SLIDE_HEAD=/^\s*(?:#+\s*)?(?:\*\*)?(?:slide|diapozitiv(?:ul)?)\s+\d{1,3}\s*(?:\*\*)?\s*[—–:.-]/gim;
+export function answerFileFormat(answer){
+  const text=String(answer||"");
+  const head=text.split("\n").slice(0,15).join("\n");
+  const named=head.match(NAMED_FILE);
+  if(named)return {format:named[2].toLowerCase(),name:named[1].trim()};
+  if((text.match(SLIDE_HEAD)||[]).length>=3)return {format:"pptx",name:""};
+  return null;
+}
+// Only when the person asked for a file: their message names a file, a format or a deck / document / project.
+const FILE_WORDS=/\b(?:pptx?|docx?|xlsx?|pdf|powerpoint|prezentar\w*|presentation|slide\w*|word|excel|document\w*|fisier\w*|files?|proiect\w*|project|referat\w*|raport\w*|report|tabel\w*|spreadsheet|foaie de calcul)\b/;
+export function asksForFile(value){return FILE_WORDS.test(normalizeIntent(value));}

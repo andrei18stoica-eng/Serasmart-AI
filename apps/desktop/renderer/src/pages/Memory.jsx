@@ -16,31 +16,32 @@ export function PreferenceSwitches({preferences,onChange,busyKey=""}){
   </div>)}</div>;
 }
 
-const MEMORY_SOURCES={manual:"adăugată de tine",automatic:"reținută automat",history:"din istoric",automation:"dintr-o sarcină programată"};
+const MEMORY_SOURCES={manual:"added by you",automatic:"kept automatically",history:"from history",automation:"from a scheduled task"};
 const CATEGORY_ORDER=["preferință","proiect","decizie","detaliu"];
-const CATEGORY_LABELS={"preferință":"Preferințe","proiect":"Proiecte și muncă","decizie":"Decizii","detaliu":"Alte detalii"};
+const CATEGORY_LABELS={"preferință":"Preferences","proiect":"Projects and work","decizie":"Decisions","detaliu":"Other details"};
 
 function MemoryItem({x,busy,onPin,onRemove,onSave}){
   const [editing,setEditing]=useState(false),[text,setText]=useState(x.text);
   useEffect(()=>{if(!editing)setText(x.text)},[x.text,editing]);
   async function save(){if(!text.trim()||text.trim()===x.text){setEditing(false);return;}if(await onSave(x,text.trim()))setEditing(false)}
   return <div className={cx("memoryItem",x.pinned&&"pinned")}>
-    <button className="pinBtn" onClick={()=>onPin(x)} disabled={busy} aria-label={x.pinned?"Anulează fixarea":"Fixează informația"} title={x.pinned?"Fixată — apasă pentru a anula":"Fixează"}>{x.pinned?<Pin size={16}/>:<PinOff size={16}/>}</button>
+    <button className="pinBtn" onClick={()=>onPin(x)} disabled={busy} aria-label={x.pinned?tr("Unpin"):tr("Pin this")} title={x.pinned?tr("Pinned — press to unpin"):tr("Pin")}>{x.pinned?<Pin size={16}/>:<PinOff size={16}/>}</button>
     <div className="memoryItemBody">
-      {editing?<textarea value={text} onChange={e=>setText(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();save()}}} aria-label="Textul informației" autoFocus/>:<p>{x.text}</p>}
-      <span>{MEMORY_SOURCES[x.source]||x.source||"memorie"} · {fmtTime(x.updatedAt||x.createdAt)}</span>
+      {editing?<textarea value={text} onChange={e=>setText(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();save()}}} aria-label={tr("Text of the item")} autoFocus/>:<p>{x.text}</p>}
+      <span>{tr(MEMORY_SOURCES[x.source]||x.source||"memory")} · {fmtTime(x.updatedAt||x.createdAt)}</span>
     </div>
     <div className="memoryItemActions">
       {editing?<>
-        <button className="iconOnly smallIcon" onClick={save} disabled={busy||!text.trim()} aria-label="Salvează modificarea" title="Salvează"><Check size={15}/></button>
-        <button className="iconOnly smallIcon" onClick={()=>setEditing(false)} aria-label="Renunță la modificare" title="Renunță"><X size={15}/></button>
-      </>:<button className="iconOnly smallIcon" onClick={()=>setEditing(true)} disabled={busy} aria-label="Editează informația" title="Editează"><Pencil size={15}/></button>}
-      <button className="iconDanger" onClick={()=>onRemove(x)} disabled={busy} aria-label="Șterge informația" title="Șterge"><Trash2 size={15}/></button>
+        <button className="iconOnly smallIcon" onClick={save} disabled={busy||!text.trim()} aria-label={tr("Save the change")} title={tr("Save")}><Check size={15}/></button>
+        <button className="iconOnly smallIcon" onClick={()=>setEditing(false)} aria-label={tr("Discard the change")} title={tr("Discard")}><X size={15}/></button>
+      </>:<button className="iconOnly smallIcon" onClick={()=>setEditing(true)} disabled={busy} aria-label={tr("Edit this")} title={tr("Edit")}><Pencil size={15}/></button>}
+      <button className="iconDanger" onClick={()=>onRemove(x)} disabled={busy} aria-label={tr("Delete this")} title={tr("Delete")}><Trash2 size={15}/></button>
     </div>
   </div>;
 }
 
 export function MemoryPage({onClose,preferences,onPreferences,prefBusy}){
+  useLanguage();
   const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[enabled,setEnabled]=useState(true),[query,setQuery]=useState(""),[text,setText]=useState(""),[summary,setSummary]=useState(null),[busy,setBusy]=useState(""),[error,setError]=useState("");
   const seq=useRef(0),mounted=useRef(true);
   useEffect(()=>()=>{mounted.current=false},[]);
@@ -55,12 +56,12 @@ export function MemoryPage({onClose,preferences,onPreferences,prefBusy}){
   }
   useEffect(()=>{const t=setTimeout(()=>load(query.trim()),query.trim()?300:0);return()=>clearTimeout(t)},[query]);
   async function run(kind,fn){if(busy)return false;setBusy(kind);try{await fn();return true}catch(e){toast(e.message);return false}finally{if(mounted.current)setBusy("")}}
-  const add=()=>{if(!text.trim())return;run("add",async()=>{await api("/api/memory",{method:"POST",body:JSON.stringify({text:text.trim(),pinned:true})});setText("");toast("Informația a fost salvată și fixată în memorie.","ok");await load()})};
+  const add=()=>{if(!text.trim())return;run("add",async()=>{await api("/api/memory",{method:"POST",body:JSON.stringify({text:text.trim(),pinned:true})});setText("");toast(tr("Saved and pinned in memory."),"ok");await load()})};
   const pin=x=>run("pin",async()=>{await api(`/api/memory/${x.id}`,{method:"PATCH",body:JSON.stringify({pinned:!x.pinned})});await load()});
   const saveText=(x,value)=>run("edit",async()=>{await api(`/api/memory/${x.id}`,{method:"PATCH",body:JSON.stringify({text:value})});await load()});
-  const remove=x=>{if(!confirm("Ștergi această informație din memorie?"))return;run("remove",async()=>{await api(`/api/memory/${x.id}`,{method:"DELETE"});await load()})};
-  const clear=()=>{if(!confirm(`Ștergi toate memoriile ${BRAND_NAME} pentru acest cont? Operația nu poate fi anulată.`))return;run("clear",async()=>{await api("/api/memory",{method:"DELETE"});setQuery("");await load("")})};
-  const importHistory=()=>{if(!confirm("Import din istoricul conversațiilor informațiile durabile (preferințe, decizii, detalii de proiect)?"))return;run("import",async()=>{const d=await api("/api/memory/import-history",{method:"POST",body:"{}"});toast(`Am importat ${plural(d.count||0,"informație","informații")} din istoric.`,"ok");await load()})};
+  const remove=x=>{if(!confirm(tr("Delete this from memory?")))return;run("remove",async()=>{await api(`/api/memory/${x.id}`,{method:"DELETE"});await load()})};
+  const clear=()=>{if(!confirm(tr("Delete everything {brand} remembers for this account? This cannot be undone.",{brand:BRAND_NAME})))return;run("clear",async()=>{await api("/api/memory",{method:"DELETE"});setQuery("");await load("")})};
+  const importHistory=()=>{if(!confirm(tr("Import lasting details (preferences, decisions, project details) from your chat history?")))return;run("import",async()=>{const d=await api("/api/memory/import-history",{method:"POST",body:"{}"});toast(tr("Imported {n} items from history.",{n:d.count||0}),"ok");await load()})};
   async function changePreferences(patch){
     const ok=await onPreferences(patch);
     if(ok&&"memoryEnabled" in patch)setEnabled(patch.memoryEnabled);
@@ -68,31 +69,31 @@ export function MemoryPage({onClose,preferences,onPreferences,prefBusy}){
   const prefs={...(preferences||{}),memoryEnabled:preferences&&typeof preferences.memoryEnabled==="boolean"?preferences.memoryEnabled:enabled};
   const facts=summary?[...(summary.recent||[])].sort((a,b)=>Number(b.pinned)-Number(a.pinned)).slice(0,5):[];
   const searching=!!query.trim();
-  const grouped=searching?[["Rezultate",items]]:CATEGORY_ORDER.map(c=>[CATEGORY_LABELS[c],items.filter(x=>(x.category||"detaliu")===c)]).concat([["Altele",items.filter(x=>!CATEGORY_ORDER.includes(x.category||"detaliu"))]]).filter(([,list])=>list.length);
-  return <ToolShell title="Memorie" subtitle={`Ce reține ${BRAND_NAME} despre tine și cum folosește conversațiile anterioare.`} onClose={onClose} className="pageModal memoryPage">
+  const grouped=searching?[[tr("Results"),items]]:CATEGORY_ORDER.map(c=>[tr(CATEGORY_LABELS[c]),items.filter(x=>(x.category||"detaliu")===c)]).concat([[tr("Others"),items.filter(x=>!CATEGORY_ORDER.includes(x.category||"detaliu"))]]).filter(([,list])=>list.length);
+  return <ToolShell title={tr("Memory")} subtitle={tr("What {brand} remembers about you and how it uses earlier chats.",{brand:BRAND_NAME})} onClose={onClose} className="pageModal memoryPage">
     <div className="pageBody">
       <div className="memoryOverview">
         <section className="memoryCard">
-          <h3><Brain size={17}/> Setări memorie</h3>
+          <h3><Brain size={17}/> {tr("Memory settings")}</h3>
           <PreferenceSwitches preferences={prefs} onChange={changePreferences} busyKey={prefBusy}/>
         </section>
         <section className="memoryCard">
-          <h3><History size={17}/> Ce știe {BRAND_NAME} despre tine</h3>
-          {!prefs.memoryEnabled&&<p className="memoryOff">Memoria este oprită: {BRAND_NAME} nu reține și nu folosește informații noi până o pornești.</p>}
+          <h3><History size={17}/> {tr("What {brand} knows about you",{brand:BRAND_NAME})}</h3>
+          {!prefs.memoryEnabled&&<p className="memoryOff">{tr("Memory is off: {brand} does not keep or use anything new until you turn it on.",{brand:BRAND_NAME})}</p>}
           {summary?.count?<>
-            <div className="memoryStats"><span><b>{summary.count}</b> {summary.count===1?"informație":"informații"}</span><span><b>{summary.pinned||0}</b> fixate</span><span><b>{Object.keys(summary.categories||{}).length}</b> {Object.keys(summary.categories||{}).length===1?"categorie":"categorii"}</span></div>
+            <div className="memoryStats"><span><b>{summary.count}</b> {summary.count===1?tr("item"):tr("items")}</span><span><b>{summary.pinned||0}</b> {tr("pinned")}</span><span><b>{Object.keys(summary.categories||{}).length}</b> {Object.keys(summary.categories||{}).length===1?tr("category"):tr("categories")}</span></div>
             <ul className="memoryFacts">{facts.map(f=><li key={f.id}>{f.pinned&&<Pin size={12}/>} {String(f.text).length>170?String(f.text).slice(0,170)+"…":f.text}</li>)}</ul>
-          </>:<p className="memoryEmptyNote">Încă nimic. Pe măsură ce vorbiți, {BRAND_NAME} reține preferințele și deciziile importante. Poți adăuga și tu ceva mai jos.</p>}
+          </>:<p className="memoryEmptyNote">{tr("Nothing yet. As you talk, {brand} keeps your preferences and important decisions. You can add something below too.",{brand:BRAND_NAME})}</p>}
         </section>
       </div>
-      <div className="memoryAdd"><textarea value={text} onChange={e=>setText(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();add()}}} placeholder={`Adaugă ceva important pe care ${BRAND_NAME} să-l țină minte… (Ctrl+Enter salvează)`} aria-label="Informație nouă pentru memorie"/><button className="primary" onClick={add} disabled={!text.trim()||!!busy}>{busy==="add"?"Se salvează…":"Salvează și fixează"}</button></div>
+      <div className="memoryAdd"><textarea value={text} onChange={e=>setText(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();add()}}} placeholder={tr("Add something important for {brand} to remember… (Ctrl+Enter saves)",{brand:BRAND_NAME})} aria-label={tr("New item for memory")}/><button className="primary" onClick={add} disabled={!text.trim()||!!busy}>{busy==="add"?tr("Saving…"):tr("Save and pin")}</button></div>
       <div className="memoryToolbar">
-        <div className="pageSearch"><Search size={15}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Caută în memorie" aria-label="Caută în memorie"/></div>
-        <button className="secondary" onClick={importHistory} disabled={!!busy}><History size={15}/> {busy==="import"?"Se importă…":"Importă din istoric"}</button>
-        <button className="dangerButton" onClick={clear} disabled={!!busy||!items.length}><Trash2 size={15}/> Șterge tot</button>
+        <div className="pageSearch"><Search size={15}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={tr("Search memory")} aria-label={tr("Search memory")}/></div>
+        <button className="secondary" onClick={importHistory} disabled={!!busy}><History size={15}/> {busy==="import"?tr("Importing…"):tr("Import from history")}</button>
+        <button className="dangerButton" onClick={clear} disabled={!!busy||!items.length}><Trash2 size={15}/> {tr("Delete all")}</button>
       </div>
       {error&&<div className="inlineError" role="alert">{error}</div>}
-      {loading?<div className="emptyState small">Se încarcă memoria…</div>:!items.length?<div className="emptyState small">{searching?"Nu am găsit nimic pentru această căutare.":"Memoria este goală."}</div>:
+      {loading?<div className="emptyState small">{tr("Loading memory…")}</div>:!items.length?<div className="emptyState small">{searching?tr("Nothing found for this search."):tr("Memory is empty.")}</div>:
         grouped.map(([label,list])=><section className="memoryGroup" key={label}><h4>{label} <small>{list.length}</small></h4><div className="memoryList">{list.map(x=><MemoryItem key={x.id} x={x} busy={!!busy} onPin={pin} onRemove={remove} onSave={saveText}/>)}</div></section>)}
     </div>
   </ToolShell>;

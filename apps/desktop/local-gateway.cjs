@@ -19,6 +19,7 @@ const { DIRECT_MODEL_DEFAULTS: MODEL_DEFAULTS } = require("./lib/providers.cjs")
 const { nextRun, validateAutomation, toBool } = require("./lib/schedule.cjs");
 const { QUESTIONS_RULE, sanitizeQuestions } = require("./lib/questions.cjs");
 const { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinList } = require("./lib/builtinplugins.cjs");
+const { officePreview, officeKind } = require("./lib/officepreview.cjs");
 const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill, libraryIndex, libraryNotice, librarySkill, libraryPack } = require("./lib/skills.cjs");
 const creditsLib = require("./lib/credits.cjs");
 const { createConnectors } = require("./lib/connectors.cjs");
@@ -1861,6 +1862,19 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }
     const LIMIT=200000;
     res.json({data:{text:text.length>LIMIT?text.slice(0,LIMIT)+"\n\n… (fișierul continuă; descarcă-l pentru tot conținutul)":text,status,truncated:text.length>LIMIT}});
+  });
+  // 0.7.34: Word / PowerPoint / Excel shown inside the app, as they look, before downloading (lib/officepreview.cjs).
+  app.get("/api/library/:id/office", auth, async (req,res) => {
+    const item=store.read().library.find(x=>x.id===req.params.id&&x.userId===req.user.id);
+    if(!item)return res.status(404).json({error:"Fișierul nu a fost găsit."});
+    if(!officeKind(item.name,item.mime))return res.status(415).json({error:"This file cannot be shown this way."});
+    try{
+      let buf=null;
+      if(await libraryFileStat(item))buf=await fs.promises.readFile(item.filePath);
+      else{const m=String(item.dataUrl||"").match(/^data:([^;]+);base64,(.+)$/s);if(m)buf=Buffer.from(m[2],"base64");}
+      if(!buf)return res.status(404).json({error:"Fișierul nu mai este disponibil."});
+      res.json({data:await officePreview(buf,item.name,item.mime)});
+    }catch(e){res.status(422).json({error:"The file could not be opened here. Download it to see it in its own program."})}
   });
   app.get("/api/library/:id", auth, (req,res) => {const db=store.read(),item=db.library.find(x=>x.id===req.params.id&&x.userId===req.user.id);if(!item)return res.status(404).json({error:"Fișierul nu a fost găsit."});const {filePath,...safe}=item;res.json({data:safe});});
   // Rename a file (only its name: the file on disk is stored under its id). Without an extension the old one is kept, so

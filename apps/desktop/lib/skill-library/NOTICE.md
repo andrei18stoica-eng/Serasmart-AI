@@ -10,7 +10,7 @@ Each skill's front matter was removed and its slug shortened where needed; the i
 - https://github.com/anthropics/knowledge-work-plugins (commit 33d3dea41a) — Apache-2.0, Copyright Anthropic, PBC. Licence text: licenses/apache-2.0.txt
 - https://github.com/anthropics/financial-services-plugins (commit 574ed3624a) — Apache-2.0, Copyright Anthropic, PBC. Licence text: licenses/apache-2.0.txt
 
-Serasmart Documents (word, powerpoint, excel, pdf) is written by Serasmart AI (SeranoConsult SRL) and is not copied from any other source.
+The Serasmart packs (apps/desktop/skills) are written by Serasmart AI (SeranoConsult SRL) and are not copied from any other source.
 
 Packs by authors other than the repository owner (same licence as their pack):
 

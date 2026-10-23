@@ -1,0 +1,2 @@
+{ "id": "serasmart-documents", "name": "Serasmart Documents", "category": "documents", "position": 0, "order": ["word", "powerpoint", "excel", "pdf"],
+  "description": "Word, PowerPoint, Excel and PDF files made the Serasmart way: the right structure for each kind of document, live Excel formulas, editable equations." }

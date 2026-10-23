@@ -6,7 +6,7 @@
 // with the AI for every account, and the screen switches to them. The last copy is kept on this device.
 import { useSyncExternalStore } from "react";
 import { LOCALES } from "./locales.js";
-import { GATEWAY, api, storage, TOKEN_KEY } from "./core.jsx";
+import { GATEWAY, api, storage, TOKEN_KEY, setTranslator } from "./core.jsx";
 
 export const LANGUAGES = [
   ["en", "English"], ["ro", "Română"], ["es", "Español"], ["fr", "Français"], ["de", "Deutsch"], ["it", "Italiano"],
@@ -89,3 +89,5 @@ export function t(text, vars) {
 // Re-renders the component when the language changes or new translations arrive.
 const snapshot = () => `${current}:${version}`;
 export function useLanguage() { useSyncExternalStore(subscribe, snapshot, snapshot); return current; }
+// 0.7.34: core.jsx (which i18n imports) translates its own texts and dates through this.
+setTranslator(t, getLanguage);

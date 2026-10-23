@@ -64,10 +64,10 @@ export function isAuthLost(status,message){
   return status===401||(status===403&&/Contul nu este activ|așteaptă aprobarea|asteapta aprobarea/i.test(String(message||"")));
 }
 export function httpMessage(status){
-  if(status===413)return `Fișierul sau mesajul este prea mare pentru serviciul ${BRAND_NAME} (HTTP 413).`;
-  if(status===404)return `Serviciul ${BRAND_NAME} nu a găsit resursa cerută (HTTP 404).`;
-  if(status>=500)return `Serviciul ${BRAND_NAME} a întâmpinat o eroare (HTTP ${status}).`;
-  return `Cererea nu a reușit (HTTP ${status}).`;
+  if(status===413)return T("The file or message is too big for the {brand} service (HTTP 413).",{brand:BRAND_NAME});
+  if(status===404)return T("The {brand} service did not find what was asked for (HTTP 404).",{brand:BRAND_NAME});
+  if(status>=500)return T("The {brand} service ran into an error (HTTP {status}).",{brand:BRAND_NAME,status});
+  return T("The request did not succeed (HTTP {status}).",{status});
 }
 export function errorFromBody(text,status){
   let data=null;try{data=text?JSON.parse(text):null}catch{}
@@ -90,7 +90,7 @@ export async function api(path, options = {}) {
   const text = await r.text();
   if (!r.ok) throw apiError(r.status,text,path);
   if (!text) return {};
-  try { return JSON.parse(text); } catch { throw new Error(`Răspuns invalid de la serviciul ${BRAND_NAME} (HTTP ${r.status}).`); }
+  try { return JSON.parse(text); } catch { throw new Error(T("Invalid answer from the {brand} service (HTTP {status}).",{brand:BRAND_NAME,status:r.status})); }
 }
 export async function authedFetch(path,init={}){
   const r=await fetch(`${GATEWAY}${path}`,{...init,headers:authHeaders(init.headers||{})});
@@ -98,8 +98,8 @@ export async function authedFetch(path,init={}){
   return r;
 }
 
-export const PERMISSION_LABELS = {image_generation:"Generare imagini",video_generation:"Generare video",document_generation:"Fișiere descărcabile",file_upload:"Încărcare fișiere",web_search:"Căutare web",deep_research:"Deep Research",automations:"Scheduled",plugins:"Pluginuri",github_access:"GitHub",code:`Code ${BRAND_NAME}`};
-export function deniedMessage(key){return `Funcția „${PERMISSION_LABELS[key]||key}” este dezactivată de Owner pentru contul tău.`;}
+export const PERMISSION_LABELS = {image_generation:"Picture generation",video_generation:"Video generation",document_generation:"Downloadable files",file_upload:"File uploads",web_search:"Web search",deep_research:"Deep Research",automations:"Scheduled",plugins:"Plugins",github_access:"GitHub",code:`Code ${BRAND_NAME}`};
+export function deniedMessage(key){return T("«{feature}» is turned off by the Owner for your account.",{feature:T(PERMISSION_LABELS[key]||key)});}
 export const AccessContext = React.createContext({can:()=>true,deny:()=>{},isOwner:false});
 export function useAccess(){return useContext(AccessContext);}
 
@@ -110,8 +110,8 @@ export async function uploadFileToLibrary(file) {
     body:file
   });
   const text=await r.text();let data={};
-  try{data=text?JSON.parse(text):{}}catch{throw new Error("Răspuns invalid la încărcarea fișierului.")}
-  if(!data?.data?.id)throw new Error("Serviciul nu a confirmat salvarea fișierului.");
+  try{data=text?JSON.parse(text):{}}catch{throw new Error(T("Invalid answer while uploading the file."))}
+  if(!data?.data?.id)throw new Error(T("The service did not confirm the file was saved."));
   return data.data;
 }
 export function formatBytes(n){
@@ -155,7 +155,7 @@ export function openLink(href){
   const url=String(href||"").trim();
   if(!/^(https?:|mailto:)/i.test(url)){toast(`Acest link nu poate fi deschis din ${BRAND_NAME}.`);return;}
   if(!window.Serasmart?.openExternal){window.open(url,"_blank","noopener,noreferrer");return;}
-  Promise.resolve(window.Serasmart.openExternal(url)).then(r=>{if(r&&r.ok===false)toast(r.error||"Nu am putut deschide linkul în browser.")}).catch(e=>toast("Nu am putut deschide linkul: "+e.message));
+  Promise.resolve(window.Serasmart.openExternal(url)).then(r=>{if(r&&r.ok===false)toast(r.error||T("The link could not be opened in the browser."))}).catch(e=>toast(T("The link could not be opened: {error}",{error:e.message})));
 }
 
 export async function saveBlobDownload(blob,name) {
@@ -166,13 +166,13 @@ export async function saveBlobDownload(blob,name) {
   setTimeout(()=>URL.revokeObjectURL(url),4000);
 }
 export async function downloadGeneratedFile(file) {
-  if(!file?.id)throw new Error("Fișierul nu mai este disponibil.");
+  if(!file?.id)throw new Error(T("The file is no longer available."));
   const r=await authedFetch(`/api/files/${file.id}`);
   await saveBlobDownload(await r.blob(),file.name||"Serasmart-AI-fisier");
 }
 export async function downloadLibraryFile(file) {
   const id=file?.libraryId||file?.id;
-  if(!id)throw new Error("Fișierul nu mai este disponibil.");
+  if(!id)throw new Error(T("The file is no longer available."));
   const r=await authedFetch(`/api/library/${id}/content`);
   await saveBlobDownload(await r.blob(),file.name||"Serasmart-AI-fisier");
 }
@@ -188,10 +188,10 @@ export function mediaKind(mime,name="") {
   if(m.startsWith("text/")||/\.(txt|md|csv|json|js|ts|py|html|css|xml|yaml|yml)$/i.test(n))return "text";
   return "file";
 }
-export const KIND_LABELS={image:"Imagine",audio:"Audio",video:"Video",text:"Text",document:"Document",file:"Fișier",stored:"Fișier"};
+export const KIND_LABELS={image:"Picture",audio:"Audio",video:"Video",text:"Text",document:"Document",file:"File",stored:"File"};
 export function kindLabel(kind,mime="",name=""){
   if((kind==="file"||kind==="document")&&(/pdf|word|officedocument|presentation|spreadsheet|msword|excel/i.test(String(mime))||/\.(pdf|docx?|pptx?|xlsx?)$/i.test(String(name))))return "Document";
-  return KIND_LABELS[kind]||"Fișier";
+  return T(KIND_LABELS[kind]||"File");
 }
 export async function fetchLibraryBlob(id) {
   const r=await authedFetch(`/api/library/${id}/content`);
@@ -242,12 +242,12 @@ export function useDismiss(open,onClose,ref){
 }
 export function ToolShell({title,subtitle,label,onClose,children,className="",actions=null}) {
   const {ref,backdropProps}=useModal(onClose);
-  return <div className="modalBackdrop" {...backdropProps}><div className={cx("toolModal",className)} ref={ref} role="dialog" aria-modal="true" aria-label={title||label||"Panou"} tabIndex={-1}><div className="toolHead"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div>{actions&&<div className="toolHeadActions">{actions}</div>}<button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={20}/></button></div>{children}</div></div>;
+  return <div className="modalBackdrop" {...backdropProps}><div className={cx("toolModal",className)} ref={ref} role="dialog" aria-modal="true" aria-label={title||label||T("Panel")} tabIndex={-1}><div className="toolHead"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div>{actions&&<div className="toolHeadActions">{actions}</div>}<button className="iconOnly" onClick={onClose} aria-label={T("Close")} title={T("Close")}><X size={20}/></button></div>{children}</div></div>;
 }
 export function Modal({title,subtitle,onClose,className="modal",children}) {
   const {ref,backdropProps}=useModal(onClose);
   return <div className="modalBackdrop" {...backdropProps}><div className={className} ref={ref} role="dialog" aria-modal="true" aria-label={title} tabIndex={-1}>
-    <div className="modalHead"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div><button className="iconOnly" onClick={onClose} aria-label="Închide" title="Închide"><X size={20}/></button></div>
+    <div className="modalHead"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div><button className="iconOnly" onClick={onClose} aria-label={T("Close")} title={T("Close")}><X size={20}/></button></div>
     {children}
   </div></div>;
 }
@@ -257,13 +257,13 @@ export function CodeBlock({children,...props}) {
   useEffect(()=>()=>clearTimeout(timer.current),[]);
   async function copy(){
     const ok=await writeClipboardText(ref.current?.innerText||"");
-    if(!ok){toast("Nu am putut copia codul în clipboard.");return;}
+    if(!ok){toast(T("The code could not be copied to the clipboard."));return;}
     setCopied(true);clearTimeout(timer.current);timer.current=setTimeout(()=>setCopied(false),1400);
   }
   // The language and "Copiază" sit in a bar above the code, so the button never covers the first line (on a phone it
   // was always visible on top of the code).
   const lang=/language-([\w+#.-]+)/.exec(children?.props?.className||"")?.[1]||"";
-  return <div className="codeBlock"><div className="codeHead"><span className="codeLang">{lang||"cod"}</span><button type="button" className="codeCopy" onClick={copy} aria-label="Copiază codul">{copied?<Check size={13}/>:<Copy size={13}/>}<span>{copied?"Copiat":"Copiază"}</span></button></div><pre ref={ref} {...props}>{children}</pre></div>;
+  return <div className="codeBlock"><div className="codeHead"><span className="codeLang">{lang||T("code")}</span><button type="button" className="codeCopy" onClick={copy} aria-label={T("Copy the code")}>{copied?<Check size={13}/>:<Copy size={13}/>}<span>{copied?T("Copied"):T("Copy")}</span></button></div><pre ref={ref} {...props}>{children}</pre></div>;
 }
 export const REMARK_PLUGINS=[remarkGfm];
 export const MD_COMPONENTS={
@@ -289,12 +289,17 @@ export function setAuthLostHandler(fn){authLostHandler=fn;}
 export function Switch({checked,onChange,label,disabled=false,className=""}){
   return <button type="button" className={cx("claudeToggle",checked&&"on",className)} role="switch" aria-checked={!!checked} aria-label={label} title={label} disabled={disabled} onClick={()=>onChange?.(!checked)}><span/></button>;
 }
-const RO_MONTHS=["ian.","feb.","mar.","apr.","mai","iun.","iul.","aug.","sept.","oct.","nov.","dec."];
+// 0.7.34: core cannot import i18n.jsx (i18n imports core), so i18n hands its translator here when it loads.
+let translateFn=(s,vars)=>vars?String(s).replace(/\{(\w+)\}/g,(m,k)=>(vars[k]??m)):s, languageFn=()=>"en";
+export function setTranslator(fn,getLanguage){translateFn=fn;languageFn=getLanguage;}
+export function T(s,vars){return translateFn(s,vars);}
+export function uiLanguage(){return languageFn();}
 export function clockTime(ts){const d=new Date(ts);return `${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;}
 export function shortDate(ts,withYear=null){
   const d=new Date(ts);if(!Number.isFinite(d.getTime()))return "—";
   const year=withYear===null?d.getFullYear()!==new Date().getFullYear():withYear;
-  return `${d.getDate()} ${RO_MONTHS[d.getMonth()]}${year?" "+d.getFullYear():""}`;
+  try{return new Intl.DateTimeFormat(languageFn(),{day:"numeric",month:"short",...(year?{year:"numeric"}:{})}).format(d);}
+  catch{return d.toISOString().slice(0,10);}
 }
 export function relativeDay(ts){
   if(!ts)return "—";
@@ -302,7 +307,7 @@ export function relativeDay(ts){
   const today=new Date();today.setHours(0,0,0,0);
   const day=new Date(d);day.setHours(0,0,0,0);
   const diff=Math.round((day-today)/86400000);
-  const label=diff===0?"azi":diff===1?"mâine":diff===-1?"ieri":shortDate(ts);
+  const label=diff===0?T("today"):diff===1?T("tomorrow"):diff===-1?T("yesterday"):shortDate(ts);
   return `${label}, ${clockTime(ts)}`;
 }
 export function useInView(rootMargin="200px"){

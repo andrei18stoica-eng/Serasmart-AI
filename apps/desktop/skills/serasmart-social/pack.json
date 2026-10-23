@@ -1,0 +1,12 @@
+{
+ "id": "serasmart-social",
+ "name": "Serasmart Social Media",
+ "category": "marketing",
+ "position": 4,
+ "description": "Plan and write social media posts for every network, from a monthly calendar to a single post on X, plus better prompts and edits for pictures made with Serasmart AI.",
+ "order": [
+  "social-calendar",
+  "x-post",
+  "image-prompt"
+ ]
+}

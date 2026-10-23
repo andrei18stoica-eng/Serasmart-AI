@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Upload, Search, Eye, Download, Trash2, FileText, Film, Music, Palette, X, HardDrive, Play, MessageSquarePlus, Maximize2 } from "lucide-react";
 import { FileViewer, FileName, canView } from "../viewer.jsx";
+import { t as tr, useLanguage } from "../i18n.jsx";
 import { api, authedFetch, toast, cx, plural, formatBytes, shortDate, mediaKind, kindLabel, uploadFileToLibrary, downloadLibraryFile, useAccess, deniedMessage, useModal, useAuthedBlobUrl, useInView, ToolShell } from "../core.jsx";
 
-export const LIBRARY_FILTERS=[["all","Toate"],["document","Documente"],["image","Poze"],["video","Video"],["audio","Audio"],["design","Design"]];
-export const DESIGN_KINDS={site:"Site",landing:"Landing page",afis:"Afiș",prezentare:"Prezentare",card:"Card de vizită",meniu:"Meniu",cv:"CV",email:"Email",altceva:"Altceva"};
+// 0.7.34: labels in English, translated with tr() where they are shown.
+export const LIBRARY_FILTERS=[["all","All"],["document","Documents"],["image","Pictures"],["video","Video"],["audio","Audio"],["design","Design"]];
+export const DESIGN_KINDS={site:"Website",landing:"Landing page",afis:"Poster",prezentare:"Presentation",card:"Business card",meniu:"Menu",cv:"CV",email:"Email",altceva:"Other"};
 export function libraryCategory(x){if(x?.isDesign)return "design";const k=mediaKind(x.mime,x.name);return k==="image"||k==="audio"||k==="video"?k:"document";}
-const TEXT_STATUS={pending:["Se citește textul…","pending"],ok:["Text citit pentru AI","ok"],empty:["Fără text citibil","warn"],too_large:["Prea mare pentru citire","warn"],error:["Textul nu a putut fi citit","warn"]};
-const SORTS=[["new","Cele mai noi"],["name","Nume"],["size","Mărime"]];
+const TEXT_STATUS={pending:["Reading the text…","pending"],ok:["Text read for the AI","ok"],empty:["No readable text","warn"],too_large:["Too big to read","warn"],error:["The text could not be read","warn"]};
+const SORTS=[["new","Newest"],["name","Name"],["size","Size"]];
 function extOf(name){const m=String(name||"").match(/\.([a-z0-9]{1,6})$/i);return m?m[1].toUpperCase():"";}
 function hasFiles(e){return [...(e.dataTransfer?.types||[])].includes("Files");}
 
@@ -32,7 +34,7 @@ function PreviewBody({item}){
       try{
         if(kind==="text"){
           const r=await authedFetch(`/api/library/${item.id}/content`);const t=await r.text();
-          if(active)setText({loading:false,value:t.slice(0,60000),note:t.length>60000?"Se afișează primele 60.000 de caractere.":""});
+          if(active)setText({loading:false,value:t.slice(0,60000),note:t.length>60000?tr("Showing the first 60,000 characters."):""});
           return;
         }
         const d=(await api(`/api/library/${item.id}`)).data||{};
@@ -40,18 +42,18 @@ function PreviewBody({item}){
         const pdf=/pdf/i.test(`${d.mime} ${d.name}`);
         const first=pdf&&full.includes("\f")?full.split("\f").find(p=>p.trim())||"":full.slice(0,pdf?3500:8000);
         const status=TEXT_STATUS[d.textStatus]?.[0];
-        if(active)setText({loading:false,value:first,note:full?(pdf?"Prima pagină, ca text.":full.length>first.length?"Începutul documentului, ca text.":""):(status||"Acest tip de fișier nu are previzualizare. Îl poți descărca.")});
+        if(active)setText({loading:false,value:first,note:full?(pdf?tr("The first page, as text."):full.length>first.length?tr("The beginning of the document, as text."):""):(status||tr("This kind of file has no preview. You can download it."))});
       }catch(e){if(active)setText({loading:false,value:"",note:e.message})}
     })();
     return()=>{active=false};
   },[item.id]);
   if(media){
-    if(!src)return <div className="previewPlaceholder">{failed?"Previzualizarea nu este disponibilă.":"Se încarcă…"}</div>;
+    if(!src)return <div className="previewPlaceholder">{failed?tr("The preview is not available."):tr("Loading…")}</div>;
     if(cat==="image")return <img className="previewMedia" src={src} alt={item.name}/>;
     if(cat==="video")return <video className="previewMedia" src={src} controls preload="metadata"/>;
     return <audio className="previewAudio" src={src} controls preload="metadata"/>;
   }
-  if(text.loading)return <div className="previewPlaceholder">Se încarcă textul…</div>;
+  if(text.loading)return <div className="previewPlaceholder">{tr("Loading the text…")}</div>;
   return <div className="previewText">{text.note&&<small>{text.note}</small>}{text.value&&<pre>{text.value}</pre>}</div>;
 }
 
@@ -59,14 +61,14 @@ function PreviewDrawer({item,onClose,onAttach,attaching,onRemove,onRenamed}){
   const {ref,backdropProps}=useModal(onClose);
   const [full,setFull]=useState(false);
   return <div className="drawerBackdrop" {...backdropProps}>
-    <aside className="previewDrawer" ref={ref} role="dialog" aria-modal="true" aria-label={`Previzualizare: ${item.name}`} tabIndex={-1}>
-      <div className="drawerHead"><div><FileName id={item.id} name={item.name} onRenamed={name=>onRenamed?.(item,name)}/><small>{kindLabel(mediaKind(item.mime,item.name),item.mime,item.name)} · {formatBytes(item.size)} · {shortDate(item.createdAt)}</small></div><button className="iconOnly" onClick={onClose} aria-label="Închide previzualizarea" title="Închide"><X size={18}/></button></div>
+    <aside className="previewDrawer" ref={ref} role="dialog" aria-modal="true" aria-label={tr("Preview: {name}",{name:item.name})} tabIndex={-1}>
+      <div className="drawerHead"><div><FileName id={item.id} name={item.name} onRenamed={name=>onRenamed?.(item,name)}/><small>{kindLabel(mediaKind(item.mime,item.name),item.mime,item.name)} · {formatBytes(item.size)} · {shortDate(item.createdAt)}</small></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close the preview")} title={tr("Close")}><X size={18}/></button></div>
       <div className="drawerBody"><PreviewBody item={item}/></div>
       <div className="drawerActions">
-        {onAttach&&<button className="primary" onClick={()=>onAttach(item)} disabled={!!attaching}><MessageSquarePlus size={15}/> {attaching===item.id?"Se pregătește…":"Folosește în chat"}</button>}
-        {canView({mime:item.mime,name:item.name})&&<button className="secondary" onClick={()=>setFull(true)}><Maximize2 size={15}/> Deschide</button>}
-        <button className="secondary" onClick={()=>downloadLibraryFile({libraryId:item.id,name:item.name}).catch(e=>toast(e.message))}><Download size={15}/> Descarcă</button>
-        <button className="dangerButton" onClick={()=>onRemove(item)}><Trash2 size={15}/> Șterge</button>
+        {onAttach&&<button className="primary" onClick={()=>onAttach(item)} disabled={!!attaching}><MessageSquarePlus size={15}/> {attaching===item.id?tr("Preparing…"):tr("Use in chat")}</button>}
+        {canView({mime:item.mime,name:item.name})&&<button className="secondary" onClick={()=>setFull(true)}><Maximize2 size={15}/> {tr("Open")}</button>}
+        <button className="secondary" onClick={()=>downloadLibraryFile({libraryId:item.id,name:item.name}).catch(e=>toast(e.message))}><Download size={15}/> {tr("Download")}</button>
+        <button className="dangerButton" onClick={()=>onRemove(item)}><Trash2 size={15}/> {tr("Delete")}</button>
       </div>
       {full&&<FileViewer file={{libraryId:item.id,name:item.name,mime:item.mime,size:item.size}} onClose={()=>setFull(false)}/>}
     </aside>
@@ -74,6 +76,7 @@ function PreviewDrawer({item,onClose,onAttach,attaching,onRemove,onRenamed}){
 }
 
 export function LibraryPage({onClose,onAttach,toAttachment,initialFilter="all",onOpenDesign}){
+  useLanguage();
   const {can,deny}=useAccess();
   const [items,setItems]=useState([]),[designs,setDesigns]=useState([]),[loading,setLoading]=useState(true),[loadError,setLoadError]=useState("");
   const [uploading,setUploading]=useState(0),[attaching,setAttaching]=useState(null),[filter,setFilter]=useState(initialFilter),[query,setQuery]=useState(""),[sort,setSort]=useState("new"),[preview,setPreview]=useState(null),[dragOver,setDragOver]=useState(false);
@@ -97,22 +100,22 @@ export function LibraryPage({onClose,onAttach,toAttachment,initialFilter="all",o
     setUploading(n=>n+files.length);
     const failed=[];
     for(const f of files){try{await uploadFileToLibrary(f)}catch(err){failed.push(`${f.name}: ${err.message}`)}finally{if(mounted.current)setUploading(n=>Math.max(0,n-1))}}
-    if(failed.length)toast("Încărcare fișier: "+failed.join(" · "));
-    else toast(files.length===1?"Fișierul a fost adăugat în Bibliotecă.":`${plural(files.length,"fișier","fișiere")} adăugate în Bibliotecă.`,"ok");
+    if(failed.length)toast(tr("File upload: {error}",{error:failed.join(" · ")}));
+    else toast(files.length===1?tr("The file was added to the Library."):tr("{n} files added to the Library.",{n:files.length}),"ok");
     if(mounted.current)await load();
   }
   async function remove(x){
-    if(!confirm(`Ștergi „${x.name}” din Bibliotecă? Fișierul nu va mai putea fi descărcat nici din conversațiile în care a fost folosit.`))return;
-    try{await api(`/api/library/${x.id}`,{method:"DELETE"});if(mounted.current)setPreview(p=>p?.id===x.id?null:p);await load()}catch(e){toast("Ștergere: "+e.message)}
+    if(!confirm(tr("Delete «{name}» from the Library? It can no longer be downloaded from the conversations where it was used either.",{name:x.name})))return;
+    try{await api(`/api/library/${x.id}`,{method:"DELETE"});if(mounted.current)setPreview(p=>p?.id===x.id?null:p);await load()}catch(e){toast(tr("Delete: {error}",{error:e.message}))}
   }
   async function attach(x){
     if(attaching||!onAttach)return;
     setAttaching(x.id);
     try{const a=await toAttachment(x);onAttach(a);onClose()}
-    catch(e){toast("Atașare: "+e.message)}
+    catch(e){toast(tr("Attach: {error}",{error:e.message}))}
     finally{if(mounted.current)setAttaching(null)}
   }
-  const designEntries=designs.map(d=>({...d,isDesign:true,name:d.title||"Design fără titlu",size:0,createdAt:d.updatedAt||d.createdAt}));
+  const designEntries=designs.map(d=>({...d,isDesign:true,name:d.title||tr("Untitled design"),size:0,createdAt:d.updatedAt||d.createdAt}));
   const all=[...items,...designEntries];
   const q=query.trim().toLowerCase();
   const visible=all.filter(x=>(filter==="all"||libraryCategory(x)===filter)&&(!q||String(x.name||"").toLowerCase().includes(q)||(x.isDesign&&String(x.prompt||"").toLowerCase().includes(q))))
@@ -123,35 +126,35 @@ export function LibraryPage({onClose,onAttach,toAttachment,initialFilter="all",o
     onDragLeave:e=>{if(!e.currentTarget.contains(e.relatedTarget))setDragOver(false)},
     onDrop:e=>{if(!hasFiles(e))return;e.preventDefault();setDragOver(false);upload([...(e.dataTransfer.files||[])])}
   };
-  const header=<><button className={cx("primary",uploadLocked&&"locked")} onClick={()=>uploadLocked?deny("file_upload"):input.current?.click()} title={uploadLocked?deniedMessage("file_upload"):"Maxim 2 GB per fișier"}><Upload size={16}/> {uploading?"Se încarcă…":"Adaugă fișiere"}</button><input ref={input} type="file" multiple hidden onChange={e=>{const f=[...(e.target.files||[])];e.target.value="";upload(f)}}/></>;
-  return <ToolShell title="Bibliotecă" subtitle="Fișierele, pozele, videoclipurile și designurile tale, gata de folosit în conversații." onClose={onClose} className="pageModal libraryPage" actions={header}>
+  const header=<><button className={cx("primary",uploadLocked&&"locked")} onClick={()=>uploadLocked?deny("file_upload"):input.current?.click()} title={uploadLocked?deniedMessage("file_upload"):tr("At most 2 GB per file")}><Upload size={16}/> {uploading?tr("Loading…"):tr("Add files")}</button><input ref={input} type="file" multiple hidden onChange={e=>{const f=[...(e.target.files||[])];e.target.value="";upload(f)}}/></>;
+  return <ToolShell title={tr("Library")} subtitle={tr("Your files, pictures, videos and designs, ready to use in conversations.")} onClose={onClose} className="pageModal libraryPage" actions={header}>
     <div className="libraryToolbar">
-      <div className="chipRow" role="tablist" aria-label="Filtre Bibliotecă">{LIBRARY_FILTERS.map(([k,label])=><button key={k} role="tab" aria-selected={filter===k} className={cx("filterChip",filter===k&&"active")} onClick={()=>setFilter(k)}>{label}{counts[k]>0&&<small>{counts[k]}</small>}</button>)}</div>
+      <div className="chipRow" role="tablist" aria-label={tr("Library filters")}>{LIBRARY_FILTERS.map(([k,label])=><button key={k} role="tab" aria-selected={filter===k} className={cx("filterChip",filter===k&&"active")} onClick={()=>setFilter(k)}>{tr(label)}{counts[k]>0&&<small>{counts[k]}</small>}</button>)}</div>
       <div className="libraryTools">
-        <div className="pageSearch"><Search size={15}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Caută după nume" aria-label="Caută în Bibliotecă"/></div>
-        <label className="sortSelect"><span>Sortează</span><select value={sort} onChange={e=>setSort(e.target.value)} aria-label="Sortează">{SORTS.map(([k,l])=><option key={k} value={k}>{l}</option>)}</select></label>
+        <div className="pageSearch"><Search size={15}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={tr("Search by name")} aria-label={tr("Search the Library")}/></div>
+        <label className="sortSelect"><span>{tr("Sort")}</span><select value={sort} onChange={e=>setSort(e.target.value)} aria-label={tr("Sort")}>{SORTS.map(([k,l])=><option key={k} value={k}>{tr(l)}</option>)}</select></label>
       </div>
     </div>
     <div className={cx("pageBody libraryBody",dragOver&&"dragOver")} {...dropProps}>
-      {dragOver&&<div className="dropOverlay">{uploadLocked?deniedMessage("file_upload"):"Eliberează pentru a adăuga fișierele în Bibliotecă"}</div>}
-      {loadError&&<div className="inlineError" role="alert">{loadError} <button className="linkBtn" onClick={()=>{setLoading(true);load()}}>Reîncearcă</button></div>}
-      {uploading>0&&<div className="toolStatus" role="status">Se încarcă {plural(uploading,"fișier","fișiere")}… pentru fișiere mari poate dura.</div>}
-      {loading?<div className="emptyState"><HardDrive size={30}/>Se încarcă biblioteca…</div>:!visible.length?<div className="emptyState"><HardDrive size={30}/>{all.length?"Niciun fișier nu corespunde filtrului.":<span>Biblioteca este goală. Trage fișiere aici sau apasă „Adaugă fișiere”.</span>}</div>:
+      {dragOver&&<div className="dropOverlay">{uploadLocked?deniedMessage("file_upload"):tr("Drop to add the files to the Library")}</div>}
+      {loadError&&<div className="inlineError" role="alert">{loadError} <button className="linkBtn" onClick={()=>{setLoading(true);load()}}>{tr("Try again")}</button></div>}
+      {uploading>0&&<div className="toolStatus" role="status">{uploading===1?tr("Uploading 1 file… big files can take a while."):tr("Uploading {n} files… big files can take a while.",{n:uploading})}</div>}
+      {loading?<div className="emptyState"><HardDrive size={30}/>{tr("Loading the Library…")}</div>:!visible.length?<div className="emptyState"><HardDrive size={30}/>{all.length?tr("No file matches the filter."):<span>{tr("The Library is empty. Drag files here or press «Add files».")}</span>}</div>:
       <div className="libGrid">{visible.map(x=>{
         if(x.isDesign)return <div className="libCard design" key={"d"+x.id}>
-          <button className="libThumb" onClick={()=>onOpenDesign?.(x.id)} aria-label={`Deschide designul ${x.name}`}><Thumb x={x}/></button>
-          <div className="libInfo"><b title={x.name}>{x.name}</b><small>Design · {DESIGN_KINDS[x.kind]||"Design"} · {plural(x.versionCount||1,"versiune","versiuni")} · {shortDate(x.createdAt)}</small></div>
-          <div className="libActions"><button className="smallBtn" onClick={()=>onOpenDesign?.(x.id)}><Palette size={13}/> Deschide în Design</button></div>
+          <button className="libThumb" onClick={()=>onOpenDesign?.(x.id)} aria-label={tr("Open the design {name}",{name:x.name})}><Thumb x={x}/></button>
+          <div className="libInfo"><b title={x.name}>{x.name}</b><small>Design · {tr(DESIGN_KINDS[x.kind]||"Design")} · {(x.versionCount||1)===1?tr("1 version"):tr("{n} versions",{n:x.versionCount})} · {shortDate(x.createdAt)}</small></div>
+          <div className="libActions"><button className="smallBtn" onClick={()=>onOpenDesign?.(x.id)}><Palette size={13}/> {tr("Open in Design")}</button></div>
         </div>;
         const status=libraryCategory(x)==="document"&&TEXT_STATUS[x.textStatus];
         return <div className="libCard" key={x.id}>
-          <button className="libThumb" onClick={()=>setPreview(x)} aria-label={`Deschide previzualizarea pentru ${x.name}`}><Thumb x={x}/></button>
-          <div className="libInfo"><b title={x.name}>{x.name}</b><small>{kindLabel(mediaKind(x.mime,x.name),x.mime,x.name)} · {formatBytes(x.size)} · {shortDate(x.createdAt)}</small>{status&&<span className={cx("textStatus",status[1])}>{status[0]}</span>}</div>
+          <button className="libThumb" onClick={()=>setPreview(x)} aria-label={tr("Open the preview of {name}",{name:x.name})}><Thumb x={x}/></button>
+          <div className="libInfo"><b title={x.name}>{x.name}</b><small>{kindLabel(mediaKind(x.mime,x.name),x.mime,x.name)} · {formatBytes(x.size)} · {shortDate(x.createdAt)}</small>{status&&<span className={cx("textStatus",status[1])}>{tr(status[0])}</span>}</div>
           <div className="libActions">
-            {onAttach&&<button className="smallBtn" onClick={()=>attach(x)} disabled={!!attaching}>{attaching===x.id?"Se pregătește…":"Folosește în chat"}</button>}
-            <button className="iconOnly smallIcon" onClick={()=>setPreview(x)} aria-label={`Previzualizează ${x.name}`} title="Previzualizează"><Eye size={16}/></button>
-            <button className="iconOnly smallIcon" onClick={()=>downloadLibraryFile({libraryId:x.id,name:x.name}).catch(e=>toast(e.message))} aria-label={`Descarcă ${x.name}`} title="Descarcă"><Download size={16}/></button>
-            <button className="iconDanger" onClick={()=>remove(x)} aria-label={`Șterge ${x.name}`} title="Șterge"><Trash2 size={16}/></button>
+            {onAttach&&<button className="smallBtn" onClick={()=>attach(x)} disabled={!!attaching}>{attaching===x.id?tr("Preparing…"):tr("Use in chat")}</button>}
+            <button className="iconOnly smallIcon" onClick={()=>setPreview(x)} aria-label={tr("Preview {name}",{name:x.name})} title={tr("Preview")}><Eye size={16}/></button>
+            <button className="iconOnly smallIcon" onClick={()=>downloadLibraryFile({libraryId:x.id,name:x.name}).catch(e=>toast(e.message))} aria-label={tr("Download {name}",{name:x.name})} title={tr("Download")}><Download size={16}/></button>
+            <button className="iconDanger" onClick={()=>remove(x)} aria-label={tr("Delete {name}",{name:x.name})} title={tr("Delete")}><Trash2 size={16}/></button>
           </div>
         </div>;
       })}</div>}

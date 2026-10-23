@@ -56,10 +56,10 @@ class ErrorBoundary extends React.Component {
     if(this.state.error){
       return <div className="crashScreen">
         <div>
-          <h1>{BRAND_NAME} a întâmpinat o problemă</h1>
-          <p>Fereastra nu a putut afișa această parte a aplicației. Apasă „Reîncarcă”. Dacă problema reapare, copiază detaliile de mai jos și trimite-le administratorului aplicației.</p>
+          <h1>{tr("{brand} ran into a problem",{brand:BRAND_NAME})}</h1>
+          <p>{tr("The window could not show this part of the app. Press «Reload». If it happens again, copy the details below and send them to the app's administrator.")}</p>
           <pre>{String(this.state.error?.stack||this.state.error?.message||this.state.error)}</pre>
-          <button className="primary" onClick={()=>location.reload()}>Reîncarcă {BRAND_NAME}</button>
+          <button className="primary" onClick={()=>location.reload()}>{tr("Reload {brand}",{brand:BRAND_NAME})}</button>
         </div>
       </div>;
     }
@@ -69,7 +69,7 @@ class ErrorBoundary extends React.Component {
 
 function titleFrom(text) {
   const s = String(text || "").replace(/\s+/g, " ").trim();
-  return s.length > 48 ? `${s.slice(0,48)}…` : (s || "Conversație nouă");
+  return s.length > 48 ? `${s.slice(0,48)}…` : (s || tr("New chat"));
 }
 function messageText(m) {
   if (m?.displayText) return m.displayText;
@@ -104,30 +104,30 @@ function providerLabel(provider,model="") {
 }
 function routeTaskLabel(task) {
   return ({
-    coding:"Programare",reasoning:"Matematică / logică",legal_analysis:"Analiză juridică",
-    long_context:"Document / context lung",research:"Cercetare",creative:"Creativitate",
-    vision:"Imagine / viziune",fast:"Răspuns rapid",general:"General",manual:"Model ales manual",
-    "direct-fallback":"Rezervă automată: API direct",direct:"API direct ales manual",auto:"Combinația principală (automat)",image_generation:"Generare imagine",video_generation:"Generare video"
+    coding:"Programming",reasoning:"Maths / logic",legal_analysis:"Legal analysis",
+    long_context:"Document / long context",research:"Research",creative:"Creative",
+    vision:"Picture / vision",fast:"Quick answer",general:"General",manual:"Model chosen by hand",
+    "direct-fallback":"Automatic backup: direct API",direct:"Direct API chosen by hand",auto:"Main combination (automatic)",image_generation:"Picture generation",video_generation:"Video generation"
   })[task]||"General";
 }
 function RouteBadge({info}) {
   if(!info?.model)return null;
   const provider=providerLabel(info.provider,info.model);
   const served=info.servedBy?` → ${info.servedBy}`:"";
-  return <div className="routeBadge" title={info.servedBy?`Ai ales ${info.model}; OmniRoute a trimis întrebarea la ${info.servedBy}.`:`${BRAND_NAME} a folosit `+provider+" · "+info.model}>
-    <Sparkles size={12}/><span><b>{info.servedBy&&/\//.test(info.servedBy)?providerLabel("",info.servedBy):provider}</b><em>{info.model}{served}</em></span><small>{routeTaskLabel(info.task)}</small>
+  return <div className="routeBadge" title={info.servedBy?tr("You chose {model}; OmniRoute sent the question to {served}.",{model:info.model,served:info.servedBy}):tr("{brand} used {provider} · {model}",{brand:BRAND_NAME,provider,model:info.model})}>
+    <Sparkles size={12}/><span><b>{info.servedBy&&/\//.test(info.servedBy)?providerLabel("",info.servedBy):provider}</b><em>{info.model}{served}</em></span><small>{tr(routeTaskLabel(info.task))}</small>
   </div>;
 }
 function friendlyError(raw){
-  const msg=String(raw||"Eroare necunoscută.").trim();
+  const msg=String(raw||tr("Unknown error.")).trim();
   let friendly="";
-  if(/HTTP 429|rate.?limit|quota|too many requests/i.test(msg))friendly="Limita gratuită a providerului AI a fost atinsă. Alege alt model sau încearcă din nou mai târziu.";
-  else if(/HTTP 40[13]\b|invalid.{0,12}api.?key|unauthorized|incorrect api key/i.test(msg))friendly="Cheia API a providerului este greșită sau nu are acces la acest model.";
-  else if(/timeout|timed out|TimeoutError/i.test(msg))friendly="Providerul AI nu a răspuns la timp. Încearcă din nou.";
-  else if(/failed to fetch|networkerror|load failed/i.test(msg))friendly=`Nu pot contacta serviciul ${BRAND_NAME}. Verifică dacă aplicația rulează și conexiunea la internet.`;
-  else if(/^Niciun model selectat de .{1,40}? nu a putut răspunde/i.test(msg))friendly="Niciun AI configurat nu a putut răspunde acum. Verifică modelul ales sau cheile API.";
+  if(/HTTP 429|rate.?limit|quota|too many requests/i.test(msg))friendly=tr("The AI provider's free limit was reached. Choose another model or try again later.");
+  else if(/HTTP 40[13]\b|invalid.{0,12}api.?key|unauthorized|incorrect api key/i.test(msg))friendly=tr("The provider's API key is wrong or has no access to this model.");
+  else if(/timeout|timed out|TimeoutError/i.test(msg))friendly=tr("The AI provider did not answer in time. Try again.");
+  else if(/failed to fetch|networkerror|load failed/i.test(msg))friendly=tr("Cannot reach the {brand} service. Check that the app is running and the internet connection.",{brand:BRAND_NAME});
+  else if(/^Niciun model selectat de .{1,40}? nu a putut răspunde/i.test(msg))friendly=tr("None of the configured AIs could answer now. Check the chosen model or the API keys.");
   if(!friendly)return msg;
-  return `${friendly}\n\n_Detalii tehnice: ${msg.slice(0,600)}_`;
+  return `${friendly}\n\n_${tr("Technical details: {details}",{details:msg.slice(0,600)})}_`;
 }
 
 function safeFileTitle(value){return String(value||`${BRAND_NAME}`).replace(/[\\/:*?"<>|]+/g," ").replace(/\s+/g," ").trim().slice(0,90)||`${BRAND_NAME}`;}
@@ -379,7 +379,7 @@ function Sidebar({open,setOpen,user,search,setSearch,projects,assistants,convers
   const searchResults=useMemo(()=>{
     if(!searchQuery)return [];
     return conversations.map(c=>{
-      const title=String(c.title||"Conversație");
+      const title=String(c.title||tr("Chat"));
       const titleHit=title.toLowerCase().includes(searchQuery);
       let snippet="",matchedAt=0;
       for(const m of c.messages||[]){
@@ -598,10 +598,10 @@ function CopyMessageButton({message,className=""}) {
   useEffect(()=>()=>clearTimeout(timer.current),[]);
   async function copy(){
     const ok=await writeClipboardText(messageText(message));
-    if(!ok){toast("Nu am putut copia textul în clipboard.");return;}
+    if(!ok){toast(tr("The text could not be copied to the clipboard."));return;}
     setCopied(true);clearTimeout(timer.current);timer.current=setTimeout(()=>setCopied(false),1200);
   }
-  return <button className={className} onClick={copy} title={copied?"Copiat":"Copiază mesajul"} aria-label="Copiază mesajul">{copied?<Check size={15}/>:<Copy size={15}/>}</button>;
+  return <button className={className} onClick={copy} title={copied?tr("Copied"):tr("Copy the message")} aria-label={tr("Copy the message")}>{copied?<Check size={15}/>:<Copy size={15}/>}</button>;
 }
 
 // 0.7.33: the Download (PDF / Word / PowerPoint) button under each answer was removed at the Owner's request;
@@ -621,14 +621,14 @@ function MessageActions({message,title,disabled,onRegenerate,onRate}) {
       const u=new SpeechSynthesisUtterance(spoken);u.lang=lang;u.rate=1;u.onend=stopSpeaking;u.onerror=stopSpeaking;
       const voice=voiceFor(lang,window.speechSynthesis.getVoices?.()||[]);if(voice)u.voice=voice;
       speakingRef.current=true;setSpeaking(true);window.speechSynthesis.speak(u);
-    }catch{stopSpeaking();toast("Citirea cu voce nu este disponibilă pe acest calculator.")}
+    }catch{stopSpeaking();toast(tr("Reading aloud is not available on this computer."))}
   }
   return <div className="messageActions">
     <CopyMessageButton message={message}/>
-    <button onClick={speak} title={speaking?"Oprește citirea":"Citește cu voce"} aria-label={speaking?"Oprește citirea":"Citește cu voce"} aria-pressed={speaking}><Volume2 size={15}/></button>
-    <button className={message.rating===1?"selected":""} onClick={()=>onRate(1)} disabled={disabled} title="Răspuns util" aria-label="Răspuns util" aria-pressed={message.rating===1}><ThumbsUp size={15}/></button>
-    <button className={message.rating===-1?"selected":""} onClick={()=>onRate(-1)} disabled={disabled} title="Răspuns slab" aria-label="Răspuns slab" aria-pressed={message.rating===-1}><ThumbsDown size={15}/></button>
-    <button onClick={onRegenerate} disabled={disabled} title="Regenerează răspunsul" aria-label="Regenerează răspunsul"><RotateCcw size={15}/></button>
+    <button onClick={speak} title={speaking?tr("Stop reading"):tr("Read aloud")} aria-label={speaking?tr("Stop reading"):tr("Read aloud")} aria-pressed={speaking}><Volume2 size={15}/></button>
+    <button className={message.rating===1?"selected":""} onClick={()=>onRate(1)} disabled={disabled} title={tr("Useful answer")} aria-label={tr("Useful answer")} aria-pressed={message.rating===1}><ThumbsUp size={15}/></button>
+    <button className={message.rating===-1?"selected":""} onClick={()=>onRate(-1)} disabled={disabled} title={tr("Weak answer")} aria-label={tr("Weak answer")} aria-pressed={message.rating===-1}><ThumbsDown size={15}/></button>
+    <button onClick={onRegenerate} disabled={disabled} title={tr("Regenerate the answer")} aria-label={tr("Regenerate the answer")}><RotateCcw size={15}/></button>
   </div>;
 }
 
@@ -645,14 +645,16 @@ function GeneratedAttachment({attachment}) {
   if(media){
     return <div className={cx("generatedMedia",kind)}>
       {viewer}
-      {src?(kind==="image"?<img src={src} alt={attachment.name||`Imagine generată de ${BRAND_NAME}`} className="zoomable" onClick={()=>setViewing(true)} title="Deschide pe tot ecranul"/>:kind==="video"?<video controls preload="metadata" src={src}/>:<audio controls preload="metadata" src={src}/>)
-        :<div className="mediaPlaceholder">{failed?"Previzualizarea nu este disponibilă. Fișierul a fost probabil șters din Bibliotecă.":"Se încarcă previzualizarea…"}</div>}
-      <div className="generatedMediaBar"><span><b>{attachment.name}</b><small>{(attachment.mimeType||kind).replace(/^.*\//,"").toUpperCase()} · {formatBytes(attachment.size)}{attachment.provider?` · ${attachment.provider}`:""}</small></span><button onClick={()=>setViewing(true)} title="Deschide" aria-label={"Deschide "+(attachment.name||"fișierul")}><Maximize2 size={15}/></button><button onClick={download} disabled={downloading}><Download size={17}/> {downloading?"Se descarcă…":"Descarcă"}</button></div>
+      {src?(kind==="image"?<img src={src} alt={attachment.name||tr("Picture made by {brand}",{brand:BRAND_NAME})} className="zoomable" onClick={()=>setViewing(true)} title={tr("Open full screen")}/>:kind==="video"?<video controls preload="metadata" src={src}/>:<audio controls preload="metadata" src={src}/>)
+        :<div className="mediaPlaceholder">{failed?tr("The preview is not available. The file was probably deleted from the Library."):tr("Loading the preview…")}</div>}
+      <div className="generatedMediaBar"><span><b>{attachment.name}</b><small>{(attachment.mimeType||kind).replace(/^.*\//,"").toUpperCase()} · {formatBytes(attachment.size)}{attachment.provider?` · ${attachment.provider}`:""}</small></span><button onClick={()=>setViewing(true)} title={tr("Open")} aria-label={tr("Open {name}",{name:attachment.name||tr("the file")})}><Maximize2 size={15}/></button><button onClick={download} disabled={downloading}><Download size={17}/> {downloading?tr("Downloading…"):tr("Download")}</button></div>
     </div>;
   }
   const openable=canView(attachment);
-  // A generated document (PDF, Word, Excel, PowerPoint…): the card downloads it; "Deschide" shows it without downloading.
-  return <div className="generatedFile">{viewer}<button className="generatedDownload" onClick={download} disabled={downloading} title={"Descarcă "+(attachment?.name||"fișierul")}><span className="generatedFileIcon"><FileText size={20}/></span><span className="generatedFileMeta"><b>{attachment?.name}</b><small>{(attachment?.format||attachment?.name?.split(".").pop()||"FIȘIER").toUpperCase()} · {formatBytes(attachment?.size)}</small></span><span className="generatedDownloadAction"><Download size={18}/><em>{downloading?"Se descarcă…":"Descarcă"}</em></span></button>{openable&&<button className="generatedOpen" onClick={()=>setViewing(true)} title={"Deschide "+(attachment?.name||"fișierul")} aria-label="Deschide fără descărcare"><Eye size={18}/></button>}</div>;
+  // 0.7.34: a generated document (PDF, Word, Excel, PowerPoint…) opens inside the app when the card is clicked, so it can
+  // be looked at before downloading; the download is the button on the right.
+  const kindLabel=(attachment?.format||attachment?.name?.split(".").pop()||"FILE").toUpperCase();
+  return <div className="generatedFile">{viewer}<button className="generatedDownload" onClick={openable?()=>setViewing(true):download} disabled={!openable&&downloading} title={openable?tr("Open {name}",{name:attachment?.name||tr("the file")}):tr("Download {name}",{name:attachment?.name||tr("the file")})}><span className="generatedFileIcon"><FileText size={20}/></span><span className="generatedFileMeta"><b>{attachment?.name}</b><small>{kindLabel} · {formatBytes(attachment?.size)}</small></span><span className="generatedDownloadAction">{openable?<><Eye size={18}/><em>{tr("Open")}</em></>:<><Download size={18}/><em>{downloading?tr("Downloading…"):tr("Download")}</em></>}</span></button>{openable&&<button className="generatedOpen" onClick={download} disabled={downloading} title={tr("Download {name}",{name:attachment?.name||tr("the file")})} aria-label={tr("Download {name}",{name:attachment?.name||tr("the file")})}>{downloading?<LoaderCircle size={18} className="spin"/>:<Download size={18}/>}</button>}</div>;
 }
 
 function MediaAttachment({attachment}) {
@@ -662,27 +664,27 @@ function MediaAttachment({attachment}) {
   const [viewing,setViewing]=useState(false);
   async function download(){try{await downloadLibraryFile(attachment)}catch(e){toast(e.message)}}
   const viewer=viewing&&<FileViewer file={attachment} onClose={()=>setViewing(false)}/>;
-  if(!isMedia)return <span className="fileChip">{viewer}<Paperclip size={12}/>{attachment?.name}{attachment?.libraryId&&canView(attachment)&&<button onClick={()=>setViewing(true)} title="Deschide" aria-label={`Deschide ${attachment?.name||"fișierul"}`}><Eye size={12}/></button>}{attachment?.libraryId&&<button onClick={download} title="Descarcă" aria-label={`Descarcă ${attachment?.name||"fișierul"}`}><Download size={12}/></button>}</span>;
+  if(!isMedia)return <span className="fileChip">{viewer}<Paperclip size={12}/>{attachment?.name}{attachment?.libraryId&&canView(attachment)&&<button onClick={()=>setViewing(true)} title={tr("Open")} aria-label={tr("Open {name}",{name:attachment?.name||tr("the file")})}><Eye size={12}/></button>}{attachment?.libraryId&&<button onClick={download} title={tr("Download")} aria-label={tr("Download {name}",{name:attachment?.name||tr("the file")})}><Download size={12}/></button>}</span>;
   const Icon=kind==="audio"?Volume2:kind==="video"?Play:ImageIcon;
   return <div className={cx("messageMedia",kind)}>
     {viewer}
-    <div className="messageMediaHead"><span><Icon size={15}/><b>{attachment.name}</b></span><button title="Deschide" aria-label={`Deschide ${attachment.name}`} onClick={()=>setViewing(true)}><Maximize2 size={15}/></button><button title="Descarcă" aria-label={`Descarcă ${attachment.name}`} onClick={download}><Download size={15}/></button></div>
+    <div className="messageMediaHead"><span><Icon size={15}/><b>{attachment.name}</b></span><button title={tr("Open")} aria-label={tr("Open {name}",{name:attachment.name})} onClick={()=>setViewing(true)}><Maximize2 size={15}/></button><button title={tr("Download")} aria-label={tr("Download {name}",{name:attachment.name})} onClick={download}><Download size={15}/></button></div>
     {src?(kind==="image"?<img src={src} alt={attachment.name} className="zoomable" onClick={()=>setViewing(true)}/>:kind==="audio"?<audio controls preload="metadata" src={src}/>:<video controls preload="metadata" src={src}/>)
-      :<div className="mediaPlaceholder small">{failed?"Fișierul nu mai este disponibil în Bibliotecă.":"Se încarcă…"}</div>}
-    {attachment.transcript&&<small>Pista audio a fost transcrisă pentru {BRAND_NAME}.</small>}
+      :<div className="mediaPlaceholder small">{failed?tr("The file is no longer in the Library."):tr("Loading…")}</div>}
+    {attachment.transcript&&<small>{tr("The audio track was transcribed for {brand}.",{brand:BRAND_NAME})}</small>}
   </div>;
 }
 
 function ThinkingActivity({stage,steps=[]}) {
   const [open,setOpen]=useState(false);
   const visible=(steps.length?steps:[stage]).filter(Boolean);
-  const current=stage||visible.at(-1)||"Pregătește răspunsul…";
+  const current=stage||visible.at(-1)||tr("Preparing the answer…");
   function iconFor(text){
     const t=String(text||"").toLowerCase();
-    if(/memorie|context/.test(t))return <Brain size={16}/>;
-    if(/fișier|document|pdf|docx|pptx/.test(t))return <FileText size={16}/>;
-    if(/imagine|video|media/.test(t))return <ImageIcon size={16}/>;
-    if(/web|internet|verific/.test(t))return <Globe2 size={16}/>;
+    if(/memorie|memory|context/.test(t))return <Brain size={16}/>;
+    if(/fișier|file|document|pdf|docx|pptx|xlsx/.test(t))return <FileText size={16}/>;
+    if(/imagine|picture|image|video|media/.test(t))return <ImageIcon size={16}/>;
+    if(/web|internet|verific|check/.test(t))return <Globe2 size={16}/>;
     return <Sparkles size={16}/>;
   }
   return <div className={cx("thinkingActivity",open&&"open")} aria-live="polite">
@@ -696,7 +698,7 @@ function ThinkingActivity({stage,steps=[]}) {
       {visible.map((x,i)=><div key={i} className={cx("thinkingActivityStep",i===visible.length-1&&"active")}>
         <span>{iconFor(x)}</span><b>{x}</b>
       </div>)}
-      <small>Se afișează doar etapele de lucru, nu raționamentul intern al modelului.</small>
+      <small>{tr("Only the work steps are shown, not the model's internal reasoning.")}</small>
     </div>}
   </div>;
 }
@@ -770,7 +772,7 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
       selection
     });
   }
-  async function copyValue(value){if(!value)return;const ok=await writeClipboardText(value);if(!ok)toast("Nu am putut copia textul în clipboard.");setContextMenu(null)}
+  async function copyValue(value){if(!value)return;const ok=await writeClipboardText(value);if(!ok)toast(tr("The text could not be copied to the clipboard."));setContextMenu(null)}
   async function runCodeValue(){
     if(!contextMenu?.codeText||running)return;
     setRunning(true);
@@ -778,8 +780,8 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
       const d=await api("/api/tools/code/run",{method:"POST",body:JSON.stringify({language:contextMenu.language||"javascript",code:contextMenu.codeText})});
       const r=d.data||{};
       const report=[`Rezultat real de rulare ${BRAND_NAME}:`,`Limbaj: ${r.language||contextMenu.language}`,`Cod de ieșire: ${r.code}`,r.timedOut?"Timp depășit: DA":"Timp depășit: NU",r.stdout?`STDOUT:\n${r.stdout}`:"STDOUT: (gol)",r.stderr?`STDERR:\n${r.stderr}`:"STDERR: (gol)"].join("\n");
-      onCodeResult?.(report);setContextMenu(null);toast("Codul a fost rulat. Rezultatul a fost pus în caseta de mesaj.","ok");
-    }catch(e){toast("Rulare cod: "+e.message)}
+      onCodeResult?.(report);setContextMenu(null);toast(tr("The code ran. The result was put in the message box."),"ok");
+    }catch(e){toast(tr("Run code: {error}",{error:e.message}))}
     finally{setRunning(false)}
   }
   if(!conversation||!conversation.messages?.length)return <Welcome user={user} recentTitle={recentTitle}/>;
@@ -799,19 +801,19 @@ function ConversationView({conversation,busy,busyStage,busySteps,onRegenerate,on
           {questions.pending?<QuestionsPending/>:<QuestionCard key={m.id||i} questions={questions.questions} answeredWith={nextUser?messageText(nextUser):null} disabled={busy} onSubmit={onAnswer}/>}
           {questions.after?.trim()&&<Markdown text={questions.after}/>}
         </>:text&&<Markdown text={text}/>}
-        {(m.needsVideoSetup||(m.mediaGenerationError&&m.mediaKind==="video"&&/Setări\s*→\s*Video/.test(text)))&&<button className="secondary videoSetupButton" onClick={()=>onOpenSettings?.("video")}><Settings size={15}/> Deschide Setări → Video</button>}
-        {m.stopped&&<div className="stoppedNote">{text?"Răspunsul a fost oprit înainte de final.":"Răspunsul a fost oprit."}</div>}
+        {(m.needsVideoSetup||(m.mediaGenerationError&&m.mediaKind==="video"&&/Setări\s*→\s*Video/.test(text)))&&<button className="secondary videoSetupButton" onClick={()=>onOpenSettings?.("video")}><Settings size={15}/> {tr("Open Settings → Video")}</button>}
+        {m.stopped&&<div className="stoppedNote">{text?tr("The answer was stopped before the end."):tr("The answer was stopped.")}</div>}
         {m.attachments?.length>0&&<div className="generatedFiles">{m.attachments.map((a,j)=><GeneratedAttachment key={a.id||j} attachment={a}/>)}</div>}
         {!m.streaming&&text&&<MessageActions message={m} title={conversation.title} disabled={busy} onRegenerate={()=>onRegenerate(i,i<lastIndex)} onRate={v=>onRate(i,v)}/>}
-        {!m.streaming&&!text&&(m.mediaKind||m.stopped)&&<div className="messageActions"><button onClick={()=>onRegenerate(i,i<lastIndex)} disabled={busy} title={m.attachments?.length?"Generează din nou":"Încearcă din nou"} aria-label={m.attachments?.length?"Generează din nou":"Încearcă din nou"}><RotateCcw size={15}/></button></div>}
+        {!m.streaming&&!text&&(m.mediaKind||m.stopped)&&<div className="messageActions"><button onClick={()=>onRegenerate(i,i<lastIndex)} disabled={busy} title={m.attachments?.length?tr("Generate again"):tr("Try again")} aria-label={m.attachments?.length?tr("Generate again"):tr("Try again")}><RotateCcw size={15}/></button></div>}
       </div></div>;
     })}
     {busy&&<ThinkingActivity stage={busyStage} steps={busySteps}/>}
     {contextMenu&&<div className="copyContextMenu" role="menu" style={{left:contextMenu.x,top:contextMenu.y}} onClick={e=>e.stopPropagation()}>
-      {contextMenu.codeText&&<button role="menuitem" onClick={()=>copyValue(contextMenu.codeText)}><Copy size={15}/><span><b>Copiază codul</b><small>Doar blocul de cod selectat</small></span></button>}
-      {canRunCode&&contextMenu.codeText&&<button role="menuitem" onClick={runCodeValue} disabled={running}><Play size={15}/><span><b>{running?"Se rulează…":"Rulează / testează codul"}</b><small>Owner · {contextMenu.language==="python"?"Python":"Node.js"} · rezultat real</small></span></button>}
-      {contextMenu.selection&&<button role="menuitem" onClick={()=>copyValue(contextMenu.selection)}><Copy size={15}/><span><b>Copiază selecția</b><small>Textul pe care l-ai selectat</small></span></button>}
-      <button role="menuitem" onClick={()=>copyValue(contextMenu.messageText)}><Copy size={15}/><span><b>Copiază mesajul</b><small>Mesajul complet</small></span></button>
+      {contextMenu.codeText&&<button role="menuitem" onClick={()=>copyValue(contextMenu.codeText)}><Copy size={15}/><span><b>{tr("Copy the code")}</b><small>{tr("Only the selected code block")}</small></span></button>}
+      {canRunCode&&contextMenu.codeText&&<button role="menuitem" onClick={runCodeValue} disabled={running}><Play size={15}/><span><b>{running?tr("Running…"):tr("Run / test the code")}</b><small>Owner · {contextMenu.language==="python"?"Python":"Node.js"} · {tr("real result")}</small></span></button>}
+      {contextMenu.selection&&<button role="menuitem" onClick={()=>copyValue(contextMenu.selection)}><Copy size={15}/><span><b>{tr("Copy the selection")}</b><small>{tr("The text you selected")}</small></span></button>}
+      <button role="menuitem" onClick={()=>copyValue(contextMenu.messageText)}><Copy size={15}/><span><b>{tr("Copy the message")}</b><small>{tr("The whole message")}</small></span></button>
     </div>}
   </div>;
 }
@@ -822,7 +824,7 @@ function TrayChip({attachment,onRemove}) {
   const Icon=attachment.type==="audio"?Volume2:attachment.type==="video"?Play:attachment.type==="image"?ImageIcon:Paperclip;
   return <span className={cx(attachment.type==="stored"&&"unsupported")} title={attachment.type==="stored"?attachment.part?.text:attachment.name}>
     {src?<img className="trayThumb" src={src} alt=""/>:<Icon size={13}/>} {attachment.name}
-    <button onClick={onRemove} aria-label={`Elimină ${attachment.name}`} title="Elimină"><X size={13}/></button>
+    <button onClick={onRemove} aria-label={tr("Remove {name}",{name:attachment.name})} title={tr("Remove")}><X size={13}/></button>
   </span>;
 }
 
@@ -992,11 +994,11 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
       if(!mountedRef.current)return;
       if(!(failed&&failed!=="no-speech"&&failed!=="aborted"&&!heard&&!stoppedRef.current&&failed!=="not-allowed"))setRecording(false);
       if(failed&&failed!=="no-speech"&&failed!=="aborted"){
-        if(failed==="not-allowed"){toast("Microfonul este blocat. Permite accesul la microfon în browser.");return;}
+        if(failed==="not-allowed"){toast(tr("The microphone is blocked. Allow microphone access in the browser."));return;}
         // Text already heard is kept for the user to check; it is not sent half-finished.
-        if(heard){toast("Recunoașterea vocală s-a oprit; verifică textul și trimite-l.","info");return;}
+        if(heard){toast(tr("Voice recognition stopped; check the text and send it."),"info");return;}
         // The browser cannot recognise speech here (no connection to its service…): record instead, unless the user already stopped.
-        if(stoppedRef.current){toast("Recunoașterea vocală nu a mers. Apasă microfonul și încearcă din nou.");return;}
+        if(stoppedRef.current){toast(tr("Voice recognition did not work. Press the microphone and try again."));return;}
         startRecorder();return;
       }
       finishVoice(heard);
@@ -1007,13 +1009,13 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
   async function startRecorder(){
     startingRef.current=true;
     try{
-      if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)throw new Error("Browserul nu poate înregistra sunet.");
+      if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)throw new Error(tr("The browser cannot record sound."));
       const stream=await navigator.mediaDevices.getUserMedia({audio:true});streamRef.current=stream;chunksRef.current=[];
       const mime=["audio/webm;codecs=opus","audio/webm","audio/ogg;codecs=opus","audio/mp4"].find(x=>window.MediaRecorder?.isTypeSupported?.(x))||"";
       const rec=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);recorderRef.current=rec;
       const stopTracks=()=>{try{stream.getTracks().forEach(t=>t.stop())}catch{};streamRef.current=null;};
       rec.ondataavailable=e=>{if(e.data?.size)chunksRef.current.push(e.data)};
-      rec.onerror=()=>{setRecording(false);stopTracks();toast("Înregistrarea vocală a eșuat.")};
+      rec.onerror=()=>{setRecording(false);stopTracks();toast(tr("The voice recording failed."))};
       rec.onstop=async()=>{
         stopTracks();recorderRef.current=null;
         if(!mountedRef.current)return;
@@ -1021,8 +1023,8 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
         let text="",failedTranscript=true;
         try{
           const blob=new Blob(chunksRef.current,{type:rec.mimeType||"audio/webm"});
-          if(!blob.size)throw new Error("Înregistrarea este goală.");
-          const audio=await new Promise((ok,no)=>{const fr=new FileReader();fr.onload=()=>ok(String(fr.result).split(",")[1]||"");fr.onerror=()=>no(new Error("Nu pot citi înregistrarea."));fr.readAsDataURL(blob)});
+          if(!blob.size)throw new Error(tr("The recording is empty."));
+          const audio=await new Promise((ok,no)=>{const fr=new FileReader();fr.onload=()=>ok(String(fr.result).split(",")[1]||"");fr.onerror=()=>no(new Error(tr("Cannot read the recording.")));fr.readAsDataURL(blob)});
           const d=await api("/api/transcribe",{method:"POST",body:JSON.stringify({audio,mime:blob.type,language:speechLocale().slice(0,2)})});
           text=String(d?.text||"").trim();
           if(text&&mountedRef.current)setDraft(v=>(v?v.replace(/\s+$/,"")+" ":"")+text);
@@ -1033,7 +1035,7 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
       rec.start();setRecording(true);startingRef.current=false;
     }catch(e){
       startingRef.current=false;setRecording(false);
-      toast(/denied|permission|NotAllowed/i.test(String(e?.name||e?.message))?"Accesul la microfon a fost refuzat. Permite microfonul în browser.":"Microfonul nu este disponibil: "+friendlyError(e.message));
+      toast(/denied|permission|NotAllowed/i.test(String(e?.name||e?.message))?tr("Microphone access was refused. Allow the microphone in the browser."):tr("The microphone is not available: {error}",{error:friendlyError(e.message)}));
     }
   }
   async function mic(){
@@ -1047,7 +1049,7 @@ function Composer({centered,draft,setDraft,onSend,onStop,busy,attachments,setAtt
   }
   const hasContent=!!draft.trim()||attachments.some(a=>a.part||a.parts?.length);
   draftRef.current=draft;
-  useEffect(()=>{if(autoSendRef.current&&!transcribing&&!recording&&draft.trim()){if(busy){toast("Textul vocal e în câmp; trimite-l când AI-ul termină răspunsul.","info");autoSendRef.current=false;return;}autoSendRef.current=false;trySend();}},[draft,transcribing,voiceTick]);
+  useEffect(()=>{if(autoSendRef.current&&!transcribing&&!recording&&draft.trim()){if(busy){toast(tr("The spoken text is in the box; send it when the AI finishes its answer."),"info");autoSendRef.current=false;return;}autoSendRef.current=false;trySend();}},[draft,transcribing,voiceTick]);
   function trySend(){
     if(busy)return;
     if(uploading){toast(tr("Wait for the file to finish uploading."),"info");return;}
@@ -2190,8 +2192,7 @@ function App() {
             const exported=await api("/api/export",{method:"POST",body:JSON.stringify({format,title:safeFileTitle(working.title||`${BRAND_NAME} - fișier`),content,...(sourceName?{fileName:sourceName.replace(/\.[^.]+$/,"")+" (edited)"}:{})})});
             if(exported?.data){
               files=[exported.data];
-              // The file the user asked for is downloaded right away; the card under the answer stays for later.
-              downloadGeneratedFile(exported.data).catch(()=>{});
+              // 0.7.34: no automatic download any more; the card under the answer opens the file inside the app first.
             }
           }catch(err){note+=`\n\n_Fișierul ${format.toUpperCase()} nu a putut fi creat: ${err.message}. Poți încerca din nou cu butoanele de sub răspuns._`}
         }

@@ -1,0 +1,440 @@
+881|IA a pagamento modificata
+882|IA a pagamento · utenti
+883|IA a pagamento: {error}
+884|A pagamento per uso, con la chiave o i permessi dati dall'Owner
+885|A pagamento per uso, con i permessi dati dall'Owner
+886|A pagamento per uso; la stessa chiave fa anche immagini e video con Grok Imagine. Attivalo con «Consenti anche le API a pagamento».
+887|Pannello
+888|Parte {n}
+889|Password
+890|Password cambiata. Gli altri dispositivi devono accedere di nuovo.
+891|Prima incolla la chiave.
+892|Incolla qui la chiave
+893|Pagamenti
+894|Pagamenti, ordini, catalogo e clienti.
+895|In attesa
+896|Prestazioni
+897|Permessi
+898|Permessi modificati
+899|Permessi: {error}
+900|Astrologo IA personale
+901|Telefono
+902|Notifiche sul telefono
+903|Scegli un assistente per una nuova conversazione.
+904|Scegline uno dall'elenco o crea il tuo da un'API. Poi scrivi il suo nome in chat e {brand} lo usa.
+905|Scegli chi fa l'immagine sotto la casella del messaggio, oppure Automatico: il migliore disponibile.
+906|Scegli chi fa il video sotto la casella del messaggio, oppure Automatico: prima quelli gratuiti, poi Gemini Veo, Grok Imagine e le altre chiavi (a pagamento, se le consenti nelle Impostazioni).
+907|Immagine
+908|Immagine / visione
+909|Immagine HD
+910|Generazione di immagini
+911|Generazione di immagini, API, modelli e prova automatica di un altro fornitore.
+912|Immagine fatta da
+913|Immagine fatta da {brand}
+914|Creazione di immagini
+915|Modalità immagine: il prossimo messaggio crea un'immagine. Premi di nuovo Immagine per uscire.
+916|Modello immagini
+917|Fornitori di immagini
+918|Immagine: il prossimo messaggio crea un'immagine.
+919|Immagini
+920|Immagini e video (non generati nel test, quindi non si usa credito):
+921|Immagini nella Libreria
+922|Immagini fatte da
+923|Fissa
+924|Fissa questo
+925|Fissato — premi per sbloccare
+926|Luogo da cercare
+927|Piano della settimana
+928|Pianifica la mia settimana
+929|Piano iniziato
+930|Pianificazione della struttura…
+931|Piani e crediti non sono ancora attivi: ogni account funziona come prima (il livello gratuito e le regole dell'Owner).
+932|Piani e crediti extra
+933|Gioca a scacchi e impara la strategia
+934|Elenco dei plugin
+935|Sezioni dei plugin
+936|Configurazione del plugin
+937|Plugin
+938|Chiave API di Pollinations
+939|Modello Pollinations
+940|Modello video di Pollinations
+941|Popolari
+942|Poster
+943|Database Postgres: interrogare, creare branch e gestire.
+944|Post per Instagram, Facebook, LinkedIn o TikTok.
+945|Preferenze
+946|Modello preferito
+947|Preparazione della risposta…
+948|Preparazione delle domande…
+949|Preparazione…
+950|Presentazione
+951|Premi Condividi (il quadrato con la freccia verso l'alto), oppure ••• → Condividi.
+952|Premi una volta il microfono per iniziare a registrare e di nuovo per fermare. {brand} scrive quello che hai detto e lo invia.
+953|Anteprima
+954|Larghezza dell'anteprima
+955|Anteprima di {name}
+956|Anteprima: {name}
+957|Ultimi 30 giorni
+958|Ultimi 7 giorni
+959|Accesso prioritario nelle ore di punta
+960|Database Prisma Postgres e migrazioni.
+961|Privacy
+962|Privacy e dati
+963|Analisi di prodotto, flag ed esperimenti.
+964|Product management
+965|Produttività
+966|Professionale
+967|Email professionale
+968|Profilo
+969|Foto del profilo
+970|Foto del profilo rimossa.
+971|Foto del profilo salvata.
+972|Profilo salvato.
+973|Programmazione
+974|Linguaggi di programmazione
+975|Programmazione con Codex e Claude Code: scegli il modello e inizia una conversazione di codice.
+976|Progetti
+977|Progetti e lavoro
+978|Progetti, database, SQL e log.
+979|Progetti, deploy e log.
+980|Progetti, attività e CRM
+981|Correttore
+982|Proposta fatta (nessun controllo della sintassi per questo tipo di file).
+983|Protezione attiva: {brand} prova direttamente Cloudflare e Pollinations. Hugging Face, Together, OpenAI, Stability, fal.ai e Replicate sono bloccati se potessero usare credito a pagamento. Per OpenRouter il prezzo viene controllato prima della chiamata.
+984|Protegge i dati personali
+985|Progettazione di proteine e molecole
+986|Fornitori
+987|Fornitori usati in chat
+988|Qualità
+989|Domande sui tuoi dati di salute
+990|Importi rapidi
+991|Risposta rapida
+992|Leggi ad alta voce
+993|Leggere e modificare fogli di calcolo.
+994|Leggere e organizzare le tue email Gmail
+995|Leggere, scrivere e modificare documenti.
+996|La lettura ad alta voce non è disponibile su questo computer.
+997|Lettura della richiesta…
+998|Lettura del testo…
+999|Pronti all'uso
+1000|Risultato reale dell'esecuzione {brand}:
+1001|Internet in tempo reale
+1002|Recenti
+1003|Ricollega in OmniRoute
+1004|Registra la tua voce
+1005|Aggiorna
+1006|Aggiorna l'elenco dei modelli
+1007|Aggiornamento dell'elenco…
+1008|Rigenera la risposta
+1009|Rigenerare sostituisce questa risposta ed elimina i messaggi successivi. Continuare?
+1010|Rifiutato
+1011|Utenti rifiutati
+1012|Ricarica {brand}
+1013|Rimuovi
+1014|Rimuovere i dati personali esposti
+1015|Togli dal progetto
+1016|Rimuovere il plugin «{name}»?
+1017|Rimuovi {name}
+1018|Rinomina
+1019|Rinomina il file
+1020|Rinomina: {error}
+1021|Token API di Replicate
+1022|Modello Replicate
+1023|Modello video di Replicate
+1024|Repository, issue, pull request e file.
+1025|Ricerca
+1026|Ricerca e scienza
+1027|Risorse per studiare il Corano
+1028|Ripristina dall'archivio
+1029|Ripristina la chat
+1030|Ripristina la chat {name}
+1031|Risultato
+1032|Risultati
+1033|Riprova
+1034|Esegui / prova il codice
+1035|Esegui modelli di IA su Replicate.
+1036|Esecuzione del codice: {error}
+1037|Cronologia delle esecuzioni
+1038|Esegui ora
+1039|Gestisci il tuo negozio online
+1040|In esecuzione
+1041|L'esecuzione del codice e SSH sono solo per l'Owner.
+1042|L'esecuzione del codice, GitHub Solve e SSH sono solo per l'account Owner (vedi «Email dell'Owner su questo PC»).
+1043|Esecuzione…
+1044|Esegue attività programmate e controlli all'ora che scegli.
+1045|Ricerca SEO
+1046|Percorso della chiave privata SSH
+1047|Server SSH · indirizzo
+1048|Utente SSH
+1049|Vendite
+1050|Sabato e domenica alle {time}
+1051|Salva
+1052|Salva e fissa
+1053|Salva e prova
+1054|Salva profilo
+1055|Salva impostazioni
+1056|Salva la modifica
+1057|Salva la skill
+1058|Salvato e fissato in memoria.
+1059|Salvato.
+1060|Salvataggio della chiave e prova…
+1061|Salvataggio del plugin e prova…
+1062|Salvataggio…
+1063|Analizza il codice in cerca di problemi di sicurezza.
+1064|Programma
+1065|Programmate
+1066|Programmate (attività programmate)
+1067|Scienza
+1068|Ricerca scientifica
+1069|Scorri e scegli Aggiungi alla schermata Home, poi Aggiungi.
+1070|Cerca
+1071|Cerca su GitHub automaticamente
+1072|Cercare ed estrarre dati dal web
+1073|Cercare e leggere file e cartelle.
+1074|Cercare e leggere i file della tua azienda.
+1075|Cercare e inviare email e messaggi
+1076|Cerca app
+1077|Cerca per nome
+1078|Cerca nelle chat
+1079|Cerca un modello
+1080|Cerca un modello…
+1081|Cerca lingue
+1082|Cerca nella memoria
+1083|Cerca modelli
+1084|Cerca nelle chat passate
+1085|Cerca plugin
+1086|Cerca plugin e skill
+1087|Risultati della ricerca
+1088|Cerca nella Libreria
+1089|Cerca nell'elenco (nome, categoria)
+1090|Cerca nella libreria
+1091|Cerca nella letteratura scientifica
+1092|Cerca sul web le ultime notizie su
+1093|Cerca tra {n} lingue
+1094|Cercare, leggere e creare file.
+1095|Cercare, leggere e scrivere bozze di email.
+1096|Cercare, leggere, creare e modificare pagine e database.
+1097|Cerca su Wikipedia (rumeno, poi inglese) e riporta il riassunto dell'articolo.
+1098|Cerca informazioni attuali e fonti online.
+1099|Cerca da solo fonti aggiornate per domande su informazioni recenti, versioni e API.
+1100|Sicurezza
+1101|Analisi di sicurezza del codice
+1102|Vedi i piani
+1103|Vedi i tuoi calendari, eventi e tempo libero (per ora Google permette solo la lettura).
+1104|Seedance, Veo, Wan e altri modelli tramite la stessa API.
+1105|Scegli
+1106|Seleziona un utente.
+1107|Selezionato
+1108|Invia
+1109|Invia una notifica di prova
+1110|Invia la richiesta di accesso
+1111|Invia di nuovo il codice
+1112|Invia di nuovo il codice ({s} s)
+1113|Invia il messaggio
+1114|Server collegato ✓
+1115|Sessioni chiuse
+1116|Sessioni: {error}
+1117|Impostare lo stato «{status}» per {email}? Le sessioni attive dell'account verranno chiuse.
+1118|Impostazioni
+1119|Le impostazioni possono essere salvate solo dall'app {brand}.
+1120|Impostazioni salvate.
+1121|Più modelli di immagini con una sola chiave.
+1122|Continuiamo con «{title}»?
+1123|Istruzioni comuni del progetto
+1124|Breve e diretto
+1125|Breve descrizione
+1126|Video breve (~6 s)
+1127|Mostra altri ({n} rimasti)
+1128|Mostra o nascondi il menu
+1129|Vengono mostrati i primi 60.000 caratteri.
+1130|Mostra una notifica quando l'attività ha un risultato.
+1131|Accedi
+1132|Accedi di nuovo
+1133|Accedi di nuovo.
+1134|Accedi a {brand}
+1135|Accedi a {name} nella finestra che si è aperta, poi torna qui.
+1136|Esci
+1137|Uscire da {brand} su tutti i dispositivi, compreso questo?
+1138|Disconnetti gli altri dispositivi
+1139|Accesso
+1140|Serve l'accesso.
+1141|Uscita
+1142|Uscita in corso…
+1143|Aggiornamento del sito ({domain})
+1144|Siti e deploy.
+1145|Siti, pagine ed elementi del CMS.
+1146|Dimensione
+1147|Plugin di skill
+1148|Skill
+1149|Canali e messaggi di Slack
+1150|Post per i social
+1151|Ingegneria del software
+1152|Altro
+1153|Altro…
+1154|Ordina
+1155|Parla: il testo appare nella casella e si invia da solo
+1156|Chiave API di Stability
+1157|Motore Stability
+1158|Start
+1159|Avvia OmniRoute automaticamente
+1160|Avvia OmniRoute o aggiungi una chiave API nelle Impostazioni.
+1161|Avvia una conversazione che crea un'immagine.
+1162|Avvia {brand} con Windows
+1163|Avvio di {brand}…
+1164|Avvio…
+1165|Modelli ADMET all'avanguardia
+1166|Ancora sveglio? Finiamolo insieme.
+1167|Ferma e invia
+1168|Smetti di leggere
+1169|Ferma la risposta
+1170|Ferma la registrazione vocale
+1171|Prima ferma la registrazione vocale.
+1172|Fermata dopo errori
+1173|Fermata dall'Owner
+1174|Allenamenti di forza per Garmin
+1175|Strutture, molecole e proteine
+1176|Studente
+1177|Riuscita
+1178|Proponi un piano per la settimana che inizia: priorità, scadenze e un piccolo passo per ogni giorno.
+1179|Riassumi un documento
+1180|Riassumi il documento allegato in cinque punti chiari.
+1181|Riassunto
+1182|Riassume un testo o un documento nelle sue idee principali.
+1183|Sospendi
+1184|Sospeso
+1185|Utenti sospesi
+1186|Tablet
+1187|Letture dei tarocchi
+1188|Attività che {brand} esegue da solo all'ora che scegli.
+1189|Attività, liste, documenti e commenti.
+1190|Attività, progetti e commenti.
+1191|Amministrazione del team con crediti condivisi
+1192|Dettagli tecnici: {details}
+1193|Prova
+1194|Prova ora
+1195|Prova superata: {result}
+1196|Prova le chiavi
+1197|Prova il microfono
+1198|Prova il server
+1199|Test
+1200|Prova della connessione SSH…
+1201|Prova in corso…
+1202|Poker Texas Hold'em con l'IA
+1203|Testo dell'elemento
+1204|Testo letto per l'IA
+1205|Il fornitore di IA non ha risposto in tempo. Riprova.
+1206|È stato raggiunto il limite gratuito del fornitore di IA. Scegli un altro modello o riprova più tardi.
+1207|L'indirizzo dell'API deve essere un link completo, per esempio https://example.com/webhook.
+1208|Si apre la pagina di Google. Premi «Create API key» e copiala.
+1209|La Libreria è vuota. Trascina qui i file o premi «Aggiungi file».
+1210|Manca il Client ID OAuth.
+1211|Impossibile aprire la pagina OAuth.
+1212|L'account Owner non può essere eliminato.
+1213|L'Owner approva gli account e decide quali servizi di IA possono usare.
+1214|L'Owner decide quali modelli può usare il tuo account.
+1215|L'email dell'Owner non è valida.
+1216|Prima l'Owner deve aggiungere un'app OAuth di Asana nelle Impostazioni.
+1217|Prima l'Owner deve aggiungere un'app OAuth di Box nelle Impostazioni.
+1218|Prima l'Owner deve aggiungere un'app OAuth di Google nelle Impostazioni.
+1219|Prima l'Owner deve aggiungere un'app OAuth di HubSpot nelle Impostazioni.
+1220|Prima l'Owner deve aggiungere un'app OAuth di Lovable nelle Impostazioni.
+1221|Gli abbonamenti personali dell'Owner non possono essere dati ad altri account.
+1222|Il pulsante X nasconde l'app senza fermare i servizi.
+1223|L'account e tutti i suoi dati (chat, memoria, file, impostazioni) vengono eliminati per sempre.
+1224|L'account viene creato sul server di {brand}.
+1225|L'account viene creato su questo computer e puoi usarlo subito.
+1226|L'account non è attivo.
+1227|L'account attende l'approvazione dell'Owner.
+1228|L'account è stato creato e attende l'approvazione dell'Owner.
+1229|L'account è stato eliminato.
+1230|L'indirizzo non è valido.
+1231|La risposta continua sul server…
+1232|La risposta è stata interrotta: {error}
+1233|La risposta è stata fermata prima della fine.
+1234|La risposta è stata fermata.
+1235|Impossibile aprire l'app — {error}
+1236|Impossibile aprire l'app.
+1237|L'app si avvia da sola e può restare in background.
+1238|L'app è stata aperta.
+1239|Impossibile caricare le app: {error}
+1240|La traccia audio è stata trascritta per {brand}.
+1241|L'inizio del documento, come testo.
+1242|Il browser non può registrare l'audio.
+1243|La modifica vale per questa chat.
+1244|La modifica è stata applicata in GitHub. Commit: {commit}
+1245|Impossibile copiare il codice negli appunti.
+1246|Il codice è scaduto. Chiedine uno nuovo.
+1247|Il codice non è corretto.
+1248|Il codice è stato eseguito. Il risultato è stato messo nella casella del messaggio.
+1249|Impossibile copiare la conversazione negli appunti.
+1250|Impossibile salvare la conversazione: {error}
+1251|La conversazione è stata archiviata. La trovi in «Archiviate» nella barra laterale.
+1252|La conversazione è stata copiata negli appunti.
+1253|La conversazione è stata ripristinata.
+1254|Impossibile caricare i dati: {error}
+1255|Il giorno del mese deve essere tra 1 e 28.
+1256|Il modello predefinito
+1257|L'indirizzo email non è valido.
+1258|L'ora e la data esatte in Romania e nelle grandi città del mondo.
+1259|L'esportazione non è riuscita:
+1260|Il file non ha testo da mostrare.
+1261|Il file non è più disponibile.
+1262|Il file non è più nella Libreria.
+1263|Il file ora si chiama «{name}».
+1264|Il file viene salvato nella tua Libreria (fino a 2 GB per file)…
+1265|Il file o il messaggio è troppo grande per il servizio {brand} (HTTP 413).
+1266|Il file è stato aggiunto alla Libreria.
+1267|Il file non è stato trovato nella Libreria.
+1268|La prima pagina, come testo.
+1269|Il nome dell'header può contenere solo lettere, cifre e trattini.
+1270|Le istruzioni possono avere al massimo 8.000 caratteri.
+1271|L'intervallo deve essere tra 1 e 168 ore.
+1272|La chiave non ha funzionato: {error}
+1273|La chiave è condivisa con Immagini.
+1274|Le chiavi sono cifrate su questo PC.
+1275|Impossibile copiare le chiavi.
+1276|Le chiavi restano sul server e vengono mostrate solo mascherate.
+1277|La lingua in cui scrivo
+1278|L'ultimo aggiornamento ({when}) non è riuscito — dettagli
+1279|Impossibile aprire il link nel browser.
+1280|Impossibile aprire il link: {error}
+1281|L'account locale con questa email riceve i diritti di Owner: eseguire codice, GitHub Solve, controllare il server. Vale solo quando {brand} Cloud non è configurato. Accedi di nuovo dopo la modifica.
+1282|L'indirizzo del servizio locale non è valido. Esempio: {url}
+1283|Quelli bloccati non sono consentiti a te.
+1284|L'accesso è scaduto per: {names}. Pannello OmniRoute sul server → Providers → ogni account → Reconnect (o aggiungi una chiave API).
+1285|Impossibile inviare il messaggio: {error}
+1286|Il messaggio è vuoto.
+1287|Il microfono è bloccato. Consenti l'accesso al microfono nel browser.
+1288|Il microfono non è disponibile: {error}
+1289|Impossibile salvare il modello per la conversazione: {error}
+1290|Impossibile caricare l'elenco dei modelli: {error}
+1291|L'elenco dei modelli è vuoto.
+1292|I modelli vengono da OmniRoute e dalle API configurate sul server.
+1293|I modelli vengono da OmniRoute e dalle API configurate su questo PC.
+1294|Il nome può avere al massimo 100 caratteri.
+1295|Il nome può avere al massimo 120 caratteri.
+1296|La nuova password deve avere almeno 8 caratteri.
+1297|Gli altri dispositivi sono stati disconnessi.
+1298|La password può avere al massimo 256 caratteri.
+1299|La password può avere al massimo 72 caratteri.
+1300|La password deve avere almeno 10 caratteri.
+1301|La password deve avere almeno 8 caratteri.
+1302|Impossibile creare l'immagine: {error}
+1303|Impossibile leggere l'immagine.
+1304|L'immagine supera i 10 MB.
+1305|Il plugin è stato salvato, ma la prova non è riuscita: {error}
+1306|I plugin provengono da progetti open source (licenze MIT e Apache 2.0); ogni scheda indica l'autore e rimanda alla fonte.
+1307|Impossibile caricare i plugin: {error}
+1308|L'anteprima non è disponibile.
+1309|L'anteprima non è disponibile. Probabilmente il file è stato eliminato dalla Libreria.
+1310|Il link di anteprima non è disponibile.
+1311|Il prezzo cambia con il numero di crediti.
+1312|Impossibile copiare la proposta.
+1313|La proposta è stata copiata negli appunti.
+1314|La chiave API del fornitore è sbagliata o non ha accesso a questo modello.
+1315|La registrazione è vuota.
+1316|La richiesta non è riuscita (HTTP {status}).
+1317|L'indirizzo di ritorno da registrare presso il fornitore:
+1318|Il server controlla GitHub una volta all'ora e installa da solo la nuova versione.
+1319|Il server non ha restituito una sessione valida.
+1320|L'Owner del server deve aggiungere una chiave di IA.

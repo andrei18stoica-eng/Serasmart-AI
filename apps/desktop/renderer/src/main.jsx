@@ -254,6 +254,8 @@ function toProviderMessages(messages,extra={}){
     if(!m||!["user","assistant","system"].includes(m.role)||m.error||m.mediaGenerationError)return null;
     let content=m.content;
     if(m.role==="assistant"&&typeof content==="string"&&!content.trim()&&m.attachmentOnly)content=String(m.artifactSource||"");
+    // 0.7.30: a file the AI made shows one line in the chat; the AI still sees the file's text, so it can change it later.
+    if(m.role==="assistant"&&m.artifactSource&&(m.attachments||[]).some(x=>x?.source==="ai-export"||x?.format))content=`${String(m.content||"").split("\n")[0]}\n\n${String(m.artifactSource)}`;
     if(m.role==="assistant"&&m.mediaKind&&m.attachments?.length&&!String(content||"").trim())content=`Am generat ${m.mediaKind==="video"?"videoclipul":"imaginea"} „${m.attachments[0]?.name||"fișier"}”.`;
     const more=extra[m.id];
     if(more?.length)content=[...(Array.isArray(content)?content:(String(content||"").trim()?[{type:"text",text:String(content)}]:[])),...more];
@@ -1461,6 +1463,13 @@ function KeyField({label,name,cfg,keys,setKeys,placeholder,token=false}) {
 
 // On the web site the Owner's settings live on the server (/api/server/settings, lib/serversettings.cjs); in Windows,
 // in the app (Electron). Both answer the same shape, so the same Settings window serves both.
+// 0.7.31: where the Owner registers the OAuth app of the apps that let in only registered ones.
+const OWNER_APP_WHERE={
+  lovable:"Workspace settings → API keys & OAuth → OAuth clients → New OAuth client, type «Web server», scopes offline, projects and workspaces",
+  asana:"app.asana.com/0/my-apps → create an MCP app",
+  hubspot:"Development → MCP Connectors → Create MCP connector",
+  box:"Admin Console → Integrations → Box MCP server → Configure → Add Integration Credentials"
+};
 const WEB_SETTINGS={
   getConfig:async()=>(await api("/api/server/settings")).data,
   setConfig:async(payload)=>{const r=await api("/api/server/settings",{method:"PUT",body:JSON.stringify(payload)});return {ok:true,config:r.config};}
@@ -1631,6 +1640,18 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <ProviderHead name={tr("GitHub sign-in for everyone")} id="github-apps" cfg={cfg}>{tr("Optional: a GitHub OAuth App (GitHub → Settings → Developer settings) with this callback URL: {url}. Without it, GitHub connects with a personal token.",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
         <label>{tr("GitHub OAuth client ID")}<input value={cfg.githubClientId||""} onChange={e=>set({githubClientId:e.target.value})} placeholder="Ov23li…"/></label>
         <KeyField label={tr("GitHub OAuth client secret")} name="githubClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("Lovable sign-in for everyone")} id="lovable-apps" cfg={cfg}>{tr("Lovable lets in only OAuth apps its owner registered. Make one in Lovable ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.lovable),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Lovable OAuth client ID")}<input value={cfg.lovableClientId||""} onChange={e=>set({lovableClientId:e.target.value})}/></label>
+        <KeyField label={tr("Lovable OAuth client secret")} name="lovableClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("Asana sign-in for everyone")} id="asana-apps" cfg={cfg}>{tr("Asana lets in only OAuth apps its owner registered. Make one in Asana ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.asana),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Asana OAuth client ID")}<input value={cfg.asanaClientId||""} onChange={e=>set({asanaClientId:e.target.value})}/></label>
+        <KeyField label={tr("Asana OAuth client secret")} name="asanaClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("HubSpot sign-in for everyone")} id="hubspot-apps" cfg={cfg}>{tr("HubSpot lets in only OAuth apps its owner registered. Make one in HubSpot ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.hubspot),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("HubSpot OAuth client ID")}<input value={cfg.hubspotClientId||""} onChange={e=>set({hubspotClientId:e.target.value})}/></label>
+        <KeyField label={tr("HubSpot OAuth client secret")} name="hubspotClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("Box sign-in for everyone")} id="box-apps" cfg={cfg}>{tr("Box lets in only OAuth apps its owner registered. Make one in Box ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.box),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Box OAuth client ID")}<input value={cfg.boxClientId||""} onChange={e=>set({boxClientId:e.target.value})}/></label>
+        <KeyField label={tr("Box OAuth client secret")} name="boxClientSecret" placeholder="…" {...keyProps}/>
       </>}
       {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><h3>{tr("Pictures")}</h3><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="image" cfg={cfg} set={set} paidOff={imageCost!=="allow_paid"||cfg.imageProviderMode==="free"}/>
@@ -2151,8 +2172,12 @@ function App() {
         if(routeInfo?.model&&!routeInfo.servedBy&&typeof j?.model==="string"&&j.model&&!j.model.includes(String(routeInfo.model).split("/").pop()))routeInfo={...routeInfo,servedBy:j.model};
         const delta=j?.choices?.[0]?.delta?.content||j?.choices?.[0]?.message?.content||"";
         if(delta){
-          if(!started){started=true;setGen(convId,{stage:format?`Scrie conținutul pentru fișierul ${format.toUpperCase()}…`:"Scrie răspunsul…"})}
-          answer+=delta;working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns}:{}),content:answer,streaming:true}]};scheduleFlush();
+          if(!started){started=true;setGen(convId,{stage:format?tr("Writing your {format} file…",{format:format.toUpperCase()}):"Scrie răspunsul…"})}
+          answer+=delta;
+          // 0.7.30: a file request does not fill the chat with the file's text; the file comes as a card when it is ready.
+          const shown=format&&!/```intrebari/.test(answer)?"":answer;
+          if(format)setGen(convId,{stage:tr("Writing your {format} file… {n} words",{format:format.toUpperCase(),n:answer.trim().split(/\s+/).length})});
+          working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(toolRuns.length?{toolRuns}:{}),content:shown,streaming:true}]};scheduleFlush();
         }
       };
       const reader=r.body.getReader(),dec=new TextDecoder();let buf="";
@@ -2186,7 +2211,10 @@ function App() {
       }
       clearTimeout(flushTimer);
       const doneRuns=toolRuns.map(({args,...r})=>r);
-      working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:(answer||"Nu am primit răspuns.")+note,attachments:files,streaming:false}],updatedAt:Date.now()};
+      // The file's text stays with the message (artifactSource, used when the file is changed later); the chat shows one line.
+      const madeFile=files[0];
+      const shownText=madeFile?tr("Here is your {format} file: {name}",{format:format.toUpperCase(),name:madeFile.name||""})+note:(answer||"Nu am primit răspuns.")+note;
+      working={...working,messages:[...messages,{...assistantMessage,routeInfo,...(doneRuns.length?{toolRuns:doneRuns}:{}),content:shownText,...(madeFile?{artifactSource:answer}:{}),attachments:files,streaming:false}],updatedAt:Date.now()};
       showConversation(working);
       const saved=await saveConversation(working);
       api("/api/memory/capture",{method:"POST",body:JSON.stringify({conversationId:saved.id,userText:messageText(lastUser),assistantText:answer})}).catch(()=>{});

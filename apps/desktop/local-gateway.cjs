@@ -19,7 +19,7 @@ const { DIRECT_MODEL_DEFAULTS: MODEL_DEFAULTS } = require("./lib/providers.cjs")
 const { nextRun, validateAutomation, toBool } = require("./lib/schedule.cjs");
 const { QUESTIONS_RULE, sanitizeQuestions } = require("./lib/questions.cjs");
 const { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinList } = require("./lib/builtinplugins.cjs");
-const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill } = require("./lib/skills.cjs");
+const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill, libraryIndex, librarySkill, libraryPack } = require("./lib/skills.cjs");
 const creditsLib = require("./lib/credits.cjs");
 const { createConnectors } = require("./lib/connectors.cjs");
 const accountLib = require("./lib/accountsettings.cjs");
@@ -3901,16 +3901,31 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
 
   // Skills (0.7.18): instructions saved once and called with /name in the chat, or kept always on. Per account.
   app.get("/api/skills", auth, (req,res) => {
-    const mine=store.read().skills.filter(x=>x.userId===req.user.id).sort((a,b)=>a.name.localeCompare(b.name,"ro"));
+    const all=store.read().skills.filter(x=>x.userId===req.user.id),mine=all.filter(x=>x.kind!=="pack").sort((a,b)=>a.name.localeCompare(b.name,"ro"));
     const slugs=new Set(mine.map(x=>x.slug));
-    res.json({data:mine.map(publicSkill),templates:SKILL_TEMPLATES.map(t=>({...t,added:slugs.has(t.slug)}))});
+    res.json({data:mine.map(publicSkill),packs:all.filter(x=>x.kind==="pack").map(publicSkill),templates:SKILL_TEMPLATES.map(t=>({...t,added:slugs.has(t.slug)}))});
+  });
+  // 0.7.31: the open-source skill library. A pack (plugin) adds all its skills and counts as one skill; a single skill counts as one.
+  app.get("/api/skills/library", auth, (req,res) => {
+    const mine=store.read().skills.filter(x=>x.userId===req.user.id);
+    res.json({...libraryIndex(),added:{packs:mine.filter(x=>x.kind==="pack").map(x=>({id:x.id,pack:x.pack})),skills:mine.filter(x=>x.library).map(x=>({id:x.id,slug:x.library}))}});
+  });
+  app.post("/api/skills/library", auth, requirePermission("chat"), (req,res) => {
+    const packId=req.body?.pack,skillSlug=req.body?.skill;
+    if(packId){
+      const pack=libraryPack(packId);if(!pack)return res.status(404).json({error:"This plugin is not in the library."});
+      if(store.read().skills.some(x=>x.userId===req.user.id&&x.kind==="pack"&&x.pack===pack.id))return res.status(409).json({error:`You already added ${pack.name}.`});
+      return saveNewSkill(req,res,{kind:"pack",pack:pack.id,name:pack.name,slug:`pack:${pack.id}`});
+    }
+    const lib=librarySkill(skillSlug);if(!lib)return res.status(404).json({error:"This skill is not in the library."});
+    saveNewSkill(req,res,{library:lib.slug,name:lib.name,slug:lib.slug,description:lib.description});
   });
   function saveNewSkill(req,res,fields){
     const db=store.read(),mine=db.skills.filter(x=>x.userId===req.user.id);
     if(mine.length>=MAX_SKILLS)return res.status(400).json({error:`Poți avea cel mult ${MAX_SKILLS} skill-uri.`});
     const planMax=planLimit(req,"skills");
     if(planMax!==null&&mine.length>=planMax)return res.status(403).json({error:`Your plan includes ${planMax} skill${planMax===1?"":"s"}. Upgrade your plan to add more.`,code:"plan_upgrade",credits:{}});
-    if(mine.some(x=>x.slug===fields.slug))return res.status(409).json({error:`Ai deja un skill /${fields.slug}. Alege alt nume.`});
+    if(mine.some(x=>x.slug===fields.slug))return res.status(409).json({error:`You already have a skill /${fields.slug}. Pick another name.`});
     const item={id:crypto.randomUUID(),userId:req.user.id,enabled:true,auto:false,...fields,createdAt:Date.now()};
     db.skills.push(item);store.write(db);res.json({data:publicSkill(item)});
   }

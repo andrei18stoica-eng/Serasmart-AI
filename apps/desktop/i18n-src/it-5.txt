@@ -15,3 +15,4 @@
 1191|Abbonamento
 786|Nessun piano
 170|Torna a tutti gli account
+1117|Vedi i tuoi calendari e il tempo libero, e aggiungi, modifica o elimina eventi.

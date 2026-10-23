@@ -220,7 +220,6 @@
 1114|Zabezpečení
 1115|Bezpečnostní analýza kódu
 1116|Zobrazit tarify
-1117|Prohlížejte své kalendáře, události a volný čas (Google zatím povoluje jen čtení).
 1118|Seedance, Veo, Wan a další modely přes stejné API.
 1119|Vybrat
 1120|Vyberte uživatele.

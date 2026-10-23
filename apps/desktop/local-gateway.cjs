@@ -12,7 +12,7 @@ const { spawn } = require("child_process");
 const { createStore, renameWithRetry } = require("./lib/store.cjs");
 const { extractText } = require("./lib/extract.cjs");
 const { safeGeneratedName, EXPORT_FORMATS, createExportBytes } = require("./lib/documents.cjs");
-const { normalizeMemoryText, memoryCategory, durableMemoryCandidate, addMemory, createEmbeddingIndex, tokenize, keywordMatch } = require("./lib/memory.cjs");
+const { normalizeMemoryText, memoryCategory, durableMemoryCandidate, addMemory, createEmbeddingIndex, tokenize, keywordMatch, memoryMatches } = require("./lib/memory.cjs");
 const net = require("net");
 const { safeRequest, isBlockedAddress } = require("./lib/netguard.cjs");
 const { DIRECT_MODEL_DEFAULTS: MODEL_DEFAULTS } = require("./lib/providers.cjs");
@@ -3798,7 +3798,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
   function appsNote(apps,timeZone){
     const tz=validZone(timeZone)||validZone(getOmniConfig().timeZone)||"Europe/Bucharest";
     const now=new Intl.DateTimeFormat("en-GB",{timeZone:tz,weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date());
-    return {role:"system",content:`CONNECTED APPS: ${apps.join(", ")}. Use their tools on your own whenever the request needs information from these apps or a change in them (search, read, create, edit, move, sort), even when the person does not name the app: «add a basketball match on Saturday» means creating the event in the connected calendar; «sort my emails» means working in the connected email. First look up what you need (for example the calendar list or the messages), then make the change. The person approves every change before it runs, so call the tool directly; do not ask for permission in text. When an action is denied, say so in one short sentence and carry on without it. Never invent what a tool returned. Now: ${now} (${tz}); work out relative dates from this and use this time zone for events.`};
+    return {role:"system",content:`CONNECTED APPS: ${apps.join(", ")}. Use their tools on your own whenever the request needs information from these apps or a change in them (search, read, create, edit, move, sort), even when the person does not name the app: «add a basketball match on Saturday» means creating the event in the connected calendar; «sort my emails» means working in the connected email. First look up what you need (for example the calendar list or the messages), then make the change. The person approves every change before it runs, so call the tool directly; do not ask for permission in text. When an action is denied, say so in one short sentence and carry on without it. Never invent what a tool returned. Each app's tools work only on that app's own data: never use one app in place of another (for example, Notion's calendar is not Google Calendar). When the person asks for an app that is not in the list above (or the request needs one, such as a calendar, and none of the connected apps is one), do not use another app instead: say in one sentence that it is not connected and that they can connect it in ${BRAND_NAME} → Extensions → Connectors. When a tool fails because of permissions or sign-in (401, 403, «insufficient scope»), say the app must be connected again from Extensions → Connectors; never send the person to another app's settings. Now: ${now} (${tz}); work out relative dates from this and use this time zone for events.`};
   }
   // The rounds with tools, for chat and automations: every action waits for the person unless it is always allowed.
   async function runAppTools({userId,appTools,convo,first,ask,signal,source,onRun,onWait}){
@@ -3833,6 +3833,43 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     }
     return {msg,runs};
   }
+  // Reads a streamed answer that may call tools: the text goes to onText as it comes; the tool calls are put together
+  // from their pieces. Returns the message ({content, tool_calls}) like a non-streamed answer.
+  async function readToolStream(r,signal,onText){
+    const ctype=r.headers.get("content-type")||"";
+    if(!ctype.includes("text/event-stream")){
+      let data;try{data=JSON.parse(await r.text())}catch{throw new Error("The AI sent an answer that could not be read.")}
+      const msg=data?.choices?.[0]?.message||{};
+      if(msg.content&&!msg.tool_calls?.length)onText(String(msg.content));
+      return {content:msg.content||"",tool_calls:msg.tool_calls||[]};
+    }
+    const reader=r.body.getReader(),dec=new TextDecoder();let buf="",content="";const calls=[];
+    const take=(raw)=>{
+      if(!raw||raw==="[DONE]")return;
+      let j;try{j=JSON.parse(raw)}catch{return}
+      if(j?.error)throw new Error(String(j.error?.message||j.error).slice(0,500));
+      const ch=j?.choices?.[0]||{},d=ch.delta||ch.message||{};
+      if(typeof d.content==="string"&&d.content){content+=d.content;if(!calls.length)onText(d.content);}
+      for(const tc of Array.isArray(d.tool_calls)?d.tool_calls:[]){
+        const i=Number.isInteger(tc.index)?tc.index:calls.length?calls.length-1:0;
+        const c=calls[i]||(calls[i]={id:"",type:"function",function:{name:"",arguments:""}});
+        if(tc.id)c.id=tc.id;
+        if(tc.function?.name&&!c.function.name)c.function.name=tc.function.name;
+        if(typeof tc.function?.arguments==="string")c.function.arguments+=tc.function.arguments;
+        else if(tc.function?.arguments&&typeof tc.function.arguments==="object")c.function.arguments=JSON.stringify(tc.function.arguments);
+      }
+    };
+    while(true){
+      if(signal?.aborted){try{await reader.cancel()}catch{}break}
+      const {value,done}=await reader.read();if(done)break;
+      buf+=dec.decode(value,{stream:true});
+      const events=buf.split(/\r?\n\r?\n/);buf=events.pop()||"";
+      for(const ev of events)for(const line of ev.split(/\r?\n/))if(line.startsWith("data:"))take(line.slice(5).trim());
+    }
+    for(const line of buf.split(/\r?\n/))if(line.startsWith("data:"))take(line.slice(5).trim());
+    const tool_calls=calls.filter(c=>c&&c.function.name).map((c,i)=>({...c,id:c.id||`call_${i}_${Date.now()}`}));
+    return {content,tool_calls};
+  }
   const publicRuns=(runs)=>runs.map(({id,app,logo,tool,title,status,summary,readOnly})=>({id,app,logo:logo||"",tool,title,status,readOnly,summary:summary||""}));
   // Chat with tools: answers are asked without streaming, each action waits for the person, and the final text goes
   // out as one piece. Returns { handled:false } when no model takes tools, so the normal answer (without apps) follows.
@@ -3857,13 +3894,25 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       const msg=data?.choices?.[0]?.message;if(!msg)throw new Error("The AI sent an empty answer.");
       return msg;
     };
-    let first=null,used=null;
+    // 0.7.38 (asked by the Owner: "make Serasmart answer faster"): the first answer streams. Before, with an app
+    // connected, every message waited for the whole answer (no streaming) even when no app was needed; now the text
+    // shows as it is written, and only an answer that calls a tool goes on through the rounds below.
+    let first=null,used=null,upstream=null;
     for(const candidate of route.candidates){
+      if(signal.aborted)return {handled:true,paid:false};
+      try{
+        const r=await fetchChatCandidate(cfg,candidate.id,convo,true,callTimer,{tools});
+        if(!r.ok){await cancelBody(r);continue;}
+        upstream=r;used=candidate;break;
+      }catch(e){if(signal.aborted)return {handled:true,paid:false};}
+    }
+    // No model streams with tools: the answer without streaming, as before.
+    if(!upstream)for(const candidate of route.candidates){
       if(signal.aborted)return {handled:true,paid:false};
       try{first=await ask(candidate.id,true);used=candidate;break;}
       catch(e){if(signal.aborted)return {handled:true,paid:false};}
     }
-    if(!first)return {handled:false,paid:false};
+    if(!upstream&&!first)return {handled:false,paid:false};
     chatSettle(bill,used.id,usage.web);
     res.status(200);
     res.setHeader("Content-Type","text/event-stream; charset=utf-8");
@@ -3878,18 +3927,32 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     send({serasmart_route:routeInfo});
     // Waiting for the person (or a slow app) keeps the connection and the idle timer alive.
     const ping=setInterval(()=>{timer.touch();if(open())res.write(": ping\n\n");},15000);
-    let runs=[];
+    let runs=[],streamed="";
     try{
+      if(upstream){
+        first=await readToolStream(upstream,signal,(delta)=>{streamed+=delta;timer.touch();if(job){job.text=streamed;job.updatedAt=Date.now();}send({choices:[{delta:{content:delta}}]});});
+        // A plain answer (no tool): it is already on the screen.
+        if(!first.tool_calls?.length){
+          if(job){
+            if(job.cancelled||signal.aborted)endJob(job,"cancelled");
+            else{job.text=streamed;saveJobMessage(job,{content:streamed||"Nu am primit răspuns.",routeInfo});endJob(job,"done");}
+          }
+          if(open()){res.write("data: [DONE]\n\n");res.end();}
+          return {handled:true,paid:true};
+        }
+      }
       const source={kind:"chat",conversationId:job?.conversationId||null,requestId:job?.id||null};
       const out=await runAppTools({userId:req.user.id,appTools,convo,first,ask:(withTools)=>ask(used.id,withTools),signal,source,
         onRun:(run,all)=>{runs=all.slice();if(job){job.toolRuns=all.slice();job.updatedAt=Date.now();}send({serasmart_tool:run});}});
       runs=out.runs;
       const text=signal.aborted?"":sanitizeQuestions(String(out.msg?.content||""));
+      // What streamed before the tool call stays on the screen; the rest follows it.
+      const tail=text&&streamed?"\n\n"+text:text,whole=(streamed+tail).trim();
       if(job){
         if(job.cancelled||signal.aborted)endJob(job,"cancelled");
-        else{job.text=text;saveJobMessage(job,{content:text||"Nu am primit răspuns.",routeInfo,toolRuns:publicRuns(runs)});endJob(job,"done");}
+        else{job.text=whole;saveJobMessage(job,{content:whole||"Nu am primit răspuns.",routeInfo,toolRuns:publicRuns(runs)});endJob(job,"done");}
       }
-      if(text)send({choices:[{delta:{content:text}}]});
+      if(tail)send({choices:[{delta:{content:tail}}]});
       if(open()){res.write("data: [DONE]\n\n");res.end();}
     }catch(e){
       const message=e?.status?`The AI could not finish with the apps: ${e.message}`:roError(e);
@@ -4368,6 +4431,8 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
       edit?"The user wants a change to an existing file (attached in this message, or the one you made earlier in this chat). Return the complete updated file with every requested change made and everything else kept as it was; never only the changed part.":""
     ].filter(Boolean).join(" ");
   }
+  // How long each piece of context may take before the answer starts without it (0.7.38).
+  const CONTEXT_MS={memory:2500,plugins:6000,pages:8000,web:9000,github:5000};
   async function prepareMessages(rawMessages, assistantId, userId, options={}) {
     const db=store.read();
     const messages=await rehydrateLibraryImages(sanitizeChatMessages(rawMessages),userId);
@@ -4387,11 +4452,23 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     const skillText=skillSystemText(skillsForMessage((db.skills||[]).filter(x=>x.userId===userId),typedText(latest?.content)||latestText));if(skillText)system.push(skillText);
     const user=db.users.find(u=>u.id===userId);
     const personal=accountLib.personalizationText(user);if(personal)system.push(personal);
-    if(user?.memoryEnabled!==false){
-      const mem=await embeddingIndex.search(cfg,db,userId,query,8);if(mem.length)system.push("Memorie relevantă despre utilizator și conversațiile anterioare:\n"+mem.map((m,i)=>`${i+1}. ${m.text}`).join("\n"));
-    }
+    // 0.7.38 (asked by the Owner: "make Serasmart answer faster"): the context that needs the network (meaning-based
+    // memory, plugins, the links in the message, the live web, GitHub) is fetched at the same time, not one after the
+    // other, and each part has a deadline: a slow source is left out instead of holding the answer back.
+    const deadline=(ms,work,fallback)=>{let t;return Promise.race([Promise.resolve().then(work).catch(()=>fallback),new Promise(r=>{t=setTimeout(()=>r(fallback),ms);})]).finally(()=>clearTimeout(t));};
+    const webOn=cfg.webSearchEnabled!==false&&options.webAllowed!==false;
+    const [mem,pctx,pages,web,gc]=await Promise.all([
+      user?.memoryEnabled!==false?deadline(CONTEXT_MS.memory,()=>embeddingIndex.search(cfg,db,userId,query,8),null):[],
+      options.pluginsAllowed!==false?deadline(CONTEXT_MS.plugins,()=>pluginContext(db,userId,query),[]):[],
+      webOn?deadline(CONTEXT_MS.pages,async()=>{const directUrls=urlsFromText(query);if(!directUrls.length)return [];return (await Promise.all(directUrls.map(async url=>{const excerpt=await pageExcerpt(url,5000);return excerpt?"URL: "+url+"\nExtras: "+excerpt:""}))).filter(Boolean);},[]):[],
+      webOn&&shouldUseLiveWeb(query)?deadline(CONTEXT_MS.web,()=>{const deep=options.deepAllowed!==false&&DEEP_RESEARCH_WORDS.test(query);return liveWebSearch(query,deep?8:5);},[]):[],
+      cfg.githubAutoContext!==false&&options.githubAllowed!==false?deadline(CONTEXT_MS.github,()=>githubCodeContext(cfg,query),""):""
+    ]);
+    // Memory past its deadline: the word matches (no network) still come in.
+    const memRows=Array.isArray(mem)?mem:memoryMatches(db,userId,query,8);
+    if(user?.memoryEnabled!==false&&memRows.length)system.push("Memorie relevantă despre utilizator și conversațiile anterioare:\n"+memRows.map((m,i)=>`${i+1}. ${m.text}`).join("\n"));
     if(user&&user.searchPastChats!==false){const past=pastChatsContext(db,userId,query,options.conversationId||null);if(past)system.push(past);}
-    if(options.pluginsAllowed!==false){const pctx=await pluginContext(db,userId,query);if(pctx.length)system.push("Rezultate furnizate de pluginuri conectate:\n"+pctx.join("\n\n"));}
+    if(pctx.length)system.push("Rezultate furnizate de pluginuri conectate:\n"+pctx.join("\n\n"));
     const lctx=libraryContext(db,userId,query);if(lctx)system.push(`BIBLIOTECA ${BRAND_NAME.toUpperCase()} — fragmente relevante din fișierele încărcate:\n`+lctx);
     if(cfg.projectContextEnabled!==false&&options.projectId){
       const project=db.projects.find(p=>p.id===options.projectId&&p.userId===userId);
@@ -4401,11 +4478,9 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     if(options.responseMode==="thinking")system.push("MOD GÂNDIRE: analizează mai riguros, verifică ipotezele și structurează răspunsul înainte de concluzie. Nu expune raționamentul intern; oferă doar concluzii și pași utili.");
     if(options.responseMode==="rapid")system.push("MOD RAPID: prioritizează un răspuns direct, concis și util, fără analiză inutil de lungă.");
     if(options.clarify&&user?.askClarifyingQuestions!==false)system.push(QUESTIONS_RULE);
-    if(cfg.webSearchEnabled!==false&&options.webAllowed!==false){
-      try{const directUrls=urlsFromText(query);if(directUrls.length){const pages=(await Promise.all(directUrls.map(async url=>{const excerpt=await pageExcerpt(url,5000);return excerpt?"URL: "+url+"\nExtras: "+excerpt:""}))).filter(Boolean);if(pages.length)system.push("PAGINI WEB LIVE — conținut citit direct din linkurile utilizatorului:\n"+pages.join("\n\n"))}}catch{}
-      if(shouldUseLiveWeb(query)){try{const deep=options.deepAllowed!==false&&DEEP_RESEARCH_WORDS.test(query);const rows=await liveWebSearch(query,deep?8:5);if(rows.length&&options.usage)options.usage.web=true;if(rows.length)system.push("WEB LIVE — rezultate obținute acum. Folosește-le pentru informațiile actuale și indică sursele prin link; nu inventa surse:\n"+rows.map((x,i)=>(i+1)+". "+x.title+"\nURL: "+x.url+"\nExtras: "+String(x.excerpt||"").slice(0,2600)).join("\n\n"))}catch{}}
-    }
-    if(cfg.githubAutoContext!==false&&options.githubAllowed!==false){try{const gc=await githubCodeContext(cfg,query);if(gc)system.push("GITHUB LIVE — fragmente relevante din repository-ul configurat:\n"+gc)}catch{}}
+    if(pages.length)system.push("PAGINI WEB LIVE — conținut citit direct din linkurile utilizatorului:\n"+pages.join("\n\n"));
+    if(web.length){if(options.usage)options.usage.web=true;system.push("WEB LIVE — rezultate obținute acum. Folosește-le pentru informațiile actuale și indică sursele prin link; nu inventa surse:\n"+web.map((x,i)=>(i+1)+". "+x.title+"\nURL: "+x.url+"\nExtras: "+String(x.excerpt||"").slice(0,2600)).join("\n\n"));}
+    if(gc)system.push("GITHUB LIVE — fragmente relevante din repository-ul configurat:\n"+gc);
     if(options.owner&&cfg.serverHost&&SERVER_WORDS.test(query)){
       try{const s=await sshRun(cfg,"uname -a; uptime; pwd",12000);if(s.stdout)system.push("SERVER LIVE — verificare read-only efectuată acum:\n"+s.stdout.slice(0,8000))}catch(e){system.push("SERVER LIVE — conexiunea de verificare nu a reușit: "+(e.status?e.message:roError(e)))}
     }

@@ -15,3 +15,4 @@
 1191|Abonelik
 786|Plan yok
 170|Tüm hesaplara dön
+1117|Takvimlerini ve boş zamanını gör; etkinlik ekle, değiştir veya sil.

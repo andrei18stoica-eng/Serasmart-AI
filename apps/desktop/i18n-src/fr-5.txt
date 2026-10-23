@@ -15,3 +15,4 @@
 1191|Abonnement
 786|Aucun forfait
 170|Retour à tous les comptes
+1117|Consultez vos agendas et vos disponibilités, et ajoutez, modifiez ou supprimez des événements.

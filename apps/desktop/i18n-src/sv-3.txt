@@ -220,7 +220,6 @@
 1114|Säkerhet
 1115|Säkerhetsanalys av kod
 1116|Se abonnemangen
-1117|Se dina kalendrar, händelser och lediga tid (Google tillåter än så länge bara läsning).
 1118|Seedance, Veo, Wan och andra modeller via samma API.
 1119|Välj
 1120|Välj en användare.

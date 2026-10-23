@@ -359,7 +359,7 @@ function localZone(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone
 function BrandMark({small=false}) { return <div className={cx("brandMark brandS",small&&"small")}><img src="./serasmart-s.webp" alt={`${BRAND_NAME}`} draggable="false"/></div>; }
 
 // 0.7.26: the order of the approved mockup; labels in English, shown through tr().
-const TOOL_ITEMS=[["explore",Compass,"Explore",null],["library",Library,"Library",null],["extensions",Puzzle,"Extensions",null],["automations",CalendarClock,"Automations","automations"],["design",Palette,"Design","document_generation"],["memory",Brain,"Memory",null],["code",SquareTerminal,"Code","code"],["usage",Gauge,"Usage",null]];
+const TOOL_ITEMS=[["explore",Compass,"Explore",null],["library",Library,"Library",null],["extensions",Puzzle,"Extensions",null],["automations",CalendarClock,"Automations","automations"],["design",Palette,"Design","document_generation"],["memory",Brain,"Memory",null],["code",SquareTerminal,"Code","code"],["billing",CreditCard,"Billing",null]];
 // The plan's week under the menu (only when plans and credits are on and the account pays): opens Usage.
 function SideUsage({onOpen}) {
   const [d,setD]=useState(null);

@@ -220,7 +220,6 @@
 1114|Sicherheit
 1115|Sicherheitsprüfung für Code
 1116|Tarife ansehen
-1117|Sieh deine Kalender, Termine und freie Zeit (Google erlaubt vorerst nur Lesen).
 1118|Seedance, Veo, Wan und andere Modelle über dieselbe API.
 1119|Auswählen
 1120|Wähle einen Nutzer.

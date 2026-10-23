@@ -220,7 +220,6 @@
 1114|Beveiliging
 1115|Beveiligingsanalyse van code
 1116|Abonnementen bekijken
-1117|Bekijk je agenda's, afspraken en vrije tijd (Google staat voorlopig alleen lezen toe).
 1118|Seedance, Veo, Wan en andere modellen via dezelfde API.
 1119|Kiezen
 1120|Selecteer een gebruiker.

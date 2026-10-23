@@ -15,3 +15,4 @@
 1191|Suscripción
 786|Sin plan
 170|Volver a todas las cuentas
+1117|Consulta tus calendarios y tu tiempo libre, y añade, cambia o elimina eventos.

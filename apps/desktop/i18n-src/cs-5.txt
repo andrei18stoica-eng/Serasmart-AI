@@ -15,3 +15,4 @@
 1191|Předplatné
 786|Bez tarifu
 170|Zpět na všechny účty
+1117|Zobrazte své kalendáře a volný čas a přidávejte, měňte nebo mažte události.

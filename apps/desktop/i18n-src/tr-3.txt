@@ -220,7 +220,6 @@
 1114|Güvenlik
 1115|Kodun güvenlik analizi
 1116|Paketleri gör
-1117|Takvimlerinizi, etkinliklerinizi ve boş zamanınızı görün (Google şimdilik yalnızca okumaya izin veriyor).
 1118|Aynı API üzerinden Seedance, Veo, Wan ve diğer modeller.
 1119|Seç
 1120|Bir kullanıcı seçin.

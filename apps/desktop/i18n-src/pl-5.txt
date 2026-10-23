@@ -15,3 +15,4 @@
 1191|Subskrypcja
 786|Brak planu
 170|Wróć do wszystkich kont
+1117|Przeglądaj kalendarze i wolny czas oraz dodawaj, zmieniaj lub usuwaj wydarzenia.

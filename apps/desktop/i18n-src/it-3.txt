@@ -220,7 +220,6 @@
 1114|Sicurezza
 1115|Analisi di sicurezza del codice
 1116|Vedi i piani
-1117|Vedi i tuoi calendari, eventi e tempo libero (per ora Google permette solo la lettura).
 1118|Seedance, Veo, Wan e altri modelli tramite la stessa API.
 1119|Scegli
 1120|Seleziona un utente.

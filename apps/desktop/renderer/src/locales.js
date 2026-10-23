@@ -1040,7 +1040,7 @@ export const LOCALES = {
   "Voice activity": "Activitate vocală",
   "Writing out what you said…": "Scriu ce ai spus…",
   "Listening… press the microphone again to stop.": "Te ascult… apasă din nou microfonul ca să te oprești.",
-  "See your calendars, events and free time (Google allows reading only, for now).": "Vezi calendarele, evenimentele și timpul liber (deocamdată Google permite doar citirea).",
+  "See your calendars and free time, and add, change or delete events.": "Vezi calendarele și timpul liber și adaugă, modifică sau șterge evenimente.",
   "Professional email": "Email profesional",
   "Writes a clear, polite email with a subject from a few ideas.": "Scrie un email clar și politicos, cu subiect, din câteva idei.",
   "Summary": "Rezumat",

@@ -71,10 +71,12 @@ const CATALOG = [
   { id: "mercury", name: "Mercury", category: "Payments", url: "https://mcp.mercury.com/mcp", description: "Business bank accounts and transactions." },
   { id: "plaid", name: "Plaid", category: "Payments", url: "https://api.dashboard.plaid.com/mcp/sse", transport: "sse", description: "Your Plaid dashboard: items, usage and issues." },
   // Google's Workspace MCP servers need an OAuth client the Owner registers once in Google Cloud (Developer Preview).
-  // Scopes exactly as in developers.google.com/workspace/guides/configure-mcp-servers (Calendar is read-only there).
+  // Scopes as in developers.google.com/workspace/guides/configure-mcp-servers. Calendar: that page lists only the read
+  // scopes, but the server has create_event / update_event / delete_event, which need calendar.events (0.7.38: added,
+  // after «add an event on Saturday» failed; a Calendar connected before 0.7.38 has to be connected again).
   { id: "gmail", logo: "gmail", name: "Gmail", category: "Google", url: "https://gmailmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.compose", description: "Search, read and draft emails." },
   { id: "gdrive", logo: "googledrive", name: "Google Drive", category: "Google", url: "https://drivemcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly", description: "Search, read and create files." },
-  { id: "gcalendar", logo: "googlecalendar", name: "Google Calendar", category: "Google", url: "https://calendarmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/calendar.calendarlist.readonly https://www.googleapis.com/auth/calendar.events.freebusy https://www.googleapis.com/auth/calendar.events.readonly", description: "See your calendars, events and free time (Google allows reading only, for now)." },
+  { id: "gcalendar", logo: "googlecalendar", name: "Google Calendar", category: "Google", url: "https://calendarmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/calendar.calendarlist.readonly https://www.googleapis.com/auth/calendar.events.freebusy https://www.googleapis.com/auth/calendar.events.readonly https://www.googleapis.com/auth/calendar.events", description: "See your calendars and free time, and add, change or delete events." },
   { id: "gdocs", logo: "googledocs", name: "Google Docs", category: "Google", url: "https://docsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/documents.readonly https://www.googleapis.com/auth/documents", description: "Read, write and edit documents." },
   { id: "gsheets", logo: "googlesheets", name: "Google Sheets", category: "Google", url: "https://sheetsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets", description: "Read and edit spreadsheets." }
 ];
@@ -84,6 +86,7 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
   const pending = new Map(); // state -> { userId, connId, createdAt }
   const live = new Map();    // connId -> { client, at }
   const toolCache = new Map(); // connId -> { at, tools }
+  const TOOLS_WAIT_MS = 6000;
 
   // https only; the name must not resolve to a local or private address (checked before each request).
   async function checkUrl(raw) {
@@ -251,6 +254,8 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
     if (!conn || conn.status !== "connected") return [];
     const cached = toolCache.get(connId);
     if (!fresh && cached && now() - cached.at < TOOLS_TTL) return cached.tools;
+    // 0.7.38 (faster answers): an old list is used at once and refreshed in the background.
+    if (!fresh && cached) { if (!cached.refreshing) { cached.refreshing = true; tools(userId, connId, true).catch(() => {}).finally(() => { cached.refreshing = false; }); } return cached.tools; }
     try {
       const client = await clientFor(conn);
       const out = []; let cursor;
@@ -269,8 +274,10 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
   async function toolsForChat(userId, { enabled = null } = {}) {
     const conns = (db().connectors || []).filter((c) => c.userId === userId && c.status === "connected" && (!enabled || enabled.includes(c.id)));
     const out = [];
+    // 0.7.38: every app's list at the same time, each with a deadline (a slow app is left out of this message).
+    const lists = await Promise.all(conns.map((conn) => { let t; return Promise.race([tools(userId, conn.id).catch(() => []), new Promise((r) => { t = setTimeout(() => r(toolCache.get(conn.id)?.tools || []), TOOLS_WAIT_MS); })]).finally(() => clearTimeout(t)); }));
     for (const [i, conn] of conns.entries()) {
-      for (const t of await tools(userId, conn.id).catch(() => [])) {
+      for (const t of lists[i]) {
         const name = `a${i + 1}__${String(t.name).replace(/[^a-zA-Z0-9_-]/g, "_")}`.slice(0, 64);
         out.push({ name, connId: conn.id, app: conn.name, logo: CATALOG.find((x) => x.id === conn.catalogId)?.logo || "", tool: t.name, title: t.title, readOnly: t.readOnly, schema: { type: "function", function: { name, description: `[${conn.name}] ${t.description}`.slice(0, 1000), parameters: t.inputSchema } } });
         if (out.length >= MAX_TOOLS) return out;

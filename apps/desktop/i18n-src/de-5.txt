@@ -15,3 +15,4 @@
 1191|Abo
 786|Kein Tarif
 170|Zurück zu allen Konten
+1117|Sieh deine Kalender und freie Zeit und füge Termine hinzu, ändere oder lösche sie.

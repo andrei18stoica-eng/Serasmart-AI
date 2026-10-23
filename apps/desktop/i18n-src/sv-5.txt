@@ -15,3 +15,4 @@
 1191|Abonnemang
 786|Ingen plan
 170|Tillbaka till alla konton
+1117|Se dina kalendrar och din lediga tid, och lägg till, ändra eller ta bort händelser.

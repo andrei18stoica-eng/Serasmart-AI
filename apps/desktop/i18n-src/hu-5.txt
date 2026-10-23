@@ -15,3 +15,4 @@
 1191|Előfizetés
 786|Nincs csomag
 170|Vissza az összes fiókhoz
+1117|Lásd a naptáraidat és a szabad idődet, és adj hozzá, módosíts vagy törölj eseményeket.

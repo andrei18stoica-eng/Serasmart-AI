@@ -82,7 +82,17 @@ function ui() {
   expect(/\/api\/usage\/accounts/.test(page) && /Plans of every account/.test(page) && /My usage/.test(page) && /All accounts/.test(page), "Usage: mine, every account (Owner), the plans button");
   expect(/PlanCard/.test(page.slice(page.indexOf("export function BillingPage"))) && !/PlanCard/.test(page.slice(page.indexOf("export function UsagePage"), page.indexOf("export function BillingPage"))), "the plans are on Billing, not on Usage");
   expect(/\["@billing",CreditCard,"Billing",[^\]]*onOpenTool\("billing"\)/.test(main) && /toolPanel\?\.name==="billing"&&<BillingPage/.test(main), "Settings → Billing opens Billing");
+  expect(/\["billing",CreditCard,"Billing",null\]/.test(main) && !/\["usage",Gauge,"Usage",null\]/.test(main), "the main page's tool list shows Billing, not Usage");
   expect(/0\.7\.38: Settings scroll/.test(css) && /\.settingsNav\{overflow-y:auto/.test(css) && /\.settingsPane\{max-height:none;min-height:0;overflow-y:auto\}/.test(css), "Settings: the menu and the page scroll");
 }
 
-(async () => { units(); await gateway(); ui(); console.log("TEST_0738_USAGE_BILLING_PASSED"); })().catch((e) => { console.error(e); process.exit(1); });
+function speed() {
+  const gw = read("local-gateway.cjs"), conn = read("lib/connectors.cjs");
+  expect(/const CONTEXT_MS=\{memory:2500,plugins:6000,pages:8000,web:9000,github:5000\}/.test(gw) && /await Promise\.all\(\[\s*user\?\.memoryEnabled!==false\?deadline\(CONTEXT_MS\.memory/.test(gw), "the network context is fetched in parallel, each part with a deadline");
+  expect(/async function readToolStream/.test(gw) && /fetchChatCandidate\(cfg,candidate\.id,convo,true,callTimer,\{tools\}\)/.test(gw), "with apps, the first answer streams");
+  expect(/TOOLS_WAIT_MS = 6000/.test(conn) && /refreshed in the background/.test(conn), "app tool lists: in parallel, stale ones used at once");
+  expect(/calendar\.events\.readonly https:\/\/www\.googleapis\.com\/auth\/calendar\.events"/.test(conn), "Google Calendar can add events");
+  expect(/never use one app in place of another/.test(gw) && /Extensions → Connectors/.test(gw), "the AI does not use Notion's calendar for Google Calendar");
+}
+
+(async () => { units(); speed(); await gateway(); ui(); console.log("TEST_0738_USAGE_BILLING_PASSED"); })().catch((e) => { console.error(e); process.exit(1); });

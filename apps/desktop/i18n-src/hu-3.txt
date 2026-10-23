@@ -220,7 +220,6 @@
 1114|Biztonság
 1115|A kód biztonsági elemzése
 1116|Csomagok megtekintése
-1117|Lásd a naptáraidat, eseményeidet és szabad idődet (a Google egyelőre csak olvasást enged).
 1118|Seedance, Veo, Wan és más modellek ugyanazon az API-n.
 1119|Kiválasztás
 1120|Válassz egy felhasználót.

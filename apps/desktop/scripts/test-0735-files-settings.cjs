@@ -26,7 +26,7 @@ const deck = [
   const notes = Object.keys(zip.files).filter((f) => /notesSlide\d+\.xml$/.test(f));
   const notesText = (await Promise.all(notes.map((f) => zip.file(f).async("string")))).join("");
   expect(/Despre caractere/.test(notesText), "speaker notes go into the notes");
-  const intent = await import(path.join(__dirname, "../renderer/src/documentIntent.mjs"));
+  const intent = await import(require("url").pathToFileURL(path.join(__dirname, "../renderer/src/documentIntent.mjs")).href); // a file URL, so Windows paths work too
   expect(intent.answerFileFormat(deck)?.format === "pptx" && intent.answerFileFormat(deck).name === "Regnul_Animal.pptx", "an answer that is a deck becomes the .pptx");
   expect(intent.answerFileFormat("SLIDE 1 — A\nx\nSLIDE 2 — B\ny\nSLIDE 3 — C\nz")?.format === "pptx" && !intent.answerFileFormat("Salut! Iată ideile mele."), "slide by slide answers are decks; normal answers are not");
   for (const t of ["poti sa editezi pptx-ul si sa pui sigla jos", "îmi modifici slide-ul 3?", "adaugi un slide cu concluzii"]) expect(intent.editedDocumentFormat(t.replace("?", ""), [], "pptx") === "pptx", "an edit asked in the second person changes the file: " + t);

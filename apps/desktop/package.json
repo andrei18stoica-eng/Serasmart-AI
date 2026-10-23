@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.31",
+  "version": "0.7.32",
   "private": true,
-  "description": "Serasmart AI 0.7.31 - plugins made of several skills and single skills from open-source libraries, each with its author and licence",
+  "description": "Serasmart AI 0.7.32 - the skill library keeps only skills whose licence and authors allow publishing them, with the licence texts shown",
   "main": "main.cjs",
   "repository": {
     "type": "git",

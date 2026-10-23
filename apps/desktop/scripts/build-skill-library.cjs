@@ -72,7 +72,8 @@ const licenses = {};
 // "All rights reserved" (source-available, not open source) and doc-coauthoring has no licence file: left out.
 {
   const dir = path.join(ROOT, "anthropics_skills"); const repo = "https://github.com/anthropics/skills";
-  const wanted = ["brand-guidelines", "internal-comms", "theme-factory", "frontend-design", "canvas-design", "mcp-builder", "skill-creator", "algorithmic-art", "discernment-nudge"];
+  // 0.7.32 legal review: brand-guidelines is out (it dresses work in Anthropic's own brand; Apache 2.0 gives no trademark rights).
+  const wanted = ["internal-comms", "theme-factory", "frontend-design", "canvas-design", "mcp-builder", "skill-creator", "algorithmic-art", "discernment-nudge"];
   const ok = wanted.filter(d => {
     const lic = path.join(dir, "skills", d, "LICENSE.txt");
     const apache = fs.existsSync(lic) && /Apache License\s+Version 2\.0/.test(fs.readFileSync(lic, "utf8"));
@@ -81,8 +82,9 @@ const licenses = {};
     return apache;
   });
   SOURCES.push({ id: "anthropic", repo, commit: commitOf(dir), license: "Apache-2.0", copyright: "Copyright Anthropic, PBC", licenseFile: "apache-2.0.txt" });
-  packs.push({ id: "anthropic", name: "Anthropic Skills", category: "creative", source: "anthropic", author: "Anthropic", license: "Apache-2.0",
-    description: "Design, brand, writing and builder skills published by Anthropic as open source.", skills: skillsIn(path.join(dir, "skills"), skipped, "anthropic", ok) });
+  // The pack is named for what it does, not with Anthropic's name (no implied endorsement); the author stays credited.
+  packs.push({ id: "anthropic", name: "Design and Build", category: "creative", source: "anthropic", author: "Anthropic", license: "Apache-2.0",
+    description: "Design, writing and builder skills published as open source (Apache 2.0).", skills: skillsIn(path.join(dir, "skills"), skipped, "anthropic", ok) });
 }
 
 // 2. Superpowers by Jesse Vincent (MIT): ways of working for planning, debugging, testing and code review.
@@ -101,10 +103,16 @@ const licenses = {};
   licenses["wshobson-agents-mit.txt"] = fs.readFileSync(path.join(dir, "LICENSE"), "utf8");
   SOURCES.push({ id: "wshobson", repo, commit: commitOf(dir), license: "MIT", copyright: "Copyright (c) 2024 Seth Hobson and contributors", licenseFile: "wshobson-agents-mit.txt" });
   const market = JSON.parse(fs.readFileSync(path.join(dir, ".claude-plugin", "marketplace.json"), "utf8")).plugins;
+  // 0.7.32 legal review: packs tied to another company's paid service or written to promote it are out, and so is the
+  // skill about defeating software protection (anti-circumvention laws such as the DMCA and EU 2001/29/EC art. 6).
+  const OUT_PACKS = new Set(["social-publishing", "hermes-tweet", "protect-mcp", "signed-audit-trails", "review-agent-governance"]);
+  const OUT_SKILLS = new Set(["anti-reversing-techniques"]);
   for (const p of market) {
+    if (OUT_PACKS.has(p.name)) { skipped.push(`wshobson/${p.name}: tied to another company's service`); continue; }
     const license = String(p.license || "MIT");
     if (!OK_LICENSE.test(license)) { skipped.push(`wshobson/${p.name}: licence ${license}`); continue; }
-    const skills = skillsIn(path.join(dir, "plugins", p.name, "skills"), skipped, `wshobson/${p.name}`);
+    const skills = skillsIn(path.join(dir, "plugins", p.name, "skills"), skipped, `wshobson/${p.name}`)
+      .filter(s => { if (!OUT_SKILLS.has(s.slug)) return true; skipped.push(`wshobson/${p.name}/${s.slug}: bypassing software protection`); return false; });
     if (!skills.length) continue;
     packs.push({ id: `wsh-${p.name}`, name: titleOf(p.name), category: p.category || "development", source: "wshobson",
       author: p.author?.name || "Seth Hobson", license, description: String(p.description || "").slice(0, 400), skills });
@@ -118,21 +126,16 @@ const licenses = {};
   SOURCES.push({ id: "kdense", repo, commit: commitOf(dir), license: "MIT", copyright: "Copyright (c) 2025 K-Dense Inc.", licenseFile: "k-dense-mit.txt" });
   packs.push({ id: "science", name: "Science", category: "science", source: "kdense", author: "K-Dense Inc.", license: "MIT",
     description: "Research skills for biology, chemistry, medicine, data analysis and scientific writing.",
-    skills: skillsIn(path.join(dir, "skills"), skipped, "kdense") });
+    // 0.7.32 legal review: out the skills built on models or data that are free only for non-commercial use.
+    skills: skillsIn(path.join(dir, "skills"), skipped, "kdense").filter(s => {
+      if (!["alphagenome", "timesfm-forecasting"].includes(s.slug)) return true;
+      skipped.push(`kdense/${s.slug}: built on a model or data licensed for non-commercial use only`); return false;
+    }) });
 }
 
-// 5. ComposioHQ/awesome-claude-skills (Apache 2.0): only Composio's own skills at the top of the repository.
-// Left out: the copies of Anthropic's skills, the 832 skills that need Composio's own service, the skills that
-// point at another licence (AGPL, missing LICENSE.txt) and the video downloader.
-{
-  const dir = path.join(ROOT, "ComposioHQ_awesome-claude-skills"); const repo = "https://github.com/ComposioHQ/awesome-claude-skills";
-  SOURCES.push({ id: "composio", repo, commit: commitOf(dir), license: "Apache-2.0", copyright: "Copyright ComposioHQ and contributors", licenseFile: "apache-2.0.txt" });
-  const own = ["changelog-generator", "competitive-ads-extractor", "content-research-writer", "developer-growth-analysis", "domain-name-brainstormer",
-    "file-organizer", "image-enhancer", "invoice-organizer", "lead-research-assistant", "meeting-insights-analyzer", "raffle-winner-picker", "tailored-resume-generator"];
-  packs.push({ id: "composio", name: "Business Helpers", category: "business", source: "composio", author: "ComposioHQ and contributors", license: "Apache-2.0",
-    description: "Everyday business helpers: changelogs, competitor ads, research-backed writing, domain ideas, invoices, leads, meetings and résumés.",
-    skills: skillsIn(dir, skipped, "composio", own) });
-}
+// 5. ComposioHQ/awesome-claude-skills: left out in the 0.7.32 legal review. The repository has no LICENSE file (only a line
+// in its README) and its skills do not say who wrote them, so the right to publish them cannot be shown.
+skipped.push("ComposioHQ/awesome-claude-skills: no LICENSE file in the repository and no author per skill");
 
 // Slugs must be unique across the whole library and fit the /command limit of 32 characters.
 const seen = new Set();

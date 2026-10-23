@@ -21,7 +21,14 @@ function units() {
   const anthropic = lib.packs.find(p => p.id === "anthropic").skills.map(s => s.slug);
   for (const banned of ["docx", "pdf", "pptx", "xlsx", "doc-coauthoring"]) expect(!anthropic.includes(banned), `Anthropic's ${banned} is not in the library`);
   expect(!all.some(s => /all rights reserved|proprietary\. license\.txt/i.test(s.instructions)), "no proprietary skill text");
-  expect(["frontend-design", "canvas-design", "brand-guidelines", "internal-comms", "theme-factory", "mcp-builder"].every(s => anthropic.includes(s)), "Anthropic's Apache 2.0 skills are in");
+  // 0.7.32 legal review: no Anthropic brand skill, no pack named after Anthropic, no Composio skills (no LICENSE file),
+  // no packs tied to another company's service, nothing about defeating software protection, no non-commercial-only models.
+  expect(!anthropic.includes("brand-guidelines") && !lib.packs.some(p => /anthropic|claude/i.test(p.name)), "no Anthropic branding");
+  expect(!lib.packs.some(p => p.source === "composio") && !lib.sources.some(s => s.id === "composio"), "Composio left out");
+  const slugs = new Set(all.map(s => s.slug));
+  for (const out of ["anti-reversing-techniques", "alphagenome", "timesfm-forecasting"]) expect(!slugs.has(out), out + " left out");
+  for (const out of ["social-publishing", "hermes-tweet", "protect-mcp", "signed-audit-trails", "review-agent-governance"]) expect(!lib.packs.some(p => p.id === "wsh-" + out), out + " left out");
+  expect(["frontend-design", "canvas-design", "internal-comms", "theme-factory", "mcp-builder"].every(s => anthropic.includes(s)), "Anthropic's Apache 2.0 skills are in");
   expect(new Set(all.map(s => s.slug)).size === all.length && all.every(s => /^[a-z0-9-]{1,32}$/.test(s.slug)), "slugs are unique and fit /commands");
   expect(all.every(s => s.instructions.length <= MAX_INSTRUCTIONS && !/^---\n/.test(s.instructions)), "instructions fit and have no front matter");
   expect(fs.readFileSync(path.join(dir, "NOTICE.md"), "utf8").includes("Left out on purpose"), "NOTICE lists what was left out");
@@ -73,6 +80,8 @@ async function gateway() {
     expect(/### \/test-driven-development/.test(systems.at(-1)) && /Jesse Vincent/.test(systems.at(-1)), "a pack's skill reaches the model");
     await chat("/frontend-design o pagină");
     expect(/### \/frontend-design/.test(systems.at(-1)) && /Anthropic/.test(systems.at(-1)), "a single library skill reaches the model");
+    r = await call("/api/skills/library/notice", { token });
+    expect(r.status === 200 && /Left out on purpose/.test(r.j.notice) && r.j.licenses.some(l => /Apache License/.test(l.text)) && r.j.licenses.some(l => /MIT License/.test(l.text)), "the licence texts are shown");
     expect((await call(`/api/skills/${packId}`, { method: "DELETE", token })).status === 200, "a pack is removed");
     await chat("/test-driven-development scrie o funcție");
     expect(!/### \/test-driven-development/.test(systems.at(-1)), "a removed pack's skills stop");

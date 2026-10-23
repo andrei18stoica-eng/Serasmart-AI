@@ -19,7 +19,7 @@ const { DIRECT_MODEL_DEFAULTS: MODEL_DEFAULTS } = require("./lib/providers.cjs")
 const { nextRun, validateAutomation, toBool } = require("./lib/schedule.cjs");
 const { QUESTIONS_RULE, sanitizeQuestions } = require("./lib/questions.cjs");
 const { BUILTIN_PLUGINS, runBuiltinPlugin, builtinKeywordMatch, publicBuiltinList } = require("./lib/builtinplugins.cjs");
-const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill, libraryIndex, librarySkill, libraryPack } = require("./lib/skills.cjs");
+const { SKILL_TEMPLATES, MAX_SKILLS, validateSkill, skillsForMessage, skillSystemText, publicSkill, libraryIndex, libraryNotice, librarySkill, libraryPack } = require("./lib/skills.cjs");
 const creditsLib = require("./lib/credits.cjs");
 const { createConnectors } = require("./lib/connectors.cjs");
 const accountLib = require("./lib/accountsettings.cjs");
@@ -3901,7 +3901,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
 
   // Skills (0.7.18): instructions saved once and called with /name in the chat, or kept always on. Per account.
   app.get("/api/skills", auth, (req,res) => {
-    const all=store.read().skills.filter(x=>x.userId===req.user.id),mine=all.filter(x=>x.kind!=="pack").sort((a,b)=>a.name.localeCompare(b.name,"ro"));
+    const all=store.read().skills.filter(x=>x.userId===req.user.id&&!(x.library&&!x.instructions&&!librarySkill(x.library))&&!(x.kind==="pack"&&!libraryPack(x.pack))),mine=all.filter(x=>x.kind!=="pack").sort((a,b)=>a.name.localeCompare(b.name,"ro"));
     const slugs=new Set(mine.map(x=>x.slug));
     res.json({data:mine.map(publicSkill),packs:all.filter(x=>x.kind==="pack").map(publicSkill),templates:SKILL_TEMPLATES.map(t=>({...t,added:slugs.has(t.slug)}))});
   });
@@ -3910,6 +3910,7 @@ function startLocalGateway({ dataDir, port = 8787, host = "127.0.0.1", serviceNa
     const mine=store.read().skills.filter(x=>x.userId===req.user.id);
     res.json({...libraryIndex(),added:{packs:mine.filter(x=>x.kind==="pack").map(x=>({id:x.id,pack:x.pack})),skills:mine.filter(x=>x.library).map(x=>({id:x.id,slug:x.library}))}});
   });
+  app.get("/api/skills/library/notice", auth, (req,res) => res.json(libraryNotice()));
   app.post("/api/skills/library", auth, requirePermission("chat"), (req,res) => {
     const packId=req.body?.pack,skillSlug=req.body?.skill;
     if(packId){

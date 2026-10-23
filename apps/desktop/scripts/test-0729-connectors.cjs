@@ -52,13 +52,22 @@ async function unit() {
   const { createConnectors, CATALOG } = require("../lib/connectors.cjs");
   expect(CATALOG.length >= 20 && CATALOG.every((x) => /^https:\/\//.test(x.url)), "a catalog of real https MCP servers");
   expect(CATALOG.filter((x) => x.ownerClient === "google").length === 5, "the five Google apps use the Owner's OAuth client");
+  // 0.7.31: Lovable, Asana, HubSpot and Box let in only OAuth apps their owner registered: the Owner's client, or a clear note.
+  for (const id of ["lovable", "asana", "hubspot", "box"]) expect(CATALOG.find((x) => x.id === id)?.ownerClient === id && !CATALOG.find((x) => x.id === id).approvedOnly, id + " uses the Owner's client");
+  {
+    let cfg = {};
+    const oc = createConnectors({ store: { read: () => ({}), write() {} }, seal: (x) => x, open: (x) => x, redirectUri: () => "http://127.0.0.1/cb", getConfig: () => cfg });
+    expect(/Lovable OAuth app/.test(oc.catalog("u1").find((x) => x.id === "lovable").unavailable), "Lovable without the Owner's app says what is missing");
+    cfg = { lovableClientId: "id", lovableClientSecret: "secret" };
+    expect(!oc.catalog("u1").find((x) => x.id === "lovable").unavailable, "Lovable with the Owner's app can connect");
+  }
   const c = createConnectors({ store: { read: () => ({}), write() {} }, seal: (x) => x, open: (x) => x, redirectUri: () => "http://127.0.0.1/cb" });
   for (const bad of ["http://example.com/mcp", "https://127.0.0.1/mcp", "https://localhost/mcp", "https://10.0.0.5/mcp", "https://[::1]/mcp", "javascript:alert(1)"]) {
     let failed = false; try { await c.checkUrl(bad); } catch { failed = true; }
     expect(failed, "refused on a public server: " + bad);
   }
   const page = c.catalog("u1").find((x) => x.id === "gmail");
-  expect(page.unavailable && /Google OAuth client/.test(page.unavailable), "Gmail waits for the Owner's Google client");
+  expect(page.unavailable && /Google OAuth app/.test(page.unavailable), "Gmail waits for the Owner's Google client");
 }
 
 async function gateway() {
@@ -244,7 +253,7 @@ function sources() {
   const main = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "main.jsx"), "utf8");
   expect(/j\?\.serasmart_tool/.test(main) && /<ToolRunCard key=\{r\.id\} run=\{r\}\/>/.test(main), "the chat shows the app's actions");
   const settings = fs.readFileSync(path.join(__dirname, "..", "lib", "serversettings.cjs"), "utf8");
-  expect(/"googleClientSecret","githubClientSecret"\]/.test(settings) && /"googleClientId"/.test(settings), "the Owner sets the Google client on the site");
+  expect(/"googleClientSecret","githubClientSecret","lovableClientSecret","asanaClientSecret","hubspotClientSecret","boxClientSecret"\]/.test(settings) && /"googleClientId"/.test(settings), "the Owner sets the Google client on the site");
   for (const f of ["../../../deploy/hetzner/docker-compose.yml", "../../cloud/docker-compose.yml"]) expect(/GOOGLE_CLIENT_SECRET: \$\{GOOGLE_CLIENT_SECRET:-\}/.test(fs.readFileSync(path.join(__dirname, f), "utf8")), f + " passes the Google client");
   const cloud = JSON.parse(fs.readFileSync(path.join(__dirname, "../../cloud/package.json"), "utf8"));
   expect(cloud.dependencies["@modelcontextprotocol/sdk"] === require("../package.json").dependencies["@modelcontextprotocol/sdk"], "the site has the same MCP library");

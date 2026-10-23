@@ -1463,6 +1463,13 @@ function KeyField({label,name,cfg,keys,setKeys,placeholder,token=false}) {
 
 // On the web site the Owner's settings live on the server (/api/server/settings, lib/serversettings.cjs); in Windows,
 // in the app (Electron). Both answer the same shape, so the same Settings window serves both.
+// 0.7.31: where the Owner registers the OAuth app of the apps that let in only registered ones.
+const OWNER_APP_WHERE={
+  lovable:"Workspace settings → API keys & OAuth → OAuth clients → New OAuth client, type «Web server», scopes offline, projects and workspaces",
+  asana:"app.asana.com/0/my-apps → create an MCP app",
+  hubspot:"Development → MCP Connectors → Create MCP connector",
+  box:"Admin Console → Integrations → Box MCP server → Configure → Add Integration Credentials"
+};
 const WEB_SETTINGS={
   getConfig:async()=>(await api("/api/server/settings")).data,
   setConfig:async(payload)=>{const r=await api("/api/server/settings",{method:"PUT",body:JSON.stringify(payload)});return {ok:true,config:r.config};}
@@ -1633,6 +1640,18 @@ function SettingsModal({onClose,onSaved,user,machineSettingsAllowed=true,initial
         <ProviderHead name={tr("GitHub sign-in for everyone")} id="github-apps" cfg={cfg}>{tr("Optional: a GitHub OAuth App (GitHub → Settings → Developer settings) with this callback URL: {url}. Without it, GitHub connects with a personal token.",{url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
         <label>{tr("GitHub OAuth client ID")}<input value={cfg.githubClientId||""} onChange={e=>set({githubClientId:e.target.value})} placeholder="Ov23li…"/></label>
         <KeyField label={tr("GitHub OAuth client secret")} name="githubClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("Lovable sign-in for everyone")} id="lovable-apps" cfg={cfg}>{tr("Lovable lets in only OAuth apps its owner registered. Make one in Lovable ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.lovable),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Lovable OAuth client ID")}<input value={cfg.lovableClientId||""} onChange={e=>set({lovableClientId:e.target.value})}/></label>
+        <KeyField label={tr("Lovable OAuth client secret")} name="lovableClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("Asana sign-in for everyone")} id="asana-apps" cfg={cfg}>{tr("Asana lets in only OAuth apps its owner registered. Make one in Asana ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.asana),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Asana OAuth client ID")}<input value={cfg.asanaClientId||""} onChange={e=>set({asanaClientId:e.target.value})}/></label>
+        <KeyField label={tr("Asana OAuth client secret")} name="asanaClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("HubSpot sign-in for everyone")} id="hubspot-apps" cfg={cfg}>{tr("HubSpot lets in only OAuth apps its owner registered. Make one in HubSpot ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.hubspot),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("HubSpot OAuth client ID")}<input value={cfg.hubspotClientId||""} onChange={e=>set({hubspotClientId:e.target.value})}/></label>
+        <KeyField label={tr("HubSpot OAuth client secret")} name="hubspotClientSecret" placeholder="…" {...keyProps}/>
+        <ProviderHead name={tr("Box sign-in for everyone")} id="box-apps" cfg={cfg}>{tr("Box lets in only OAuth apps its owner registered. Make one in Box ({where}) with this return address: {url}",{where:tr(OWNER_APP_WHERE.box),url:`${webServer?window.location.origin:"http://127.0.0.1:8787"}/api/connectors/oauth/callback`})}</ProviderHead>
+        <label>{tr("Box OAuth client ID")}<input value={cfg.boxClientId||""} onChange={e=>set({boxClientId:e.target.value})}/></label>
+        <KeyField label={tr("Box OAuth client secret")} name="boxClientSecret" placeholder="…" {...keyProps}/>
       </>}
       {tab==="images"&&cfg&&<><div className="settingsSectionTitle"><div className="settingsSectionIcon"><ImageIcon size={22}/></div><div><h3>{tr("Pictures")}</h3><p>{tr("Picture generation, APIs, models and trying another provider on its own.")}</p></div></div>
         <MediaMakers kind="image" cfg={cfg} set={set} paidOff={imageCost!=="allow_paid"||cfg.imageProviderMode==="free"}/>

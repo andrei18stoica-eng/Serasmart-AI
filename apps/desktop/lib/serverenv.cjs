@@ -9,7 +9,11 @@ const SERVER_ENV = {
   pollinationsApiKey: "POLLINATIONS_API_KEY", falApiKey: "FAL_API_KEY", replicateApiToken: "REPLICATE_API_TOKEN",
   togetherApiKey: "TOGETHER_API_KEY", stabilityApiKey: "STABILITY_API_KEY", xaiApiKey: "XAI_API_KEY",
   googleClientId: "GOOGLE_CLIENT_ID", googleClientSecret: "GOOGLE_CLIENT_SECRET",
-  githubClientId: "GITHUB_OAUTH_CLIENT_ID", githubClientSecret: "GITHUB_OAUTH_CLIENT_SECRET"
+  githubClientId: "GITHUB_OAUTH_CLIENT_ID", githubClientSecret: "GITHUB_OAUTH_CLIENT_SECRET",
+  lovableClientId: "LOVABLE_CLIENT_ID", lovableClientSecret: "LOVABLE_CLIENT_SECRET",
+  asanaClientId: "ASANA_CLIENT_ID", asanaClientSecret: "ASANA_CLIENT_SECRET",
+  hubspotClientId: "HUBSPOT_CLIENT_ID", hubspotClientSecret: "HUBSPOT_CLIENT_SECRET",
+  boxClientId: "BOX_CLIENT_ID", boxClientSecret: "BOX_CLIENT_SECRET"
 };
 
 // Docker Compose reads .env literally: a value with spaces, quotes, "$", "#" or backslashes is left out and named.

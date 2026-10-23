@@ -44,7 +44,7 @@ let gateway;
 let watchdog;
 let omniInstalledCache = { at: 0, value: null };
 
-const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret","githubClientSecret"];
+const SECRET_KEYS = ["apiKey","openAiApiKey","openRouterApiKey","cerebrasApiKey","groqApiKey","geminiApiKey","mistralApiKey","nvidiaApiKey","cohereApiKey","pollinationsApiKey","cloudflareApiToken","hfToken","togetherApiKey","stabilityApiKey","replicateApiToken","falApiKey","githubToken","xaiApiKey","googleClientSecret","githubClientSecret","lovableClientSecret","asanaClientSecret","hubspotClientSecret","boxClientSecret"];
 const MASK = "••••••••";
 function configPath() { return path.join(app.getPath("userData"), "config.json"); }
 function logError(line) {
@@ -78,6 +78,14 @@ function defaults() {
     googleClientSecret: "",
     githubClientId: "",
     githubClientSecret: "",
+    lovableClientId: "",
+    lovableClientSecret: "",
+    asanaClientId: "",
+    asanaClientSecret: "",
+    hubspotClientId: "",
+    hubspotClientSecret: "",
+    boxClientId: "",
+    boxClientSecret: "",
     blockedProviders: "cerebras",
     sharedCombos: "",
     imageProviders: "",
@@ -187,6 +195,10 @@ function saveConfig(input) {
     xaiModels: String(cfg.xaiModels || DIRECT_MODEL_DEFAULTS.xaiModels).trim(),
     googleClientId: String(cfg.googleClientId || "").trim().slice(0, 300),
     githubClientId: String(cfg.githubClientId || "").trim().slice(0, 300),
+    lovableClientId: String(cfg.lovableClientId || "").trim().slice(0, 300),
+    asanaClientId: String(cfg.asanaClientId || "").trim().slice(0, 300),
+    hubspotClientId: String(cfg.hubspotClientId || "").trim().slice(0, 300),
+    boxClientId: String(cfg.boxClientId || "").trim().slice(0, 300),
     xaiImageModel: String(cfg.xaiImageModel || "grok-imagine-image").trim(),
     xaiVideoModel: String(cfg.xaiVideoModel || "grok-imagine-video").trim(),
     geminiImageModel: String(cfg.geminiImageModel || "gemini-3.1-flash-image").trim(),

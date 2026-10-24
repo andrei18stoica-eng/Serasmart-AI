@@ -1,18 +1,18 @@
-580|Wat je hebt gebruikt: berichten, afbeeldingen, video en spraak.
-1649|Je abonnement, de plannen en extra credits.
-742|Mijn gebruik
-83|Alle accounts
-953|Plannen van alle accounts
-718|Berichten
-1506|Spraakminuten
-329|Gebruikte credits
-327|Credits worden berekend tegen planprijzen, ook als het account niet betaalt.
-731|Gebruikte modellen
-801|Geen gebruik in deze periode.
+582|Wat je hebt gebruikt: berichten, afbeeldingen, video en spraak.
+1652|Je abonnement, de plannen en extra credits.
+744|Mijn gebruik
+85|Alle accounts
+955|Plannen van alle accounts
+720|Berichten
+1509|Spraakminuten
+331|Gebruikte credits
+329|Credits worden berekend tegen planprijzen, ook als het account niet betaalt.
+733|Gebruikte modellen
+803|Geen gebruik in deze periode.
 16|7 dagen
-946|Plan
-328|Credits per dag
-1199|Abonnement
-792|Geen plan
-172|Terug naar alle accounts
-1124|Bekijk je agenda's en vrije tijd, en voeg afspraken toe, wijzig of verwijder ze.
+948|Plan
+330|Credits per dag
+1201|Abonnement
+794|Geen plan
+174|Terug naar alle accounts
+1126|Bekijk je agenda's en vrije tijd, en voeg afspraken toe, wijzig of verwijder ze.

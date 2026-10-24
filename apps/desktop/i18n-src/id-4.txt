@@ -1,433 +1,433 @@
-1350|Login terbuka di browser. Selesaikan di sana; {brand} menyimpan koneksinya sendiri.
-1351|Login tidak selesai dalam 2 menit. Coba lagi.
-1352|Situs sudah versi terbaru.
-1353|Pembaruan situs gagal. Detailnya ada di Pengaturan → Umum.
-1354|Situs diperbarui ke versi {v}. Halaman dimuat ulang.
-1355|Situs diperbarui. Halaman dimuat ulang.
-1356|Situs akan memperbarui diri saat versi baru muncul (diperiksa sekali sejam).
-1357|Pengaturan situs: disimpan di server dan langsung berlaku untuk semua akun. Kunci tetap di server dan hanya ditampilkan tersamar. Email Owner dan pendaftaran tetap di file .env di server.
-1358|Skill /{slug} disimpan.
-1359|Pustaka skill tidak bisa dimuat: {error}
-1360|Skill tidak bisa dimuat: {error}
-1361|Teks yang diucapkan ada di kotak; kirim setelah AI selesai menjawab.
-1362|Status {email} sekarang «{status}».
-1363|Pemeriksaan sintaks menemukan kesalahan. Usulan TIDAK bisa diterapkan.
-1364|Pemeriksaan sintaks berhasil.
-1365|Tugas belum dijalankan. Tekan «Jalankan sekarang» untuk melihat hasilnya.
-1366|Tugas diperbarui.
-1367|Tugas «{name}» dibuat.
-1368|Tugas tidak bisa dimuat: {error}
-1369|Teks tidak bisa disalin ke papan klip.
-1370|Teks tidak bisa dibaca
-1371|Teks yang Anda pilih
-1372|Dua kata sandi baru tidak sama.
-1373|Video tidak bisa dibuat: {error}
-1374|Rekaman suara gagal.
-1375|Seluruh pesan
-1376|Jendela tidak bisa menampilkan bagian aplikasi ini. Tekan «Muat ulang». Jika terjadi lagi, salin detail di bawah dan kirim ke administrator aplikasi.
-1377|Layanan {brand} tidak menemukan yang diminta (HTTP 404).
-1378|Layanan {brand} mengalami kesalahan (HTTP {status}).
-1379|File {format} tidak bisa dibuat: {error}. Anda bisa mencoba lagi dengan tombol di bawah jawaban.
-1380|Model-model ini muncul di daftar (Groq, Gemini, Cerebras…). Mereka menjawab saat Anda memilihnya atau saat tidak ada model dipilih.
-1381|Model-model ini muncul di daftar dan menjawab langsung, tanpa OmniRoute.
-1382|Tema
-1383|Ada perubahan baru di GitHub.
-1384|Tidak ada file di percakapan ini.
-1385|Tidak ada pengguna di grup ini.
-1386|Tidak ada pesan dari Anda untuk jawaban ini.
-1387|Tidak ada cadangan GitHub terbaru.
-1388|Tindakan ini berjalan tanpa bertanya. Hapus satu dan AI akan bertanya lagi.
-1389|Alat ini memungkinkan {brand} memeriksa informasi terkini dan mengambil bagian relevan dari repositori GitHub.
-1390|Berpikir
-1391|Berpikir aktif: jawaban lebih cermat, sedikit lebih lambat. Tekan untuk Cepat.
-1392|Berpikir…
-1393|Aplikasi ini hanya menerima aplikasi yang sudah disetujuinya; Serasmart belum ada di daftarnya.
-1394|Browser ini tidak bisa menerima notifikasi. Gunakan aplikasi {brand} yang terpasang di ponsel (Chrome di Android atau Safari di iPhone).
-1395|Komputer ini
-1396|Dokumen ini kosong.
-1397|Alamat email ini tidak diterima.
-1398|Jenis file ini tidak bisa dibuka di sini. Gunakan «Unduh».
-1399|Jenis file ini tidak punya pratinjau. Anda bisa mengunduhnya.
-1400|Tautan ini tidak bisa dibuka dari {brand}.
-1401|Bagian kredit periode ini
-1402|Layanan ini juga memerlukan OAuth Client Secret.
-1403|Teks ini tidak ada di chat Anda.
-1404|Buku kerja ini kosong.
-1405|Ribuan aplikasi lewat tindakan Zapier Anda.
-1406|Waktu
-1407|Waktu habis: {answer}
-1408|Hari ini
-1409|Kurs resmi BNR hari ini: euro, dolar, pound, dan lainnya (bnr.ro).
-1410|Kunci API Together
-1411|Token
-1412|Token (opsional)
-1413|Token tersimpan — kosongkan untuk mempertahankannya
-1414|Nada
-1415|Terlalu besar untuk dibaca
-1416|Terlalu banyak percobaan. Tunggu 15 menit dan coba lagi.
-1417|Terlalu banyak percobaan masuk. Coba lagi dalam beberapa menit.
-1418|Terlalu banyak kode salah. Minta kode baru.
-1419|Alat
-1420|Model teratas (Claude, GPT, Gemini, dan Grok terkuat)
-1421|Isi ulang
-1422|Catat makanan dan kalori
-1423|Model transkripsi
-1424|Terjemahkan aplikasi
-1425|Terjemahkan seluruh aplikasi ke semua bahasa
-1426|Menerjemahkan secara alami, mempertahankan nada dan format.
-1427|Menerjemahkan aplikasi ke {name}… {pct}%
-1428|Menerjemahkan aplikasi ke {name}… {pct}%. Teks berubah sendiri saat siap.
-1429|Menerjemahkan {n} teks ke {count} bahasa di latar belakang. Anda bisa menutup jendela ini.
-1430|Penerjemah
-1431|Mencoba model secara berurutan sampai ada yang masih punya kuota.
-1433|Coba lagi
-1434|Nonaktifkan di perangkat ini
-1435|Nonaktifkan AI berbayar untuk akun biasa? Owner tetap punya akses ke model berbayar.
-1436|Nonaktifkan {name}
-1437|Aktifkan untuk perangkat ini
-1438|Aktifkan {name}
-1439|Nonaktif
-1440|Dinonaktifkan Owner untuk akun Anda.
-1441|Tidak tersedia
-1442|Di bawah kotak pesan, dalam mode Gambar, Anda bisa memilih setiap kali siapa yang membuatnya. Pada «Otomatis», jika Anda memilih model Gemini, ChatGPT, atau Grok di chat, perusahaan model itu yang membuat gambar (pertama langganan di OmniRoute, lalu API-nya); jika tidak, pengaturan ini yang dipakai.
-1443|Di bawah kotak pesan, dalam mode Video, Anda bisa memilih setiap kali siapa yang membuatnya. Pada «Otomatis», jika Anda memilih model Gemini atau Grok di chat, perusahaan model itu yang membuat video (pertama langganan di OmniRoute, lalu API-nya); jika tidak, pengaturan ini yang dipakai.
-1444|Batalkan perubahan GitHub terakhir
-1445|Kesalahan tidak diketahui.
-1446|Tanpa batas
-1447|Lepas sematan
-1448|Tidak dicentang: modelnya keluar dari daftar dan tidak pernah menjawab, bahkan sebagai cadangan. Kombinasi OmniRoute tetap ada; isinya Anda pilih di panel OmniRoute.
-1449|Desain tanpa judul
-1450|Dokumentasi terkini untuk pustaka kode.
-1451|Perbarui situs sekarang
-1452|Perbarui situs sekarang? Server mengunduh versi terbaru dari GitHub dan memulai ulang situs (1–5 menit, selama itu situs tidak menjawab).
-1453|Pembaruan:
-1454|Memperbarui situs… butuh 1–5 menit; halaman dimuat ulang sendiri.
-1455|Memperbarui…
-1456|Unggah
-1457|Unggah file apa pun
-1458|Unggah audio
-1459|Unggah gambar
-1460|Unggah video
-1461|Mengunggah 1 file… file besar bisa memakan waktu.
-1462|Mengunggah file…
-1463|Mengunggah {n} file… file besar bisa memakan waktu.
-1464|Pemakaian
-1466|Pakai di chat
-1467|Pakai sendiri saat relevan
-1468|Pakai memori
-1469|Pakai layanan lokal bawaan
-1470|Pakai API langsung
-1471|Gunakan email akun {brand} Anda.
-1472|Pakai AI ini
-1473|Terpakai
-1474|Langsung dipakai, tanpa batas mingguan
-1478|Dipakai saat Anda menulis {trigger}
-1479|Dipakai saat Anda menulis «{name}» atau {trigger}
-1480|Jawaban berguna
-1481|Pengguna
-1482|Memakai chat relevan dari proyek yang sama tanpa menyalinnya manual.
-1483|Utilitas
-1484|Berlaku 12 bulan
-1485|Veo dengan kunci Gemini yang sama untuk chat; model dipilih di atas, di «Video dibuat oleh».
-1486|Versi
-1487|Versi di server: {v}.
-1488|Versi {v} tersedia.
-1489|Versi {v} tersedia. Akan terunduh sendiri; Anda mendapat notifikasi saat siap.
-1490|Video
-1491|Pembuatan video
-1492|Pembuatan video dengan model AI
-1493|Pembuatan video, API, model, dan mencoba penyedia lain secara otomatis.
-1494|Video dibuat oleh
-1495|Pembuatan video
-1496|Mode video
-1497|Mode video: pesan berikutnya membuat video. Tekan Video lagi untuk keluar.
-1498|Video: pesan berikutnya membuat video.
-1499|Video dibuat oleh
-1500|Video yang dibuat dengan AI
-1501|Video dengan durasi berapa pun
-1502|Suara
-1503|Aktivitas suara
-1504|Suara dan mikrofon
-1505|Input suara
-1506|Menit suara
-1507|Pengenalan suara tidak berhasil. Tekan mikrofon dan coba lagi.
-1508|Pengenalan suara berhenti; periksa teks lalu kirim.
-1509|Suara ke teks
-1510|Tunggu
-1511|Tunggu sampai file selesai diunggah.
-1512|Tunggu sampai {when}
-1513|Menunggu login
-1514|Menunggu jawaban AI yang dipilih…
-1515|Menunggu suara dituliskan.
-1516|Menunggu persetujuan Anda
-1517|Menunggu persetujuan Anda di {app}…
-1518|Ingin
-1519|Pantau harga
-1520|Cara kerja
-1521|Kami tidak bisa mengirim email berisi kode. Periksa alamatnya dan coba lagi.
-1522|Kami mengirim kode 6 digit ke email Anda. Masukkan untuk mengonfirmasi bahwa alamat itu milik Anda.
-1523|Kami mengirim kode 6 digit ke {email}. Jika tidak terlihat, periksa Spam. Kode kedaluwarsa dalam 15 menit.
-1524|Kami mengirim kode lewat email.
-1525|Kami mengirim kode baru.
-1526|Jawaban lemah
-1527|Cuaca
-1528|Cuaca saat ini dan prakiraan 3 hari untuk kota mana pun (Open-Meteo, tanpa akun).
-1529|Pencarian web
-1530|Pencarian web untuk agen AI
-1531|Pencarian web yang dibuat untuk AI.
-1532|Pencarian web dengan sumber
-1533|Situs web
-1534|Alamat situs web
-1535|Situs web
-1536|Mode akhir pekan. Apa yang ingin Anda lakukan?
-1537|Mingguan
-1538|Mingguan, {day} pukul {time}
-1539|Selamat datang kembali
-1540|Selamat datang di {brand}
-1541|Apa yang kita bangun hari ini?
-1542|Apa yang kita kerjakan hari ini?
-1543|Apa yang paling menggambarkan pekerjaan Anda?
-1544|Isinya
-1545|Fungsinya, dalam satu kalimat
-1546|Yang perlu diperbaiki
-1547|Apa yang harus saya ubah
-1548|{brand} harus memanggil Anda apa?
-1549|Apa yang harus dilakukan {brand}? Mis. Cari berita penting hari ini dan beri saya ringkasan dengan tautan.
-1550|Cara AI memanggil Anda
-1551|Yang harus dilakukan AI setiap kali Anda memakai skill ini: nada, struktur, apa yang dimasukkan, apa yang dihindari.
-1552|Fungsi plugin
-1553|Biaya setiap hal
-1554|Hal yang membantu AI mengenal Anda: minat, proyek, tingkat pengalaman.
-1555|Pekerjaan Anda
-1556|Yang diketahui {brand} tentang Anda
-1557|Yang diingat {brand} tentang Anda dan cara memakai chat sebelumnya.
-1558|Jika permintaan bisa dibaca dengan beberapa cara, {brand} bertanya dulu, dengan pilihan yang bisa Anda pilih sekali klik.
-1559|Saat seseorang mendaftar, ponsel Anda menampilkan siapa yang ingin bergabung dengan {brand} dan bertanya apakah Anda mengizinkannya. Di Android Anda menjawab dari notifikasi dengan Izinkan atau Tolak; di iPhone Anda mengetuknya dan memilih di aplikasi. Permintaan menunggu sampai Anda menjawab.
-1562|Saat Anda meminta gambar atau video, {brand} menaruh file aslinya di chat, dengan tombol unduh.
-1563|Saat Anda meminta gambar, {brand} mencoba penyedia sesuai urutan, menaruh file asli di chat, dan menyimpannya di Pustaka.
-1564|Saat Anda meminta video, {brand} mencoba penyedia berurutan, mengunduh file MP4 asli, menaruhnya di chat, dan menyimpannya di Pustaka.
-1565|Saat Anda bertanya, ia mencari di chat Anda yang lain (termasuk yang diarsipkan) dan memakai yang terkait. Jadi Anda bisa melanjutkan topik di chat baru.
-1566|Aplikasi Windows
-1567|Dengan Cloud API diatur, Owner mengelola akun, persetujuan, dan izin secara terpusat. Kosongkan untuk hanya memakai PC ini.
-1568|Dengan kunci xAI dari API AI.
-1569|Dengan kunci xAI dari API AI; 1–15 detik.
-1570|Tanpa paket: {n} pesan per hari di model gratis, setelah uji coba {days} hari dengan {credits} kredit. Pembayaran kartu segera dibuka; sampai saat itu paket diberikan oleh Owner.
-1571|File Word, Excel, PowerPoint, dan PDF
-1574|Workers, KV, R2, dan D1 di akun Cloudflare Anda.
-1575|Hari kerja (Senin–Jumat)
-1576|Bekerja di
-1577|Bekerja di {app}…
-1578|Kerja lembur? Saya di sini saat Anda butuh.
-1579|Menghitung harga…
-1580|Bekerja…
-1581|Latihan dan data kesehatan
-1582|Langsung berfungsi
-1583|Berfungsi: {result}
-1584|Menutup hari? Saya bisa bantu sisanya.
-1585|Tulis nama untuk plugin.
-1586|Tulis nama untuk tugas.
-1587|Tulis nama plugin di chat (misalnya «Kalender») atau @nama dan {brand} memakainya untuk jawaban.
-1588|Tulis email singkat dan ramah yang
-1589|Tulis email
-1590|Tulis sekali apa yang harus dilakukan {brand} dan pilih kapan. Misalnya: «Setiap hari kerja pukul 08:30, beri saya ringkasan berita.»
-1591|Tulis apa yang harus dilakukan {brand}.
-1592|Tulis jawaban Anda
-1593|Tulis jawaban Anda sendiri
-1594|Menulis email yang jelas dan sopan dengan subjek dari beberapa ide.
-1595|Menulis HTML dan CSS…
-1596|Penulisan dan konten
-1597|Menuliskan ucapan Anda…
-1598|Menuliskan suara Anda…
-1599|Menulis jawaban…
-1600|Menulis file {format} Anda…
-1601|Menulis file {format} Anda… {n} kata
-1602|Email atau kata sandi salah.
-1603|YA
-1604|Ya
-1605|Kemarin
-1606|Anda menambahkan /{slug}. Tulis di chat untuk memakainya.
-1607|Anda bisa menambahkan API gratis lain kapan saja (Groq, Cerebras, Cloudflare untuk gambar) di Pengaturan → API AI.
-1608|Anda bisa meminta kode baru sekali per menit.
-1609|Anda bisa menghubungkan beberapa layanan. {brand} mencoba penyedia secara berurutan dan pindah ke berikutnya jika satu gagal.
-1610|Anda bisa memakai plugin tanpa OAuth untuk membuka aplikasi langsung. OAuth atau API hanya diperlukan jika Anda ingin {brand} membaca atau mengubah data pribadi di layanan itu.
-1611|Anda yang memilih
-1612|Anda memilih {model}; OmniRoute mengirim pertanyaan ke {served}.
-1613|Anda memilih {model}; {brand} mengirim pertanyaan ke {served}.
-1614|Anda mendapat kode lewat email untuk mengonfirmasi alamat, lalu Owner menyetujui akun.
-1615|Anda belum punya asisten. Buat satu dari bilah samping.
-1616|Anda memakai versi terbaru.
-1617|Anda membiarkan {brand} memilih
-1618|Anda telah keluar dari semua perangkat.
-1619|Statistik dan kata kunci YouTube
-1620|AI Anda, semua model
-1621|Langganan ChatGPT Anda, terhubung di OmniRoute
-1622|Langganan Claude Anda, terhubung di OmniRoute
-1623|Acara Google Calendar Anda
-1624|Data Helium 10 Anda
-1625|Email Outlook Anda
-1626|Dasbor Plaid Anda: item, pemakaian, dan masalah.
-1627|Situs, halaman, dan toko Wix Anda.
-1628|Akun Anda tidak ditagih (Owner).
-1629|Kata sandi akun Anda
-1630|Akun Anda, aplikasi, suara, layanan AI, dan pembaruan.
-1631|Jawaban Anda
-1632|Aplikasi Anda
-1633|Aplikasi Anda yang terhubung: AI membaca dan bekerja di dalamnya dengan persetujuan Anda.
-1634|Pilihan Anda: {value}
-1635|Desain Anda
-1636|File, gambar, video, dan desain Anda, siap dipakai dalam percakapan.
-1637|Data kesehatan Anda
-1638|Catatan rapat dan transkrip Anda.
-1639|Nama Anda
-1640|API dan webhook Anda sendiri, serta plugin yang langsung berfungsi.
-1641|Gambar dan video Anda: cari, unggah, ubah.
-1642|Paket Anda
-1643|Paket Anda, kredit minggu ini, dan kredit tambahan.
-1644|Paket Anda, kredit minggu ini, dan biaya setiap tindakan.
-1645|Profil Anda, cara AI menjawab Anda, notifikasi, privasi, dan keamanan.
-1646|Sumber daya Anda di Render
-1647|Sesi Anda kedaluwarsa atau ditutup. Masuk lagi.
-1648|Skill Anda
-1649|Langganan Anda, paket, dan kredit tambahan.
-1650|Tugas dan proyek Anda: tambah, selesaikan, jadwalkan ulang.
-1651|Pekerjaan Anda
-1652|ditambahkan oleh Anda
-1653|semua chat
-1654|semua file di Pustaka
-1655|semua memori
-1656|semua data akun (chat, memori, file, proyek, asisten, skill, otomatisasi, aplikasi, desain)
-1657|jawaban · {s} dtk
-1659|paling banyak {n} kredit
-1660|otomatis
-1661|oleh {author}
-1662|oleh {author} · {license}
-1663|kategori
-1664|kategori
-1665|periksa bahwa Anda menyalin semuanya.
-1666|kode
-1667|koneksi berfungsi
-1668|dibuat
-1669|kredit
-1670|bawaan
-1671|mis. Membalas keluhan
-1672|mis. nama atau nama panggilan
-1673|mis. ajukan pertanyaan klarifikasi sebelum memberi jawaban mendetail
-1674|mis. pelajar, desainer web, akuntan
-1675|mis. desainer web, akuntan, guru
-1676|kesalahan
-1677|Kunci API fal
-1678|Model video fal
-1679|Model fal.ai
-1680|file
-1681|untuk {n} kredit · bayar sekali
-1682|dari tugas terjadwal
-1683|dari riwayat
-1684|dari {n}
-1685|github_pat_... atau ghp_...
-1686|termasuk
-1687|item
-1688|item
-1689|disimpan otomatis
-1690|dibuat dari nama
-1691|memori
-1692|minimal {n} kredit
-1693|nama@contoh.com
-1694|berikutnya: {when}
-1695|tanpa akun
-1696|tidak ada
-1697|tidak termasuk
-1698|sekarang
-1699|dari kredit minggu ini terpakai
-1700|nonaktif
-1701|sekali
-1702|hanya saat berubah
-1703|opsional
-1704|opsional / PKCE
-1705|berbayar
-1706|disematkan
-1707|hanya baca
-1708|hasil nyata
-1709|wajib
-1710|diatur oleh Owner
-1711|sejak {when}
-1712|sumber
-1713|sistem
-1714|file
-1715|kunci berfungsi · {models} model, {combos} kombinasi · {s} dtk
-1716|tidak ada konten untuk file
-1717|yang ini
-1718|minggu ini
-1719|hari ini
-1720|besok
-1721|kesalahan tidak diketahui
-1722|hingga {s} dtk
-1723|dipakai saat Anda tidak memilih yang lain di daftar atas
-1724|dengan kunci
-1725|Kunci API xAI
-1726|kemarin
-1727|langganan pribadi Anda tetap milik Anda saja (ketentuan penyedia tidak mengizinkan berbagi akun). Berikan model kepada orang itu lewat API (openai/…, anthropic/…).
-1728|Akun {brand}
-1729|{brand} bisa membuat kesalahan. Periksa informasi penting.
-1730|{brand} memeriksa harga yang dipublikasikan jika ada dan tidak memulai jika tidak bisa memastikan biaya nol. Gemini Veo, fal.ai, dan Replicate tetap diblokir dalam mode ini.
-1731|{brand} sedang menuliskan rekaman…
-1732|{brand} mengingat ini di setiap chat di akun ini.
-1733|{brand} menyimpan preferensi, keputusan, dan detail yang bertahan lama sendiri, dan memakainya saat penting.
-1734|{brand} mengalami masalah
-1735|{brand} membaca file dari repositori yang diatur dan mengusulkan perbaikan.
-1736|{brand} menjalankan instruksi sendiri pada waktu yang dipilih, saat aplikasi berjalan.
-1737|{brand} menyimpan plugin sebagai tautan langsung dan membuka aplikasi resmi. Anda masuk seperti biasa di browser.
-1738|Layanan {brand}
-1739|Alamat layanan {brand}
-1740|Pengaturan {brand}
-1741|Pembaruan {brand} tersedia — pasang sekarang
-1742|{brand} memakai {provider} · {model}
-1743|{brand} memakai ini hanya untuk menjawab Anda lebih baik; Anda bisa melihat dan mengubahnya di sini kapan saja.
-1744|{days} pukul {time}
-1745|{left} dari {limit} pesan gratis tersisa hari ini
-1746|{left} dari {total} kredit · berakhir {when}
-1747|{model}: {mode} untuk {email}.
-1748|{name} ({email}) sekarang bisa memakai {brand}.
-1749|{name} ({email}) tidak akan bisa memakai {brand}.
-1750|{name} terhubung. Tanyakan di chat; AI bertanya dulu sebelum setiap tindakan.
-1751|{name} terpasang
-1752|{name} siap. Tulis di chat, misalnya: {trigger}, atau langsung bertanya.
-1753|{name} ditambahkan: {n} skill-nya bisa dipakai dengan /nama di chat.
-1754|{name}: terhubung.
-1755|{name}: disimpan untuk dibuka langsung, tanpa OAuth. Masuk seperti biasa di aplikasi resmi.
-1756|{name}: plugin terhubung.
-1757|{name}: plugin disimpan.
-1758|{n} model OmniRoute disembunyikan oleh Owner.
-1759|{n} per hari
-1760|{n} per menit
-1761|{n} per minggu
-1762|{n} tindakan
-1763|{n} sesi aktif
-1764|{n} aplikasi
-1765|{n} sekaligus
-1766|{n} otomatisasi
-1767|{n} file ditambahkan ke Pustaka.
-1768|{n} tersisa · minggu {w} dari 4
-1769|{n} model tersedia
-1770|{n} model disembunyikan oleh Owner.
-1771|{n} model tersedia
-1772|{n} tidak diizinkan
-1773|{n} orang
-1774|{n} detik
-1775|{n} skill
-1776|{n} versi
-1777|{pack} · oleh {author} · {license}
-1778|Paket {plan}
-1779|Paket {plan}: {percent}% minggu ini terpakai
-1780|{price} per tahun · gratis 2 bulan
-1781|{p}% kredit minggu ini terpakai
-1782|{s} dtk · biasanya sekitar satu menit
-1783|«Diizinkan» tidak berpengaruh selama «Chat AI» nonaktif untuk akun ini: aktifkan dulu izin Chat di atas.
-1784|«Bawaan» mengikuti izin di atas; «Diizinkan» membuka model meski izin menutupnya; «Diblokir» menutupnya. Langganan pribadi Owner tetap hanya milik Owner.
-1785|«Nano Banana»; model dipilih di atas, di «Gambar dibuat oleh». Kunci yang sama dengan API AI dan Video.
-1786|«{feature}» dinonaktifkan Owner untuk akun Anda.
-1787|«{model}» tidak diizinkan untuk Anda oleh Owner.
-1788|«{name}» berjalan. Hasilnya ada di riwayat.
-1789|⚡ Cepat
-1790|✨ Kualitas
-1791|🎬 Kualitas
-1792|🛡️ Hanya gratis
+1353|Login terbuka di browser. Selesaikan di sana; {brand} menyimpan koneksinya sendiri.
+1354|Login tidak selesai dalam 2 menit. Coba lagi.
+1355|Situs sudah versi terbaru.
+1356|Pembaruan situs gagal. Detailnya ada di Pengaturan → Umum.
+1357|Situs diperbarui ke versi {v}. Halaman dimuat ulang.
+1358|Situs diperbarui. Halaman dimuat ulang.
+1359|Situs akan memperbarui diri saat versi baru muncul (diperiksa sekali sejam).
+1360|Pengaturan situs: disimpan di server dan langsung berlaku untuk semua akun. Kunci tetap di server dan hanya ditampilkan tersamar. Email Owner dan pendaftaran tetap di file .env di server.
+1361|Skill /{slug} disimpan.
+1362|Pustaka skill tidak bisa dimuat: {error}
+1363|Skill tidak bisa dimuat: {error}
+1364|Teks yang diucapkan ada di kotak; kirim setelah AI selesai menjawab.
+1365|Status {email} sekarang «{status}».
+1366|Pemeriksaan sintaks menemukan kesalahan. Usulan TIDAK bisa diterapkan.
+1367|Pemeriksaan sintaks berhasil.
+1368|Tugas belum dijalankan. Tekan «Jalankan sekarang» untuk melihat hasilnya.
+1369|Tugas diperbarui.
+1370|Tugas «{name}» dibuat.
+1371|Tugas tidak bisa dimuat: {error}
+1372|Teks tidak bisa disalin ke papan klip.
+1373|Teks tidak bisa dibaca
+1374|Teks yang Anda pilih
+1375|Dua kata sandi baru tidak sama.
+1376|Video tidak bisa dibuat: {error}
+1377|Rekaman suara gagal.
+1378|Seluruh pesan
+1379|Jendela tidak bisa menampilkan bagian aplikasi ini. Tekan «Muat ulang». Jika terjadi lagi, salin detail di bawah dan kirim ke administrator aplikasi.
+1380|Layanan {brand} tidak menemukan yang diminta (HTTP 404).
+1381|Layanan {brand} mengalami kesalahan (HTTP {status}).
+1382|File {format} tidak bisa dibuat: {error}. Anda bisa mencoba lagi dengan tombol di bawah jawaban.
+1383|Model-model ini muncul di daftar (Groq, Gemini, Cerebras…). Mereka menjawab saat Anda memilihnya atau saat tidak ada model dipilih.
+1384|Model-model ini muncul di daftar dan menjawab langsung, tanpa OmniRoute.
+1385|Tema
+1386|Ada perubahan baru di GitHub.
+1387|Tidak ada file di percakapan ini.
+1388|Tidak ada pengguna di grup ini.
+1389|Tidak ada pesan dari Anda untuk jawaban ini.
+1390|Tidak ada cadangan GitHub terbaru.
+1391|Tindakan ini berjalan tanpa bertanya. Hapus satu dan AI akan bertanya lagi.
+1392|Alat ini memungkinkan {brand} memeriksa informasi terkini dan mengambil bagian relevan dari repositori GitHub.
+1393|Berpikir
+1394|Berpikir aktif: jawaban lebih cermat, sedikit lebih lambat. Tekan untuk Cepat.
+1395|Berpikir…
+1396|Aplikasi ini hanya menerima aplikasi yang sudah disetujuinya; Serasmart belum ada di daftarnya.
+1397|Browser ini tidak bisa menerima notifikasi. Gunakan aplikasi {brand} yang terpasang di ponsel (Chrome di Android atau Safari di iPhone).
+1398|Komputer ini
+1399|Dokumen ini kosong.
+1400|Alamat email ini tidak diterima.
+1401|Jenis file ini tidak bisa dibuka di sini. Gunakan «Unduh».
+1402|Jenis file ini tidak punya pratinjau. Anda bisa mengunduhnya.
+1403|Tautan ini tidak bisa dibuka dari {brand}.
+1404|Bagian kredit periode ini
+1405|Layanan ini juga memerlukan OAuth Client Secret.
+1406|Teks ini tidak ada di chat Anda.
+1407|Buku kerja ini kosong.
+1408|Ribuan aplikasi lewat tindakan Zapier Anda.
+1409|Waktu
+1410|Waktu habis: {answer}
+1411|Hari ini
+1412|Kurs resmi BNR hari ini: euro, dolar, pound, dan lainnya (bnr.ro).
+1413|Kunci API Together
+1414|Token
+1415|Token (opsional)
+1416|Token tersimpan — kosongkan untuk mempertahankannya
+1417|Nada
+1418|Terlalu besar untuk dibaca
+1419|Terlalu banyak percobaan. Tunggu 15 menit dan coba lagi.
+1420|Terlalu banyak percobaan masuk. Coba lagi dalam beberapa menit.
+1421|Terlalu banyak kode salah. Minta kode baru.
+1422|Alat
+1423|Model teratas (Claude, GPT, Gemini, dan Grok terkuat)
+1424|Isi ulang
+1425|Catat makanan dan kalori
+1426|Model transkripsi
+1427|Terjemahkan aplikasi
+1428|Terjemahkan seluruh aplikasi ke semua bahasa
+1429|Menerjemahkan secara alami, mempertahankan nada dan format.
+1430|Menerjemahkan aplikasi ke {name}… {pct}%
+1431|Menerjemahkan aplikasi ke {name}… {pct}%. Teks berubah sendiri saat siap.
+1432|Menerjemahkan {n} teks ke {count} bahasa di latar belakang. Anda bisa menutup jendela ini.
+1433|Penerjemah
+1434|Mencoba model secara berurutan sampai ada yang masih punya kuota.
+1436|Coba lagi
+1437|Nonaktifkan di perangkat ini
+1438|Nonaktifkan AI berbayar untuk akun biasa? Owner tetap punya akses ke model berbayar.
+1439|Nonaktifkan {name}
+1440|Aktifkan untuk perangkat ini
+1441|Aktifkan {name}
+1442|Nonaktif
+1443|Dinonaktifkan Owner untuk akun Anda.
+1444|Tidak tersedia
+1445|Di bawah kotak pesan, dalam mode Gambar, Anda bisa memilih setiap kali siapa yang membuatnya. Pada «Otomatis», jika Anda memilih model Gemini, ChatGPT, atau Grok di chat, perusahaan model itu yang membuat gambar (pertama langganan di OmniRoute, lalu API-nya); jika tidak, pengaturan ini yang dipakai.
+1446|Di bawah kotak pesan, dalam mode Video, Anda bisa memilih setiap kali siapa yang membuatnya. Pada «Otomatis», jika Anda memilih model Gemini atau Grok di chat, perusahaan model itu yang membuat video (pertama langganan di OmniRoute, lalu API-nya); jika tidak, pengaturan ini yang dipakai.
+1447|Batalkan perubahan GitHub terakhir
+1448|Kesalahan tidak diketahui.
+1449|Tanpa batas
+1450|Lepas sematan
+1451|Tidak dicentang: modelnya keluar dari daftar dan tidak pernah menjawab, bahkan sebagai cadangan. Kombinasi OmniRoute tetap ada; isinya Anda pilih di panel OmniRoute.
+1452|Desain tanpa judul
+1453|Dokumentasi terkini untuk pustaka kode.
+1454|Perbarui situs sekarang
+1455|Perbarui situs sekarang? Server mengunduh versi terbaru dari GitHub dan memulai ulang situs (1–5 menit, selama itu situs tidak menjawab).
+1456|Pembaruan:
+1457|Memperbarui situs… butuh 1–5 menit; halaman dimuat ulang sendiri.
+1458|Memperbarui…
+1459|Unggah
+1460|Unggah file apa pun
+1461|Unggah audio
+1462|Unggah gambar
+1463|Unggah video
+1464|Mengunggah 1 file… file besar bisa memakan waktu.
+1465|Mengunggah file…
+1466|Mengunggah {n} file… file besar bisa memakan waktu.
+1467|Pemakaian
+1469|Pakai di chat
+1470|Pakai sendiri saat relevan
+1471|Pakai memori
+1472|Pakai layanan lokal bawaan
+1473|Pakai API langsung
+1474|Gunakan email akun {brand} Anda.
+1475|Pakai AI ini
+1476|Terpakai
+1477|Langsung dipakai, tanpa batas mingguan
+1481|Dipakai saat Anda menulis {trigger}
+1482|Dipakai saat Anda menulis «{name}» atau {trigger}
+1483|Jawaban berguna
+1484|Pengguna
+1485|Memakai chat relevan dari proyek yang sama tanpa menyalinnya manual.
+1486|Utilitas
+1487|Berlaku 12 bulan
+1488|Veo dengan kunci Gemini yang sama untuk chat; model dipilih di atas, di «Video dibuat oleh».
+1489|Versi
+1490|Versi di server: {v}.
+1491|Versi {v} tersedia.
+1492|Versi {v} tersedia. Akan terunduh sendiri; Anda mendapat notifikasi saat siap.
+1493|Video
+1494|Pembuatan video
+1495|Pembuatan video dengan model AI
+1496|Pembuatan video, API, model, dan mencoba penyedia lain secara otomatis.
+1497|Video dibuat oleh
+1498|Pembuatan video
+1499|Mode video
+1500|Mode video: pesan berikutnya membuat video. Tekan Video lagi untuk keluar.
+1501|Video: pesan berikutnya membuat video.
+1502|Video dibuat oleh
+1503|Video yang dibuat dengan AI
+1504|Video dengan durasi berapa pun
+1505|Suara
+1506|Aktivitas suara
+1507|Suara dan mikrofon
+1508|Input suara
+1509|Menit suara
+1510|Pengenalan suara tidak berhasil. Tekan mikrofon dan coba lagi.
+1511|Pengenalan suara berhenti; periksa teks lalu kirim.
+1512|Suara ke teks
+1513|Tunggu
+1514|Tunggu sampai file selesai diunggah.
+1515|Tunggu sampai {when}
+1516|Menunggu login
+1517|Menunggu jawaban AI yang dipilih…
+1518|Menunggu suara dituliskan.
+1519|Menunggu persetujuan Anda
+1520|Menunggu persetujuan Anda di {app}…
+1521|Ingin
+1522|Pantau harga
+1523|Cara kerja
+1524|Kami tidak bisa mengirim email berisi kode. Periksa alamatnya dan coba lagi.
+1525|Kami mengirim kode 6 digit ke email Anda. Masukkan untuk mengonfirmasi bahwa alamat itu milik Anda.
+1526|Kami mengirim kode 6 digit ke {email}. Jika tidak terlihat, periksa Spam. Kode kedaluwarsa dalam 15 menit.
+1527|Kami mengirim kode lewat email.
+1528|Kami mengirim kode baru.
+1529|Jawaban lemah
+1530|Cuaca
+1531|Cuaca saat ini dan prakiraan 3 hari untuk kota mana pun (Open-Meteo, tanpa akun).
+1532|Pencarian web
+1533|Pencarian web untuk agen AI
+1534|Pencarian web yang dibuat untuk AI.
+1535|Pencarian web dengan sumber
+1536|Situs web
+1537|Alamat situs web
+1538|Situs web
+1539|Mode akhir pekan. Apa yang ingin Anda lakukan?
+1540|Mingguan
+1541|Mingguan, {day} pukul {time}
+1542|Selamat datang kembali
+1543|Selamat datang di {brand}
+1544|Apa yang kita bangun hari ini?
+1545|Apa yang kita kerjakan hari ini?
+1546|Apa yang paling menggambarkan pekerjaan Anda?
+1547|Isinya
+1548|Fungsinya, dalam satu kalimat
+1549|Yang perlu diperbaiki
+1550|Apa yang harus saya ubah
+1551|{brand} harus memanggil Anda apa?
+1552|Apa yang harus dilakukan {brand}? Mis. Cari berita penting hari ini dan beri saya ringkasan dengan tautan.
+1553|Cara AI memanggil Anda
+1554|Yang harus dilakukan AI setiap kali Anda memakai skill ini: nada, struktur, apa yang dimasukkan, apa yang dihindari.
+1555|Fungsi plugin
+1556|Biaya setiap hal
+1557|Hal yang membantu AI mengenal Anda: minat, proyek, tingkat pengalaman.
+1558|Pekerjaan Anda
+1559|Yang diketahui {brand} tentang Anda
+1560|Yang diingat {brand} tentang Anda dan cara memakai chat sebelumnya.
+1561|Jika permintaan bisa dibaca dengan beberapa cara, {brand} bertanya dulu, dengan pilihan yang bisa Anda pilih sekali klik.
+1562|Saat seseorang mendaftar, ponsel Anda menampilkan siapa yang ingin bergabung dengan {brand} dan bertanya apakah Anda mengizinkannya. Di Android Anda menjawab dari notifikasi dengan Izinkan atau Tolak; di iPhone Anda mengetuknya dan memilih di aplikasi. Permintaan menunggu sampai Anda menjawab.
+1565|Saat Anda meminta gambar atau video, {brand} menaruh file aslinya di chat, dengan tombol unduh.
+1566|Saat Anda meminta gambar, {brand} mencoba penyedia sesuai urutan, menaruh file asli di chat, dan menyimpannya di Pustaka.
+1567|Saat Anda meminta video, {brand} mencoba penyedia berurutan, mengunduh file MP4 asli, menaruhnya di chat, dan menyimpannya di Pustaka.
+1568|Saat Anda bertanya, ia mencari di chat Anda yang lain (termasuk yang diarsipkan) dan memakai yang terkait. Jadi Anda bisa melanjutkan topik di chat baru.
+1569|Aplikasi Windows
+1570|Dengan Cloud API diatur, Owner mengelola akun, persetujuan, dan izin secara terpusat. Kosongkan untuk hanya memakai PC ini.
+1571|Dengan kunci xAI dari API AI.
+1572|Dengan kunci xAI dari API AI; 1–15 detik.
+1573|Tanpa paket: {n} pesan per hari di model gratis, setelah uji coba {days} hari dengan {credits} kredit. Pembayaran kartu segera dibuka; sampai saat itu paket diberikan oleh Owner.
+1574|File Word, Excel, PowerPoint, dan PDF
+1577|Workers, KV, R2, dan D1 di akun Cloudflare Anda.
+1578|Hari kerja (Senin–Jumat)
+1579|Bekerja di
+1580|Bekerja di {app}…
+1581|Kerja lembur? Saya di sini saat Anda butuh.
+1582|Menghitung harga…
+1583|Bekerja…
+1584|Latihan dan data kesehatan
+1585|Langsung berfungsi
+1586|Berfungsi: {result}
+1587|Menutup hari? Saya bisa bantu sisanya.
+1588|Tulis nama untuk plugin.
+1589|Tulis nama untuk tugas.
+1590|Tulis nama plugin di chat (misalnya «Kalender») atau @nama dan {brand} memakainya untuk jawaban.
+1591|Tulis email singkat dan ramah yang
+1592|Tulis email
+1593|Tulis sekali apa yang harus dilakukan {brand} dan pilih kapan. Misalnya: «Setiap hari kerja pukul 08:30, beri saya ringkasan berita.»
+1594|Tulis apa yang harus dilakukan {brand}.
+1595|Tulis jawaban Anda
+1596|Tulis jawaban Anda sendiri
+1597|Menulis email yang jelas dan sopan dengan subjek dari beberapa ide.
+1598|Menulis HTML dan CSS…
+1599|Penulisan dan konten
+1600|Menuliskan ucapan Anda…
+1601|Menuliskan suara Anda…
+1602|Menulis jawaban…
+1603|Menulis file {format} Anda…
+1604|Menulis file {format} Anda… {n} kata
+1605|Email atau kata sandi salah.
+1606|YA
+1607|Ya
+1608|Kemarin
+1609|Anda menambahkan /{slug}. Tulis di chat untuk memakainya.
+1610|Anda bisa menambahkan API gratis lain kapan saja (Groq, Cerebras, Cloudflare untuk gambar) di Pengaturan → API AI.
+1611|Anda bisa meminta kode baru sekali per menit.
+1612|Anda bisa menghubungkan beberapa layanan. {brand} mencoba penyedia secara berurutan dan pindah ke berikutnya jika satu gagal.
+1613|Anda bisa memakai plugin tanpa OAuth untuk membuka aplikasi langsung. OAuth atau API hanya diperlukan jika Anda ingin {brand} membaca atau mengubah data pribadi di layanan itu.
+1614|Anda yang memilih
+1615|Anda memilih {model}; OmniRoute mengirim pertanyaan ke {served}.
+1616|Anda memilih {model}; {brand} mengirim pertanyaan ke {served}.
+1617|Anda mendapat kode lewat email untuk mengonfirmasi alamat, lalu Owner menyetujui akun.
+1618|Anda belum punya asisten. Buat satu dari bilah samping.
+1619|Anda memakai versi terbaru.
+1620|Anda membiarkan {brand} memilih
+1621|Anda telah keluar dari semua perangkat.
+1622|Statistik dan kata kunci YouTube
+1623|AI Anda, semua model
+1624|Langganan ChatGPT Anda, terhubung di OmniRoute
+1625|Langganan Claude Anda, terhubung di OmniRoute
+1626|Acara Google Calendar Anda
+1627|Data Helium 10 Anda
+1628|Email Outlook Anda
+1629|Dasbor Plaid Anda: item, pemakaian, dan masalah.
+1630|Situs, halaman, dan toko Wix Anda.
+1631|Akun Anda tidak ditagih (Owner).
+1632|Kata sandi akun Anda
+1633|Akun Anda, aplikasi, suara, layanan AI, dan pembaruan.
+1634|Jawaban Anda
+1635|Aplikasi Anda
+1636|Aplikasi Anda yang terhubung: AI membaca dan bekerja di dalamnya dengan persetujuan Anda.
+1637|Pilihan Anda: {value}
+1638|Desain Anda
+1639|File, gambar, video, dan desain Anda, siap dipakai dalam percakapan.
+1640|Data kesehatan Anda
+1641|Catatan rapat dan transkrip Anda.
+1642|Nama Anda
+1643|API dan webhook Anda sendiri, serta plugin yang langsung berfungsi.
+1644|Gambar dan video Anda: cari, unggah, ubah.
+1645|Paket Anda
+1646|Paket Anda, kredit minggu ini, dan kredit tambahan.
+1647|Paket Anda, kredit minggu ini, dan biaya setiap tindakan.
+1648|Profil Anda, cara AI menjawab Anda, notifikasi, privasi, dan keamanan.
+1649|Sumber daya Anda di Render
+1650|Sesi Anda kedaluwarsa atau ditutup. Masuk lagi.
+1651|Skill Anda
+1652|Langganan Anda, paket, dan kredit tambahan.
+1653|Tugas dan proyek Anda: tambah, selesaikan, jadwalkan ulang.
+1654|Pekerjaan Anda
+1655|ditambahkan oleh Anda
+1656|semua chat
+1657|semua file di Pustaka
+1658|semua memori
+1659|semua data akun (chat, memori, file, proyek, asisten, skill, otomatisasi, aplikasi, desain)
+1660|jawaban · {s} dtk
+1662|paling banyak {n} kredit
+1663|otomatis
+1664|oleh {author}
+1665|oleh {author} · {license}
+1666|kategori
+1667|kategori
+1668|periksa bahwa Anda menyalin semuanya.
+1669|kode
+1670|koneksi berfungsi
+1671|dibuat
+1672|kredit
+1673|bawaan
+1674|mis. Membalas keluhan
+1675|mis. nama atau nama panggilan
+1676|mis. ajukan pertanyaan klarifikasi sebelum memberi jawaban mendetail
+1677|mis. pelajar, desainer web, akuntan
+1678|mis. desainer web, akuntan, guru
+1679|kesalahan
+1680|Kunci API fal
+1681|Model video fal
+1682|Model fal.ai
+1683|file
+1684|untuk {n} kredit · bayar sekali
+1685|dari tugas terjadwal
+1686|dari riwayat
+1687|dari {n}
+1688|github_pat_... atau ghp_...
+1689|termasuk
+1690|item
+1691|item
+1692|disimpan otomatis
+1693|dibuat dari nama
+1694|memori
+1695|minimal {n} kredit
+1696|nama@contoh.com
+1697|berikutnya: {when}
+1698|tanpa akun
+1699|tidak ada
+1700|tidak termasuk
+1701|sekarang
+1702|dari kredit minggu ini terpakai
+1703|nonaktif
+1704|sekali
+1705|hanya saat berubah
+1706|opsional
+1707|opsional / PKCE
+1709|berbayar
+1710|disematkan
+1711|hanya baca
+1712|hasil nyata
+1713|wajib
+1714|diatur oleh Owner
+1715|sejak {when}
+1716|sumber
+1717|sistem
+1718|file
+1719|kunci berfungsi · {models} model, {combos} kombinasi · {s} dtk
+1720|tidak ada konten untuk file
+1721|yang ini
+1722|minggu ini
+1723|hari ini
+1724|besok
+1725|kesalahan tidak diketahui
+1726|hingga {s} dtk
+1727|dipakai saat Anda tidak memilih yang lain di daftar atas
+1728|dengan kunci
+1729|Kunci API xAI
+1730|kemarin
+1731|langganan pribadi Anda tetap milik Anda saja (ketentuan penyedia tidak mengizinkan berbagi akun). Berikan model kepada orang itu lewat API (openai/…, anthropic/…).
+1732|Akun {brand}
+1733|{brand} bisa membuat kesalahan. Periksa informasi penting.
+1734|{brand} memeriksa harga yang dipublikasikan jika ada dan tidak memulai jika tidak bisa memastikan biaya nol. Gemini Veo, fal.ai, dan Replicate tetap diblokir dalam mode ini.
+1735|{brand} sedang menuliskan rekaman…
+1736|{brand} mengingat ini di setiap chat di akun ini.
+1737|{brand} menyimpan preferensi, keputusan, dan detail yang bertahan lama sendiri, dan memakainya saat penting.
+1738|{brand} mengalami masalah
+1739|{brand} membaca file dari repositori yang diatur dan mengusulkan perbaikan.
+1740|{brand} menjalankan instruksi sendiri pada waktu yang dipilih, saat aplikasi berjalan.
+1741|{brand} menyimpan plugin sebagai tautan langsung dan membuka aplikasi resmi. Anda masuk seperti biasa di browser.
+1742|Layanan {brand}
+1743|Alamat layanan {brand}
+1744|Pengaturan {brand}
+1745|Pembaruan {brand} tersedia — pasang sekarang
+1746|{brand} memakai {provider} · {model}
+1747|{brand} memakai ini hanya untuk menjawab Anda lebih baik; Anda bisa melihat dan mengubahnya di sini kapan saja.
+1748|{days} pukul {time}
+1749|{left} dari {limit} pesan gratis tersisa hari ini
+1750|{left} dari {total} kredit · berakhir {when}
+1751|{model}: {mode} untuk {email}.
+1752|{name} ({email}) sekarang bisa memakai {brand}.
+1753|{name} ({email}) tidak akan bisa memakai {brand}.
+1754|{name} terhubung. Tanyakan di chat; AI bertanya dulu sebelum setiap tindakan.
+1755|{name} terpasang
+1756|{name} siap. Tulis di chat, misalnya: {trigger}, atau langsung bertanya.
+1757|{name} ditambahkan: {n} skill-nya bisa dipakai dengan /nama di chat.
+1758|{name}: terhubung.
+1759|{name}: disimpan untuk dibuka langsung, tanpa OAuth. Masuk seperti biasa di aplikasi resmi.
+1760|{name}: plugin terhubung.
+1761|{name}: plugin disimpan.
+1762|{n} model OmniRoute disembunyikan oleh Owner.
+1763|{n} per hari
+1764|{n} per menit
+1765|{n} per minggu
+1766|{n} tindakan
+1767|{n} sesi aktif
+1768|{n} aplikasi
+1769|{n} sekaligus
+1770|{n} otomatisasi
+1771|{n} file ditambahkan ke Pustaka.
+1772|{n} tersisa · minggu {w} dari 4
+1773|{n} model tersedia
+1774|{n} model disembunyikan oleh Owner.
+1775|{n} model tersedia
+1776|{n} tidak diizinkan
+1777|{n} orang
+1778|{n} detik
+1779|{n} skill
+1780|{n} versi
+1781|{pack} · oleh {author} · {license}
+1782|Paket {plan}
+1783|Paket {plan}: {percent}% minggu ini terpakai
+1784|{price} per tahun · gratis 2 bulan
+1785|{p}% kredit minggu ini terpakai
+1786|{s} dtk · biasanya sekitar satu menit
+1787|«Diizinkan» tidak berpengaruh selama «Chat AI» nonaktif untuk akun ini: aktifkan dulu izin Chat di atas.
+1788|«Bawaan» mengikuti izin di atas; «Diizinkan» membuka model meski izin menutupnya; «Diblokir» menutupnya. Langganan pribadi Owner tetap hanya milik Owner.
+1789|«Nano Banana»; model dipilih di atas, di «Gambar dibuat oleh». Kunci yang sama dengan API AI dan Video.
+1790|«{feature}» dinonaktifkan Owner untuk akun Anda.
+1791|«{model}» tidak diizinkan untuk Anda oleh Owner.
+1792|«{name}» berjalan. Hasilnya ada di riwayat.
+1793|⚡ Cepat
+1794|✨ Kualitas
+1795|🎬 Kualitas
+1796|🛡️ Hanya gratis

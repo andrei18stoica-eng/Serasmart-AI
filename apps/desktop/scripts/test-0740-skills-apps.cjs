@@ -110,4 +110,8 @@ expect(/\["memory",Brain,"Memory",true,""\]/.test(main) && /tab==="memory"&&<Mem
 expect(/watchForNewVersion\(\{canReload:\(\)=>!draftStore\.get\(\)\.trim\(\)\}\)/.test(main), "the web app reloads itself on a new version");
 const fresh = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "freshness.js"), "utf8");
 expect(/cache: "no-store"/.test(fresh) && /window\.Serasmart/.test(fresh), "the version check skips the cache and the Windows app");
+// Switching between the accounts signed in on this device.
+const acc = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "accounts.js"), "utf8");
+expect(/export function switchToAccount/.test(acc) && /export function leaveForNewAccount/.test(acc) && /location\.reload\(\)/.test(acc), "accounts switch and add");
+expect(/<AccountSwitcher user=\{user\}/.test(main) && /tr\("Add another account"\)/.test(main) && /rememberCurrentAccount\(\);\n      onAuth\(/.test(main) && /forgetAccount\(leaving\)/.test(main) && /tr\("Accounts on this device"\)/.test(main), "the switcher, the sign-in list, and signing out forgets the account");
 console.log("0.7.40 skills and app routing OK");

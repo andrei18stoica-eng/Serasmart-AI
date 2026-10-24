@@ -2,6 +2,10 @@
 // listed here, come from the server (GET/POST /api/i18n/:lang), translated once with the AI. Keep {placeholders}.
 export const LOCALES = {
  "ro": {
+  "Switch account": "Schimbă contul",
+  "Add another account": "Adaugă alt cont",
+  "Accounts on this device": "Conturile de pe acest dispozitiv",
+  "or sign in to another account": "sau intră în alt cont",
   "Use": "Folosire",
   "When the AI uses {name}": "Când folosește AI-ul {name}",
   "Auto": "Automat",

@@ -1,0 +1,4 @@
+1211|Byt konto
+71|Lägg till ett konto till
+65|Konton på den här enheten
+1708|eller logga in på ett annat konto

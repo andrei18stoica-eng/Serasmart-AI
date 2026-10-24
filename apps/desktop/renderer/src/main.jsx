@@ -8,7 +8,8 @@ import {
   FileText, Image as ImageIcon, HardDrive, ToggleLeft, ToggleRight,
   Compass, Map as MapIcon, Globe2, Archive, ArchiveRestore, ExternalLink, SlidersHorizontal, Volume2,
   PanelTopOpen, ShieldCheck, UserCheck, Download, Bell, Lock, Pencil, Palette, Clapperboard, Eye, Maximize2, LoaderCircle, SquareTerminal, Gauge,
-  Mail, Sun, Moon, CreditCard, KeyRound, UserCircle, ChevronRight, ChevronLeft
+  Mail, Sun, Moon, CreditCard, KeyRound, UserCircle, ChevronRight, ChevronLeft,
+  UserPlus, ChevronsUpDown
 } from "lucide-react";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/dm-sans";
@@ -44,6 +45,7 @@ import { DesignPage } from "./pages/Design.jsx";
 import { splitQuestions, QuestionCard, QuestionsPending } from "./questions.jsx";
 import { BRAND_NAME, BRAND_SHORT, BRAND_DOMAIN } from "./brand.js";
 import { watchForNewVersion } from "./freshness.js";
+import { rememberCurrentAccount, forgetAccount, otherAccounts, savedAccounts, switchToAccount, leaveForNewAccount } from "./accounts.js";
 // 0.7.29: loaded only when the microphone is used.
 const VoiceOrb=React.lazy(()=>import("./voiceOrb.jsx"));
 
@@ -318,6 +320,7 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
       }
       if(!data?.token||!data?.user) throw new Error(tr("The server did not return a valid session."));
       storage.set(TOKEN_KEY,data.token); storage.set(USER_KEY,JSON.stringify(data.user)); storage.set(PERMISSIONS_KEY,JSON.stringify(data.permissions||{}));
+      rememberCurrentAccount();
       onAuth(data.user,data.permissions||{});
     } catch(e2){ setError(e2.message); if(/failed to fetch|networkerror|load failed/i.test(e2.message))setNetworkIssue(true); } finally { setBusy(false); }
   }
@@ -335,6 +338,12 @@ function AuthScreen({ onAuth, notice:initialNotice="" }) {
     </div>
     <form className="authCard" onSubmit={submit}>
       <div className="authTabs" role="tablist"><button type="button" role="tab" aria-selected={mode==="login"} className={mode==="login"?"active":""} onClick={()=>{setMode("login");setError("");}}>{tr("Sign in")}</button><button type="button" role="tab" aria-selected={mode==="register"} className={mode==="register"?"active":""} onClick={()=>{setMode("register");setError("");setNotice("");}}>{tr("Create account")}</button></div>
+      {mode==="login"&&savedAccounts().length>0&&<div className="savedAccounts">
+        <span className="savedAccountsLabel">{tr("Accounts on this device")}</span>
+        {savedAccounts().map(a=><button type="button" key={a.user.id||a.user.email} className="savedAccount" onClick={()=>switchToAccount(a)}>
+          <AccountAvatar user={a.fullUser||a.user}/><span><b>{a.user.name||a.user.email}</b><small>{a.user.email}</small></span><ChevronRight size={16}/></button>)}
+        <span className="savedAccountsOr">{tr("or sign in to another account")}</span>
+      </div>}
       {mode==="verify"?<>
       <h2>{tr("Confirm your email")}</h2>
       <p className="muted">{tr("We sent a 6-digit code to {email}. If you do not see it, look in Spam. The code expires in 15 minutes.",{email})}</p>
@@ -377,9 +386,20 @@ function SideUsage({onOpen}) {
     <span className="sideUsageBar"><span style={{width:`${p}%`}}/></span>
   </button>;
 }
+// 0.7.40: the accounts signed in on this device, a click switches; «Add another account» opens the sign-in screen.
+function AccountSwitcher({user,onClose}){
+  useLanguage();
+  const others=otherAccounts(user);
+  useEffect(()=>{const k=e=>{if(e.key==="Escape")onClose()};window.addEventListener("keydown",k);return()=>window.removeEventListener("keydown",k)},[]);
+  return <div className="accountSwitcher" role="menu" aria-label={tr("Switch account")}>
+    <div className="accountSwitcherRow current"><AccountAvatar user={user}/><span><b>{user?.name||user?.email}</b><small>{user?.email}</small></span><Check size={16}/></div>
+    {others.map(a=><button key={a.user.id||a.user.email} role="menuitem" className="accountSwitcherRow" onClick={()=>switchToAccount(a)}><AccountAvatar user={a.fullUser||a.user}/><span><b>{a.user.name||a.user.email}</b><small>{a.user.email}</small></span></button>)}
+    <button role="menuitem" className="accountSwitcherRow add" onClick={leaveForNewAccount}><span className="accountAddIcon"><UserPlus size={17}/></span><span><b>{tr("Add another account")}</b></span></button>
+  </div>;
+}
 function Sidebar({open,setOpen,user,search,setSearch,projects,assistants,conversations,currentId,busyIds,onSelect,onDeleteConversation,onUnarchive,onNew,selectedProject,setSelectedProject,activeAssistantId,onUseAssistant,onNewProject,onNewAssistant,onEditProject,onEditAssistant,onTool,onSettings,onLogout}) {
   const {can,isOwner}=useAccess();
-  const [showArchived,setShowArchived]=useState(false);
+  const [showArchived,setShowArchived]=useState(false),[accountMenu,setAccountMenu]=useState(false);
   const searchQuery=String(search||"").trim().toLowerCase();
   const archived=useMemo(()=>conversations.filter(c=>c.archived),[conversations]);
   const searchResults=useMemo(()=>{
@@ -452,8 +472,9 @@ function Sidebar({open,setOpen,user,search,setSearch,projects,assistants,convers
     </div>
     <div className="accountArea">
       <SideUsage onOpen={()=>onTool("usage")}/>
+      {accountMenu&&<AccountSwitcher user={user} onClose={()=>setAccountMenu(false)}/>}
       <div className="accountBadge"><AccountAvatar user={user}/><div className="accountText"><b>{user?.name||tr("{brand} account",{brand:BRAND_SHORT})}</b><span>{user?.email}{user?.role==="owner"?" · Owner":""}</span></div>
-        <div className="accountButtons"><button onClick={onSettings} aria-label={tr("Settings")} title={tr("Settings")}><Settings size={17}/></button><button onClick={onLogout} aria-label={tr("Sign out")} title={tr("Sign out")}><LogOut size={17}/></button></div></div>
+        <div className="accountButtons"><button onClick={()=>setAccountMenu(v=>!v)} aria-expanded={accountMenu} aria-label={tr("Switch account")} title={tr("Switch account")}><ChevronsUpDown size={17}/></button><button onClick={onSettings} aria-label={tr("Settings")} title={tr("Settings")}><Settings size={17}/></button><button onClick={onLogout} aria-label={tr("Sign out")} title={tr("Sign out")}><LogOut size={17}/></button></div></div>
     </div>
   </aside>;
 }
@@ -2012,6 +2033,7 @@ function App() {
       if(me.user){setUser(me.user);storage.set(USER_KEY,JSON.stringify(me.user))}
       const perms=me.permissions&&typeof me.permissions==="object"?me.permissions:{};
       setPermissions(perms);storage.set(PERMISSIONS_KEY,JSON.stringify(perms));
+      rememberCurrentAccount();
       const convs=cs.data||[],projectList=ps.data||[],assistantList=as.data||[];
       const live=new Set(Object.keys(generationsRef.current));
       setConversations(local=>convs.map(c=>live.has(c.id)?(local.find(x=>x.id===c.id)||c):c));
@@ -2030,6 +2052,8 @@ function App() {
     if(token&&!skipServer)fetch(`${GATEWAY}/auth/logout`,{method:"POST",headers:{Authorization:`Bearer ${token}`,"Content-Type":"application/json"},body:"{}"}).catch(()=>{});
     abortAll("logout");
     try{window.speechSynthesis?.cancel()}catch{}
+    // 0.7.40: an account that signs out (or whose session ended) leaves the device's account list.
+    const leaving=storage.json(USER_KEY,null);if(leaving)forgetAccount(leaving);
     ACCOUNT_KEYS.forEach(k=>storage.remove(k));
     setUser(null);setPermissions({});setConversations([]);setProjects([]);setAssistants([]);setCurrentId(null);setSelectedProject(null);setSelectedAssistant(null);
     setModels([]);setModel("");setModelPolicyEnforced(false);setModelsChecked(false);

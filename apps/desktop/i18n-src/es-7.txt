@@ -1,0 +1,4 @@
+1211|Cambiar de cuenta
+71|Añadir otra cuenta
+65|Cuentas en este dispositivo
+1708|o inicia sesión en otra cuenta

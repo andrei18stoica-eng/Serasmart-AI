@@ -1,440 +1,440 @@
-450|E-mail
-451|E-mail- en sms-campagnes, lijsten en resultaten.
-452|Assistent voor e-mail en agenda
-453|E-mailadres bevestigd.
-454|E-mailadres bevestigd. Je toegang wacht op goedkeuring van de Owner.
-455|E-mail gehost bij Hostinger
-456|Endpoint / webhook / eigen API
-457|Beëindigt alle sessies van dit account, ook op dit apparaat.
-458|Eindigt {when}
-459|Entertainment
-460|Fout
-461|Fouten, issues en releases.
-462|Goedenavond. Iets om af te maken, of een plan voor morgen?
-463|Elke (uren)
-464|Om de paar uur
-465|Alle bestanden die in dit gesprek zijn bijgevoegd of gemaakt.
-466|Elk uur
-467|Alle modellen en tools die je abonnement toestaat
-468|Elk model uit deze lijsten verschijnt in de modellenlijst bovenaan. Als de sleutel ontbreekt, of de provider 429/404/503 geeft of niet antwoordt, probeert {brand} het volgende model en daarna de volgende provider.
-469|Elke {n} uur
-470|Exacte tijd
-471|Voorbeelden
-472|Afsluitcode: {code}
-473|Leg het eenvoudig uit
-474|Uitlegvideo's gemaakt met AI
-475|Legt elk onderwerp zo uit dat een beginner het begrijpt.
-476|Ontdekken
-477|Wetenschappelijk onderzoek verkennen
-478|Extensies
-479|Extra credits
-480|FLUX.1 Schnell via HF Inference Router, alleen als de kostenbescherming het toestaat.
-481|FLUX.1 Schnell · de eerste provider in de gratis modus.
-482|FLUX.1 Schnell. Promotiecredits kunnen beperkt zijn.
-483|Mislukt in
-484|Reserveprovider voor media.
-485|Fantasy football-analyses
-486|Snelle en geavanceerde modellen
-487|Snelle generatiemodellen via fal.run.
-488|Snelle modus. Klik voor Denken: nauwkeuriger antwoorden, iets langzamer.
-489|Bestand
-490|Bestandsnaam
-491|Pad van het bestand in de repository
-492|Bestand uploaden: {error}
-493|Bestanden uploaden
-494|Bestanden
-495|Bestanden en gegevens
-496|Bestanden en tools
-497|Bestanden in deze chat
-498|Bestanden in dit gesprek
-499|Bestanden: PDF / Word / PowerPoint / Excel / CSV / ZIP / code
-500|Financiën
-501|Financiën en boekhouding
-502|Wetenschappelijke artikelen vinden en lezen
-503|Ontwerpen vinden, maken en bewerken.
-504|Issues, projecten en opmerkingen vinden, maken en bijwerken.
-505|Bevestig eerst je e-mailadres met de code die je hebt ontvangen. Kun je hem niet vinden, kijk dan in je spam of vraag een nieuwe aan.
-506|Beschrijf eerst wat we moeten bouwen.
-507|Verbetert grammatica, accenten en leestekens zonder de betekenis te veranderen.
-508|Voor controles (prijzen, advertenties): geen melding als het resultaat hetzelfde is als de vorige keer.
-509|Zoekt bij codevragen de relevante bestanden in de repository voordat het antwoordt.
-510|Bij programmeervragen vindt {brand} zelf de relevante bestanden in deze repository.
-511|Om Google-apps te verbinden in Apps: een OAuth-client van het type «Webapplicatie» uit Google Cloud, met dit terugkeeradres: {url}
-512|Voor wetenschap en onderzoek
-513|Voor altijd
-514|Formulieren en analyse van antwoorden
-515|Gratis
-516|Gratis berichten vandaag
-517|Gebruikte gratis berichten
-518|Gratis proefperiode
-519|Frequentie
-520|Frisse ochtend. Waar beginnen we?
-521|Vrijdag. Laten we de week goed afsluiten.
-522|Vriendelijk
-523|Volledige naam
-524|GPT Image via de API van OpenAI.
-525|Games
-526|Gemini API-sleutel
-527|Gemini en Grok
-528|Gemini-sleutel
-529|Gemini-model (Nano Banana)
-530|Gemini-model (Veo)
-531|Gemini-modellen · gescheiden door komma's
-532|Alleen Gemini · Nano Banana
-533|Alleen Gemini · Veo
-534|Alleen Gemini: via Gemini verbonden in OmniRoute (abonnement, geen API) of via de Gemini-sleutel in AI-API's. De andere providers hieronder worden niet gebruikt.
-535|Gemini via API is betaald: om het met de sleutel te gebruiken, kies hieronder «Betaalde providers toestaan».
-536|Algemeen
-537|Genereren
-538|Opnieuw genereren
-539|Haal de gratis sleutel
-540|Installeer {brand} gratis als app op je telefoon
-541|Voorbereiden…
-542|GitHub OAuth Client ID
-543|GitHub OAuth client secret
-544|GitHub-modellen · gescheiden door komma's
-545|Herstel in GitHub gedaan. Commit: {commit}
-546|GitHub-toegang voor iedereen
-547|GitHub-token (voor een privérepository)
-548|Geef me een kort overzicht van het belangrijkste nieuws van vandaag en van tech, met links naar de bronnen.
-549|Ga terug naar de chat waar je was
-550|Teruggaan naar de vorige versie van {path}?
-551|Naar het laatste bericht
-552|Goedemiddag
-553|Goedemiddag, {name}
-554|Goedenavond
-555|Goedenavond, {name}
-556|Goedemorgen
-557|Goedemorgen, {name}
-558|Google
-559|Google OAuth Client ID
-560|Google OAuth client secret
-561|Google-apps (Gmail, Drive, Calendar, Docs, Sheets)
-562|Governance
-563|Grok-modellen · gescheiden door komma's
-564|Grok-afbeeldingsmodel
-565|Grok-videomodel
-566|Groq API-sleutel
-567|Groq-modellen · gescheiden door komma's
-568|HD-afbeeldingen
-569|Naam van de header
-570|Gezondheid
-571|Gezondheidszorg
-572|Help me de week te plannen. Mijn prioriteiten zijn:
-573|Hier is je {format}-bestand: {name}
-574|Acties verbergen
-575|Waarschuwing verbergen
-576|Stappen verbergen
-577|Hoe wil je dat deze assistent werkt?
-578|Hoe gaat je dag? Wat kan ik van je overnemen?
-579|Hoeveel credits?
-581|Hoe de AI antwoordt
-582|Hoe kies je
-583|Hoe installeer je
-584|Hoe ik je moet antwoorden, elke keer. Bijv. «Leg het kort uit, met voorbeelden. Zet commentaar bij code.»
-585|HubSpot OAuth Client ID
-586|HubSpot OAuth client secret
-587|HubSpot accepteert alleen OAuth-apps die door de eigenaar zijn geregistreerd. Maak er een in HubSpot ({where}) met dit terugkeeradres: {url}
-588|HubSpot-toegang voor iedereen
-589|Hugging Face-modellen · gescheiden door komma's
-590|Human resources
-591|Ik kan de dienst {brand} op {url} niet bereiken. Controleer het adres of gebruik {local}.
-592|Ik heb 1 sleutel voor de server gekopieerd. Plak hem wanneer het script op de server erom vraagt (rechtsklik). Hij wordt over 2 minuten van het klembord gewist.
-593|Ik heb {n} sleutels voor de server gekopieerd. Plak ze wanneer het script op de server erom vraagt (rechtsklik). Ze worden over 2 minuten van het klembord gewist.
-594|Ik heb {names} niet gekopieerd: ze bevatten tekens die de server niet accepteert.
-595|Ik hoorde niets. Klik op de microfoon en spreek opnieuw.
-596|IP-adres
-597|IP of domein
-598|Als het gekozen Gemini-model niet bestaat voor je sleutel, probeert {brand} zelf de andere Gemini-namen en daarna de providers die hier zijn toegestaan.
-599|Als het gekozen model niet antwoordt, schakelt het zelf over naar de directe API's. Uit: alleen het gekozen model antwoordt, anders zie je de fout.
-601|Als de dienst stopt, probeert {brand} hem opnieuw te starten.
-602|Importeren uit geschiedenis
-603|De blijvende details (voorkeuren, beslissingen, projectdetails) importeren uit de chatgeschiedenis?
-604|{n} items geïmporteerd uit de geschiedenis.
-605|Importeren…
-606|In een chat
-607|Inbegrepen in {brand}
-608|Inbegrepen in {brand} · zonder account
-609|Inbegrepen, maar standaard geblokkeerd door de kostenbescherming.
-610|Informatie uit Zoom-vergaderingen
-611|Infrastructuur
-612|Installeren
-613|De {brand}-app installeren
-614|Geïnstalleerd
-615|Instructies
-616|Instructies voor de AI
-617|Instructies voor de assistent
-618|Instructies voor {brand}
-619|Instructies die je één keer opslaat en gebruikt wanneer je wilt: typ /naam in de chat (bijvoorbeeld /samenvatting) of laat een skill altijd aan staan.
-621|Instructies die de AI volgt wanneer je ze aanroept met /naam.
-622|Interfaceontwerp en prototypes
-623|Ongeldig antwoord van de dienst {brand} (HTTP {status}).
-624|Ongeldig antwoord bij het uploaden van het bestand.
-625|Facturen, bestellingen en transacties.
-626|Issues, pull requests en coderepositories
-627|Wordt verwijderd bij opslaan
-628|Het is weekend. Iets voor het werk, of alleen voor jezelf?
-629|Jira-issues en Confluence-pagina's: zoeken, maken, bewerken.
-630|Jira, Confluence, Loom en meer
-631|Chats bewaren
-632|Houdt de AI op de hoogte van het nieuws
-633|Sleutel / token
-634|Sleutel opgeslagen — laat leeg om hem te houden
-635|Sleutels voor de server
-636|LTX Video. Kan de startcredits gebruiken, daarna betaald tegoed.
-637|Taal
-638|Taal voor dicteren, transcriptie en voorlezen
-639|Taal: {lang}
-640|Taal: {name}
-641|Laatste activiteit
-642|Laatste update: {when}, gelukt.
-643|Later
-644|Laatste bericht
-645|Laatst gepubliceerde versie: {v}.
-646|Wetgeving, veiligheid en naleving
-647|Leads, contacten en kansen.
-648|Laat {url} staan, tenzij je een aparte {brand}-server gebruikt. Het adres wordt gecontroleerd vóór het opslaan.
-649|Juridisch
-650|Juridische analyse
-651|Lengte
-652|Laten we de dag goed beginnen. Wat doen we eerst?
-653|Bibliotheek
-654|Bibliotheekfilters
-655|Licenties en auteurs
-656|Licht
-657|Luisteren… klik nog eens op de microfoon om te stoppen.
-658|Luisteren… klik op de microfoon om te stoppen
-659|Live internet en GitHub
-660|Live internet, GitHub en server
-661|Geheugen laden…
-662|Bibliotheek laden…
-663|Programmeermodellen laden…
-664|Combo's laden…
-665|Ontwerp laden…
-666|Geschiedenis laden…
-667|Modellen laden…
-668|Plugins laden…
-669|Voorbeeld laden…
-670|Profiel laden…
-671|Verzoek laden…
-672|Instellingen laden…
-673|Taken laden…
-674|Tekst laden…
-675|Gebruikers laden…
-676|Laden…
-677|Uitloggen
-678|Uitloggen op alle apparaten
-679|Logs en statistieken van je Workers.
-680|Logs, statistieken, monitors en incidenten.
-681|Zoek een adres, stad of plek.
-682|Naar updates zoeken…
-683|Lovable OAuth Client ID
-684|Lovable OAuth client secret
-685|Lovable accepteert alleen OAuth-apps die door de eigenaar zijn geregistreerd. Maak er een in Lovable ({where}) met dit terugkeeradres: {url}
-686|Lovable-toegang voor iedereen
-687|Kopie gemaakt, uitgeschakeld: «{name}».
-688|Gemaakt door {brand}
-689|Hoofdassistent
-690|Hoofdcombo (automatisch)
-691|Maak een gratis Gemini-sleutel
-692|Een afbeelding maken
-693|De oplossing maken
-694|Maakt en werkt met PDF, DOCX en PPTX.
-695|Maakt afbeeldingen met AI.
-696|Afbeelding maken en bestand voorbereiden…
-697|Video maken… dit kan een paar minuten duren
-698|{format}-bestand maken…
-699|Databases beheren en bevragen
-700|Kaarten
-701|Marketing
-702|Wiskunde / logica
-703|Ik
-704|Transcripties en samenvattingen van vergaderingen.
-705|Vergaderingen
-706|Geheugen
-707|Geheugen en chats
-708|Het geheugen is leeg.
-709|Het geheugen staat uit: {brand} bewaart of gebruikt niets nieuws totdat je het aanzet.
-710|Geheugeninstellingen
-711|Geheugen, projecten en bestandsbibliotheek
-712|Menu
-713|Bericht
-714|Bericht aan {brand}
-715|Bericht, geavanceerd model
-716|Bericht, snel model
-717|Bericht, topmodel
-719|Methode
-720|Toegang tot de microfoon is geweigerd. Sta de microfoon toe in de browser.
-721|Microfoon beschikbaar en toegestaan ✓
-722|Microfoon aan — spreek nu
-723|Microfoon niet beschikbaar of niet toegestaan
-724|Microsoft Teams-teams en -chats
-725|Mistral API-sleutel
-726|Mistral-modellen · gescheiden door komma's
-727|Model toegestaan / geblokkeerd
-728|Handmatig gekozen model
-729|Model voor nieuwe chats
-730|Model voor design
-732|Modellen, datasets en Spaces.
-733|Modernisering
-734|Weer maandag. Laten we de week indelen.
-735|Maandag–vrijdag om {time}
-736|Maandelijks
-737|Elke maand op dag {day} om {time}
-738|Ochtendnieuws
-739|Meest populair
-740|Naar project verplaatsen
-741|Muziek en podcasts
-743|NEE
-744|NVIDIA / NIM-API, compatibel met OpenAI.
-745|NVIDIA API-sleutel
-746|NVIDIA-modellen · gescheiden door komma's
-747|Naam
-748|Navigatie
-749|Hulp nodig voor de rest van de dag?
-750|Vraagt aandacht
-751|Heeft toegang nodig
-753|Nieuw toegangsverzoek
-754|Nieuw account
-755|Nieuwe accounts zijn uitgeschakeld op deze server.
-756|Nieuws om op te letten
-757|Nieuwe assistent
-758|Nieuwe chat
-759|Nieuwe chat met {name}
-760|Nieuw ontwerp
-761|Nieuw item voor het geheugen
-762|Nieuw wachtwoord
-763|Nieuw project
-764|Nieuwe skill
-765|Nieuwe taak
-766|Nieuwe week. Zullen we hem samen plannen?
-767|Nieuwste
-768|Elke ochtend nieuws
-769|Volgende credits: {when}
-770|Volgende uitvoering
-771|Nee
-772|Er is geen AI-model toegestaan voor dit account. Vraag de Owner om toegang tot een model.
-773|Nog geen API-plugins
-774|Er is geen antwoord binnengekomen.
-775|Nog geen apps verbonden. Kies er hieronder een: na het inloggen kan {brand} erin zoeken, lezen, maken en bewerken, en vraagt het vóór elke actie.
-776|Geen apps gevonden. Je kunt hem toevoegen met «Eigen app» als hij een MCP-adres heeft.
-777|Geen wijzigingen
-778|Geen chatsleutels opgeslagen. Voeg bijvoorbeeld een Gemini- of Groq-sleutel toe en sla op.
-779|Nog geen chats in dit project. Schrijf een bericht om er een te beginnen.
-780|Geen chats om te tonen.
-781|Nog geen chats.
-782|Nog geen programmeermodellen beschikbaar.
-783|Nog geen eigen assistenten.
-784|Geen dagen gekozen
-785|Nog geen ontwerpen. Beschrijf het eerste rechts.
-786|Geen enkel apparaat heeft het ontvangen. Zet de meldingen hierboven aan.
-787|Geen items.
-788|Geen bestanden die aan het filter voldoen.
-789|Geen modellen beschikbaar
-790|Geen modellen die overeenkomen.
-791|Geen modellen beschikbaar.
-793|Geen plugins gevonden. Je kunt er een maken op het tabblad «Plugin maken».
-794|Geen project
-795|Nog geen projecten. Maak er een via het zijmenu.
-796|Geen leesbare tekst
-797|Geen repository verbonden
-798|Nog geen geplande taken
-799|Nog geen skills
-800|Geen tekstresultaat.
-802|Geen {name}-modellen in OmniRoute. Verbind hem in het OmniRoute-paneel (Providers) en open deze pagina opnieuw.
-803|Geen
-804|Geen van de ingestelde AI's kon nu antwoorden. Controleer het gekozen model of de API-sleutels.
-805|Niet toegestaan door de Owner
-806|Niet inbegrepen in je abonnement
-807|Niet geïnstalleerd — npm install -g omniroute
-808|Nog niet uitgevoerd
-809|Niets gevonden voor deze zoekopdracht.
-810|Niets gevonden.
-811|Nog niets. Terwijl we praten, bewaart {brand} je voorkeuren en belangrijke beslissingen. Je kunt hieronder ook iets toevoegen.
-812|Melding verzonden naar 1 apparaat.
-813|Melding verzonden naar {n} apparaten.
-814|Meldingen
-815|Meldingen van {brand} zijn geblokkeerd. Zet ze aan in de telefooninstellingen (Meldingen → {brand}) en klik opnieuw.
-816|Meldingen staan uit op dit apparaat.
-817|Meldingen zijn niet toegestaan. Je kunt ze aanzetten in de telefooninstellingen, bij {brand}.
-818|Stuur me een melding
-819|Notion-documenten en -workflows
-820|OAuth-fout — {error}
-821|UIT
-822|AAN
-823|Offerte voor een klant
-825|Officiële en communitymodellen via de Predictions API.
-826|Officiële videomodellen via de Predictions API.
-827|Oudste
-828|OmniRoute 3.8 antwoordt niet zonder sleutel. Maak er een in OmniRoute:
-829|OmniRoute API-sleutel
-830|OmniRoute-adres
-831|OmniRoute-combo
-832|OmniRoute-combo's
-833|OmniRoute-opdracht
-834|OmniRoute verbonden
-835|OmniRoute heeft nog geen combo's.
-836|OmniRoute antwoordt.
-837|OmniRoute antwoordt niet. Kies uit de lijst een model van een directe API (Groq, Gemini…) of zet de automatische reserve aan.
-838|OmniRoute draait, maar heeft een API-sleutel nodig: maak die in OmniRoute → API Manager en zet hem in Instellingen → AI en OmniRoute. Tot dan antwoorden de directe API's (Groq, Gemini…), als je ze in de lijst kiest.
-839|OmniRoute-sleutel
-840|OmniRoute heeft een API-sleutel nodig
-841|OmniRoute gestopt
-842|Op de iPhone werken meldingen alleen vanuit de geïnstalleerde app: open {domain} in Safari → Deel → Zet op beginscherm, open {brand} dan vanaf het scherm en kom hier terug.
-843|{slug} aanzetten
-844|Eén keer
-845|Eén keer: {date}, {time}
-846|Eén plek voor kaarten, afbeeldingen, assistenten en websites.
-847|Eén jaar
-848|Alleen providers zonder directe kosten
-849|Alleen het geselecteerde codeblok
-850|Alleen de werkstappen worden getoond, niet de interne redenering van het model.
-851|Alleen als er iets verandert
-852|Openen
-853|Instellingen openen
-854|Instellingen → Video openen
-855|Opent een website in de browser.
-856|Volledig scherm openen
-857|Openen in Design
-858|Openen in de browser
-859|De Google-pagina openen
-860|Open het browsermenu (⋮ of ≡).
-861|Chat openen
-862|Ontwerp {name} openen
-863|Lijst openen
-864|Voorbeeld van {name} openen
-865|Taak openen
-866|Open {domain} in Safari (op de iPhone kan alleen Safari de app installeren).
-867|{name} openen
-868|OpenAI (ChatGPT) maakt geen video's meer: Sora is op 24 september 2026 gesloten, zowel de app als de API. De afbeeldingen van ChatGPT werken nog wel.
-869|OpenAI (betaald)
-870|OpenAI API-sleutel
-871|Compatibel met OpenAI, snelle antwoorden.
-872|Compatibel met OpenAI.
-873|OpenAI-modellen · gescheiden door komma's
-874|OpenAI-afbeeldingsmodel
-875|OpenAI via API
-876|Router compatibel met OpenAI; hetzelfde token als Afbeeldingen.
-877|OpenRouter (kan kosten)
-878|OpenRouter API-sleutel
-879|OpenRouter-model
-880|OpenRouter-afbeeldingsmodel
-881|OpenRouter-videomodel
-882|Openen…
-883|Opent de app direct
-884|Operaties
-885|Optioneel: een GitHub OAuth App (GitHub → Settings → Developer settings) met deze callback-URL: {url}. Zonder die verbindt GitHub met een persoonlijk token.
-886|Volgorde van pogingen
-887|Overig
-888|Andere OmniRoute-modellen
-889|De andere accounts gebruiken alle gratis modellen (Gemini, Groq, Mistral, OpenRouter :free…). Jouw abonnementen (Codex, Claude Code, Copilot, Kiro, de webaccounts) blijven alleen van jou: hun voorwaarden staan het delen van een account niet toe. Ze gebruiken een OmniRoute-combo alleen als je hem hier aanvinkt; vink alleen combo's aan die uit gratis modellen bestaan.
-890|Ander antwoord: {question}
-891|Meer details
-892|Meer modellen
-893|Overige
-894|Anders start het alleen als je de naam of @trigger in de chat typt.
-895|E-mail van de Owner op deze pc
-896|Owner op deze pc
-897|Alleen Owner
-898|Owner: gebruikers, goedkeuringen, rechten, sessies en AI-diensten.
-899|PNG, JPEG of WebP, tot 10 MB.
+452|E-mail
+453|E-mail- en sms-campagnes, lijsten en resultaten.
+454|Assistent voor e-mail en agenda
+455|E-mailadres bevestigd.
+456|E-mailadres bevestigd. Je toegang wacht op goedkeuring van de Owner.
+457|E-mail gehost bij Hostinger
+458|Endpoint / webhook / eigen API
+459|Beëindigt alle sessies van dit account, ook op dit apparaat.
+460|Eindigt {when}
+461|Entertainment
+462|Fout
+463|Fouten, issues en releases.
+464|Goedenavond. Iets om af te maken, of een plan voor morgen?
+465|Elke (uren)
+466|Om de paar uur
+467|Alle bestanden die in dit gesprek zijn bijgevoegd of gemaakt.
+468|Elk uur
+469|Alle modellen en tools die je abonnement toestaat
+470|Elk model uit deze lijsten verschijnt in de modellenlijst bovenaan. Als de sleutel ontbreekt, of de provider 429/404/503 geeft of niet antwoordt, probeert {brand} het volgende model en daarna de volgende provider.
+471|Elke {n} uur
+472|Exacte tijd
+473|Voorbeelden
+474|Afsluitcode: {code}
+475|Leg het eenvoudig uit
+476|Uitlegvideo's gemaakt met AI
+477|Legt elk onderwerp zo uit dat een beginner het begrijpt.
+478|Ontdekken
+479|Wetenschappelijk onderzoek verkennen
+480|Extensies
+481|Extra credits
+482|FLUX.1 Schnell via HF Inference Router, alleen als de kostenbescherming het toestaat.
+483|FLUX.1 Schnell · de eerste provider in de gratis modus.
+484|FLUX.1 Schnell. Promotiecredits kunnen beperkt zijn.
+485|Mislukt in
+486|Reserveprovider voor media.
+487|Fantasy football-analyses
+488|Snelle en geavanceerde modellen
+489|Snelle generatiemodellen via fal.run.
+490|Snelle modus. Klik voor Denken: nauwkeuriger antwoorden, iets langzamer.
+491|Bestand
+492|Bestandsnaam
+493|Pad van het bestand in de repository
+494|Bestand uploaden: {error}
+495|Bestanden uploaden
+496|Bestanden
+497|Bestanden en gegevens
+498|Bestanden en tools
+499|Bestanden in deze chat
+500|Bestanden in dit gesprek
+501|Bestanden: PDF / Word / PowerPoint / Excel / CSV / ZIP / code
+502|Financiën
+503|Financiën en boekhouding
+504|Wetenschappelijke artikelen vinden en lezen
+505|Ontwerpen vinden, maken en bewerken.
+506|Issues, projecten en opmerkingen vinden, maken en bijwerken.
+507|Bevestig eerst je e-mailadres met de code die je hebt ontvangen. Kun je hem niet vinden, kijk dan in je spam of vraag een nieuwe aan.
+508|Beschrijf eerst wat we moeten bouwen.
+509|Verbetert grammatica, accenten en leestekens zonder de betekenis te veranderen.
+510|Voor controles (prijzen, advertenties): geen melding als het resultaat hetzelfde is als de vorige keer.
+511|Zoekt bij codevragen de relevante bestanden in de repository voordat het antwoordt.
+512|Bij programmeervragen vindt {brand} zelf de relevante bestanden in deze repository.
+513|Om Google-apps te verbinden in Apps: een OAuth-client van het type «Webapplicatie» uit Google Cloud, met dit terugkeeradres: {url}
+514|Voor wetenschap en onderzoek
+515|Voor altijd
+516|Formulieren en analyse van antwoorden
+517|Gratis
+518|Gratis berichten vandaag
+519|Gebruikte gratis berichten
+520|Gratis proefperiode
+521|Frequentie
+522|Frisse ochtend. Waar beginnen we?
+523|Vrijdag. Laten we de week goed afsluiten.
+524|Vriendelijk
+525|Volledige naam
+526|GPT Image via de API van OpenAI.
+527|Games
+528|Gemini API-sleutel
+529|Gemini en Grok
+530|Gemini-sleutel
+531|Gemini-model (Nano Banana)
+532|Gemini-model (Veo)
+533|Gemini-modellen · gescheiden door komma's
+534|Alleen Gemini · Nano Banana
+535|Alleen Gemini · Veo
+536|Alleen Gemini: via Gemini verbonden in OmniRoute (abonnement, geen API) of via de Gemini-sleutel in AI-API's. De andere providers hieronder worden niet gebruikt.
+537|Gemini via API is betaald: om het met de sleutel te gebruiken, kies hieronder «Betaalde providers toestaan».
+538|Algemeen
+539|Genereren
+540|Opnieuw genereren
+541|Haal de gratis sleutel
+542|Installeer {brand} gratis als app op je telefoon
+543|Voorbereiden…
+544|GitHub OAuth Client ID
+545|GitHub OAuth client secret
+546|GitHub-modellen · gescheiden door komma's
+547|Herstel in GitHub gedaan. Commit: {commit}
+548|GitHub-toegang voor iedereen
+549|GitHub-token (voor een privérepository)
+550|Geef me een kort overzicht van het belangrijkste nieuws van vandaag en van tech, met links naar de bronnen.
+551|Ga terug naar de chat waar je was
+552|Teruggaan naar de vorige versie van {path}?
+553|Naar het laatste bericht
+554|Goedemiddag
+555|Goedemiddag, {name}
+556|Goedenavond
+557|Goedenavond, {name}
+558|Goedemorgen
+559|Goedemorgen, {name}
+560|Google
+561|Google OAuth Client ID
+562|Google OAuth client secret
+563|Google-apps (Gmail, Drive, Calendar, Docs, Sheets)
+564|Governance
+565|Grok-modellen · gescheiden door komma's
+566|Grok-afbeeldingsmodel
+567|Grok-videomodel
+568|Groq API-sleutel
+569|Groq-modellen · gescheiden door komma's
+570|HD-afbeeldingen
+571|Naam van de header
+572|Gezondheid
+573|Gezondheidszorg
+574|Help me de week te plannen. Mijn prioriteiten zijn:
+575|Hier is je {format}-bestand: {name}
+576|Acties verbergen
+577|Waarschuwing verbergen
+578|Stappen verbergen
+579|Hoe wil je dat deze assistent werkt?
+580|Hoe gaat je dag? Wat kan ik van je overnemen?
+581|Hoeveel credits?
+583|Hoe de AI antwoordt
+584|Hoe kies je
+585|Hoe installeer je
+586|Hoe ik je moet antwoorden, elke keer. Bijv. «Leg het kort uit, met voorbeelden. Zet commentaar bij code.»
+587|HubSpot OAuth Client ID
+588|HubSpot OAuth client secret
+589|HubSpot accepteert alleen OAuth-apps die door de eigenaar zijn geregistreerd. Maak er een in HubSpot ({where}) met dit terugkeeradres: {url}
+590|HubSpot-toegang voor iedereen
+591|Hugging Face-modellen · gescheiden door komma's
+592|Human resources
+593|Ik kan de dienst {brand} op {url} niet bereiken. Controleer het adres of gebruik {local}.
+594|Ik heb 1 sleutel voor de server gekopieerd. Plak hem wanneer het script op de server erom vraagt (rechtsklik). Hij wordt over 2 minuten van het klembord gewist.
+595|Ik heb {n} sleutels voor de server gekopieerd. Plak ze wanneer het script op de server erom vraagt (rechtsklik). Ze worden over 2 minuten van het klembord gewist.
+596|Ik heb {names} niet gekopieerd: ze bevatten tekens die de server niet accepteert.
+597|Ik hoorde niets. Klik op de microfoon en spreek opnieuw.
+598|IP-adres
+599|IP of domein
+600|Als het gekozen Gemini-model niet bestaat voor je sleutel, probeert {brand} zelf de andere Gemini-namen en daarna de providers die hier zijn toegestaan.
+601|Als het gekozen model niet antwoordt, schakelt het zelf over naar de directe API's. Uit: alleen het gekozen model antwoordt, anders zie je de fout.
+603|Als de dienst stopt, probeert {brand} hem opnieuw te starten.
+604|Importeren uit geschiedenis
+605|De blijvende details (voorkeuren, beslissingen, projectdetails) importeren uit de chatgeschiedenis?
+606|{n} items geïmporteerd uit de geschiedenis.
+607|Importeren…
+608|In een chat
+609|Inbegrepen in {brand}
+610|Inbegrepen in {brand} · zonder account
+611|Inbegrepen, maar standaard geblokkeerd door de kostenbescherming.
+612|Informatie uit Zoom-vergaderingen
+613|Infrastructuur
+614|Installeren
+615|De {brand}-app installeren
+616|Geïnstalleerd
+617|Instructies
+618|Instructies voor de AI
+619|Instructies voor de assistent
+620|Instructies voor {brand}
+621|Instructies die je één keer opslaat en gebruikt wanneer je wilt: typ /naam in de chat (bijvoorbeeld /samenvatting) of laat een skill altijd aan staan.
+623|Instructies die de AI volgt wanneer je ze aanroept met /naam.
+624|Interfaceontwerp en prototypes
+625|Ongeldig antwoord van de dienst {brand} (HTTP {status}).
+626|Ongeldig antwoord bij het uploaden van het bestand.
+627|Facturen, bestellingen en transacties.
+628|Issues, pull requests en coderepositories
+629|Wordt verwijderd bij opslaan
+630|Het is weekend. Iets voor het werk, of alleen voor jezelf?
+631|Jira-issues en Confluence-pagina's: zoeken, maken, bewerken.
+632|Jira, Confluence, Loom en meer
+633|Chats bewaren
+634|Houdt de AI op de hoogte van het nieuws
+635|Sleutel / token
+636|Sleutel opgeslagen — laat leeg om hem te houden
+637|Sleutels voor de server
+638|LTX Video. Kan de startcredits gebruiken, daarna betaald tegoed.
+639|Taal
+640|Taal voor dicteren, transcriptie en voorlezen
+641|Taal: {lang}
+642|Taal: {name}
+643|Laatste activiteit
+644|Laatste update: {when}, gelukt.
+645|Later
+646|Laatste bericht
+647|Laatst gepubliceerde versie: {v}.
+648|Wetgeving, veiligheid en naleving
+649|Leads, contacten en kansen.
+650|Laat {url} staan, tenzij je een aparte {brand}-server gebruikt. Het adres wordt gecontroleerd vóór het opslaan.
+651|Juridisch
+652|Juridische analyse
+653|Lengte
+654|Laten we de dag goed beginnen. Wat doen we eerst?
+655|Bibliotheek
+656|Bibliotheekfilters
+657|Licenties en auteurs
+658|Licht
+659|Luisteren… klik nog eens op de microfoon om te stoppen.
+660|Luisteren… klik op de microfoon om te stoppen
+661|Live internet en GitHub
+662|Live internet, GitHub en server
+663|Geheugen laden…
+664|Bibliotheek laden…
+665|Programmeermodellen laden…
+666|Combo's laden…
+667|Ontwerp laden…
+668|Geschiedenis laden…
+669|Modellen laden…
+670|Plugins laden…
+671|Voorbeeld laden…
+672|Profiel laden…
+673|Verzoek laden…
+674|Instellingen laden…
+675|Taken laden…
+676|Tekst laden…
+677|Gebruikers laden…
+678|Laden…
+679|Uitloggen
+680|Uitloggen op alle apparaten
+681|Logs en statistieken van je Workers.
+682|Logs, statistieken, monitors en incidenten.
+683|Zoek een adres, stad of plek.
+684|Naar updates zoeken…
+685|Lovable OAuth Client ID
+686|Lovable OAuth client secret
+687|Lovable accepteert alleen OAuth-apps die door de eigenaar zijn geregistreerd. Maak er een in Lovable ({where}) met dit terugkeeradres: {url}
+688|Lovable-toegang voor iedereen
+689|Kopie gemaakt, uitgeschakeld: «{name}».
+690|Gemaakt door {brand}
+691|Hoofdassistent
+692|Hoofdcombo (automatisch)
+693|Maak een gratis Gemini-sleutel
+694|Een afbeelding maken
+695|De oplossing maken
+696|Maakt en werkt met PDF, DOCX en PPTX.
+697|Maakt afbeeldingen met AI.
+698|Afbeelding maken en bestand voorbereiden…
+699|Video maken… dit kan een paar minuten duren
+700|{format}-bestand maken…
+701|Databases beheren en bevragen
+702|Kaarten
+703|Marketing
+704|Wiskunde / logica
+705|Ik
+706|Transcripties en samenvattingen van vergaderingen.
+707|Vergaderingen
+708|Geheugen
+709|Geheugen en chats
+710|Het geheugen is leeg.
+711|Het geheugen staat uit: {brand} bewaart of gebruikt niets nieuws totdat je het aanzet.
+712|Geheugeninstellingen
+713|Geheugen, projecten en bestandsbibliotheek
+714|Menu
+715|Bericht
+716|Bericht aan {brand}
+717|Bericht, geavanceerd model
+718|Bericht, snel model
+719|Bericht, topmodel
+721|Methode
+722|Toegang tot de microfoon is geweigerd. Sta de microfoon toe in de browser.
+723|Microfoon beschikbaar en toegestaan ✓
+724|Microfoon aan — spreek nu
+725|Microfoon niet beschikbaar of niet toegestaan
+726|Microsoft Teams-teams en -chats
+727|Mistral API-sleutel
+728|Mistral-modellen · gescheiden door komma's
+729|Model toegestaan / geblokkeerd
+730|Handmatig gekozen model
+731|Model voor nieuwe chats
+732|Model voor design
+734|Modellen, datasets en Spaces.
+735|Modernisering
+736|Weer maandag. Laten we de week indelen.
+737|Maandag–vrijdag om {time}
+738|Maandelijks
+739|Elke maand op dag {day} om {time}
+740|Ochtendnieuws
+741|Meest populair
+742|Naar project verplaatsen
+743|Muziek en podcasts
+745|NEE
+746|NVIDIA / NIM-API, compatibel met OpenAI.
+747|NVIDIA API-sleutel
+748|NVIDIA-modellen · gescheiden door komma's
+749|Naam
+750|Navigatie
+751|Hulp nodig voor de rest van de dag?
+752|Vraagt aandacht
+753|Heeft toegang nodig
+755|Nieuw toegangsverzoek
+756|Nieuw account
+757|Nieuwe accounts zijn uitgeschakeld op deze server.
+758|Nieuws om op te letten
+759|Nieuwe assistent
+760|Nieuwe chat
+761|Nieuwe chat met {name}
+762|Nieuw ontwerp
+763|Nieuw item voor het geheugen
+764|Nieuw wachtwoord
+765|Nieuw project
+766|Nieuwe skill
+767|Nieuwe taak
+768|Nieuwe week. Zullen we hem samen plannen?
+769|Nieuwste
+770|Elke ochtend nieuws
+771|Volgende credits: {when}
+772|Volgende uitvoering
+773|Nee
+774|Er is geen AI-model toegestaan voor dit account. Vraag de Owner om toegang tot een model.
+775|Nog geen API-plugins
+776|Er is geen antwoord binnengekomen.
+777|Nog geen apps verbonden. Kies er hieronder een: na het inloggen kan {brand} erin zoeken, lezen, maken en bewerken, en vraagt het vóór elke actie.
+778|Geen apps gevonden. Je kunt hem toevoegen met «Eigen app» als hij een MCP-adres heeft.
+779|Geen wijzigingen
+780|Geen chatsleutels opgeslagen. Voeg bijvoorbeeld een Gemini- of Groq-sleutel toe en sla op.
+781|Nog geen chats in dit project. Schrijf een bericht om er een te beginnen.
+782|Geen chats om te tonen.
+783|Nog geen chats.
+784|Nog geen programmeermodellen beschikbaar.
+785|Nog geen eigen assistenten.
+786|Geen dagen gekozen
+787|Nog geen ontwerpen. Beschrijf het eerste rechts.
+788|Geen enkel apparaat heeft het ontvangen. Zet de meldingen hierboven aan.
+789|Geen items.
+790|Geen bestanden die aan het filter voldoen.
+791|Geen modellen beschikbaar
+792|Geen modellen die overeenkomen.
+793|Geen modellen beschikbaar.
+795|Geen plugins gevonden. Je kunt er een maken op het tabblad «Plugin maken».
+796|Geen project
+797|Nog geen projecten. Maak er een via het zijmenu.
+798|Geen leesbare tekst
+799|Geen repository verbonden
+800|Nog geen geplande taken
+801|Nog geen skills
+802|Geen tekstresultaat.
+804|Geen {name}-modellen in OmniRoute. Verbind hem in het OmniRoute-paneel (Providers) en open deze pagina opnieuw.
+805|Geen
+806|Geen van de ingestelde AI's kon nu antwoorden. Controleer het gekozen model of de API-sleutels.
+807|Niet toegestaan door de Owner
+808|Niet inbegrepen in je abonnement
+809|Niet geïnstalleerd — npm install -g omniroute
+810|Nog niet uitgevoerd
+811|Niets gevonden voor deze zoekopdracht.
+812|Niets gevonden.
+813|Nog niets. Terwijl we praten, bewaart {brand} je voorkeuren en belangrijke beslissingen. Je kunt hieronder ook iets toevoegen.
+814|Melding verzonden naar 1 apparaat.
+815|Melding verzonden naar {n} apparaten.
+816|Meldingen
+817|Meldingen van {brand} zijn geblokkeerd. Zet ze aan in de telefooninstellingen (Meldingen → {brand}) en klik opnieuw.
+818|Meldingen staan uit op dit apparaat.
+819|Meldingen zijn niet toegestaan. Je kunt ze aanzetten in de telefooninstellingen, bij {brand}.
+820|Stuur me een melding
+821|Notion-documenten en -workflows
+822|OAuth-fout — {error}
+823|UIT
+824|AAN
+825|Offerte voor een klant
+827|Officiële en communitymodellen via de Predictions API.
+828|Officiële videomodellen via de Predictions API.
+829|Oudste
+830|OmniRoute 3.8 antwoordt niet zonder sleutel. Maak er een in OmniRoute:
+831|OmniRoute API-sleutel
+832|OmniRoute-adres
+833|OmniRoute-combo
+834|OmniRoute-combo's
+835|OmniRoute-opdracht
+836|OmniRoute verbonden
+837|OmniRoute heeft nog geen combo's.
+838|OmniRoute antwoordt.
+839|OmniRoute antwoordt niet. Kies uit de lijst een model van een directe API (Groq, Gemini…) of zet de automatische reserve aan.
+840|OmniRoute draait, maar heeft een API-sleutel nodig: maak die in OmniRoute → API Manager en zet hem in Instellingen → AI en OmniRoute. Tot dan antwoorden de directe API's (Groq, Gemini…), als je ze in de lijst kiest.
+841|OmniRoute-sleutel
+842|OmniRoute heeft een API-sleutel nodig
+843|OmniRoute gestopt
+844|Op de iPhone werken meldingen alleen vanuit de geïnstalleerde app: open {domain} in Safari → Deel → Zet op beginscherm, open {brand} dan vanaf het scherm en kom hier terug.
+845|{slug} aanzetten
+846|Eén keer
+847|Eén keer: {date}, {time}
+848|Eén plek voor kaarten, afbeeldingen, assistenten en websites.
+849|Eén jaar
+850|Alleen providers zonder directe kosten
+851|Alleen het geselecteerde codeblok
+852|Alleen de werkstappen worden getoond, niet de interne redenering van het model.
+853|Alleen als er iets verandert
+854|Openen
+855|Instellingen openen
+856|Instellingen → Video openen
+857|Opent een website in de browser.
+858|Volledig scherm openen
+859|Openen in Design
+860|Openen in de browser
+861|De Google-pagina openen
+862|Open het browsermenu (⋮ of ≡).
+863|Chat openen
+864|Ontwerp {name} openen
+865|Lijst openen
+866|Voorbeeld van {name} openen
+867|Taak openen
+868|Open {domain} in Safari (op de iPhone kan alleen Safari de app installeren).
+869|{name} openen
+870|OpenAI (ChatGPT) maakt geen video's meer: Sora is op 24 september 2026 gesloten, zowel de app als de API. De afbeeldingen van ChatGPT werken nog wel.
+871|OpenAI (betaald)
+872|OpenAI API-sleutel
+873|Compatibel met OpenAI, snelle antwoorden.
+874|Compatibel met OpenAI.
+875|OpenAI-modellen · gescheiden door komma's
+876|OpenAI-afbeeldingsmodel
+877|OpenAI via API
+878|Router compatibel met OpenAI; hetzelfde token als Afbeeldingen.
+879|OpenRouter (kan kosten)
+880|OpenRouter API-sleutel
+881|OpenRouter-model
+882|OpenRouter-afbeeldingsmodel
+883|OpenRouter-videomodel
+884|Openen…
+885|Opent de app direct
+886|Operaties
+887|Optioneel: een GitHub OAuth App (GitHub → Settings → Developer settings) met deze callback-URL: {url}. Zonder die verbindt GitHub met een persoonlijk token.
+888|Volgorde van pogingen
+889|Overig
+890|Andere OmniRoute-modellen
+891|De andere accounts gebruiken alle gratis modellen (Gemini, Groq, Mistral, OpenRouter :free…). Jouw abonnementen (Codex, Claude Code, Copilot, Kiro, de webaccounts) blijven alleen van jou: hun voorwaarden staan het delen van een account niet toe. Ze gebruiken een OmniRoute-combo alleen als je hem hier aanvinkt; vink alleen combo's aan die uit gratis modellen bestaan.
+892|Ander antwoord: {question}
+893|Meer details
+894|Meer modellen
+895|Overige
+896|Anders start het alleen als je de naam of @trigger in de chat typt.
+897|E-mail van de Owner op deze pc
+898|Owner op deze pc
+899|Alleen Owner
+900|Owner: gebruikers, goedkeuringen, rechten, sessies en AI-diensten.
+901|PNG, JPEG of WebP, tot 10 MB.

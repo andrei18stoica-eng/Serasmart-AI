@@ -1,19 +1,19 @@
-1465|Użycie
-1561|Kiedy AI używa {name}
-152|Automatycznie
-98|Zawsze dostępne
-406|Wyłączone
-1477|Używane tylko, gdy wiadomość tego wymaga
-824|Oferowane AI przy każdej wiadomości
-1228|AI nigdy tego nie używa
-1658|pyta za każdym razem
-1560|Kiedy AI używa /{slug}
-1476|Używany sam, gdy prośba tego wymaga, lub przez /nazwa
-1475|Używany przy każdej wiadomości
-752|Nigdy nie używany
-1432|Słowa wyzwalające (opcjonalnie)
-1573|Słowa, przy których AI ma go użyć, oddzielone przecinkami
-1572|Słowa, które go wykluczają (opcjonalnie)
-600|Jeśli wiadomość zawiera któreś z nich, skill nie jest używany
-620|Instrukcje zapisane raz. AI samo wybiera skille potrzebne do prośby (Automatycznie); możesz też wpisać /nazwa w czacie albo zostawić skill zawsze włączony.
-1170|Użyte skille
+1468|Użycie
+1564|Kiedy AI używa {name}
+154|Automatycznie
+100|Zawsze dostępne
+408|Wyłączone
+1480|Używane tylko, gdy wiadomość tego wymaga
+826|Oferowane AI przy każdej wiadomości
+1231|AI nigdy tego nie używa
+1661|pyta za każdym razem
+1563|Kiedy AI używa /{slug}
+1479|Używany sam, gdy prośba tego wymaga, lub przez /nazwa
+1478|Używany przy każdej wiadomości
+754|Nigdy nie używany
+1435|Słowa wyzwalające (opcjonalnie)
+1576|Słowa, przy których AI ma go użyć, oddzielone przecinkami
+1575|Słowa, które go wykluczają (opcjonalnie)
+602|Jeśli wiadomość zawiera któreś z nich, skill nie jest używany
+622|Instrukcje zapisane raz. AI samo wybiera skille potrzebne do prośby (Automatycznie); możesz też wpisać /nazwa w czacie albo zostawić skill zawsze włączony.
+1172|Użyte skille

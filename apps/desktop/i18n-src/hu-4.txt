@@ -1,436 +1,436 @@
-1345|A szolgáltatás nem erősítette meg a fájl mentését.
-1346|A munkamenet érvénytelen vagy lejárt.
-1347|A munkamenetek lezárva.
-1348|Nem sikerült menteni a beállítást: {error}
-1349|Nem sikerült menteni a beállításokat.
-1350|A bejelentkezés megnyílt a böngészőben. Fejezd be ott; a(z) {brand} magától menti a kapcsolatot.
-1351|A bejelentkezés nem fejeződött be 2 percen belül. Próbáld újra.
-1352|Az oldal a legújabb verziót használja.
-1353|Az oldal frissítése nem sikerült. A részletek a Beállítások → Általános részben vannak.
-1354|Az oldal frissült a(z) {v} verzióra. Az oldal újratöltődik.
-1355|Az oldal frissült. Az oldal újratöltődik.
-1356|Az oldal magától frissül, ha új verzió jelenik meg (óránkénti ellenőrzés).
-1357|Az oldal beállításai: a szerveren mentve, és azonnal minden fiókra érvényesek. A kulcsok a szerveren maradnak, és csak maszkolva látszanak. Az Owner e-mail-címe és a regisztrációk a szerver .env fájljában maradnak.
-1358|A(z) /{slug} skill mentve.
-1359|Nem sikerült betölteni a skillkönyvtárat: {error}
-1360|Nem sikerült betölteni a skilleket: {error}
-1361|A diktált szöveg a mezőben van; küldd el, ha az AI befejezte a választ.
-1362|{email} állapota mostantól «{status}».
-1363|A szintaxis-ellenőrzés hibát talált. A javaslat NEM alkalmazható.
-1364|A szintaxis-ellenőrzés sikeres.
-1365|A feladat még nem futott. Kattints a «Futtatás most» gombra az eredmény megtekintéséhez.
-1366|A feladat frissítve.
-1367|A(z) «{name}» feladat létrejött.
-1368|Nem sikerült betölteni a feladatokat: {error}
-1369|Nem sikerült a szöveget a vágólapra másolni.
-1370|Nem sikerült beolvasni a szöveget
-1371|A kijelölt szöveg
-1372|A két új jelszó nem egyezik.
-1373|Nem sikerült elkészíteni a videót: {error}
-1374|A hangfelvétel nem sikerült.
-1375|A teljes üzenet
-1376|Az ablak nem tudta megjeleníteni az alkalmazás ezen részét. Kattints az «Újratöltés» gombra. Ha újra megtörténik, másold ki az alábbi részleteket, és küldd el az alkalmazás rendszergazdájának.
-1377|A(z) {brand} szolgáltatás nem találta, amit kértek (HTTP 404).
-1378|A(z) {brand} szolgáltatásban hiba történt (HTTP {status}).
-1379|Nem sikerült elkészíteni a(z) {format} fájlt: {error}. Újrapróbálhatod a válasz alatti gombokkal.
-1380|A modelljeik megjelennek a listában (Groq, Gemini, Cerebras…). Akkor válaszolnak, ha kiválasztod őket, vagy ha nincs kiválasztott modell.
-1381|A modelljeik megjelennek a listában, és közvetlenül válaszolnak, OmniRoute nélkül.
-1382|Téma
-1383|Új módosítások vannak a GitHubon.
-1384|Ebben a beszélgetésben nincsenek fájlok.
-1385|Ebben a csoportban nincsenek felhasználók.
-1386|Ehhez a válaszhoz nincs üzeneted.
-1387|Nincs friss GitHub-mentés.
-1388|Ezek a műveletek kérdés nélkül futnak. Távolíts el egyet, és az AI újra kérdezni fog.
-1389|Ezekkel az eszközökkel a(z) {brand} aktuális információkat ellenőrizhet, és lekérheti egy GitHub-tároló releváns részeit.
-1390|Gondolkodás
-1391|A Gondolkodás be van kapcsolva: pontosabb válaszok, kicsit lassabban. Kattints a Gyorshoz.
-1392|Gondolkodom…
-1393|Ez az alkalmazás csak az általa jóváhagyott alkalmazásokat fogadja el; a Serasmart még nincs a listáján.
-1394|Ez a böngésző nem tud értesítéseket fogadni. Használd a telefonra telepített {brand} alkalmazást (Androidon Chrome, iPhone-on Safari).
-1395|Ez a számítógép
-1396|Ez a dokumentum üres.
-1397|Ezt az e-mail-címet nem fogadjuk el.
-1398|Ez a fájltípus itt nem nyitható meg. Használd a «Letöltés» gombot.
-1399|Ennek a fájltípusnak nincs előnézete. Letöltheted.
-1400|Ezt a linket a(z) {brand} nem tudja megnyitni.
-1401|Az időszak kreditrészletei
-1402|Ennek a szolgáltatásnak az OAuth Client Secret is kell.
-1403|Ez a szöveg nincs a chatjeidben.
-1404|Ez a munkafüzet üres.
-1405|Több ezer alkalmazás a Zapier-műveleteiden keresztül.
-1406|Idő
-1407|Lejárt az idő: {answer}
-1408|Ma
-1409|A mai hivatalos BNR-árfolyamok: euró, dollár, font és a többi (bnr.ro).
-1410|Together API-kulcs
-1411|Token
-1412|Token (opcionális)
-1413|Token mentve — hagyd üresen a megtartásához
-1414|Hangnem
-1415|Túl nagy az olvasáshoz
-1416|Túl sok próbálkozás. Várj 15 percet, és próbáld újra.
-1417|Túl sok bejelentkezési kísérlet. Próbáld újra néhány perc múlva.
-1418|Túl sok hibás kód. Kérj új kódot.
-1419|Eszközök
-1420|Csúcsmodellek (a legerősebb Claude, GPT, Gemini és Grok)
-1421|Feltöltés
-1422|Étel és kalóriák követése
-1423|Átírási modell
-1424|Az alkalmazás fordítása
-1425|Az egész alkalmazás lefordítása minden nyelvre
-1426|Természetesen fordít, megtartva a hangnemet és a formázást.
-1427|Az alkalmazás fordítása: {name}… {pct}%
-1428|Az alkalmazás fordítása: {name}… {pct}%. A szövegek maguktól cserélődnek, ahogy elkészülnek.
-1429|{n} szöveg fordítása {count} nyelvre a háttérben. Bezárhatod ezt az ablakot.
-1430|Fordító
-1431|Sorban próbálja a modelleket, amíg valamelyiknek van még kerete.
-1433|Próbáld újra
-1434|Kikapcsolás ezen az eszközön
-1435|Kikapcsolod a fizetős AI-t a normál fiókoknál? Az Owner megtartja a hozzáférést a fizetős modellekhez.
-1436|{name} kikapcsolása
-1437|Bekapcsolás ezen az eszközön
-1438|{name} bekapcsolása
-1439|Kikapcsolva
-1440|Az Owner kikapcsolta a fiókodnál.
-1441|Nem érhető el
-1442|Az üzenetmező alatt, Kép módban minden alkalommal kiválaszthatod, ki készítse. «Automatikus» esetén, ha a chatben Gemini, ChatGPT vagy Grok modellt választottál, annak a modellnek a cége készíti a képet (előbb az OmniRoute-beli előfizetés, aztán az API-ja); különben ez a beállítás érvényes.
-1443|Az üzenetmező alatt, Videó módban minden alkalommal kiválaszthatod, ki készítse. «Automatikus» esetén, ha a chatben Gemini vagy Grok modellt választottál, annak a modellnek a cége készíti a videót (előbb az OmniRoute-beli előfizetés, aztán az API-ja); különben ez a beállítás érvényes.
-1444|Az utolsó GitHub-módosítás visszavonása
-1445|Ismeretlen hiba.
-1446|Korlátlan
-1447|Feloldás
-1448|Kijelölés nélkül: a modelljei eltűnnek a listából, és soha nem válaszolnak, tartalékként sem. Az OmniRoute-kombinációk megmaradnak; hogy mit tartalmaznak, azt az OmniRoute panelen választod ki.
-1449|Névtelen dizájn
-1450|Naprakész dokumentáció kódkönyvtárakhoz.
-1451|Az oldal frissítése most
-1452|Frissíted most az oldalt? A szerver letölti a legújabb verziót a GitHubról, és újraindítja az oldalt (1–5 perc, ennyi ideig nem válaszol).
-1453|Frissítés:
-1454|Az oldal frissítése… 1–5 percig tart; az oldal magától újratöltődik.
-1455|Frissítés…
-1456|Feltöltés
-1457|Bármilyen fájl feltöltése
-1458|Hang feltöltése
-1459|Képek feltöltése
-1460|Videó feltöltése
-1461|1 fájl feltöltése… a nagy fájlok eltarthatnak egy ideig.
-1462|A fájl feltöltése…
-1463|{n} fájl feltöltése… a nagy fájlok eltarthatnak egy ideig.
-1464|Használat
-1466|Használat a chatben
-1467|Magától használja, ha releváns
-1468|Memória használata
-1469|Az alapértelmezett helyi szolgáltatás használata
-1470|Közvetlen API-k használata
-1471|Használd a(z) {brand} fiókod e-mail-címét.
-1472|Ennek az AI-nak a használata
-1473|Felhasznált
-1474|Azonnal felhasználható, heti korlát nélkül
-1478|Akkor használja, ha beírod: {trigger}
-1479|Akkor használja, ha beírod: «{name}» vagy {trigger}
-1480|Hasznos válasz
-1481|Felhasználó
-1482|Használja ugyanannak a projektnek a releváns chatjeit anélkül, hogy kézzel kellene másolnod őket.
-1483|Segédeszközök
-1484|12 hónapig érvényes
-1485|Veo ugyanazzal a Gemini-kulccsal, mint a chat; a modellt fent, a «Videók készítője» részben választod ki.
-1486|Verzió
-1487|Verzió a szerveren: {v}.
-1488|Elérhető a(z) {v} verzió.
-1489|Elérhető a(z) {v} verzió. Magától letöltődik; értesítést kapsz, amikor kész.
-1490|Videó
-1491|Videógenerálás
-1492|Videógenerálás AI modellekkel
-1493|Videógenerálás, API-k, modellek és automatikus próbálkozás más szolgáltatónál.
-1494|Videó készítője
-1495|Videókészítés
-1496|Videó mód
-1497|Videó mód: a következő üzenet videót készít. Kattints újra a Videóra a kilépéshez.
-1498|Videó: a következő üzenet videót készít.
-1499|Videók készítője
-1500|AI-val készült videók
-1501|Bármilyen hosszú videók
-1502|Hang
-1503|Hangtevékenység
-1504|Hang és mikrofon
-1505|Hangbevitel
-1507|A beszédfelismerés nem működött. Kattints a mikrofonra, és próbáld újra.
-1508|A beszédfelismerés leállt; ellenőrizd a szöveget, és küldd el.
-1509|Beszédből szöveg
-1510|Várakozás
-1511|Várd meg, amíg a fájl feltöltése befejeződik.
-1512|Várakozás eddig: {when}
-1513|Hozzáférésre vár
-1514|Várakozás a választott AI válaszára…
-1515|Várakozás a hang leírására.
-1516|A jóváhagyásodra vár
-1517|A jóváhagyásodra vár itt: {app}…
-1518|Szeretne
-1519|Ár figyelése
-1520|Munkamódok
-1521|Nem tudtuk elküldeni a kódot tartalmazó e-mailt. Ellenőrizd a címet, és próbáld újra.
-1522|E-mailben küldtünk egy 6 jegyű kódot. Írd be, hogy megerősítsd: a cím a tiéd.
-1523|6 jegyű kódot küldtünk ide: {email}. Ha nem látod, nézd meg a spamet. A kód 15 perc múlva lejár.
-1524|E-mailben küldtünk egy kódot.
-1525|Új kódot küldtünk.
-1526|Gyenge válasz
-1527|Időjárás
-1528|Az aktuális időjárás és a 3 napos előrejelzés bármely városra (Open-Meteo, fiók nélkül).
-1529|Webes keresés
-1530|Webes keresés AI-ügynököknek
-1531|AI-ra szabott webes keresés.
-1532|Webes keresés forrásokkal
-1533|Weboldal
-1534|A weboldal címe
-1535|Weboldalak
-1536|Hétvégi mód. Mihez van kedved?
-1537|Hetente
-1538|Minden héten, {day} {time}-kor
-1539|Üdv újra
-1540|Üdv a(z) {brand} szolgáltatásban
-1541|Mit építünk ma?
-1542|Min dolgozunk ma?
-1543|Mi írja le legjobban a munkádat?
-1544|Mit tartalmaz
-1545|Mit csinál, egy mondatban
-1546|Mit kell javítani
-1547|Mit változtassak
-1548|Hogyan szólítson a(z) {brand}?
-1549|Mit csináljon a(z) {brand}? Pl. Keresd meg a mai fontos híreket, és készíts összefoglalót linkekkel.
-1550|Hogyan szólít az AI
-1551|Mit tegyen az AI minden alkalommal, amikor ezt a skillt használod: hangnem, szerkezet, mit tartalmazzon, mit kerüljön.
-1552|Mit csinál a plugin
-1553|Mi mennyibe kerül
-1554|Mi segítene az AI-nak megismerni téged: érdeklődés, projektek, tapasztalati szint.
-1555|Mivel foglalkozol
-1556|Mit tud rólad a(z) {brand}
-1557|Mire emlékszik rólad a(z) {brand}, és hogyan használja a korábbi chateket.
-1558|Ha egy kérés többféleképpen érthető, a(z) {brand} előbb megkérdez, egy kattintással választható lehetőségekkel.
-1559|Ha valaki regisztrál, a telefonod megmutatja, ki szeretne csatlakozni a(z) {brand} szolgáltatáshoz, és megkérdezi, engedélyezed-e. Androidon az értesítésből válaszolsz az Engedélyezés vagy az Elutasítás gombbal; iPhone-on rákoppintasz, és az alkalmazásban választasz. A kérés addig vár, amíg nem válaszolsz.
-1562|Ha képet vagy videót kérsz, a(z) {brand} a valódi fájlt teszi a chatbe, letöltés gombbal.
-1563|Ha képet kérsz, a(z) {brand} a beállított sorrendben próbálja a szolgáltatókat, a valódi fájlt teszi a chatbe, és elmenti a Könyvtárba.
-1564|Ha videót kérsz, a(z) {brand} sorban próbálja a szolgáltatókat, letölti a valódi MP4-fájlt, a chatbe teszi, és elmenti a Könyvtárba.
-1565|Ha kérdezel valamit, keres a többi chatedben (az archiváltakban is), és felhasználja, ami kapcsolódik. Így egy témát új chatben is folytathatsz.
-1566|Windows-alkalmazás
-1567|A beállított Cloud API-val az Owner központilag kezeli a fiókokat, a jóváhagyásokat és a jogosultságokat. Hagyd üresen, ha csak ezt a gépet használod.
-1568|Az AI API-k xAI-kulcsával.
-1569|Az AI API-k xAI-kulcsával; 1–15 másodperc.
-1570|Csomag nélkül: napi {n} üzenet az ingyenes modellekkel, egy {days} napos, {credits} kredites próba után. A kártyás fizetés hamarosan érkezik; addig a csomagokat az Owner osztja ki.
-1571|Word-, Excel-, PowerPoint- és PDF-fájlok
-1574|Workers, KV, R2 és D1 a Cloudflare-fiókodban.
-1575|Munkanapok (hétfő–péntek)
-1576|Dolgozik itt:
-1577|Dolgozik itt: {app}…
-1578|Későig dolgozol? Itt vagyok, ha kellek.
-1579|Az ár kiszámítása…
-1580|Dolgozom…
-1581|Edzések és egészségügyi adatok
-1582|Azonnal működik
-1583|Működik: {result}
-1584|Zárod a napot? Segíthetek abban, ami még hátravan.
-1585|Adj nevet a pluginnek.
-1586|Adj nevet a feladatnak.
-1587|Írd be a chatbe egy plugin nevét (például «Naptár») vagy @név formában, és a(z) {brand} felhasználja a válaszhoz.
-1588|Írj egy rövid, barátságos e-mailt, amely
-1589|E-mail írása
-1590|Írd le egyszer, mit csináljon a(z) {brand}, és válaszd ki, mikor. Például: «Minden munkanapon 08:30-kor készíts hírösszefoglalót.»
-1591|Írd le, mit csináljon a(z) {brand}.
-1592|Írd meg a válaszod
-1593|Írj saját választ
-1594|Néhány ötletből világos, udvarias e-mailt ír tárggyal.
-1595|HTML és CSS írása…
-1596|Írás és tartalom
-1597|Leírom, amit mondtál…
-1598|A hangod leírása…
-1599|A válasz írása…
-1600|A(z) {format} fájlod írása…
-1601|A(z) {format} fájlod írása… {n} szó
-1602|Hibás e-mail-cím vagy jelszó.
-1603|IGEN
-1604|Igen
-1605|Tegnap
-1606|Hozzáadtad: /{slug}. Írd be a chatbe a használatához.
-1607|Bármikor hozzáadhatsz további ingyenes API-kat (Groq, Cerebras, Cloudflare a képekhez) a Beállítások → AI API-k részben.
-1608|Percenként egyszer kérhetsz új kódot.
-1609|Több szolgáltatást is csatlakoztathatsz. A(z) {brand} sorban próbálja a szolgáltatókat, és a következőre lép, ha valamelyik nem működik.
-1610|A plugint OAuth nélkül is használhatod az alkalmazás közvetlen megnyitására. OAuth vagy API csak akkor kell, ha azt szeretnéd, hogy a(z) {brand} privát adatokat olvasson vagy módosítson abban a szolgáltatásban.
-1611|Te választasz
-1612|Ezt választottad: {model}; az OmniRoute ide küldte a kérdést: {served}.
-1613|Ezt választottad: {model}; a(z) {brand} ide küldte a kérdést: {served}.
-1614|E-mailben kódot kapsz a cím megerősítéséhez, aztán az Owner jóváhagyja a fiókot.
-1615|Nincsenek asszisztenseid. Hozz létre egyet az oldalsávban.
-1616|A legújabb verzió van telepítve.
-1617|A(z) {brand} választ helyetted
-1618|Minden eszközről kijelentkeztél.
-1619|YouTube-statisztikák és kulcsszavak
-1620|A te AI-od, minden modell
-1621|A ChatGPT-előfizetésed, az OmniRoute-ban csatlakoztatva
-1622|A Claude-előfizetésed, az OmniRoute-ban csatlakoztatva
-1623|A Google Naptár-eseményeid
-1624|A Helium 10-adataid
-1625|Az Outlook-leveleid
-1626|A Plaid-irányítópultod: elemek, használat és problémák.
-1627|A Wix-weboldalaid, oldalaid és webáruházad.
-1628|A fiókodat semmi nem terheli (Owner).
-1629|A fiókod jelszava
-1630|A fiókod, az alkalmazás, a hang, az AI-szolgáltatások és a frissítések.
-1631|A válaszaid
-1632|Az alkalmazásaid
-1633|A csatlakoztatott alkalmazásaid: az AI a jóváhagyásoddal olvassa őket és dolgozik bennük.
-1634|A választásod: {value}
-1635|A dizájnjaid
-1636|A fájljaid, képeid, videóid és dizájnjaid, beszélgetésekben használatra készen.
-1637|Az egészségügyi adataid
-1638|A jegyzeteid és értekezlet-átirataid.
-1639|A neved
-1640|Az API-jaid és webhookjaid, valamint azonnal működő pluginek.
-1641|A képeid és videóid: keresés, feltöltés, szerkesztés.
-1642|A csomagod
-1643|A csomagod, a heti kreditek és az extra kreditek.
-1644|A csomagod, a heti kreditek, és hogy mennyibe kerül egy-egy művelet.
-1645|A profilod, ahogy az AI válaszol, értesítések, adatvédelem és biztonság.
-1646|Az erőforrásaid a Renderen
-1647|A munkameneted lejárt vagy lezárult. Jelentkezz be újra.
-1648|A skilljeid
-1650|A feladataid és projektjeid: hozzáadás, befejezés, átütemezés.
-1651|A munkád
-1652|te adtad hozzá
-1653|az összes chat
-1654|a Könyvtár összes fájlja
-1655|a teljes memória
-1656|a fiók összes adata (chatek, memória, fájlok, projektek, asszisztensek, skillek, automatizálások, alkalmazások, dizájnok)
-1657|válaszok · {s} mp
-1659|legfeljebb {n} kredit
-1660|automatikus
-1661|szerző: {author}
-1662|szerző: {author} · {license}
-1663|kategóriák
-1664|kategória
-1665|ellenőrizd, hogy teljesen kimásoltad-e.
-1666|kód
-1667|a kapcsolat működik
-1668|létrehozva
-1669|kredit
-1670|alapértelmezett
-1671|pl. Panaszok megválaszolása
-1672|pl. egy név vagy becenév
-1673|pl. tegyél fel tisztázó kérdéseket, mielőtt részletes választ adsz
-1674|pl. diák, webdizájner, könyvelő
-1675|pl. webdizájner, könyvelő, tanár
-1676|hiba
-1677|fal API-kulcs
-1678|fal videómodell
-1679|fal.ai modell
-1680|fájl
-1681|{n} kreditért · egyszeri fizetés
-1682|ütemezett feladatból
-1683|az előzményekből
-1684|tőle: {n}
-1685|github_pat_... vagy ghp_...
-1686|benne van
-1687|elem
-1688|elem
-1689|automatikusan mentve
-1690|a névből származtatva
-1691|memória
-1692|legalább {n} kredit
-1693|nev@pelda.hu
-1694|következő: {when}
-1695|fiók nélkül
-1696|nincs
-1697|nincs benne
-1698|most
-1699|felhasználva a heti kreditekből
-1700|ki
-1701|egyszer
-1702|csak változáskor
-1703|opcionális
-1704|opcionális / PKCE
-1705|fizetős
-1706|kitűzve
-1707|csak olvasható
-1708|valódi eredmény
-1709|kötelező
-1710|az Owner állította be
-1711|ekkor óta: {when}
-1712|forrás
-1713|rendszer
-1714|a fájl
-1715|a kulcs működik · {models} modell, {combos} kombináció · {s} mp
-1716|nincs tartalom a fájlhoz
-1717|ez
-1718|ezen a héten
-1719|ma
-1720|holnap
-1721|ismeretlen hiba
-1722|legfeljebb {s} mp
-1723|akkor használja, ha a fenti listában nem választottál mást
-1724|kulccsal
-1725|xAI API-kulcs
-1726|tegnap
-1727|a személyes előfizetésed csak a tiéd marad (a szolgáltató feltételei nem engedik a fiók megosztását). Add oda a személynek a modellt az API-n keresztül (openai/…, anthropic/…).
-1728|{brand} fiók
-1729|A(z) {brand} tévedhet. Ellenőrizd a fontos információkat.
-1730|A(z) {brand} ellenőrzi a közzétett árat, ha van, és nem indul el, ha nem tudja megerősíteni a nulla költséget. A Gemini Veo, a fal.ai és a Replicate ebben a módban tiltva marad.
-1731|A(z) {brand} leírja a felvételt…
-1732|A(z) {brand} ezt a fiók minden chatjében figyelembe veszi.
-1733|A(z) {brand} magától megjegyzi a preferenciáidat, döntéseidet és tartós részleteidet, és használja őket, amikor számítanak.
-1734|A(z) {brand} hibába ütközött
-1735|A(z) {brand} beolvassa a fájlt a beállított tárolóból, és javítást javasol.
-1736|A(z) {brand} a választott időpontban magától végrehajtja az utasításokat, amíg az alkalmazás fut.
-1737|A(z) {brand} közvetlen linkként menti a plugint, és megnyitja a hivatalos alkalmazást. Jelentkezz be szokás szerint a böngészőben.
-1738|{brand} szolgáltatás
-1739|A(z) {brand} szolgáltatás címe
-1740|{brand} beállítások
-1741|{brand}-frissítés érhető el — telepítés most
-1742|A(z) {brand} ezt használta: {provider} · {model}
-1743|A(z) {brand} csak arra használja, hogy jobban válaszoljon; itt bármikor megnézheted és módosíthatod.
-1744|{days} {time}-kor
-1745|Ma még {left} ingyenes üzenet a(z) {limit}-ből
-1746|{left} / {total} kredit · lejár: {when}
-1747|{model}: {mode} – {email}.
-1748|{name} ({email}) mostantól használhatja a(z) {brand} szolgáltatást.
-1749|{name} ({email}) nem használhatja a(z) {brand} szolgáltatást.
-1750|{name} csatlakoztatva. Kérdezz a chatben; az AI minden művelet előtt megkérdez.
-1751|{name} telepítve
-1752|{name} kész. Írj a chatbe, például: {trigger}, vagy egyszerűen kérdezz.
-1753|{name} hozzáadva: a(z) {n} skillje /név-vel működik a chatben.
-1754|{name}: csatlakoztatva.
-1755|{name}: mentve közvetlen megnyitásra, OAuth nélkül. Jelentkezz be szokás szerint a hivatalos alkalmazásban.
-1756|{name}: a plugin csatlakoztatva.
-1757|{name}: a plugin mentve.
-1758|{n} OmniRoute-modellt elrejtett az Owner.
-1759|napi {n}
-1760|percenként {n}
-1761|hetente {n}
-1762|{n} művelet
-1763|{n} aktív munkamenet
-1764|{n} alkalmazás
-1765|egyszerre {n}
-1766|{n} automatizálás
-1767|{n} fájl hozzáadva a Könyvtárhoz.
-1768|még {n} · {w}. hét a 4-ből
-1769|{n} elérhető modell
-1770|{n} modellt elrejtett az Owner.
-1771|{n} elérhető modell
-1772|{n} nem engedélyezett
-1773|{n} fő
-1774|{n} másodperc
-1775|{n} skill
-1776|{n} verzió
-1777|{pack} · szerző: {author} · {license}
-1778|{plan} csomag
-1779|{plan} csomag: a hét {percent}%-a felhasználva
-1780|{price} évente · 2 hónap ingyen
-1781|a heti kreditek {p}%-a felhasználva
-1782|{s} mp · általában körülbelül egy perc
-1783|Az «Engedélyezve» nem hat, amíg a «Chat AI» ki van kapcsolva ennél a fióknál: előbb kapcsold be fent a Chat jogosultságot.
-1784|Az «Alapértelmezett» a fenti jogosultságokat követi; az «Engedélyezve» akkor is megnyitja a modellt, ha a jogosultságok zárva tartják; a «Tiltva» lezárja. Az Owner személyes előfizetései csak az Owneréi maradnak.
-1785|«Nano Banana»; a modellt fent, a «Képek készítője» részben választod ki. Ugyanaz a kulcs, mint az AI API-knál és a Videónál.
-1786|A(z) «{feature}» funkciót az Owner kikapcsolta a fiókodnál.
-1787|Az Owner nem engedélyezi számodra ezt: «{model}».
-1788|A(z) «{name}» lefutott. Az eredmény az előzményekben van.
-1789|⚡ Gyors
-1790|✨ Minőség
-1791|🎬 Minőség
-1792|🛡️ Csak ingyenes
+1348|A szolgáltatás nem erősítette meg a fájl mentését.
+1349|A munkamenet érvénytelen vagy lejárt.
+1350|A munkamenetek lezárva.
+1351|Nem sikerült menteni a beállítást: {error}
+1352|Nem sikerült menteni a beállításokat.
+1353|A bejelentkezés megnyílt a böngészőben. Fejezd be ott; a(z) {brand} magától menti a kapcsolatot.
+1354|A bejelentkezés nem fejeződött be 2 percen belül. Próbáld újra.
+1355|Az oldal a legújabb verziót használja.
+1356|Az oldal frissítése nem sikerült. A részletek a Beállítások → Általános részben vannak.
+1357|Az oldal frissült a(z) {v} verzióra. Az oldal újratöltődik.
+1358|Az oldal frissült. Az oldal újratöltődik.
+1359|Az oldal magától frissül, ha új verzió jelenik meg (óránkénti ellenőrzés).
+1360|Az oldal beállításai: a szerveren mentve, és azonnal minden fiókra érvényesek. A kulcsok a szerveren maradnak, és csak maszkolva látszanak. Az Owner e-mail-címe és a regisztrációk a szerver .env fájljában maradnak.
+1361|A(z) /{slug} skill mentve.
+1362|Nem sikerült betölteni a skillkönyvtárat: {error}
+1363|Nem sikerült betölteni a skilleket: {error}
+1364|A diktált szöveg a mezőben van; küldd el, ha az AI befejezte a választ.
+1365|{email} állapota mostantól «{status}».
+1366|A szintaxis-ellenőrzés hibát talált. A javaslat NEM alkalmazható.
+1367|A szintaxis-ellenőrzés sikeres.
+1368|A feladat még nem futott. Kattints a «Futtatás most» gombra az eredmény megtekintéséhez.
+1369|A feladat frissítve.
+1370|A(z) «{name}» feladat létrejött.
+1371|Nem sikerült betölteni a feladatokat: {error}
+1372|Nem sikerült a szöveget a vágólapra másolni.
+1373|Nem sikerült beolvasni a szöveget
+1374|A kijelölt szöveg
+1375|A két új jelszó nem egyezik.
+1376|Nem sikerült elkészíteni a videót: {error}
+1377|A hangfelvétel nem sikerült.
+1378|A teljes üzenet
+1379|Az ablak nem tudta megjeleníteni az alkalmazás ezen részét. Kattints az «Újratöltés» gombra. Ha újra megtörténik, másold ki az alábbi részleteket, és küldd el az alkalmazás rendszergazdájának.
+1380|A(z) {brand} szolgáltatás nem találta, amit kértek (HTTP 404).
+1381|A(z) {brand} szolgáltatásban hiba történt (HTTP {status}).
+1382|Nem sikerült elkészíteni a(z) {format} fájlt: {error}. Újrapróbálhatod a válasz alatti gombokkal.
+1383|A modelljeik megjelennek a listában (Groq, Gemini, Cerebras…). Akkor válaszolnak, ha kiválasztod őket, vagy ha nincs kiválasztott modell.
+1384|A modelljeik megjelennek a listában, és közvetlenül válaszolnak, OmniRoute nélkül.
+1385|Téma
+1386|Új módosítások vannak a GitHubon.
+1387|Ebben a beszélgetésben nincsenek fájlok.
+1388|Ebben a csoportban nincsenek felhasználók.
+1389|Ehhez a válaszhoz nincs üzeneted.
+1390|Nincs friss GitHub-mentés.
+1391|Ezek a műveletek kérdés nélkül futnak. Távolíts el egyet, és az AI újra kérdezni fog.
+1392|Ezekkel az eszközökkel a(z) {brand} aktuális információkat ellenőrizhet, és lekérheti egy GitHub-tároló releváns részeit.
+1393|Gondolkodás
+1394|A Gondolkodás be van kapcsolva: pontosabb válaszok, kicsit lassabban. Kattints a Gyorshoz.
+1395|Gondolkodom…
+1396|Ez az alkalmazás csak az általa jóváhagyott alkalmazásokat fogadja el; a Serasmart még nincs a listáján.
+1397|Ez a böngésző nem tud értesítéseket fogadni. Használd a telefonra telepített {brand} alkalmazást (Androidon Chrome, iPhone-on Safari).
+1398|Ez a számítógép
+1399|Ez a dokumentum üres.
+1400|Ezt az e-mail-címet nem fogadjuk el.
+1401|Ez a fájltípus itt nem nyitható meg. Használd a «Letöltés» gombot.
+1402|Ennek a fájltípusnak nincs előnézete. Letöltheted.
+1403|Ezt a linket a(z) {brand} nem tudja megnyitni.
+1404|Az időszak kreditrészletei
+1405|Ennek a szolgáltatásnak az OAuth Client Secret is kell.
+1406|Ez a szöveg nincs a chatjeidben.
+1407|Ez a munkafüzet üres.
+1408|Több ezer alkalmazás a Zapier-műveleteiden keresztül.
+1409|Idő
+1410|Lejárt az idő: {answer}
+1411|Ma
+1412|A mai hivatalos BNR-árfolyamok: euró, dollár, font és a többi (bnr.ro).
+1413|Together API-kulcs
+1414|Token
+1415|Token (opcionális)
+1416|Token mentve — hagyd üresen a megtartásához
+1417|Hangnem
+1418|Túl nagy az olvasáshoz
+1419|Túl sok próbálkozás. Várj 15 percet, és próbáld újra.
+1420|Túl sok bejelentkezési kísérlet. Próbáld újra néhány perc múlva.
+1421|Túl sok hibás kód. Kérj új kódot.
+1422|Eszközök
+1423|Csúcsmodellek (a legerősebb Claude, GPT, Gemini és Grok)
+1424|Feltöltés
+1425|Étel és kalóriák követése
+1426|Átírási modell
+1427|Az alkalmazás fordítása
+1428|Az egész alkalmazás lefordítása minden nyelvre
+1429|Természetesen fordít, megtartva a hangnemet és a formázást.
+1430|Az alkalmazás fordítása: {name}… {pct}%
+1431|Az alkalmazás fordítása: {name}… {pct}%. A szövegek maguktól cserélődnek, ahogy elkészülnek.
+1432|{n} szöveg fordítása {count} nyelvre a háttérben. Bezárhatod ezt az ablakot.
+1433|Fordító
+1434|Sorban próbálja a modelleket, amíg valamelyiknek van még kerete.
+1436|Próbáld újra
+1437|Kikapcsolás ezen az eszközön
+1438|Kikapcsolod a fizetős AI-t a normál fiókoknál? Az Owner megtartja a hozzáférést a fizetős modellekhez.
+1439|{name} kikapcsolása
+1440|Bekapcsolás ezen az eszközön
+1441|{name} bekapcsolása
+1442|Kikapcsolva
+1443|Az Owner kikapcsolta a fiókodnál.
+1444|Nem érhető el
+1445|Az üzenetmező alatt, Kép módban minden alkalommal kiválaszthatod, ki készítse. «Automatikus» esetén, ha a chatben Gemini, ChatGPT vagy Grok modellt választottál, annak a modellnek a cége készíti a képet (előbb az OmniRoute-beli előfizetés, aztán az API-ja); különben ez a beállítás érvényes.
+1446|Az üzenetmező alatt, Videó módban minden alkalommal kiválaszthatod, ki készítse. «Automatikus» esetén, ha a chatben Gemini vagy Grok modellt választottál, annak a modellnek a cége készíti a videót (előbb az OmniRoute-beli előfizetés, aztán az API-ja); különben ez a beállítás érvényes.
+1447|Az utolsó GitHub-módosítás visszavonása
+1448|Ismeretlen hiba.
+1449|Korlátlan
+1450|Feloldás
+1451|Kijelölés nélkül: a modelljei eltűnnek a listából, és soha nem válaszolnak, tartalékként sem. Az OmniRoute-kombinációk megmaradnak; hogy mit tartalmaznak, azt az OmniRoute panelen választod ki.
+1452|Névtelen dizájn
+1453|Naprakész dokumentáció kódkönyvtárakhoz.
+1454|Az oldal frissítése most
+1455|Frissíted most az oldalt? A szerver letölti a legújabb verziót a GitHubról, és újraindítja az oldalt (1–5 perc, ennyi ideig nem válaszol).
+1456|Frissítés:
+1457|Az oldal frissítése… 1–5 percig tart; az oldal magától újratöltődik.
+1458|Frissítés…
+1459|Feltöltés
+1460|Bármilyen fájl feltöltése
+1461|Hang feltöltése
+1462|Képek feltöltése
+1463|Videó feltöltése
+1464|1 fájl feltöltése… a nagy fájlok eltarthatnak egy ideig.
+1465|A fájl feltöltése…
+1466|{n} fájl feltöltése… a nagy fájlok eltarthatnak egy ideig.
+1467|Használat
+1469|Használat a chatben
+1470|Magától használja, ha releváns
+1471|Memória használata
+1472|Az alapértelmezett helyi szolgáltatás használata
+1473|Közvetlen API-k használata
+1474|Használd a(z) {brand} fiókod e-mail-címét.
+1475|Ennek az AI-nak a használata
+1476|Felhasznált
+1477|Azonnal felhasználható, heti korlát nélkül
+1481|Akkor használja, ha beírod: {trigger}
+1482|Akkor használja, ha beírod: «{name}» vagy {trigger}
+1483|Hasznos válasz
+1484|Felhasználó
+1485|Használja ugyanannak a projektnek a releváns chatjeit anélkül, hogy kézzel kellene másolnod őket.
+1486|Segédeszközök
+1487|12 hónapig érvényes
+1488|Veo ugyanazzal a Gemini-kulccsal, mint a chat; a modellt fent, a «Videók készítője» részben választod ki.
+1489|Verzió
+1490|Verzió a szerveren: {v}.
+1491|Elérhető a(z) {v} verzió.
+1492|Elérhető a(z) {v} verzió. Magától letöltődik; értesítést kapsz, amikor kész.
+1493|Videó
+1494|Videógenerálás
+1495|Videógenerálás AI modellekkel
+1496|Videógenerálás, API-k, modellek és automatikus próbálkozás más szolgáltatónál.
+1497|Videó készítője
+1498|Videókészítés
+1499|Videó mód
+1500|Videó mód: a következő üzenet videót készít. Kattints újra a Videóra a kilépéshez.
+1501|Videó: a következő üzenet videót készít.
+1502|Videók készítője
+1503|AI-val készült videók
+1504|Bármilyen hosszú videók
+1505|Hang
+1506|Hangtevékenység
+1507|Hang és mikrofon
+1508|Hangbevitel
+1510|A beszédfelismerés nem működött. Kattints a mikrofonra, és próbáld újra.
+1511|A beszédfelismerés leállt; ellenőrizd a szöveget, és küldd el.
+1512|Beszédből szöveg
+1513|Várakozás
+1514|Várd meg, amíg a fájl feltöltése befejeződik.
+1515|Várakozás eddig: {when}
+1516|Hozzáférésre vár
+1517|Várakozás a választott AI válaszára…
+1518|Várakozás a hang leírására.
+1519|A jóváhagyásodra vár
+1520|A jóváhagyásodra vár itt: {app}…
+1521|Szeretne
+1522|Ár figyelése
+1523|Munkamódok
+1524|Nem tudtuk elküldeni a kódot tartalmazó e-mailt. Ellenőrizd a címet, és próbáld újra.
+1525|E-mailben küldtünk egy 6 jegyű kódot. Írd be, hogy megerősítsd: a cím a tiéd.
+1526|6 jegyű kódot küldtünk ide: {email}. Ha nem látod, nézd meg a spamet. A kód 15 perc múlva lejár.
+1527|E-mailben küldtünk egy kódot.
+1528|Új kódot küldtünk.
+1529|Gyenge válasz
+1530|Időjárás
+1531|Az aktuális időjárás és a 3 napos előrejelzés bármely városra (Open-Meteo, fiók nélkül).
+1532|Webes keresés
+1533|Webes keresés AI-ügynököknek
+1534|AI-ra szabott webes keresés.
+1535|Webes keresés forrásokkal
+1536|Weboldal
+1537|A weboldal címe
+1538|Weboldalak
+1539|Hétvégi mód. Mihez van kedved?
+1540|Hetente
+1541|Minden héten, {day} {time}-kor
+1542|Üdv újra
+1543|Üdv a(z) {brand} szolgáltatásban
+1544|Mit építünk ma?
+1545|Min dolgozunk ma?
+1546|Mi írja le legjobban a munkádat?
+1547|Mit tartalmaz
+1548|Mit csinál, egy mondatban
+1549|Mit kell javítani
+1550|Mit változtassak
+1551|Hogyan szólítson a(z) {brand}?
+1552|Mit csináljon a(z) {brand}? Pl. Keresd meg a mai fontos híreket, és készíts összefoglalót linkekkel.
+1553|Hogyan szólít az AI
+1554|Mit tegyen az AI minden alkalommal, amikor ezt a skillt használod: hangnem, szerkezet, mit tartalmazzon, mit kerüljön.
+1555|Mit csinál a plugin
+1556|Mi mennyibe kerül
+1557|Mi segítene az AI-nak megismerni téged: érdeklődés, projektek, tapasztalati szint.
+1558|Mivel foglalkozol
+1559|Mit tud rólad a(z) {brand}
+1560|Mire emlékszik rólad a(z) {brand}, és hogyan használja a korábbi chateket.
+1561|Ha egy kérés többféleképpen érthető, a(z) {brand} előbb megkérdez, egy kattintással választható lehetőségekkel.
+1562|Ha valaki regisztrál, a telefonod megmutatja, ki szeretne csatlakozni a(z) {brand} szolgáltatáshoz, és megkérdezi, engedélyezed-e. Androidon az értesítésből válaszolsz az Engedélyezés vagy az Elutasítás gombbal; iPhone-on rákoppintasz, és az alkalmazásban választasz. A kérés addig vár, amíg nem válaszolsz.
+1565|Ha képet vagy videót kérsz, a(z) {brand} a valódi fájlt teszi a chatbe, letöltés gombbal.
+1566|Ha képet kérsz, a(z) {brand} a beállított sorrendben próbálja a szolgáltatókat, a valódi fájlt teszi a chatbe, és elmenti a Könyvtárba.
+1567|Ha videót kérsz, a(z) {brand} sorban próbálja a szolgáltatókat, letölti a valódi MP4-fájlt, a chatbe teszi, és elmenti a Könyvtárba.
+1568|Ha kérdezel valamit, keres a többi chatedben (az archiváltakban is), és felhasználja, ami kapcsolódik. Így egy témát új chatben is folytathatsz.
+1569|Windows-alkalmazás
+1570|A beállított Cloud API-val az Owner központilag kezeli a fiókokat, a jóváhagyásokat és a jogosultságokat. Hagyd üresen, ha csak ezt a gépet használod.
+1571|Az AI API-k xAI-kulcsával.
+1572|Az AI API-k xAI-kulcsával; 1–15 másodperc.
+1573|Csomag nélkül: napi {n} üzenet az ingyenes modellekkel, egy {days} napos, {credits} kredites próba után. A kártyás fizetés hamarosan érkezik; addig a csomagokat az Owner osztja ki.
+1574|Word-, Excel-, PowerPoint- és PDF-fájlok
+1577|Workers, KV, R2 és D1 a Cloudflare-fiókodban.
+1578|Munkanapok (hétfő–péntek)
+1579|Dolgozik itt:
+1580|Dolgozik itt: {app}…
+1581|Későig dolgozol? Itt vagyok, ha kellek.
+1582|Az ár kiszámítása…
+1583|Dolgozom…
+1584|Edzések és egészségügyi adatok
+1585|Azonnal működik
+1586|Működik: {result}
+1587|Zárod a napot? Segíthetek abban, ami még hátravan.
+1588|Adj nevet a pluginnek.
+1589|Adj nevet a feladatnak.
+1590|Írd be a chatbe egy plugin nevét (például «Naptár») vagy @név formában, és a(z) {brand} felhasználja a válaszhoz.
+1591|Írj egy rövid, barátságos e-mailt, amely
+1592|E-mail írása
+1593|Írd le egyszer, mit csináljon a(z) {brand}, és válaszd ki, mikor. Például: «Minden munkanapon 08:30-kor készíts hírösszefoglalót.»
+1594|Írd le, mit csináljon a(z) {brand}.
+1595|Írd meg a válaszod
+1596|Írj saját választ
+1597|Néhány ötletből világos, udvarias e-mailt ír tárggyal.
+1598|HTML és CSS írása…
+1599|Írás és tartalom
+1600|Leírom, amit mondtál…
+1601|A hangod leírása…
+1602|A válasz írása…
+1603|A(z) {format} fájlod írása…
+1604|A(z) {format} fájlod írása… {n} szó
+1605|Hibás e-mail-cím vagy jelszó.
+1606|IGEN
+1607|Igen
+1608|Tegnap
+1609|Hozzáadtad: /{slug}. Írd be a chatbe a használatához.
+1610|Bármikor hozzáadhatsz további ingyenes API-kat (Groq, Cerebras, Cloudflare a képekhez) a Beállítások → AI API-k részben.
+1611|Percenként egyszer kérhetsz új kódot.
+1612|Több szolgáltatást is csatlakoztathatsz. A(z) {brand} sorban próbálja a szolgáltatókat, és a következőre lép, ha valamelyik nem működik.
+1613|A plugint OAuth nélkül is használhatod az alkalmazás közvetlen megnyitására. OAuth vagy API csak akkor kell, ha azt szeretnéd, hogy a(z) {brand} privát adatokat olvasson vagy módosítson abban a szolgáltatásban.
+1614|Te választasz
+1615|Ezt választottad: {model}; az OmniRoute ide küldte a kérdést: {served}.
+1616|Ezt választottad: {model}; a(z) {brand} ide küldte a kérdést: {served}.
+1617|E-mailben kódot kapsz a cím megerősítéséhez, aztán az Owner jóváhagyja a fiókot.
+1618|Nincsenek asszisztenseid. Hozz létre egyet az oldalsávban.
+1619|A legújabb verzió van telepítve.
+1620|A(z) {brand} választ helyetted
+1621|Minden eszközről kijelentkeztél.
+1622|YouTube-statisztikák és kulcsszavak
+1623|A te AI-od, minden modell
+1624|A ChatGPT-előfizetésed, az OmniRoute-ban csatlakoztatva
+1625|A Claude-előfizetésed, az OmniRoute-ban csatlakoztatva
+1626|A Google Naptár-eseményeid
+1627|A Helium 10-adataid
+1628|Az Outlook-leveleid
+1629|A Plaid-irányítópultod: elemek, használat és problémák.
+1630|A Wix-weboldalaid, oldalaid és webáruházad.
+1631|A fiókodat semmi nem terheli (Owner).
+1632|A fiókod jelszava
+1633|A fiókod, az alkalmazás, a hang, az AI-szolgáltatások és a frissítések.
+1634|A válaszaid
+1635|Az alkalmazásaid
+1636|A csatlakoztatott alkalmazásaid: az AI a jóváhagyásoddal olvassa őket és dolgozik bennük.
+1637|A választásod: {value}
+1638|A dizájnjaid
+1639|A fájljaid, képeid, videóid és dizájnjaid, beszélgetésekben használatra készen.
+1640|Az egészségügyi adataid
+1641|A jegyzeteid és értekezlet-átirataid.
+1642|A neved
+1643|Az API-jaid és webhookjaid, valamint azonnal működő pluginek.
+1644|A képeid és videóid: keresés, feltöltés, szerkesztés.
+1645|A csomagod
+1646|A csomagod, a heti kreditek és az extra kreditek.
+1647|A csomagod, a heti kreditek, és hogy mennyibe kerül egy-egy művelet.
+1648|A profilod, ahogy az AI válaszol, értesítések, adatvédelem és biztonság.
+1649|Az erőforrásaid a Renderen
+1650|A munkameneted lejárt vagy lezárult. Jelentkezz be újra.
+1651|A skilljeid
+1653|A feladataid és projektjeid: hozzáadás, befejezés, átütemezés.
+1654|A munkád
+1655|te adtad hozzá
+1656|az összes chat
+1657|a Könyvtár összes fájlja
+1658|a teljes memória
+1659|a fiók összes adata (chatek, memória, fájlok, projektek, asszisztensek, skillek, automatizálások, alkalmazások, dizájnok)
+1660|válaszok · {s} mp
+1662|legfeljebb {n} kredit
+1663|automatikus
+1664|szerző: {author}
+1665|szerző: {author} · {license}
+1666|kategóriák
+1667|kategória
+1668|ellenőrizd, hogy teljesen kimásoltad-e.
+1669|kód
+1670|a kapcsolat működik
+1671|létrehozva
+1672|kredit
+1673|alapértelmezett
+1674|pl. Panaszok megválaszolása
+1675|pl. egy név vagy becenév
+1676|pl. tegyél fel tisztázó kérdéseket, mielőtt részletes választ adsz
+1677|pl. diák, webdizájner, könyvelő
+1678|pl. webdizájner, könyvelő, tanár
+1679|hiba
+1680|fal API-kulcs
+1681|fal videómodell
+1682|fal.ai modell
+1683|fájl
+1684|{n} kreditért · egyszeri fizetés
+1685|ütemezett feladatból
+1686|az előzményekből
+1687|tőle: {n}
+1688|github_pat_... vagy ghp_...
+1689|benne van
+1690|elem
+1691|elem
+1692|automatikusan mentve
+1693|a névből származtatva
+1694|memória
+1695|legalább {n} kredit
+1696|nev@pelda.hu
+1697|következő: {when}
+1698|fiók nélkül
+1699|nincs
+1700|nincs benne
+1701|most
+1702|felhasználva a heti kreditekből
+1703|ki
+1704|egyszer
+1705|csak változáskor
+1706|opcionális
+1707|opcionális / PKCE
+1709|fizetős
+1710|kitűzve
+1711|csak olvasható
+1712|valódi eredmény
+1713|kötelező
+1714|az Owner állította be
+1715|ekkor óta: {when}
+1716|forrás
+1717|rendszer
+1718|a fájl
+1719|a kulcs működik · {models} modell, {combos} kombináció · {s} mp
+1720|nincs tartalom a fájlhoz
+1721|ez
+1722|ezen a héten
+1723|ma
+1724|holnap
+1725|ismeretlen hiba
+1726|legfeljebb {s} mp
+1727|akkor használja, ha a fenti listában nem választottál mást
+1728|kulccsal
+1729|xAI API-kulcs
+1730|tegnap
+1731|a személyes előfizetésed csak a tiéd marad (a szolgáltató feltételei nem engedik a fiók megosztását). Add oda a személynek a modellt az API-n keresztül (openai/…, anthropic/…).
+1732|{brand} fiók
+1733|A(z) {brand} tévedhet. Ellenőrizd a fontos információkat.
+1734|A(z) {brand} ellenőrzi a közzétett árat, ha van, és nem indul el, ha nem tudja megerősíteni a nulla költséget. A Gemini Veo, a fal.ai és a Replicate ebben a módban tiltva marad.
+1735|A(z) {brand} leírja a felvételt…
+1736|A(z) {brand} ezt a fiók minden chatjében figyelembe veszi.
+1737|A(z) {brand} magától megjegyzi a preferenciáidat, döntéseidet és tartós részleteidet, és használja őket, amikor számítanak.
+1738|A(z) {brand} hibába ütközött
+1739|A(z) {brand} beolvassa a fájlt a beállított tárolóból, és javítást javasol.
+1740|A(z) {brand} a választott időpontban magától végrehajtja az utasításokat, amíg az alkalmazás fut.
+1741|A(z) {brand} közvetlen linkként menti a plugint, és megnyitja a hivatalos alkalmazást. Jelentkezz be szokás szerint a böngészőben.
+1742|{brand} szolgáltatás
+1743|A(z) {brand} szolgáltatás címe
+1744|{brand} beállítások
+1745|{brand}-frissítés érhető el — telepítés most
+1746|A(z) {brand} ezt használta: {provider} · {model}
+1747|A(z) {brand} csak arra használja, hogy jobban válaszoljon; itt bármikor megnézheted és módosíthatod.
+1748|{days} {time}-kor
+1749|Ma még {left} ingyenes üzenet a(z) {limit}-ből
+1750|{left} / {total} kredit · lejár: {when}
+1751|{model}: {mode} – {email}.
+1752|{name} ({email}) mostantól használhatja a(z) {brand} szolgáltatást.
+1753|{name} ({email}) nem használhatja a(z) {brand} szolgáltatást.
+1754|{name} csatlakoztatva. Kérdezz a chatben; az AI minden művelet előtt megkérdez.
+1755|{name} telepítve
+1756|{name} kész. Írj a chatbe, például: {trigger}, vagy egyszerűen kérdezz.
+1757|{name} hozzáadva: a(z) {n} skillje /név-vel működik a chatben.
+1758|{name}: csatlakoztatva.
+1759|{name}: mentve közvetlen megnyitásra, OAuth nélkül. Jelentkezz be szokás szerint a hivatalos alkalmazásban.
+1760|{name}: a plugin csatlakoztatva.
+1761|{name}: a plugin mentve.
+1762|{n} OmniRoute-modellt elrejtett az Owner.
+1763|napi {n}
+1764|percenként {n}
+1765|hetente {n}
+1766|{n} művelet
+1767|{n} aktív munkamenet
+1768|{n} alkalmazás
+1769|egyszerre {n}
+1770|{n} automatizálás
+1771|{n} fájl hozzáadva a Könyvtárhoz.
+1772|még {n} · {w}. hét a 4-ből
+1773|{n} elérhető modell
+1774|{n} modellt elrejtett az Owner.
+1775|{n} elérhető modell
+1776|{n} nem engedélyezett
+1777|{n} fő
+1778|{n} másodperc
+1779|{n} skill
+1780|{n} verzió
+1781|{pack} · szerző: {author} · {license}
+1782|{plan} csomag
+1783|{plan} csomag: a hét {percent}%-a felhasználva
+1784|{price} évente · 2 hónap ingyen
+1785|a heti kreditek {p}%-a felhasználva
+1786|{s} mp · általában körülbelül egy perc
+1787|Az «Engedélyezve» nem hat, amíg a «Chat AI» ki van kapcsolva ennél a fióknál: előbb kapcsold be fent a Chat jogosultságot.
+1788|Az «Alapértelmezett» a fenti jogosultságokat követi; az «Engedélyezve» akkor is megnyitja a modellt, ha a jogosultságok zárva tartják; a «Tiltva» lezárja. Az Owner személyes előfizetései csak az Owneréi maradnak.
+1789|«Nano Banana»; a modellt fent, a «Képek készítője» részben választod ki. Ugyanaz a kulcs, mint az AI API-knál és a Videónál.
+1790|A(z) «{feature}» funkciót az Owner kikapcsolta a fiókodnál.
+1791|Az Owner nem engedélyezi számodra ezt: «{model}».
+1792|A(z) «{name}» lefutott. Az eredmény az előzményekben van.
+1793|⚡ Gyors
+1794|✨ Minőség
+1795|🎬 Minőség
+1796|🛡️ Csak ingyenes

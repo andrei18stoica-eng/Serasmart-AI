@@ -1,19 +1,19 @@
-1465|Uso
-1561|Quando a IA usa {name}
-152|Automático
-98|Sempre disponível
-406|Desativado
-1477|Usado só quando a mensagem precisa
-824|Oferecido à IA em cada mensagem
-1228|A IA nunca o usa
-1658|pergunta sempre
-1560|Quando a IA usa /{slug}
-1476|Usado sozinho quando o pedido precisa, ou com /nome
-1475|Usado em cada mensagem
-752|Nunca usado
-1432|Palavras-gatilho (opcional)
-1573|Palavras que devem fazer a IA usá-lo, separadas por vírgulas
-1572|Palavras que o excluem (opcional)
-600|Se a mensagem tiver uma delas, o skill não é usado
-620|Instruções guardadas uma vez. A IA escolhe sozinha os skills de que um pedido precisa (Automático); também pode escrever /nome no chat ou manter um skill sempre ativo.
-1170|Skills usados
+1468|Uso
+1564|Quando a IA usa {name}
+154|Automático
+100|Sempre disponível
+408|Desativado
+1480|Usado só quando a mensagem precisa
+826|Oferecido à IA em cada mensagem
+1231|A IA nunca o usa
+1661|pergunta sempre
+1563|Quando a IA usa /{slug}
+1479|Usado sozinho quando o pedido precisa, ou com /nome
+1478|Usado em cada mensagem
+754|Nunca usado
+1435|Palavras-gatilho (opcional)
+1576|Palavras que devem fazer a IA usá-lo, separadas por vírgulas
+1575|Palavras que o excluem (opcional)
+602|Se a mensagem tiver uma delas, o skill não é usado
+622|Instruções guardadas uma vez. A IA escolhe sozinha os skills de que um pedido precisa (Automático); também pode escrever /nome no chat ou manter um skill sempre ativo.
+1172|Skills usados

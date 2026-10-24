@@ -1,444 +1,444 @@
-896|Owner trên PC này
-897|Chỉ Owner
-898|Owner: người dùng, phê duyệt, quyền, phiên và dịch vụ AI.
-899|PNG, JPEG hoặc WebP, tối đa 10 MB.
-900|AI trả phí đã thay đổi
-901|AI trả phí · người dùng
-902|AI trả phí: {error}
-903|Trả theo mức dùng, bằng khóa hoặc quyền Owner cấp
-904|Trả theo mức dùng, bằng quyền Owner cấp
-905|Trả theo mức dùng; cùng khóa cũng tạo ảnh và video Grok Imagine. Bật bằng «Cũng cho phép API trả phí».
-906|Bảng điều khiển
-907|Phần {n}
-908|Mật khẩu
-909|Đã đổi mật khẩu. Các thiết bị khác phải đăng nhập lại.
-910|Hãy dán khóa trước.
-911|Dán khóa vào đây
-912|Thanh toán
-913|Thanh toán, đơn hàng, danh mục và khách hàng.
-914|Đang chờ
-915|Hiệu suất
-916|Quyền
-917|Quyền đã thay đổi
-918|Quyền: {error}
-919|Nhà chiêm tinh AI cá nhân
-920|Điện thoại
-921|Thông báo trên điện thoại
-922|Chọn trợ lý cho cuộc trò chuyện mới.
-923|Chọn từ danh mục hoặc tự tạo từ một API. Sau đó viết tên của nó trong chat và {brand} sẽ dùng nó.
-924|Chọn ai tạo ảnh dưới ô tin nhắn, hoặc Tự động: loại tốt nhất hiện có.
-925|Chọn ai tạo video dưới ô tin nhắn, hoặc Tự động: loại miễn phí trước, rồi Gemini Veo, Grok Imagine và các khóa khác (trả phí, nếu bạn cho phép trong Cài đặt).
-926|Ảnh
-927|Ảnh / thị giác
-928|Ảnh HD
-929|Tạo ảnh
-930|Tạo ảnh, API, mô hình và tự thử nhà cung cấp khác.
-931|Ảnh được tạo bởi
-932|Ảnh được tạo bởi {brand}
-933|Tạo ảnh
-934|Chế độ ảnh: tin nhắn tiếp theo sẽ tạo ảnh. Nhấn Ảnh lần nữa để thoát.
-935|Mô hình ảnh
-936|Nhà cung cấp ảnh
-937|Ảnh: tin nhắn tiếp theo sẽ tạo ảnh.
-938|Ảnh
-939|Ảnh và video (không được tạo khi kiểm tra, nên không tốn tín dụng):
-940|Ảnh trong Thư viện
-941|Ảnh được tạo bởi
-942|Ghim
-943|Ghim mục này
-944|Đã ghim — nhấn để bỏ ghim
-945|Địa điểm cần tìm
-946|Gói
-947|Kế hoạch cho tuần
-948|Lên kế hoạch tuần của tôi
-949|Gói bắt đầu
-950|Đang lên cấu trúc…
-951|Gói và tín dụng chưa được bật: mọi tài khoản hoạt động như trước (mức miễn phí và quy tắc của Owner).
-952|Gói và tín dụng thêm
-953|Gói của mọi tài khoản
-954|Chơi cờ vua và học chiến thuật
-955|Danh mục plugin
-956|Các mục plugin
-957|Thiết lập plugin
-958|Plugin
-959|Khóa API Pollinations
-960|Mô hình Pollinations
-961|Mô hình video Pollinations
-962|Phổ biến
-963|Áp phích
-964|Cơ sở dữ liệu Postgres: truy vấn, phân nhánh và quản lý.
-965|Bài đăng cho Instagram, Facebook, LinkedIn hoặc TikTok.
-966|Tùy chọn
-967|Mô hình ưa thích
-968|Đang chuẩn bị câu trả lời…
-969|Đang chuẩn bị câu hỏi…
-970|Đang chuẩn bị…
-971|Bài thuyết trình
-972|Nhấn Chia sẻ (hình vuông có mũi tên lên), hoặc ••• → Chia sẻ.
-973|Nhấn micrô một lần để bắt đầu ghi và nhấn lại để dừng. {brand} ghi lại lời bạn nói và gửi đi.
-974|Xem trước
-975|Chiều rộng xem trước
-976|Xem trước {name}
-977|Xem trước: {name}
-978|30 ngày trước
-979|7 ngày trước
-980|Ưu tiên truy cập lúc cao điểm
-981|Cơ sở dữ liệu và migration Prisma Postgres.
-982|Quyền riêng tư
-983|Quyền riêng tư và dữ liệu
-984|Phân tích sản phẩm, flag và thử nghiệm.
-985|Quản lý sản phẩm
-986|Năng suất
-987|Chuyên nghiệp
-988|Email chuyên nghiệp
-989|Hồ sơ
-990|Ảnh đại diện
-991|Đã xóa ảnh đại diện.
-992|Đã lưu ảnh đại diện.
-993|Đã lưu hồ sơ.
-994|Lập trình
-995|Ngôn ngữ lập trình
-996|Lập trình với Codex và Claude Code: chọn mô hình và bắt đầu cuộc trò chuyện về mã.
-997|Dự án
-998|Dự án và công việc
-999|Dự án, cơ sở dữ liệu, SQL và nhật ký.
-1000|Dự án, triển khai và nhật ký.
-1001|Dự án, tác vụ và CRM
-1002|Người hiệu đính
-1003|Đã tạo đề xuất (không kiểm tra cú pháp cho loại tệp này).
-1004|Đã bật bảo vệ: {brand} thử Cloudflare và Pollinations trực tiếp. Hugging Face, Together, OpenAI, Stability, fal.ai và Replicate bị chặn nếu có thể dùng tín dụng trả phí. Với OpenRouter, giá được kiểm tra trước khi gọi.
-1005|Bảo vệ dữ liệu cá nhân
-1006|Thiết kế protein và phân tử
-1007|Nhà cung cấp
-1008|Nhà cung cấp dùng trong chat
-1009|Chất lượng
-1010|Câu hỏi về dữ liệu sức khỏe của bạn
-1011|Số lượng nhanh
-1012|Trả lời nhanh
-1013|Đọc to
-1014|Đọc và chỉnh sửa bảng tính.
-1015|Đọc và sắp xếp email Gmail của bạn
-1016|Đọc, viết và chỉnh sửa tài liệu.
-1017|Không thể đọc to trên máy tính này.
-1018|Đang đọc yêu cầu…
-1019|Đang đọc văn bản…
-1020|Có sẵn
-1021|Kết quả chạy thực của {brand}:
-1022|Internet thời gian thực
-1023|Gần đây
-1024|Kết nối lại trong OmniRoute
-1025|Ghi âm giọng nói
-1026|Làm mới
-1027|Làm mới danh sách mô hình
-1028|Đang làm mới danh sách…
-1029|Tạo lại câu trả lời
-1030|Tạo lại sẽ thay câu trả lời này và xóa các tin nhắn sau nó. Tiếp tục?
-1031|Đã từ chối
-1032|Người dùng bị từ chối
-1033|Tải lại {brand}
-1034|Gỡ bỏ
-1035|Xóa dữ liệu cá nhân bị lộ
-1036|Gỡ khỏi dự án
-1037|Gỡ plugin «{name}»?
-1038|Gỡ {name}
-1039|Đổi tên
-1040|Đổi tên tệp
-1041|Đổi tên: {error}
-1042|Token API Replicate
-1043|Mô hình Replicate
-1044|Mô hình video Replicate
-1045|Kho mã, issues, pull requests và tệp.
-1046|Nghiên cứu
-1047|Nghiên cứu và khoa học
-1048|Tài liệu học Kinh Qur'an
-1049|Khôi phục từ lưu trữ
-1050|Khôi phục cuộc trò chuyện
-1051|Khôi phục cuộc trò chuyện {name}
-1052|Kết quả
-1053|Kết quả
-1054|Thử lại
-1055|Chạy / kiểm tra mã
-1056|Chạy mô hình AI trên Replicate.
-1057|Chạy mã: {error}
-1058|Lịch sử chạy
-1059|Chạy ngay
-1060|Vận hành cửa hàng trực tuyến của bạn
-1061|Đang chạy
-1062|Chạy mã và SSH chỉ dành cho Owner.
-1063|Chạy mã, GitHub Solve và SSH chỉ dành cho tài khoản Owner (xem «Email Owner trên PC này»).
-1064|Đang chạy…
-1065|Chạy tác vụ đã lên lịch và kiểm tra vào thời điểm bạn chọn.
-1066|Nghiên cứu SEO
-1067|Đường dẫn khóa riêng SSH
-1068|Máy chủ SSH · địa chỉ
-1069|Người dùng SSH
-1070|Bán hàng
-1071|Thứ Bảy và Chủ nhật lúc {time}
-1072|Lưu
-1073|Lưu và ghim
-1074|Lưu và kiểm tra
-1075|Lưu hồ sơ
-1076|Lưu cài đặt
-1077|Lưu thay đổi
-1078|Lưu skill
-1079|Đã lưu và ghim vào bộ nhớ.
-1080|Đã lưu.
-1081|Đang lưu khóa và kiểm tra…
-1082|Đang lưu plugin và kiểm tra…
-1083|Đang lưu…
-1084|Quét mã để tìm vấn đề bảo mật.
-1085|Lên lịch
-1086|Đã lên lịch
-1087|Đã lên lịch (tác vụ theo lịch)
-1088|Khoa học
-1089|Nghiên cứu khoa học
-1090|Cuộn xuống và chọn Thêm vào MH chính, rồi Thêm.
-1091|Tìm kiếm
-1092|Tự động tìm trên GitHub
-1093|Tìm và trích xuất dữ liệu từ web
-1094|Tìm và đọc tệp, thư mục.
-1095|Tìm và đọc tệp của công ty bạn.
-1096|Tìm và gửi email, tin nhắn
-1097|Tìm ứng dụng
-1098|Tìm theo tên
-1099|Tìm cuộc trò chuyện
-1100|Tìm mô hình
-1101|Tìm mô hình…
-1102|Tìm ngôn ngữ
-1103|Tìm trong bộ nhớ
-1104|Tìm mô hình
-1105|Tìm cuộc trò chuyện trước
-1106|Tìm plugin
-1107|Tìm plugin và skill
-1108|Kết quả tìm kiếm
-1109|Tìm trong Thư viện
-1110|Tìm trong danh mục (tên, loại)
-1111|Tìm trong thư viện
-1112|Tìm tài liệu khoa học
-1113|Tìm trên web thông tin mới nhất về
-1114|Tìm trong {n} ngôn ngữ
-1115|Tìm, đọc và tạo tệp.
-1116|Tìm, đọc và soạn nháp email.
-1117|Tìm, đọc, tạo và chỉnh sửa trang và cơ sở dữ liệu.
-1118|Tìm trên Wikipedia (tiếng Romania, rồi tiếng Anh) và đưa ra tóm tắt bài viết.
-1119|Tìm thông tin hiện tại và nguồn trực tuyến.
-1120|Tự tìm nguồn hiện tại cho câu hỏi về thông tin mới, phiên bản và API.
-1121|Bảo mật
-1122|Quét bảo mật cho mã
-1123|Xem các gói
-1124|Xem lịch và thời gian rảnh của bạn, và thêm, đổi hoặc xóa sự kiện.
-1125|Seedance, Veo, Wan và các mô hình khác qua cùng API.
-1126|Chọn
-1127|Chọn một người dùng.
-1128|Đã chọn
-1129|Gửi
-1130|Gửi thông báo thử
-1131|Gửi yêu cầu truy cập
-1132|Gửi lại mã
-1133|Gửi lại mã ({s} giây)
-1134|Gửi tin nhắn
-1135|Đã kết nối máy chủ ✓
-1136|Đã đóng phiên
-1137|Phiên: {error}
-1138|Đặt trạng thái «{status}» cho {email}? Các phiên đang hoạt động của tài khoản sẽ bị đóng.
-1139|Cài đặt
-1140|Chỉ có thể lưu cài đặt từ ứng dụng {brand}.
-1141|Đã lưu cài đặt.
-1142|Nhiều mô hình ảnh với một khóa.
-1143|Ta tiếp tục với «{title}» nhé?
-1144|Hướng dẫn dự án dùng chung
-1145|Ngắn gọn và đúng trọng tâm
-1146|Mô tả ngắn
-1147|Video ngắn (~6 giây)
-1148|Xem thêm (còn {n})
-1149|Hiện hoặc ẩn menu
-1150|Đang hiển thị 60.000 ký tự đầu tiên.
-1151|Hiển thị thông báo khi tác vụ có kết quả.
-1152|Đăng nhập
-1153|Đăng nhập lại
-1154|Đăng nhập lại.
-1155|Đăng nhập vào {brand}
-1156|Đăng nhập {name} trong cửa sổ vừa mở, rồi quay lại đây.
-1157|Đăng xuất
-1158|Đăng xuất {brand} trên mọi thiết bị, kể cả thiết bị này?
-1159|Đăng xuất các thiết bị khác
-1160|Đăng nhập
-1161|Cần đăng nhập.
-1162|Đăng xuất
-1163|Đang đăng xuất…
-1164|Cập nhật trang ({domain})
-1165|Trang và triển khai.
-1166|Trang, trang con và mục CMS.
-1167|Kích thước
-1168|Plugin skill
-1169|Skill
-1171|Kênh và tin nhắn Slack
-1172|Bài đăng mạng xã hội
-1173|Kỹ thuật phần mềm
-1174|Khác
-1175|Khác…
-1176|Sắp xếp
-1177|Nói: văn bản hiện trong ô và tự gửi đi
-1178|Khóa API Stability
-1179|Engine Stability
-1180|Start
-1181|Tự khởi động OmniRoute
-1182|Khởi động OmniRoute hoặc thêm khóa API trong Cài đặt.
-1183|Bắt đầu cuộc trò chuyện tạo ảnh.
-1184|Khởi động {brand} cùng Windows
-1185|Đang khởi động {brand}…
-1186|Đang khởi động…
-1187|Mô hình ADMET tiên tiến
-1188|Vẫn còn thức? Cùng hoàn thành nhé.
-1189|Dừng và gửi
-1190|Dừng đọc
-1191|Dừng câu trả lời
-1192|Dừng ghi âm
-1193|Hãy dừng ghi âm trước.
-1194|Đã dừng sau lỗi
-1195|Bị Owner dừng
-1196|Bài tập sức mạnh cho Garmin
-1197|Cấu trúc, phân tử và protein
-1198|Học sinh, sinh viên
-1199|Gói đăng ký
-1200|Thành công
-1201|Đề xuất kế hoạch cho tuần sắp tới: ưu tiên, hạn chót và một bước nhỏ mỗi ngày.
-1202|Tóm tắt tài liệu
-1203|Tóm tắt tài liệu đính kèm thành năm ý rõ ràng.
-1204|Tóm tắt
-1205|Tóm tắt văn bản hoặc tài liệu thành các ý chính.
-1206|Tạm ngưng
-1207|Đã tạm ngưng
-1208|Người dùng bị tạm ngưng
-1209|Máy tính bảng
-1210|Xem bài tarot
-1211|Tác vụ {brand} tự chạy vào thời điểm bạn chọn.
-1212|Tác vụ, danh sách, tài liệu và bình luận.
-1213|Tác vụ, dự án và bình luận.
-1214|Quản trị nhóm với tín dụng chung
-1215|Chi tiết kỹ thuật: {details}
-1216|Kiểm tra
-1217|Kiểm tra ngay
-1218|Kiểm tra thành công: {result}
-1219|Kiểm tra khóa
-1220|Kiểm tra micrô
-1221|Kiểm tra máy chủ
-1222|Kiểm thử
-1223|Đang kiểm tra kết nối SSH…
-1224|Đang kiểm tra…
-1225|Poker Texas Hold'em với AI
-1226|Nội dung mục
-1227|Văn bản được đọc cho AI
-1229|Nhà cung cấp AI không trả lời kịp. Thử lại.
-1230|Đã đạt giới hạn miễn phí của nhà cung cấp AI. Chọn mô hình khác hoặc thử lại sau.
-1231|Địa chỉ API phải là liên kết đầy đủ, ví dụ https://example.com/webhook.
-1232|Trang Google sẽ mở. Nhấn «Create API key» rồi sao chép.
-1233|Thư viện trống. Kéo tệp vào đây hoặc nhấn «Thêm tệp».
-1234|Thiếu OAuth Client ID.
-1235|Không thể mở trang OAuth.
-1236|Không thể xóa tài khoản Owner.
-1237|Owner duyệt tài khoản và quyết định chúng được dùng dịch vụ AI nào.
-1238|Owner quyết định tài khoản của bạn được dùng mô hình nào.
-1239|Email Owner không hợp lệ.
-1240|Owner phải thêm ứng dụng OAuth Asana trong Cài đặt trước.
-1241|Owner phải thêm ứng dụng OAuth Box trong Cài đặt trước.
-1242|Owner phải thêm ứng dụng OAuth Google trong Cài đặt trước.
-1243|Owner phải thêm ứng dụng OAuth HubSpot trong Cài đặt trước.
-1244|Owner phải thêm ứng dụng OAuth Lovable trong Cài đặt trước.
-1245|Gói đăng ký cá nhân của Owner không thể cấp cho tài khoản khác.
-1246|Nút X ẩn ứng dụng mà không dừng các dịch vụ.
-1247|Tài khoản và toàn bộ dữ liệu (cuộc trò chuyện, bộ nhớ, tệp, cài đặt) bị xóa vĩnh viễn.
-1248|Tài khoản được tạo trên máy chủ {brand}.
-1249|Tài khoản được tạo trên máy tính này và bạn có thể dùng ngay.
-1250|Tài khoản không hoạt động.
-1251|Tài khoản đang chờ Owner duyệt.
-1252|Tài khoản đã được tạo và đang chờ Owner duyệt.
-1253|Tài khoản đã bị xóa.
-1254|Địa chỉ không hợp lệ.
-1255|Câu trả lời tiếp tục trên máy chủ…
-1256|Câu trả lời bị gián đoạn: {error}
-1257|Câu trả lời đã bị dừng trước khi xong.
-1258|Câu trả lời đã bị dừng.
-1259|Không thể mở ứng dụng — {error}
-1260|Không thể mở ứng dụng.
-1261|Ứng dụng tự khởi động và có thể chạy nền.
-1262|Đã mở ứng dụng.
-1263|Không tải được ứng dụng: {error}
-1264|Đã chép lời phần âm thanh cho {brand}.
-1265|Phần đầu tài liệu, dưới dạng văn bản.
-1266|Trình duyệt không thể ghi âm.
-1267|Thay đổi áp dụng cho cuộc trò chuyện này.
-1268|Đã áp dụng thay đổi trên GitHub. Commit: {commit}
-1269|Không thể sao chép mã vào bộ nhớ tạm.
-1270|Mã đã hết hạn. Hãy yêu cầu mã mới.
-1271|Mã không đúng.
-1272|Mã đã chạy. Kết quả được đưa vào ô tin nhắn.
-1273|Không thể sao chép cuộc trò chuyện vào bộ nhớ tạm.
-1274|Không thể lưu cuộc trò chuyện: {error}
-1275|Đã lưu trữ cuộc trò chuyện. Bạn sẽ thấy nó trong «Đã lưu trữ» ở thanh bên.
-1276|Đã sao chép cuộc trò chuyện vào bộ nhớ tạm.
-1277|Đã khôi phục cuộc trò chuyện.
-1278|Không tải được dữ liệu: {error}
-1279|Ngày trong tháng phải từ 1 đến 28.
-1280|Mô hình mặc định
-1281|Địa chỉ email không hợp lệ.
-1282|Giờ và ngày chính xác ở Romania và các thành phố lớn trên thế giới.
-1283|Xuất thất bại:
-1284|Tệp không có văn bản để hiển thị.
-1285|Tệp không còn khả dụng.
-1286|Tệp không còn trong Thư viện.
-1287|Tệp giờ có tên «{name}».
-1288|Tệp được lưu vào Thư viện của bạn (tối đa 2 GB mỗi tệp)…
-1289|Tệp hoặc tin nhắn quá lớn đối với dịch vụ {brand} (HTTP 413).
-1290|Đã thêm tệp vào Thư viện.
-1291|Không tìm thấy tệp trong Thư viện.
-1292|Trang đầu, dưới dạng văn bản.
-1293|Tên header chỉ được chứa chữ cái, chữ số và dấu gạch ngang.
-1294|Hướng dẫn tối đa 8.000 ký tự.
-1295|Khoảng thời gian phải từ 1 đến 168 giờ.
-1296|Khóa không hoạt động: {error}
-1297|Khóa được dùng chung với Ảnh.
-1298|Các khóa được mã hóa trên PC này.
-1299|Không thể sao chép khóa.
-1300|Các khóa ở trên máy chủ và chỉ hiển thị dạng ẩn.
-1301|Ngôn ngữ tôi dùng để viết
-1302|Lần cập nhật trước ({when}) thất bại — chi tiết
-1303|Không thể mở liên kết trong trình duyệt.
-1304|Không thể mở liên kết: {error}
-1305|Tài khoản cục bộ với email này có quyền Owner: chạy mã, GitHub Solve, kiểm tra máy chủ. Chỉ áp dụng khi chưa thiết lập {brand} Cloud. Đăng nhập lại sau khi thay đổi.
-1306|Địa chỉ dịch vụ cục bộ không hợp lệ. Ví dụ: {url}
-1307|Các mục bị khóa không được phép với bạn.
-1308|Đăng nhập đã hết hạn cho: {names}. Bảng OmniRoute trên máy chủ → Providers → từng tài khoản → Reconnect (hoặc thêm khóa API).
-1309|Không thể gửi tin nhắn: {error}
-1310|Tin nhắn trống.
-1311|Micrô bị chặn. Hãy cho phép truy cập micrô trong trình duyệt.
-1312|Micrô không khả dụng: {error}
-1313|Không thể lưu mô hình cho cuộc trò chuyện: {error}
-1314|Không tải được danh sách mô hình: {error}
-1315|Danh sách mô hình trống.
-1316|Các mô hình đến từ OmniRoute và các API đã thiết lập trên máy chủ.
-1317|Các mô hình đến từ OmniRoute và các API đã thiết lập trên PC này.
-1318|Tên tối đa 100 ký tự.
-1319|Tên tối đa 120 ký tự.
-1320|Mật khẩu mới cần ít nhất 8 ký tự.
-1321|Các thiết bị khác đã bị đăng xuất.
-1322|Mật khẩu tối đa 256 ký tự.
-1323|Mật khẩu tối đa 72 ký tự.
-1324|Mật khẩu cần ít nhất 10 ký tự.
-1325|Mật khẩu cần ít nhất 8 ký tự.
-1326|Không thể tạo ảnh: {error}
-1327|Không đọc được ảnh.
-1328|Ảnh lớn hơn 10 MB.
-1329|Đã lưu plugin, nhưng kiểm tra thất bại: {error}
-1330|Các plugin đến từ dự án mã nguồn mở (giấy phép MIT và Apache 2.0); mỗi thẻ ghi tác giả và liên kết đến nguồn.
-1331|Không tải được plugin: {error}
-1332|Bản xem trước không khả dụng.
-1333|Bản xem trước không khả dụng. Có lẽ tệp đã bị xóa khỏi Thư viện.
-1334|Liên kết xem trước không khả dụng.
-1335|Giá thay đổi theo số tín dụng.
-1336|Không thể sao chép đề xuất.
-1337|Đã sao chép đề xuất vào bộ nhớ tạm.
-1338|Khóa API của nhà cung cấp sai hoặc không có quyền truy cập mô hình này.
-1339|Bản ghi âm trống.
-1340|Yêu cầu không thành công (HTTP {status}).
-1341|Địa chỉ chuyển hướng cần đăng ký tại nhà cung cấp:
+898|Owner trên PC này
+899|Chỉ Owner
+900|Owner: người dùng, phê duyệt, quyền, phiên và dịch vụ AI.
+901|PNG, JPEG hoặc WebP, tối đa 10 MB.
+902|AI trả phí đã thay đổi
+903|AI trả phí · người dùng
+904|AI trả phí: {error}
+905|Trả theo mức dùng, bằng khóa hoặc quyền Owner cấp
+906|Trả theo mức dùng, bằng quyền Owner cấp
+907|Trả theo mức dùng; cùng khóa cũng tạo ảnh và video Grok Imagine. Bật bằng «Cũng cho phép API trả phí».
+908|Bảng điều khiển
+909|Phần {n}
+910|Mật khẩu
+911|Đã đổi mật khẩu. Các thiết bị khác phải đăng nhập lại.
+912|Hãy dán khóa trước.
+913|Dán khóa vào đây
+914|Thanh toán
+915|Thanh toán, đơn hàng, danh mục và khách hàng.
+916|Đang chờ
+917|Hiệu suất
+918|Quyền
+919|Quyền đã thay đổi
+920|Quyền: {error}
+921|Nhà chiêm tinh AI cá nhân
+922|Điện thoại
+923|Thông báo trên điện thoại
+924|Chọn trợ lý cho cuộc trò chuyện mới.
+925|Chọn từ danh mục hoặc tự tạo từ một API. Sau đó viết tên của nó trong chat và {brand} sẽ dùng nó.
+926|Chọn ai tạo ảnh dưới ô tin nhắn, hoặc Tự động: loại tốt nhất hiện có.
+927|Chọn ai tạo video dưới ô tin nhắn, hoặc Tự động: loại miễn phí trước, rồi Gemini Veo, Grok Imagine và các khóa khác (trả phí, nếu bạn cho phép trong Cài đặt).
+928|Ảnh
+929|Ảnh / thị giác
+930|Ảnh HD
+931|Tạo ảnh
+932|Tạo ảnh, API, mô hình và tự thử nhà cung cấp khác.
+933|Ảnh được tạo bởi
+934|Ảnh được tạo bởi {brand}
+935|Tạo ảnh
+936|Chế độ ảnh: tin nhắn tiếp theo sẽ tạo ảnh. Nhấn Ảnh lần nữa để thoát.
+937|Mô hình ảnh
+938|Nhà cung cấp ảnh
+939|Ảnh: tin nhắn tiếp theo sẽ tạo ảnh.
+940|Ảnh
+941|Ảnh và video (không được tạo khi kiểm tra, nên không tốn tín dụng):
+942|Ảnh trong Thư viện
+943|Ảnh được tạo bởi
+944|Ghim
+945|Ghim mục này
+946|Đã ghim — nhấn để bỏ ghim
+947|Địa điểm cần tìm
+948|Gói
+949|Kế hoạch cho tuần
+950|Lên kế hoạch tuần của tôi
+951|Gói bắt đầu
+952|Đang lên cấu trúc…
+953|Gói và tín dụng chưa được bật: mọi tài khoản hoạt động như trước (mức miễn phí và quy tắc của Owner).
+954|Gói và tín dụng thêm
+955|Gói của mọi tài khoản
+956|Chơi cờ vua và học chiến thuật
+957|Danh mục plugin
+958|Các mục plugin
+959|Thiết lập plugin
+960|Plugin
+961|Khóa API Pollinations
+962|Mô hình Pollinations
+963|Mô hình video Pollinations
+964|Phổ biến
+965|Áp phích
+966|Cơ sở dữ liệu Postgres: truy vấn, phân nhánh và quản lý.
+967|Bài đăng cho Instagram, Facebook, LinkedIn hoặc TikTok.
+968|Tùy chọn
+969|Mô hình ưa thích
+970|Đang chuẩn bị câu trả lời…
+971|Đang chuẩn bị câu hỏi…
+972|Đang chuẩn bị…
+973|Bài thuyết trình
+974|Nhấn Chia sẻ (hình vuông có mũi tên lên), hoặc ••• → Chia sẻ.
+975|Nhấn micrô một lần để bắt đầu ghi và nhấn lại để dừng. {brand} ghi lại lời bạn nói và gửi đi.
+976|Xem trước
+977|Chiều rộng xem trước
+978|Xem trước {name}
+979|Xem trước: {name}
+980|30 ngày trước
+981|7 ngày trước
+982|Ưu tiên truy cập lúc cao điểm
+983|Cơ sở dữ liệu và migration Prisma Postgres.
+984|Quyền riêng tư
+985|Quyền riêng tư và dữ liệu
+986|Phân tích sản phẩm, flag và thử nghiệm.
+987|Quản lý sản phẩm
+988|Năng suất
+989|Chuyên nghiệp
+990|Email chuyên nghiệp
+991|Hồ sơ
+992|Ảnh đại diện
+993|Đã xóa ảnh đại diện.
+994|Đã lưu ảnh đại diện.
+995|Đã lưu hồ sơ.
+996|Lập trình
+997|Ngôn ngữ lập trình
+998|Lập trình với Codex và Claude Code: chọn mô hình và bắt đầu cuộc trò chuyện về mã.
+999|Dự án
+1000|Dự án và công việc
+1001|Dự án, cơ sở dữ liệu, SQL và nhật ký.
+1002|Dự án, triển khai và nhật ký.
+1003|Dự án, tác vụ và CRM
+1004|Người hiệu đính
+1005|Đã tạo đề xuất (không kiểm tra cú pháp cho loại tệp này).
+1006|Đã bật bảo vệ: {brand} thử Cloudflare và Pollinations trực tiếp. Hugging Face, Together, OpenAI, Stability, fal.ai và Replicate bị chặn nếu có thể dùng tín dụng trả phí. Với OpenRouter, giá được kiểm tra trước khi gọi.
+1007|Bảo vệ dữ liệu cá nhân
+1008|Thiết kế protein và phân tử
+1009|Nhà cung cấp
+1010|Nhà cung cấp dùng trong chat
+1011|Chất lượng
+1012|Câu hỏi về dữ liệu sức khỏe của bạn
+1013|Số lượng nhanh
+1014|Trả lời nhanh
+1015|Đọc to
+1016|Đọc và chỉnh sửa bảng tính.
+1017|Đọc và sắp xếp email Gmail của bạn
+1018|Đọc, viết và chỉnh sửa tài liệu.
+1019|Không thể đọc to trên máy tính này.
+1020|Đang đọc yêu cầu…
+1021|Đang đọc văn bản…
+1022|Có sẵn
+1023|Kết quả chạy thực của {brand}:
+1024|Internet thời gian thực
+1025|Gần đây
+1026|Kết nối lại trong OmniRoute
+1027|Ghi âm giọng nói
+1028|Làm mới
+1029|Làm mới danh sách mô hình
+1030|Đang làm mới danh sách…
+1031|Tạo lại câu trả lời
+1032|Tạo lại sẽ thay câu trả lời này và xóa các tin nhắn sau nó. Tiếp tục?
+1033|Đã từ chối
+1034|Người dùng bị từ chối
+1035|Tải lại {brand}
+1036|Gỡ bỏ
+1037|Xóa dữ liệu cá nhân bị lộ
+1038|Gỡ khỏi dự án
+1039|Gỡ plugin «{name}»?
+1040|Gỡ {name}
+1041|Đổi tên
+1042|Đổi tên tệp
+1043|Đổi tên: {error}
+1044|Token API Replicate
+1045|Mô hình Replicate
+1046|Mô hình video Replicate
+1047|Kho mã, issues, pull requests và tệp.
+1048|Nghiên cứu
+1049|Nghiên cứu và khoa học
+1050|Tài liệu học Kinh Qur'an
+1051|Khôi phục từ lưu trữ
+1052|Khôi phục cuộc trò chuyện
+1053|Khôi phục cuộc trò chuyện {name}
+1054|Kết quả
+1055|Kết quả
+1056|Thử lại
+1057|Chạy / kiểm tra mã
+1058|Chạy mô hình AI trên Replicate.
+1059|Chạy mã: {error}
+1060|Lịch sử chạy
+1061|Chạy ngay
+1062|Vận hành cửa hàng trực tuyến của bạn
+1063|Đang chạy
+1064|Chạy mã và SSH chỉ dành cho Owner.
+1065|Chạy mã, GitHub Solve và SSH chỉ dành cho tài khoản Owner (xem «Email Owner trên PC này»).
+1066|Đang chạy…
+1067|Chạy tác vụ đã lên lịch và kiểm tra vào thời điểm bạn chọn.
+1068|Nghiên cứu SEO
+1069|Đường dẫn khóa riêng SSH
+1070|Máy chủ SSH · địa chỉ
+1071|Người dùng SSH
+1072|Bán hàng
+1073|Thứ Bảy và Chủ nhật lúc {time}
+1074|Lưu
+1075|Lưu và ghim
+1076|Lưu và kiểm tra
+1077|Lưu hồ sơ
+1078|Lưu cài đặt
+1079|Lưu thay đổi
+1080|Lưu skill
+1081|Đã lưu và ghim vào bộ nhớ.
+1082|Đã lưu.
+1083|Đang lưu khóa và kiểm tra…
+1084|Đang lưu plugin và kiểm tra…
+1085|Đang lưu…
+1086|Quét mã để tìm vấn đề bảo mật.
+1087|Lên lịch
+1088|Đã lên lịch
+1089|Đã lên lịch (tác vụ theo lịch)
+1090|Khoa học
+1091|Nghiên cứu khoa học
+1092|Cuộn xuống và chọn Thêm vào MH chính, rồi Thêm.
+1093|Tìm kiếm
+1094|Tự động tìm trên GitHub
+1095|Tìm và trích xuất dữ liệu từ web
+1096|Tìm và đọc tệp, thư mục.
+1097|Tìm và đọc tệp của công ty bạn.
+1098|Tìm và gửi email, tin nhắn
+1099|Tìm ứng dụng
+1100|Tìm theo tên
+1101|Tìm cuộc trò chuyện
+1102|Tìm mô hình
+1103|Tìm mô hình…
+1104|Tìm ngôn ngữ
+1105|Tìm trong bộ nhớ
+1106|Tìm mô hình
+1107|Tìm cuộc trò chuyện trước
+1108|Tìm plugin
+1109|Tìm plugin và skill
+1110|Kết quả tìm kiếm
+1111|Tìm trong Thư viện
+1112|Tìm trong danh mục (tên, loại)
+1113|Tìm trong thư viện
+1114|Tìm tài liệu khoa học
+1115|Tìm trên web thông tin mới nhất về
+1116|Tìm trong {n} ngôn ngữ
+1117|Tìm, đọc và tạo tệp.
+1118|Tìm, đọc và soạn nháp email.
+1119|Tìm, đọc, tạo và chỉnh sửa trang và cơ sở dữ liệu.
+1120|Tìm trên Wikipedia (tiếng Romania, rồi tiếng Anh) và đưa ra tóm tắt bài viết.
+1121|Tìm thông tin hiện tại và nguồn trực tuyến.
+1122|Tự tìm nguồn hiện tại cho câu hỏi về thông tin mới, phiên bản và API.
+1123|Bảo mật
+1124|Quét bảo mật cho mã
+1125|Xem các gói
+1126|Xem lịch và thời gian rảnh của bạn, và thêm, đổi hoặc xóa sự kiện.
+1127|Seedance, Veo, Wan và các mô hình khác qua cùng API.
+1128|Chọn
+1129|Chọn một người dùng.
+1130|Đã chọn
+1131|Gửi
+1132|Gửi thông báo thử
+1133|Gửi yêu cầu truy cập
+1134|Gửi lại mã
+1135|Gửi lại mã ({s} giây)
+1136|Gửi tin nhắn
+1137|Đã kết nối máy chủ ✓
+1138|Đã đóng phiên
+1139|Phiên: {error}
+1140|Đặt trạng thái «{status}» cho {email}? Các phiên đang hoạt động của tài khoản sẽ bị đóng.
+1141|Cài đặt
+1142|Chỉ có thể lưu cài đặt từ ứng dụng {brand}.
+1143|Đã lưu cài đặt.
+1144|Nhiều mô hình ảnh với một khóa.
+1145|Ta tiếp tục với «{title}» nhé?
+1146|Hướng dẫn dự án dùng chung
+1147|Ngắn gọn và đúng trọng tâm
+1148|Mô tả ngắn
+1149|Video ngắn (~6 giây)
+1150|Xem thêm (còn {n})
+1151|Hiện hoặc ẩn menu
+1152|Đang hiển thị 60.000 ký tự đầu tiên.
+1153|Hiển thị thông báo khi tác vụ có kết quả.
+1154|Đăng nhập
+1155|Đăng nhập lại
+1156|Đăng nhập lại.
+1157|Đăng nhập vào {brand}
+1158|Đăng nhập {name} trong cửa sổ vừa mở, rồi quay lại đây.
+1159|Đăng xuất
+1160|Đăng xuất {brand} trên mọi thiết bị, kể cả thiết bị này?
+1161|Đăng xuất các thiết bị khác
+1162|Đăng nhập
+1163|Cần đăng nhập.
+1164|Đăng xuất
+1165|Đang đăng xuất…
+1166|Cập nhật trang ({domain})
+1167|Trang và triển khai.
+1168|Trang, trang con và mục CMS.
+1169|Kích thước
+1170|Plugin skill
+1171|Skill
+1173|Kênh và tin nhắn Slack
+1174|Bài đăng mạng xã hội
+1175|Kỹ thuật phần mềm
+1176|Khác
+1177|Khác…
+1178|Sắp xếp
+1179|Nói: văn bản hiện trong ô và tự gửi đi
+1180|Khóa API Stability
+1181|Engine Stability
+1182|Start
+1183|Tự khởi động OmniRoute
+1184|Khởi động OmniRoute hoặc thêm khóa API trong Cài đặt.
+1185|Bắt đầu cuộc trò chuyện tạo ảnh.
+1186|Khởi động {brand} cùng Windows
+1187|Đang khởi động {brand}…
+1188|Đang khởi động…
+1189|Mô hình ADMET tiên tiến
+1190|Vẫn còn thức? Cùng hoàn thành nhé.
+1191|Dừng và gửi
+1192|Dừng đọc
+1193|Dừng câu trả lời
+1194|Dừng ghi âm
+1195|Hãy dừng ghi âm trước.
+1196|Đã dừng sau lỗi
+1197|Bị Owner dừng
+1198|Bài tập sức mạnh cho Garmin
+1199|Cấu trúc, phân tử và protein
+1200|Học sinh, sinh viên
+1201|Gói đăng ký
+1202|Thành công
+1203|Đề xuất kế hoạch cho tuần sắp tới: ưu tiên, hạn chót và một bước nhỏ mỗi ngày.
+1204|Tóm tắt tài liệu
+1205|Tóm tắt tài liệu đính kèm thành năm ý rõ ràng.
+1206|Tóm tắt
+1207|Tóm tắt văn bản hoặc tài liệu thành các ý chính.
+1208|Tạm ngưng
+1209|Đã tạm ngưng
+1210|Người dùng bị tạm ngưng
+1212|Máy tính bảng
+1213|Xem bài tarot
+1214|Tác vụ {brand} tự chạy vào thời điểm bạn chọn.
+1215|Tác vụ, danh sách, tài liệu và bình luận.
+1216|Tác vụ, dự án và bình luận.
+1217|Quản trị nhóm với tín dụng chung
+1218|Chi tiết kỹ thuật: {details}
+1219|Kiểm tra
+1220|Kiểm tra ngay
+1221|Kiểm tra thành công: {result}
+1222|Kiểm tra khóa
+1223|Kiểm tra micrô
+1224|Kiểm tra máy chủ
+1225|Kiểm thử
+1226|Đang kiểm tra kết nối SSH…
+1227|Đang kiểm tra…
+1228|Poker Texas Hold'em với AI
+1229|Nội dung mục
+1230|Văn bản được đọc cho AI
+1232|Nhà cung cấp AI không trả lời kịp. Thử lại.
+1233|Đã đạt giới hạn miễn phí của nhà cung cấp AI. Chọn mô hình khác hoặc thử lại sau.
+1234|Địa chỉ API phải là liên kết đầy đủ, ví dụ https://example.com/webhook.
+1235|Trang Google sẽ mở. Nhấn «Create API key» rồi sao chép.
+1236|Thư viện trống. Kéo tệp vào đây hoặc nhấn «Thêm tệp».
+1237|Thiếu OAuth Client ID.
+1238|Không thể mở trang OAuth.
+1239|Không thể xóa tài khoản Owner.
+1240|Owner duyệt tài khoản và quyết định chúng được dùng dịch vụ AI nào.
+1241|Owner quyết định tài khoản của bạn được dùng mô hình nào.
+1242|Email Owner không hợp lệ.
+1243|Owner phải thêm ứng dụng OAuth Asana trong Cài đặt trước.
+1244|Owner phải thêm ứng dụng OAuth Box trong Cài đặt trước.
+1245|Owner phải thêm ứng dụng OAuth Google trong Cài đặt trước.
+1246|Owner phải thêm ứng dụng OAuth HubSpot trong Cài đặt trước.
+1247|Owner phải thêm ứng dụng OAuth Lovable trong Cài đặt trước.
+1248|Gói đăng ký cá nhân của Owner không thể cấp cho tài khoản khác.
+1249|Nút X ẩn ứng dụng mà không dừng các dịch vụ.
+1250|Tài khoản và toàn bộ dữ liệu (cuộc trò chuyện, bộ nhớ, tệp, cài đặt) bị xóa vĩnh viễn.
+1251|Tài khoản được tạo trên máy chủ {brand}.
+1252|Tài khoản được tạo trên máy tính này và bạn có thể dùng ngay.
+1253|Tài khoản không hoạt động.
+1254|Tài khoản đang chờ Owner duyệt.
+1255|Tài khoản đã được tạo và đang chờ Owner duyệt.
+1256|Tài khoản đã bị xóa.
+1257|Địa chỉ không hợp lệ.
+1258|Câu trả lời tiếp tục trên máy chủ…
+1259|Câu trả lời bị gián đoạn: {error}
+1260|Câu trả lời đã bị dừng trước khi xong.
+1261|Câu trả lời đã bị dừng.
+1262|Không thể mở ứng dụng — {error}
+1263|Không thể mở ứng dụng.
+1264|Ứng dụng tự khởi động và có thể chạy nền.
+1265|Đã mở ứng dụng.
+1266|Không tải được ứng dụng: {error}
+1267|Đã chép lời phần âm thanh cho {brand}.
+1268|Phần đầu tài liệu, dưới dạng văn bản.
+1269|Trình duyệt không thể ghi âm.
+1270|Thay đổi áp dụng cho cuộc trò chuyện này.
+1271|Đã áp dụng thay đổi trên GitHub. Commit: {commit}
+1272|Không thể sao chép mã vào bộ nhớ tạm.
+1273|Mã đã hết hạn. Hãy yêu cầu mã mới.
+1274|Mã không đúng.
+1275|Mã đã chạy. Kết quả được đưa vào ô tin nhắn.
+1276|Không thể sao chép cuộc trò chuyện vào bộ nhớ tạm.
+1277|Không thể lưu cuộc trò chuyện: {error}
+1278|Đã lưu trữ cuộc trò chuyện. Bạn sẽ thấy nó trong «Đã lưu trữ» ở thanh bên.
+1279|Đã sao chép cuộc trò chuyện vào bộ nhớ tạm.
+1280|Đã khôi phục cuộc trò chuyện.
+1281|Không tải được dữ liệu: {error}
+1282|Ngày trong tháng phải từ 1 đến 28.
+1283|Mô hình mặc định
+1284|Địa chỉ email không hợp lệ.
+1285|Giờ và ngày chính xác ở Romania và các thành phố lớn trên thế giới.
+1286|Xuất thất bại:
+1287|Tệp không có văn bản để hiển thị.
+1288|Tệp không còn khả dụng.
+1289|Tệp không còn trong Thư viện.
+1290|Tệp giờ có tên «{name}».
+1291|Tệp được lưu vào Thư viện của bạn (tối đa 2 GB mỗi tệp)…
+1292|Tệp hoặc tin nhắn quá lớn đối với dịch vụ {brand} (HTTP 413).
+1293|Đã thêm tệp vào Thư viện.
+1294|Không tìm thấy tệp trong Thư viện.
+1295|Trang đầu, dưới dạng văn bản.
+1296|Tên header chỉ được chứa chữ cái, chữ số và dấu gạch ngang.
+1297|Hướng dẫn tối đa 8.000 ký tự.
+1298|Khoảng thời gian phải từ 1 đến 168 giờ.
+1299|Khóa không hoạt động: {error}
+1300|Khóa được dùng chung với Ảnh.
+1301|Các khóa được mã hóa trên PC này.
+1302|Không thể sao chép khóa.
+1303|Các khóa ở trên máy chủ và chỉ hiển thị dạng ẩn.
+1304|Ngôn ngữ tôi dùng để viết
+1305|Lần cập nhật trước ({when}) thất bại — chi tiết
+1306|Không thể mở liên kết trong trình duyệt.
+1307|Không thể mở liên kết: {error}
+1308|Tài khoản cục bộ với email này có quyền Owner: chạy mã, GitHub Solve, kiểm tra máy chủ. Chỉ áp dụng khi chưa thiết lập {brand} Cloud. Đăng nhập lại sau khi thay đổi.
+1309|Địa chỉ dịch vụ cục bộ không hợp lệ. Ví dụ: {url}
+1310|Các mục bị khóa không được phép với bạn.
+1311|Đăng nhập đã hết hạn cho: {names}. Bảng OmniRoute trên máy chủ → Providers → từng tài khoản → Reconnect (hoặc thêm khóa API).
+1312|Không thể gửi tin nhắn: {error}
+1313|Tin nhắn trống.
+1314|Micrô bị chặn. Hãy cho phép truy cập micrô trong trình duyệt.
+1315|Micrô không khả dụng: {error}
+1316|Không thể lưu mô hình cho cuộc trò chuyện: {error}
+1317|Không tải được danh sách mô hình: {error}
+1318|Danh sách mô hình trống.
+1319|Các mô hình đến từ OmniRoute và các API đã thiết lập trên máy chủ.
+1320|Các mô hình đến từ OmniRoute và các API đã thiết lập trên PC này.
+1321|Tên tối đa 100 ký tự.
+1322|Tên tối đa 120 ký tự.
+1323|Mật khẩu mới cần ít nhất 8 ký tự.
+1324|Các thiết bị khác đã bị đăng xuất.
+1325|Mật khẩu tối đa 256 ký tự.
+1326|Mật khẩu tối đa 72 ký tự.
+1327|Mật khẩu cần ít nhất 10 ký tự.
+1328|Mật khẩu cần ít nhất 8 ký tự.
+1329|Không thể tạo ảnh: {error}
+1330|Không đọc được ảnh.
+1331|Ảnh lớn hơn 10 MB.
+1332|Đã lưu plugin, nhưng kiểm tra thất bại: {error}
+1333|Các plugin đến từ dự án mã nguồn mở (giấy phép MIT và Apache 2.0); mỗi thẻ ghi tác giả và liên kết đến nguồn.
+1334|Không tải được plugin: {error}
+1335|Bản xem trước không khả dụng.
+1336|Bản xem trước không khả dụng. Có lẽ tệp đã bị xóa khỏi Thư viện.
+1337|Liên kết xem trước không khả dụng.
+1338|Giá thay đổi theo số tín dụng.
+1339|Không thể sao chép đề xuất.
+1340|Đã sao chép đề xuất vào bộ nhớ tạm.
+1341|Khóa API của nhà cung cấp sai hoặc không có quyền truy cập mô hình này.
+1342|Bản ghi âm trống.
+1343|Yêu cầu không thành công (HTTP {status}).
+1344|Địa chỉ chuyển hướng cần đăng ký tại nhà cung cấp:

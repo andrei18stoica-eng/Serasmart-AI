@@ -1,18 +1,18 @@
-580|Vad du har använt: meddelanden, bilder, video och röst.
-1649|Ditt abonnemang, planerna och extra krediter.
-742|Min användning
-83|Alla konton
-953|Planer för alla konton
-718|Meddelanden
-1506|Röstminuter
-329|Använda krediter
-327|Krediterna räknas till planpriser, även när kontot inte betalar.
-731|Använda modeller
-801|Ingen användning under perioden.
+582|Vad du har använt: meddelanden, bilder, video och röst.
+1652|Ditt abonnemang, planerna och extra krediter.
+744|Min användning
+85|Alla konton
+955|Planer för alla konton
+720|Meddelanden
+1509|Röstminuter
+331|Använda krediter
+329|Krediterna räknas till planpriser, även när kontot inte betalar.
+733|Använda modeller
+803|Ingen användning under perioden.
 16|7 dagar
-946|Plan
-328|Krediter per dag
-1199|Abonnemang
-792|Ingen plan
-172|Tillbaka till alla konton
-1124|Se dina kalendrar och din lediga tid, och lägg till, ändra eller ta bort händelser.
+948|Plan
+330|Krediter per dag
+1201|Abonnemang
+794|Ingen plan
+174|Tillbaka till alla konton
+1126|Se dina kalendrar och din lediga tid, och lägg till, ändra eller ta bort händelser.

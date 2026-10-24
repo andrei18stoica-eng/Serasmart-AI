@@ -1,19 +1,19 @@
-1465|Használat
-1561|Mikor használja az AI a(z) {name} alkalmazást
-152|Automatikus
-98|Mindig elérhető
-406|Kikapcsolva
-1477|Csak akkor használja, ha az üzenetnek szüksége van rá
-824|Minden üzenetnél felajánlva az AI-nak
-1228|Az AI soha nem használja
-1658|minden alkalommal kérdez
-1560|Mikor használja az AI a(z) /{slug} skillt
-1476|Magától használja, ha a kérésnek szüksége van rá, vagy /név paranccsal
-1475|Minden üzenetnél használva
-752|Soha nem használva
-1432|Kulcsszavak (nem kötelező)
-1573|Szavak, amelyekre az AI használja, vesszővel elválasztva
-1572|Kizáró szavak (nem kötelező)
-600|Ha az üzenetben szerepel valamelyik, a skill nem lesz használva
-620|Egyszer elmentett utasítások. Az AI maga választja ki a kéréshez szükséges skilleket (Automatikus); írhatsz /név parancsot is a chatbe, vagy hagyhatsz egy skillt mindig bekapcsolva.
-1170|Használt skillek
+1468|Használat
+1564|Mikor használja az AI a(z) {name} alkalmazást
+154|Automatikus
+100|Mindig elérhető
+408|Kikapcsolva
+1480|Csak akkor használja, ha az üzenetnek szüksége van rá
+826|Minden üzenetnél felajánlva az AI-nak
+1231|Az AI soha nem használja
+1661|minden alkalommal kérdez
+1563|Mikor használja az AI a(z) /{slug} skillt
+1479|Magától használja, ha a kérésnek szüksége van rá, vagy /név paranccsal
+1478|Minden üzenetnél használva
+754|Soha nem használva
+1435|Kulcsszavak (nem kötelező)
+1576|Szavak, amelyekre az AI használja, vesszővel elválasztva
+1575|Kizáró szavak (nem kötelező)
+602|Ha az üzenetben szerepel valamelyik, a skill nem lesz használva
+622|Egyszer elmentett utasítások. Az AI maga választja ki a kéréshez szükséges skilleket (Automatikus); írhatsz /név parancsot is a chatbe, vagy hagyhatsz egy skillt mindig bekapcsolva.
+1172|Használt skillek

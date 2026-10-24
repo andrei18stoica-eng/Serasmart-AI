@@ -1,0 +1,4 @@
+1211|Chuyển tài khoản
+71|Thêm tài khoản khác
+65|Tài khoản trên thiết bị này
+1708|hoặc đăng nhập tài khoản khác

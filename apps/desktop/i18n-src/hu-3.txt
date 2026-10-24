@@ -1,439 +1,439 @@
-900|Fizetős AI módosítva
-901|Fizetős AI · felhasználók
-902|Fizetős AI: {error}
-903|Használat alapú díj, a kulccsal vagy az Owner által adott jogosultságokkal
-904|Használat alapú díj, az Owner által adott jogosultságokkal
-905|Használat alapú díj; ugyanaz a kulcs a Grok Imagine-nel képeket és videókat is készít. Kapcsold be: «A fizetős API-k engedélyezése is».
-906|Panel
-907|{n}. rész
-908|Jelszó
-909|A jelszó megváltozott. A többi eszköznek újra be kell jelentkeznie.
-910|Előbb illeszd be a kulcsot.
-911|Illeszd be ide a kulcsot
-912|Fizetések
-913|Fizetések, rendelések, katalógus és ügyfelek.
-914|Függőben
-915|Teljesítmény
-916|Jogosultságok
-917|Jogosultságok módosítva
-918|Jogosultságok: {error}
-919|Személyes AI asztrológus
-920|Telefon
-921|Értesítések a telefonon
-922|Válassz asszisztenst egy új beszélgetéshez.
-923|Válassz a listából, vagy készítsd el a sajátodat egy API-ból. Aztán írd be a nevét a chatbe, és a(z) {brand} használni fogja.
-924|Válaszd ki az üzenetmező alatt, ki készítse a képet, vagy Automatikus: a legjobb elérhető.
-925|Válaszd ki az üzenetmező alatt, ki készítse a videót, vagy Automatikus: előbb az ingyenesek, majd a Gemini Veo, a Grok Imagine és a többi kulcs (fizetős, ha engedélyezed a Beállításokban).
-926|Kép
-927|Kép / látás
-928|HD kép
-929|Képgenerálás
-930|Képgenerálás, API-k, modellek és automatikus próbálkozás más szolgáltatónál.
-931|Kép készítője
-932|A képet a(z) {brand} készítette
-933|Képkészítés
-934|Kép mód: a következő üzenet képet készít. Kattints újra a Képre a kilépéshez.
-935|Képmodell
-936|Képszolgáltatók
-937|Kép: a következő üzenet képet készít.
-938|Képek
-939|Képek és videók (a tesztben nem generáljuk őket, így nem fogy keret):
-940|Képek a Könyvtárban
-941|Képek készítője
-942|Kitűzés
-943|Ennek kitűzése
-944|Kitűzve — kattints a levételhez
-945|Keresendő hely
-947|Heti terv
-948|Tervezd meg a hetemet
-949|Csomag kezdete
-950|A szerkezet megtervezése…
-951|A csomagok és kreditek még nem aktívak: minden fiók úgy működik, mint eddig (az ingyenes szint és az Owner szabályai).
-952|Csomagok és extra kreditek
-954|Sakkozás és stratégia tanulása
-955|Pluginlista
-956|Pluginrészek
-957|Plugin beállítása
-958|Pluginek
-959|Pollinations API-kulcs
-960|Pollinations modell
-961|Pollinations videómodell
-962|Népszerű
-963|Plakát
-964|Postgres adatbázisok: lekérdezés, ágak és kezelés.
-965|Bejegyzések Instagramra, Facebookra, LinkedInre vagy TikTokra.
-966|Preferenciák
-967|Előnyben részesített modell
-968|A válasz előkészítése…
-969|A kérdések előkészítése…
-970|Előkészítés…
-971|Bemutató
-972|Koppints a Megosztásra (a felfelé mutató nyilas négyzet), vagy ••• → Megosztás.
-973|Kattints egyszer a mikrofonra a felvétel indításához, és újra a leállításhoz. A(z) {brand} leírja, amit mondtál, és elküldi.
-974|Előnézet
-975|Előnézet szélessége
-976|{name} előnézete
-977|Előnézet: {name}
-978|Az elmúlt 30 nap
-979|Az elmúlt 7 nap
-980|Elsőbbségi hozzáférés csúcsidőben
-981|Prisma Postgres adatbázisok és migrációk.
-982|Adatvédelem
-983|Adatvédelem és adatok
-984|Termékanalitika, flagek és kísérletek.
-985|Termékmenedzsment
-986|Termelékenység
-987|Professzionális
-988|Professzionális e-mail
-989|Profil
-990|Profilkép
-991|Profilkép eltávolítva.
-992|Profilkép mentve.
-993|Profil mentve.
-994|Programozás
-995|Programozási nyelvek
-996|Programozás a Codexszel és a Claude Code-dal: válaszd ki a modellt, és kezdj kódos beszélgetést.
-997|Projektek
-998|Projektek és munka
-999|Projektek, adatbázisok, SQL és naplók.
-1000|Projektek, telepítések és naplók.
-1001|Projektek, feladatok és CRM
-1002|Korrektor
-1003|Javaslat elkészült (ehhez a fájltípushoz nincs szintaxis-ellenőrzés).
-1004|A védelem aktív: a(z) {brand} közvetlenül a Cloudflare-t és a Pollinationst próbálja. A Hugging Face, a Together, az OpenAI, a Stability, a fal.ai és a Replicate tiltva van, ha fizetős keretet használhatnának. Az OpenRouternél a hívás előtt ellenőrizzük az árat.
-1005|Védi a személyes adatokat
-1006|Fehérjék és molekulák tervezése
-1007|Szolgáltatók
-1008|A chatben használt szolgáltatók
-1009|Minőség
-1010|Kérdések az egészségügyi adataidról
-1011|Gyors összegek
-1012|Gyors válasz
-1013|Felolvasás
-1014|Táblázatok olvasása és szerkesztése.
-1015|A Gmail-leveleid olvasása és rendezése
-1016|Dokumentumok olvasása, írása és szerkesztése.
-1017|A felolvasás ezen a számítógépen nem érhető el.
-1018|A kérés olvasása…
-1019|A szöveg olvasása…
-1020|Használatra kész
-1021|A(z) {brand} futtatás valódi eredménye:
-1022|Élő internet
-1023|Legutóbbiak
-1024|Újracsatlakozás az OmniRoute-ban
-1025|Rögzítsd a hangod
-1026|Frissítés
-1027|A modellista frissítése
-1028|A lista frissítése…
-1029|A válasz újragenerálása
-1030|Az újragenerálás lecseréli ezt a választ, és törli az utána következő üzeneteket. Folytatod?
-1031|Elutasítva
-1032|Elutasított felhasználók
-1033|A(z) {brand} újratöltése
-1034|Eltávolítás
-1035|Nyilvánosságra került személyes adatok eltávolítása
-1036|Kivétel a projektből
-1037|Eltávolítod a(z) «{name}» plugint?
-1038|{name} eltávolítása
-1039|Átnevezés
-1040|A fájl átnevezése
-1041|Átnevezés: {error}
-1042|Replicate API-token
-1043|Replicate modell
-1044|Replicate videómodell
-1045|Tárolók, issue-k, pull requestek és fájlok.
-1046|Kutatás
-1047|Kutatás és tudomány
-1048|Források a Korán tanulmányozásához
-1049|Visszaállítás az archívumból
-1050|A chat visszaállítása
-1051|{name} chat visszaállítása
-1052|Eredmény
-1053|Eredmények
-1054|Újrapróbálás
-1055|Kód futtatása / tesztelése
-1056|AI modellek futtatása a Replicate-en.
-1057|Kódfuttatás: {error}
-1058|Futtatási előzmények
-1059|Futtatás most
-1060|Kezeld a webáruházad
-1061|Fut
-1062|A kódfuttatás és az SSH csak az Ownernek érhető el.
-1063|A kódfuttatás, a GitHub Solve és az SSH csak az Owner-fióknak érhető el (lásd: «Az Owner e-mail-címe ezen a gépen»).
-1064|Futtatás…
-1065|Ütemezett feladatokat és ellenőrzéseket futtat a választott időpontban.
-1066|SEO-kutatás
-1067|Az SSH privát kulcs útvonala
-1068|SSH-szerver · cím
-1069|SSH-felhasználó
-1070|Értékesítés
-1071|Szombaton és vasárnap {time}-kor
-1072|Mentés
-1073|Mentés és kitűzés
-1074|Mentés és tesztelés
-1075|Profil mentése
-1076|Beállítások mentése
-1077|A módosítás mentése
-1078|A skill mentése
-1079|Mentve és kitűzve a memóriában.
-1080|Mentve.
-1081|A kulcs mentése és tesztelése…
-1082|A plugin mentése és tesztelése…
-1083|Mentés…
-1084|Biztonsági hibák után kutat a kódban.
-1085|Ütemezés
-1086|Ütemezett
-1087|Ütemezett (ütemezett feladatok)
-1088|Tudomány
-1089|Tudományos kutatás
-1090|Görgess, válaszd a Főképernyőhöz adás lehetőséget, majd a Hozzáadás gombot.
-1091|Keresés
-1092|Automatikus keresés a GitHubon
-1093|Adatok keresése és kinyerése a webről
-1094|Fájlok és mappák keresése és olvasása.
-1095|A céged fájljainak keresése és olvasása.
-1096|E-mailek és üzenetek keresése és küldése
-1097|Alkalmazások keresése
-1098|Keresés név szerint
-1099|Keresés a chatekben
-1100|Modell keresése
-1101|Modell keresése…
-1102|Nyelvek keresése
-1103|Keresés a memóriában
-1104|Modellek keresése
-1105|Keresés a korábbi chatekben
-1106|Pluginek keresése
-1107|Pluginek és skillek keresése
-1108|Keresési eredmények
-1109|Keresés a Könyvtárban
-1110|Keresés a listában (név, kategória)
-1111|Keresés a könyvtárban
-1112|Keresés a tudományos irodalomban
-1113|Keresd meg a weben a legfrissebb híreket erről:
-1114|Keresés {n} nyelv között
-1115|Fájlok keresése, olvasása és létrehozása.
-1116|E-mailek keresése, olvasása és piszkozatok írása.
-1117|Oldalak és adatbázisok keresése, olvasása, létrehozása és szerkesztése.
-1118|Keres a Wikipédián (románul, aztán angolul), és visszaadja a cikk összefoglalóját.
-1119|Aktuális információkat és online forrásokat keres.
-1120|Magától keres naprakész forrásokat a friss információkra, verziókra és API-kra vonatkozó kérdéseknél.
-1121|Biztonság
-1122|A kód biztonsági elemzése
-1123|Csomagok megtekintése
-1125|Seedance, Veo, Wan és más modellek ugyanazon az API-n.
-1126|Kiválasztás
-1127|Válassz egy felhasználót.
-1128|Kiválasztva
-1129|Küldés
-1130|Tesztértesítés küldése
-1131|Hozzáférési kérelem küldése
-1132|Kód újraküldése
-1133|Kód újraküldése ({s} mp)
-1134|Üzenet küldése
-1135|Szerver csatlakoztatva ✓
-1136|Munkamenetek lezárva
-1137|Munkamenetek: {error}
-1138|Beállítod a(z) «{status}» állapotot neki: {email}? A fiók aktív munkamenetei lezárulnak.
-1139|Beállítások
-1140|A beállításokat csak a(z) {brand} alkalmazásból lehet menteni.
-1141|Beállítások mentve.
-1142|Több képmodell egyetlen kulccsal.
-1143|Folytatjuk ezzel: «{title}»?
-1144|A projekt közös utasításai
-1145|Rövid és lényegre törő
-1146|Rövid leírás
-1147|Rövid videó (~6 mp)
-1148|Több megjelenítése (még {n})
-1149|A menü megjelenítése vagy elrejtése
-1150|Az első 60 000 karakter látható.
-1151|Értesítést jelenít meg, ha a feladatnak van eredménye.
-1152|Bejelentkezés
-1153|Bejelentkezés újra
-1154|Jelentkezz be újra.
-1155|Bejelentkezés: {brand}
-1156|Jelentkezz be a(z) {name} szolgáltatásba a megnyílt ablakban, majd gyere vissza ide.
-1157|Kijelentkezés
-1158|Kijelentkezel a(z) {brand} szolgáltatásból minden eszközön, ezen is?
-1159|A többi eszköz kijelentkeztetése
-1160|Bejelentkezés
-1161|Bejelentkezés szükséges.
-1162|Kijelentkezés
-1163|Kijelentkezés…
-1164|Az oldal frissítése ({domain})
-1165|Weboldalak és telepítések.
-1166|Weboldalak, oldalak és CMS-elemek.
-1167|Méret
-1168|Skill pluginek
-1169|Skillek
-1171|Slack-csatornák és üzenetek
-1172|Közösségimédia-bejegyzések
-1173|Szoftverfejlesztés
-1174|Valami más
-1175|Valami más…
-1176|Rendezés
-1177|Beszélj: a szöveg megjelenik a mezőben, és magától elküldődik
-1178|Stability API-kulcs
-1179|Stability motor
-1180|Start
-1181|Az OmniRoute automatikus indítása
-1182|Indítsd el az OmniRoute-ot, vagy adj meg egy API-kulcsot a Beállításokban.
-1183|Kezdj egy képet készítő beszélgetést.
-1184|A(z) {brand} indítása a Windowszal
-1185|A(z) {brand} indítása…
-1186|Indítás…
-1187|Csúcskategóriás ADMET modellek
-1188|Még ébren vagy? Fejezzük be együtt.
-1189|Leállítás és küldés
-1190|Felolvasás leállítása
-1191|A válasz leállítása
-1192|A hangfelvétel leállítása
-1193|Előbb állítsd le a hangfelvételt.
-1194|Hibák után leállt
-1195|Az Owner leállította
-1196|Erőedzések Garminhoz
-1197|Szerkezetek, molekulák és fehérjék
-1198|Diák
-1200|Sikeres
-1201|Javasolj tervet a kezdődő hétre: prioritások, határidők és minden napra egy kis lépés.
-1202|Dokumentum összefoglalása
-1203|Foglald össze a csatolt dokumentumot öt világos pontban.
-1204|Összefoglaló
-1205|Egy szöveget vagy dokumentumot a fő gondolataira tömörít.
-1206|Felfüggesztés
-1207|Felfüggesztve
-1208|Felfüggesztett felhasználók
-1209|Táblagép
-1210|Tarot-olvasások
-1211|Feladatok, amelyeket a(z) {brand} magától futtat a választott időpontban.
-1212|Feladatok, listák, dokumentumok és megjegyzések.
-1213|Feladatok, projektek és megjegyzések.
-1214|Csapatadminisztráció közös kreditekkel
-1215|Technikai részletek: {details}
-1216|Teszt
-1217|Teszt most
-1218|Teszt sikeres: {result}
-1219|Kulcsok tesztelése
-1220|Mikrofon tesztelése
-1221|Szerver tesztelése
-1222|Tesztek
-1223|Az SSH-kapcsolat tesztelése…
-1224|Tesztelés…
-1225|Texas Hold'em póker AI-val
-1226|Az elem szövege
-1227|Az AI-nak felolvasott szöveg
-1229|Az AI-szolgáltató nem válaszolt időben. Próbáld újra.
-1230|Elérted az AI-szolgáltató ingyenes korlátját. Válassz másik modellt, vagy próbáld később.
-1231|Az API-címnek teljes linknek kell lennie, például https://example.com/webhook.
-1232|Megnyílik a Google-oldal. Kattints a «Create API key» gombra, és másold ki.
-1233|A Könyvtár üres. Húzz ide fájlokat, vagy kattints a «Fájlok hozzáadása» gombra.
-1234|Hiányzik az OAuth Client ID.
-1235|Nem sikerült megnyitni az OAuth-oldalt.
-1236|Az Owner-fiók nem törölhető.
-1237|Az Owner hagyja jóvá a fiókokat, és dönti el, milyen AI-szolgáltatásokat használhatnak.
-1238|Az Owner dönti el, milyen modelleket használhat a fiókod.
-1239|Az Owner e-mail-címe érvénytelen.
-1240|Az Ownernek előbb hozzá kell adnia egy Asana OAuth-alkalmazást a Beállításokban.
-1241|Az Ownernek előbb hozzá kell adnia egy Box OAuth-alkalmazást a Beállításokban.
-1242|Az Ownernek előbb hozzá kell adnia egy Google OAuth-alkalmazást a Beállításokban.
-1243|Az Ownernek előbb hozzá kell adnia egy HubSpot OAuth-alkalmazást a Beállításokban.
-1244|Az Ownernek előbb hozzá kell adnia egy Lovable OAuth-alkalmazást a Beállításokban.
-1245|Az Owner személyes előfizetései nem adhatók más fiókoknak.
-1246|Az X gomb elrejti az alkalmazást a szolgáltatások leállítása nélkül.
-1247|A fiók és minden adata (chatek, memória, fájlok, beállítások) véglegesen törlődik.
-1248|A fiók a(z) {brand} szerverén jön létre.
-1249|A fiók ezen a számítógépen jön létre, és azonnal használhatod.
-1250|A fiók nem aktív.
-1251|A fiók az Owner jóváhagyására vár.
-1252|A fiók létrejött, és az Owner jóváhagyására vár.
-1253|A fiók törölve lett.
-1254|A cím érvénytelen.
-1255|A válasz a szerveren folytatódik…
-1256|A válasz megszakadt: {error}
-1257|A válasz a vége előtt leállt.
-1258|A válasz leállt.
-1259|Nem sikerült megnyitni az alkalmazást — {error}
-1260|Nem sikerült megnyitni az alkalmazást.
-1261|Az alkalmazás magától indul, és a háttérben maradhat.
-1262|Az alkalmazás megnyílt.
-1263|Nem sikerült betölteni az alkalmazásokat: {error}
-1264|A hangsávot a(z) {brand} számára leírtuk.
-1265|A dokumentum eleje, szövegként.
-1266|A böngésző nem tud hangot rögzíteni.
-1267|A módosítás erre a chatre vonatkozik.
-1268|A módosítás alkalmazva a GitHubon. Commit: {commit}
-1269|Nem sikerült a kódot a vágólapra másolni.
-1270|A kód lejárt. Kérj újat.
-1271|A kód nem helyes.
-1272|A kód lefutott. Az eredmény bekerült az üzenetmezőbe.
-1273|Nem sikerült a beszélgetést a vágólapra másolni.
-1274|Nem sikerült menteni a beszélgetést: {error}
-1275|A beszélgetés archiválva. Az oldalsávon, az «Archivált» részben találod.
-1276|A beszélgetés a vágólapra másolva.
-1277|A beszélgetés visszaállítva.
-1278|Nem sikerült betölteni az adatokat: {error}
-1279|A hónap napja 1 és 28 között lehet.
-1280|Az alapértelmezett modell
-1281|Az e-mail-cím érvénytelen.
-1282|A pontos idő és dátum Romániában és a világ nagyvárosaiban.
-1283|Az exportálás nem sikerült:
-1284|A fájlban nincs megjeleníthető szöveg.
-1285|A fájl már nem érhető el.
-1286|A fájl már nincs a Könyvtárban.
-1287|A fájl neve mostantól «{name}».
-1288|A fájl mentése a Könyvtáradba (fájlonként legfeljebb 2 GB)…
-1289|A fájl vagy az üzenet túl nagy a(z) {brand} szolgáltatásnak (HTTP 413).
-1290|A fájl bekerült a Könyvtárba.
-1291|A fájl nem található a Könyvtárban.
-1292|Az első oldal, szövegként.
-1293|A fejléc neve csak betűket, számokat és kötőjelet tartalmazhat.
-1294|Az utasítások legfeljebb 8000 karakteresek lehetnek.
-1295|Az időköz 1 és 168 óra között lehet.
-1296|A kulcs nem működött: {error}
-1297|A kulcs közös a Képekkel.
-1298|A kulcsok titkosítva vannak ezen a gépen.
-1299|Nem sikerült a kulcsokat másolni.
-1300|A kulcsok a szerveren maradnak, és csak maszkolva látszanak.
-1301|A nyelv, amelyen írok
-1302|Az utolsó frissítés ({when}) nem sikerült — részletek
-1303|Nem sikerült megnyitni a linket a böngészőben.
-1304|Nem sikerült megnyitni a linket: {error}
-1305|Az ezzel az e-mail-címmel rendelkező helyi fiók Owner-jogokat kap: kódfuttatás, GitHub Solve, a szerver vezérlése. Csak akkor érvényes, ha a(z) {brand} Cloud nincs beállítva. A módosítás után jelentkezz be újra.
-1306|A helyi szolgáltatás címe érvénytelen. Példa: {url}
-1307|A letiltottak számodra nem engedélyezettek.
-1308|Lejárt a bejelentkezés ezeknél: {names}. OmniRoute panel a szerveren → Providers → minden fiók → Reconnect (vagy adj meg API-kulcsot).
-1309|Nem sikerült elküldeni az üzenetet: {error}
-1310|Az üzenet üres.
-1311|A mikrofon le van tiltva. Engedélyezd a mikrofonhoz való hozzáférést a böngészőben.
-1312|A mikrofon nem érhető el: {error}
-1313|Nem sikerült menteni a beszélgetés modelljét: {error}
-1314|Nem sikerült betölteni a modellistát: {error}
-1315|A modellista üres.
-1316|A modellek az OmniRoute-ból és a szerveren beállított API-kból jönnek.
-1317|A modellek az OmniRoute-ból és az ezen a gépen beállított API-kból jönnek.
-1318|A név legfeljebb 100 karakteres lehet.
-1319|A név legfeljebb 120 karakteres lehet.
-1320|Az új jelszónak legalább 8 karakteresnek kell lennie.
-1321|A többi eszköz kijelentkeztetve.
-1322|A jelszó legfeljebb 256 karakteres lehet.
-1323|A jelszó legfeljebb 72 karakteres lehet.
-1324|A jelszónak legalább 10 karakteresnek kell lennie.
-1325|A jelszónak legalább 8 karakteresnek kell lennie.
-1326|Nem sikerült elkészíteni a képet: {error}
-1327|Nem sikerült beolvasni a képet.
-1328|A kép nagyobb 10 MB-nál.
-1329|A plugin mentve, de a teszt nem sikerült: {error}
-1330|A pluginek nyílt forráskódú projektekből származnak (MIT és Apache 2.0 licenc); minden kártya mutatja a szerzőt, és a forrásra hivatkozik.
-1331|Nem sikerült betölteni a plugineket: {error}
-1332|Az előnézet nem érhető el.
-1333|Az előnézet nem érhető el. A fájlt valószínűleg törölték a Könyvtárból.
-1334|Az előnézeti link nem érhető el.
-1335|Az ár a kreditek számától függ.
-1336|Nem sikerült a javaslatot másolni.
-1337|A javaslat a vágólapra másolva.
-1338|A szolgáltató API-kulcsa hibás, vagy nincs hozzáférése ehhez a modellhez.
-1339|A felvétel üres.
-1340|A kérés nem sikerült (HTTP {status}).
-1341|A szolgáltatónál regisztrálandó visszatérési cím:
-1342|A szerver óránként ellenőrzi a GitHubot, és magától telepíti az új verziót.
-1343|A szerver nem adott vissza érvényes munkamenetet.
-1344|A szerver Ownerének AI-kulcsot kell hozzáadnia.
+902|Fizetős AI módosítva
+903|Fizetős AI · felhasználók
+904|Fizetős AI: {error}
+905|Használat alapú díj, a kulccsal vagy az Owner által adott jogosultságokkal
+906|Használat alapú díj, az Owner által adott jogosultságokkal
+907|Használat alapú díj; ugyanaz a kulcs a Grok Imagine-nel képeket és videókat is készít. Kapcsold be: «A fizetős API-k engedélyezése is».
+908|Panel
+909|{n}. rész
+910|Jelszó
+911|A jelszó megváltozott. A többi eszköznek újra be kell jelentkeznie.
+912|Előbb illeszd be a kulcsot.
+913|Illeszd be ide a kulcsot
+914|Fizetések
+915|Fizetések, rendelések, katalógus és ügyfelek.
+916|Függőben
+917|Teljesítmény
+918|Jogosultságok
+919|Jogosultságok módosítva
+920|Jogosultságok: {error}
+921|Személyes AI asztrológus
+922|Telefon
+923|Értesítések a telefonon
+924|Válassz asszisztenst egy új beszélgetéshez.
+925|Válassz a listából, vagy készítsd el a sajátodat egy API-ból. Aztán írd be a nevét a chatbe, és a(z) {brand} használni fogja.
+926|Válaszd ki az üzenetmező alatt, ki készítse a képet, vagy Automatikus: a legjobb elérhető.
+927|Válaszd ki az üzenetmező alatt, ki készítse a videót, vagy Automatikus: előbb az ingyenesek, majd a Gemini Veo, a Grok Imagine és a többi kulcs (fizetős, ha engedélyezed a Beállításokban).
+928|Kép
+929|Kép / látás
+930|HD kép
+931|Képgenerálás
+932|Képgenerálás, API-k, modellek és automatikus próbálkozás más szolgáltatónál.
+933|Kép készítője
+934|A képet a(z) {brand} készítette
+935|Képkészítés
+936|Kép mód: a következő üzenet képet készít. Kattints újra a Képre a kilépéshez.
+937|Képmodell
+938|Képszolgáltatók
+939|Kép: a következő üzenet képet készít.
+940|Képek
+941|Képek és videók (a tesztben nem generáljuk őket, így nem fogy keret):
+942|Képek a Könyvtárban
+943|Képek készítője
+944|Kitűzés
+945|Ennek kitűzése
+946|Kitűzve — kattints a levételhez
+947|Keresendő hely
+949|Heti terv
+950|Tervezd meg a hetemet
+951|Csomag kezdete
+952|A szerkezet megtervezése…
+953|A csomagok és kreditek még nem aktívak: minden fiók úgy működik, mint eddig (az ingyenes szint és az Owner szabályai).
+954|Csomagok és extra kreditek
+956|Sakkozás és stratégia tanulása
+957|Pluginlista
+958|Pluginrészek
+959|Plugin beállítása
+960|Pluginek
+961|Pollinations API-kulcs
+962|Pollinations modell
+963|Pollinations videómodell
+964|Népszerű
+965|Plakát
+966|Postgres adatbázisok: lekérdezés, ágak és kezelés.
+967|Bejegyzések Instagramra, Facebookra, LinkedInre vagy TikTokra.
+968|Preferenciák
+969|Előnyben részesített modell
+970|A válasz előkészítése…
+971|A kérdések előkészítése…
+972|Előkészítés…
+973|Bemutató
+974|Koppints a Megosztásra (a felfelé mutató nyilas négyzet), vagy ••• → Megosztás.
+975|Kattints egyszer a mikrofonra a felvétel indításához, és újra a leállításhoz. A(z) {brand} leírja, amit mondtál, és elküldi.
+976|Előnézet
+977|Előnézet szélessége
+978|{name} előnézete
+979|Előnézet: {name}
+980|Az elmúlt 30 nap
+981|Az elmúlt 7 nap
+982|Elsőbbségi hozzáférés csúcsidőben
+983|Prisma Postgres adatbázisok és migrációk.
+984|Adatvédelem
+985|Adatvédelem és adatok
+986|Termékanalitika, flagek és kísérletek.
+987|Termékmenedzsment
+988|Termelékenység
+989|Professzionális
+990|Professzionális e-mail
+991|Profil
+992|Profilkép
+993|Profilkép eltávolítva.
+994|Profilkép mentve.
+995|Profil mentve.
+996|Programozás
+997|Programozási nyelvek
+998|Programozás a Codexszel és a Claude Code-dal: válaszd ki a modellt, és kezdj kódos beszélgetést.
+999|Projektek
+1000|Projektek és munka
+1001|Projektek, adatbázisok, SQL és naplók.
+1002|Projektek, telepítések és naplók.
+1003|Projektek, feladatok és CRM
+1004|Korrektor
+1005|Javaslat elkészült (ehhez a fájltípushoz nincs szintaxis-ellenőrzés).
+1006|A védelem aktív: a(z) {brand} közvetlenül a Cloudflare-t és a Pollinationst próbálja. A Hugging Face, a Together, az OpenAI, a Stability, a fal.ai és a Replicate tiltva van, ha fizetős keretet használhatnának. Az OpenRouternél a hívás előtt ellenőrizzük az árat.
+1007|Védi a személyes adatokat
+1008|Fehérjék és molekulák tervezése
+1009|Szolgáltatók
+1010|A chatben használt szolgáltatók
+1011|Minőség
+1012|Kérdések az egészségügyi adataidról
+1013|Gyors összegek
+1014|Gyors válasz
+1015|Felolvasás
+1016|Táblázatok olvasása és szerkesztése.
+1017|A Gmail-leveleid olvasása és rendezése
+1018|Dokumentumok olvasása, írása és szerkesztése.
+1019|A felolvasás ezen a számítógépen nem érhető el.
+1020|A kérés olvasása…
+1021|A szöveg olvasása…
+1022|Használatra kész
+1023|A(z) {brand} futtatás valódi eredménye:
+1024|Élő internet
+1025|Legutóbbiak
+1026|Újracsatlakozás az OmniRoute-ban
+1027|Rögzítsd a hangod
+1028|Frissítés
+1029|A modellista frissítése
+1030|A lista frissítése…
+1031|A válasz újragenerálása
+1032|Az újragenerálás lecseréli ezt a választ, és törli az utána következő üzeneteket. Folytatod?
+1033|Elutasítva
+1034|Elutasított felhasználók
+1035|A(z) {brand} újratöltése
+1036|Eltávolítás
+1037|Nyilvánosságra került személyes adatok eltávolítása
+1038|Kivétel a projektből
+1039|Eltávolítod a(z) «{name}» plugint?
+1040|{name} eltávolítása
+1041|Átnevezés
+1042|A fájl átnevezése
+1043|Átnevezés: {error}
+1044|Replicate API-token
+1045|Replicate modell
+1046|Replicate videómodell
+1047|Tárolók, issue-k, pull requestek és fájlok.
+1048|Kutatás
+1049|Kutatás és tudomány
+1050|Források a Korán tanulmányozásához
+1051|Visszaállítás az archívumból
+1052|A chat visszaállítása
+1053|{name} chat visszaállítása
+1054|Eredmény
+1055|Eredmények
+1056|Újrapróbálás
+1057|Kód futtatása / tesztelése
+1058|AI modellek futtatása a Replicate-en.
+1059|Kódfuttatás: {error}
+1060|Futtatási előzmények
+1061|Futtatás most
+1062|Kezeld a webáruházad
+1063|Fut
+1064|A kódfuttatás és az SSH csak az Ownernek érhető el.
+1065|A kódfuttatás, a GitHub Solve és az SSH csak az Owner-fióknak érhető el (lásd: «Az Owner e-mail-címe ezen a gépen»).
+1066|Futtatás…
+1067|Ütemezett feladatokat és ellenőrzéseket futtat a választott időpontban.
+1068|SEO-kutatás
+1069|Az SSH privát kulcs útvonala
+1070|SSH-szerver · cím
+1071|SSH-felhasználó
+1072|Értékesítés
+1073|Szombaton és vasárnap {time}-kor
+1074|Mentés
+1075|Mentés és kitűzés
+1076|Mentés és tesztelés
+1077|Profil mentése
+1078|Beállítások mentése
+1079|A módosítás mentése
+1080|A skill mentése
+1081|Mentve és kitűzve a memóriában.
+1082|Mentve.
+1083|A kulcs mentése és tesztelése…
+1084|A plugin mentése és tesztelése…
+1085|Mentés…
+1086|Biztonsági hibák után kutat a kódban.
+1087|Ütemezés
+1088|Ütemezett
+1089|Ütemezett (ütemezett feladatok)
+1090|Tudomány
+1091|Tudományos kutatás
+1092|Görgess, válaszd a Főképernyőhöz adás lehetőséget, majd a Hozzáadás gombot.
+1093|Keresés
+1094|Automatikus keresés a GitHubon
+1095|Adatok keresése és kinyerése a webről
+1096|Fájlok és mappák keresése és olvasása.
+1097|A céged fájljainak keresése és olvasása.
+1098|E-mailek és üzenetek keresése és küldése
+1099|Alkalmazások keresése
+1100|Keresés név szerint
+1101|Keresés a chatekben
+1102|Modell keresése
+1103|Modell keresése…
+1104|Nyelvek keresése
+1105|Keresés a memóriában
+1106|Modellek keresése
+1107|Keresés a korábbi chatekben
+1108|Pluginek keresése
+1109|Pluginek és skillek keresése
+1110|Keresési eredmények
+1111|Keresés a Könyvtárban
+1112|Keresés a listában (név, kategória)
+1113|Keresés a könyvtárban
+1114|Keresés a tudományos irodalomban
+1115|Keresd meg a weben a legfrissebb híreket erről:
+1116|Keresés {n} nyelv között
+1117|Fájlok keresése, olvasása és létrehozása.
+1118|E-mailek keresése, olvasása és piszkozatok írása.
+1119|Oldalak és adatbázisok keresése, olvasása, létrehozása és szerkesztése.
+1120|Keres a Wikipédián (románul, aztán angolul), és visszaadja a cikk összefoglalóját.
+1121|Aktuális információkat és online forrásokat keres.
+1122|Magától keres naprakész forrásokat a friss információkra, verziókra és API-kra vonatkozó kérdéseknél.
+1123|Biztonság
+1124|A kód biztonsági elemzése
+1125|Csomagok megtekintése
+1127|Seedance, Veo, Wan és más modellek ugyanazon az API-n.
+1128|Kiválasztás
+1129|Válassz egy felhasználót.
+1130|Kiválasztva
+1131|Küldés
+1132|Tesztértesítés küldése
+1133|Hozzáférési kérelem küldése
+1134|Kód újraküldése
+1135|Kód újraküldése ({s} mp)
+1136|Üzenet küldése
+1137|Szerver csatlakoztatva ✓
+1138|Munkamenetek lezárva
+1139|Munkamenetek: {error}
+1140|Beállítod a(z) «{status}» állapotot neki: {email}? A fiók aktív munkamenetei lezárulnak.
+1141|Beállítások
+1142|A beállításokat csak a(z) {brand} alkalmazásból lehet menteni.
+1143|Beállítások mentve.
+1144|Több képmodell egyetlen kulccsal.
+1145|Folytatjuk ezzel: «{title}»?
+1146|A projekt közös utasításai
+1147|Rövid és lényegre törő
+1148|Rövid leírás
+1149|Rövid videó (~6 mp)
+1150|Több megjelenítése (még {n})
+1151|A menü megjelenítése vagy elrejtése
+1152|Az első 60 000 karakter látható.
+1153|Értesítést jelenít meg, ha a feladatnak van eredménye.
+1154|Bejelentkezés
+1155|Bejelentkezés újra
+1156|Jelentkezz be újra.
+1157|Bejelentkezés: {brand}
+1158|Jelentkezz be a(z) {name} szolgáltatásba a megnyílt ablakban, majd gyere vissza ide.
+1159|Kijelentkezés
+1160|Kijelentkezel a(z) {brand} szolgáltatásból minden eszközön, ezen is?
+1161|A többi eszköz kijelentkeztetése
+1162|Bejelentkezés
+1163|Bejelentkezés szükséges.
+1164|Kijelentkezés
+1165|Kijelentkezés…
+1166|Az oldal frissítése ({domain})
+1167|Weboldalak és telepítések.
+1168|Weboldalak, oldalak és CMS-elemek.
+1169|Méret
+1170|Skill pluginek
+1171|Skillek
+1173|Slack-csatornák és üzenetek
+1174|Közösségimédia-bejegyzések
+1175|Szoftverfejlesztés
+1176|Valami más
+1177|Valami más…
+1178|Rendezés
+1179|Beszélj: a szöveg megjelenik a mezőben, és magától elküldődik
+1180|Stability API-kulcs
+1181|Stability motor
+1182|Start
+1183|Az OmniRoute automatikus indítása
+1184|Indítsd el az OmniRoute-ot, vagy adj meg egy API-kulcsot a Beállításokban.
+1185|Kezdj egy képet készítő beszélgetést.
+1186|A(z) {brand} indítása a Windowszal
+1187|A(z) {brand} indítása…
+1188|Indítás…
+1189|Csúcskategóriás ADMET modellek
+1190|Még ébren vagy? Fejezzük be együtt.
+1191|Leállítás és küldés
+1192|Felolvasás leállítása
+1193|A válasz leállítása
+1194|A hangfelvétel leállítása
+1195|Előbb állítsd le a hangfelvételt.
+1196|Hibák után leállt
+1197|Az Owner leállította
+1198|Erőedzések Garminhoz
+1199|Szerkezetek, molekulák és fehérjék
+1200|Diák
+1202|Sikeres
+1203|Javasolj tervet a kezdődő hétre: prioritások, határidők és minden napra egy kis lépés.
+1204|Dokumentum összefoglalása
+1205|Foglald össze a csatolt dokumentumot öt világos pontban.
+1206|Összefoglaló
+1207|Egy szöveget vagy dokumentumot a fő gondolataira tömörít.
+1208|Felfüggesztés
+1209|Felfüggesztve
+1210|Felfüggesztett felhasználók
+1212|Táblagép
+1213|Tarot-olvasások
+1214|Feladatok, amelyeket a(z) {brand} magától futtat a választott időpontban.
+1215|Feladatok, listák, dokumentumok és megjegyzések.
+1216|Feladatok, projektek és megjegyzések.
+1217|Csapatadminisztráció közös kreditekkel
+1218|Technikai részletek: {details}
+1219|Teszt
+1220|Teszt most
+1221|Teszt sikeres: {result}
+1222|Kulcsok tesztelése
+1223|Mikrofon tesztelése
+1224|Szerver tesztelése
+1225|Tesztek
+1226|Az SSH-kapcsolat tesztelése…
+1227|Tesztelés…
+1228|Texas Hold'em póker AI-val
+1229|Az elem szövege
+1230|Az AI-nak felolvasott szöveg
+1232|Az AI-szolgáltató nem válaszolt időben. Próbáld újra.
+1233|Elérted az AI-szolgáltató ingyenes korlátját. Válassz másik modellt, vagy próbáld később.
+1234|Az API-címnek teljes linknek kell lennie, például https://example.com/webhook.
+1235|Megnyílik a Google-oldal. Kattints a «Create API key» gombra, és másold ki.
+1236|A Könyvtár üres. Húzz ide fájlokat, vagy kattints a «Fájlok hozzáadása» gombra.
+1237|Hiányzik az OAuth Client ID.
+1238|Nem sikerült megnyitni az OAuth-oldalt.
+1239|Az Owner-fiók nem törölhető.
+1240|Az Owner hagyja jóvá a fiókokat, és dönti el, milyen AI-szolgáltatásokat használhatnak.
+1241|Az Owner dönti el, milyen modelleket használhat a fiókod.
+1242|Az Owner e-mail-címe érvénytelen.
+1243|Az Ownernek előbb hozzá kell adnia egy Asana OAuth-alkalmazást a Beállításokban.
+1244|Az Ownernek előbb hozzá kell adnia egy Box OAuth-alkalmazást a Beállításokban.
+1245|Az Ownernek előbb hozzá kell adnia egy Google OAuth-alkalmazást a Beállításokban.
+1246|Az Ownernek előbb hozzá kell adnia egy HubSpot OAuth-alkalmazást a Beállításokban.
+1247|Az Ownernek előbb hozzá kell adnia egy Lovable OAuth-alkalmazást a Beállításokban.
+1248|Az Owner személyes előfizetései nem adhatók más fiókoknak.
+1249|Az X gomb elrejti az alkalmazást a szolgáltatások leállítása nélkül.
+1250|A fiók és minden adata (chatek, memória, fájlok, beállítások) véglegesen törlődik.
+1251|A fiók a(z) {brand} szerverén jön létre.
+1252|A fiók ezen a számítógépen jön létre, és azonnal használhatod.
+1253|A fiók nem aktív.
+1254|A fiók az Owner jóváhagyására vár.
+1255|A fiók létrejött, és az Owner jóváhagyására vár.
+1256|A fiók törölve lett.
+1257|A cím érvénytelen.
+1258|A válasz a szerveren folytatódik…
+1259|A válasz megszakadt: {error}
+1260|A válasz a vége előtt leállt.
+1261|A válasz leállt.
+1262|Nem sikerült megnyitni az alkalmazást — {error}
+1263|Nem sikerült megnyitni az alkalmazást.
+1264|Az alkalmazás magától indul, és a háttérben maradhat.
+1265|Az alkalmazás megnyílt.
+1266|Nem sikerült betölteni az alkalmazásokat: {error}
+1267|A hangsávot a(z) {brand} számára leírtuk.
+1268|A dokumentum eleje, szövegként.
+1269|A böngésző nem tud hangot rögzíteni.
+1270|A módosítás erre a chatre vonatkozik.
+1271|A módosítás alkalmazva a GitHubon. Commit: {commit}
+1272|Nem sikerült a kódot a vágólapra másolni.
+1273|A kód lejárt. Kérj újat.
+1274|A kód nem helyes.
+1275|A kód lefutott. Az eredmény bekerült az üzenetmezőbe.
+1276|Nem sikerült a beszélgetést a vágólapra másolni.
+1277|Nem sikerült menteni a beszélgetést: {error}
+1278|A beszélgetés archiválva. Az oldalsávon, az «Archivált» részben találod.
+1279|A beszélgetés a vágólapra másolva.
+1280|A beszélgetés visszaállítva.
+1281|Nem sikerült betölteni az adatokat: {error}
+1282|A hónap napja 1 és 28 között lehet.
+1283|Az alapértelmezett modell
+1284|Az e-mail-cím érvénytelen.
+1285|A pontos idő és dátum Romániában és a világ nagyvárosaiban.
+1286|Az exportálás nem sikerült:
+1287|A fájlban nincs megjeleníthető szöveg.
+1288|A fájl már nem érhető el.
+1289|A fájl már nincs a Könyvtárban.
+1290|A fájl neve mostantól «{name}».
+1291|A fájl mentése a Könyvtáradba (fájlonként legfeljebb 2 GB)…
+1292|A fájl vagy az üzenet túl nagy a(z) {brand} szolgáltatásnak (HTTP 413).
+1293|A fájl bekerült a Könyvtárba.
+1294|A fájl nem található a Könyvtárban.
+1295|Az első oldal, szövegként.
+1296|A fejléc neve csak betűket, számokat és kötőjelet tartalmazhat.
+1297|Az utasítások legfeljebb 8000 karakteresek lehetnek.
+1298|Az időköz 1 és 168 óra között lehet.
+1299|A kulcs nem működött: {error}
+1300|A kulcs közös a Képekkel.
+1301|A kulcsok titkosítva vannak ezen a gépen.
+1302|Nem sikerült a kulcsokat másolni.
+1303|A kulcsok a szerveren maradnak, és csak maszkolva látszanak.
+1304|A nyelv, amelyen írok
+1305|Az utolsó frissítés ({when}) nem sikerült — részletek
+1306|Nem sikerült megnyitni a linket a böngészőben.
+1307|Nem sikerült megnyitni a linket: {error}
+1308|Az ezzel az e-mail-címmel rendelkező helyi fiók Owner-jogokat kap: kódfuttatás, GitHub Solve, a szerver vezérlése. Csak akkor érvényes, ha a(z) {brand} Cloud nincs beállítva. A módosítás után jelentkezz be újra.
+1309|A helyi szolgáltatás címe érvénytelen. Példa: {url}
+1310|A letiltottak számodra nem engedélyezettek.
+1311|Lejárt a bejelentkezés ezeknél: {names}. OmniRoute panel a szerveren → Providers → minden fiók → Reconnect (vagy adj meg API-kulcsot).
+1312|Nem sikerült elküldeni az üzenetet: {error}
+1313|Az üzenet üres.
+1314|A mikrofon le van tiltva. Engedélyezd a mikrofonhoz való hozzáférést a böngészőben.
+1315|A mikrofon nem érhető el: {error}
+1316|Nem sikerült menteni a beszélgetés modelljét: {error}
+1317|Nem sikerült betölteni a modellistát: {error}
+1318|A modellista üres.
+1319|A modellek az OmniRoute-ból és a szerveren beállított API-kból jönnek.
+1320|A modellek az OmniRoute-ból és az ezen a gépen beállított API-kból jönnek.
+1321|A név legfeljebb 100 karakteres lehet.
+1322|A név legfeljebb 120 karakteres lehet.
+1323|Az új jelszónak legalább 8 karakteresnek kell lennie.
+1324|A többi eszköz kijelentkeztetve.
+1325|A jelszó legfeljebb 256 karakteres lehet.
+1326|A jelszó legfeljebb 72 karakteres lehet.
+1327|A jelszónak legalább 10 karakteresnek kell lennie.
+1328|A jelszónak legalább 8 karakteresnek kell lennie.
+1329|Nem sikerült elkészíteni a képet: {error}
+1330|Nem sikerült beolvasni a képet.
+1331|A kép nagyobb 10 MB-nál.
+1332|A plugin mentve, de a teszt nem sikerült: {error}
+1333|A pluginek nyílt forráskódú projektekből származnak (MIT és Apache 2.0 licenc); minden kártya mutatja a szerzőt, és a forrásra hivatkozik.
+1334|Nem sikerült betölteni a plugineket: {error}
+1335|Az előnézet nem érhető el.
+1336|Az előnézet nem érhető el. A fájlt valószínűleg törölték a Könyvtárból.
+1337|Az előnézeti link nem érhető el.
+1338|Az ár a kreditek számától függ.
+1339|Nem sikerült a javaslatot másolni.
+1340|A javaslat a vágólapra másolva.
+1341|A szolgáltató API-kulcsa hibás, vagy nincs hozzáférése ehhez a modellhez.
+1342|A felvétel üres.
+1343|A kérés nem sikerült (HTTP {status}).
+1344|A szolgáltatónál regisztrálandó visszatérési cím:
+1345|A szerver óránként ellenőrzi a GitHubot, és magától telepíti az új verziót.
+1346|A szerver nem adott vissza érvényes munkamenetet.
+1347|A szerver Ownerének AI-kulcsot kell hozzáadnia.

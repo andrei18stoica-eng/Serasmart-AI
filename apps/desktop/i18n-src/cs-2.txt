@@ -1,440 +1,440 @@
-450|E-mail
-451|E-mailové a SMS kampaně, seznamy a výsledky.
-452|Asistent pro e-mail a kalendář
-453|E-mail potvrzen.
-454|E-mail potvrzen. Váš přístup čeká na schválení Ownerem.
-455|E-mail hostovaný u Hostingeru
-456|Endpoint / webhook / vlastní API
-457|Ukončí všechny relace tohoto účtu, i na tomto zařízení.
-458|Končí {when}
-459|Zábava
-460|Chyba
-461|Chyby, issues a vydání.
-462|Dobrý večer. Něco k dokončení, nebo plán na zítřek?
-463|Každých (hodin)
-464|Každých pár hodin
-465|Všechny soubory připojené nebo vytvořené v této konverzaci.
-466|Každou hodinu
-467|Všechny modely a nástroje, které váš tarif povoluje
-468|Každý model z těchto seznamů se objeví v seznamu modelů nahoře. Pokud chybí klíč nebo poskytovatel vrátí 429/404/503 či neodpovídá, {brand} zkusí další model a pak dalšího poskytovatele.
-469|Každých {n} hodin
-470|Přesný čas
-471|Příklady
-472|Návratový kód: {code}
-473|Vysvětli jednoduše
-474|Vysvětlující videa vytvořená s AI
-475|Vysvětlí jakékoli téma tak, aby ho pochopil i začátečník.
-476|Prozkoumat
-477|Objevování vědeckého výzkumu
-478|Rozšíření
-479|Kredity navíc
-480|FLUX.1 Schnell přes HF Inference Router, jen pokud to ochrana nákladů dovolí.
-481|FLUX.1 Schnell · první poskytovatel v bezplatném režimu.
-482|FLUX.1 Schnell. Propagační kredity mohou být omezené.
-483|Selhalo v
-484|Záložní poskytovatel médií.
-485|Analýzy fantasy fotbalu
-486|Rychlé a pokročilé modely
-487|Modely rychlého generování přes fal.run.
-488|Rychlý režim. Klikněte pro Přemýšlet: přesnější odpovědi, o něco pomaleji.
-489|Soubor
-490|Název souboru
-491|Cesta k souboru v repozitáři
-492|Nahrání souboru: {error}
-493|Nahrávání souborů
-494|Soubory
-495|Soubory a data
-496|Soubory a nástroje
-497|Soubory z tohoto chatu
-498|Soubory z této konverzace
-499|Soubory: PDF / Word / PowerPoint / Excel / CSV / ZIP / kód
-500|Finance
-501|Finance a účetnictví
-502|Hledání a čtení vědeckých článků
-503|Hledání, tvorba a úprava návrhů.
-504|Hledání, vytváření a úprava issues, projektů a komentářů.
-505|Nejdřív potvrďte e-mail kódem, který jste dostali. Pokud ho nevidíte, podívejte se do spamu nebo si vyžádejte nový.
-506|Nejdřív popište, co máme postavit.
-507|Opraví gramatiku, diakritiku a interpunkci beze změny smyslu.
-508|U kontrol (ceny, inzeráty): bez oznámení, když je výsledek stejný jako minule.
-509|U otázek na kód před odpovědí vyhledá v repozitáři relevantní soubory.
-510|U programátorských otázek {brand} sám najde relevantní soubory v tomto repozitáři.
-511|Pro připojení aplikací Google v Aplikacích: OAuth klient typu «Webová aplikace» z Google Cloud s touto návratovou adresou: {url}
-512|Pro vědu a výzkum
-513|Navždy
-514|Formuláře a analýza odpovědí
-515|Zdarma
-516|Bezplatné zprávy dnes
-517|Využité bezplatné zprávy
-518|Zkušební verze zdarma
-519|Frekvence
-520|Svěží ráno. Čím začneme?
-521|Pátek. Uzavřeme týden pořádně.
-522|Přátelský
-523|Celé jméno
-524|GPT Image přes API OpenAI.
-525|Hry
-526|API klíč Gemini
-527|Gemini a Grok
-528|Klíč Gemini
-529|Model Gemini (Nano Banana)
-530|Model Gemini (Veo)
-531|Modely Gemini · oddělené čárkami
-532|Pouze Gemini · Nano Banana
-533|Pouze Gemini · Veo
-534|Pouze Gemini: přes Gemini připojené v OmniRoute (předplatné, bez API) nebo přes klíč Gemini v AI API. Ostatní poskytovatelé níže se nepoužívají.
-535|Gemini přes API je placené: pro použití s klíčem zvolte níže «Povolit placené poskytovatele».
-536|Obecné
-537|Generovat
-538|Generovat znovu
-539|Získat bezplatný klíč
-540|Nainstalujte si {brand} jako aplikaci do telefonu, zdarma
-541|Připravuji…
-542|GitHub OAuth Client ID
-543|GitHub OAuth client secret
-544|Modely GitHub · oddělené čárkami
-545|Obnovení na GitHubu hotovo. Commit: {commit}
-546|Přístup ke GitHubu pro všechny
-547|Token GitHub (pro soukromý repozitář)
-548|Udělej mi krátké shrnutí nejdůležitějších dnešních zpráv a technologií s odkazy na zdroje.
-549|Vraťte se do chatu, kde jste byli
-550|Vrátit se k předchozí verzi {path}?
-551|Přejít na poslední zprávu
-552|Dobré odpoledne
-553|Dobré odpoledne, {name}
-554|Dobrý večer
-555|Dobrý večer, {name}
-556|Dobré ráno
-557|Dobré ráno, {name}
-558|Google
-559|Google OAuth Client ID
-560|Google OAuth client secret
-561|Aplikace Google (Gmail, Drive, Calendar, Docs, Sheets)
-562|Správa a řízení
-563|Modely Grok · oddělené čárkami
-564|Obrázkový model Grok
-565|Video model Grok
-566|API klíč Groq
-567|Modely Groq · oddělené čárkami
-568|HD obrázky
-569|Název hlavičky
-570|Zdraví
-571|Zdravotnictví
-572|Pomoz mi naplánovat týden. Moje priority jsou:
-573|Tady je váš soubor {format}: {name}
-574|Skrýt akce
-575|Skrýt upozornění
-576|Skrýt kroky
-577|Jak má tento asistent pracovat?
-578|Jak jde den? Co vám můžu vzít z ramen?
-579|Kolik kreditů?
-581|Jak AI odpovídá
-582|Jak vybrat
-583|Jak nainstalovat
-584|Jak vám mám odpovídat, pokaždé. Např. «Vysvětluj stručně, s příklady. Když píšeš kód, přidej komentáře.»
-585|HubSpot OAuth Client ID
-586|HubSpot OAuth client secret
-587|HubSpot přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v HubSpotu ({where}) s touto návratovou adresou: {url}
-588|Přístup k HubSpotu pro všechny
-589|Modely Hugging Face · oddělené čárkami
-590|Lidské zdroje
-591|Nemohu se spojit se službou {brand} na {url}. Zkontrolujte adresu nebo použijte {local}.
-592|Zkopíroval jsem 1 klíč pro server. Vložte ho, až o něj skript na serveru požádá (pravé tlačítko). Za 2 minuty se ze schránky smaže.
-593|Zkopíroval jsem {n} klíčů pro server. Vložte je, až o ně skript na serveru požádá (pravé tlačítko). Za 2 minuty se ze schránky smažou.
-594|Nezkopíroval jsem {names}: obsahují znaky, které server nepřijímá.
-595|Nic jsem neslyšel. Klikněte na mikrofon a mluvte znovu.
-596|IP adresa
-597|IP nebo doména
-598|Pokud zvolený model Gemini pro váš klíč neexistuje, {brand} sám zkusí ostatní názvy Gemini a pak poskytovatele povolené zde.
-599|Pokud zvolený model neodpovídá, sám přepne na přímá API. Vypnuto: odpovídá jen zvolený model, jinak uvidíte chybu.
-601|Pokud se služba zastaví, {brand} se ji pokusí znovu spustit.
-602|Importovat z historie
-603|Importovat trvalé údaje (preference, rozhodnutí, podrobnosti projektů) z historie chatů?
-604|Importováno {n} položek z historie.
-605|Importuji…
-606|V chatu
-607|Součást {brand}
-608|Součást {brand} · bez účtu
-609|Součást, ale ve výchozím stavu blokováno ochranou nákladů.
-610|Informace ze schůzek Zoom
-611|Infrastruktura
-612|Instalovat
-613|Instalovat aplikaci {brand}
-614|Nainstalováno
-615|Pokyny
-616|Pokyny pro AI
-617|Pokyny pro asistenta
-618|Pokyny pro {brand}
-619|Pokyny uložené jednou a použité, kdy chcete: v chatu napište /název (například /shrnutí) nebo nechte skill vždy zapnutý.
-621|Pokyny, které AI provede, když je zavoláte přes /název.
-622|Návrh rozhraní a prototypy
-623|Neplatná odpověď služby {brand} (HTTP {status}).
-624|Neplatná odpověď při nahrávání souboru.
-625|Faktury, objednávky a transakce.
-626|Issues, pull requesty a repozitáře kódu
-627|Při uložení bude smazáno
-628|Je víkend. Něco do práce, nebo jen pro vás?
-629|Issues v Jiře a stránky v Confluence: hledání, tvorba, úpravy.
-630|Jira, Confluence, Loom a další
-631|Ponechat chaty
-632|Udržuje AI v obraze o zprávách
-633|Klíč / token
-634|Klíč uložen — nechte prázdné, chcete-li ho ponechat
-635|Klíče pro server
-636|LTX Video. Může použít úvodní kredity, pak placený kredit.
-637|Jazyk
-638|Jazyk pro diktování, přepis a předčítání
-639|Jazyk: {lang}
-640|Jazyk: {name}
-641|Poslední aktivita
-642|Poslední aktualizace: {when}, úspěšná.
-643|Později
-644|Poslední zpráva
-645|Poslední vydaná verze: {v}.
-646|Právo, bezpečnost a shoda
-647|Leady, kontakty a příležitosti.
-648|Ponechte {url}, pokud nepoužíváte samostatný server {brand}. Adresa se před uložením ověří.
-649|Právo
-650|Právní analýza
-651|Délka
-652|Začněme den dobře. Co uděláme nejdřív?
-653|Knihovna
-654|Filtry Knihovny
-655|Licence a autoři
-656|Světlý
-657|Poslouchám… klikněte znovu na mikrofon pro zastavení.
-658|Poslouchám… klikněte na mikrofon pro zastavení
-659|Živý internet a GitHub
-660|Živý internet, GitHub a server
-661|Načítám paměť…
-662|Načítám Knihovnu…
-663|Načítám programátorské modely…
-664|Načítám kombinace…
-665|Načítám návrh…
-666|Načítám historii…
-667|Načítám modely…
-668|Načítám pluginy…
-669|Načítám náhled…
-670|Načítám profil…
-671|Načítám žádost…
-672|Načítám nastavení…
-673|Načítám úkoly…
-674|Načítám text…
-675|Načítám uživatele…
-676|Načítám…
-677|Odhlásit
-678|Odhlásit ze všech zařízení
-679|Logy a statistiky vašich Workers.
-680|Logy, metriky, monitory a incidenty.
-681|Vyhledejte adresu, město nebo místo.
-682|Hledám aktualizace…
-683|Lovable OAuth Client ID
-684|Lovable OAuth client secret
-685|Lovable přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v Lovable ({where}) s touto návratovou adresou: {url}
-686|Přístup k Lovable pro všechny
-687|Vytvořena kopie, vypnutá: «{name}».
-688|Vytvořil {brand}
-689|Hlavní asistent
-690|Hlavní kombinace (automatická)
-691|Vytvořit bezplatný klíč Gemini
-692|Vytvořit obrázek
-693|Vytvořit opravu
-694|Vytváří a pracuje s PDF, DOCX a PPTX.
-695|Vytváří obrázky pomocí AI.
-696|Vytvářím obrázek a připravuji soubor…
-697|Vytvářím video… může to trvat několik minut
-698|Vytvářím soubor {format}…
-699|Správa a dotazování databází
-700|Mapy
-701|Marketing
-702|Matematika / logika
-703|Já
-704|Přepisy a shrnutí schůzek.
-705|Schůzky
-706|Paměť
-707|Paměť a chaty
-708|Paměť je prázdná.
-709|Paměť je vypnutá: {brand} neukládá ani nepoužívá nic nového, dokud ji nezapnete.
-710|Nastavení paměti
-711|Paměť, projekty a knihovna souborů
-712|Menu
-713|Zpráva
-714|Napište {brand}
-715|Zpráva, pokročilý model
-716|Zpráva, rychlý model
-717|Zpráva, špičkový model
-719|Metoda
-720|Přístup k mikrofonu byl odepřen. Povolte mikrofon v prohlížeči.
-721|Mikrofon dostupný a povolený ✓
-722|Mikrofon zapnutý — mluvte teď
-723|Mikrofon není dostupný nebo povolený
-724|Týmy a chaty Microsoft Teams
-725|API klíč Mistral
-726|Modely Mistral · oddělené čárkami
-727|Model povolen / blokován
-728|Ručně zvolený model
-729|Model pro nové chaty
-730|Model pro design
-732|Modely, datové sady a Spaces.
-733|Modernizace
-734|Zase pondělí. Uspořádejme týden.
-735|Pondělí–pátek v {time}
-736|Měsíčně
-737|Každý měsíc {day}. den v {time}
-738|Ranní zprávy
-739|Nejoblíbenější
-740|Přesunout do projektu
-741|Hudba a podcasty
-743|NE
-744|API NVIDIA / NIM, kompatibilní s OpenAI.
-745|API klíč NVIDIA
-746|Modely NVIDIA · oddělené čárkami
-747|Název
-748|Navigace
-749|Potřebujete pomoc se zbytkem dne?
-750|Vyžaduje pozornost
-751|Potřebuje přístup
-753|Nová žádost o přístup
-754|Nový účet
-755|Nové účty jsou na tomto serveru vypnuté.
-756|Novinky, které stojí za pozornost
-757|Nový asistent
-758|Nový chat
-759|Nový chat s {name}
-760|Nový návrh
-761|Nová položka do paměti
-762|Nové heslo
-763|Nový projekt
-764|Nový skill
-765|Nový úkol
-766|Nový týden. Naplánujeme ho spolu?
-767|Nejnovější
-768|Zprávy každé ráno
-769|Další kredity: {when}
-770|Další spuštění
-771|Ne
-772|Pro tento účet není povolen žádný AI model. Požádejte Ownera o přístup k modelu.
-773|Zatím žádné API pluginy
-774|Nepřišla žádná odpověď.
-775|Zatím žádné připojené aplikace. Vyberte jednu níže: po přihlášení v ní {brand} může hledat, číst, vytvářet a upravovat a před každou akcí se zeptá.
-776|Žádné aplikace nenalezeny. Můžete ji přidat přes «Vlastní aplikace», pokud má adresu MCP.
-777|Žádné změny
-778|Nejsou uloženy žádné klíče pro chat. Přidejte například klíč Gemini nebo Groq a uložte.
-779|V tomto projektu zatím nejsou chaty. Napište zprávu a začněte.
-780|Žádné chaty k zobrazení.
-781|Zatím žádné chaty.
-782|Zatím nejsou dostupné žádné programátorské modely.
-783|Zatím žádní vlastní asistenti.
-784|Nevybrány žádné dny
-785|Zatím žádné návrhy. Popište první vpravo.
-786|Žádné zařízení ji nepřijalo. Zapněte oznámení výše.
-787|Žádné položky.
-788|Filtru neodpovídá žádný soubor.
-789|Žádné dostupné modely
-790|Žádný model neodpovídá.
-791|Žádné dostupné modely.
-793|Nenalezeny žádné pluginy. Můžete ho vytvořit na kartě «Vytvořit plugin».
-794|Bez projektu
-795|Zatím žádné projekty. Vytvořte jeden v bočním menu.
-796|Žádný čitelný text
-797|Žádný připojený repozitář
-798|Zatím žádné naplánované úkoly
-799|Zatím žádné skilly
-800|Žádný textový výsledek.
-802|V OmniRoute nejsou modely {name}. Připojte ho v panelu OmniRoute (Providers) a pak tuto stránku otevřete znovu.
-803|Žádné
-804|Žádná z nastavených AI teď nemohla odpovědět. Zkontrolujte zvolený model nebo API klíče.
-805|Nepovoleno Ownerem
-806|Není součástí vašeho tarifu
-807|Nenainstalováno — npm install -g omniroute
-808|Zatím nespuštěno
-809|Pro toto hledání nic nenalezeno.
-810|Nic nenalezeno.
-811|Zatím nic. Během rozhovoru si {brand} ukládá vaše preference a důležitá rozhodnutí. Níže můžete také něco přidat.
-812|Oznámení odesláno na 1 zařízení.
-813|Oznámení odesláno na {n} zařízení.
-814|Oznámení
-815|Oznámení {brand} jsou blokovaná. Zapněte je v nastavení telefonu (Oznámení → {brand}) a klikněte znovu.
-816|Oznámení jsou na tomto zařízení vypnutá.
-817|Oznámení nebyla povolena. Můžete je zapnout v nastavení telefonu u {brand}.
-818|Upozornit mě
-819|Dokumenty a pracovní postupy Notion
-820|Chyba OAuth — {error}
-821|VYP
-822|ZAP
-823|Nabídka pro klienta
-825|Oficiální a komunitní modely přes Predictions API.
-826|Oficiální video modely přes Predictions API.
-827|Nejstarší
-828|OmniRoute 3.8 bez klíče neodpovídá. Vytvořte ho v OmniRoute:
-829|API klíč OmniRoute
-830|Adresa OmniRoute
-831|Kombinace OmniRoute
-832|Kombinace OmniRoute
-833|Příkaz OmniRoute
-834|OmniRoute připojen
-835|OmniRoute zatím nemá kombinace.
-836|OmniRoute odpovídá.
-837|OmniRoute neodpovídá. Vyberte ze seznamu model přímého API (Groq, Gemini…) nebo zapněte automatickou zálohu.
-838|OmniRoute běží, ale potřebuje API klíč: vytvořte ho v OmniRoute → API Manager a zadejte v Nastavení → AI a OmniRoute. Do té doby odpovídají přímá API (Groq, Gemini…), pokud je vyberete v seznamu.
-839|Klíč OmniRoute
-840|OmniRoute potřebuje API klíč
-841|OmniRoute zastaven
-842|Na iPhonu fungují oznámení jen z nainstalované aplikace: otevřete {domain} v Safari → Sdílet → Přidat na plochu, pak otevřete {brand} z plochy a vraťte se sem.
-843|Zapnout {slug}
-844|Jednou
-845|Jednou: {date}, {time}
-846|Jedno místo pro mapy, obrázky, asistenty a weby.
-847|Jeden rok
-848|Pouze poskytovatelé bez přímých nákladů
-849|Pouze vybraný blok kódu
-850|Zobrazují se jen pracovní kroky, ne vnitřní uvažování modelu.
-851|Jen když se něco změní
-852|Otevřít
-853|Otevřít Nastavení
-854|Otevřít Nastavení → Video
-855|Otevře web v prohlížeči.
-856|Otevřít na celou obrazovku
-857|Otevřít v Designu
-858|Otevřít v prohlížeči
-859|Otevřít stránku Google
-860|Otevřete menu prohlížeče (⋮ nebo ≡).
-861|Otevřít chat
-862|Otevřít návrh {name}
-863|Otevřít seznam
-864|Otevřít náhled {name}
-865|Otevřít úkol
-866|Otevřete {domain} v Safari (na iPhonu umí aplikaci nainstalovat jen Safari).
-867|Otevřít {name}
-868|OpenAI (ChatGPT) už nevytváří videa: Sora byla ukončena 24. září 2026, aplikace i API. Obrázky ChatGPT dál fungují.
-869|OpenAI (placené)
-870|API klíč OpenAI
-871|Kompatibilní s OpenAI, rychlé odpovědi.
-872|Kompatibilní s OpenAI.
-873|Modely OpenAI · oddělené čárkami
-874|Obrázkový model OpenAI
-875|OpenAI přes API
-876|Router kompatibilní s OpenAI; stejný token jako u Obrázků.
-877|OpenRouter (může stát peníze)
-878|API klíč OpenRouter
-879|Model OpenRouter
-880|Obrázkový model OpenRouter
-881|Video model OpenRouter
-882|Otevírám…
-883|Otevře aplikaci přímo
-884|Provoz
-885|Volitelné: OAuth App GitHubu (GitHub → Settings → Developer settings) s touto callback URL: {url}. Bez ní se GitHub připojí osobním tokenem.
-886|Pořadí pokusů
-887|Jiné
-888|Další modely OmniRoute
-889|Ostatní účty používají všechny bezplatné modely (Gemini, Groq, Mistral, OpenRouter :free…). Vaše předplatná (Codex, Claude Code, Copilot, Kiro, webové účty) zůstávají jen vaše: jejich podmínky nedovolují sdílet účet. Kombinaci OmniRoute použijí jen tehdy, když ji zde zaškrtnete; zaškrtávejte jen kombinace z bezplatných modelů.
-890|Jiná odpověď: {question}
-891|Další podrobnosti
-892|Další modely
-893|Ostatní
-894|Jinak se spustí, jen když v chatu napíšete jeho název nebo @spouštěč.
-895|E-mail Ownera na tomto počítači
-896|Owner na tomto počítači
-897|Pouze Owner
-898|Owner: uživatelé, schválení, oprávnění, relace a AI služby.
-899|PNG, JPEG nebo WebP, do 10 MB.
+452|E-mail
+453|E-mailové a SMS kampaně, seznamy a výsledky.
+454|Asistent pro e-mail a kalendář
+455|E-mail potvrzen.
+456|E-mail potvrzen. Váš přístup čeká na schválení Ownerem.
+457|E-mail hostovaný u Hostingeru
+458|Endpoint / webhook / vlastní API
+459|Ukončí všechny relace tohoto účtu, i na tomto zařízení.
+460|Končí {when}
+461|Zábava
+462|Chyba
+463|Chyby, issues a vydání.
+464|Dobrý večer. Něco k dokončení, nebo plán na zítřek?
+465|Každých (hodin)
+466|Každých pár hodin
+467|Všechny soubory připojené nebo vytvořené v této konverzaci.
+468|Každou hodinu
+469|Všechny modely a nástroje, které váš tarif povoluje
+470|Každý model z těchto seznamů se objeví v seznamu modelů nahoře. Pokud chybí klíč nebo poskytovatel vrátí 429/404/503 či neodpovídá, {brand} zkusí další model a pak dalšího poskytovatele.
+471|Každých {n} hodin
+472|Přesný čas
+473|Příklady
+474|Návratový kód: {code}
+475|Vysvětli jednoduše
+476|Vysvětlující videa vytvořená s AI
+477|Vysvětlí jakékoli téma tak, aby ho pochopil i začátečník.
+478|Prozkoumat
+479|Objevování vědeckého výzkumu
+480|Rozšíření
+481|Kredity navíc
+482|FLUX.1 Schnell přes HF Inference Router, jen pokud to ochrana nákladů dovolí.
+483|FLUX.1 Schnell · první poskytovatel v bezplatném režimu.
+484|FLUX.1 Schnell. Propagační kredity mohou být omezené.
+485|Selhalo v
+486|Záložní poskytovatel médií.
+487|Analýzy fantasy fotbalu
+488|Rychlé a pokročilé modely
+489|Modely rychlého generování přes fal.run.
+490|Rychlý režim. Klikněte pro Přemýšlet: přesnější odpovědi, o něco pomaleji.
+491|Soubor
+492|Název souboru
+493|Cesta k souboru v repozitáři
+494|Nahrání souboru: {error}
+495|Nahrávání souborů
+496|Soubory
+497|Soubory a data
+498|Soubory a nástroje
+499|Soubory z tohoto chatu
+500|Soubory z této konverzace
+501|Soubory: PDF / Word / PowerPoint / Excel / CSV / ZIP / kód
+502|Finance
+503|Finance a účetnictví
+504|Hledání a čtení vědeckých článků
+505|Hledání, tvorba a úprava návrhů.
+506|Hledání, vytváření a úprava issues, projektů a komentářů.
+507|Nejdřív potvrďte e-mail kódem, který jste dostali. Pokud ho nevidíte, podívejte se do spamu nebo si vyžádejte nový.
+508|Nejdřív popište, co máme postavit.
+509|Opraví gramatiku, diakritiku a interpunkci beze změny smyslu.
+510|U kontrol (ceny, inzeráty): bez oznámení, když je výsledek stejný jako minule.
+511|U otázek na kód před odpovědí vyhledá v repozitáři relevantní soubory.
+512|U programátorských otázek {brand} sám najde relevantní soubory v tomto repozitáři.
+513|Pro připojení aplikací Google v Aplikacích: OAuth klient typu «Webová aplikace» z Google Cloud s touto návratovou adresou: {url}
+514|Pro vědu a výzkum
+515|Navždy
+516|Formuláře a analýza odpovědí
+517|Zdarma
+518|Bezplatné zprávy dnes
+519|Využité bezplatné zprávy
+520|Zkušební verze zdarma
+521|Frekvence
+522|Svěží ráno. Čím začneme?
+523|Pátek. Uzavřeme týden pořádně.
+524|Přátelský
+525|Celé jméno
+526|GPT Image přes API OpenAI.
+527|Hry
+528|API klíč Gemini
+529|Gemini a Grok
+530|Klíč Gemini
+531|Model Gemini (Nano Banana)
+532|Model Gemini (Veo)
+533|Modely Gemini · oddělené čárkami
+534|Pouze Gemini · Nano Banana
+535|Pouze Gemini · Veo
+536|Pouze Gemini: přes Gemini připojené v OmniRoute (předplatné, bez API) nebo přes klíč Gemini v AI API. Ostatní poskytovatelé níže se nepoužívají.
+537|Gemini přes API je placené: pro použití s klíčem zvolte níže «Povolit placené poskytovatele».
+538|Obecné
+539|Generovat
+540|Generovat znovu
+541|Získat bezplatný klíč
+542|Nainstalujte si {brand} jako aplikaci do telefonu, zdarma
+543|Připravuji…
+544|GitHub OAuth Client ID
+545|GitHub OAuth client secret
+546|Modely GitHub · oddělené čárkami
+547|Obnovení na GitHubu hotovo. Commit: {commit}
+548|Přístup ke GitHubu pro všechny
+549|Token GitHub (pro soukromý repozitář)
+550|Udělej mi krátké shrnutí nejdůležitějších dnešních zpráv a technologií s odkazy na zdroje.
+551|Vraťte se do chatu, kde jste byli
+552|Vrátit se k předchozí verzi {path}?
+553|Přejít na poslední zprávu
+554|Dobré odpoledne
+555|Dobré odpoledne, {name}
+556|Dobrý večer
+557|Dobrý večer, {name}
+558|Dobré ráno
+559|Dobré ráno, {name}
+560|Google
+561|Google OAuth Client ID
+562|Google OAuth client secret
+563|Aplikace Google (Gmail, Drive, Calendar, Docs, Sheets)
+564|Správa a řízení
+565|Modely Grok · oddělené čárkami
+566|Obrázkový model Grok
+567|Video model Grok
+568|API klíč Groq
+569|Modely Groq · oddělené čárkami
+570|HD obrázky
+571|Název hlavičky
+572|Zdraví
+573|Zdravotnictví
+574|Pomoz mi naplánovat týden. Moje priority jsou:
+575|Tady je váš soubor {format}: {name}
+576|Skrýt akce
+577|Skrýt upozornění
+578|Skrýt kroky
+579|Jak má tento asistent pracovat?
+580|Jak jde den? Co vám můžu vzít z ramen?
+581|Kolik kreditů?
+583|Jak AI odpovídá
+584|Jak vybrat
+585|Jak nainstalovat
+586|Jak vám mám odpovídat, pokaždé. Např. «Vysvětluj stručně, s příklady. Když píšeš kód, přidej komentáře.»
+587|HubSpot OAuth Client ID
+588|HubSpot OAuth client secret
+589|HubSpot přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v HubSpotu ({where}) s touto návratovou adresou: {url}
+590|Přístup k HubSpotu pro všechny
+591|Modely Hugging Face · oddělené čárkami
+592|Lidské zdroje
+593|Nemohu se spojit se službou {brand} na {url}. Zkontrolujte adresu nebo použijte {local}.
+594|Zkopíroval jsem 1 klíč pro server. Vložte ho, až o něj skript na serveru požádá (pravé tlačítko). Za 2 minuty se ze schránky smaže.
+595|Zkopíroval jsem {n} klíčů pro server. Vložte je, až o ně skript na serveru požádá (pravé tlačítko). Za 2 minuty se ze schránky smažou.
+596|Nezkopíroval jsem {names}: obsahují znaky, které server nepřijímá.
+597|Nic jsem neslyšel. Klikněte na mikrofon a mluvte znovu.
+598|IP adresa
+599|IP nebo doména
+600|Pokud zvolený model Gemini pro váš klíč neexistuje, {brand} sám zkusí ostatní názvy Gemini a pak poskytovatele povolené zde.
+601|Pokud zvolený model neodpovídá, sám přepne na přímá API. Vypnuto: odpovídá jen zvolený model, jinak uvidíte chybu.
+603|Pokud se služba zastaví, {brand} se ji pokusí znovu spustit.
+604|Importovat z historie
+605|Importovat trvalé údaje (preference, rozhodnutí, podrobnosti projektů) z historie chatů?
+606|Importováno {n} položek z historie.
+607|Importuji…
+608|V chatu
+609|Součást {brand}
+610|Součást {brand} · bez účtu
+611|Součást, ale ve výchozím stavu blokováno ochranou nákladů.
+612|Informace ze schůzek Zoom
+613|Infrastruktura
+614|Instalovat
+615|Instalovat aplikaci {brand}
+616|Nainstalováno
+617|Pokyny
+618|Pokyny pro AI
+619|Pokyny pro asistenta
+620|Pokyny pro {brand}
+621|Pokyny uložené jednou a použité, kdy chcete: v chatu napište /název (například /shrnutí) nebo nechte skill vždy zapnutý.
+623|Pokyny, které AI provede, když je zavoláte přes /název.
+624|Návrh rozhraní a prototypy
+625|Neplatná odpověď služby {brand} (HTTP {status}).
+626|Neplatná odpověď při nahrávání souboru.
+627|Faktury, objednávky a transakce.
+628|Issues, pull requesty a repozitáře kódu
+629|Při uložení bude smazáno
+630|Je víkend. Něco do práce, nebo jen pro vás?
+631|Issues v Jiře a stránky v Confluence: hledání, tvorba, úpravy.
+632|Jira, Confluence, Loom a další
+633|Ponechat chaty
+634|Udržuje AI v obraze o zprávách
+635|Klíč / token
+636|Klíč uložen — nechte prázdné, chcete-li ho ponechat
+637|Klíče pro server
+638|LTX Video. Může použít úvodní kredity, pak placený kredit.
+639|Jazyk
+640|Jazyk pro diktování, přepis a předčítání
+641|Jazyk: {lang}
+642|Jazyk: {name}
+643|Poslední aktivita
+644|Poslední aktualizace: {when}, úspěšná.
+645|Později
+646|Poslední zpráva
+647|Poslední vydaná verze: {v}.
+648|Právo, bezpečnost a shoda
+649|Leady, kontakty a příležitosti.
+650|Ponechte {url}, pokud nepoužíváte samostatný server {brand}. Adresa se před uložením ověří.
+651|Právo
+652|Právní analýza
+653|Délka
+654|Začněme den dobře. Co uděláme nejdřív?
+655|Knihovna
+656|Filtry Knihovny
+657|Licence a autoři
+658|Světlý
+659|Poslouchám… klikněte znovu na mikrofon pro zastavení.
+660|Poslouchám… klikněte na mikrofon pro zastavení
+661|Živý internet a GitHub
+662|Živý internet, GitHub a server
+663|Načítám paměť…
+664|Načítám Knihovnu…
+665|Načítám programátorské modely…
+666|Načítám kombinace…
+667|Načítám návrh…
+668|Načítám historii…
+669|Načítám modely…
+670|Načítám pluginy…
+671|Načítám náhled…
+672|Načítám profil…
+673|Načítám žádost…
+674|Načítám nastavení…
+675|Načítám úkoly…
+676|Načítám text…
+677|Načítám uživatele…
+678|Načítám…
+679|Odhlásit
+680|Odhlásit ze všech zařízení
+681|Logy a statistiky vašich Workers.
+682|Logy, metriky, monitory a incidenty.
+683|Vyhledejte adresu, město nebo místo.
+684|Hledám aktualizace…
+685|Lovable OAuth Client ID
+686|Lovable OAuth client secret
+687|Lovable přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v Lovable ({where}) s touto návratovou adresou: {url}
+688|Přístup k Lovable pro všechny
+689|Vytvořena kopie, vypnutá: «{name}».
+690|Vytvořil {brand}
+691|Hlavní asistent
+692|Hlavní kombinace (automatická)
+693|Vytvořit bezplatný klíč Gemini
+694|Vytvořit obrázek
+695|Vytvořit opravu
+696|Vytváří a pracuje s PDF, DOCX a PPTX.
+697|Vytváří obrázky pomocí AI.
+698|Vytvářím obrázek a připravuji soubor…
+699|Vytvářím video… může to trvat několik minut
+700|Vytvářím soubor {format}…
+701|Správa a dotazování databází
+702|Mapy
+703|Marketing
+704|Matematika / logika
+705|Já
+706|Přepisy a shrnutí schůzek.
+707|Schůzky
+708|Paměť
+709|Paměť a chaty
+710|Paměť je prázdná.
+711|Paměť je vypnutá: {brand} neukládá ani nepoužívá nic nového, dokud ji nezapnete.
+712|Nastavení paměti
+713|Paměť, projekty a knihovna souborů
+714|Menu
+715|Zpráva
+716|Napište {brand}
+717|Zpráva, pokročilý model
+718|Zpráva, rychlý model
+719|Zpráva, špičkový model
+721|Metoda
+722|Přístup k mikrofonu byl odepřen. Povolte mikrofon v prohlížeči.
+723|Mikrofon dostupný a povolený ✓
+724|Mikrofon zapnutý — mluvte teď
+725|Mikrofon není dostupný nebo povolený
+726|Týmy a chaty Microsoft Teams
+727|API klíč Mistral
+728|Modely Mistral · oddělené čárkami
+729|Model povolen / blokován
+730|Ručně zvolený model
+731|Model pro nové chaty
+732|Model pro design
+734|Modely, datové sady a Spaces.
+735|Modernizace
+736|Zase pondělí. Uspořádejme týden.
+737|Pondělí–pátek v {time}
+738|Měsíčně
+739|Každý měsíc {day}. den v {time}
+740|Ranní zprávy
+741|Nejoblíbenější
+742|Přesunout do projektu
+743|Hudba a podcasty
+745|NE
+746|API NVIDIA / NIM, kompatibilní s OpenAI.
+747|API klíč NVIDIA
+748|Modely NVIDIA · oddělené čárkami
+749|Název
+750|Navigace
+751|Potřebujete pomoc se zbytkem dne?
+752|Vyžaduje pozornost
+753|Potřebuje přístup
+755|Nová žádost o přístup
+756|Nový účet
+757|Nové účty jsou na tomto serveru vypnuté.
+758|Novinky, které stojí za pozornost
+759|Nový asistent
+760|Nový chat
+761|Nový chat s {name}
+762|Nový návrh
+763|Nová položka do paměti
+764|Nové heslo
+765|Nový projekt
+766|Nový skill
+767|Nový úkol
+768|Nový týden. Naplánujeme ho spolu?
+769|Nejnovější
+770|Zprávy každé ráno
+771|Další kredity: {when}
+772|Další spuštění
+773|Ne
+774|Pro tento účet není povolen žádný AI model. Požádejte Ownera o přístup k modelu.
+775|Zatím žádné API pluginy
+776|Nepřišla žádná odpověď.
+777|Zatím žádné připojené aplikace. Vyberte jednu níže: po přihlášení v ní {brand} může hledat, číst, vytvářet a upravovat a před každou akcí se zeptá.
+778|Žádné aplikace nenalezeny. Můžete ji přidat přes «Vlastní aplikace», pokud má adresu MCP.
+779|Žádné změny
+780|Nejsou uloženy žádné klíče pro chat. Přidejte například klíč Gemini nebo Groq a uložte.
+781|V tomto projektu zatím nejsou chaty. Napište zprávu a začněte.
+782|Žádné chaty k zobrazení.
+783|Zatím žádné chaty.
+784|Zatím nejsou dostupné žádné programátorské modely.
+785|Zatím žádní vlastní asistenti.
+786|Nevybrány žádné dny
+787|Zatím žádné návrhy. Popište první vpravo.
+788|Žádné zařízení ji nepřijalo. Zapněte oznámení výše.
+789|Žádné položky.
+790|Filtru neodpovídá žádný soubor.
+791|Žádné dostupné modely
+792|Žádný model neodpovídá.
+793|Žádné dostupné modely.
+795|Nenalezeny žádné pluginy. Můžete ho vytvořit na kartě «Vytvořit plugin».
+796|Bez projektu
+797|Zatím žádné projekty. Vytvořte jeden v bočním menu.
+798|Žádný čitelný text
+799|Žádný připojený repozitář
+800|Zatím žádné naplánované úkoly
+801|Zatím žádné skilly
+802|Žádný textový výsledek.
+804|V OmniRoute nejsou modely {name}. Připojte ho v panelu OmniRoute (Providers) a pak tuto stránku otevřete znovu.
+805|Žádné
+806|Žádná z nastavených AI teď nemohla odpovědět. Zkontrolujte zvolený model nebo API klíče.
+807|Nepovoleno Ownerem
+808|Není součástí vašeho tarifu
+809|Nenainstalováno — npm install -g omniroute
+810|Zatím nespuštěno
+811|Pro toto hledání nic nenalezeno.
+812|Nic nenalezeno.
+813|Zatím nic. Během rozhovoru si {brand} ukládá vaše preference a důležitá rozhodnutí. Níže můžete také něco přidat.
+814|Oznámení odesláno na 1 zařízení.
+815|Oznámení odesláno na {n} zařízení.
+816|Oznámení
+817|Oznámení {brand} jsou blokovaná. Zapněte je v nastavení telefonu (Oznámení → {brand}) a klikněte znovu.
+818|Oznámení jsou na tomto zařízení vypnutá.
+819|Oznámení nebyla povolena. Můžete je zapnout v nastavení telefonu u {brand}.
+820|Upozornit mě
+821|Dokumenty a pracovní postupy Notion
+822|Chyba OAuth — {error}
+823|VYP
+824|ZAP
+825|Nabídka pro klienta
+827|Oficiální a komunitní modely přes Predictions API.
+828|Oficiální video modely přes Predictions API.
+829|Nejstarší
+830|OmniRoute 3.8 bez klíče neodpovídá. Vytvořte ho v OmniRoute:
+831|API klíč OmniRoute
+832|Adresa OmniRoute
+833|Kombinace OmniRoute
+834|Kombinace OmniRoute
+835|Příkaz OmniRoute
+836|OmniRoute připojen
+837|OmniRoute zatím nemá kombinace.
+838|OmniRoute odpovídá.
+839|OmniRoute neodpovídá. Vyberte ze seznamu model přímého API (Groq, Gemini…) nebo zapněte automatickou zálohu.
+840|OmniRoute běží, ale potřebuje API klíč: vytvořte ho v OmniRoute → API Manager a zadejte v Nastavení → AI a OmniRoute. Do té doby odpovídají přímá API (Groq, Gemini…), pokud je vyberete v seznamu.
+841|Klíč OmniRoute
+842|OmniRoute potřebuje API klíč
+843|OmniRoute zastaven
+844|Na iPhonu fungují oznámení jen z nainstalované aplikace: otevřete {domain} v Safari → Sdílet → Přidat na plochu, pak otevřete {brand} z plochy a vraťte se sem.
+845|Zapnout {slug}
+846|Jednou
+847|Jednou: {date}, {time}
+848|Jedno místo pro mapy, obrázky, asistenty a weby.
+849|Jeden rok
+850|Pouze poskytovatelé bez přímých nákladů
+851|Pouze vybraný blok kódu
+852|Zobrazují se jen pracovní kroky, ne vnitřní uvažování modelu.
+853|Jen když se něco změní
+854|Otevřít
+855|Otevřít Nastavení
+856|Otevřít Nastavení → Video
+857|Otevře web v prohlížeči.
+858|Otevřít na celou obrazovku
+859|Otevřít v Designu
+860|Otevřít v prohlížeči
+861|Otevřít stránku Google
+862|Otevřete menu prohlížeče (⋮ nebo ≡).
+863|Otevřít chat
+864|Otevřít návrh {name}
+865|Otevřít seznam
+866|Otevřít náhled {name}
+867|Otevřít úkol
+868|Otevřete {domain} v Safari (na iPhonu umí aplikaci nainstalovat jen Safari).
+869|Otevřít {name}
+870|OpenAI (ChatGPT) už nevytváří videa: Sora byla ukončena 24. září 2026, aplikace i API. Obrázky ChatGPT dál fungují.
+871|OpenAI (placené)
+872|API klíč OpenAI
+873|Kompatibilní s OpenAI, rychlé odpovědi.
+874|Kompatibilní s OpenAI.
+875|Modely OpenAI · oddělené čárkami
+876|Obrázkový model OpenAI
+877|OpenAI přes API
+878|Router kompatibilní s OpenAI; stejný token jako u Obrázků.
+879|OpenRouter (může stát peníze)
+880|API klíč OpenRouter
+881|Model OpenRouter
+882|Obrázkový model OpenRouter
+883|Video model OpenRouter
+884|Otevírám…
+885|Otevře aplikaci přímo
+886|Provoz
+887|Volitelné: OAuth App GitHubu (GitHub → Settings → Developer settings) s touto callback URL: {url}. Bez ní se GitHub připojí osobním tokenem.
+888|Pořadí pokusů
+889|Jiné
+890|Další modely OmniRoute
+891|Ostatní účty používají všechny bezplatné modely (Gemini, Groq, Mistral, OpenRouter :free…). Vaše předplatná (Codex, Claude Code, Copilot, Kiro, webové účty) zůstávají jen vaše: jejich podmínky nedovolují sdílet účet. Kombinaci OmniRoute použijí jen tehdy, když ji zde zaškrtnete; zaškrtávejte jen kombinace z bezplatných modelů.
+892|Jiná odpověď: {question}
+893|Další podrobnosti
+894|Další modely
+895|Ostatní
+896|Jinak se spustí, jen když v chatu napíšete jeho název nebo @spouštěč.
+897|E-mail Ownera na tomto počítači
+898|Owner na tomto počítači
+899|Pouze Owner
+900|Owner: uživatelé, schválení, oprávnění, relace a AI služby.
+901|PNG, JPEG nebo WebP, do 10 MB.

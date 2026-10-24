@@ -1,0 +1,4 @@
+1211|Ganti akun
+71|Tambah akun lain
+65|Akun di perangkat ini
+1708|atau masuk ke akun lain

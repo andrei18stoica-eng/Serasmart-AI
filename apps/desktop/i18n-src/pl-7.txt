@@ -1,0 +1,4 @@
+1211|Przełącz konto
+71|Dodaj kolejne konto
+65|Konta na tym urządzeniu
+1708|lub zaloguj się na inne konto

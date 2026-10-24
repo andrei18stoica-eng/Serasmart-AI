@@ -1,0 +1,4 @@
+1211|Fiókváltás
+71|Másik fiók hozzáadása
+65|Fiókok ezen az eszközön
+1708|vagy jelentkezz be egy másik fiókba

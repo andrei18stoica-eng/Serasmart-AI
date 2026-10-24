@@ -1,436 +1,436 @@
-1345|Der Dienst hat nicht bestätigt, dass die Datei gespeichert wurde.
-1346|Die Sitzung ist ungültig oder abgelaufen.
-1347|Die Sitzungen wurden geschlossen.
-1348|Die Einstellung konnte nicht gespeichert werden: {error}
-1349|Die Einstellungen konnten nicht gespeichert werden.
-1350|Die Anmeldung wurde im Browser geöffnet. Schließ sie dort ab; {brand} speichert die Verbindung selbst.
-1351|Die Anmeldung wurde nicht innerhalb von 2 Minuten abgeschlossen. Versuche es erneut.
-1352|Die Website hat die neueste Version.
-1353|Das Website-Update ist fehlgeschlagen. Die Details stehen unter Einstellungen → Allgemein.
-1354|Die Website wurde auf Version {v} aktualisiert. Die Seite lädt neu.
-1355|Die Website wurde aktualisiert. Die Seite lädt neu.
-1356|Die Website aktualisiert sich selbst, wenn eine neue Version erscheint (stündlich geprüft).
-1357|Die Einstellungen der Website: auf dem Server gespeichert und sofort für alle Konten angewendet. Die Schlüssel bleiben auf dem Server und werden nur maskiert angezeigt. Owner-E-Mail und Registrierungen bleiben in der .env-Datei auf dem Server.
-1358|Der Skill /{slug} wurde gespeichert.
-1359|Die Skill-Bibliothek konnte nicht geladen werden: {error}
-1360|Die Skills konnten nicht geladen werden: {error}
-1361|Der gesprochene Text steht im Feld; sende ihn, wenn die KI ihre Antwort fertig hat.
-1362|Der Status von {email} ist jetzt „{status}“.
-1363|Die Syntaxprüfung hat einen Fehler gefunden. Der Vorschlag kann NICHT angewendet werden.
-1364|Die Syntaxprüfung war erfolgreich.
-1365|Die Aufgabe wurde noch nicht ausgeführt. Drücke „Jetzt ausführen“, um ein Ergebnis zu sehen.
-1366|Die Aufgabe wurde aktualisiert.
-1367|Die Aufgabe „{name}“ wurde erstellt.
-1368|Die Aufgaben konnten nicht geladen werden: {error}
-1369|Der Text konnte nicht in die Zwischenablage kopiert werden.
-1370|Der Text konnte nicht gelesen werden
-1371|Der Text, den du markiert hast
-1372|Die beiden neuen Passwörter stimmen nicht überein.
-1373|Das Video konnte nicht erstellt werden: {error}
-1374|Die Sprachaufnahme ist fehlgeschlagen.
-1375|Die ganze Nachricht
-1376|Das Fenster konnte diesen Teil der App nicht anzeigen. Drücke „Neu laden“. Wenn es wieder passiert, kopiere die Details unten und schick sie an den Administrator der App.
-1377|Der {brand}-Dienst hat das Angefragte nicht gefunden (HTTP 404).
-1378|Beim {brand}-Dienst ist ein Fehler aufgetreten (HTTP {status}).
-1379|Die {format}-Datei konnte nicht erstellt werden: {error}. Du kannst es mit den Buttons unter der Antwort erneut versuchen.
-1380|Ihre Modelle erscheinen in der Liste (Groq, Gemini, Cerebras …). Sie antworten, wenn du sie wählst oder kein Modell gewählt ist.
-1381|Ihre Modelle erscheinen in der Liste und antworten direkt, ohne OmniRoute.
-1382|Design
-1383|Es gibt neue Änderungen auf GitHub.
-1384|In dieser Unterhaltung gibt es keine Dateien.
-1385|In dieser Gruppe gibt es keine Nutzer.
-1386|Zu dieser Antwort gibt es keine Nachricht von dir.
-1387|Es gibt keine aktuelle GitHub-Sicherung.
-1388|Diese Aktionen laufen ohne Nachfrage. Entferne eine, und die KI fragt dich wieder.
-1389|Mit diesen Werkzeugen kann {brand} aktuelle Informationen prüfen und relevante Teile eines GitHub-Repositorys holen.
-1390|Denken
-1391|Denken ist an: sorgfältigere Antworten, etwas langsamer. Drücke für Schnell.
-1392|Denkt nach …
-1393|Diese App lässt nur von ihr freigegebene Apps zu; Serasmart steht noch nicht auf ihrer Liste.
-1394|Dieser Browser kann keine Benachrichtigungen empfangen. Nutze die auf dem Handy installierte {brand}-App (Chrome auf Android oder Safari auf dem iPhone).
-1395|Dieser Computer
-1396|Dieses Dokument ist leer.
-1397|Diese E-Mail-Adresse wird nicht akzeptiert.
-1398|Diese Dateiart kann hier nicht geöffnet werden. Nutze „Herunterladen“.
-1399|Für diese Dateiart gibt es keine Vorschau. Du kannst sie herunterladen.
-1400|Dieser Link kann nicht aus {brand} geöffnet werden.
-1401|Credit-Teile dieses Zeitraums
-1402|Dieser Dienst braucht auch das OAuth Client Secret.
-1403|Dieser Text ist nicht in deinen Chats.
-1404|Diese Arbeitsmappe ist leer.
-1405|Tausende Apps über deine Zapier-Aktionen.
-1406|Uhrzeit
-1407|Zeitüberschreitung: {answer}
-1408|Heute
-1409|Die heutigen offiziellen BNR-Wechselkurse: Euro, Dollar, Pfund und die anderen (bnr.ro).
-1410|Together-API-Schlüssel
-1411|Token
-1412|Token (optional)
-1413|Token gespeichert — leer lassen, um ihn zu behalten
-1414|Ton
-1415|Zu groß zum Lesen
-1416|Zu viele Versuche. Warte 15 Minuten und versuche es erneut.
-1417|Zu viele Anmeldeversuche. Versuche es in ein paar Minuten erneut.
-1418|Zu viele falsche Codes. Fordere einen neuen Code an.
-1419|Werkzeuge
-1420|Top-Modelle (die stärksten Claude, GPT, Gemini und Grok)
-1421|Aufladen
-1422|Essen und Kalorien erfassen
-1423|Transkriptionsmodell
-1424|App übersetzen
-1425|Die ganze App in jede Sprache übersetzen
-1426|Übersetzt natürlich und behält Ton und Formatierung bei.
-1427|App wird übersetzt ins {name} … {pct} %
-1428|App wird übersetzt ins {name} … {pct} %. Die Texte ändern sich von selbst, sobald sie fertig sind.
-1429|{n} Texte werden im Hintergrund in {count} Sprachen übersetzt. Du kannst dieses Fenster schließen.
-1430|Übersetzer
-1431|Versucht die Modelle der Reihe nach, bis eines noch Kontingent hat.
-1433|Erneut versuchen
-1434|Auf diesem Gerät ausschalten
-1435|Kostenpflichtige KI für normale Konten ausschalten? Der Owner behält den Zugang zu den kostenpflichtigen Modellen.
-1436|{name} ausschalten
-1437|Für dieses Gerät einschalten
-1438|{name} einschalten
-1439|Ausgeschaltet
-1440|Vom Owner für dein Konto ausgeschaltet.
-1441|Nicht verfügbar
-1442|Unter dem Nachrichtenfeld kannst du im Bildmodus jedes Mal wählen, wer es macht. Bei „Automatisch“ macht, wenn du im Chat ein Gemini-, ChatGPT- oder Grok-Modell gewählt hast, die Firma dieses Modells das Bild (zuerst das Abo in OmniRoute, dann ihre API); sonst wird diese Einstellung verwendet.
-1443|Unter dem Nachrichtenfeld kannst du im Videomodus jedes Mal wählen, wer es macht. Bei „Automatisch“ macht, wenn du im Chat ein Gemini- oder Grok-Modell gewählt hast, die Firma dieses Modells das Video (zuerst das Abo in OmniRoute, dann ihre API); sonst wird diese Einstellung verwendet.
-1444|Letzte GitHub-Änderung rückgängig machen
-1445|Unbekannter Fehler.
-1446|Unbegrenzt
-1447|Lösen
-1448|Nicht angekreuzt: Seine Modelle verschwinden aus der Liste und antworten nie, auch nicht als Ausweichlösung. OmniRoute-Kombinationen bleiben; was sie enthalten, wählst du im OmniRoute-Panel.
-1449|Design ohne Titel
-1450|Aktuelle Dokumentation für Code-Bibliotheken.
-1451|Website jetzt aktualisieren
-1452|Website jetzt aktualisieren? Der Server lädt die neueste Version von GitHub und startet die Website neu (1–5 Minuten, in denen sie nicht antwortet).
-1453|Update:
-1454|Website wird aktualisiert … dauert 1–5 Minuten; die Seite lädt von selbst neu.
-1455|Wird aktualisiert …
-1456|Hochladen
-1457|Beliebige Datei hochladen
-1458|Audio hochladen
-1459|Bilder hochladen
-1460|Video hochladen
-1461|1 Datei wird hochgeladen … große Dateien können dauern.
-1462|Datei wird hochgeladen …
-1463|{n} Dateien werden hochgeladen … große Dateien können dauern.
-1464|Nutzung
-1466|Im Chat nutzen
-1467|Von selbst nutzen, wenn es passt
-1468|Gedächtnis nutzen
-1469|Lokalen Standarddienst nutzen
-1470|Direkte APIs nutzen
-1471|Nutze die E-Mail deines {brand}-Kontos.
-1472|Diese KI nutzen
-1473|Verbraucht
-1474|Sofort nutzbar, ohne Wochenlimit
-1478|Genutzt, wenn du {trigger} schreibst
-1479|Genutzt, wenn du „{name}“ oder {trigger} schreibst
-1480|Hilfreiche Antwort
-1481|Nutzer
-1482|Nutzt die relevanten Chats desselben Projekts, ohne dass du sie von Hand kopierst.
-1483|Hilfsmittel
-1484|12 Monate gültig
-1485|Veo mit demselben Gemini-Schlüssel wie für den Chat; das Modell wählst du oben unter „Videos erstellt von“.
-1486|Version
-1487|Version auf dem Server: {v}.
-1488|Version {v} ist verfügbar.
-1489|Version {v} ist verfügbar. Sie lädt sich selbst herunter; du bekommst eine Benachrichtigung, wenn sie bereit ist.
-1490|Video
-1491|Videoerzeugung
-1492|Videoerzeugung mit KI-Modellen
-1493|Videoerzeugung, APIs, Modelle und automatischer Wechsel zu einem anderen Anbieter.
-1494|Video erstellt von
-1495|Videoerstellung
-1496|Videomodus
-1497|Videomodus: Die nächste Nachricht erstellt ein Video. Drücke erneut auf Video, um ihn zu verlassen.
-1498|Video: Die nächste Nachricht erstellt ein Video.
-1499|Videos erstellt von
-1500|Mit KI erstellte Videos
-1501|Videos beliebiger Länge
-1502|Stimme
-1503|Sprachaktivität
-1504|Stimme und Mikrofon
-1505|Spracheingabe
-1507|Die Spracherkennung hat nicht funktioniert. Drücke das Mikrofon und versuche es erneut.
-1508|Die Spracherkennung wurde beendet; prüfe den Text und sende ihn.
-1509|Sprache zu Text
-1510|Warten
-1511|Warte, bis die Datei fertig hochgeladen ist.
-1512|Warte bis {when}
-1513|Warte auf die Anmeldung
-1514|Warte auf die Antwort der gewählten KI …
-1515|Warte, bis die Sprache aufgeschrieben ist.
-1516|Wartet auf deine Zustimmung
-1517|Wartet auf deine Zustimmung in {app} …
-1518|Möchte
-1519|Einen Preis beobachten
-1520|Arbeitsweisen
-1521|Wir konnten die E-Mail mit dem Code nicht senden. Prüfe die Adresse und versuche es erneut.
-1522|Wir haben dir einen 6-stelligen Code per E-Mail geschickt. Gib ihn ein, um zu bestätigen, dass die Adresse dir gehört.
-1523|Wir haben einen 6-stelligen Code an {email} geschickt. Wenn du ihn nicht siehst, schau im Spam nach. Der Code läuft in 15 Minuten ab.
-1524|Wir haben dir einen Code per E-Mail geschickt.
-1525|Wir haben dir einen neuen Code geschickt.
-1526|Schwache Antwort
-1527|Wetter
-1528|Das aktuelle Wetter und die 3-Tage-Vorhersage für jede Stadt (Open-Meteo, ohne Konto).
-1529|Websuche
-1530|Websuche für KI-Agenten
-1531|Websuche, gemacht für KI.
-1532|Websuche mit Quellen
-1533|Website
-1534|Website-Adresse
-1535|Websites
-1536|Wochenendmodus. Worauf hast du Lust?
-1537|Wöchentlich
-1538|Wöchentlich, {day} um {time}
-1539|Willkommen zurück
-1540|Willkommen bei {brand}
-1541|Was bauen wir heute?
-1542|Woran arbeiten wir heute?
-1543|Was beschreibt deine Arbeit am besten?
-1544|Was es enthält
-1545|Was es macht, in einem Satz
-1546|Was behoben werden muss
-1547|Was soll ich ändern
-1548|Wie soll {brand} dich nennen?
-1549|Was soll {brand} tun? Z. B. Finde die wichtigen Nachrichten von heute und gib mir eine Zusammenfassung mit Links.
-1550|Wie die KI dich nennt
-1551|Was die KI jedes Mal tun muss, wenn du diesen Skill nutzt: Ton, Aufbau, was rein soll, was zu vermeiden ist.
-1552|Was das Plugin macht
-1553|Was die Dinge kosten
-1554|Was der KI helfen würde, dich zu kennen: Interessen, Projekte, Erfahrungsstand.
-1555|Was du machst
-1556|Was {brand} über dich weiß
-1557|Was sich {brand} über dich merkt und wie es frühere Chats nutzt.
-1558|Wenn eine Anfrage mehrdeutig ist, fragt {brand} zuerst nach, mit Optionen, die du mit einem Klick wählst.
-1559|Wenn sich jemand registriert, zeigt dein Handy, wer {brand} beitreten möchte, und fragt, ob du es erlaubst. Auf Android antwortest du direkt in der Benachrichtigung mit Erlauben oder Ablehnen; auf dem iPhone tippst du darauf und wählst in der App. Die Anfrage wartet, bis du antwortest.
-1562|Wenn du ein Bild oder Video anforderst, legt {brand} die echte Datei mit einem Download-Button in den Chat.
-1563|Wenn du ein Bild anforderst, versucht {brand} die Anbieter in der festgelegten Reihenfolge, legt die echte Datei in den Chat und speichert sie in der Bibliothek.
-1564|Wenn du ein Video anforderst, versucht {brand} die Anbieter der Reihe nach, lädt die echte MP4-Datei herunter, legt sie in den Chat und speichert sie in der Bibliothek.
-1565|Wenn du etwas fragst, durchsucht es deine anderen Chats (auch archivierte) und nutzt, was dazu passt. So kannst du ein Thema in einem neuen Chat fortsetzen.
-1566|Windows-App
-1567|Mit eingerichteter Cloud-API verwaltet der Owner Konten, Freigaben und Berechtigungen zentral. Leer lassen, um nur diesen PC zu nutzen.
-1568|Mit dem xAI-Schlüssel aus KI-APIs.
-1569|Mit dem xAI-Schlüssel aus KI-APIs; 1–15 Sekunden.
-1570|Ohne Tarif: {n} Nachrichten pro Tag mit den kostenlosen Modellen, nach einer {days}-tägigen Testphase mit {credits} Credits. Kartenzahlungen starten bald; bis dahin vergibt der Owner die Tarife.
-1571|Word-, Excel-, PowerPoint- und PDF-Dateien
-1574|Workers, KV, R2 und D1 in deinem Cloudflare-Konto.
-1575|Werktage (Montag–Freitag)
-1576|Arbeitet in
-1577|Arbeitet in {app} …
-1578|Arbeitest du noch spät? Ich bin da, wenn du mich brauchst.
-1579|Preis wird berechnet …
-1580|Arbeitet …
-1581|Trainings und Gesundheitsdaten
-1582|Funktioniert sofort
-1583|Funktioniert: {result}
-1584|Machst du Feierabend? Ich helfe dir mit dem, was noch übrig ist.
-1585|Gib dem Plugin einen Namen.
-1586|Gib der Aufgabe einen Namen.
-1587|Schreib den Namen eines Plugins in den Chat (zum Beispiel „Kalender“) oder @name, und {brand} nutzt es für die Antwort.
-1588|Schreib eine kurze, freundliche E-Mail, die
-1589|Eine E-Mail schreiben
-1590|Schreib einmal auf, was {brand} tun soll, und wähle, wann. Zum Beispiel: „Jeden Werktag um 08:30 gib mir eine Nachrichtenübersicht.“
-1591|Schreib, was {brand} tun soll.
-1592|Schreib deine Antwort
-1593|Schreib deine eigene Antwort
-1594|Schreibt aus ein paar Ideen eine klare, höfliche E-Mail mit Betreff.
-1595|HTML und CSS werden geschrieben …
-1596|Schreiben und Inhalte
-1597|Schreibe auf, was du gesagt hast …
-1598|Deine Stimme wird aufgeschrieben …
-1599|Antwort wird geschrieben …
-1600|Deine {format}-Datei wird geschrieben …
-1601|Deine {format}-Datei wird geschrieben … {n} Wörter
-1602|Falsche E-Mail oder falsches Passwort.
-1603|JA
-1604|Ja
-1605|Gestern
-1606|Du hast /{slug} hinzugefügt. Schreib es in den Chat, um es zu nutzen.
-1607|Du kannst jederzeit weitere kostenlose APIs hinzufügen (Groq, Cerebras, Cloudflare für Bilder) unter Einstellungen → KI-APIs.
-1608|Du kannst einmal pro Minute einen neuen Code anfordern.
-1609|Du kannst mehrere Dienste verbinden. {brand} versucht die Anbieter der Reihe nach und wechselt zum nächsten, wenn einer ausfällt.
-1610|Du kannst das Plugin ohne OAuth nutzen, um die App direkt zu öffnen. OAuth oder eine API brauchst du nur, wenn {brand} private Daten in diesem Dienst lesen oder ändern soll.
-1611|Du wählst
-1612|Du hast {model} gewählt; OmniRoute hat die Frage an {served} geschickt.
-1613|Du hast {model} gewählt; {brand} hat die Frage an {served} geschickt.
-1614|Du bekommst per E-Mail einen Code zur Bestätigung der Adresse, dann gibt der Owner das Konto frei.
-1615|Du hast keine Assistenten. Erstelle einen über die Seitenleiste.
-1616|Du hast die neueste Version.
-1617|Du lässt {brand} wählen
-1618|Du wurdest auf allen Geräten abgemeldet.
-1619|YouTube-Statistiken und Keywords
-1620|Deine KI, jedes Modell
-1621|Dein ChatGPT-Abo, verbunden in OmniRoute
-1622|Dein Claude-Abo, verbunden in OmniRoute
-1623|Deine Google-Kalender-Termine
-1624|Deine Helium-10-Daten
-1625|Deine Outlook-E-Mails
-1626|Dein Plaid-Dashboard: Einträge, Nutzung und Probleme.
-1627|Deine Wix-Websites, -Seiten und dein Wix-Shop.
-1628|Deinem Konto wird nichts berechnet (Owner).
-1629|Das Passwort deines Kontos
-1630|Dein Konto, die App, Stimme, die KI-Dienste und Updates.
-1631|Deine Antworten
-1632|Deine Apps
-1633|Deine verbundenen Apps: Die KI liest und arbeitet darin mit deiner Zustimmung.
-1634|Deine Wahl: {value}
-1635|Deine Designs
-1636|Deine Dateien, Bilder, Videos und Designs, bereit für Unterhaltungen.
-1637|Deine Gesundheitsdaten
-1638|Deine Meeting-Notizen und Transkripte.
-1639|Dein Name
-1640|Deine eigenen APIs und Webhooks sowie Plugins, die sofort funktionieren.
-1641|Deine Bilder und Videos: suchen, hochladen, ändern.
-1642|Dein Tarif
-1643|Dein Tarif, die Credits dieser Woche und Extra-Credits.
-1644|Dein Tarif, die Credits dieser Woche und was jede Aktion kostet.
-1645|Dein Profil, wie die KI dir antwortet, Benachrichtigungen, Datenschutz und Sicherheit.
-1646|Deine Ressourcen auf Render
-1647|Deine Sitzung ist abgelaufen oder wurde geschlossen. Melde dich erneut an.
-1648|Deine Skills
-1650|Deine Aufgaben und Projekte: hinzufügen, abschließen, verschieben.
-1651|Deine Arbeit
-1652|von dir hinzugefügt
-1653|alle Chats
-1654|alle Dateien in der Bibliothek
-1655|das gesamte Gedächtnis
-1656|alle Daten des Kontos (Chats, Gedächtnis, Dateien, Projekte, Assistenten, Skills, Automatisierungen, Apps, Designs)
-1657|Antworten · {s} s
-1659|höchstens {n} Credits
-1660|automatisch
-1661|von {author}
-1662|von {author} · {license}
-1663|Kategorien
-1664|Kategorie
-1665|prüfe, ob du ihn vollständig kopiert hast.
-1666|Code
-1667|Verbindung funktioniert
-1668|erstellt
-1669|Credits
-1670|Standard
-1671|z. B. Auf Beschwerden antworten
-1672|z. B. ein Name oder Spitzname
-1673|z. B. stelle Rückfragen, bevor du ausführlich antwortest
-1674|z. B. Student, Webdesigner, Buchhalter
-1675|z. B. Webdesigner, Buchhalter, Lehrer
-1676|Fehler
-1677|fal-API-Schlüssel
-1678|fal-Videomodell
-1679|fal.ai-Modell
-1680|Datei
-1681|für {n} Credits · einmalige Zahlung
-1682|aus einer geplanten Aufgabe
-1683|aus dem Verlauf
-1684|ab {n}
-1685|github_pat_... oder ghp_...
-1686|enthalten
-1687|Eintrag
-1688|Einträge
-1689|automatisch gemerkt
-1690|aus dem Namen erstellt
-1691|Gedächtnis
-1692|mindestens {n} Credits
-1693|name@beispiel.de
-1694|nächste: {when}
-1695|ohne Konto
-1696|keine
-1697|nicht enthalten
-1698|jetzt
-1699|der Credits dieser Woche verbraucht
-1700|aus
-1701|einmal
-1702|nur bei Änderungen
-1703|optional
-1704|optional / PKCE
-1705|kostenpflichtig
-1706|angeheftet
-1707|nur lesen
-1708|echtes Ergebnis
-1709|erforderlich
-1710|vom Owner festgelegt
-1711|seit {when}
-1712|Quelle
-1713|System
-1714|die Datei
-1715|der Schlüssel funktioniert · {models} Modelle, {combos} Kombinationen · {s} s
-1716|es gibt keinen Inhalt für die Datei
-1717|diese
-1718|diese Woche
-1719|heute
-1720|morgen
-1721|unbekannter Fehler
-1722|bis {s} s
-1723|genutzt, wenn du oben in der Liste kein anderes gewählt hast
-1724|mit Schlüssel
-1725|xAI-API-Schlüssel
-1726|gestern
-1727|dein persönliches Abo bleibt nur deins (die Bedingungen des Anbieters erlauben keine Kontoteilung). Gib der Person das Modell über die API (openai/…, anthropic/…).
-1728|{brand}-Konto
-1729|{brand} kann Fehler machen. Prüfe wichtige Informationen.
-1730|{brand} prüft den veröffentlichten Preis, wenn es einen gibt, und startet nicht, wenn es keine Nullkosten bestätigen kann. Gemini Veo, fal.ai und Replicate bleiben in diesem Modus gesperrt.
-1731|{brand} schreibt die Aufnahme auf …
-1732|{brand} berücksichtigt das in jedem Chat dieses Kontos.
-1733|{brand} merkt sich deine Vorlieben, Entscheidungen und dauerhaften Details selbst und nutzt sie, wenn sie wichtig sind.
-1734|{brand} hatte ein Problem
-1735|{brand} liest die Datei aus dem eingerichteten Repository und schlägt eine Korrektur vor.
-1736|{brand} führt die Anweisungen selbst zur gewählten Zeit aus, solange die App läuft.
-1737|{brand} speichert das Plugin als direkten Link und öffnet die offizielle App. Du meldest dich wie gewohnt im Browser an.
-1738|{brand}-Dienst
-1739|Adresse des {brand}-Dienstes
-1740|{brand}-Einstellungen
-1741|{brand}-Update verfügbar — jetzt installieren
-1742|{brand} hat {provider} · {model} genutzt
-1743|{brand} nutzt das nur, um dir besser zu antworten; du kannst es hier jederzeit ansehen und ändern.
-1744|{days} um {time}
-1745|Noch {left} von {limit} kostenlosen Nachrichten heute
-1746|{left} von {total} Credits · endet {when}
-1747|{model}: {mode} für {email}.
-1748|{name} ({email}) kann {brand} jetzt nutzen.
-1749|{name} ({email}) kann {brand} nicht nutzen.
-1750|{name} ist verbunden. Frag im Chat; die KI fragt dich vor jeder Aktion.
-1751|{name} ist installiert
-1752|{name} ist bereit. Schreib im Chat zum Beispiel: {trigger}, oder frag einfach.
-1753|{name} wurde hinzugefügt: Seine {n} Skills funktionieren mit /name im Chat.
-1754|{name}: verbunden.
-1755|{name}: zum direkten Öffnen gespeichert, ohne OAuth. Melde dich wie gewohnt in der offiziellen App an.
-1756|{name}: Das Plugin wurde verbunden.
-1757|{name}: Das Plugin wurde gespeichert.
-1758|{n} OmniRoute-Modelle sind vom Owner ausgeblendet.
-1759|{n} pro Tag
-1760|{n} pro Minute
-1761|{n} pro Woche
-1762|{n} Aktionen
-1763|{n} aktive Sitzungen
-1764|{n} Apps
-1765|{n} gleichzeitig
-1766|{n} Automatisierungen
-1767|{n} Dateien zur Bibliothek hinzugefügt.
-1768|Noch {n} · Woche {w} von 4
-1769|{n} Modell verfügbar
-1770|{n} Modelle sind vom Owner ausgeblendet.
-1771|{n} Modelle verfügbar
-1772|{n} nicht erlaubt
-1773|{n} Personen
-1774|{n} Sekunden
-1775|{n} Skills
-1776|{n} Versionen
-1777|{pack} · von {author} · {license}
-1778|Tarif {plan}
-1779|Tarif {plan}: {percent} % dieser Woche verbraucht
-1780|{price} pro Jahr · 2 Monate gratis
-1781|{p} % der Credits dieser Woche verbraucht
-1782|{s} s · dauert meist etwa eine Minute
-1783|„Erlaubt“ hat keine Wirkung, solange „Chat AI“ für dieses Konto aus ist: Schalte zuerst oben die Chat-Berechtigung ein.
-1784|„Standard“ folgt den Berechtigungen oben; „Erlaubt“ öffnet das Modell, auch wenn die Berechtigungen es gesperrt halten; „Gesperrt“ sperrt es. Die persönlichen Abos des Owners bleiben nur beim Owner.
-1785|„Nano Banana“; das Modell wählst du oben unter „Bilder erstellt von“. Derselbe Schlüssel wie für KI-APIs und Video.
-1786|„{feature}“ ist vom Owner für dein Konto ausgeschaltet.
-1787|„{model}“ ist dir vom Owner nicht erlaubt.
-1788|„{name}“ wurde ausgeführt. Das Ergebnis steht im Verlauf.
-1789|⚡ Schnell
-1790|✨ Qualität
-1791|🎬 Qualität
-1792|🛡️ Nur kostenlos
+1348|Der Dienst hat nicht bestätigt, dass die Datei gespeichert wurde.
+1349|Die Sitzung ist ungültig oder abgelaufen.
+1350|Die Sitzungen wurden geschlossen.
+1351|Die Einstellung konnte nicht gespeichert werden: {error}
+1352|Die Einstellungen konnten nicht gespeichert werden.
+1353|Die Anmeldung wurde im Browser geöffnet. Schließ sie dort ab; {brand} speichert die Verbindung selbst.
+1354|Die Anmeldung wurde nicht innerhalb von 2 Minuten abgeschlossen. Versuche es erneut.
+1355|Die Website hat die neueste Version.
+1356|Das Website-Update ist fehlgeschlagen. Die Details stehen unter Einstellungen → Allgemein.
+1357|Die Website wurde auf Version {v} aktualisiert. Die Seite lädt neu.
+1358|Die Website wurde aktualisiert. Die Seite lädt neu.
+1359|Die Website aktualisiert sich selbst, wenn eine neue Version erscheint (stündlich geprüft).
+1360|Die Einstellungen der Website: auf dem Server gespeichert und sofort für alle Konten angewendet. Die Schlüssel bleiben auf dem Server und werden nur maskiert angezeigt. Owner-E-Mail und Registrierungen bleiben in der .env-Datei auf dem Server.
+1361|Der Skill /{slug} wurde gespeichert.
+1362|Die Skill-Bibliothek konnte nicht geladen werden: {error}
+1363|Die Skills konnten nicht geladen werden: {error}
+1364|Der gesprochene Text steht im Feld; sende ihn, wenn die KI ihre Antwort fertig hat.
+1365|Der Status von {email} ist jetzt „{status}“.
+1366|Die Syntaxprüfung hat einen Fehler gefunden. Der Vorschlag kann NICHT angewendet werden.
+1367|Die Syntaxprüfung war erfolgreich.
+1368|Die Aufgabe wurde noch nicht ausgeführt. Drücke „Jetzt ausführen“, um ein Ergebnis zu sehen.
+1369|Die Aufgabe wurde aktualisiert.
+1370|Die Aufgabe „{name}“ wurde erstellt.
+1371|Die Aufgaben konnten nicht geladen werden: {error}
+1372|Der Text konnte nicht in die Zwischenablage kopiert werden.
+1373|Der Text konnte nicht gelesen werden
+1374|Der Text, den du markiert hast
+1375|Die beiden neuen Passwörter stimmen nicht überein.
+1376|Das Video konnte nicht erstellt werden: {error}
+1377|Die Sprachaufnahme ist fehlgeschlagen.
+1378|Die ganze Nachricht
+1379|Das Fenster konnte diesen Teil der App nicht anzeigen. Drücke „Neu laden“. Wenn es wieder passiert, kopiere die Details unten und schick sie an den Administrator der App.
+1380|Der {brand}-Dienst hat das Angefragte nicht gefunden (HTTP 404).
+1381|Beim {brand}-Dienst ist ein Fehler aufgetreten (HTTP {status}).
+1382|Die {format}-Datei konnte nicht erstellt werden: {error}. Du kannst es mit den Buttons unter der Antwort erneut versuchen.
+1383|Ihre Modelle erscheinen in der Liste (Groq, Gemini, Cerebras …). Sie antworten, wenn du sie wählst oder kein Modell gewählt ist.
+1384|Ihre Modelle erscheinen in der Liste und antworten direkt, ohne OmniRoute.
+1385|Design
+1386|Es gibt neue Änderungen auf GitHub.
+1387|In dieser Unterhaltung gibt es keine Dateien.
+1388|In dieser Gruppe gibt es keine Nutzer.
+1389|Zu dieser Antwort gibt es keine Nachricht von dir.
+1390|Es gibt keine aktuelle GitHub-Sicherung.
+1391|Diese Aktionen laufen ohne Nachfrage. Entferne eine, und die KI fragt dich wieder.
+1392|Mit diesen Werkzeugen kann {brand} aktuelle Informationen prüfen und relevante Teile eines GitHub-Repositorys holen.
+1393|Denken
+1394|Denken ist an: sorgfältigere Antworten, etwas langsamer. Drücke für Schnell.
+1395|Denkt nach …
+1396|Diese App lässt nur von ihr freigegebene Apps zu; Serasmart steht noch nicht auf ihrer Liste.
+1397|Dieser Browser kann keine Benachrichtigungen empfangen. Nutze die auf dem Handy installierte {brand}-App (Chrome auf Android oder Safari auf dem iPhone).
+1398|Dieser Computer
+1399|Dieses Dokument ist leer.
+1400|Diese E-Mail-Adresse wird nicht akzeptiert.
+1401|Diese Dateiart kann hier nicht geöffnet werden. Nutze „Herunterladen“.
+1402|Für diese Dateiart gibt es keine Vorschau. Du kannst sie herunterladen.
+1403|Dieser Link kann nicht aus {brand} geöffnet werden.
+1404|Credit-Teile dieses Zeitraums
+1405|Dieser Dienst braucht auch das OAuth Client Secret.
+1406|Dieser Text ist nicht in deinen Chats.
+1407|Diese Arbeitsmappe ist leer.
+1408|Tausende Apps über deine Zapier-Aktionen.
+1409|Uhrzeit
+1410|Zeitüberschreitung: {answer}
+1411|Heute
+1412|Die heutigen offiziellen BNR-Wechselkurse: Euro, Dollar, Pfund und die anderen (bnr.ro).
+1413|Together-API-Schlüssel
+1414|Token
+1415|Token (optional)
+1416|Token gespeichert — leer lassen, um ihn zu behalten
+1417|Ton
+1418|Zu groß zum Lesen
+1419|Zu viele Versuche. Warte 15 Minuten und versuche es erneut.
+1420|Zu viele Anmeldeversuche. Versuche es in ein paar Minuten erneut.
+1421|Zu viele falsche Codes. Fordere einen neuen Code an.
+1422|Werkzeuge
+1423|Top-Modelle (die stärksten Claude, GPT, Gemini und Grok)
+1424|Aufladen
+1425|Essen und Kalorien erfassen
+1426|Transkriptionsmodell
+1427|App übersetzen
+1428|Die ganze App in jede Sprache übersetzen
+1429|Übersetzt natürlich und behält Ton und Formatierung bei.
+1430|App wird übersetzt ins {name} … {pct} %
+1431|App wird übersetzt ins {name} … {pct} %. Die Texte ändern sich von selbst, sobald sie fertig sind.
+1432|{n} Texte werden im Hintergrund in {count} Sprachen übersetzt. Du kannst dieses Fenster schließen.
+1433|Übersetzer
+1434|Versucht die Modelle der Reihe nach, bis eines noch Kontingent hat.
+1436|Erneut versuchen
+1437|Auf diesem Gerät ausschalten
+1438|Kostenpflichtige KI für normale Konten ausschalten? Der Owner behält den Zugang zu den kostenpflichtigen Modellen.
+1439|{name} ausschalten
+1440|Für dieses Gerät einschalten
+1441|{name} einschalten
+1442|Ausgeschaltet
+1443|Vom Owner für dein Konto ausgeschaltet.
+1444|Nicht verfügbar
+1445|Unter dem Nachrichtenfeld kannst du im Bildmodus jedes Mal wählen, wer es macht. Bei „Automatisch“ macht, wenn du im Chat ein Gemini-, ChatGPT- oder Grok-Modell gewählt hast, die Firma dieses Modells das Bild (zuerst das Abo in OmniRoute, dann ihre API); sonst wird diese Einstellung verwendet.
+1446|Unter dem Nachrichtenfeld kannst du im Videomodus jedes Mal wählen, wer es macht. Bei „Automatisch“ macht, wenn du im Chat ein Gemini- oder Grok-Modell gewählt hast, die Firma dieses Modells das Video (zuerst das Abo in OmniRoute, dann ihre API); sonst wird diese Einstellung verwendet.
+1447|Letzte GitHub-Änderung rückgängig machen
+1448|Unbekannter Fehler.
+1449|Unbegrenzt
+1450|Lösen
+1451|Nicht angekreuzt: Seine Modelle verschwinden aus der Liste und antworten nie, auch nicht als Ausweichlösung. OmniRoute-Kombinationen bleiben; was sie enthalten, wählst du im OmniRoute-Panel.
+1452|Design ohne Titel
+1453|Aktuelle Dokumentation für Code-Bibliotheken.
+1454|Website jetzt aktualisieren
+1455|Website jetzt aktualisieren? Der Server lädt die neueste Version von GitHub und startet die Website neu (1–5 Minuten, in denen sie nicht antwortet).
+1456|Update:
+1457|Website wird aktualisiert … dauert 1–5 Minuten; die Seite lädt von selbst neu.
+1458|Wird aktualisiert …
+1459|Hochladen
+1460|Beliebige Datei hochladen
+1461|Audio hochladen
+1462|Bilder hochladen
+1463|Video hochladen
+1464|1 Datei wird hochgeladen … große Dateien können dauern.
+1465|Datei wird hochgeladen …
+1466|{n} Dateien werden hochgeladen … große Dateien können dauern.
+1467|Nutzung
+1469|Im Chat nutzen
+1470|Von selbst nutzen, wenn es passt
+1471|Gedächtnis nutzen
+1472|Lokalen Standarddienst nutzen
+1473|Direkte APIs nutzen
+1474|Nutze die E-Mail deines {brand}-Kontos.
+1475|Diese KI nutzen
+1476|Verbraucht
+1477|Sofort nutzbar, ohne Wochenlimit
+1481|Genutzt, wenn du {trigger} schreibst
+1482|Genutzt, wenn du „{name}“ oder {trigger} schreibst
+1483|Hilfreiche Antwort
+1484|Nutzer
+1485|Nutzt die relevanten Chats desselben Projekts, ohne dass du sie von Hand kopierst.
+1486|Hilfsmittel
+1487|12 Monate gültig
+1488|Veo mit demselben Gemini-Schlüssel wie für den Chat; das Modell wählst du oben unter „Videos erstellt von“.
+1489|Version
+1490|Version auf dem Server: {v}.
+1491|Version {v} ist verfügbar.
+1492|Version {v} ist verfügbar. Sie lädt sich selbst herunter; du bekommst eine Benachrichtigung, wenn sie bereit ist.
+1493|Video
+1494|Videoerzeugung
+1495|Videoerzeugung mit KI-Modellen
+1496|Videoerzeugung, APIs, Modelle und automatischer Wechsel zu einem anderen Anbieter.
+1497|Video erstellt von
+1498|Videoerstellung
+1499|Videomodus
+1500|Videomodus: Die nächste Nachricht erstellt ein Video. Drücke erneut auf Video, um ihn zu verlassen.
+1501|Video: Die nächste Nachricht erstellt ein Video.
+1502|Videos erstellt von
+1503|Mit KI erstellte Videos
+1504|Videos beliebiger Länge
+1505|Stimme
+1506|Sprachaktivität
+1507|Stimme und Mikrofon
+1508|Spracheingabe
+1510|Die Spracherkennung hat nicht funktioniert. Drücke das Mikrofon und versuche es erneut.
+1511|Die Spracherkennung wurde beendet; prüfe den Text und sende ihn.
+1512|Sprache zu Text
+1513|Warten
+1514|Warte, bis die Datei fertig hochgeladen ist.
+1515|Warte bis {when}
+1516|Warte auf die Anmeldung
+1517|Warte auf die Antwort der gewählten KI …
+1518|Warte, bis die Sprache aufgeschrieben ist.
+1519|Wartet auf deine Zustimmung
+1520|Wartet auf deine Zustimmung in {app} …
+1521|Möchte
+1522|Einen Preis beobachten
+1523|Arbeitsweisen
+1524|Wir konnten die E-Mail mit dem Code nicht senden. Prüfe die Adresse und versuche es erneut.
+1525|Wir haben dir einen 6-stelligen Code per E-Mail geschickt. Gib ihn ein, um zu bestätigen, dass die Adresse dir gehört.
+1526|Wir haben einen 6-stelligen Code an {email} geschickt. Wenn du ihn nicht siehst, schau im Spam nach. Der Code läuft in 15 Minuten ab.
+1527|Wir haben dir einen Code per E-Mail geschickt.
+1528|Wir haben dir einen neuen Code geschickt.
+1529|Schwache Antwort
+1530|Wetter
+1531|Das aktuelle Wetter und die 3-Tage-Vorhersage für jede Stadt (Open-Meteo, ohne Konto).
+1532|Websuche
+1533|Websuche für KI-Agenten
+1534|Websuche, gemacht für KI.
+1535|Websuche mit Quellen
+1536|Website
+1537|Website-Adresse
+1538|Websites
+1539|Wochenendmodus. Worauf hast du Lust?
+1540|Wöchentlich
+1541|Wöchentlich, {day} um {time}
+1542|Willkommen zurück
+1543|Willkommen bei {brand}
+1544|Was bauen wir heute?
+1545|Woran arbeiten wir heute?
+1546|Was beschreibt deine Arbeit am besten?
+1547|Was es enthält
+1548|Was es macht, in einem Satz
+1549|Was behoben werden muss
+1550|Was soll ich ändern
+1551|Wie soll {brand} dich nennen?
+1552|Was soll {brand} tun? Z. B. Finde die wichtigen Nachrichten von heute und gib mir eine Zusammenfassung mit Links.
+1553|Wie die KI dich nennt
+1554|Was die KI jedes Mal tun muss, wenn du diesen Skill nutzt: Ton, Aufbau, was rein soll, was zu vermeiden ist.
+1555|Was das Plugin macht
+1556|Was die Dinge kosten
+1557|Was der KI helfen würde, dich zu kennen: Interessen, Projekte, Erfahrungsstand.
+1558|Was du machst
+1559|Was {brand} über dich weiß
+1560|Was sich {brand} über dich merkt und wie es frühere Chats nutzt.
+1561|Wenn eine Anfrage mehrdeutig ist, fragt {brand} zuerst nach, mit Optionen, die du mit einem Klick wählst.
+1562|Wenn sich jemand registriert, zeigt dein Handy, wer {brand} beitreten möchte, und fragt, ob du es erlaubst. Auf Android antwortest du direkt in der Benachrichtigung mit Erlauben oder Ablehnen; auf dem iPhone tippst du darauf und wählst in der App. Die Anfrage wartet, bis du antwortest.
+1565|Wenn du ein Bild oder Video anforderst, legt {brand} die echte Datei mit einem Download-Button in den Chat.
+1566|Wenn du ein Bild anforderst, versucht {brand} die Anbieter in der festgelegten Reihenfolge, legt die echte Datei in den Chat und speichert sie in der Bibliothek.
+1567|Wenn du ein Video anforderst, versucht {brand} die Anbieter der Reihe nach, lädt die echte MP4-Datei herunter, legt sie in den Chat und speichert sie in der Bibliothek.
+1568|Wenn du etwas fragst, durchsucht es deine anderen Chats (auch archivierte) und nutzt, was dazu passt. So kannst du ein Thema in einem neuen Chat fortsetzen.
+1569|Windows-App
+1570|Mit eingerichteter Cloud-API verwaltet der Owner Konten, Freigaben und Berechtigungen zentral. Leer lassen, um nur diesen PC zu nutzen.
+1571|Mit dem xAI-Schlüssel aus KI-APIs.
+1572|Mit dem xAI-Schlüssel aus KI-APIs; 1–15 Sekunden.
+1573|Ohne Tarif: {n} Nachrichten pro Tag mit den kostenlosen Modellen, nach einer {days}-tägigen Testphase mit {credits} Credits. Kartenzahlungen starten bald; bis dahin vergibt der Owner die Tarife.
+1574|Word-, Excel-, PowerPoint- und PDF-Dateien
+1577|Workers, KV, R2 und D1 in deinem Cloudflare-Konto.
+1578|Werktage (Montag–Freitag)
+1579|Arbeitet in
+1580|Arbeitet in {app} …
+1581|Arbeitest du noch spät? Ich bin da, wenn du mich brauchst.
+1582|Preis wird berechnet …
+1583|Arbeitet …
+1584|Trainings und Gesundheitsdaten
+1585|Funktioniert sofort
+1586|Funktioniert: {result}
+1587|Machst du Feierabend? Ich helfe dir mit dem, was noch übrig ist.
+1588|Gib dem Plugin einen Namen.
+1589|Gib der Aufgabe einen Namen.
+1590|Schreib den Namen eines Plugins in den Chat (zum Beispiel „Kalender“) oder @name, und {brand} nutzt es für die Antwort.
+1591|Schreib eine kurze, freundliche E-Mail, die
+1592|Eine E-Mail schreiben
+1593|Schreib einmal auf, was {brand} tun soll, und wähle, wann. Zum Beispiel: „Jeden Werktag um 08:30 gib mir eine Nachrichtenübersicht.“
+1594|Schreib, was {brand} tun soll.
+1595|Schreib deine Antwort
+1596|Schreib deine eigene Antwort
+1597|Schreibt aus ein paar Ideen eine klare, höfliche E-Mail mit Betreff.
+1598|HTML und CSS werden geschrieben …
+1599|Schreiben und Inhalte
+1600|Schreibe auf, was du gesagt hast …
+1601|Deine Stimme wird aufgeschrieben …
+1602|Antwort wird geschrieben …
+1603|Deine {format}-Datei wird geschrieben …
+1604|Deine {format}-Datei wird geschrieben … {n} Wörter
+1605|Falsche E-Mail oder falsches Passwort.
+1606|JA
+1607|Ja
+1608|Gestern
+1609|Du hast /{slug} hinzugefügt. Schreib es in den Chat, um es zu nutzen.
+1610|Du kannst jederzeit weitere kostenlose APIs hinzufügen (Groq, Cerebras, Cloudflare für Bilder) unter Einstellungen → KI-APIs.
+1611|Du kannst einmal pro Minute einen neuen Code anfordern.
+1612|Du kannst mehrere Dienste verbinden. {brand} versucht die Anbieter der Reihe nach und wechselt zum nächsten, wenn einer ausfällt.
+1613|Du kannst das Plugin ohne OAuth nutzen, um die App direkt zu öffnen. OAuth oder eine API brauchst du nur, wenn {brand} private Daten in diesem Dienst lesen oder ändern soll.
+1614|Du wählst
+1615|Du hast {model} gewählt; OmniRoute hat die Frage an {served} geschickt.
+1616|Du hast {model} gewählt; {brand} hat die Frage an {served} geschickt.
+1617|Du bekommst per E-Mail einen Code zur Bestätigung der Adresse, dann gibt der Owner das Konto frei.
+1618|Du hast keine Assistenten. Erstelle einen über die Seitenleiste.
+1619|Du hast die neueste Version.
+1620|Du lässt {brand} wählen
+1621|Du wurdest auf allen Geräten abgemeldet.
+1622|YouTube-Statistiken und Keywords
+1623|Deine KI, jedes Modell
+1624|Dein ChatGPT-Abo, verbunden in OmniRoute
+1625|Dein Claude-Abo, verbunden in OmniRoute
+1626|Deine Google-Kalender-Termine
+1627|Deine Helium-10-Daten
+1628|Deine Outlook-E-Mails
+1629|Dein Plaid-Dashboard: Einträge, Nutzung und Probleme.
+1630|Deine Wix-Websites, -Seiten und dein Wix-Shop.
+1631|Deinem Konto wird nichts berechnet (Owner).
+1632|Das Passwort deines Kontos
+1633|Dein Konto, die App, Stimme, die KI-Dienste und Updates.
+1634|Deine Antworten
+1635|Deine Apps
+1636|Deine verbundenen Apps: Die KI liest und arbeitet darin mit deiner Zustimmung.
+1637|Deine Wahl: {value}
+1638|Deine Designs
+1639|Deine Dateien, Bilder, Videos und Designs, bereit für Unterhaltungen.
+1640|Deine Gesundheitsdaten
+1641|Deine Meeting-Notizen und Transkripte.
+1642|Dein Name
+1643|Deine eigenen APIs und Webhooks sowie Plugins, die sofort funktionieren.
+1644|Deine Bilder und Videos: suchen, hochladen, ändern.
+1645|Dein Tarif
+1646|Dein Tarif, die Credits dieser Woche und Extra-Credits.
+1647|Dein Tarif, die Credits dieser Woche und was jede Aktion kostet.
+1648|Dein Profil, wie die KI dir antwortet, Benachrichtigungen, Datenschutz und Sicherheit.
+1649|Deine Ressourcen auf Render
+1650|Deine Sitzung ist abgelaufen oder wurde geschlossen. Melde dich erneut an.
+1651|Deine Skills
+1653|Deine Aufgaben und Projekte: hinzufügen, abschließen, verschieben.
+1654|Deine Arbeit
+1655|von dir hinzugefügt
+1656|alle Chats
+1657|alle Dateien in der Bibliothek
+1658|das gesamte Gedächtnis
+1659|alle Daten des Kontos (Chats, Gedächtnis, Dateien, Projekte, Assistenten, Skills, Automatisierungen, Apps, Designs)
+1660|Antworten · {s} s
+1662|höchstens {n} Credits
+1663|automatisch
+1664|von {author}
+1665|von {author} · {license}
+1666|Kategorien
+1667|Kategorie
+1668|prüfe, ob du ihn vollständig kopiert hast.
+1669|Code
+1670|Verbindung funktioniert
+1671|erstellt
+1672|Credits
+1673|Standard
+1674|z. B. Auf Beschwerden antworten
+1675|z. B. ein Name oder Spitzname
+1676|z. B. stelle Rückfragen, bevor du ausführlich antwortest
+1677|z. B. Student, Webdesigner, Buchhalter
+1678|z. B. Webdesigner, Buchhalter, Lehrer
+1679|Fehler
+1680|fal-API-Schlüssel
+1681|fal-Videomodell
+1682|fal.ai-Modell
+1683|Datei
+1684|für {n} Credits · einmalige Zahlung
+1685|aus einer geplanten Aufgabe
+1686|aus dem Verlauf
+1687|ab {n}
+1688|github_pat_... oder ghp_...
+1689|enthalten
+1690|Eintrag
+1691|Einträge
+1692|automatisch gemerkt
+1693|aus dem Namen erstellt
+1694|Gedächtnis
+1695|mindestens {n} Credits
+1696|name@beispiel.de
+1697|nächste: {when}
+1698|ohne Konto
+1699|keine
+1700|nicht enthalten
+1701|jetzt
+1702|der Credits dieser Woche verbraucht
+1703|aus
+1704|einmal
+1705|nur bei Änderungen
+1706|optional
+1707|optional / PKCE
+1709|kostenpflichtig
+1710|angeheftet
+1711|nur lesen
+1712|echtes Ergebnis
+1713|erforderlich
+1714|vom Owner festgelegt
+1715|seit {when}
+1716|Quelle
+1717|System
+1718|die Datei
+1719|der Schlüssel funktioniert · {models} Modelle, {combos} Kombinationen · {s} s
+1720|es gibt keinen Inhalt für die Datei
+1721|diese
+1722|diese Woche
+1723|heute
+1724|morgen
+1725|unbekannter Fehler
+1726|bis {s} s
+1727|genutzt, wenn du oben in der Liste kein anderes gewählt hast
+1728|mit Schlüssel
+1729|xAI-API-Schlüssel
+1730|gestern
+1731|dein persönliches Abo bleibt nur deins (die Bedingungen des Anbieters erlauben keine Kontoteilung). Gib der Person das Modell über die API (openai/…, anthropic/…).
+1732|{brand}-Konto
+1733|{brand} kann Fehler machen. Prüfe wichtige Informationen.
+1734|{brand} prüft den veröffentlichten Preis, wenn es einen gibt, und startet nicht, wenn es keine Nullkosten bestätigen kann. Gemini Veo, fal.ai und Replicate bleiben in diesem Modus gesperrt.
+1735|{brand} schreibt die Aufnahme auf …
+1736|{brand} berücksichtigt das in jedem Chat dieses Kontos.
+1737|{brand} merkt sich deine Vorlieben, Entscheidungen und dauerhaften Details selbst und nutzt sie, wenn sie wichtig sind.
+1738|{brand} hatte ein Problem
+1739|{brand} liest die Datei aus dem eingerichteten Repository und schlägt eine Korrektur vor.
+1740|{brand} führt die Anweisungen selbst zur gewählten Zeit aus, solange die App läuft.
+1741|{brand} speichert das Plugin als direkten Link und öffnet die offizielle App. Du meldest dich wie gewohnt im Browser an.
+1742|{brand}-Dienst
+1743|Adresse des {brand}-Dienstes
+1744|{brand}-Einstellungen
+1745|{brand}-Update verfügbar — jetzt installieren
+1746|{brand} hat {provider} · {model} genutzt
+1747|{brand} nutzt das nur, um dir besser zu antworten; du kannst es hier jederzeit ansehen und ändern.
+1748|{days} um {time}
+1749|Noch {left} von {limit} kostenlosen Nachrichten heute
+1750|{left} von {total} Credits · endet {when}
+1751|{model}: {mode} für {email}.
+1752|{name} ({email}) kann {brand} jetzt nutzen.
+1753|{name} ({email}) kann {brand} nicht nutzen.
+1754|{name} ist verbunden. Frag im Chat; die KI fragt dich vor jeder Aktion.
+1755|{name} ist installiert
+1756|{name} ist bereit. Schreib im Chat zum Beispiel: {trigger}, oder frag einfach.
+1757|{name} wurde hinzugefügt: Seine {n} Skills funktionieren mit /name im Chat.
+1758|{name}: verbunden.
+1759|{name}: zum direkten Öffnen gespeichert, ohne OAuth. Melde dich wie gewohnt in der offiziellen App an.
+1760|{name}: Das Plugin wurde verbunden.
+1761|{name}: Das Plugin wurde gespeichert.
+1762|{n} OmniRoute-Modelle sind vom Owner ausgeblendet.
+1763|{n} pro Tag
+1764|{n} pro Minute
+1765|{n} pro Woche
+1766|{n} Aktionen
+1767|{n} aktive Sitzungen
+1768|{n} Apps
+1769|{n} gleichzeitig
+1770|{n} Automatisierungen
+1771|{n} Dateien zur Bibliothek hinzugefügt.
+1772|Noch {n} · Woche {w} von 4
+1773|{n} Modell verfügbar
+1774|{n} Modelle sind vom Owner ausgeblendet.
+1775|{n} Modelle verfügbar
+1776|{n} nicht erlaubt
+1777|{n} Personen
+1778|{n} Sekunden
+1779|{n} Skills
+1780|{n} Versionen
+1781|{pack} · von {author} · {license}
+1782|Tarif {plan}
+1783|Tarif {plan}: {percent} % dieser Woche verbraucht
+1784|{price} pro Jahr · 2 Monate gratis
+1785|{p} % der Credits dieser Woche verbraucht
+1786|{s} s · dauert meist etwa eine Minute
+1787|„Erlaubt“ hat keine Wirkung, solange „Chat AI“ für dieses Konto aus ist: Schalte zuerst oben die Chat-Berechtigung ein.
+1788|„Standard“ folgt den Berechtigungen oben; „Erlaubt“ öffnet das Modell, auch wenn die Berechtigungen es gesperrt halten; „Gesperrt“ sperrt es. Die persönlichen Abos des Owners bleiben nur beim Owner.
+1789|„Nano Banana“; das Modell wählst du oben unter „Bilder erstellt von“. Derselbe Schlüssel wie für KI-APIs und Video.
+1790|„{feature}“ ist vom Owner für dein Konto ausgeschaltet.
+1791|„{model}“ ist dir vom Owner nicht erlaubt.
+1792|„{name}“ wurde ausgeführt. Das Ergebnis steht im Verlauf.
+1793|⚡ Schnell
+1794|✨ Qualität
+1795|🎬 Qualität
+1796|🛡️ Nur kostenlos

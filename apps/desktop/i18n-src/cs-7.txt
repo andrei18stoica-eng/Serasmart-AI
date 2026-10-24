@@ -1,0 +1,4 @@
+1211|Přepnout účet
+71|Přidat další účet
+65|Účty na tomto zařízení
+1708|nebo se přihlaste k jinému účtu

@@ -1,19 +1,19 @@
-1465|Användning
-1561|När AI:n använder {name}
-152|Automatiskt
-98|Alltid tillgänglig
-406|Avstängd
-1477|Används bara när meddelandet behöver det
-824|Erbjuds AI:n i varje meddelande
-1228|AI:n använder det aldrig
-1658|frågar varje gång
-1560|När AI:n använder /{slug}
-1476|Används av sig själv när begäran behöver det, eller med /namn
-1475|Används i varje meddelande
-752|Används aldrig
-1432|Utlösande ord (valfritt)
-1573|Ord som ska få AI:n att använda den, separerade med kommatecken
-1572|Ord som utesluter den (valfritt)
-600|Om meddelandet innehåller något av dem används inte skillen
-620|Instruktioner som sparas en gång. AI:n väljer själv de skills en begäran behöver (Automatiskt); du kan också skriva /namn i chatten eller ha en skill alltid på.
-1170|Använda skills
+1468|Användning
+1564|När AI:n använder {name}
+154|Automatiskt
+100|Alltid tillgänglig
+408|Avstängd
+1480|Används bara när meddelandet behöver det
+826|Erbjuds AI:n i varje meddelande
+1231|AI:n använder det aldrig
+1661|frågar varje gång
+1563|När AI:n använder /{slug}
+1479|Används av sig själv när begäran behöver det, eller med /namn
+1478|Används i varje meddelande
+754|Används aldrig
+1435|Utlösande ord (valfritt)
+1576|Ord som ska få AI:n att använda den, separerade med kommatecken
+1575|Ord som utesluter den (valfritt)
+602|Om meddelandet innehåller något av dem används inte skillen
+622|Instruktioner som sparas en gång. AI:n väljer själv de skills en begäran behöver (Automatiskt); du kan också skriva /namn i chatten eller ha en skill alltid på.
+1172|Använda skills

@@ -1,19 +1,19 @@
-1465|Kullanım
-1561|Yapay zekâ {name} uygulamasını ne zaman kullanır
-152|Otomatik
-98|Her zaman kullanılabilir
-406|Devre dışı
-1477|Yalnızca mesaj gerektirdiğinde kullanılır
-824|Her mesajda yapay zekâya sunulur
-1228|Yapay zekâ onu asla kullanmaz
-1658|her seferinde sorar
-1560|Yapay zekâ /{slug} becerisini ne zaman kullanır
-1476|İstek gerektirdiğinde kendiliğinden ya da /ad ile kullanılır
-1475|Her mesajda kullanılır
-752|Hiç kullanılmaz
-1432|Tetikleyici kelimeler (isteğe bağlı)
-1573|Yapay zekânın onu kullanmasını sağlayacak kelimeler, virgülle ayrılmış
-1572|Onu dışlayan kelimeler (isteğe bağlı)
-600|Mesaj bunlardan birini içerirse beceri kullanılmaz
-620|Bir kez kaydedilen talimatlar. Yapay zekâ bir isteğin ihtiyaç duyduğu becerileri kendisi seçer (Otomatik); sohbette /ad yazabilir veya bir beceriyi her zaman açık tutabilirsiniz.
-1170|Kullanılan beceriler
+1468|Kullanım
+1564|Yapay zekâ {name} uygulamasını ne zaman kullanır
+154|Otomatik
+100|Her zaman kullanılabilir
+408|Devre dışı
+1480|Yalnızca mesaj gerektirdiğinde kullanılır
+826|Her mesajda yapay zekâya sunulur
+1231|Yapay zekâ onu asla kullanmaz
+1661|her seferinde sorar
+1563|Yapay zekâ /{slug} becerisini ne zaman kullanır
+1479|İstek gerektirdiğinde kendiliğinden ya da /ad ile kullanılır
+1478|Her mesajda kullanılır
+754|Hiç kullanılmaz
+1435|Tetikleyici kelimeler (isteğe bağlı)
+1576|Yapay zekânın onu kullanmasını sağlayacak kelimeler, virgülle ayrılmış
+1575|Onu dışlayan kelimeler (isteğe bağlı)
+602|Mesaj bunlardan birini içerirse beceri kullanılmaz
+622|Bir kez kaydedilen talimatlar. Yapay zekâ bir isteğin ihtiyaç duyduğu becerileri kendisi seçer (Otomatik); sohbette /ad yazabilir veya bir beceriyi her zaman açık tutabilirsiniz.
+1172|Kullanılan beceriler

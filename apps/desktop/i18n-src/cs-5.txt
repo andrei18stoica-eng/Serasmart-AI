@@ -1,18 +1,18 @@
-580|Kolik jste využili: zprávy, obrázky, video a hlas.
-1649|Vaše předplatné, tarify a kredity navíc.
-742|Moje spotřeba
-83|Všechny účty
-953|Tarify všech účtů
-718|Zprávy
-1506|Minuty hlasu
-329|Použité kredity
-327|Kredity se počítají podle cen tarifů, i když účet neplatí.
-731|Použité modely
-801|V tomto období žádná spotřeba.
+582|Kolik jste využili: zprávy, obrázky, video a hlas.
+1652|Vaše předplatné, tarify a kredity navíc.
+744|Moje spotřeba
+85|Všechny účty
+955|Tarify všech účtů
+720|Zprávy
+1509|Minuty hlasu
+331|Použité kredity
+329|Kredity se počítají podle cen tarifů, i když účet neplatí.
+733|Použité modely
+803|V tomto období žádná spotřeba.
 16|7 dní
-946|Tarif
-328|Kredity za den
-1199|Předplatné
-792|Bez tarifu
-172|Zpět na všechny účty
-1124|Zobrazte své kalendáře a volný čas a přidávejte, měňte nebo mažte události.
+948|Tarif
+330|Kredity za den
+1201|Předplatné
+794|Bez tarifu
+174|Zpět na všechny účty
+1126|Zobrazte své kalendáře a volný čas a přidávejte, měňte nebo mažte události.

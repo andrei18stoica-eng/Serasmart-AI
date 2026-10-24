@@ -1,19 +1,19 @@
-1465|Gebruik
-1561|Wanneer de AI {name} gebruikt
-152|Automatisch
-98|Altijd beschikbaar
-406|Uitgeschakeld
-1477|Alleen gebruikt als het bericht het nodig heeft
-824|Bij elk bericht aan de AI aangeboden
-1228|De AI gebruikt het nooit
-1658|vraagt elke keer
-1560|Wanneer de AI /{slug} gebruikt
-1476|Vanzelf gebruikt als het verzoek het nodig heeft, of met /naam
-1475|Bij elk bericht gebruikt
-752|Nooit gebruikt
-1432|Triggerwoorden (optioneel)
-1573|Woorden waarbij de AI hem moet gebruiken, gescheiden door komma's
-1572|Woorden die hem uitsluiten (optioneel)
-600|Als het bericht er een bevat, wordt de skill niet gebruikt
-620|Eén keer opgeslagen instructies. De AI kiest zelf de skills die een verzoek nodig heeft (Automatisch); je kunt ook /naam in de chat typen of een skill altijd aan laten.
-1170|Gebruikte skills
+1468|Gebruik
+1564|Wanneer de AI {name} gebruikt
+154|Automatisch
+100|Altijd beschikbaar
+408|Uitgeschakeld
+1480|Alleen gebruikt als het bericht het nodig heeft
+826|Bij elk bericht aan de AI aangeboden
+1231|De AI gebruikt het nooit
+1661|vraagt elke keer
+1563|Wanneer de AI /{slug} gebruikt
+1479|Vanzelf gebruikt als het verzoek het nodig heeft, of met /naam
+1478|Bij elk bericht gebruikt
+754|Nooit gebruikt
+1435|Triggerwoorden (optioneel)
+1576|Woorden waarbij de AI hem moet gebruiken, gescheiden door komma's
+1575|Woorden die hem uitsluiten (optioneel)
+602|Als het bericht er een bevat, wordt de skill niet gebruikt
+622|Eén keer opgeslagen instructies. De AI kiest zelf de skills die een verzoek nodig heeft (Automatisch); je kunt ook /naam in de chat typen of een skill altijd aan laten.
+1172|Gebruikte skills

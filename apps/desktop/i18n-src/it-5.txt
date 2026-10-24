@@ -1,18 +1,18 @@
-580|Quanto hai usato: messaggi, immagini, video e voce.
-1649|Il tuo abbonamento, i piani e i crediti extra.
-742|Il mio consumo
-83|Tutti gli account
-953|Piani di tutti gli account
-718|Messaggi
-1506|Minuti di voce
-329|Crediti usati
-327|I crediti sono calcolati ai prezzi dei piani, anche quando l'account non paga.
-731|Modelli usati
-801|Nessun consumo in questo periodo.
+582|Quanto hai usato: messaggi, immagini, video e voce.
+1652|Il tuo abbonamento, i piani e i crediti extra.
+744|Il mio consumo
+85|Tutti gli account
+955|Piani di tutti gli account
+720|Messaggi
+1509|Minuti di voce
+331|Crediti usati
+329|I crediti sono calcolati ai prezzi dei piani, anche quando l'account non paga.
+733|Modelli usati
+803|Nessun consumo in questo periodo.
 16|7 giorni
-946|Piano
-328|Crediti al giorno
-1199|Abbonamento
-792|Nessun piano
-172|Torna a tutti gli account
-1124|Vedi i tuoi calendari e il tempo libero, e aggiungi, modifica o elimina eventi.
+948|Piano
+330|Crediti al giorno
+1201|Abbonamento
+794|Nessun piano
+174|Torna a tutti gli account
+1126|Vedi i tuoi calendari e il tempo libero, e aggiungi, modifica o elimina eventi.

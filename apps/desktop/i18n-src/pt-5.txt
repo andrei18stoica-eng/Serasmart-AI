@@ -1,18 +1,18 @@
-580|Quanto usou: mensagens, imagens, vídeo e voz.
-1649|A sua subscrição, os planos e os créditos extra.
-742|O meu consumo
-83|Todas as contas
-953|Planos de todas as contas
-718|Mensagens
-1506|Minutos de voz
-329|Créditos usados
-327|Os créditos são calculados aos preços dos planos, mesmo quando a conta não paga.
-731|Modelos usados
-801|Sem consumo neste período.
+582|Quanto usou: mensagens, imagens, vídeo e voz.
+1652|A sua subscrição, os planos e os créditos extra.
+744|O meu consumo
+85|Todas as contas
+955|Planos de todas as contas
+720|Mensagens
+1509|Minutos de voz
+331|Créditos usados
+329|Os créditos são calculados aos preços dos planos, mesmo quando a conta não paga.
+733|Modelos usados
+803|Sem consumo neste período.
 16|7 dias
-946|Plano
-328|Créditos por dia
-1199|Subscrição
-792|Sem plano
-172|Voltar a todas as contas
-1124|Veja os seus calendários e o tempo livre, e adicione, altere ou elimine eventos.
+948|Plano
+330|Créditos por dia
+1201|Subscrição
+794|Sem plano
+174|Voltar a todas as contas
+1126|Veja os seus calendários e o tempo livre, e adicione, altere ou elimine eventos.

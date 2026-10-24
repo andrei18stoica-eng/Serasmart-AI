@@ -1,440 +1,440 @@
-450|E-posta
-451|E-posta ve SMS kampanyaları, listeler ve sonuçlar.
-452|E-posta ve takvim asistanı
-453|E-posta onaylandı.
-454|E-posta onaylandı. Erişiminiz Owner onayını bekliyor.
-455|Hostinger'da barındırılan e-posta
-456|Endpoint / webhook / özel API
-457|Bu hesabın tüm oturumlarını kapatır, bu cihazdakini de.
-458|Bitiş: {when}
-459|Eğlence
-460|Hata
-461|Hatalar, issue'lar ve sürümler.
-462|İyi akşamlar. Bitirilecek bir şey mi, yoksa yarın için bir plan mı?
-463|Her (saat)
-464|Birkaç saatte bir
-465|Bu konuşmada eklenen veya oluşturulan tüm dosyalar.
-466|Her saat
-467|Paketinizin izin verdiği tüm modeller ve araçlar
-468|Bu listelerdeki her model üstteki model listesinde görünür. Anahtar eksikse ya da sağlayıcı 429/404/503 döndürür veya yanıt vermezse {brand} sonraki modeli, ardından sonraki sağlayıcıyı dener.
-469|Her {n} saatte bir
-470|Tam saat
-471|Örnekler
-472|Çıkış kodu: {code}
-473|Basitçe açıkla
-474|Yapay zekâyla yapılmış açıklayıcı videolar
-475|Herhangi bir konuyu yeni başlayan birinin anlayacağı şekilde açıklar.
-476|Keşfet
-477|Bilimsel araştırmaları keşfetme
-478|Uzantılar
-479|Ekstra krediler
-480|HF Inference Router üzerinden FLUX.1 Schnell, yalnızca maliyet koruması izin verirse.
-481|FLUX.1 Schnell · ücretsiz moddaki ilk sağlayıcı.
-482|FLUX.1 Schnell. Promosyon kredileri sınırlı olabilir.
-483|Başarısız oldu:
-484|Yedek medya sağlayıcısı.
-485|Fantasy football analizleri
-486|Hızlı ve gelişmiş modeller
-487|fal.run üzerinden hızlı üretim modelleri.
-488|Hızlı mod. Düşün için tıklayın: daha doğru yanıtlar, biraz daha yavaş.
-489|Dosya
-490|Dosya adı
-491|Depodaki dosya yolu
-492|Dosya yükleme: {error}
-493|Dosya yükleme
-494|Dosyalar
-495|Dosyalar ve veriler
-496|Dosyalar ve araçlar
-497|Bu sohbetin dosyaları
-498|Bu konuşmanın dosyaları
-499|Dosyalar: PDF / Word / PowerPoint / Excel / CSV / ZIP / kod
-500|Finans
-501|Finans ve muhasebe
-502|Bilimsel makaleleri bulma ve okuma
-503|Tasarım bulma, oluşturma ve düzenleme.
-504|Issue, proje ve yorum bulma, oluşturma ve güncelleme.
-505|Önce aldığınız kodla e-postanızı onaylayın. Bulamazsanız spam klasörüne bakın veya yenisini isteyin.
-506|Önce ne yapacağımızı tarif edin.
-507|Anlamı değiştirmeden dil bilgisini, aksanları ve noktalamayı düzeltir.
-508|Kontroller için (fiyatlar, ilanlar): sonuç geçen seferkiyle aynıysa bildirim yok.
-509|Kod sorularında yanıtlamadan önce depoda ilgili dosyaları arar.
-510|Programlama sorularında {brand} bu depodaki ilgili dosyaları kendisi bulur.
-511|Uygulamalar'da Google uygulamalarını bağlamak için: Google Cloud'dan «Web uygulaması» türünde bir OAuth istemcisi, şu dönüş adresiyle: {url}
-512|Bilim ve araştırma için
-513|Süresiz
-514|Formlar ve yanıt analizi
-515|Ücretsiz
-516|Bugünkü ücretsiz mesajlar
-517|Kullanılan ücretsiz mesajlar
-518|Ücretsiz deneme
-519|Sıklık
-520|Taze bir sabah. Nereden başlıyoruz?
-521|Cuma. Haftayı iyi kapatalım.
-522|Samimi
-523|Ad soyad
-524|OpenAI API üzerinden GPT Image.
-525|Oyunlar
-526|Gemini API anahtarı
-527|Gemini ve Grok
-528|Gemini anahtarı
-529|Gemini modeli (Nano Banana)
-530|Gemini modeli (Veo)
-531|Gemini modelleri · virgülle ayrılmış
-532|Yalnızca Gemini · Nano Banana
-533|Yalnızca Gemini · Veo
-534|Yalnızca Gemini: OmniRoute'ta bağlı Gemini üzerinden (abonelik, API'siz) veya Yapay zekâ API'lerindeki Gemini anahtarıyla. Aşağıdaki diğer sağlayıcılar kullanılmaz.
-535|API üzerinden Gemini ücretlidir: anahtarla kullanmak için aşağıda «Ücretli sağlayıcılara izin ver»i seçin.
-536|Genel
-537|Oluştur
-538|Yeniden oluştur
-539|Ücretsiz anahtarı al
-540|{brand}'ı telefonunuza ücretsiz uygulama olarak yükleyin
-541|Hazırlanıyor…
-542|GitHub OAuth Client ID
-543|GitHub OAuth client secret
-544|GitHub modelleri · virgülle ayrılmış
-545|GitHub'da geri yükleme tamamlandı. Commit: {commit}
-546|Herkes için GitHub erişimi
-547|GitHub token'ı (özel bir depo için)
-548|Bugünün en önemli haberleri ve teknoloji hakkında, kaynak bağlantılarıyla kısa bir özet yap.
-549|Bulunduğunuz sohbete geri dönün
-550|{path} önceki sürümüne dönülsün mü?
-551|Son mesaja git
-552|Tünaydın
-553|Tünaydın, {name}
-554|İyi akşamlar
-555|İyi akşamlar, {name}
-556|Günaydın
-557|Günaydın, {name}
-558|Google
-559|Google OAuth Client ID
-560|Google OAuth client secret
-561|Google uygulamaları (Gmail, Drive, Calendar, Docs, Sheets)
-562|Yönetişim
-563|Grok modelleri · virgülle ayrılmış
-564|Grok görsel modeli
-565|Grok video modeli
-566|Groq API anahtarı
-567|Groq modelleri · virgülle ayrılmış
-568|HD görseller
-569|Header adı
-570|Sağlık
-571|Sağlık hizmetleri
-572|Haftamı planlamama yardım et. Önceliklerim:
-573|İşte {format} dosyanız: {name}
-574|İşlemleri gizle
-575|Uyarıyı gizle
-576|Adımları gizle
-577|Bu asistanın nasıl çalışmasını istiyorsunuz?
-578|Gününüz nasıl geçiyor? Üzerinizden ne alabilirim?
-579|Kaç kredi?
-581|Yapay zekâ nasıl yanıtlar
-582|Nasıl seçilir
-583|Nasıl yüklenir
-584|Size her seferinde nasıl yanıt vermemi istediğiniz. Örn. «Kısaca, örneklerle açıkla. Kod yazarken yorum ekle.»
-585|HubSpot OAuth Client ID
-586|HubSpot OAuth client secret
-587|HubSpot yalnızca sahibi tarafından kaydedilmiş OAuth uygulamalarını kabul eder. HubSpot'ta ({where}) şu dönüş adresiyle bir tane oluşturun: {url}
-588|Herkes için HubSpot erişimi
-589|Hugging Face modelleri · virgülle ayrılmış
-590|İnsan kaynakları
-591|{url} adresindeki {brand} hizmetine ulaşamıyorum. Adresi kontrol edin veya {local} kullanın.
-592|Sunucu için 1 anahtar kopyaladım. Sunucudaki betik istediğinde yapıştırın (sağ tık). 2 dakika sonra panodan silinir.
-593|Sunucu için {n} anahtar kopyaladım. Sunucudaki betik istediğinde yapıştırın (sağ tık). 2 dakika sonra panodan silinirler.
-594|{names} kopyalanmadı: sunucunun kabul etmediği karakterler içeriyor.
-595|Hiçbir şey duymadım. Mikrofona tıklayın ve tekrar konuşun.
-596|IP adresi
-597|IP veya alan adı
-598|Seçilen Gemini modeli anahtarınız için yoksa {brand} diğer Gemini adlarını, ardından burada izin verilen sağlayıcıları kendisi dener.
-599|Seçilen model yanıt vermezse kendiliğinden doğrudan API'lere geçer. Kapalı: yalnızca seçilen model yanıtlar, aksi halde hatayı görürsünüz.
-601|Hizmet durursa {brand} yeniden başlatmayı dener.
-602|Geçmişten içe aktar
-603|Kalıcı ayrıntılar (tercihler, kararlar, proje ayrıntıları) sohbet geçmişinden içe aktarılsın mı?
-604|Geçmişten {n} öğe içe aktarıldı.
-605|İçe aktarılıyor…
-606|Bir sohbette
-607|{brand}'a dahil
-608|{brand}'a dahil · hesap gerekmez
-609|Dahil, ancak varsayılan olarak maliyet koruması tarafından engelli.
-610|Zoom toplantılarından bilgiler
-611|Altyapı
-612|Yükle
-613|{brand} uygulamasını yükle
-614|Yüklendi
-615|Talimatlar
-616|Yapay zekâ için talimatlar
-617|Asistan için talimatlar
-618|{brand} için talimatlar
-619|Bir kez kaydedilip istediğiniz zaman kullanılan talimatlar: sohbete /ad yazın (örneğin /özet) veya bir skill'i her zaman açık tutun.
-621|/ad ile çağırdığınızda yapay zekânın uyguladığı talimatlar.
-622|Arayüz tasarımı ve prototipler
-623|{brand} hizmetinden geçersiz yanıt (HTTP {status}).
-624|Dosya yüklenirken geçersiz yanıt.
-625|Faturalar, siparişler ve işlemler.
-626|Issue'lar, pull request'ler ve kod depoları
-627|Kaydedince silinecek
-628|Hafta sonu. İş için bir şey mi, yoksa sadece kendiniz için mi?
-629|Jira issue'ları ve Confluence sayfaları: arama, oluşturma, düzenleme.
-630|Jira, Confluence, Loom ve daha fazlası
-631|Sohbetleri sakla
-632|Yapay zekâyı haberlerle güncel tutar
-633|Anahtar / token
-634|Anahtar kaydedildi — korumak için boş bırakın
-635|Sunucu için anahtarlar
-636|LTX Video. Başlangıç kredilerini, sonra ücretli bakiyeyi kullanabilir.
-637|Dil
-638|Dikte, döküm ve sesli okuma dili
-639|Dil: {lang}
-640|Dil: {name}
-641|Son etkinlik
-642|Son güncelleme: {when}, başarılı.
-643|Daha sonra
-644|Son mesaj
-645|Son yayımlanan sürüm: {v}.
-646|Hukuk, güvenlik ve uyumluluk
-647|Potansiyel müşteriler, kişiler ve fırsatlar.
-648|Ayrı bir {brand} sunucusu kullanmıyorsanız {url} adresini bırakın. Adres kaydedilmeden önce kontrol edilir.
-649|Hukuk
-650|Hukuki analiz
-651|Süre
-652|Güne iyi başlayalım. İlk ne yapıyoruz?
-653|Kitaplık
-654|Kitaplık filtreleri
-655|Lisanslar ve yazarlar
-656|Açık
-657|Dinliyorum… durdurmak için mikrofona tekrar tıklayın.
-658|Dinliyorum… durdurmak için mikrofona tıklayın
-659|Canlı internet ve GitHub
-660|Canlı internet, GitHub ve sunucu
-661|Bellek yükleniyor…
-662|Kitaplık yükleniyor…
-663|Programlama modelleri yükleniyor…
-664|Kombinasyonlar yükleniyor…
-665|Tasarım yükleniyor…
-666|Geçmiş yükleniyor…
-667|Modeller yükleniyor…
-668|Pluginler yükleniyor…
-669|Önizleme yükleniyor…
-670|Profil yükleniyor…
-671|İstek yükleniyor…
-672|Ayarlar yükleniyor…
-673|Görevler yükleniyor…
-674|Metin yükleniyor…
-675|Kullanıcılar yükleniyor…
-676|Yükleniyor…
-677|Çıkış yap
-678|Tüm cihazlardan çıkış yap
-679|Workers'ınızın günlükleri ve istatistikleri.
-680|Günlükler, metrikler, izleyiciler ve olaylar.
-681|Bir adres, şehir veya yer arayın.
-682|Güncellemeler aranıyor…
-683|Lovable OAuth Client ID
-684|Lovable OAuth client secret
-685|Lovable yalnızca sahibi tarafından kaydedilmiş OAuth uygulamalarını kabul eder. Lovable'da ({where}) şu dönüş adresiyle bir tane oluşturun: {url}
-686|Herkes için Lovable erişimi
-687|Bir kopya oluşturuldu, kapalı: «{name}».
-688|{brand} tarafından yapıldı
-689|Ana asistan
-690|Ana kombinasyon (otomatik)
-691|Ücretsiz bir Gemini anahtarı oluştur
-692|Görsel oluştur
-693|Düzeltmeyi hazırla
-694|PDF, DOCX ve PPTX oluşturur ve bunlarla çalışır.
-695|Yapay zekâyla görsel oluşturur.
-696|Görsel oluşturuluyor ve dosya hazırlanıyor…
-697|Video oluşturuluyor… birkaç dakika sürebilir
-698|{format} dosyası oluşturuluyor…
-699|Veritabanlarını yönetme ve sorgulama
-700|Haritalar
-701|Pazarlama
-702|Matematik / mantık
-703|Ben
-704|Toplantı dökümleri ve özetleri.
-705|Toplantılar
-706|Bellek
-707|Bellek ve sohbetler
-708|Bellek boş.
-709|Bellek kapalı: siz açana kadar {brand} yeni hiçbir şey saklamaz veya kullanmaz.
-710|Bellek ayarları
-711|Bellek, projeler ve dosya kitaplığı
-712|Menü
-713|Mesaj
-714|{brand}'a yazın
-715|Mesaj, gelişmiş model
-716|Mesaj, hızlı model
-717|Mesaj, üst düzey model
-719|Yöntem
-720|Mikrofon erişimi reddedildi. Tarayıcıda mikrofona izin verin.
-721|Mikrofon kullanılabilir ve izinli ✓
-722|Mikrofon açık — şimdi konuşun
-723|Mikrofon kullanılamıyor veya izin verilmedi
-724|Microsoft Teams ekipleri ve sohbetleri
-725|Mistral API anahtarı
-726|Mistral modelleri · virgülle ayrılmış
-727|Model izinli / engelli
-728|Elle seçilen model
-729|Yeni sohbetler için model
-730|Design için model
-732|Modeller, veri kümeleri ve Spaces.
-733|Modernizasyon
-734|Yine pazartesi. Haftayı düzenleyelim.
-735|Pazartesi–cuma {time}
-736|Aylık
-737|Her ay {day}. gün, {time}
-738|Sabah haberleri
-739|En popüler
-740|Projeye taşı
-741|Müzik ve podcast'ler
-743|HAYIR
-744|NVIDIA / NIM API'si, OpenAI uyumlu.
-745|NVIDIA API anahtarı
-746|NVIDIA modelleri · virgülle ayrılmış
-747|Ad
-748|Gezinme
-749|Günün geri kalanı için yardım ister misiniz?
-750|İlgi gerekiyor
-751|Erişim gerekiyor
-753|Yeni erişim isteği
-754|Yeni hesap
-755|Bu sunucuda yeni hesaplar kapalı.
-756|Dikkat çeken yenilikler
-757|Yeni asistan
-758|Yeni sohbet
-759|{name} ile yeni sohbet
-760|Yeni tasarım
-761|Belleğe yeni öğe
-762|Yeni şifre
-763|Yeni proje
-764|Yeni skill
-765|Yeni görev
-766|Yeni hafta. Birlikte planlayalım mı?
-767|En yeniler
-768|Her sabah haberler
-769|Sonraki krediler: {when}
-770|Sonraki çalıştırma
-771|Hayır
-772|Bu hesap için izinli yapay zekâ modeli yok. Owner'dan bir modele erişim isteyin.
-773|Henüz API plugini yok
-774|Hiç yanıt gelmedi.
-775|Henüz bağlı uygulama yok. Aşağıdan birini seçin: giriş yaptıktan sonra {brand} içinde arama yapabilir, okuyabilir, oluşturabilir ve düzenleyebilir; her işlemden önce sorar.
-776|Uygulama bulunamadı. MCP adresi varsa «Özel uygulama» ile ekleyebilirsiniz.
-777|Değişiklik yok
-778|Kayıtlı sohbet anahtarı yok. Örneğin bir Gemini veya Groq anahtarı ekleyip kaydedin.
-779|Bu projede henüz sohbet yok. Başlatmak için bir mesaj yazın.
-780|Gösterilecek sohbet yok.
-781|Henüz sohbet yok.
-782|Henüz kullanılabilir programlama modeli yok.
-783|Henüz özel asistan yok.
-784|Gün seçilmedi
-785|Henüz tasarım yok. İlkini sağda tarif edin.
-786|Hiçbir cihaz almadı. Yukarıdan bildirimleri açın.
-787|Öğe yok.
-788|Filtreye uyan dosya yok.
-789|Kullanılabilir model yok
-790|Eşleşen model yok.
-791|Kullanılabilir model yok.
-793|Plugin bulunamadı. «Plugin oluştur» sekmesinden oluşturabilirsiniz.
-794|Proje yok
-795|Henüz proje yok. Yan menüden bir tane oluşturun.
-796|Okunabilir metin yok
-797|Bağlı depo yok
-798|Henüz zamanlanmış görev yok
-799|Henüz skill yok
-800|Metin sonucu yok.
-802|OmniRoute'ta {name} modeli yok. OmniRoute panelinde (Providers) bağlayın, sonra bu sayfayı yeniden açın.
-803|Hiçbiri
-804|Ayarlı yapay zekâların hiçbiri şu anda yanıt veremedi. Seçilen modeli veya API anahtarlarını kontrol edin.
-805|Owner izin vermiyor
-806|Paketinize dahil değil
-807|Yüklü değil — npm install -g omniroute
-808|Henüz çalışmadı
-809|Bu arama için bir şey bulunamadı.
-810|Bir şey bulunamadı.
-811|Henüz bir şey yok. Konuştukça {brand} tercihlerinizi ve önemli kararlarınızı saklar. Aşağıya siz de bir şey ekleyebilirsiniz.
-812|Bildirim 1 cihaza gönderildi.
-813|Bildirim {n} cihaza gönderildi.
-814|Bildirimler
-815|{brand} bildirimleri engelli. Telefon ayarlarından açın (Bildirimler → {brand}) ve tekrar tıklayın.
-816|Bu cihazda bildirimler kapalı.
-817|Bildirimlere izin verilmedi. Telefon ayarlarında {brand} altından açabilirsiniz.
-818|Bana bildir
-819|Notion belgeleri ve iş akışları
-820|OAuth hatası — {error}
-821|KAPALI
-822|AÇIK
-823|Müşteri için teklif
-825|Predictions API üzerinden resmî ve topluluk modelleri.
-826|Predictions API üzerinden resmî video modelleri.
-827|En eskiler
-828|OmniRoute 3.8 anahtar olmadan yanıt vermez. OmniRoute'ta oluşturun:
-829|OmniRoute API anahtarı
-830|OmniRoute adresi
-831|OmniRoute kombinasyonu
-832|OmniRoute kombinasyonları
-833|OmniRoute komutu
-834|OmniRoute bağlı
-835|OmniRoute'ta henüz kombinasyon yok.
-836|OmniRoute yanıt veriyor.
-837|OmniRoute yanıt vermiyor. Listeden doğrudan bir API modeli (Groq, Gemini…) seçin veya otomatik yedeği açın.
-838|OmniRoute çalışıyor ama bir API anahtarına ihtiyacı var: OmniRoute → API Manager'da oluşturun ve Ayarlar → Yapay zekâ ve OmniRoute'a girin. O zamana kadar listeden seçerseniz doğrudan API'ler (Groq, Gemini…) yanıtlar.
-839|OmniRoute anahtarı
-840|OmniRoute'un bir API anahtarına ihtiyacı var
-841|OmniRoute durdu
-842|iPhone'da bildirimler yalnızca yüklü uygulamadan çalışır: {domain} adresini Safari'de açın → Paylaş → Ana Ekrana Ekle, sonra {brand}'ı ekrandan açıp buraya dönün.
-843|{slug} aç
-844|Bir kez
-845|Bir kez: {date}, {time}
-846|Haritalar, görseller, asistanlar ve siteler için tek bir yer.
-847|Bir yıl
-848|Yalnızca doğrudan maliyeti olmayan sağlayıcılar
-849|Yalnızca seçili kod bloğu
-850|Yalnızca çalışma adımları gösterilir, modelin iç akıl yürütmesi değil.
-851|Yalnızca bir şey değiştiğinde
-852|Aç
-853|Ayarları aç
-854|Ayarlar → Video'yu aç
-855|Tarayıcıda bir site açar.
-856|Tam ekranda aç
-857|Design'da aç
-858|Tarayıcıda aç
-859|Google sayfasını aç
-860|Tarayıcı menüsünü açın (⋮ veya ≡).
-861|Sohbeti aç
-862|{name} tasarımını aç
-863|Listeyi aç
-864|{name} önizlemesini aç
-865|Görevi aç
-866|{domain} adresini Safari'de açın (iPhone'da uygulamayı yalnızca Safari yükleyebilir).
-867|{name} aç
-868|OpenAI (ChatGPT) artık video yapmıyor: Sora 24 Eylül 2026'da hem uygulama hem API olarak kapandı. ChatGPT görselleri hâlâ çalışıyor.
-869|OpenAI (ücretli)
-870|OpenAI API anahtarı
-871|OpenAI uyumlu, hızlı yanıtlar.
-872|OpenAI uyumlu.
-873|OpenAI modelleri · virgülle ayrılmış
-874|OpenAI görsel modeli
-875|API üzerinden OpenAI
-876|OpenAI uyumlu yönlendirici; Görseller ile aynı token.
-877|OpenRouter (ücretli olabilir)
-878|OpenRouter API anahtarı
-879|OpenRouter modeli
-880|OpenRouter görsel modeli
-881|OpenRouter video modeli
-882|Açılıyor…
-883|Uygulamayı doğrudan açar
-884|Operasyonlar
-885|İsteğe bağlı: şu callback URL'si ile bir GitHub OAuth App (GitHub → Settings → Developer settings): {url}. Olmadan GitHub kişisel bir token ile bağlanır.
-886|Deneme sırası
-887|Diğer
-888|Diğer OmniRoute modelleri
-889|Diğer hesaplar tüm ücretsiz modelleri kullanır (Gemini, Groq, Mistral, OpenRouter :free…). Abonelikleriniz (Codex, Claude Code, Copilot, Kiro, web hesapları) yalnızca sizin kalır: koşulları hesap paylaşımına izin vermez. Bir OmniRoute kombinasyonunu yalnızca burada işaretlerseniz kullanırlar; yalnızca ücretsiz modellerden oluşan kombinasyonları işaretleyin.
-890|Başka yanıt: {question}
-891|Daha fazla ayrıntı
-892|Daha fazla model
-893|Diğerleri
-894|Aksi halde yalnızca sohbete adını veya @tetikleyiciyi yazdığınızda başlar.
-895|Bu bilgisayardaki Owner e-postası
-896|Bu bilgisayarda Owner
-897|Yalnızca Owner
-898|Owner: kullanıcılar, onaylar, izinler, oturumlar ve yapay zekâ hizmetleri.
-899|PNG, JPEG veya WebP, en fazla 10 MB.
+452|E-posta
+453|E-posta ve SMS kampanyaları, listeler ve sonuçlar.
+454|E-posta ve takvim asistanı
+455|E-posta onaylandı.
+456|E-posta onaylandı. Erişiminiz Owner onayını bekliyor.
+457|Hostinger'da barındırılan e-posta
+458|Endpoint / webhook / özel API
+459|Bu hesabın tüm oturumlarını kapatır, bu cihazdakini de.
+460|Bitiş: {when}
+461|Eğlence
+462|Hata
+463|Hatalar, issue'lar ve sürümler.
+464|İyi akşamlar. Bitirilecek bir şey mi, yoksa yarın için bir plan mı?
+465|Her (saat)
+466|Birkaç saatte bir
+467|Bu konuşmada eklenen veya oluşturulan tüm dosyalar.
+468|Her saat
+469|Paketinizin izin verdiği tüm modeller ve araçlar
+470|Bu listelerdeki her model üstteki model listesinde görünür. Anahtar eksikse ya da sağlayıcı 429/404/503 döndürür veya yanıt vermezse {brand} sonraki modeli, ardından sonraki sağlayıcıyı dener.
+471|Her {n} saatte bir
+472|Tam saat
+473|Örnekler
+474|Çıkış kodu: {code}
+475|Basitçe açıkla
+476|Yapay zekâyla yapılmış açıklayıcı videolar
+477|Herhangi bir konuyu yeni başlayan birinin anlayacağı şekilde açıklar.
+478|Keşfet
+479|Bilimsel araştırmaları keşfetme
+480|Uzantılar
+481|Ekstra krediler
+482|HF Inference Router üzerinden FLUX.1 Schnell, yalnızca maliyet koruması izin verirse.
+483|FLUX.1 Schnell · ücretsiz moddaki ilk sağlayıcı.
+484|FLUX.1 Schnell. Promosyon kredileri sınırlı olabilir.
+485|Başarısız oldu:
+486|Yedek medya sağlayıcısı.
+487|Fantasy football analizleri
+488|Hızlı ve gelişmiş modeller
+489|fal.run üzerinden hızlı üretim modelleri.
+490|Hızlı mod. Düşün için tıklayın: daha doğru yanıtlar, biraz daha yavaş.
+491|Dosya
+492|Dosya adı
+493|Depodaki dosya yolu
+494|Dosya yükleme: {error}
+495|Dosya yükleme
+496|Dosyalar
+497|Dosyalar ve veriler
+498|Dosyalar ve araçlar
+499|Bu sohbetin dosyaları
+500|Bu konuşmanın dosyaları
+501|Dosyalar: PDF / Word / PowerPoint / Excel / CSV / ZIP / kod
+502|Finans
+503|Finans ve muhasebe
+504|Bilimsel makaleleri bulma ve okuma
+505|Tasarım bulma, oluşturma ve düzenleme.
+506|Issue, proje ve yorum bulma, oluşturma ve güncelleme.
+507|Önce aldığınız kodla e-postanızı onaylayın. Bulamazsanız spam klasörüne bakın veya yenisini isteyin.
+508|Önce ne yapacağımızı tarif edin.
+509|Anlamı değiştirmeden dil bilgisini, aksanları ve noktalamayı düzeltir.
+510|Kontroller için (fiyatlar, ilanlar): sonuç geçen seferkiyle aynıysa bildirim yok.
+511|Kod sorularında yanıtlamadan önce depoda ilgili dosyaları arar.
+512|Programlama sorularında {brand} bu depodaki ilgili dosyaları kendisi bulur.
+513|Uygulamalar'da Google uygulamalarını bağlamak için: Google Cloud'dan «Web uygulaması» türünde bir OAuth istemcisi, şu dönüş adresiyle: {url}
+514|Bilim ve araştırma için
+515|Süresiz
+516|Formlar ve yanıt analizi
+517|Ücretsiz
+518|Bugünkü ücretsiz mesajlar
+519|Kullanılan ücretsiz mesajlar
+520|Ücretsiz deneme
+521|Sıklık
+522|Taze bir sabah. Nereden başlıyoruz?
+523|Cuma. Haftayı iyi kapatalım.
+524|Samimi
+525|Ad soyad
+526|OpenAI API üzerinden GPT Image.
+527|Oyunlar
+528|Gemini API anahtarı
+529|Gemini ve Grok
+530|Gemini anahtarı
+531|Gemini modeli (Nano Banana)
+532|Gemini modeli (Veo)
+533|Gemini modelleri · virgülle ayrılmış
+534|Yalnızca Gemini · Nano Banana
+535|Yalnızca Gemini · Veo
+536|Yalnızca Gemini: OmniRoute'ta bağlı Gemini üzerinden (abonelik, API'siz) veya Yapay zekâ API'lerindeki Gemini anahtarıyla. Aşağıdaki diğer sağlayıcılar kullanılmaz.
+537|API üzerinden Gemini ücretlidir: anahtarla kullanmak için aşağıda «Ücretli sağlayıcılara izin ver»i seçin.
+538|Genel
+539|Oluştur
+540|Yeniden oluştur
+541|Ücretsiz anahtarı al
+542|{brand}'ı telefonunuza ücretsiz uygulama olarak yükleyin
+543|Hazırlanıyor…
+544|GitHub OAuth Client ID
+545|GitHub OAuth client secret
+546|GitHub modelleri · virgülle ayrılmış
+547|GitHub'da geri yükleme tamamlandı. Commit: {commit}
+548|Herkes için GitHub erişimi
+549|GitHub token'ı (özel bir depo için)
+550|Bugünün en önemli haberleri ve teknoloji hakkında, kaynak bağlantılarıyla kısa bir özet yap.
+551|Bulunduğunuz sohbete geri dönün
+552|{path} önceki sürümüne dönülsün mü?
+553|Son mesaja git
+554|Tünaydın
+555|Tünaydın, {name}
+556|İyi akşamlar
+557|İyi akşamlar, {name}
+558|Günaydın
+559|Günaydın, {name}
+560|Google
+561|Google OAuth Client ID
+562|Google OAuth client secret
+563|Google uygulamaları (Gmail, Drive, Calendar, Docs, Sheets)
+564|Yönetişim
+565|Grok modelleri · virgülle ayrılmış
+566|Grok görsel modeli
+567|Grok video modeli
+568|Groq API anahtarı
+569|Groq modelleri · virgülle ayrılmış
+570|HD görseller
+571|Header adı
+572|Sağlık
+573|Sağlık hizmetleri
+574|Haftamı planlamama yardım et. Önceliklerim:
+575|İşte {format} dosyanız: {name}
+576|İşlemleri gizle
+577|Uyarıyı gizle
+578|Adımları gizle
+579|Bu asistanın nasıl çalışmasını istiyorsunuz?
+580|Gününüz nasıl geçiyor? Üzerinizden ne alabilirim?
+581|Kaç kredi?
+583|Yapay zekâ nasıl yanıtlar
+584|Nasıl seçilir
+585|Nasıl yüklenir
+586|Size her seferinde nasıl yanıt vermemi istediğiniz. Örn. «Kısaca, örneklerle açıkla. Kod yazarken yorum ekle.»
+587|HubSpot OAuth Client ID
+588|HubSpot OAuth client secret
+589|HubSpot yalnızca sahibi tarafından kaydedilmiş OAuth uygulamalarını kabul eder. HubSpot'ta ({where}) şu dönüş adresiyle bir tane oluşturun: {url}
+590|Herkes için HubSpot erişimi
+591|Hugging Face modelleri · virgülle ayrılmış
+592|İnsan kaynakları
+593|{url} adresindeki {brand} hizmetine ulaşamıyorum. Adresi kontrol edin veya {local} kullanın.
+594|Sunucu için 1 anahtar kopyaladım. Sunucudaki betik istediğinde yapıştırın (sağ tık). 2 dakika sonra panodan silinir.
+595|Sunucu için {n} anahtar kopyaladım. Sunucudaki betik istediğinde yapıştırın (sağ tık). 2 dakika sonra panodan silinirler.
+596|{names} kopyalanmadı: sunucunun kabul etmediği karakterler içeriyor.
+597|Hiçbir şey duymadım. Mikrofona tıklayın ve tekrar konuşun.
+598|IP adresi
+599|IP veya alan adı
+600|Seçilen Gemini modeli anahtarınız için yoksa {brand} diğer Gemini adlarını, ardından burada izin verilen sağlayıcıları kendisi dener.
+601|Seçilen model yanıt vermezse kendiliğinden doğrudan API'lere geçer. Kapalı: yalnızca seçilen model yanıtlar, aksi halde hatayı görürsünüz.
+603|Hizmet durursa {brand} yeniden başlatmayı dener.
+604|Geçmişten içe aktar
+605|Kalıcı ayrıntılar (tercihler, kararlar, proje ayrıntıları) sohbet geçmişinden içe aktarılsın mı?
+606|Geçmişten {n} öğe içe aktarıldı.
+607|İçe aktarılıyor…
+608|Bir sohbette
+609|{brand}'a dahil
+610|{brand}'a dahil · hesap gerekmez
+611|Dahil, ancak varsayılan olarak maliyet koruması tarafından engelli.
+612|Zoom toplantılarından bilgiler
+613|Altyapı
+614|Yükle
+615|{brand} uygulamasını yükle
+616|Yüklendi
+617|Talimatlar
+618|Yapay zekâ için talimatlar
+619|Asistan için talimatlar
+620|{brand} için talimatlar
+621|Bir kez kaydedilip istediğiniz zaman kullanılan talimatlar: sohbete /ad yazın (örneğin /özet) veya bir skill'i her zaman açık tutun.
+623|/ad ile çağırdığınızda yapay zekânın uyguladığı talimatlar.
+624|Arayüz tasarımı ve prototipler
+625|{brand} hizmetinden geçersiz yanıt (HTTP {status}).
+626|Dosya yüklenirken geçersiz yanıt.
+627|Faturalar, siparişler ve işlemler.
+628|Issue'lar, pull request'ler ve kod depoları
+629|Kaydedince silinecek
+630|Hafta sonu. İş için bir şey mi, yoksa sadece kendiniz için mi?
+631|Jira issue'ları ve Confluence sayfaları: arama, oluşturma, düzenleme.
+632|Jira, Confluence, Loom ve daha fazlası
+633|Sohbetleri sakla
+634|Yapay zekâyı haberlerle güncel tutar
+635|Anahtar / token
+636|Anahtar kaydedildi — korumak için boş bırakın
+637|Sunucu için anahtarlar
+638|LTX Video. Başlangıç kredilerini, sonra ücretli bakiyeyi kullanabilir.
+639|Dil
+640|Dikte, döküm ve sesli okuma dili
+641|Dil: {lang}
+642|Dil: {name}
+643|Son etkinlik
+644|Son güncelleme: {when}, başarılı.
+645|Daha sonra
+646|Son mesaj
+647|Son yayımlanan sürüm: {v}.
+648|Hukuk, güvenlik ve uyumluluk
+649|Potansiyel müşteriler, kişiler ve fırsatlar.
+650|Ayrı bir {brand} sunucusu kullanmıyorsanız {url} adresini bırakın. Adres kaydedilmeden önce kontrol edilir.
+651|Hukuk
+652|Hukuki analiz
+653|Süre
+654|Güne iyi başlayalım. İlk ne yapıyoruz?
+655|Kitaplık
+656|Kitaplık filtreleri
+657|Lisanslar ve yazarlar
+658|Açık
+659|Dinliyorum… durdurmak için mikrofona tekrar tıklayın.
+660|Dinliyorum… durdurmak için mikrofona tıklayın
+661|Canlı internet ve GitHub
+662|Canlı internet, GitHub ve sunucu
+663|Bellek yükleniyor…
+664|Kitaplık yükleniyor…
+665|Programlama modelleri yükleniyor…
+666|Kombinasyonlar yükleniyor…
+667|Tasarım yükleniyor…
+668|Geçmiş yükleniyor…
+669|Modeller yükleniyor…
+670|Pluginler yükleniyor…
+671|Önizleme yükleniyor…
+672|Profil yükleniyor…
+673|İstek yükleniyor…
+674|Ayarlar yükleniyor…
+675|Görevler yükleniyor…
+676|Metin yükleniyor…
+677|Kullanıcılar yükleniyor…
+678|Yükleniyor…
+679|Çıkış yap
+680|Tüm cihazlardan çıkış yap
+681|Workers'ınızın günlükleri ve istatistikleri.
+682|Günlükler, metrikler, izleyiciler ve olaylar.
+683|Bir adres, şehir veya yer arayın.
+684|Güncellemeler aranıyor…
+685|Lovable OAuth Client ID
+686|Lovable OAuth client secret
+687|Lovable yalnızca sahibi tarafından kaydedilmiş OAuth uygulamalarını kabul eder. Lovable'da ({where}) şu dönüş adresiyle bir tane oluşturun: {url}
+688|Herkes için Lovable erişimi
+689|Bir kopya oluşturuldu, kapalı: «{name}».
+690|{brand} tarafından yapıldı
+691|Ana asistan
+692|Ana kombinasyon (otomatik)
+693|Ücretsiz bir Gemini anahtarı oluştur
+694|Görsel oluştur
+695|Düzeltmeyi hazırla
+696|PDF, DOCX ve PPTX oluşturur ve bunlarla çalışır.
+697|Yapay zekâyla görsel oluşturur.
+698|Görsel oluşturuluyor ve dosya hazırlanıyor…
+699|Video oluşturuluyor… birkaç dakika sürebilir
+700|{format} dosyası oluşturuluyor…
+701|Veritabanlarını yönetme ve sorgulama
+702|Haritalar
+703|Pazarlama
+704|Matematik / mantık
+705|Ben
+706|Toplantı dökümleri ve özetleri.
+707|Toplantılar
+708|Bellek
+709|Bellek ve sohbetler
+710|Bellek boş.
+711|Bellek kapalı: siz açana kadar {brand} yeni hiçbir şey saklamaz veya kullanmaz.
+712|Bellek ayarları
+713|Bellek, projeler ve dosya kitaplığı
+714|Menü
+715|Mesaj
+716|{brand}'a yazın
+717|Mesaj, gelişmiş model
+718|Mesaj, hızlı model
+719|Mesaj, üst düzey model
+721|Yöntem
+722|Mikrofon erişimi reddedildi. Tarayıcıda mikrofona izin verin.
+723|Mikrofon kullanılabilir ve izinli ✓
+724|Mikrofon açık — şimdi konuşun
+725|Mikrofon kullanılamıyor veya izin verilmedi
+726|Microsoft Teams ekipleri ve sohbetleri
+727|Mistral API anahtarı
+728|Mistral modelleri · virgülle ayrılmış
+729|Model izinli / engelli
+730|Elle seçilen model
+731|Yeni sohbetler için model
+732|Design için model
+734|Modeller, veri kümeleri ve Spaces.
+735|Modernizasyon
+736|Yine pazartesi. Haftayı düzenleyelim.
+737|Pazartesi–cuma {time}
+738|Aylık
+739|Her ay {day}. gün, {time}
+740|Sabah haberleri
+741|En popüler
+742|Projeye taşı
+743|Müzik ve podcast'ler
+745|HAYIR
+746|NVIDIA / NIM API'si, OpenAI uyumlu.
+747|NVIDIA API anahtarı
+748|NVIDIA modelleri · virgülle ayrılmış
+749|Ad
+750|Gezinme
+751|Günün geri kalanı için yardım ister misiniz?
+752|İlgi gerekiyor
+753|Erişim gerekiyor
+755|Yeni erişim isteği
+756|Yeni hesap
+757|Bu sunucuda yeni hesaplar kapalı.
+758|Dikkat çeken yenilikler
+759|Yeni asistan
+760|Yeni sohbet
+761|{name} ile yeni sohbet
+762|Yeni tasarım
+763|Belleğe yeni öğe
+764|Yeni şifre
+765|Yeni proje
+766|Yeni skill
+767|Yeni görev
+768|Yeni hafta. Birlikte planlayalım mı?
+769|En yeniler
+770|Her sabah haberler
+771|Sonraki krediler: {when}
+772|Sonraki çalıştırma
+773|Hayır
+774|Bu hesap için izinli yapay zekâ modeli yok. Owner'dan bir modele erişim isteyin.
+775|Henüz API plugini yok
+776|Hiç yanıt gelmedi.
+777|Henüz bağlı uygulama yok. Aşağıdan birini seçin: giriş yaptıktan sonra {brand} içinde arama yapabilir, okuyabilir, oluşturabilir ve düzenleyebilir; her işlemden önce sorar.
+778|Uygulama bulunamadı. MCP adresi varsa «Özel uygulama» ile ekleyebilirsiniz.
+779|Değişiklik yok
+780|Kayıtlı sohbet anahtarı yok. Örneğin bir Gemini veya Groq anahtarı ekleyip kaydedin.
+781|Bu projede henüz sohbet yok. Başlatmak için bir mesaj yazın.
+782|Gösterilecek sohbet yok.
+783|Henüz sohbet yok.
+784|Henüz kullanılabilir programlama modeli yok.
+785|Henüz özel asistan yok.
+786|Gün seçilmedi
+787|Henüz tasarım yok. İlkini sağda tarif edin.
+788|Hiçbir cihaz almadı. Yukarıdan bildirimleri açın.
+789|Öğe yok.
+790|Filtreye uyan dosya yok.
+791|Kullanılabilir model yok
+792|Eşleşen model yok.
+793|Kullanılabilir model yok.
+795|Plugin bulunamadı. «Plugin oluştur» sekmesinden oluşturabilirsiniz.
+796|Proje yok
+797|Henüz proje yok. Yan menüden bir tane oluşturun.
+798|Okunabilir metin yok
+799|Bağlı depo yok
+800|Henüz zamanlanmış görev yok
+801|Henüz skill yok
+802|Metin sonucu yok.
+804|OmniRoute'ta {name} modeli yok. OmniRoute panelinde (Providers) bağlayın, sonra bu sayfayı yeniden açın.
+805|Hiçbiri
+806|Ayarlı yapay zekâların hiçbiri şu anda yanıt veremedi. Seçilen modeli veya API anahtarlarını kontrol edin.
+807|Owner izin vermiyor
+808|Paketinize dahil değil
+809|Yüklü değil — npm install -g omniroute
+810|Henüz çalışmadı
+811|Bu arama için bir şey bulunamadı.
+812|Bir şey bulunamadı.
+813|Henüz bir şey yok. Konuştukça {brand} tercihlerinizi ve önemli kararlarınızı saklar. Aşağıya siz de bir şey ekleyebilirsiniz.
+814|Bildirim 1 cihaza gönderildi.
+815|Bildirim {n} cihaza gönderildi.
+816|Bildirimler
+817|{brand} bildirimleri engelli. Telefon ayarlarından açın (Bildirimler → {brand}) ve tekrar tıklayın.
+818|Bu cihazda bildirimler kapalı.
+819|Bildirimlere izin verilmedi. Telefon ayarlarında {brand} altından açabilirsiniz.
+820|Bana bildir
+821|Notion belgeleri ve iş akışları
+822|OAuth hatası — {error}
+823|KAPALI
+824|AÇIK
+825|Müşteri için teklif
+827|Predictions API üzerinden resmî ve topluluk modelleri.
+828|Predictions API üzerinden resmî video modelleri.
+829|En eskiler
+830|OmniRoute 3.8 anahtar olmadan yanıt vermez. OmniRoute'ta oluşturun:
+831|OmniRoute API anahtarı
+832|OmniRoute adresi
+833|OmniRoute kombinasyonu
+834|OmniRoute kombinasyonları
+835|OmniRoute komutu
+836|OmniRoute bağlı
+837|OmniRoute'ta henüz kombinasyon yok.
+838|OmniRoute yanıt veriyor.
+839|OmniRoute yanıt vermiyor. Listeden doğrudan bir API modeli (Groq, Gemini…) seçin veya otomatik yedeği açın.
+840|OmniRoute çalışıyor ama bir API anahtarına ihtiyacı var: OmniRoute → API Manager'da oluşturun ve Ayarlar → Yapay zekâ ve OmniRoute'a girin. O zamana kadar listeden seçerseniz doğrudan API'ler (Groq, Gemini…) yanıtlar.
+841|OmniRoute anahtarı
+842|OmniRoute'un bir API anahtarına ihtiyacı var
+843|OmniRoute durdu
+844|iPhone'da bildirimler yalnızca yüklü uygulamadan çalışır: {domain} adresini Safari'de açın → Paylaş → Ana Ekrana Ekle, sonra {brand}'ı ekrandan açıp buraya dönün.
+845|{slug} aç
+846|Bir kez
+847|Bir kez: {date}, {time}
+848|Haritalar, görseller, asistanlar ve siteler için tek bir yer.
+849|Bir yıl
+850|Yalnızca doğrudan maliyeti olmayan sağlayıcılar
+851|Yalnızca seçili kod bloğu
+852|Yalnızca çalışma adımları gösterilir, modelin iç akıl yürütmesi değil.
+853|Yalnızca bir şey değiştiğinde
+854|Aç
+855|Ayarları aç
+856|Ayarlar → Video'yu aç
+857|Tarayıcıda bir site açar.
+858|Tam ekranda aç
+859|Design'da aç
+860|Tarayıcıda aç
+861|Google sayfasını aç
+862|Tarayıcı menüsünü açın (⋮ veya ≡).
+863|Sohbeti aç
+864|{name} tasarımını aç
+865|Listeyi aç
+866|{name} önizlemesini aç
+867|Görevi aç
+868|{domain} adresini Safari'de açın (iPhone'da uygulamayı yalnızca Safari yükleyebilir).
+869|{name} aç
+870|OpenAI (ChatGPT) artık video yapmıyor: Sora 24 Eylül 2026'da hem uygulama hem API olarak kapandı. ChatGPT görselleri hâlâ çalışıyor.
+871|OpenAI (ücretli)
+872|OpenAI API anahtarı
+873|OpenAI uyumlu, hızlı yanıtlar.
+874|OpenAI uyumlu.
+875|OpenAI modelleri · virgülle ayrılmış
+876|OpenAI görsel modeli
+877|API üzerinden OpenAI
+878|OpenAI uyumlu yönlendirici; Görseller ile aynı token.
+879|OpenRouter (ücretli olabilir)
+880|OpenRouter API anahtarı
+881|OpenRouter modeli
+882|OpenRouter görsel modeli
+883|OpenRouter video modeli
+884|Açılıyor…
+885|Uygulamayı doğrudan açar
+886|Operasyonlar
+887|İsteğe bağlı: şu callback URL'si ile bir GitHub OAuth App (GitHub → Settings → Developer settings): {url}. Olmadan GitHub kişisel bir token ile bağlanır.
+888|Deneme sırası
+889|Diğer
+890|Diğer OmniRoute modelleri
+891|Diğer hesaplar tüm ücretsiz modelleri kullanır (Gemini, Groq, Mistral, OpenRouter :free…). Abonelikleriniz (Codex, Claude Code, Copilot, Kiro, web hesapları) yalnızca sizin kalır: koşulları hesap paylaşımına izin vermez. Bir OmniRoute kombinasyonunu yalnızca burada işaretlerseniz kullanırlar; yalnızca ücretsiz modellerden oluşan kombinasyonları işaretleyin.
+892|Başka yanıt: {question}
+893|Daha fazla ayrıntı
+894|Daha fazla model
+895|Diğerleri
+896|Aksi halde yalnızca sohbete adını veya @tetikleyiciyi yazdığınızda başlar.
+897|Bu bilgisayardaki Owner e-postası
+898|Bu bilgisayarda Owner
+899|Yalnızca Owner
+900|Owner: kullanıcılar, onaylar, izinler, oturumlar ve yapay zekâ hizmetleri.
+901|PNG, JPEG veya WebP, en fazla 10 MB.

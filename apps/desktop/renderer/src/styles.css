@@ -1572,3 +1572,22 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 /* 0.7.40: Memory, Skills, Connectors and Plugins open inside Settings (a section with a back arrow on the phone). */
 .settingsPane .pageSearch input:not([type=checkbox]){flex:1;border:0;background:transparent;padding:0;height:100%;box-shadow:none;border-radius:0}
 .memoryEmbedded{display:grid;gap:14px;align-content:start}
+/* 0.7.40: switching between the accounts signed in on this device. */
+.accountArea{position:relative}
+.accountSwitcher{position:absolute;left:8px;right:8px;bottom:calc(100% - 4px);z-index:30;display:grid;gap:2px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.accountSwitcherRow{display:flex;align-items:center;gap:10px;width:100%;padding:8px;border:0;border-radius:10px;background:transparent;color:var(--text);text-align:left;font:inherit;cursor:pointer}
+.accountSwitcherRow>span:not(.accountAddIcon){flex:1;min-width:0;display:grid}
+.accountSwitcherRow b{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.accountSwitcherRow small{font-size:11px;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.accountSwitcherRow.current{cursor:default}
+.accountSwitcherRow.current>svg{color:var(--accent);flex:none}
+.accountSwitcherRow.add{border-top:1px solid var(--surface-3);border-radius:0 0 10px 10px;margin-top:4px;padding-top:10px}
+.accountAddIcon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--surface-2);color:var(--accent);flex:none}
+@media (hover:hover) and (pointer:fine){button.accountSwitcherRow:hover{background:var(--surface)}}
+.savedAccounts{display:grid;gap:6px;margin:0 0 14px}
+.savedAccountsLabel,.savedAccountsOr{font-size:12px;color:var(--text-3)}
+.savedAccountsOr{text-align:center;margin-top:6px}
+.savedAccount{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);text-align:left;font:inherit;cursor:pointer}
+.savedAccount>span{flex:1;min-width:0;display:grid}
+.savedAccount b{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.savedAccount small{font-size:12px;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

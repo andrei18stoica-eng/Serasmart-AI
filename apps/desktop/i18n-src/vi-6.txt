@@ -1,0 +1,19 @@
+1465|Sử dụng
+1561|Khi nào AI dùng {name}
+152|Tự động
+98|Luôn sẵn sàng
+406|Đã tắt
+1477|Chỉ dùng khi tin nhắn cần đến
+824|Được cung cấp cho AI ở mọi tin nhắn
+1228|AI không bao giờ dùng
+1658|hỏi mỗi lần
+1560|Khi nào AI dùng /{slug}
+1476|Tự dùng khi yêu cầu cần, hoặc bằng /tên
+1475|Dùng ở mọi tin nhắn
+752|Không bao giờ dùng
+1432|Từ kích hoạt (tùy chọn)
+1573|Những từ khiến AI dùng nó, cách nhau bằng dấu phẩy
+1572|Từ loại trừ (tùy chọn)
+600|Nếu tin nhắn có một trong các từ này, skill sẽ không được dùng
+620|Hướng dẫn lưu một lần. AI tự chọn các skill mà yêu cầu cần (Tự động); bạn cũng có thể viết /tên trong chat hoặc để một skill luôn bật.
+1170|Skill đã dùng

@@ -1,0 +1,441 @@
+1342|Máy chủ kiểm tra GitHub mỗi giờ một lần và tự cài phiên bản mới.
+1343|Máy chủ không trả về phiên hợp lệ.
+1344|Owner của máy chủ phải thêm khóa AI.
+1345|Dịch vụ không xác nhận rằng tệp đã được lưu.
+1346|Phiên không hợp lệ hoặc đã hết hạn.
+1347|Các phiên đã bị đóng.
+1348|Không thể lưu cài đặt: {error}
+1349|Không thể lưu cài đặt.
+1350|Trang đăng nhập đã mở trong trình duyệt. Hoàn tất ở đó; {brand} tự lưu kết nối.
+1351|Đăng nhập chưa hoàn tất trong 2 phút. Thử lại.
+1352|Trang đã có phiên bản mới nhất.
+1353|Cập nhật trang thất bại. Chi tiết ở Cài đặt → Chung.
+1354|Trang đã được cập nhật lên phiên bản {v}. Trang sẽ tải lại.
+1355|Trang đã được cập nhật. Trang sẽ tải lại.
+1356|Trang sẽ tự cập nhật khi có phiên bản mới (kiểm tra mỗi giờ một lần).
+1357|Cài đặt của trang: lưu trên máy chủ và áp dụng ngay cho mọi tài khoản. Các khóa ở trên máy chủ và chỉ hiển thị dạng ẩn. Email Owner và việc đăng ký vẫn nằm trong tệp .env trên máy chủ.
+1358|Đã lưu skill /{slug}.
+1359|Không tải được thư viện skill: {error}
+1360|Không tải được skill: {error}
+1361|Văn bản đã nói nằm trong ô; gửi khi AI trả lời xong.
+1362|Trạng thái của {email} giờ là «{status}».
+1363|Kiểm tra cú pháp phát hiện lỗi. KHÔNG thể áp dụng đề xuất.
+1364|Kiểm tra cú pháp đạt.
+1365|Tác vụ chưa chạy. Nhấn «Chạy ngay» để xem kết quả.
+1366|Đã cập nhật tác vụ.
+1367|Đã tạo tác vụ «{name}».
+1368|Không tải được tác vụ: {error}
+1369|Không thể sao chép văn bản vào bộ nhớ tạm.
+1370|Không đọc được văn bản
+1371|Văn bản bạn đã chọn
+1372|Hai mật khẩu mới không giống nhau.
+1373|Không thể tạo video: {error}
+1374|Ghi âm thất bại.
+1375|Toàn bộ tin nhắn
+1376|Cửa sổ không thể hiển thị phần này của ứng dụng. Nhấn «Tải lại». Nếu lặp lại, hãy sao chép chi tiết bên dưới và gửi cho quản trị viên ứng dụng.
+1377|Dịch vụ {brand} không tìm thấy nội dung được yêu cầu (HTTP 404).
+1378|Dịch vụ {brand} gặp lỗi (HTTP {status}).
+1379|Không thể tạo tệp {format}: {error}. Bạn có thể thử lại bằng các nút dưới câu trả lời.
+1380|Mô hình của chúng xuất hiện trong danh sách (Groq, Gemini, Cerebras…). Chúng trả lời khi bạn chọn hoặc khi không chọn mô hình nào.
+1381|Mô hình của chúng xuất hiện trong danh sách và trả lời trực tiếp, không qua OmniRoute.
+1382|Giao diện
+1383|Có thay đổi mới trên GitHub.
+1384|Không có tệp nào trong cuộc trò chuyện này.
+1385|Không có người dùng nào trong nhóm này.
+1386|Không có tin nhắn nào của bạn cho câu trả lời này.
+1387|Không có bản sao lưu GitHub gần đây.
+1388|Các hành động này chạy mà không hỏi. Gỡ một hành động và AI sẽ hỏi bạn lại.
+1389|Các công cụ này giúp {brand} kiểm tra thông tin hiện tại và lấy các phần liên quan của kho GitHub.
+1390|Suy nghĩ
+1391|Suy nghĩ đang bật: câu trả lời cẩn thận hơn, chậm hơn một chút. Nhấn để chuyển sang Nhanh.
+1392|Đang suy nghĩ…
+1393|Ứng dụng này chỉ nhận ứng dụng nó đã duyệt; Serasmart chưa có trong danh sách.
+1394|Trình duyệt này không nhận được thông báo. Hãy dùng ứng dụng {brand} đã cài trên điện thoại (Chrome trên Android hoặc Safari trên iPhone).
+1395|Máy tính này
+1396|Tài liệu này trống.
+1397|Địa chỉ email này không được chấp nhận.
+1398|Không thể mở loại tệp này ở đây. Hãy dùng «Tải xuống».
+1399|Loại tệp này không có bản xem trước. Bạn có thể tải xuống.
+1400|Không thể mở liên kết này từ {brand}.
+1401|Các phần tín dụng của kỳ này
+1402|Dịch vụ này cũng cần OAuth Client Secret.
+1403|Văn bản này không có trong các cuộc trò chuyện của bạn.
+1404|Sổ tính này trống.
+1405|Hàng nghìn ứng dụng qua các hành động Zapier của bạn.
+1406|Thời gian
+1407|Hết thời gian: {answer}
+1408|Hôm nay
+1409|Tỷ giá chính thức BNR hôm nay: euro, đô la, bảng Anh và các loại khác (bnr.ro).
+1410|Khóa API Together
+1411|Token
+1412|Token (tùy chọn)
+1413|Đã lưu token — để trống để giữ nguyên
+1414|Giọng điệu
+1415|Quá lớn để đọc
+1416|Quá nhiều lần thử. Đợi 15 phút rồi thử lại.
+1417|Quá nhiều lần đăng nhập. Thử lại sau vài phút.
+1418|Quá nhiều mã sai. Hãy yêu cầu mã mới.
+1419|Công cụ
+1420|Mô hình hàng đầu (Claude, GPT, Gemini và Grok mạnh nhất)
+1421|Nạp thêm
+1422|Theo dõi món ăn và calo
+1423|Mô hình chép lời
+1424|Dịch ứng dụng
+1425|Dịch toàn bộ ứng dụng sang mọi ngôn ngữ
+1426|Dịch tự nhiên, giữ giọng điệu và định dạng.
+1427|Đang dịch ứng dụng sang {name}… {pct}%
+1428|Đang dịch ứng dụng sang {name}… {pct}%. Văn bản tự thay đổi khi sẵn sàng.
+1429|Đang dịch {n} văn bản sang {count} ngôn ngữ ở chế độ nền. Bạn có thể đóng cửa sổ này.
+1430|Biên dịch viên
+1431|Thử các mô hình theo thứ tự cho đến khi có mô hình còn hạn mức.
+1433|Thử lại
+1434|Tắt trên thiết bị này
+1435|Tắt AI trả phí cho tài khoản thường? Owner vẫn truy cập được các mô hình trả phí.
+1436|Tắt {name}
+1437|Bật cho thiết bị này
+1438|Bật {name}
+1439|Đã tắt
+1440|Owner đã tắt cho tài khoản của bạn.
+1441|Không khả dụng
+1442|Dưới ô tin nhắn, ở chế độ Ảnh, bạn có thể chọn mỗi lần ai tạo ảnh. Ở «Tự động», khi bạn chọn mô hình Gemini, ChatGPT hoặc Grok trong chat, công ty của mô hình đó tạo ảnh (trước tiên qua gói đăng ký trong OmniRoute, rồi qua API); nếu không, cài đặt này được dùng.
+1443|Dưới ô tin nhắn, ở chế độ Video, bạn có thể chọn mỗi lần ai tạo video. Ở «Tự động», khi bạn chọn mô hình Gemini hoặc Grok trong chat, công ty của mô hình đó tạo video (trước tiên qua gói đăng ký trong OmniRoute, rồi qua API); nếu không, cài đặt này được dùng.
+1444|Hoàn tác thay đổi GitHub gần nhất
+1445|Lỗi không xác định.
+1446|Không giới hạn
+1447|Bỏ ghim
+1448|Bỏ đánh dấu: các mô hình của nó rời khỏi danh sách và không bao giờ trả lời, kể cả khi dự phòng. Tổ hợp OmniRoute vẫn giữ; bạn chọn nội dung của chúng trong bảng OmniRoute.
+1449|Thiết kế chưa có tên
+1450|Tài liệu cập nhật cho các thư viện mã.
+1451|Cập nhật trang ngay
+1452|Cập nhật trang ngay? Máy chủ tải phiên bản mới nhất từ GitHub và khởi động lại trang (1–5 phút, trong thời gian đó trang không trả lời).
+1453|Cập nhật:
+1454|Đang cập nhật trang… mất 1–5 phút; trang tự tải lại.
+1455|Đang cập nhật…
+1456|Tải lên
+1457|Tải lên tệp bất kỳ
+1458|Tải lên âm thanh
+1459|Tải lên ảnh
+1460|Tải lên video
+1461|Đang tải lên 1 tệp… tệp lớn có thể mất một lúc.
+1462|Đang tải tệp lên…
+1463|Đang tải lên {n} tệp… tệp lớn có thể mất một lúc.
+1464|Mức dùng
+1466|Dùng trong chat
+1467|Tự dùng khi phù hợp
+1468|Dùng bộ nhớ
+1469|Dùng dịch vụ cục bộ mặc định
+1470|Dùng API trực tiếp
+1471|Dùng email của tài khoản {brand} của bạn.
+1472|Dùng AI này
+1473|Đã dùng
+1474|Dùng ngay, không giới hạn hằng tuần
+1478|Được dùng khi bạn viết {trigger}
+1479|Được dùng khi bạn viết «{name}» hoặc {trigger}
+1480|Câu trả lời hữu ích
+1481|Người dùng
+1482|Dùng các cuộc trò chuyện liên quan của cùng dự án mà không cần sao chép thủ công.
+1483|Tiện ích
+1484|Hiệu lực 12 tháng
+1485|Veo với cùng khóa Gemini dùng cho chat; bạn chọn mô hình ở trên, mục «Video được tạo bởi».
+1486|Phiên bản
+1487|Phiên bản trên máy chủ: {v}.
+1488|Có phiên bản {v}.
+1489|Có phiên bản {v}. Nó sẽ tự tải xuống; bạn sẽ nhận thông báo khi sẵn sàng.
+1490|Video
+1491|Tạo video
+1492|Tạo video bằng mô hình AI
+1493|Tạo video, API, mô hình và tự thử nhà cung cấp khác.
+1494|Video được tạo bởi
+1495|Tạo video
+1496|Chế độ video
+1497|Chế độ video: tin nhắn tiếp theo sẽ tạo video. Nhấn Video lần nữa để thoát.
+1498|Video: tin nhắn tiếp theo sẽ tạo video.
+1499|Video được tạo bởi
+1500|Video tạo bằng AI
+1501|Video với độ dài bất kỳ
+1502|Giọng nói
+1503|Hoạt động giọng nói
+1504|Giọng nói và micrô
+1505|Nhập bằng giọng nói
+1506|Phút giọng nói
+1507|Nhận dạng giọng nói không thành công. Nhấn micrô và thử lại.
+1508|Nhận dạng giọng nói đã dừng; kiểm tra văn bản rồi gửi.
+1509|Giọng nói thành văn bản
+1510|Chờ
+1511|Đợi tệp tải lên xong.
+1512|Đợi đến {when}
+1513|Đang chờ đăng nhập
+1514|Đang chờ AI đã chọn trả lời…
+1515|Đang chờ giọng nói được chép thành chữ.
+1516|Đang chờ bạn phê duyệt
+1517|Đang chờ bạn phê duyệt trong {app}…
+1518|Muốn
+1519|Theo dõi giá
+1520|Cách làm việc
+1521|Chúng tôi không gửi được email chứa mã. Kiểm tra địa chỉ và thử lại.
+1522|Chúng tôi đã gửi mã 6 chữ số đến email của bạn. Nhập mã để xác nhận địa chỉ là của bạn.
+1523|Chúng tôi đã gửi mã 6 chữ số đến {email}. Nếu không thấy, hãy xem Spam. Mã hết hạn sau 15 phút.
+1524|Chúng tôi đã gửi mã qua email.
+1525|Chúng tôi đã gửi mã mới.
+1526|Câu trả lời yếu
+1527|Thời tiết
+1528|Thời tiết hiện tại và dự báo 3 ngày cho bất kỳ thành phố nào (Open-Meteo, không cần tài khoản).
+1529|Tìm kiếm web
+1530|Tìm kiếm web cho tác tử AI
+1531|Tìm kiếm web dành cho AI.
+1532|Tìm kiếm web kèm nguồn
+1533|Trang web
+1534|Địa chỉ trang web
+1535|Trang web
+1536|Chế độ cuối tuần. Bạn muốn làm gì?
+1537|Hằng tuần
+1538|Hằng tuần, {day} lúc {time}
+1539|Chào mừng trở lại
+1540|Chào mừng đến với {brand}
+1541|Hôm nay ta xây dựng gì?
+1542|Hôm nay ta làm gì?
+1543|Điều gì mô tả đúng nhất công việc của bạn?
+1544|Nội dung
+1545|Chức năng, trong một câu
+1546|Cần sửa gì
+1547|Tôi nên thay đổi gì
+1548|{brand} nên gọi bạn là gì?
+1549|{brand} nên làm gì? Vd. Tìm tin quan trọng hôm nay và cho tôi bản tóm tắt kèm liên kết.
+1550|AI gọi bạn là gì
+1551|AI phải làm gì mỗi lần bạn dùng skill này: giọng điệu, cấu trúc, nên có gì, nên tránh gì.
+1552|Plugin làm gì
+1553|Chi phí từng thứ
+1554|Điều giúp AI hiểu bạn: sở thích, dự án, mức kinh nghiệm.
+1555|Bạn làm gì
+1556|{brand} biết gì về bạn
+1557|{brand} ghi nhớ gì về bạn và dùng các cuộc trò chuyện trước thế nào.
+1558|Khi một yêu cầu có thể hiểu theo nhiều cách, {brand} hỏi trước, kèm các lựa chọn bạn chọn bằng một cú nhấp.
+1559|Khi có người đăng ký, điện thoại của bạn hiện ai muốn tham gia {brand} và hỏi bạn có cho phép không. Trên Android, bạn trả lời ngay từ thông báo bằng Cho phép hoặc Từ chối; trên iPhone, chạm vào thông báo và chọn trong ứng dụng. Yêu cầu chờ đến khi bạn trả lời.
+1562|Khi bạn yêu cầu ảnh hoặc video, {brand} đưa tệp thật vào chat, kèm nút tải xuống.
+1563|Khi bạn yêu cầu ảnh, {brand} thử các nhà cung cấp theo thứ tự đã đặt, đưa tệp thật vào chat và lưu vào Thư viện.
+1564|Khi bạn yêu cầu video, {brand} thử các nhà cung cấp theo thứ tự, tải tệp MP4 thật, đưa vào chat và lưu vào Thư viện.
+1565|Khi bạn hỏi, nó tìm trong các cuộc trò chuyện khác (kể cả đã lưu trữ) và dùng những gì liên quan. Vì vậy bạn có thể tiếp tục một chủ đề trong cuộc trò chuyện mới.
+1566|Ứng dụng Windows
+1567|Khi đặt Cloud API, Owner quản lý tài khoản, phê duyệt và quyền tập trung. Để trống để chỉ dùng PC này.
+1568|Với khóa xAI từ API AI.
+1569|Với khóa xAI từ API AI; 1–15 giây.
+1570|Không có gói: {n} tin nhắn mỗi ngày với mô hình miễn phí, sau {days} ngày dùng thử với {credits} tín dụng. Thanh toán bằng thẻ sắp mở; đến lúc đó, gói do Owner cấp.
+1571|Tệp Word, Excel, PowerPoint và PDF
+1574|Workers, KV, R2 và D1 trong tài khoản Cloudflare của bạn.
+1575|Ngày làm việc (thứ Hai–thứ Sáu)
+1576|Đang làm việc trong
+1577|Đang làm việc trong {app}…
+1578|Làm việc muộn? Tôi ở đây khi bạn cần.
+1579|Đang tính giá…
+1580|Đang xử lý…
+1581|Bài tập và dữ liệu sức khỏe
+1582|Hoạt động ngay
+1583|Hoạt động: {result}
+1584|Sắp kết thúc ngày? Tôi có thể giúp phần còn lại.
+1585|Hãy đặt tên cho plugin.
+1586|Hãy đặt tên cho tác vụ.
+1587|Viết tên plugin trong chat (ví dụ «Lịch») hoặc @tên và {brand} sẽ dùng nó để trả lời.
+1588|Viết một email ngắn, thân thiện để
+1589|Viết email
+1590|Viết một lần những gì {brand} cần làm và chọn thời điểm. Ví dụ: «Mỗi ngày làm việc lúc 08:30, cho tôi bản tóm tắt tin tức.»
+1591|Viết những gì {brand} cần làm.
+1592|Viết câu trả lời của bạn
+1593|Tự viết câu trả lời
+1594|Viết email rõ ràng, lịch sự kèm tiêu đề từ vài ý tưởng.
+1595|Đang viết HTML và CSS…
+1596|Viết và nội dung
+1597|Đang chép lại lời bạn nói…
+1598|Đang chép giọng nói của bạn…
+1599|Đang viết câu trả lời…
+1600|Đang viết tệp {format} của bạn…
+1601|Đang viết tệp {format} của bạn… {n} từ
+1602|Email hoặc mật khẩu sai.
+1603|CÓ
+1604|Có
+1605|Hôm qua
+1606|Bạn đã thêm /{slug}. Viết nó trong chat để dùng.
+1607|Bạn có thể thêm API miễn phí khác bất cứ lúc nào (Groq, Cerebras, Cloudflare cho ảnh) trong Cài đặt → API AI.
+1608|Bạn có thể yêu cầu mã mới mỗi phút một lần.
+1609|Bạn có thể kết nối nhiều dịch vụ. {brand} thử các nhà cung cấp theo thứ tự và chuyển sang nhà cung cấp tiếp theo nếu một bên thất bại.
+1610|Bạn có thể dùng plugin không cần OAuth để mở ứng dụng trực tiếp. Chỉ cần OAuth hoặc API khi bạn muốn {brand} đọc hoặc thay đổi dữ liệu riêng trong dịch vụ đó.
+1611|Bạn chọn
+1612|Bạn đã chọn {model}; OmniRoute gửi câu hỏi đến {served}.
+1613|Bạn đã chọn {model}; {brand} gửi câu hỏi đến {served}.
+1614|Bạn nhận mã qua email để xác nhận địa chỉ, sau đó Owner duyệt tài khoản.
+1615|Bạn chưa có trợ lý nào. Tạo một trợ lý từ thanh bên.
+1616|Bạn đang dùng phiên bản mới nhất.
+1617|Bạn để {brand} chọn
+1618|Bạn đã đăng xuất trên mọi thiết bị.
+1619|Thống kê và từ khóa YouTube
+1620|AI của bạn, mọi mô hình
+1621|Gói ChatGPT của bạn, kết nối trong OmniRoute
+1622|Gói Claude của bạn, kết nối trong OmniRoute
+1623|Sự kiện Google Calendar của bạn
+1624|Dữ liệu Helium 10 của bạn
+1625|Email Outlook của bạn
+1626|Bảng điều khiển Plaid của bạn: item, mức dùng và sự cố.
+1627|Trang, trang con và cửa hàng Wix của bạn.
+1628|Tài khoản của bạn không bị tính phí (Owner).
+1629|Mật khẩu tài khoản của bạn
+1630|Tài khoản, ứng dụng, giọng nói, dịch vụ AI và cập nhật.
+1631|Câu trả lời của bạn
+1632|Ứng dụng của bạn
+1633|Ứng dụng đã kết nối: AI đọc và làm việc trong đó khi bạn phê duyệt.
+1634|Lựa chọn của bạn: {value}
+1635|Thiết kế của bạn
+1636|Tệp, ảnh, video và thiết kế của bạn, sẵn sàng dùng trong cuộc trò chuyện.
+1637|Dữ liệu sức khỏe của bạn
+1638|Ghi chú và bản ghi cuộc họp của bạn.
+1639|Tên của bạn
+1640|API và webhook riêng của bạn, cùng plugin hoạt động ngay.
+1641|Ảnh và video của bạn: tìm, tải lên, thay đổi.
+1642|Gói của bạn
+1643|Gói của bạn, tín dụng tuần này và tín dụng thêm.
+1644|Gói của bạn, tín dụng tuần này và chi phí mỗi hành động.
+1645|Hồ sơ, cách AI trả lời bạn, thông báo, quyền riêng tư và bảo mật.
+1646|Tài nguyên của bạn trên Render
+1647|Phiên của bạn đã hết hạn hoặc bị đóng. Đăng nhập lại.
+1648|Skill của bạn
+1649|Gói đăng ký, các gói và tín dụng thêm.
+1650|Tác vụ và dự án của bạn: thêm, hoàn thành, dời lịch.
+1651|Công việc của bạn
+1652|do bạn thêm
+1653|tất cả cuộc trò chuyện
+1654|tất cả tệp trong Thư viện
+1655|toàn bộ bộ nhớ
+1656|toàn bộ dữ liệu tài khoản (cuộc trò chuyện, bộ nhớ, tệp, dự án, trợ lý, skill, tự động hóa, ứng dụng, thiết kế)
+1657|trả lời · {s} giây
+1659|tối đa {n} tín dụng
+1660|tự động
+1661|bởi {author}
+1662|bởi {author} · {license}
+1663|danh mục
+1664|danh mục
+1665|hãy kiểm tra bạn đã sao chép đầy đủ.
+1666|mã
+1667|kết nối hoạt động
+1668|đã tạo
+1669|tín dụng
+1670|mặc định
+1671|vd. Trả lời khiếu nại
+1672|vd. tên hoặc biệt danh
+1673|vd. hỏi câu làm rõ trước khi trả lời chi tiết
+1674|vd. sinh viên, thiết kế web, kế toán
+1675|vd. thiết kế web, kế toán, giáo viên
+1676|lỗi
+1677|Khóa API fal
+1678|Mô hình video fal
+1679|Mô hình fal.ai
+1680|tệp
+1681|cho {n} tín dụng · trả một lần
+1682|từ tác vụ đã lên lịch
+1683|từ lịch sử
+1684|từ {n}
+1685|github_pat_... hoặc ghp_...
+1686|đã bao gồm
+1687|mục
+1688|mục
+1689|tự động lưu
+1690|tạo từ tên
+1691|bộ nhớ
+1692|tối thiểu {n} tín dụng
+1693|ten@vidu.com
+1694|tiếp theo: {when}
+1695|không cần tài khoản
+1696|không có
+1697|không bao gồm
+1698|bây giờ
+1699|tín dụng tuần này đã dùng
+1700|tắt
+1701|một lần
+1702|chỉ khi thay đổi
+1703|tùy chọn
+1704|tùy chọn / PKCE
+1705|trả phí
+1706|đã ghim
+1707|chỉ đọc
+1708|kết quả thực
+1709|bắt buộc
+1710|do Owner đặt
+1711|từ {when}
+1712|nguồn
+1713|hệ thống
+1714|tệp
+1715|khóa hoạt động · {models} mô hình, {combos} tổ hợp · {s} giây
+1716|không có nội dung cho tệp
+1717|cái này
+1718|tuần này
+1719|hôm nay
+1720|ngày mai
+1721|lỗi không xác định
+1722|tối đa {s} giây
+1723|dùng khi bạn không chọn mô hình khác trong danh sách ở trên
+1724|có khóa
+1725|Khóa API xAI
+1726|hôm qua
+1727|gói đăng ký cá nhân của bạn chỉ thuộc về bạn (điều khoản nhà cung cấp không cho chia sẻ tài khoản). Hãy cấp mô hình cho người đó qua API (openai/…, anthropic/…).
+1728|Tài khoản {brand}
+1729|{brand} có thể mắc lỗi. Hãy kiểm tra thông tin quan trọng.
+1730|{brand} kiểm tra giá công bố khi có và không bắt đầu nếu không xác nhận được chi phí bằng không. Gemini Veo, fal.ai và Replicate vẫn bị chặn ở chế độ này.
+1731|{brand} đang chép lại bản ghi âm…
+1732|{brand} ghi nhớ những điều này trong mọi cuộc trò chuyện của tài khoản này.
+1733|{brand} tự lưu sở thích, quyết định và chi tiết lâu dài của bạn, và dùng chúng khi cần.
+1734|{brand} gặp sự cố
+1735|{brand} đọc tệp từ kho mã đã cấu hình và đề xuất bản sửa.
+1736|{brand} tự chạy hướng dẫn vào thời điểm đã chọn, khi ứng dụng đang chạy.
+1737|{brand} lưu plugin dưới dạng liên kết trực tiếp và mở ứng dụng chính thức. Bạn đăng nhập như bình thường trong trình duyệt.
+1738|Dịch vụ {brand}
+1739|Địa chỉ dịch vụ {brand}
+1740|Cài đặt {brand}
+1741|Có bản cập nhật {brand} — cài ngay
+1742|{brand} đã dùng {provider} · {model}
+1743|{brand} chỉ dùng thông tin này để trả lời bạn tốt hơn; bạn có thể xem và thay đổi ở đây bất cứ lúc nào.
+1744|{days} lúc {time}
+1745|Còn {left}/{limit} tin nhắn miễn phí hôm nay
+1746|{left}/{total} tín dụng · kết thúc {when}
+1747|{model}: {mode} cho {email}.
+1748|{name} ({email}) giờ có thể dùng {brand}.
+1749|{name} ({email}) sẽ không thể dùng {brand}.
+1750|Đã kết nối {name}. Hỏi trong chat; AI sẽ hỏi bạn trước mỗi hành động.
+1751|Đã cài {name}
+1752|{name} đã sẵn sàng. Viết trong chat, ví dụ: {trigger}, hoặc cứ hỏi.
+1753|Đã thêm {name}: {n} skill của nó dùng được với /tên trong chat.
+1754|{name}: đã kết nối.
+1755|{name}: đã lưu để mở trực tiếp, không cần OAuth. Đăng nhập như bình thường trong ứng dụng chính thức.
+1756|{name}: đã kết nối plugin.
+1757|{name}: đã lưu plugin.
+1758|{n} mô hình OmniRoute bị Owner ẩn.
+1759|{n} mỗi ngày
+1760|{n} mỗi phút
+1761|{n} mỗi tuần
+1762|{n} hành động
+1763|{n} phiên đang hoạt động
+1764|{n} ứng dụng
+1765|{n} cùng lúc
+1766|{n} tự động hóa
+1767|Đã thêm {n} tệp vào Thư viện.
+1768|Còn {n} · tuần {w}/4
+1769|{n} mô hình khả dụng
+1770|{n} mô hình bị Owner ẩn.
+1771|{n} mô hình khả dụng
+1772|{n} không được phép
+1773|{n} người
+1774|{n} giây
+1775|{n} skill
+1776|{n} phiên bản
+1777|{pack} · bởi {author} · {license}
+1778|Gói {plan}
+1779|Gói {plan}: đã dùng {percent}% tuần này
+1780|{price} mỗi năm · miễn phí 2 tháng
+1781|Đã dùng {p}% tín dụng tuần này
+1782|{s} giây · thường mất khoảng một phút
+1783|«Được phép» không có tác dụng khi «Chat AI» đang tắt cho tài khoản này: hãy bật quyền Chat ở trên trước.
+1784|«Mặc định» theo các quyền ở trên; «Được phép» mở mô hình ngay cả khi quyền đóng nó; «Bị chặn» đóng nó. Gói đăng ký cá nhân của Owner chỉ thuộc về Owner.
+1785|«Nano Banana»; bạn chọn mô hình ở trên, mục «Ảnh được tạo bởi». Cùng khóa với API AI và Video.
+1786|Owner đã tắt «{feature}» cho tài khoản của bạn.
+1787|Owner không cho phép bạn dùng «{model}».
+1788|«{name}» đã chạy. Kết quả có trong lịch sử.
+1789|⚡ Nhanh
+1790|✨ Chất lượng
+1791|🎬 Chất lượng
+1792|🛡️ Chỉ miễn phí

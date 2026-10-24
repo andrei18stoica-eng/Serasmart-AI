@@ -1,0 +1,444 @@
+1|(bản sao)
+2|(trống)
+3|(mới nhất)
+4|(bạn có thể chọn nhiều)
+5|({email}) muốn tham gia {brand}. Cho phép?
+6|, dán vào đây rồi nhấn «Kiểm tra khóa».
+7|/ 30 ngày
+8|1 phiên đang hoạt động
+9|1 ứng dụng
+10|1 tự động hóa
+11|1 người
+12|1 skill
+13|1 phiên bản
+14|3 bước, miễn phí, không cần thẻ. Chỉ mất một phút.
+15|30 ngày
+16|7 ngày
+17|90 ngày
+18|Bài thuyết trình 6 slide về năng lượng mặt trời cho học sinh THPT.
+19|Trình duyệt trên đám mây đọc và dùng trang web (không cần tài khoản).
+20|Buổi tối yên tĩnh rất hợp để suy nghĩ. Tiếp theo là gì?
+21|Bản chào dịch vụ rõ ràng với các bước, giá và thời hạn.
+22|Vài câu hỏi trước khi tôi bắt đầu
+23|Token chi tiết với quyền Models: Read. Token này cũng dùng cho GitHub.
+24|Trang đích cho ứng dụng thể dục, với lợi ích, 3 gói và nút tải xuống.
+25|Thông báo ở mức 25, 50, 75 và 90% tín dụng của tuần. Thông báo 100% luôn hiện.
+26|Thông báo trong ứng dụng (và trên điện thoại, nếu đã đăng ký) khi một tự động hóa hoàn tất.
+27|Danh thiếp tối giản đen trắng cho một kiến trúc sư.
+28|CV hiện đại cho lập trình viên junior với 2 năm kinh nghiệm React.
+29|Tài khoản cá nhân, được xác nhận qua email và bảo vệ bằng mật khẩu của bạn.
+30|Tín dụng của gói đến thành bốn phần bằng nhau, mỗi 7 ngày một phần, tính từ ngày gói của bạn bắt đầu (ví dụ, gói bắt đầu vào thứ Tư nhận tín dụng mỗi thứ Tư). Phần không dùng được chuyển sang tuần sau. Ở mức 100%, các mô hình trả phí dừng lại cho đến phần tiếp theo hoặc khi bạn mua thêm tín dụng; trong lúc đó bạn vẫn có {n} tin nhắn mỗi ngày với các mô hình miễn phí.
+31|Plugin là một bộ skill. Thêm một lần rồi viết /tên trong chat cho bất kỳ skill nào trong đó. Một plugin được tính là một skill trong gói của bạn.
+32|Áp phích cho buổi hòa nhạc rock ngoài trời, màu neon.
+33|Trang web giới thiệu cho quán cà phê: thực đơn, giờ mở cửa, thư viện ảnh và biểu mẫu liên hệ.
+34|Đêm yên tĩnh rất hợp để làm việc tập trung. Bạn đang nghĩ gì?
+35|Skill là một bộ hướng dẫn mà AI làm theo khi bạn gọi nó. Thêm một skill bên dưới hoặc tự tạo.
+36|Token với mẫu «Workers AI». Account ID ở dash.cloudflare.com → AI → Workers AI. Cùng token với Ảnh.
+37|AI
+38|AI & OmniRoute
+39|API AI
+40|AI và học máy
+41|Huấn luyện viên AI cho dữ liệu Garmin của bạn
+42|Mô hình AI: {model}
+43|Mô hình AI cho sinh học
+44|Mô hình AI cho ảnh và video
+45|Mô hình AI cho tài khoản này
+46|Âm nhạc AI cùng nghệ sĩ
+47|Công cụ AI cho WordPress
+48|Truy cập API
+49|Địa chỉ API
+50|Khóa API
+51|Chỉ API
+52|Plugin API
+53|Token API
+54|API
+55|AUTO_FREE tự tìm mô hình miễn phí đầu tiên còn dùng được.
+56|Về bạn
+57|Quyền truy cập cho tài khoản khác: Control Center → tài khoản đó → «Code {brand}». Họ dùng API OpenAI / Claude, trả theo mức dùng, không phải gói đăng ký của bạn: điều khoản ChatGPT và Claude không cho phép chia sẻ tài khoản.
+58|Trợ năng
+59|Tài khoản
+60|ID tài khoản
+61|Đã xóa tài khoản.
+62|Trạng thái tài khoản đã thay đổi
+63|Tài khoản và cuộc trò chuyện được lưu trên máy chủ {brand}.
+64|Tài khoản và cuộc trò chuyện được lưu trên máy tính này.
+65|Hành động
+66|Đang hoạt động
+67|Phiên đang hoạt động
+68|Người dùng đang hoạt động
+69|Thêm
+70|Thêm tệp
+71|Thêm điều quan trọng để {brand} ghi nhớ… (Ctrl+Enter để lưu)
+72|Thêm khóa hoặc chọn «Không» cho xác thực.
+73|Thêm kho mã trong Cài đặt → AI & OmniRoute → GitHub để {brand} tự đọc mã cho các câu hỏi lập trình.
+74|Thêm {name}
+75|Đã thêm
+76|Thêm vào bất kỳ gói nào, hoặc không cần gói
+77|Đang thêm…
+78|Nhật ký quản trị ({n})
+79|Quản trị: {error}
+80|Tăng tốc buổi chiều: hôm nay ta hoàn thành gì?
+81|Lại
+82|Tất cả
+83|Tất cả tài khoản
+84|Tất cả cuộc trò chuyện
+85|Tất cả dữ liệu
+86|Tất cả, tốt nhất trước (ChatGPT, Gemini, Grok, loại miễn phí)
+87|Tất cả, tốt nhất trước (loại miễn phí, Gemini Veo, Grok)
+88|Cho phép
+89|Cho phép một lần
+90|Cho phép AI trả phí cho các tài khoản đủ điều kiện khác? Mỗi người dùng vẫn cần quyền OpenAI / Claude / OpenRouter riêng.
+91|Cho phép nhà cung cấp trả phí
+92|Được phép
+93|Sắp xong…
+94|Sắp cuối tuần rồi. Ta nên hoàn tất gì trước đó?
+95|Cũng cho phép API trả phí (OpenAI, Grok)
+96|Luôn cho phép
+97|Luôn được phép
+99|Luôn bằng tiếng Anh
+100|Luôn bằng tiếng Romania
+101|Luôn bật
+102|Luôn bật {slug}
+103|Luôn bật: dùng ở mọi tin nhắn, không cần /tên
+104|Đã có tài khoản với email này.
+105|Địa chỉ hoặc thành phố
+106|Phân tích và lên lịch bài đăng
+107|Phân tích dữ liệu blockchain
+108|Phân tích tệp, tìm vấn đề và sửa.
+109|Phân tích hành vi người dùng
+110|Phân tích buổi tập và lập kế hoạch
+111|Phân tích dữ liệu sản phẩm của bạn
+112|Phân tích mã và làm việc với GitHub.
+113|Phân tích tệp, bảng và tài liệu được tải lên.
+114|Đang phân tích…
+115|Đang trả lời
+116|Ngôn ngữ trả lời
+117|Câu trả lời từ tài liệu Cloudflare (không cần tài khoản).
+118|Câu trả lời từ dữ liệu của bạn
+119|Câu trả lời vẫn tiếp tục khi ứng dụng đóng
+120|Bất kỳ ứng dụng nào có máy chủ MCP từ xa (địa chỉ bắt đầu bằng https://). Để trống token nếu ứng dụng có đăng nhập riêng.
+121|Số tín dụng bất kỳ bạn chọn
+122|Ứng dụng
+123|Đã áp dụng trên máy chủ cho tài khoản này.
+124|Áp dụng trên GitHub
+125|Áp dụng thay đổi trực tiếp trên GitHub cho {path} (nhánh {branch})? Một bản sao lưu cục bộ được tạo để bạn có thể quay lại.
+126|Đang áp dụng thay đổi…
+127|Đang áp dụng…
+128|Duyệt / Kích hoạt lại
+129|Ứng dụng
+130|Ứng dụng và tự động hóa
+131|Các mục ứng dụng
+132|Lưu trữ
+133|Đã lưu trữ
+134|Asana OAuth Client ID
+135|Asana OAuth client secret
+136|Asana chỉ nhận ứng dụng OAuth do chủ sở hữu đăng ký. Tạo một ứng dụng trong Asana ({where}) với địa chỉ chuyển hướng này: {url}
+137|Đăng nhập Asana cho mọi người
+138|Đặt câu hỏi làm rõ (kèm lựa chọn trả lời)
+139|Hãy xin quyền truy cập hoặc chọn mô hình khác.
+140|Đặt câu hỏi về bất kỳ kho GitHub công khai nào.
+141|Hãy xin Owner quyền truy cập ít nhất một mô hình.
+142|Hãy xin Owner quyền truy cập mô hình OpenAI hoặc Claude.
+143|Trợ lý
+144|Ít nhất 10 ký tự
+145|Tối đa 2 GB mỗi tệp
+146|Khi khởi động, {brand} tự tải phiên bản mới từ GitHub Releases và báo bạn khi sẵn sàng cài đặt.
+147|Đính kèm: {error}
+148|Do bạn đính kèm
+149|Tệp đính kèm: {names}
+150|Kiểm tra quyền Google Drive
+151|Xác thực
+153|Dự phòng tự động: API trực tiếp
+154|Dự phòng tự động
+155|Tự động cập nhật trang
+156|Tự động cập nhật trang đang tắt.
+157|Cập nhật tự động:
+158|Cập nhật tự động (ứng dụng Windows)
+159|Tự động · tốt nhất hiện có
+160|Tự động — thứ tự của tôi
+161|Tự động — mô hình ảnh đầu tiên còn dùng được
+162|Tự động hóa
+163|Tự động hóa và điều khiển từ xa
+164|Kết quả tự động hóa
+165|Tự động hóa «{name}»
+166|Tự động hóa
+167|Có sẵn
+168|Có sẵn cho tài khoản của bạn
+169|Có sẵn ngay
+170|Tỷ giá BNR
+171|Quay lại
+172|Quay lại tất cả tài khoản
+173|Đã quay lại dịch vụ cục bộ mặc định. Thử đăng nhập lại.
+174|Base, bảng và bản ghi: tìm, tạo và cập nhật.
+175|Thanh toán
+176|Bản đồ sao và tử vi
+177|Chặn
+178|Blockchain
+179|Bị chặn
+180|Người dùng bị chặn
+181|Bảng, mục và cập nhật.
+182|Bảng, ghi chú dán và sơ đồ (Miro Enterprise).
+183|Box OAuth Client ID
+184|Box OAuth client secret
+185|Box chỉ nhận ứng dụng OAuth do chủ sở hữu đăng ký. Tạo một ứng dụng trong Box ({where}) với địa chỉ chuyển hướng này: {url}
+186|Đăng nhập Box cho mọi người
+187|Báo lỗi kèm bản ghi màn hình và nhật ký.
+188|Xây dựng và phát hành ứng dụng
+189|Xây dựng và phát hành ứng dụng web
+190|Doanh nghiệp
+191|Kinh doanh và vận hành
+192|Tài khoản ngân hàng doanh nghiệp và giao dịch.
+193|Danh thiếp
+194|Chủ doanh nghiệp
+195|Mua tín dụng
+196|Mua với giá {price}
+197|C:\Users\you\.ssh\id_ed25519
+198|Không kết nối được máy chủ, đang kết nối lại…
+199|Hủy
+200|Không kết nối được dịch vụ {brand}. Kiểm tra ứng dụng đang chạy và kết nối internet.
+201|Không đọc được bản ghi âm.
+202|Thanh toán bằng thẻ sắp mở
+203|Lưu ý: các nhà cung cấp bạn thiết lập có thể dùng tín dụng theo giá riêng của họ.
+204|Lưu ý: tạo video có thể dùng tín dụng rất nhanh. Chi phí tùy mô hình, độ dài và độ phân giải.
+205|Khóa API Cerebras
+206|Mô hình Cerebras · cách nhau bằng dấu phẩy
+207|Thay đổi
+208|Đổi mật khẩu
+209|Đã thay đổi
+210|Thay đổi… (vd. đổi nền thành xanh đậm và thêm mục giá)
+211|Đang thay đổi…
+212|Chat
+213|Tùy chọn chat
+214|Trò chuyện với mọi AI hàng đầu, bộ nhớ, tệp, ảnh, video và tự động hóa.
+215|Chỉ ChatGPT · GPT Image
+216|ChatGPT, Gemini và Grok
+217|Cuộc trò chuyện
+218|Các cuộc trò chuyện cũ hơn mức này tự bị xóa (cuộc đã ghim vẫn giữ). Dữ liệu của bạn ở trên máy chủ {brand} và không bao giờ bị bán hay dùng cho quảng cáo.
+219|Cuộc trò chuyện, bộ nhớ, thư viện, thiết kế, dự án, ứng dụng và tự động hóa được lưu trên máy chủ {brand}.
+220|Cuộc trò chuyện, bộ nhớ, thư viện, thiết kế, dự án, ứng dụng và tự động hóa được lưu trên máy tính này.
+221|Kiểm tra thất bại
+222|Kiểm tra cập nhật ngay
+223|Kiểm tra liên kết, tên miền và số điện thoại
+224|Kiểm tra giá
+225|Kiểm tra giá sản phẩm tôi theo dõi trên trang cửa hàng và chỉ báo tôi nếu giá giảm dưới mức tôi đặt.
+226|Đã kiểm tra: {when}.
+227|Đang kiểm tra hiển thị trên điện thoại…
+228|Đang kiểm tra bộ nhớ, tệp và ngữ cảnh liên quan…
+229|Đang kiểm tra…
+230|Kiểm tra OmniRoute (khóa và một mô hình Gemini, Grok, OpenAI và Claude) cùng mọi API đã lưu. Lưu cài đặt trước khi kiểm tra.
+231|Mô phỏng hóa học và sinh học
+232|Chọn Cài đặt ứng dụng hoặc Thêm vào màn hình chính.
+233|Chọn ảnh PNG, JPEG hoặc WebP.
+234|Chọn ngày giờ trong tương lai.
+235|Chọn giờ hợp lệ (00:00–23:59).
+236|Chọn một AI
+237|Chọn ít nhất một ngày trong tuần.
+238|Chọn từ Thư viện
+239|Chọn AI
+240|Chọn ngày giờ cho tác vụ một lần.
+241|Chọn {plan}
+242|Đang chọn màu và phông chữ…
+243|Được chọn tự động
+244|Ngày đã chọn
+245|Rao vặt ở Đức
+246|Claude / Anthropic (trả phí)
+247|Claude qua API
+248|Xóa tìm kiếm
+249|Client ID của ứng dụng tạo tại nhà cung cấp
+250|Đóng
+251|Đóng mọi phiên đang hoạt động của {email}?
+252|Đóng phiên
+253|Đóng menu
+254|Đóng bản xem trước
+255|Thu nhỏ xuống khu vực thông báo
+256|Token API Cloudflare
+257|Mô hình Cloudflare · cách nhau bằng dấu phẩy
+258|Code
+259|Mã và GitHub
+260|Mã từ email
+261|Code {brand} (qua API OpenAI / Claude, không phải gói đăng ký của bạn)
+262|Code {brand} dành cho Owner và các tài khoản được Owner cấp quyền.
+263|Cà phê và một kế hoạch rõ ràng? Cho tôi biết bắt đầu từ đâu.
+264|Khóa API Cohere
+265|Mô hình Cohere · cách nhau bằng dấu phẩy
+266|Tổ hợp
+267|Tổ hợp
+268|Tổ hợp cho mọi tài khoản
+269|Lệnh trong chat
+270|Giao tiếp
+271|Thẻ công ty, chi phí và hóa đơn.
+272|So sánh các mô hình cạnh nhau
+273|API tương thích.
+274|Xác nhận email
+275|Xác nhận email của bạn
+276|Kết nối
+277|Kết nối Codex hoặc Claude Code trong OmniRoute.
+278|Kết nối một ứng dụng
+279|Kết nối bất kỳ API hoặc webhook nào.
+280|Kết nối API tùy chỉnh
+281|Kết nối hơn 350 nguồn dữ liệu
+282|Kết nối bằng OAuth (truy cập dữ liệu)
+283|Kết nối không cần OAuth và mở {name}
+284|Kết nối ứng dụng của bạn: AI có thể tìm, đọc, tạo và chỉnh sửa trong đó, và hỏi bạn trước mỗi hành động.
+285|Đã kết nối
+286|Ứng dụng đã kết nối
+287|Ứng dụng đã kết nối (Gmail, Drive, Notion, GitHub…)
+288|Đã kết nối bằng OAuth
+289|Đang kết nối…
+290|Trình kết nối
+291|Ngữ cảnh giữa các cuộc trò chuyện của dự án
+292|Kiểm soát AI trả phí cho tài khoản thường. Owner vẫn được phép.
+293|Cuộc trò chuyện
+294|Cuộc trò chuyện và liên hệ.
+295|Đã sao chép
+296|Sao chép các khóa đã lưu trên PC này để trang {domain} có cùng mô hình.
+297|Sao chép
+298|Sao chép cuộc trò chuyện
+299|Sao chép ID tài khoản
+300|Sao chép cuộc trò chuyện vào bộ nhớ tạm
+301|Sao chép mã
+302|Sao chép khóa cho máy chủ
+303|Sao chép tin nhắn
+304|Sao chép phần đã chọn
+305|Đang sao chép…
+306|Bảo vệ chi phí
+307|Không thể đính kèm:
+308|Không thể kiểm tra:
+309|Không đọc được trạng thái thông báo:
+310|Không đọc được cài đặt:
+311|Tạo
+312|Tạo plugin
+313|Tạo tài khoản
+314|Tạo và chỉnh sửa thiết kế
+315|Tạo plugin
+316|Tạo tài khoản
+317|Tạo tác vụ
+318|Tạo tài khoản {brand} của bạn
+319|Tạo, kết hợp và chỉnh sửa tài liệu và đồ họa
+320|Tạo, chạy và phân tích quảng cáo
+321|Đã tạo
+322|Đang tạo thiết kế…
+323|Sáng tạo
+324|Sáng tạo
+325|Cảnh báo tín dụng
+326|Đã thêm tín dụng
+327|Tín dụng được tính theo giá gói, kể cả khi tài khoản không bị tính phí.
+328|Tín dụng mỗi ngày
+329|Tín dụng đã dùng
+330|Đã hết tín dụng
+331|Hiện tại
+332|Cuộc trò chuyện hiện tại
+333|Mật khẩu hiện tại
+334|Gói hiện tại
+335|Tùy chỉnh
+336|Ứng dụng tùy chỉnh
+337|Trợ lý tùy chỉnh
+338|Header tùy chỉnh
+339|Hướng dẫn tùy chỉnh
+340|Hỗ trợ khách hàng
+341|Khách hàng
+342|Khách hàng, thanh toán, hóa đơn và sản phẩm.
+343|Hằng ngày
+344|Hằng ngày lúc {time}
+345|Tối
+346|Dữ liệu
+347|Dữ liệu và hành động trong HubSpot
+348|Dữ liệu và phân tích
+349|Cơ sở dữ liệu
+350|Ngày
+351|Ngày
+352|Ngày trong tháng
+353|Ngày
+354|Quyết định
+355|Deep Research
+356|Mặc định
+357|Xóa
+358|Xóa tài khoản
+359|Xóa tất cả
+360|Xóa dữ liệu
+361|Xóa mọi thứ {brand} ghi nhớ cho tài khoản này? Không thể hoàn tác.
+362|Xóa tài khoản
+363|Xóa tài khoản và toàn bộ dữ liệu? Không thể hoàn tác. Nhập mật khẩu tài khoản để xác nhận.
+364|Xóa trợ lý «{name}»?
+365|Xóa cuộc trò chuyện
+366|Xóa cuộc trò chuyện {name}
+367|Xóa vĩnh viễn cuộc trò chuyện «{title}»?
+368|Xóa thiết kế «{name}» cùng mọi phiên bản?
+369|Xóa plugin «{name}»?
+370|Xóa dự án «{name}»? Các cuộc trò chuyện vẫn còn nhưng không thuộc dự án nào nữa.
+371|Xóa khóa đã lưu
+372|Xóa token đã lưu
+373|Xóa skill /{slug}?
+374|Xóa tác vụ «{name}»? Lịch sử chạy sẽ mất.
+375|Xóa mục này
+376|Xóa mục này khỏi bộ nhớ?
+377|Xóa {name}
+378|Xóa {what}? Không thể hoàn tác. Nhập DELETE để xác nhận.
+379|Xóa «{name}» khỏi Thư viện? Tệp cũng không thể tải xuống từ các cuộc trò chuyện đã dùng nó.
+380|Xóa: {error}
+381|Đã xóa: {what}.
+382|Đang xóa…
+383|Đã từ chối
+384|Từ chối
+385|Mô tả một trang web, áp phích hoặc bài thuyết trình; {brand} tạo bản mẫu HTML bạn có thể xem, thay đổi và tải xuống.
+386|Mô tả trang, áp phích hoặc bài thuyết trình. {brand} viết một tệp HTML duy nhất bạn xem ngay, thay đổi bằng lời và tải xuống.
+387|Mô tả bức ảnh bạn muốn tôi tạo.
+388|Mô tả bức ảnh bạn muốn…
+389|Mô tả video bạn muốn tôi tạo.
+390|Mô tả video bạn muốn…
+391|Mô tả những gì ta sẽ xây dựng
+392|Mô tả những gì ta sẽ xây dựng…
+393|Mô tả
+394|Design
+395|Thiết kế và sáng tạo
+396|Thiết kế trên bảng vẽ chung
+397|Tiêu đề thiết kế
+398|Loại thiết kế
+399|Chi tiết
+400|Công cụ cho nhà phát triển
+401|Phát triển
+402|Thiết bị
+403|Thiết bị nhận yêu cầu: {n}.
+404|API trực tiếp chọn thủ công
+405|Thẳng thắn và trung thực
+407|Bỏ
+408|Bỏ thay đổi
+409|Ngắt kết nối
+410|Ngắt kết nối {name}? AI sẽ không truy cập được nữa.
+411|Nghiên cứu sâu, kiểm tra nhiều nguồn và giải thích đầy đủ:
+412|Không cho phép chi phí trực tiếp
+413|Không bắt đầu tác vụ trả phí
+414|Tài liệu
+415|Tài liệu / ngữ cảnh dài
+416|Tài liệu hướng dẫn
+417|Tài liệu
+418|Tài liệu, bảng tính và bài thuyết trình trong Drive
+419|Xong! Khóa hoạt động.
+420|Xong. Thiết bị này sẽ nhận yêu cầu truy cập (tổng 1 thiết bị).
+421|Xong. Thiết bị này sẽ nhận yêu cầu truy cập (tổng {n} thiết bị).
+422|Tải xuống
+423|Tải HTML
+424|Tải toàn bộ dữ liệu của tôi
+425|Tải xuống {name}
+426|Tải xuống: {error}
+427|Tệp có thể tải xuống
+428|Đang tải xuống…
+429|Thả để thêm tệp vào Thư viện
+430|Thả để đính kèm tệp
+431|Nhân bản
+432|Vd. Giáo viên toán
+433|Vd. Tóm tắt tin tức
+434|Vd. Chiến dịch marketing mùa xuân
+435|Vd. Dùng tài liệu dự án, giữ giọng trang trọng và nhớ các quyết định quan trọng.
+436|Vd. Thời tiết
+437|Vd. gemini/gemini-3.5-flash
+438|Chỉnh sửa
+439|Chỉnh sửa plugin
+440|Chỉnh sửa trợ lý
+441|Chỉnh sửa trợ lý {name}
+442|Chỉnh sửa dự án
+443|Chỉnh sửa dự án {name}
+444|Chỉnh sửa tác vụ
+445|Chỉnh sửa mục này
+446|Chỉnh sửa {name}
+447|Chỉnh sửa «{name}»

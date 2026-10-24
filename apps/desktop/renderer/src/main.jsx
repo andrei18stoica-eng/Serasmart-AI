@@ -37,7 +37,7 @@ import { SkillsPanel } from "./pages/Skills.jsx";
 import { ConnectorsPanel } from "./pages/Connectors.jsx";
 import { PluginsPanel } from "./pages/Plugins.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
-import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
+import { MemoryPage } from "./pages/Memory.jsx";
 import { UsagePage, BillingPage, CreditsDialog } from "./pages/Usage.jsx";
 import { useAccountSettings, ProfileTab, NotifyTab, PrivacyTab, SecurityTab, AccountAvatar } from "./pages/AccountSettings.jsx";
 import { LibraryPage } from "./pages/Library.jsx";

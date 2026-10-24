@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Download, Trash2, LogOut, KeyRound, Monitor, Smartphone, Camera, Copy, Check } from "lucide-react";
 import { api, toast, storage, TOKEN_KEY, GATEWAY, authHeaders, saveBlobDownload, Switch, cx, writeClipboardText } from "../core.jsx";
-import { PreferenceSwitches } from "./Memory.jsx";
 import { BRAND_NAME } from "../brand.js";
 import { t as tr, useLanguage } from "../i18n.jsx";
 
@@ -114,7 +113,7 @@ export function ProfileTab({ account, models = [], preferences, onPreferences, p
       <p className="settingsHelp">{tr("{brand} uses this only to answer you better; you can see and change it here any time.",{brand:BRAND_NAME})}</p>
     </section>
     <div className="formActions stickySave"><button className="primary" disabled={!!busy || !dirty}>{busy === "save" ? tr("Saving…") : tr("Save profile")}</button></div>
-    {onPreferences && <section className="setSection"><h3>{tr("Memory and chats")}</h3><PreferenceSwitches preferences={preferences} onChange={onPreferences} busyKey={prefBusy} /></section>}
+    {/* 0.7.40 (asked by the Owner): the memory switches are only in Settings → Memory, not in General too. */}
   </form>;
 }
 

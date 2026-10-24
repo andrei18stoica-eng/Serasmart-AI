@@ -1,440 +1,440 @@
-901|Kata sandi
-902|Kata sandi diubah. Perangkat lain harus masuk lagi.
-903|Tempel kunci terlebih dahulu.
-904|Tempel kunci di sini
-905|Pembayaran
-906|Pembayaran, pesanan, katalog, dan pelanggan.
-907|Tertunda
-908|Kinerja
-909|Izin
-910|Izin diubah
-911|Izin: {error}
-912|Astrolog AI pribadi
-913|Ponsel
-914|Notifikasi ponsel
-915|Pilih asisten untuk percakapan baru.
-916|Pilih dari direktori atau buat sendiri dari API. Lalu tulis namanya di chat dan {brand} memakainya.
-917|Pilih siapa yang membuat gambar di bawah kotak pesan, atau Otomatis: yang terbaik tersedia.
-918|Pilih siapa yang membuat video di bawah kotak pesan, atau Otomatis: yang gratis dulu, lalu Gemini Veo, Grok Imagine, dan kunci lainnya (berbayar, jika Anda mengizinkannya di Pengaturan).
-919|Gambar
-920|Gambar / visi
-921|Gambar HD
-922|Pembuatan gambar
-923|Pembuatan gambar, API, model, dan mencoba penyedia lain secara otomatis.
-924|Gambar dibuat oleh
-925|Gambar dibuat oleh {brand}
-926|Pembuatan gambar
-927|Mode gambar: pesan berikutnya membuat gambar. Tekan Gambar lagi untuk keluar.
-928|Model gambar
-929|Penyedia gambar
-930|Gambar: pesan berikutnya membuat gambar.
-931|Gambar
-932|Gambar dan video (tidak dibuat saat pengujian, jadi kredit tidak terpakai):
-933|Gambar di Pustaka
-934|Gambar dibuat oleh
-935|Sematkan
-936|Sematkan ini
-937|Disematkan — tekan untuk melepas
-938|Tempat yang dicari
-939|Paket
-940|Rencana minggu ini
-941|Rencanakan minggu saya
-942|Paket dimulai
-943|Merencanakan struktur…
-944|Paket dan kredit belum diaktifkan: setiap akun bekerja seperti sebelumnya (tingkat gratis dan aturan Owner).
-945|Paket dan kredit tambahan
-946|Paket setiap akun
-947|Bermain catur dan belajar strategi
-948|Direktori plugin
-949|Bagian plugin
-950|Pengaturan plugin
-951|Plugin
-952|Kunci API Pollinations
-953|Model Pollinations
-954|Model video Pollinations
-955|Populer
-956|Poster
-957|Basis data Postgres: kueri, cabang, dan kelola.
-958|Postingan untuk Instagram, Facebook, LinkedIn, atau TikTok.
-959|Preferensi
-960|Model pilihan
-961|Menyiapkan jawaban…
-962|Menyiapkan pertanyaan…
-963|Menyiapkan…
-964|Presentasi
-965|Tekan Bagikan (kotak dengan panah ke atas), atau ••• → Bagikan.
-966|Tekan mikrofon sekali untuk mulai merekam dan sekali lagi untuk berhenti. {brand} menuliskan ucapan Anda dan mengirimnya.
-967|Pratinjau
-968|Lebar pratinjau
-969|Pratinjau {name}
-970|Pratinjau: {name}
-971|30 hari terakhir
-972|7 hari terakhir
-973|Akses prioritas saat ramai
-974|Basis data dan migrasi Prisma Postgres.
-975|Privasi
-976|Privasi dan data
-977|Analitik produk, flag, dan eksperimen.
-978|Manajemen produk
-979|Produktivitas
-980|Profesional
-981|Email profesional
-982|Profil
-983|Foto profil
-984|Foto profil dihapus.
-985|Foto profil disimpan.
-986|Profil disimpan.
-987|Pemrograman
-988|Bahasa pemrograman
-989|Pemrograman dengan Codex dan Claude Code: pilih model dan mulai percakapan kode.
-990|Proyek
-991|Proyek dan pekerjaan
-992|Proyek, basis data, SQL, dan log.
-993|Proyek, deployment, dan log.
-994|Proyek, tugas, dan CRM
-995|Korektor
-996|Usulan dibuat (tanpa pemeriksaan sintaks untuk jenis file ini).
-997|Perlindungan aktif: {brand} mencoba Cloudflare dan Pollinations langsung. Hugging Face, Together, OpenAI, Stability, fal.ai, dan Replicate diblokir jika bisa memakai kredit berbayar. Untuk OpenRouter harga diperiksa sebelum panggilan.
-998|Melindungi data pribadi
-999|Desain protein dan molekul
-1000|Penyedia
-1001|Penyedia yang dipakai di chat
-1002|Kualitas
-1003|Pertanyaan tentang data kesehatan Anda
-1004|Jumlah cepat
-1005|Jawaban cepat
-1006|Bacakan
-1007|Baca dan edit spreadsheet.
-1008|Baca dan atur email Gmail Anda
-1009|Baca, tulis, dan edit dokumen.
-1010|Membacakan tidak tersedia di komputer ini.
-1011|Membaca permintaan…
-1012|Membaca teks…
-1013|Siap pakai
-1014|Hasil nyata jalannya {brand}:
-1015|Internet waktu nyata
-1016|Terbaru
-1017|Sambungkan ulang di OmniRoute
-1018|Rekam suara Anda
-1019|Segarkan
-1020|Segarkan daftar model
-1021|Menyegarkan daftar…
-1022|Buat ulang jawaban
-1023|Membuat ulang mengganti jawaban ini dan menghapus pesan setelahnya. Lanjutkan?
-1024|Ditolak
-1025|Pengguna ditolak
-1026|Muat ulang {brand}
-1027|Hapus
-1028|Hapus data pribadi yang terekspos
-1029|Keluarkan dari proyek
-1030|Hapus plugin «{name}»?
-1031|Hapus {name}
-1032|Ganti nama
-1033|Ganti nama file
-1034|Ganti nama: {error}
-1035|Token API Replicate
-1036|Model Replicate
-1037|Model video Replicate
-1038|Repositori, issues, pull requests, dan file.
-1039|Riset
-1040|Riset dan sains
-1041|Sumber belajar Al-Qur'an
-1042|Pulihkan dari arsip
-1043|Pulihkan chat
-1044|Pulihkan chat {name}
-1045|Hasil
-1046|Hasil
-1047|Coba lagi
-1048|Jalankan / uji kode
-1049|Jalankan model AI di Replicate.
-1050|Jalankan kode: {error}
-1051|Riwayat jalan
-1052|Jalankan sekarang
-1053|Kelola toko online Anda
-1054|Berjalan
-1055|Menjalankan kode dan SSH hanya untuk Owner.
-1056|Menjalankan kode, GitHub Solve, dan SSH hanya untuk akun Owner (lihat «Email Owner di PC ini»).
-1057|Menjalankan…
-1058|Menjalankan tugas terjadwal dan pemeriksaan pada waktu yang Anda pilih.
-1059|Riset SEO
-1060|Jalur kunci pribadi SSH
-1061|Server SSH · alamat
-1062|Pengguna SSH
-1063|Penjualan
-1064|Sabtu dan Minggu pukul {time}
-1065|Simpan
-1066|Simpan dan sematkan
-1067|Simpan dan uji
-1068|Simpan profil
-1069|Simpan pengaturan
-1070|Simpan perubahan
-1071|Simpan skill
-1072|Disimpan dan disematkan di memori.
-1073|Disimpan.
-1074|Menyimpan kunci dan mengujinya…
-1075|Menyimpan plugin dan mengujinya…
-1076|Menyimpan…
-1077|Memindai kode untuk masalah keamanan.
-1078|Jadwalkan
-1079|Terjadwal
-1080|Terjadwal (tugas terjadwal)
-1081|Sains
-1082|Riset ilmiah
-1083|Gulir dan pilih Tambahkan ke Layar Utama, lalu Tambah.
-1084|Cari
-1085|Cari di GitHub otomatis
-1086|Cari dan ambil data dari web
-1087|Cari dan baca file serta folder.
-1088|Cari dan baca file perusahaan Anda.
-1089|Cari dan kirim email serta pesan
-1090|Cari aplikasi
-1091|Cari berdasarkan nama
-1092|Cari chat
-1093|Cari model
-1094|Cari model…
-1095|Cari bahasa
-1096|Cari memori
-1097|Cari model
-1098|Cari chat sebelumnya
-1099|Cari plugin
-1100|Cari plugin dan skill
-1101|Hasil pencarian
-1102|Cari di Pustaka
-1103|Cari di direktori (nama, kategori)
-1104|Cari di pustaka
-1105|Cari literatur ilmiah
-1106|Cari di web info terbaru tentang
-1107|Cari {n} bahasa
-1108|Cari, baca, dan buat file.
-1109|Cari, baca, dan buat draf email.
-1110|Cari, baca, buat, dan edit halaman serta basis data.
-1111|Mencari di Wikipedia (Rumania, lalu Inggris) dan membawa ringkasan artikel.
-1112|Mencari informasi terkini dan sumber online.
-1113|Mencari sumber terkini sendiri untuk pertanyaan tentang informasi baru, versi, dan API.
-1114|Keamanan
-1115|Pemindaian keamanan untuk kode
-1116|Lihat paket
-1117|Lihat kalender dan waktu luang Anda, serta tambah, ubah, atau hapus acara.
-1118|Seedance, Veo, Wan, dan model lain lewat API yang sama.
-1119|Pilih
-1120|Pilih pengguna.
-1121|Dipilih
-1122|Kirim
-1123|Kirim notifikasi uji
-1124|Kirim permintaan akses
-1125|Kirim ulang kode
-1126|Kirim ulang kode ({s} dtk)
-1127|Kirim pesan
-1128|Server terhubung ✓
-1129|Sesi ditutup
-1130|Sesi: {error}
-1131|Atur status «{status}» untuk {email}? Sesi aktif akun akan ditutup.
-1132|Pengaturan
-1133|Pengaturan hanya bisa disimpan dari aplikasi {brand}.
-1134|Pengaturan disimpan.
-1135|Beberapa model gambar dengan satu kunci.
-1136|Lanjutkan dengan «{title}»?
-1137|Instruksi proyek bersama
-1138|Singkat dan langsung
-1139|Deskripsi singkat
-1140|Video pendek (~6 dtk)
-1141|Tampilkan lagi ({n} tersisa)
-1142|Tampilkan atau sembunyikan menu
-1143|Menampilkan 60.000 karakter pertama.
-1144|Menampilkan notifikasi saat tugas punya hasil.
-1145|Masuk
-1146|Masuk lagi
-1147|Masuk lagi.
-1148|Masuk ke {brand}
-1149|Masuk ke {name} di jendela yang terbuka, lalu kembali ke sini.
-1150|Keluar
-1151|Keluar dari {brand} di semua perangkat, termasuk yang ini?
-1152|Keluarkan perangkat lain
-1153|Masuk
-1154|Perlu masuk.
-1155|Keluar
-1156|Keluar…
-1157|Pembaruan situs ({domain})
-1158|Situs dan deploy.
-1159|Situs, halaman, dan item CMS.
-1160|Ukuran
-1161|Plugin skill
-1162|Skill
-1163|Kanal dan pesan Slack
-1164|Postingan media sosial
-1165|Rekayasa perangkat lunak
-1166|Lainnya
-1167|Lainnya…
-1168|Urutkan
-1169|Bicara: teks muncul di kotak dan terkirim sendiri
-1170|Kunci API Stability
-1171|Mesin Stability
-1172|Start
-1173|Mulai OmniRoute otomatis
-1174|Mulai OmniRoute atau tambahkan kunci API di Pengaturan.
-1175|Mulai percakapan yang membuat gambar.
-1176|Mulai {brand} bersama Windows
-1177|Memulai {brand}…
-1178|Memulai…
-1179|Model ADMET terdepan
-1180|Masih terjaga? Mari selesaikan bersama.
-1181|Hentikan dan kirim
-1182|Berhenti membaca
-1183|Hentikan jawaban
-1184|Hentikan rekaman suara
-1185|Hentikan rekaman suara terlebih dahulu.
-1186|Berhenti setelah kesalahan
-1187|Dihentikan oleh Owner
-1188|Latihan kekuatan untuk Garmin
-1189|Struktur, molekul, dan protein
-1190|Pelajar
-1191|Langganan
-1192|Berhasil
-1193|Sarankan rencana untuk minggu yang dimulai: prioritas, tenggat, dan satu langkah kecil setiap hari.
-1194|Ringkas dokumen
-1195|Ringkas dokumen terlampir dalam lima poin yang jelas.
-1196|Ringkasan
-1197|Merangkum teks atau dokumen menjadi gagasan utamanya.
-1198|Tangguhkan
-1199|Ditangguhkan
-1200|Pengguna ditangguhkan
-1201|Tablet
-1202|Pembacaan tarot
-1203|Tugas yang dijalankan {brand} sendiri pada waktu yang Anda pilih.
-1204|Tugas, daftar, dokumen, dan komentar.
-1205|Tugas, proyek, dan komentar.
-1206|Admin tim dengan kredit bersama
-1207|Detail teknis: {details}
-1208|Uji
-1209|Uji sekarang
-1210|Uji berhasil: {result}
-1211|Uji kunci
-1212|Uji mikrofon
-1213|Uji server
-1214|Pengujian
-1215|Menguji koneksi SSH…
-1216|Menguji…
-1217|Poker Texas Hold'em dengan AI
-1218|Teks item
-1219|Teks yang dibaca untuk AI
-1220|Penyedia AI tidak menjawab tepat waktu. Coba lagi.
-1221|Batas gratis penyedia AI tercapai. Pilih model lain atau coba lagi nanti.
-1222|Alamat API harus berupa tautan lengkap, misalnya https://example.com/webhook.
-1223|Halaman Google terbuka. Tekan «Create API key» lalu salin.
-1224|Pustaka kosong. Seret file ke sini atau tekan «Tambah file».
-1225|OAuth Client ID tidak ada.
-1226|Halaman OAuth tidak bisa dibuka.
-1227|Akun Owner tidak bisa dihapus.
-1228|Owner menyetujui akun dan memutuskan layanan AI apa yang bisa mereka pakai.
-1229|Owner memutuskan model mana yang bisa dipakai akun Anda.
-1230|Email Owner tidak valid.
-1231|Owner harus menambahkan aplikasi OAuth Asana di Pengaturan terlebih dahulu.
-1232|Owner harus menambahkan aplikasi OAuth Box di Pengaturan terlebih dahulu.
-1233|Owner harus menambahkan aplikasi OAuth Google di Pengaturan terlebih dahulu.
-1234|Owner harus menambahkan aplikasi OAuth HubSpot di Pengaturan terlebih dahulu.
-1235|Owner harus menambahkan aplikasi OAuth Lovable di Pengaturan terlebih dahulu.
-1236|Langganan pribadi Owner tidak bisa diberikan ke akun lain.
-1237|Tombol X menyembunyikan aplikasi tanpa menghentikan layanan.
-1238|Akun dan semua datanya (chat, memori, file, pengaturan) dihapus selamanya.
-1239|Akun dibuat di server {brand}.
-1240|Akun dibuat di komputer ini dan bisa langsung Anda pakai.
-1241|Akun tidak aktif.
-1242|Akun menunggu persetujuan Owner.
-1243|Akun telah dibuat dan menunggu persetujuan Owner.
-1244|Akun telah dihapus.
-1245|Alamat tidak valid.
-1246|Jawaban berlanjut di server…
-1247|Jawaban terputus: {error}
-1248|Jawaban dihentikan sebelum selesai.
-1249|Jawaban dihentikan.
-1250|Aplikasi tidak bisa dibuka — {error}
-1251|Aplikasi tidak bisa dibuka.
-1252|Aplikasi mulai sendiri dan bisa tetap berjalan di latar belakang.
-1253|Aplikasi dibuka.
-1254|Aplikasi tidak bisa dimuat: {error}
-1255|Trek audio telah ditranskripsi untuk {brand}.
-1256|Awal dokumen, sebagai teks.
-1257|Browser tidak bisa merekam suara.
-1258|Perubahan berlaku untuk chat ini.
-1259|Perubahan diterapkan di GitHub. Commit: {commit}
-1260|Kode tidak bisa disalin ke papan klip.
-1261|Kode sudah kedaluwarsa. Minta yang baru.
-1262|Kode tidak benar.
-1263|Kode berjalan. Hasilnya dimasukkan ke kotak pesan.
-1264|Percakapan tidak bisa disalin ke papan klip.
-1265|Percakapan tidak bisa disimpan: {error}
-1266|Percakapan diarsipkan. Anda akan menemukannya di «Diarsipkan» di bilah samping.
-1267|Percakapan disalin ke papan klip.
-1268|Percakapan dipulihkan.
-1269|Data tidak bisa dimuat: {error}
-1270|Tanggal dalam bulan harus antara 1 dan 28.
-1271|Model bawaan
-1272|Alamat email tidak valid.
-1273|Waktu dan tanggal tepat di Rumania dan kota-kota besar dunia.
-1274|Ekspor gagal:
-1275|File tidak punya teks yang bisa ditampilkan.
-1276|File tidak lagi tersedia.
-1277|File tidak lagi ada di Pustaka.
-1278|File sekarang bernama «{name}».
-1279|File disimpan di Pustaka Anda (hingga 2 GB per file)…
-1280|File atau pesan terlalu besar untuk layanan {brand} (HTTP 413).
-1281|File ditambahkan ke Pustaka.
-1282|File tidak ditemukan di Pustaka.
-1283|Halaman pertama, sebagai teks.
-1284|Nama header hanya boleh berisi huruf, angka, dan tanda hubung.
-1285|Instruksi paling banyak 8.000 karakter.
-1286|Interval harus antara 1 dan 168 jam.
-1287|Kunci tidak berfungsi: {error}
-1288|Kunci ini dipakai bersama dengan Gambar.
-1289|Kunci dienkripsi di PC ini.
-1290|Kunci tidak bisa disalin.
-1291|Kunci tetap di server dan hanya ditampilkan tersamar.
-1292|Bahasa yang saya pakai menulis
-1293|Pembaruan terakhir ({when}) gagal — detail
-1294|Tautan tidak bisa dibuka di browser.
-1295|Tautan tidak bisa dibuka: {error}
-1296|Akun lokal dengan email ini mendapat hak Owner: menjalankan kode, GitHub Solve, memeriksa server. Hanya berlaku jika {brand} Cloud tidak diatur. Masuk lagi setelah perubahan.
-1297|Alamat layanan lokal tidak valid. Contoh: {url}
-1298|Yang terkunci tidak diizinkan untuk Anda.
-1299|Login kedaluwarsa untuk: {names}. Panel OmniRoute di server → Providers → setiap akun → Reconnect (atau tambahkan kunci API).
-1300|Pesan tidak bisa dikirim: {error}
-1301|Pesan kosong.
-1302|Mikrofon diblokir. Izinkan akses mikrofon di browser.
-1303|Mikrofon tidak tersedia: {error}
-1304|Model tidak bisa disimpan untuk percakapan: {error}
-1305|Daftar model tidak bisa dimuat: {error}
-1306|Daftar model kosong.
-1307|Model berasal dari OmniRoute dan API yang diatur di server.
-1308|Model berasal dari OmniRoute dan API yang diatur di PC ini.
-1309|Nama paling banyak 100 karakter.
-1310|Nama paling banyak 120 karakter.
-1311|Kata sandi baru minimal 8 karakter.
-1312|Perangkat lain telah dikeluarkan.
-1313|Kata sandi paling banyak 256 karakter.
-1314|Kata sandi paling banyak 72 karakter.
-1315|Kata sandi minimal 10 karakter.
-1316|Kata sandi minimal 8 karakter.
-1317|Gambar tidak bisa dibuat: {error}
-1318|Gambar tidak bisa dibaca.
-1319|Gambar lebih besar dari 10 MB.
-1320|Plugin disimpan, tetapi uji gagal: {error}
-1321|Plugin berasal dari proyek open-source (lisensi MIT dan Apache 2.0); setiap kartu menyebut penulisnya dan menautkan ke sumbernya.
-1322|Plugin tidak bisa dimuat: {error}
-1323|Pratinjau tidak tersedia.
-1324|Pratinjau tidak tersedia. File mungkin sudah dihapus dari Pustaka.
-1325|Tautan pratinjau tidak tersedia.
-1326|Harga berubah sesuai jumlah kredit.
-1327|Usulan tidak bisa disalin.
-1328|Usulan disalin ke papan klip.
-1329|Kunci API penyedia salah atau tidak punya akses ke model ini.
-1330|Rekaman kosong.
-1331|Permintaan tidak berhasil (HTTP {status}).
-1332|Alamat pengalihan untuk didaftarkan di penyedia:
-1333|Server memeriksa GitHub sekali sejam dan memasang versi baru sendiri.
-1334|Server tidak mengembalikan sesi yang valid.
-1335|Owner server harus menambahkan kunci AI.
-1336|Layanan tidak mengonfirmasi bahwa file tersimpan.
-1337|Sesi tidak valid atau sudah kedaluwarsa.
-1338|Sesi telah ditutup.
-1339|Pengaturan tidak bisa disimpan: {error}
-1340|Pengaturan tidak bisa disimpan.
+908|Kata sandi
+909|Kata sandi diubah. Perangkat lain harus masuk lagi.
+910|Tempel kunci terlebih dahulu.
+911|Tempel kunci di sini
+912|Pembayaran
+913|Pembayaran, pesanan, katalog, dan pelanggan.
+914|Tertunda
+915|Kinerja
+916|Izin
+917|Izin diubah
+918|Izin: {error}
+919|Astrolog AI pribadi
+920|Ponsel
+921|Notifikasi ponsel
+922|Pilih asisten untuk percakapan baru.
+923|Pilih dari direktori atau buat sendiri dari API. Lalu tulis namanya di chat dan {brand} memakainya.
+924|Pilih siapa yang membuat gambar di bawah kotak pesan, atau Otomatis: yang terbaik tersedia.
+925|Pilih siapa yang membuat video di bawah kotak pesan, atau Otomatis: yang gratis dulu, lalu Gemini Veo, Grok Imagine, dan kunci lainnya (berbayar, jika Anda mengizinkannya di Pengaturan).
+926|Gambar
+927|Gambar / visi
+928|Gambar HD
+929|Pembuatan gambar
+930|Pembuatan gambar, API, model, dan mencoba penyedia lain secara otomatis.
+931|Gambar dibuat oleh
+932|Gambar dibuat oleh {brand}
+933|Pembuatan gambar
+934|Mode gambar: pesan berikutnya membuat gambar. Tekan Gambar lagi untuk keluar.
+935|Model gambar
+936|Penyedia gambar
+937|Gambar: pesan berikutnya membuat gambar.
+938|Gambar
+939|Gambar dan video (tidak dibuat saat pengujian, jadi kredit tidak terpakai):
+940|Gambar di Pustaka
+941|Gambar dibuat oleh
+942|Sematkan
+943|Sematkan ini
+944|Disematkan — tekan untuk melepas
+945|Tempat yang dicari
+946|Paket
+947|Rencana minggu ini
+948|Rencanakan minggu saya
+949|Paket dimulai
+950|Merencanakan struktur…
+951|Paket dan kredit belum diaktifkan: setiap akun bekerja seperti sebelumnya (tingkat gratis dan aturan Owner).
+952|Paket dan kredit tambahan
+953|Paket setiap akun
+954|Bermain catur dan belajar strategi
+955|Direktori plugin
+956|Bagian plugin
+957|Pengaturan plugin
+958|Plugin
+959|Kunci API Pollinations
+960|Model Pollinations
+961|Model video Pollinations
+962|Populer
+963|Poster
+964|Basis data Postgres: kueri, cabang, dan kelola.
+965|Postingan untuk Instagram, Facebook, LinkedIn, atau TikTok.
+966|Preferensi
+967|Model pilihan
+968|Menyiapkan jawaban…
+969|Menyiapkan pertanyaan…
+970|Menyiapkan…
+971|Presentasi
+972|Tekan Bagikan (kotak dengan panah ke atas), atau ••• → Bagikan.
+973|Tekan mikrofon sekali untuk mulai merekam dan sekali lagi untuk berhenti. {brand} menuliskan ucapan Anda dan mengirimnya.
+974|Pratinjau
+975|Lebar pratinjau
+976|Pratinjau {name}
+977|Pratinjau: {name}
+978|30 hari terakhir
+979|7 hari terakhir
+980|Akses prioritas saat ramai
+981|Basis data dan migrasi Prisma Postgres.
+982|Privasi
+983|Privasi dan data
+984|Analitik produk, flag, dan eksperimen.
+985|Manajemen produk
+986|Produktivitas
+987|Profesional
+988|Email profesional
+989|Profil
+990|Foto profil
+991|Foto profil dihapus.
+992|Foto profil disimpan.
+993|Profil disimpan.
+994|Pemrograman
+995|Bahasa pemrograman
+996|Pemrograman dengan Codex dan Claude Code: pilih model dan mulai percakapan kode.
+997|Proyek
+998|Proyek dan pekerjaan
+999|Proyek, basis data, SQL, dan log.
+1000|Proyek, deployment, dan log.
+1001|Proyek, tugas, dan CRM
+1002|Korektor
+1003|Usulan dibuat (tanpa pemeriksaan sintaks untuk jenis file ini).
+1004|Perlindungan aktif: {brand} mencoba Cloudflare dan Pollinations langsung. Hugging Face, Together, OpenAI, Stability, fal.ai, dan Replicate diblokir jika bisa memakai kredit berbayar. Untuk OpenRouter harga diperiksa sebelum panggilan.
+1005|Melindungi data pribadi
+1006|Desain protein dan molekul
+1007|Penyedia
+1008|Penyedia yang dipakai di chat
+1009|Kualitas
+1010|Pertanyaan tentang data kesehatan Anda
+1011|Jumlah cepat
+1012|Jawaban cepat
+1013|Bacakan
+1014|Baca dan edit spreadsheet.
+1015|Baca dan atur email Gmail Anda
+1016|Baca, tulis, dan edit dokumen.
+1017|Membacakan tidak tersedia di komputer ini.
+1018|Membaca permintaan…
+1019|Membaca teks…
+1020|Siap pakai
+1021|Hasil nyata jalannya {brand}:
+1022|Internet waktu nyata
+1023|Terbaru
+1024|Sambungkan ulang di OmniRoute
+1025|Rekam suara Anda
+1026|Segarkan
+1027|Segarkan daftar model
+1028|Menyegarkan daftar…
+1029|Buat ulang jawaban
+1030|Membuat ulang mengganti jawaban ini dan menghapus pesan setelahnya. Lanjutkan?
+1031|Ditolak
+1032|Pengguna ditolak
+1033|Muat ulang {brand}
+1034|Hapus
+1035|Hapus data pribadi yang terekspos
+1036|Keluarkan dari proyek
+1037|Hapus plugin «{name}»?
+1038|Hapus {name}
+1039|Ganti nama
+1040|Ganti nama file
+1041|Ganti nama: {error}
+1042|Token API Replicate
+1043|Model Replicate
+1044|Model video Replicate
+1045|Repositori, issues, pull requests, dan file.
+1046|Riset
+1047|Riset dan sains
+1048|Sumber belajar Al-Qur'an
+1049|Pulihkan dari arsip
+1050|Pulihkan chat
+1051|Pulihkan chat {name}
+1052|Hasil
+1053|Hasil
+1054|Coba lagi
+1055|Jalankan / uji kode
+1056|Jalankan model AI di Replicate.
+1057|Jalankan kode: {error}
+1058|Riwayat jalan
+1059|Jalankan sekarang
+1060|Kelola toko online Anda
+1061|Berjalan
+1062|Menjalankan kode dan SSH hanya untuk Owner.
+1063|Menjalankan kode, GitHub Solve, dan SSH hanya untuk akun Owner (lihat «Email Owner di PC ini»).
+1064|Menjalankan…
+1065|Menjalankan tugas terjadwal dan pemeriksaan pada waktu yang Anda pilih.
+1066|Riset SEO
+1067|Jalur kunci pribadi SSH
+1068|Server SSH · alamat
+1069|Pengguna SSH
+1070|Penjualan
+1071|Sabtu dan Minggu pukul {time}
+1072|Simpan
+1073|Simpan dan sematkan
+1074|Simpan dan uji
+1075|Simpan profil
+1076|Simpan pengaturan
+1077|Simpan perubahan
+1078|Simpan skill
+1079|Disimpan dan disematkan di memori.
+1080|Disimpan.
+1081|Menyimpan kunci dan mengujinya…
+1082|Menyimpan plugin dan mengujinya…
+1083|Menyimpan…
+1084|Memindai kode untuk masalah keamanan.
+1085|Jadwalkan
+1086|Terjadwal
+1087|Terjadwal (tugas terjadwal)
+1088|Sains
+1089|Riset ilmiah
+1090|Gulir dan pilih Tambahkan ke Layar Utama, lalu Tambah.
+1091|Cari
+1092|Cari di GitHub otomatis
+1093|Cari dan ambil data dari web
+1094|Cari dan baca file serta folder.
+1095|Cari dan baca file perusahaan Anda.
+1096|Cari dan kirim email serta pesan
+1097|Cari aplikasi
+1098|Cari berdasarkan nama
+1099|Cari chat
+1100|Cari model
+1101|Cari model…
+1102|Cari bahasa
+1103|Cari memori
+1104|Cari model
+1105|Cari chat sebelumnya
+1106|Cari plugin
+1107|Cari plugin dan skill
+1108|Hasil pencarian
+1109|Cari di Pustaka
+1110|Cari di direktori (nama, kategori)
+1111|Cari di pustaka
+1112|Cari literatur ilmiah
+1113|Cari di web info terbaru tentang
+1114|Cari {n} bahasa
+1115|Cari, baca, dan buat file.
+1116|Cari, baca, dan buat draf email.
+1117|Cari, baca, buat, dan edit halaman serta basis data.
+1118|Mencari di Wikipedia (Rumania, lalu Inggris) dan membawa ringkasan artikel.
+1119|Mencari informasi terkini dan sumber online.
+1120|Mencari sumber terkini sendiri untuk pertanyaan tentang informasi baru, versi, dan API.
+1121|Keamanan
+1122|Pemindaian keamanan untuk kode
+1123|Lihat paket
+1124|Lihat kalender dan waktu luang Anda, serta tambah, ubah, atau hapus acara.
+1125|Seedance, Veo, Wan, dan model lain lewat API yang sama.
+1126|Pilih
+1127|Pilih pengguna.
+1128|Dipilih
+1129|Kirim
+1130|Kirim notifikasi uji
+1131|Kirim permintaan akses
+1132|Kirim ulang kode
+1133|Kirim ulang kode ({s} dtk)
+1134|Kirim pesan
+1135|Server terhubung ✓
+1136|Sesi ditutup
+1137|Sesi: {error}
+1138|Atur status «{status}» untuk {email}? Sesi aktif akun akan ditutup.
+1139|Pengaturan
+1140|Pengaturan hanya bisa disimpan dari aplikasi {brand}.
+1141|Pengaturan disimpan.
+1142|Beberapa model gambar dengan satu kunci.
+1143|Lanjutkan dengan «{title}»?
+1144|Instruksi proyek bersama
+1145|Singkat dan langsung
+1146|Deskripsi singkat
+1147|Video pendek (~6 dtk)
+1148|Tampilkan lagi ({n} tersisa)
+1149|Tampilkan atau sembunyikan menu
+1150|Menampilkan 60.000 karakter pertama.
+1151|Menampilkan notifikasi saat tugas punya hasil.
+1152|Masuk
+1153|Masuk lagi
+1154|Masuk lagi.
+1155|Masuk ke {brand}
+1156|Masuk ke {name} di jendela yang terbuka, lalu kembali ke sini.
+1157|Keluar
+1158|Keluar dari {brand} di semua perangkat, termasuk yang ini?
+1159|Keluarkan perangkat lain
+1160|Masuk
+1161|Perlu masuk.
+1162|Keluar
+1163|Keluar…
+1164|Pembaruan situs ({domain})
+1165|Situs dan deploy.
+1166|Situs, halaman, dan item CMS.
+1167|Ukuran
+1168|Plugin skill
+1169|Skill
+1171|Kanal dan pesan Slack
+1172|Postingan media sosial
+1173|Rekayasa perangkat lunak
+1174|Lainnya
+1175|Lainnya…
+1176|Urutkan
+1177|Bicara: teks muncul di kotak dan terkirim sendiri
+1178|Kunci API Stability
+1179|Mesin Stability
+1180|Start
+1181|Mulai OmniRoute otomatis
+1182|Mulai OmniRoute atau tambahkan kunci API di Pengaturan.
+1183|Mulai percakapan yang membuat gambar.
+1184|Mulai {brand} bersama Windows
+1185|Memulai {brand}…
+1186|Memulai…
+1187|Model ADMET terdepan
+1188|Masih terjaga? Mari selesaikan bersama.
+1189|Hentikan dan kirim
+1190|Berhenti membaca
+1191|Hentikan jawaban
+1192|Hentikan rekaman suara
+1193|Hentikan rekaman suara terlebih dahulu.
+1194|Berhenti setelah kesalahan
+1195|Dihentikan oleh Owner
+1196|Latihan kekuatan untuk Garmin
+1197|Struktur, molekul, dan protein
+1198|Pelajar
+1199|Langganan
+1200|Berhasil
+1201|Sarankan rencana untuk minggu yang dimulai: prioritas, tenggat, dan satu langkah kecil setiap hari.
+1202|Ringkas dokumen
+1203|Ringkas dokumen terlampir dalam lima poin yang jelas.
+1204|Ringkasan
+1205|Merangkum teks atau dokumen menjadi gagasan utamanya.
+1206|Tangguhkan
+1207|Ditangguhkan
+1208|Pengguna ditangguhkan
+1209|Tablet
+1210|Pembacaan tarot
+1211|Tugas yang dijalankan {brand} sendiri pada waktu yang Anda pilih.
+1212|Tugas, daftar, dokumen, dan komentar.
+1213|Tugas, proyek, dan komentar.
+1214|Admin tim dengan kredit bersama
+1215|Detail teknis: {details}
+1216|Uji
+1217|Uji sekarang
+1218|Uji berhasil: {result}
+1219|Uji kunci
+1220|Uji mikrofon
+1221|Uji server
+1222|Pengujian
+1223|Menguji koneksi SSH…
+1224|Menguji…
+1225|Poker Texas Hold'em dengan AI
+1226|Teks item
+1227|Teks yang dibaca untuk AI
+1229|Penyedia AI tidak menjawab tepat waktu. Coba lagi.
+1230|Batas gratis penyedia AI tercapai. Pilih model lain atau coba lagi nanti.
+1231|Alamat API harus berupa tautan lengkap, misalnya https://example.com/webhook.
+1232|Halaman Google terbuka. Tekan «Create API key» lalu salin.
+1233|Pustaka kosong. Seret file ke sini atau tekan «Tambah file».
+1234|OAuth Client ID tidak ada.
+1235|Halaman OAuth tidak bisa dibuka.
+1236|Akun Owner tidak bisa dihapus.
+1237|Owner menyetujui akun dan memutuskan layanan AI apa yang bisa mereka pakai.
+1238|Owner memutuskan model mana yang bisa dipakai akun Anda.
+1239|Email Owner tidak valid.
+1240|Owner harus menambahkan aplikasi OAuth Asana di Pengaturan terlebih dahulu.
+1241|Owner harus menambahkan aplikasi OAuth Box di Pengaturan terlebih dahulu.
+1242|Owner harus menambahkan aplikasi OAuth Google di Pengaturan terlebih dahulu.
+1243|Owner harus menambahkan aplikasi OAuth HubSpot di Pengaturan terlebih dahulu.
+1244|Owner harus menambahkan aplikasi OAuth Lovable di Pengaturan terlebih dahulu.
+1245|Langganan pribadi Owner tidak bisa diberikan ke akun lain.
+1246|Tombol X menyembunyikan aplikasi tanpa menghentikan layanan.
+1247|Akun dan semua datanya (chat, memori, file, pengaturan) dihapus selamanya.
+1248|Akun dibuat di server {brand}.
+1249|Akun dibuat di komputer ini dan bisa langsung Anda pakai.
+1250|Akun tidak aktif.
+1251|Akun menunggu persetujuan Owner.
+1252|Akun telah dibuat dan menunggu persetujuan Owner.
+1253|Akun telah dihapus.
+1254|Alamat tidak valid.
+1255|Jawaban berlanjut di server…
+1256|Jawaban terputus: {error}
+1257|Jawaban dihentikan sebelum selesai.
+1258|Jawaban dihentikan.
+1259|Aplikasi tidak bisa dibuka — {error}
+1260|Aplikasi tidak bisa dibuka.
+1261|Aplikasi mulai sendiri dan bisa tetap berjalan di latar belakang.
+1262|Aplikasi dibuka.
+1263|Aplikasi tidak bisa dimuat: {error}
+1264|Trek audio telah ditranskripsi untuk {brand}.
+1265|Awal dokumen, sebagai teks.
+1266|Browser tidak bisa merekam suara.
+1267|Perubahan berlaku untuk chat ini.
+1268|Perubahan diterapkan di GitHub. Commit: {commit}
+1269|Kode tidak bisa disalin ke papan klip.
+1270|Kode sudah kedaluwarsa. Minta yang baru.
+1271|Kode tidak benar.
+1272|Kode berjalan. Hasilnya dimasukkan ke kotak pesan.
+1273|Percakapan tidak bisa disalin ke papan klip.
+1274|Percakapan tidak bisa disimpan: {error}
+1275|Percakapan diarsipkan. Anda akan menemukannya di «Diarsipkan» di bilah samping.
+1276|Percakapan disalin ke papan klip.
+1277|Percakapan dipulihkan.
+1278|Data tidak bisa dimuat: {error}
+1279|Tanggal dalam bulan harus antara 1 dan 28.
+1280|Model bawaan
+1281|Alamat email tidak valid.
+1282|Waktu dan tanggal tepat di Rumania dan kota-kota besar dunia.
+1283|Ekspor gagal:
+1284|File tidak punya teks yang bisa ditampilkan.
+1285|File tidak lagi tersedia.
+1286|File tidak lagi ada di Pustaka.
+1287|File sekarang bernama «{name}».
+1288|File disimpan di Pustaka Anda (hingga 2 GB per file)…
+1289|File atau pesan terlalu besar untuk layanan {brand} (HTTP 413).
+1290|File ditambahkan ke Pustaka.
+1291|File tidak ditemukan di Pustaka.
+1292|Halaman pertama, sebagai teks.
+1293|Nama header hanya boleh berisi huruf, angka, dan tanda hubung.
+1294|Instruksi paling banyak 8.000 karakter.
+1295|Interval harus antara 1 dan 168 jam.
+1296|Kunci tidak berfungsi: {error}
+1297|Kunci ini dipakai bersama dengan Gambar.
+1298|Kunci dienkripsi di PC ini.
+1299|Kunci tidak bisa disalin.
+1300|Kunci tetap di server dan hanya ditampilkan tersamar.
+1301|Bahasa yang saya pakai menulis
+1302|Pembaruan terakhir ({when}) gagal — detail
+1303|Tautan tidak bisa dibuka di browser.
+1304|Tautan tidak bisa dibuka: {error}
+1305|Akun lokal dengan email ini mendapat hak Owner: menjalankan kode, GitHub Solve, memeriksa server. Hanya berlaku jika {brand} Cloud tidak diatur. Masuk lagi setelah perubahan.
+1306|Alamat layanan lokal tidak valid. Contoh: {url}
+1307|Yang terkunci tidak diizinkan untuk Anda.
+1308|Login kedaluwarsa untuk: {names}. Panel OmniRoute di server → Providers → setiap akun → Reconnect (atau tambahkan kunci API).
+1309|Pesan tidak bisa dikirim: {error}
+1310|Pesan kosong.
+1311|Mikrofon diblokir. Izinkan akses mikrofon di browser.
+1312|Mikrofon tidak tersedia: {error}
+1313|Model tidak bisa disimpan untuk percakapan: {error}
+1314|Daftar model tidak bisa dimuat: {error}
+1315|Daftar model kosong.
+1316|Model berasal dari OmniRoute dan API yang diatur di server.
+1317|Model berasal dari OmniRoute dan API yang diatur di PC ini.
+1318|Nama paling banyak 100 karakter.
+1319|Nama paling banyak 120 karakter.
+1320|Kata sandi baru minimal 8 karakter.
+1321|Perangkat lain telah dikeluarkan.
+1322|Kata sandi paling banyak 256 karakter.
+1323|Kata sandi paling banyak 72 karakter.
+1324|Kata sandi minimal 10 karakter.
+1325|Kata sandi minimal 8 karakter.
+1326|Gambar tidak bisa dibuat: {error}
+1327|Gambar tidak bisa dibaca.
+1328|Gambar lebih besar dari 10 MB.
+1329|Plugin disimpan, tetapi uji gagal: {error}
+1330|Plugin berasal dari proyek open-source (lisensi MIT dan Apache 2.0); setiap kartu menyebut penulisnya dan menautkan ke sumbernya.
+1331|Plugin tidak bisa dimuat: {error}
+1332|Pratinjau tidak tersedia.
+1333|Pratinjau tidak tersedia. File mungkin sudah dihapus dari Pustaka.
+1334|Tautan pratinjau tidak tersedia.
+1335|Harga berubah sesuai jumlah kredit.
+1336|Usulan tidak bisa disalin.
+1337|Usulan disalin ke papan klip.
+1338|Kunci API penyedia salah atau tidak punya akses ke model ini.
+1339|Rekaman kosong.
+1340|Permintaan tidak berhasil (HTTP {status}).
+1341|Alamat pengalihan untuk didaftarkan di penyedia:
+1342|Server memeriksa GitHub sekali sejam dan memasang versi baru sendiri.
+1343|Server tidak mengembalikan sesi yang valid.
+1344|Owner server harus menambahkan kunci AI.
+1345|Layanan tidak mengonfirmasi bahwa file tersimpan.
+1346|Sesi tidak valid atau sudah kedaluwarsa.
+1347|Sesi telah ditutup.
+1348|Pengaturan tidak bisa disimpan: {error}
+1349|Pengaturan tidak bisa disimpan.

@@ -1,440 +1,440 @@
-447|E-mail
-448|Campanhas de e-mail e SMS, listas e resultados.
-449|Assistente de e-mail e calendário
-450|E-mail confirmado.
-451|E-mail confirmado. Seu acesso aguarda a aprovação do Owner.
-452|E-mail hospedado na Hostinger
-453|Endpoint / webhook / API personalizada
-454|Encerra todas as sessões desta conta, inclusive neste dispositivo.
-455|Termina {when}
-456|Entretenimento
-457|Erro
-458|Erros, issues e releases.
-459|Boa noite. Algo para terminar, ou um plano para amanhã?
-460|A cada (horas)
-461|A cada poucas horas
-462|Todos os arquivos anexados ou criados nesta conversa.
-463|A cada hora
-464|Todos os modelos e ferramentas que seu plano permite
-465|Todo modelo destas listas aparece na lista de modelos lá em cima. Se faltar a chave, ou o provedor responder 429/404/503 ou não responder, o {brand} tenta o próximo modelo, depois o próximo provedor.
-466|A cada {n} horas
-467|Hora exata
-468|Exemplos
-469|Código de saída: {code}
-470|Explique de forma simples
-471|Vídeos explicativos feitos com IA
-472|Explica qualquer assunto de um jeito que um iniciante entenda.
-473|Explorar
-474|Explorar pesquisa científica
-475|Extensões
-476|Créditos extras
-477|FLUX.1 Schnell pelo HF Inference Router, só se a proteção de custos permitir.
-478|FLUX.1 Schnell · o primeiro provedor no modo gratuito.
-479|FLUX.1 Schnell. Os créditos promocionais podem ser limitados.
-480|Falhou em
-481|Provedor de mídia de reserva.
-482|Análises de fantasy football
-483|Modelos rápidos e avançados
-484|Modelos de geração rápida via fal.run.
-485|Modo rápido. Clique para Pensar: respostas mais precisas, um pouco mais lentas.
-486|Arquivo
-487|Nome do arquivo
-488|Caminho do arquivo no repositório
-489|Envio de arquivo: {error}
-490|Envio de arquivos
-491|Arquivos
-492|Arquivos e dados
-493|Arquivos e ferramentas
-494|Arquivos deste chat
-495|Arquivos desta conversa
-496|Arquivos: PDF / Word / PowerPoint / Excel / CSV / ZIP / código
-497|Finanças
-498|Finanças e contabilidade
-499|Encontrar e ler artigos científicos
-500|Encontrar, criar e editar designs.
-501|Encontrar, criar e atualizar issues, projetos e comentários.
-502|Primeiro confirme seu e-mail com o código que recebeu. Se não encontrar, olhe no spam ou peça um novo.
-503|Primeiro descreva o que devemos construir.
-504|Corrige gramática, acentos e pontuação sem mudar o sentido.
-505|Para verificações (preços, anúncios): sem notificação quando o resultado é igual ao da última vez.
-506|Em perguntas sobre código, procura os arquivos relevantes no repositório antes de responder.
-507|Em perguntas de programação, o {brand} encontra sozinho os arquivos relevantes neste repositório.
-508|Para conectar os apps do Google em Apps: um cliente OAuth do tipo «Aplicativo da Web» do Google Cloud, com este endereço de retorno: {url}
-509|Para ciência e pesquisa
-510|Para sempre
-511|Formulários e análise de respostas
-512|Grátis
-513|Mensagens grátis hoje
-514|Mensagens grátis usadas
-515|Teste grátis
-516|Frequência
-517|Manhã fresca. Por onde começamos?
-518|Sexta-feira. Vamos fechar bem a semana.
-519|Amigável
-520|Nome completo
-521|GPT Image pela API da OpenAI.
-522|Jogos
-523|Chave de API do Gemini
-524|Gemini e Grok
-525|Chave Gemini
-526|Modelo Gemini (Nano Banana)
-527|Modelo Gemini (Veo)
-528|Modelos Gemini · separados por vírgula
-529|Somente Gemini · Nano Banana
-530|Somente Gemini · Veo
-531|Somente Gemini: pelo Gemini conectado no OmniRoute (assinatura, sem API) ou pela chave Gemini em APIs de IA. Os outros provedores abaixo não são usados.
-532|O Gemini via API é pago: para usá-lo com a chave, escolha «Permitir provedores pagos» abaixo.
-533|Geral
-534|Gerar
-535|Gerar de novo
-536|Pegue a chave grátis
-537|Instale o {brand} como app no celular, de graça
-538|Preparando…
-539|Client ID OAuth do GitHub
-540|Client secret OAuth do GitHub
-541|Modelos GitHub · separados por vírgula
-542|Restauração no GitHub feita. Commit: {commit}
-543|Acesso ao GitHub para todos
-544|Token do GitHub (para um repositório privado)
-545|Faça um resumo curto das notícias mais importantes de hoje e de tecnologia, com links para as fontes.
-546|Volte ao chat em que você estava
-547|Voltar à versão anterior de {path}?
-548|Ir para a última mensagem
-549|Boa tarde
-550|Boa tarde, {name}
-551|Boa noite
-552|Boa noite, {name}
-553|Bom dia
-554|Bom dia, {name}
-555|Google
-556|Client ID OAuth do Google
-557|Client secret OAuth do Google
-558|Apps do Google (Gmail, Drive, Calendar, Docs, Sheets)
-559|Governança
-560|Modelos Grok · separados por vírgula
-561|Modelo de imagem do Grok
-562|Modelo de vídeo do Grok
-563|Chave de API da Groq
-564|Modelos Groq · separados por vírgula
-565|Imagens HD
-566|Nome do header
-567|Saúde
-568|Área da saúde
-569|Me ajude a planejar a semana. Minhas prioridades são:
-570|Aqui está seu arquivo {format}: {name}
-571|Ocultar ações
-572|Ocultar o aviso
-573|Ocultar etapas
-574|Como você quer que este assistente trabalhe?
-575|Como vai o dia? O que posso tirar das suas costas?
-576|Quantos créditos?
-578|Como a IA responde
-579|Como escolher
-580|Como instalar
-581|Como você quer que eu responda, sempre. Ex.: «Explique de forma breve, com exemplos. Quando escrever código, comente-o.»
-582|Client ID OAuth do HubSpot
-583|Client secret OAuth do HubSpot
-584|O HubSpot aceita apenas apps OAuth registrados pelo proprietário. Crie um no HubSpot ({where}) com este endereço de retorno: {url}
-585|Acesso ao HubSpot para todos
-586|Modelos Hugging Face · separados por vírgula
-587|Recursos humanos
-588|Não consigo acessar o serviço {brand} em {url}. Verifique o endereço ou use {local}.
-589|Copiei 1 chave para o servidor. Cole quando o script no servidor pedir (clique direito). Ela é apagada da área de transferência em 2 minutos.
-590|Copiei {n} chaves para o servidor. Cole quando o script no servidor pedir (clique direito). Elas são apagadas da área de transferência em 2 minutos.
-591|Não copiei {names}: têm caracteres que o servidor não aceita.
-592|Não ouvi nada. Clique no microfone e fale de novo.
-593|Endereço IP
-594|IP ou domínio
-595|Se o modelo Gemini escolhido não existir para sua chave, o {brand} tenta sozinho os outros nomes Gemini, depois os provedores permitidos aqui.
-596|Se o modelo escolhido não responder, passa sozinho para as APIs diretas. Desativado: responde só o modelo escolhido, ou você vê o erro.
-597|Se o serviço parar, o {brand} tenta reiniciá-lo.
-598|Importar do histórico
-599|Importar os detalhes duradouros (preferências, decisões, detalhes de projetos) do histórico de chats?
-600|{n} itens importados do histórico.
-601|Importando…
-602|Num chat
-603|Incluído no {brand}
-604|Incluído no {brand} · sem conta
-605|Incluído, mas bloqueado pela proteção de custos por padrão.
-606|Informações das reuniões do Zoom
-607|Infraestrutura
-608|Instalar
-609|Instalar o app {brand}
-610|Instalado
-611|Instruções
-612|Instruções para a IA
-613|Instruções para o assistente
-614|Instruções para o {brand}
-615|Instruções salvas uma vez e usadas quando você quiser: escreva /nome no chat (por exemplo /resumo) ou deixe uma skill sempre ativa.
-616|Instruções que a IA segue quando você as chama com /nome.
-617|Design de interfaces e protótipos
-618|Resposta inválida do serviço {brand} (HTTP {status}).
-619|Resposta inválida ao enviar o arquivo.
-620|Faturas, pedidos e transações.
-621|Issues, pull requests e repositórios de código
-622|Será excluído ao salvar
-623|É fim de semana. Algo para o trabalho, ou só para você?
-624|Issues do Jira e páginas do Confluence: buscar, criar, editar.
-625|Jira, Confluence, Loom e mais
-626|Manter os chats
-627|Mantém a IA atualizada com as notícias
-628|Chave / token
-629|Chave salva — deixe vazio para mantê-la
-630|Chaves para o servidor
-631|LTX Video. Pode usar os créditos iniciais, depois crédito pago.
-632|Idioma
-633|Idioma para ditado, transcrição e leitura em voz alta
-634|Idioma: {lang}
-635|Idioma: {name}
-636|Última atividade
-637|Última atualização: {when}, com sucesso.
-638|Mais tarde
-639|Última mensagem
-640|Última versão publicada: {v}.
-641|Leis, segurança e conformidade
-642|Leads, contatos e oportunidades.
-643|Deixe {url} a menos que use um servidor {brand} separado. O endereço é verificado antes de salvar.
-644|Jurídico
-645|Análise jurídica
-646|Duração
-647|Vamos começar bem o dia. O que fazemos primeiro?
-648|Biblioteca
-649|Filtros da Biblioteca
-650|Licenças e autores
-651|Claro
-652|Ouvindo… clique de novo no microfone para parar.
-653|Ouvindo… clique no microfone para parar
-654|Internet ao vivo e GitHub
-655|Internet ao vivo, GitHub e servidor
-656|Carregando a memória…
-657|Carregando a Biblioteca…
-658|Carregando os modelos de programação…
-659|Carregando os combos…
-660|Carregando o design…
-661|Carregando o histórico…
-662|Carregando os modelos…
-663|Carregando os plugins…
-664|Carregando a pré-visualização…
-665|Carregando o perfil…
-666|Carregando a solicitação…
-667|Carregando as configurações…
-668|Carregando as tarefas…
-669|Carregando o texto…
-670|Carregando os usuários…
-671|Carregando…
-672|Sair
-673|Sair de todos os dispositivos
-674|Logs e estatísticas dos seus Workers.
-675|Logs, métricas, monitores e incidentes.
-676|Busque um endereço, cidade ou lugar.
-677|Procurando atualizações…
-678|Client ID OAuth do Lovable
-679|Client secret OAuth do Lovable
-680|O Lovable aceita apenas apps OAuth registrados pelo proprietário. Crie um no Lovable ({where}) com este endereço de retorno: {url}
-681|Acesso ao Lovable para todos
-682|Cópia criada, desativada: «{name}».
-683|Feito pelo {brand}
-684|Assistente principal
-685|Combo principal (automático)
-686|Criar uma chave Gemini grátis
-687|Criar uma imagem
-688|Criar a correção
-689|Cria e trabalha com PDF, DOCX e PPTX.
-690|Cria imagens com IA.
-691|Criando a imagem e preparando o arquivo…
-692|Criando o vídeo… pode levar alguns minutos
-693|Criando o arquivo {format}…
-694|Gerenciar e consultar bancos de dados
-695|Mapas
-696|Marketing
-697|Matemática / lógica
-698|Eu
-699|Transcrições e resumos de reuniões.
-700|Reuniões
-701|Memória
-702|Memória e chats
-703|A memória está vazia.
-704|A memória está desativada: o {brand} não guarda nem usa nada novo até você ativá-la.
-705|Configurações da memória
-706|Memória, projetos e biblioteca de arquivos
-707|Menu
-708|Mensagem
-709|Mensagem para o {brand}
-710|Mensagem, modelo avançado
-711|Mensagem, modelo rápido
-712|Mensagem, modelo top
-714|Método
-715|O acesso ao microfone foi negado. Permita o microfone no navegador.
-716|Microfone disponível e permitido ✓
-717|Microfone ligado — fale agora
-718|Microfone indisponível ou não permitido
-719|Equipes e chats do Microsoft Teams
-720|Chave de API da Mistral
-721|Modelos Mistral · separados por vírgula
-722|Modelo permitido / bloqueado
-723|Modelo escolhido manualmente
-724|Modelo para novos chats
-725|Modelo para design
-727|Modelos, datasets e Spaces.
-728|Modernização
-729|Segunda de novo. Vamos organizar a semana.
-730|Segunda–sexta às {time}
-731|Mensal
-732|Todo mês, no dia {day}, às {time}
-733|Notícias da manhã
-734|O mais popular
-735|Mover para projeto
-736|Música e podcasts
-738|NÃO
-739|API da NVIDIA / NIM, compatível com OpenAI.
-740|Chave de API da NVIDIA
-741|Modelos NVIDIA · separados por vírgula
-742|Nome
-743|Navegação
-744|Precisa de uma mão no resto do dia?
-745|Precisa de atenção
-746|Precisa de acesso
-747|Nova solicitação de acesso
-748|Nova conta
-749|Novas contas estão desativadas neste servidor.
-750|Novidades a notar
-751|Novo assistente
-752|Novo chat
-753|Novo chat com {name}
-754|Novo design
-755|Novo item para a memória
-756|Nova senha
-757|Novo projeto
-758|Nova skill
-759|Nova tarefa
-760|Semana nova. Vamos planejá-la juntos?
-761|Mais recentes
-762|Notícias toda manhã
-763|Próximos créditos: {when}
-764|Próxima execução
-765|Não
-766|Nenhum modelo de IA é permitido para esta conta. Peça ao Owner acesso a um modelo.
-767|Ainda não há plugins de API
-768|Nenhuma resposta chegou.
-769|Nenhum app conectado ainda. Escolha um abaixo: depois do login, o {brand} pode buscar, ler, criar e editar nele, e pergunta antes de cada ação.
-770|Nenhum app encontrado. Você pode adicioná-lo com «App personalizado» se ele tiver um endereço MCP.
-771|Sem alterações
-772|Nenhuma chave de chat salva. Adicione, por exemplo, uma chave Gemini ou Groq e salve.
-773|Ainda não há chats neste projeto. Escreva uma mensagem para começar um.
-774|Nenhum chat para mostrar.
-775|Ainda não há chats.
-776|Ainda não há modelos de programação disponíveis.
-777|Ainda não há assistentes personalizados.
-778|Nenhum dia escolhido
-779|Ainda não há designs. Descreva o primeiro à direita.
-780|Nenhum dispositivo recebeu. Ative as notificações acima.
-781|Nenhum item.
-782|Nenhum arquivo corresponde ao filtro.
-783|Nenhum modelo disponível
-784|Nenhum modelo corresponde.
-785|Nenhum modelo disponível.
-787|Nenhum plugin encontrado. Você pode criá-lo na aba «Criar plugin».
-788|Sem projeto
-789|Ainda não há projetos. Crie um no menu lateral.
-790|Sem texto legível
-791|Nenhum repositório conectado
-792|Ainda não há tarefas agendadas
-793|Ainda não há skills
-794|Nenhum resultado em texto.
-796|Nenhum modelo {name} no OmniRoute. Conecte-o no painel do OmniRoute (Providers) e reabra esta página.
-797|Nenhum
-798|Nenhuma das IAs configuradas conseguiu responder agora. Verifique o modelo escolhido ou as chaves de API.
-799|Não permitido pelo Owner
-800|Não incluído no seu plano
-801|Não instalado — npm install -g omniroute
-802|Ainda não executada
-803|Nada encontrado para esta busca.
-804|Nada encontrado.
-805|Nada ainda. Enquanto conversamos, o {brand} guarda suas preferências e decisões importantes. Você também pode adicionar algo abaixo.
-806|Notificação enviada para 1 dispositivo.
-807|Notificação enviada para {n} dispositivos.
-808|Notificações
-809|As notificações do {brand} estão bloqueadas. Ative-as nas configurações do celular (Notificações → {brand}) e clique de novo.
-810|As notificações estão desativadas neste dispositivo.
-811|As notificações não foram permitidas. Você pode ativá-las nas configurações do celular, em {brand}.
-812|Avise-me
-813|Documentos e fluxos de trabalho do Notion
-814|Erro OAuth — {error}
-815|DESL
-816|LIG
-817|Proposta para um cliente
-818|Modelos oficiais e da comunidade pela Predictions API.
-819|Modelos de vídeo oficiais pela Predictions API.
-820|Mais antigos
-821|O OmniRoute 3.8 não responde sem chave. Crie-a no OmniRoute:
-822|Chave de API do OmniRoute
-823|Endereço do OmniRoute
-824|Combo do OmniRoute
-825|Combos do OmniRoute
-826|Comando do OmniRoute
-827|OmniRoute conectado
-828|O OmniRoute ainda não tem combos.
-829|O OmniRoute responde.
-830|O OmniRoute não responde. Escolha na lista um modelo de API direta (Groq, Gemini…) ou ative a reserva automática.
-831|O OmniRoute está rodando, mas precisa de uma chave de API: crie-a em OmniRoute → API Manager e coloque em Configurações → IA e OmniRoute. Até lá respondem as APIs diretas (Groq, Gemini…), se você as escolher na lista.
-832|Chave OmniRoute
-833|O OmniRoute precisa de uma chave de API
-834|OmniRoute parado
-835|No iPhone, as notificações só funcionam no app instalado: abra {domain} no Safari → Compartilhar → Adicionar à Tela de Início, depois abra o {brand} pela tela e volte aqui.
-836|Ativar {slug}
-837|Uma vez
-838|Uma vez: {date}, {time}
-839|Um só lugar para mapas, imagens, assistentes e sites.
-840|Um ano
-841|Somente provedores sem custo direto
-842|Somente o bloco de código selecionado
-843|Mostramos só as etapas de trabalho, não o raciocínio interno do modelo.
-844|Só quando algo muda
-845|Abrir
-846|Abrir Configurações
-847|Abrir Configurações → Vídeos
-848|Abre um site no navegador.
-849|Abrir em tela cheia
-850|Abrir no Design
-851|Abrir no navegador
-852|Abrir a página do Google
-853|Abra o menu do navegador (⋮ ou ≡).
-854|Abrir o chat
-855|Abrir o design {name}
-856|Abrir a lista
-857|Abrir a pré-visualização de {name}
-858|Abrir a tarefa
-859|Abra {domain} no Safari (no iPhone, só o Safari instala o app).
-860|Abrir {name}
-861|A OpenAI (ChatGPT) não faz mais vídeos: o Sora fechou em 24 de setembro de 2026, tanto o app quanto a API. As imagens do ChatGPT continuam funcionando.
-862|OpenAI (pago)
-863|Chave de API da OpenAI
-864|Compatível com OpenAI, respostas rápidas.
-865|Compatível com OpenAI.
-866|Modelos OpenAI · separados por vírgula
-867|Modelo de imagem da OpenAI
-868|OpenAI via API
-869|Roteador compatível com OpenAI; o mesmo token de Imagens.
-870|OpenRouter (pode custar)
-871|Chave de API do OpenRouter
-872|Modelo OpenRouter
-873|Modelo de imagem do OpenRouter
-874|Modelo de vídeo do OpenRouter
-875|Abrindo…
-876|Abre o app diretamente
-877|Operações
-878|Opcional: um OAuth App do GitHub (GitHub → Settings → Developer settings) com esta URL de callback: {url}. Sem ele, o GitHub conecta com um token pessoal.
-879|Ordem das tentativas
-880|Outro
-881|Outros modelos do OmniRoute
-882|As outras contas usam todos os modelos gratuitos (Gemini, Groq, Mistral, OpenRouter :free…). Suas assinaturas (Codex, Claude Code, Copilot, Kiro, as contas web) ficam só suas: os termos delas não permitem compartilhar a conta. Elas usam um combo do OmniRoute só se você marcá-lo aqui; marque só combos feitos de modelos gratuitos.
-883|Outra resposta: {question}
-884|Mais detalhes
-885|Mais modelos
-886|Outros
-887|Senão, só inicia quando você escreve o nome dele ou @gatilho no chat.
-888|E-mail do Owner neste PC
-889|Owner neste PC
-890|Somente o Owner
-891|Owner: usuários, aprovações, permissões, sessões e serviços de IA.
-892|PNG, JPEG ou WebP, até 10 MB.
+450|E-mail
+451|Campanhas de e-mail e SMS, listas e resultados.
+452|Assistente de e-mail e calendário
+453|E-mail confirmado.
+454|E-mail confirmado. Seu acesso aguarda a aprovação do Owner.
+455|E-mail hospedado na Hostinger
+456|Endpoint / webhook / API personalizada
+457|Encerra todas as sessões desta conta, inclusive neste dispositivo.
+458|Termina {when}
+459|Entretenimento
+460|Erro
+461|Erros, issues e releases.
+462|Boa noite. Algo para terminar, ou um plano para amanhã?
+463|A cada (horas)
+464|A cada poucas horas
+465|Todos os arquivos anexados ou criados nesta conversa.
+466|A cada hora
+467|Todos os modelos e ferramentas que seu plano permite
+468|Todo modelo destas listas aparece na lista de modelos lá em cima. Se faltar a chave, ou o provedor responder 429/404/503 ou não responder, o {brand} tenta o próximo modelo, depois o próximo provedor.
+469|A cada {n} horas
+470|Hora exata
+471|Exemplos
+472|Código de saída: {code}
+473|Explique de forma simples
+474|Vídeos explicativos feitos com IA
+475|Explica qualquer assunto de um jeito que um iniciante entenda.
+476|Explorar
+477|Explorar pesquisa científica
+478|Extensões
+479|Créditos extras
+480|FLUX.1 Schnell pelo HF Inference Router, só se a proteção de custos permitir.
+481|FLUX.1 Schnell · o primeiro provedor no modo gratuito.
+482|FLUX.1 Schnell. Os créditos promocionais podem ser limitados.
+483|Falhou em
+484|Provedor de mídia de reserva.
+485|Análises de fantasy football
+486|Modelos rápidos e avançados
+487|Modelos de geração rápida via fal.run.
+488|Modo rápido. Clique para Pensar: respostas mais precisas, um pouco mais lentas.
+489|Arquivo
+490|Nome do arquivo
+491|Caminho do arquivo no repositório
+492|Envio de arquivo: {error}
+493|Envio de arquivos
+494|Arquivos
+495|Arquivos e dados
+496|Arquivos e ferramentas
+497|Arquivos deste chat
+498|Arquivos desta conversa
+499|Arquivos: PDF / Word / PowerPoint / Excel / CSV / ZIP / código
+500|Finanças
+501|Finanças e contabilidade
+502|Encontrar e ler artigos científicos
+503|Encontrar, criar e editar designs.
+504|Encontrar, criar e atualizar issues, projetos e comentários.
+505|Primeiro confirme seu e-mail com o código que recebeu. Se não encontrar, olhe no spam ou peça um novo.
+506|Primeiro descreva o que devemos construir.
+507|Corrige gramática, acentos e pontuação sem mudar o sentido.
+508|Para verificações (preços, anúncios): sem notificação quando o resultado é igual ao da última vez.
+509|Em perguntas sobre código, procura os arquivos relevantes no repositório antes de responder.
+510|Em perguntas de programação, o {brand} encontra sozinho os arquivos relevantes neste repositório.
+511|Para conectar os apps do Google em Apps: um cliente OAuth do tipo «Aplicativo da Web» do Google Cloud, com este endereço de retorno: {url}
+512|Para ciência e pesquisa
+513|Para sempre
+514|Formulários e análise de respostas
+515|Grátis
+516|Mensagens grátis hoje
+517|Mensagens grátis usadas
+518|Teste grátis
+519|Frequência
+520|Manhã fresca. Por onde começamos?
+521|Sexta-feira. Vamos fechar bem a semana.
+522|Amigável
+523|Nome completo
+524|GPT Image pela API da OpenAI.
+525|Jogos
+526|Chave de API do Gemini
+527|Gemini e Grok
+528|Chave Gemini
+529|Modelo Gemini (Nano Banana)
+530|Modelo Gemini (Veo)
+531|Modelos Gemini · separados por vírgula
+532|Somente Gemini · Nano Banana
+533|Somente Gemini · Veo
+534|Somente Gemini: pelo Gemini conectado no OmniRoute (assinatura, sem API) ou pela chave Gemini em APIs de IA. Os outros provedores abaixo não são usados.
+535|O Gemini via API é pago: para usá-lo com a chave, escolha «Permitir provedores pagos» abaixo.
+536|Geral
+537|Gerar
+538|Gerar de novo
+539|Pegue a chave grátis
+540|Instale o {brand} como app no celular, de graça
+541|Preparando…
+542|Client ID OAuth do GitHub
+543|Client secret OAuth do GitHub
+544|Modelos GitHub · separados por vírgula
+545|Restauração no GitHub feita. Commit: {commit}
+546|Acesso ao GitHub para todos
+547|Token do GitHub (para um repositório privado)
+548|Faça um resumo curto das notícias mais importantes de hoje e de tecnologia, com links para as fontes.
+549|Volte ao chat em que você estava
+550|Voltar à versão anterior de {path}?
+551|Ir para a última mensagem
+552|Boa tarde
+553|Boa tarde, {name}
+554|Boa noite
+555|Boa noite, {name}
+556|Bom dia
+557|Bom dia, {name}
+558|Google
+559|Client ID OAuth do Google
+560|Client secret OAuth do Google
+561|Apps do Google (Gmail, Drive, Calendar, Docs, Sheets)
+562|Governança
+563|Modelos Grok · separados por vírgula
+564|Modelo de imagem do Grok
+565|Modelo de vídeo do Grok
+566|Chave de API da Groq
+567|Modelos Groq · separados por vírgula
+568|Imagens HD
+569|Nome do header
+570|Saúde
+571|Área da saúde
+572|Me ajude a planejar a semana. Minhas prioridades são:
+573|Aqui está seu arquivo {format}: {name}
+574|Ocultar ações
+575|Ocultar o aviso
+576|Ocultar etapas
+577|Como você quer que este assistente trabalhe?
+578|Como vai o dia? O que posso tirar das suas costas?
+579|Quantos créditos?
+581|Como a IA responde
+582|Como escolher
+583|Como instalar
+584|Como você quer que eu responda, sempre. Ex.: «Explique de forma breve, com exemplos. Quando escrever código, comente-o.»
+585|Client ID OAuth do HubSpot
+586|Client secret OAuth do HubSpot
+587|O HubSpot aceita apenas apps OAuth registrados pelo proprietário. Crie um no HubSpot ({where}) com este endereço de retorno: {url}
+588|Acesso ao HubSpot para todos
+589|Modelos Hugging Face · separados por vírgula
+590|Recursos humanos
+591|Não consigo acessar o serviço {brand} em {url}. Verifique o endereço ou use {local}.
+592|Copiei 1 chave para o servidor. Cole quando o script no servidor pedir (clique direito). Ela é apagada da área de transferência em 2 minutos.
+593|Copiei {n} chaves para o servidor. Cole quando o script no servidor pedir (clique direito). Elas são apagadas da área de transferência em 2 minutos.
+594|Não copiei {names}: têm caracteres que o servidor não aceita.
+595|Não ouvi nada. Clique no microfone e fale de novo.
+596|Endereço IP
+597|IP ou domínio
+598|Se o modelo Gemini escolhido não existir para sua chave, o {brand} tenta sozinho os outros nomes Gemini, depois os provedores permitidos aqui.
+599|Se o modelo escolhido não responder, passa sozinho para as APIs diretas. Desativado: responde só o modelo escolhido, ou você vê o erro.
+601|Se o serviço parar, o {brand} tenta reiniciá-lo.
+602|Importar do histórico
+603|Importar os detalhes duradouros (preferências, decisões, detalhes de projetos) do histórico de chats?
+604|{n} itens importados do histórico.
+605|Importando…
+606|Num chat
+607|Incluído no {brand}
+608|Incluído no {brand} · sem conta
+609|Incluído, mas bloqueado pela proteção de custos por padrão.
+610|Informações das reuniões do Zoom
+611|Infraestrutura
+612|Instalar
+613|Instalar o app {brand}
+614|Instalado
+615|Instruções
+616|Instruções para a IA
+617|Instruções para o assistente
+618|Instruções para o {brand}
+619|Instruções salvas uma vez e usadas quando você quiser: escreva /nome no chat (por exemplo /resumo) ou deixe uma skill sempre ativa.
+621|Instruções que a IA segue quando você as chama com /nome.
+622|Design de interfaces e protótipos
+623|Resposta inválida do serviço {brand} (HTTP {status}).
+624|Resposta inválida ao enviar o arquivo.
+625|Faturas, pedidos e transações.
+626|Issues, pull requests e repositórios de código
+627|Será excluído ao salvar
+628|É fim de semana. Algo para o trabalho, ou só para você?
+629|Issues do Jira e páginas do Confluence: buscar, criar, editar.
+630|Jira, Confluence, Loom e mais
+631|Manter os chats
+632|Mantém a IA atualizada com as notícias
+633|Chave / token
+634|Chave salva — deixe vazio para mantê-la
+635|Chaves para o servidor
+636|LTX Video. Pode usar os créditos iniciais, depois crédito pago.
+637|Idioma
+638|Idioma para ditado, transcrição e leitura em voz alta
+639|Idioma: {lang}
+640|Idioma: {name}
+641|Última atividade
+642|Última atualização: {when}, com sucesso.
+643|Mais tarde
+644|Última mensagem
+645|Última versão publicada: {v}.
+646|Leis, segurança e conformidade
+647|Leads, contatos e oportunidades.
+648|Deixe {url} a menos que use um servidor {brand} separado. O endereço é verificado antes de salvar.
+649|Jurídico
+650|Análise jurídica
+651|Duração
+652|Vamos começar bem o dia. O que fazemos primeiro?
+653|Biblioteca
+654|Filtros da Biblioteca
+655|Licenças e autores
+656|Claro
+657|Ouvindo… clique de novo no microfone para parar.
+658|Ouvindo… clique no microfone para parar
+659|Internet ao vivo e GitHub
+660|Internet ao vivo, GitHub e servidor
+661|Carregando a memória…
+662|Carregando a Biblioteca…
+663|Carregando os modelos de programação…
+664|Carregando os combos…
+665|Carregando o design…
+666|Carregando o histórico…
+667|Carregando os modelos…
+668|Carregando os plugins…
+669|Carregando a pré-visualização…
+670|Carregando o perfil…
+671|Carregando a solicitação…
+672|Carregando as configurações…
+673|Carregando as tarefas…
+674|Carregando o texto…
+675|Carregando os usuários…
+676|Carregando…
+677|Sair
+678|Sair de todos os dispositivos
+679|Logs e estatísticas dos seus Workers.
+680|Logs, métricas, monitores e incidentes.
+681|Busque um endereço, cidade ou lugar.
+682|Procurando atualizações…
+683|Client ID OAuth do Lovable
+684|Client secret OAuth do Lovable
+685|O Lovable aceita apenas apps OAuth registrados pelo proprietário. Crie um no Lovable ({where}) com este endereço de retorno: {url}
+686|Acesso ao Lovable para todos
+687|Cópia criada, desativada: «{name}».
+688|Feito pelo {brand}
+689|Assistente principal
+690|Combo principal (automático)
+691|Criar uma chave Gemini grátis
+692|Criar uma imagem
+693|Criar a correção
+694|Cria e trabalha com PDF, DOCX e PPTX.
+695|Cria imagens com IA.
+696|Criando a imagem e preparando o arquivo…
+697|Criando o vídeo… pode levar alguns minutos
+698|Criando o arquivo {format}…
+699|Gerenciar e consultar bancos de dados
+700|Mapas
+701|Marketing
+702|Matemática / lógica
+703|Eu
+704|Transcrições e resumos de reuniões.
+705|Reuniões
+706|Memória
+707|Memória e chats
+708|A memória está vazia.
+709|A memória está desativada: o {brand} não guarda nem usa nada novo até você ativá-la.
+710|Configurações da memória
+711|Memória, projetos e biblioteca de arquivos
+712|Menu
+713|Mensagem
+714|Mensagem para o {brand}
+715|Mensagem, modelo avançado
+716|Mensagem, modelo rápido
+717|Mensagem, modelo top
+719|Método
+720|O acesso ao microfone foi negado. Permita o microfone no navegador.
+721|Microfone disponível e permitido ✓
+722|Microfone ligado — fale agora
+723|Microfone indisponível ou não permitido
+724|Equipes e chats do Microsoft Teams
+725|Chave de API da Mistral
+726|Modelos Mistral · separados por vírgula
+727|Modelo permitido / bloqueado
+728|Modelo escolhido manualmente
+729|Modelo para novos chats
+730|Modelo para design
+732|Modelos, datasets e Spaces.
+733|Modernização
+734|Segunda de novo. Vamos organizar a semana.
+735|Segunda–sexta às {time}
+736|Mensal
+737|Todo mês, no dia {day}, às {time}
+738|Notícias da manhã
+739|O mais popular
+740|Mover para projeto
+741|Música e podcasts
+743|NÃO
+744|API da NVIDIA / NIM, compatível com OpenAI.
+745|Chave de API da NVIDIA
+746|Modelos NVIDIA · separados por vírgula
+747|Nome
+748|Navegação
+749|Precisa de uma mão no resto do dia?
+750|Precisa de atenção
+751|Precisa de acesso
+753|Nova solicitação de acesso
+754|Nova conta
+755|Novas contas estão desativadas neste servidor.
+756|Novidades a notar
+757|Novo assistente
+758|Novo chat
+759|Novo chat com {name}
+760|Novo design
+761|Novo item para a memória
+762|Nova senha
+763|Novo projeto
+764|Nova skill
+765|Nova tarefa
+766|Semana nova. Vamos planejá-la juntos?
+767|Mais recentes
+768|Notícias toda manhã
+769|Próximos créditos: {when}
+770|Próxima execução
+771|Não
+772|Nenhum modelo de IA é permitido para esta conta. Peça ao Owner acesso a um modelo.
+773|Ainda não há plugins de API
+774|Nenhuma resposta chegou.
+775|Nenhum app conectado ainda. Escolha um abaixo: depois do login, o {brand} pode buscar, ler, criar e editar nele, e pergunta antes de cada ação.
+776|Nenhum app encontrado. Você pode adicioná-lo com «App personalizado» se ele tiver um endereço MCP.
+777|Sem alterações
+778|Nenhuma chave de chat salva. Adicione, por exemplo, uma chave Gemini ou Groq e salve.
+779|Ainda não há chats neste projeto. Escreva uma mensagem para começar um.
+780|Nenhum chat para mostrar.
+781|Ainda não há chats.
+782|Ainda não há modelos de programação disponíveis.
+783|Ainda não há assistentes personalizados.
+784|Nenhum dia escolhido
+785|Ainda não há designs. Descreva o primeiro à direita.
+786|Nenhum dispositivo recebeu. Ative as notificações acima.
+787|Nenhum item.
+788|Nenhum arquivo corresponde ao filtro.
+789|Nenhum modelo disponível
+790|Nenhum modelo corresponde.
+791|Nenhum modelo disponível.
+793|Nenhum plugin encontrado. Você pode criá-lo na aba «Criar plugin».
+794|Sem projeto
+795|Ainda não há projetos. Crie um no menu lateral.
+796|Sem texto legível
+797|Nenhum repositório conectado
+798|Ainda não há tarefas agendadas
+799|Ainda não há skills
+800|Nenhum resultado em texto.
+802|Nenhum modelo {name} no OmniRoute. Conecte-o no painel do OmniRoute (Providers) e reabra esta página.
+803|Nenhum
+804|Nenhuma das IAs configuradas conseguiu responder agora. Verifique o modelo escolhido ou as chaves de API.
+805|Não permitido pelo Owner
+806|Não incluído no seu plano
+807|Não instalado — npm install -g omniroute
+808|Ainda não executada
+809|Nada encontrado para esta busca.
+810|Nada encontrado.
+811|Nada ainda. Enquanto conversamos, o {brand} guarda suas preferências e decisões importantes. Você também pode adicionar algo abaixo.
+812|Notificação enviada para 1 dispositivo.
+813|Notificação enviada para {n} dispositivos.
+814|Notificações
+815|As notificações do {brand} estão bloqueadas. Ative-as nas configurações do celular (Notificações → {brand}) e clique de novo.
+816|As notificações estão desativadas neste dispositivo.
+817|As notificações não foram permitidas. Você pode ativá-las nas configurações do celular, em {brand}.
+818|Avise-me
+819|Documentos e fluxos de trabalho do Notion
+820|Erro OAuth — {error}
+821|DESL
+822|LIG
+823|Proposta para um cliente
+825|Modelos oficiais e da comunidade pela Predictions API.
+826|Modelos de vídeo oficiais pela Predictions API.
+827|Mais antigos
+828|O OmniRoute 3.8 não responde sem chave. Crie-a no OmniRoute:
+829|Chave de API do OmniRoute
+830|Endereço do OmniRoute
+831|Combo do OmniRoute
+832|Combos do OmniRoute
+833|Comando do OmniRoute
+834|OmniRoute conectado
+835|O OmniRoute ainda não tem combos.
+836|O OmniRoute responde.
+837|O OmniRoute não responde. Escolha na lista um modelo de API direta (Groq, Gemini…) ou ative a reserva automática.
+838|O OmniRoute está rodando, mas precisa de uma chave de API: crie-a em OmniRoute → API Manager e coloque em Configurações → IA e OmniRoute. Até lá respondem as APIs diretas (Groq, Gemini…), se você as escolher na lista.
+839|Chave OmniRoute
+840|O OmniRoute precisa de uma chave de API
+841|OmniRoute parado
+842|No iPhone, as notificações só funcionam no app instalado: abra {domain} no Safari → Compartilhar → Adicionar à Tela de Início, depois abra o {brand} pela tela e volte aqui.
+843|Ativar {slug}
+844|Uma vez
+845|Uma vez: {date}, {time}
+846|Um só lugar para mapas, imagens, assistentes e sites.
+847|Um ano
+848|Somente provedores sem custo direto
+849|Somente o bloco de código selecionado
+850|Mostramos só as etapas de trabalho, não o raciocínio interno do modelo.
+851|Só quando algo muda
+852|Abrir
+853|Abrir Configurações
+854|Abrir Configurações → Vídeos
+855|Abre um site no navegador.
+856|Abrir em tela cheia
+857|Abrir no Design
+858|Abrir no navegador
+859|Abrir a página do Google
+860|Abra o menu do navegador (⋮ ou ≡).
+861|Abrir o chat
+862|Abrir o design {name}
+863|Abrir a lista
+864|Abrir a pré-visualização de {name}
+865|Abrir a tarefa
+866|Abra {domain} no Safari (no iPhone, só o Safari instala o app).
+867|Abrir {name}
+868|A OpenAI (ChatGPT) não faz mais vídeos: o Sora fechou em 24 de setembro de 2026, tanto o app quanto a API. As imagens do ChatGPT continuam funcionando.
+869|OpenAI (pago)
+870|Chave de API da OpenAI
+871|Compatível com OpenAI, respostas rápidas.
+872|Compatível com OpenAI.
+873|Modelos OpenAI · separados por vírgula
+874|Modelo de imagem da OpenAI
+875|OpenAI via API
+876|Roteador compatível com OpenAI; o mesmo token de Imagens.
+877|OpenRouter (pode custar)
+878|Chave de API do OpenRouter
+879|Modelo OpenRouter
+880|Modelo de imagem do OpenRouter
+881|Modelo de vídeo do OpenRouter
+882|Abrindo…
+883|Abre o app diretamente
+884|Operações
+885|Opcional: um OAuth App do GitHub (GitHub → Settings → Developer settings) com esta URL de callback: {url}. Sem ele, o GitHub conecta com um token pessoal.
+886|Ordem das tentativas
+887|Outro
+888|Outros modelos do OmniRoute
+889|As outras contas usam todos os modelos gratuitos (Gemini, Groq, Mistral, OpenRouter :free…). Suas assinaturas (Codex, Claude Code, Copilot, Kiro, as contas web) ficam só suas: os termos delas não permitem compartilhar a conta. Elas usam um combo do OmniRoute só se você marcá-lo aqui; marque só combos feitos de modelos gratuitos.
+890|Outra resposta: {question}
+891|Mais detalhes
+892|Mais modelos
+893|Outros
+894|Senão, só inicia quando você escreve o nome dele ou @gatilho no chat.
+895|E-mail do Owner neste PC
+896|Owner neste PC
+897|Somente o Owner
+898|Owner: usuários, aprovações, permissões, sessões e serviços de IA.
+899|PNG, JPEG ou WebP, até 10 MB.

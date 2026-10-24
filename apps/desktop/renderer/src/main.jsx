@@ -116,6 +116,8 @@ function RouteBadge({info}) {
   const served=info.servedBy?` → ${info.servedBy}`:"";
   return <div className="routeBadge" title={info.servedBy?tr("You chose {model}; {brand} sent the question to {served}.",{brand:BRAND_NAME,model:info.model,served:info.servedBy}):tr("{brand} used {provider} · {model}",{brand:BRAND_NAME,provider,model:info.model})}>
     <Sparkles size={12}/><span><b>{info.servedBy&&/\//.test(info.servedBy)?providerLabel("",info.servedBy):provider}</b><em>{info.model}{served}</em></span><small>{tr(routeTaskLabel(info.task))}</small>
+    {info.skills?.length>0&&<small className="routeSkills" title={info.skills.map(x=>x.name).join(", ")}>{tr("Skills used")}: {info.skills.map(x=>`/${x.slug}`).join(", ")}</small>}
+    {info.apps?.length>0&&<small className="routeSkills">{tr("Apps")}: {info.apps.join(", ")}</small>}
   </div>;
 }
 function friendlyError(raw){

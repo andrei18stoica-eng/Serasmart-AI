@@ -422,6 +422,8 @@
 .routeBadge{display:inline-flex;align-items:center;gap:7px;max-width:100%;margin:0 0 12px;padding:5px 8px;border:1px solid var(--accent-bg);background:var(--surface);border-radius:9px;color:var(--accent);font-size:10px;line-height:1.25}
 .routeBadge>span{display:flex;align-items:center;gap:6px;min-width:0}
 .routeBadge b{color:var(--text);font-size:10px}
+.routeBadge{flex-wrap:wrap}
+.routeSkills{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 .routeBadge em{font-style:normal;color:var(--accent);max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .routeBadge small{color:var(--accent-strong);border-left:1px solid var(--line);padding-left:7px;white-space:nowrap}
 .thinking{display:flex!important;align-items:center;gap:10px!important;padding-left:44px!important;color:var(--text-3)}
@@ -1113,6 +1115,7 @@ h1,h2,h3{text-wrap:balance}
 .skillCardText{flex:1;min-width:0}.skillCardText b{display:block;font-size:14px}.skillCardText b span{color:var(--text-3);font-weight:500;margin-left:6px}
 .skillCardText small{display:block;color:var(--muted);font-size:12px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .skillCardActions{display:flex;align-items:center;gap:8px;flex:none}.skillAuto{display:flex;align-items:center;gap:6px;color:var(--text-3);font-size:11px}
+.skillState{padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:12px}
 .skillForm{display:grid;gap:4px;max-width:720px}.skillForm label{display:grid;gap:6px;color:var(--text-3);font-size:12px;margin:8px 0}
 .skillForm input,.skillForm textarea{border:1px solid var(--line);background:var(--bg-2);color:var(--text-strong);border-radius:10px;padding:10px 12px;outline:0;font-size:14px}
 .skillForm textarea{resize:vertical;min-height:150px;line-height:1.5}.skillSlug{display:flex;align-items:center;border:1px solid var(--line);background:var(--bg-2);border-radius:10px;padding-left:12px}
@@ -1332,6 +1335,8 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .connToken{display:flex;gap:6px;margin-top:8px}.connToken input{flex:1;padding:6px 8px}
 .connError{color:var(--danger);font-size:11px}
 .connTools{display:flex;flex-wrap:wrap;gap:5px;font-size:11px;color:var(--muted)}
+.connMode{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.connMode select{flex:1;min-width:0;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
 .connTool{border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--text-2);background:var(--surface-2)}.connTool.read{color:var(--muted)}
 .connApprovals{display:grid;gap:6px}.connApproval{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--text-2);min-width:0}
 .connApproval span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

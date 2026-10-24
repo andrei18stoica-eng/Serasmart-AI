@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.39",
+  "version": "0.7.40",
   "private": true,
-  "description": "Serasmart AI 0.7.39 - Settings like Claude: full-screen list on phones, Usage and Billing inside",
+  "description": "Serasmart AI 0.7.40 - Skills and apps chosen for each request; the named app is never swapped",
   "main": "main.cjs",
   "repository": {
     "type": "git",

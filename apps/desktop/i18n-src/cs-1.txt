@@ -93,348 +93,348 @@
 95|Povolit i placená API (OpenAI, Grok)
 96|Vždy povolit
 97|Vždy povoleno
-98|Vždy anglicky
-99|Vždy rumunsky
-100|Vždy zapnuto
-101|Vždy zapnuto {slug}
-102|Vždy zapnuto: použije se v každé zprávě, bez /název
-103|Účet s tímto e-mailem už existuje.
-104|Adresa nebo město
-105|Analýza a plánování příspěvků
-106|Analýza dat blockchainu
-107|Analyzuj soubor, najdi problém a oprav ho.
-108|Analýza chování uživatelů
-109|Analýza tréninků a tvorba plánů
-110|Analýza dat vašeho produktu
-111|Analyzuje kód a pracuje s GitHubem.
-112|Analyzuje nahrané soubory, tabulky a dokumenty.
-113|Analyzuji…
-114|Odpovídá
-115|Jazyk odpovědí
-116|Odpovědi z dokumentace Cloudflare (bez účtu).
-117|Odpovědi z vašich dat
-118|Odpovědi pokračují i se zavřenou aplikací
-119|Jakákoli aplikace se vzdáleným MCP serverem (adresa začínající https://). Nechte token prázdný, pokud má aplikace vlastní přihlášení.
-120|Libovolný počet kreditů
-121|Aplikace
-122|Použito na serveru pro tento účet.
-123|Použít na GitHubu
-124|Použít změnu přímo na GitHubu pro {path} (větev {branch})? Vytvoří se místní záloha, aby se dalo vrátit zpět.
-125|Používám změny…
-126|Používám…
-127|Schválit / Znovu aktivovat
-128|Aplikace
-129|Aplikace a automatizace
-130|Sekce aplikací
-131|Archivovat
-132|Archivované
-133|Asana OAuth Client ID
-134|Asana OAuth client secret
-135|Asana přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v Asaně ({where}) s touto návratovou adresou: {url}
-136|Přístup k Asaně pro všechny
-137|Klást upřesňující otázky (s možnostmi odpovědí)
-138|Požádejte o přístup nebo zvolte jiný model.
-139|Ptejte se na jakýkoli veřejný repozitář GitHubu.
-140|Požádejte Ownera o přístup alespoň k jednomu modelu.
-141|Požádejte Ownera o přístup k modelům OpenAI nebo Claude.
-142|Asistenti
-143|Alespoň 10 znaků
-144|Nejvýše 2 GB na soubor
-145|Při spuštění {brand} sám stáhne novou verzi z GitHub Releases a dá vědět, až bude připravená k instalaci.
-146|Připojit: {error}
-147|Připojeno vámi
-148|Připojený soubor: {names}
-149|Kontrola oprávnění Disku Google
-150|Ověřování
-151|Automatická záloha: přímé API
-152|Automatická záloha
-153|Automatická aktualizace webu
-154|Automatické aktualizace webu jsou vypnuté.
-155|Automatická aktualizace:
-156|Automatické aktualizace (aplikace pro Windows)
-157|Automaticky · nejlepší dostupný
-158|Automaticky — moje pořadí
-159|Automaticky — první dostupný obrázkový model
-160|Automatizace
-161|Automatizace a dálkové ovládání
-162|Výsledky automatizací
-163|Automatizace «{name}»
-164|Automatizace
-165|Dostupné
-166|Dostupné pro váš účet
-167|Dostupné nyní
-168|Kurzy BNR
-169|Zpět
-171|Vráceno na výchozí místní službu. Zkuste se znovu přihlásit.
-172|Báze, tabulky a záznamy: hledání, vytváření a úpravy.
-173|Fakturace
-174|Natální horoskopy a horoskop
-175|Blokovat
-176|Blockchain
-177|Blokováno
-178|Blokovaní uživatelé
-179|Nástěnky, položky a aktualizace.
-180|Nástěnky, lístečky a diagramy (Miro Enterprise).
-181|Box OAuth Client ID
-182|Box OAuth client secret
-183|Box přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v Boxu ({where}) s touto návratovou adresou: {url}
-184|Přístup k Boxu pro všechny
-185|Hlášení chyb se záznamy a logy.
-186|Tvorba a publikování aplikací
-187|Tvorba a publikování webových aplikací
-188|Firmy
-189|Byznys a provoz
-190|Firemní bankovní účty a transakce.
-191|Vizitka
-192|Podnikatel
-193|Koupit kredity
-194|Koupit za {price}
-195|C:\Users\vy\.ssh\id_ed25519
-196|Server není dostupný, znovu se připojuji…
-197|Zrušit
-198|Služba {brand} není dostupná. Zkontrolujte, že aplikace běží a že je připojení k internetu.
-199|Záznam nelze přečíst.
-200|Platby kartou brzy
-201|Pozor: nastavení poskytovatelé mohou čerpat kredit podle svých cen.
-202|Pozor: tvorba videa může rychle čerpat kredit. Cena závisí na modelu, délce a rozlišení.
-203|API klíč Cerebras
-204|Modely Cerebras · oddělené čárkami
-205|Změnit
-206|Změnit heslo
-207|Změněno
-208|Změnit… (např. udělej pozadí tmavě modré a přidej sekci s cenami)
-209|Měním…
-210|Chat
-211|Možnosti chatu
-212|Chatujte se všemi nejlepšími AI, paměť, soubory, obrázky, videa a automatizace.
-213|Pouze ChatGPT · GPT Image
-214|ChatGPT, Gemini a Grok
-215|Chaty
-216|Starší chaty se mažou samy (připnuté zůstávají). Vaše data zůstávají na serveru {brand} a nikdy se neprodávají ani nepoužívají k reklamě.
-217|Chaty, paměť, knihovna, návrhy, projekty, aplikace a automatizace jsou uloženy na serveru {brand}.
-218|Chaty, paměť, knihovna, návrhy, projekty, aplikace a automatizace jsou uloženy v tomto počítači.
-219|Kontrola selhala
-220|Zkontrolovat aktualizace teď
-221|Kontrola odkazů, domén a telefonních čísel
-222|Zkontrolovat cenu
-223|Zkontroluj cenu produktu, který sleduji na stránce obchodu, a dej mi vědět jen tehdy, když klesla pod cenu, kterou jsem nastavil.
-224|Zkontrolováno: {when}.
-225|Kontroluji, jak to vypadá v telefonu…
-226|Kontroluji paměť, soubory a důležitý kontext…
-227|Kontroluji…
-228|Zkontroluje OmniRoute (klíč a po jednom modelu Gemini, Grok, OpenAI a Claude) a každé uložené API. Před testem uložte nastavení.
-229|Simulace z chemie a biologie
-230|Zvolte Instalovat aplikaci nebo Přidat na plochu.
-231|Vyberte obrázek PNG, JPEG nebo WebP.
-232|Vyberte datum a čas v budoucnosti.
-233|Vyberte platný čas (00:00–23:59).
-234|Vyberte AI
-235|Vyberte alespoň jeden den v týdnu.
-236|Vybrat z Knihovny
-237|Vyberte AI
-238|Vyberte datum a čas jednorázového úkolu.
-239|Vybrat {plan}
-240|Vybírám barvy a písma…
-241|Vybráno automaticky
-242|Vybrané dny
-243|Inzeráty v Německu
-244|Claude / Anthropic (placené)
-245|Claude přes API
-246|Vymazat hledání
-247|Client ID aplikace vytvořené u poskytovatele
-248|Zavřít
-249|Zavřít všechny aktivní relace {email}?
-250|Zavřít relace
-251|Zavřít menu
-252|Zavřít náhled
-253|Minimalizovat do oznamovací oblasti
-254|API token Cloudflare
-255|Modely Cloudflare · oddělené čárkami
-256|Code
-257|Kód a GitHub
-258|Kód z e-mailu
-259|Code {brand} (přes API OpenAI / Claude, ne vaše předplatná)
-260|Code {brand} je dostupný pro Ownera a účty, kterým Owner dal přístup.
-261|Káva a jasný plán? Řekněte, kde začneme.
-262|API klíč Cohere
-263|Modely Cohere · oddělené čárkami
-264|Kombinace
-265|Kombinace
-266|Kombinace pro všechny účty
-267|Příkaz v chatu
-268|Komunikace
-269|Firemní karty, výdaje a faktury.
-270|Porovnání modelů vedle sebe
-271|API pro kompatibilitu.
-272|Potvrdit e-mail
-273|Potvrďte svůj e-mail
-274|Připojit
-275|Připojte Codex nebo Claude Code v OmniRoute.
-276|Připojit aplikaci
-277|Připojte jakékoli API nebo webhook.
-278|Připojit vlastní API
-279|Připojit přes 350 zdrojů dat
-280|Připojit přes OAuth (přístup k datům)
-281|Připojit bez OAuth a otevřít {name}
-282|Připojte své aplikace: AI v nich může hledat, číst, vytvářet a upravovat a před každou akcí se zeptá.
-283|Připojeno
-284|Připojené aplikace
-285|Připojené aplikace (Gmail, Drive, Notion, GitHub…)
-286|Připojeno přes OAuth
-287|Připojuji…
-288|Konektory
-289|Kontext mezi chaty projektu
-290|Řídí placenou AI pro běžné účty. Owner zůstává povolen.
-291|Konverzace
-292|Konverzace a kontakty.
-293|Zkopírováno
-294|Zkopíruje klíče uložené v tomto počítači, aby web {domain} měl stejné modely.
-295|Kopírovat
-296|Kopírovat chat
-297|Kopírovat ID účtu
-298|Kopírovat chat do schránky
-299|Kopírovat kód
-300|Kopírovat klíče pro server
-301|Kopírovat zprávu
-302|Kopírovat výběr
-303|Kopíruji…
-304|Ochrana nákladů
-305|Nepodařilo se připojit:
-306|Nepodařilo se zkontrolovat:
-307|Nepodařilo se načíst stav oznámení:
-308|Nepodařilo se načíst nastavení:
-309|Vytvořit
-310|Vytvořit plugin
-311|Vytvořit účet
-312|Tvorba a úprava návrhů
-313|Vytvořit plugin
-314|Vytvořit účet
-315|Vytvořit úkol
-316|Vytvořte si účet {brand}
-317|Tvorba, kombinování a úprava dokumentů a grafiky
-318|Tvorba, spouštění a analýza reklam
-319|Vytvořeno
-320|Vytvářím návrh…
-321|Kreativní
-322|Kreativita
-323|Upozornění na kredity
-324|Kredity přidány
-328|Kredity vyčerpány
-329|Aktuální
-330|Aktuální chat
-331|Současné heslo
-332|Aktuální tarif
-333|Vlastní
-334|Vlastní aplikace
-335|Vlastní asistent
-336|Vlastní hlavička
-337|Vlastní pokyny
-338|Zákaznická podpora
-339|Zákazníci
-340|Zákazníci, platby, faktury a produkty.
-341|Denně
-342|Denně v {time}
-343|Tmavý
-344|Data
-345|Data a akce v HubSpotu
-346|Data a analýzy
-347|Databáze
-348|Datum
-349|Den
-350|Den v měsíci
-351|Dny
-352|Rozhodnutí
-353|Deep Research
-354|Výchozí
-355|Smazat
-356|Smazat účet
-357|Smazat vše
-358|Smazat data
-359|Smazat vše, co si {brand} pro tento účet pamatuje? Nelze vrátit zpět.
-360|Smazat účet
-361|Smazat účet a všechna jeho data? Nelze vrátit zpět. Pro potvrzení napište heslo účtu.
-362|Smazat asistenta «{name}»?
-363|Smazat chat
-364|Smazat chat {name}
-365|Trvale smazat konverzaci «{title}»?
-366|Smazat návrh «{name}» se všemi verzemi?
-367|Smazat plugin «{name}»?
-368|Smazat projekt «{name}»? Konverzace zůstanou, ale nebudou patřit k žádnému projektu.
-369|Smazat uložený klíč
-370|Smazat uložený token
-371|Smazat skill /{slug}?
-372|Smazat úkol «{name}»? Historie spuštění se ztratí.
-373|Smazat toto
-374|Smazat toto z paměti?
-375|Smazat {name}
-376|Smazat {what}? Nelze vrátit zpět. Pro potvrzení napište DELETE.
-377|Smazat «{name}» z Knihovny? Nepůjde už stáhnout ani z konverzací, kde byl použit.
-378|Mazání: {error}
-379|Smazáno: {what}.
-380|Mažu…
-381|Zamítnuto
-382|Zamítnout
-383|Popište web, plakát nebo prezentaci; {brand} vytvoří HTML maketu, kterou uvidíte, upravíte a stáhnete.
-384|Popište stránku, plakát nebo prezentaci. {brand} napíše jeden HTML soubor, který hned uvidíte, upravíte slovy a stáhnete.
-385|Popište obrázek, který mám vytvořit.
-386|Popište obrázek, který chcete…
-387|Popište video, které mám vytvořit.
-388|Popište video, které chcete…
-389|Popište, co máme postavit
-390|Popište, co máme postavit…
-391|Popis
-392|Design
-393|Design a kreativita
-394|Navrhujte na sdíleném plátně
-395|Název návrhu
-396|Typ návrhu
-397|Podrobný
-398|Vývojářské nástroje
-399|Vývoj
-400|Zařízení
-401|Zařízení, která přijímají žádosti: {n}.
-402|Ručně zvolené přímé API
-403|Přímý a upřímný
-404|Zahodit
-405|Zahodit změnu
-406|Odpojit
-407|Odpojit {name}? AI k ní už nebude mít přístup.
-408|Udělej důkladný průzkum, ověř více zdrojů a vysvětli podrobně:
-409|Nepovolovat přímé náklady
-410|Nespouštět placené úlohy
-411|Dokument
-412|Dokument / dlouhý kontext
-413|Dokumentace
-414|Dokumenty
-415|Dokumenty, tabulky a prezentace na Disku
-416|Hotovo! Klíč funguje.
-417|Hotovo. Toto zařízení bude přijímat žádosti o přístup (celkem 1 zařízení).
-418|Hotovo. Toto zařízení bude přijímat žádosti o přístup (celkem {n} zařízení).
-419|Stáhnout
-420|Stáhnout HTML
-421|Stáhnout všechna moje data
-422|Stáhnout {name}
-423|Stahování: {error}
-424|Soubory ke stažení
-425|Stahuji…
-426|Pusťte pro přidání souborů do Knihovny
-427|Pusťte pro připojení souborů
-428|Duplikovat
-429|Např. Učitel matematiky
-430|Např. Přehled zpráv
-431|Např. Jarní marketingová kampaň
-432|Např. Používej dokumenty projektu, drž formální tón a pamatuj si důležitá rozhodnutí.
-433|Např. Počasí
-434|Např. gemini/gemini-3.5-flash
-435|Upravit
-436|Upravit plugin
-437|Upravit asistenta
-438|Upravit asistenta {name}
-439|Upravit projekt
-440|Upravit projekt {name}
-441|Upravit úkol
-442|Upravit toto
-443|Upravit {name}
-444|Upravit «{name}»
-445|Vzdělávání
-446|Vzdělávání a výuka
+99|Vždy anglicky
+100|Vždy rumunsky
+101|Vždy zapnuto
+102|Vždy zapnuto {slug}
+103|Vždy zapnuto: použije se v každé zprávě, bez /název
+104|Účet s tímto e-mailem už existuje.
+105|Adresa nebo město
+106|Analýza a plánování příspěvků
+107|Analýza dat blockchainu
+108|Analyzuj soubor, najdi problém a oprav ho.
+109|Analýza chování uživatelů
+110|Analýza tréninků a tvorba plánů
+111|Analýza dat vašeho produktu
+112|Analyzuje kód a pracuje s GitHubem.
+113|Analyzuje nahrané soubory, tabulky a dokumenty.
+114|Analyzuji…
+115|Odpovídá
+116|Jazyk odpovědí
+117|Odpovědi z dokumentace Cloudflare (bez účtu).
+118|Odpovědi z vašich dat
+119|Odpovědi pokračují i se zavřenou aplikací
+120|Jakákoli aplikace se vzdáleným MCP serverem (adresa začínající https://). Nechte token prázdný, pokud má aplikace vlastní přihlášení.
+121|Libovolný počet kreditů
+122|Aplikace
+123|Použito na serveru pro tento účet.
+124|Použít na GitHubu
+125|Použít změnu přímo na GitHubu pro {path} (větev {branch})? Vytvoří se místní záloha, aby se dalo vrátit zpět.
+126|Používám změny…
+127|Používám…
+128|Schválit / Znovu aktivovat
+129|Aplikace
+130|Aplikace a automatizace
+131|Sekce aplikací
+132|Archivovat
+133|Archivované
+134|Asana OAuth Client ID
+135|Asana OAuth client secret
+136|Asana přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v Asaně ({where}) s touto návratovou adresou: {url}
+137|Přístup k Asaně pro všechny
+138|Klást upřesňující otázky (s možnostmi odpovědí)
+139|Požádejte o přístup nebo zvolte jiný model.
+140|Ptejte se na jakýkoli veřejný repozitář GitHubu.
+141|Požádejte Ownera o přístup alespoň k jednomu modelu.
+142|Požádejte Ownera o přístup k modelům OpenAI nebo Claude.
+143|Asistenti
+144|Alespoň 10 znaků
+145|Nejvýše 2 GB na soubor
+146|Při spuštění {brand} sám stáhne novou verzi z GitHub Releases a dá vědět, až bude připravená k instalaci.
+147|Připojit: {error}
+148|Připojeno vámi
+149|Připojený soubor: {names}
+150|Kontrola oprávnění Disku Google
+151|Ověřování
+153|Automatická záloha: přímé API
+154|Automatická záloha
+155|Automatická aktualizace webu
+156|Automatické aktualizace webu jsou vypnuté.
+157|Automatická aktualizace:
+158|Automatické aktualizace (aplikace pro Windows)
+159|Automaticky · nejlepší dostupný
+160|Automaticky — moje pořadí
+161|Automaticky — první dostupný obrázkový model
+162|Automatizace
+163|Automatizace a dálkové ovládání
+164|Výsledky automatizací
+165|Automatizace «{name}»
+166|Automatizace
+167|Dostupné
+168|Dostupné pro váš účet
+169|Dostupné nyní
+170|Kurzy BNR
+171|Zpět
+173|Vráceno na výchozí místní službu. Zkuste se znovu přihlásit.
+174|Báze, tabulky a záznamy: hledání, vytváření a úpravy.
+175|Fakturace
+176|Natální horoskopy a horoskop
+177|Blokovat
+178|Blockchain
+179|Blokováno
+180|Blokovaní uživatelé
+181|Nástěnky, položky a aktualizace.
+182|Nástěnky, lístečky a diagramy (Miro Enterprise).
+183|Box OAuth Client ID
+184|Box OAuth client secret
+185|Box přijímá jen OAuth aplikace registrované vlastníkem. Vytvořte ji v Boxu ({where}) s touto návratovou adresou: {url}
+186|Přístup k Boxu pro všechny
+187|Hlášení chyb se záznamy a logy.
+188|Tvorba a publikování aplikací
+189|Tvorba a publikování webových aplikací
+190|Firmy
+191|Byznys a provoz
+192|Firemní bankovní účty a transakce.
+193|Vizitka
+194|Podnikatel
+195|Koupit kredity
+196|Koupit za {price}
+197|C:\Users\vy\.ssh\id_ed25519
+198|Server není dostupný, znovu se připojuji…
+199|Zrušit
+200|Služba {brand} není dostupná. Zkontrolujte, že aplikace běží a že je připojení k internetu.
+201|Záznam nelze přečíst.
+202|Platby kartou brzy
+203|Pozor: nastavení poskytovatelé mohou čerpat kredit podle svých cen.
+204|Pozor: tvorba videa může rychle čerpat kredit. Cena závisí na modelu, délce a rozlišení.
+205|API klíč Cerebras
+206|Modely Cerebras · oddělené čárkami
+207|Změnit
+208|Změnit heslo
+209|Změněno
+210|Změnit… (např. udělej pozadí tmavě modré a přidej sekci s cenami)
+211|Měním…
+212|Chat
+213|Možnosti chatu
+214|Chatujte se všemi nejlepšími AI, paměť, soubory, obrázky, videa a automatizace.
+215|Pouze ChatGPT · GPT Image
+216|ChatGPT, Gemini a Grok
+217|Chaty
+218|Starší chaty se mažou samy (připnuté zůstávají). Vaše data zůstávají na serveru {brand} a nikdy se neprodávají ani nepoužívají k reklamě.
+219|Chaty, paměť, knihovna, návrhy, projekty, aplikace a automatizace jsou uloženy na serveru {brand}.
+220|Chaty, paměť, knihovna, návrhy, projekty, aplikace a automatizace jsou uloženy v tomto počítači.
+221|Kontrola selhala
+222|Zkontrolovat aktualizace teď
+223|Kontrola odkazů, domén a telefonních čísel
+224|Zkontrolovat cenu
+225|Zkontroluj cenu produktu, který sleduji na stránce obchodu, a dej mi vědět jen tehdy, když klesla pod cenu, kterou jsem nastavil.
+226|Zkontrolováno: {when}.
+227|Kontroluji, jak to vypadá v telefonu…
+228|Kontroluji paměť, soubory a důležitý kontext…
+229|Kontroluji…
+230|Zkontroluje OmniRoute (klíč a po jednom modelu Gemini, Grok, OpenAI a Claude) a každé uložené API. Před testem uložte nastavení.
+231|Simulace z chemie a biologie
+232|Zvolte Instalovat aplikaci nebo Přidat na plochu.
+233|Vyberte obrázek PNG, JPEG nebo WebP.
+234|Vyberte datum a čas v budoucnosti.
+235|Vyberte platný čas (00:00–23:59).
+236|Vyberte AI
+237|Vyberte alespoň jeden den v týdnu.
+238|Vybrat z Knihovny
+239|Vyberte AI
+240|Vyberte datum a čas jednorázového úkolu.
+241|Vybrat {plan}
+242|Vybírám barvy a písma…
+243|Vybráno automaticky
+244|Vybrané dny
+245|Inzeráty v Německu
+246|Claude / Anthropic (placené)
+247|Claude přes API
+248|Vymazat hledání
+249|Client ID aplikace vytvořené u poskytovatele
+250|Zavřít
+251|Zavřít všechny aktivní relace {email}?
+252|Zavřít relace
+253|Zavřít menu
+254|Zavřít náhled
+255|Minimalizovat do oznamovací oblasti
+256|API token Cloudflare
+257|Modely Cloudflare · oddělené čárkami
+258|Code
+259|Kód a GitHub
+260|Kód z e-mailu
+261|Code {brand} (přes API OpenAI / Claude, ne vaše předplatná)
+262|Code {brand} je dostupný pro Ownera a účty, kterým Owner dal přístup.
+263|Káva a jasný plán? Řekněte, kde začneme.
+264|API klíč Cohere
+265|Modely Cohere · oddělené čárkami
+266|Kombinace
+267|Kombinace
+268|Kombinace pro všechny účty
+269|Příkaz v chatu
+270|Komunikace
+271|Firemní karty, výdaje a faktury.
+272|Porovnání modelů vedle sebe
+273|API pro kompatibilitu.
+274|Potvrdit e-mail
+275|Potvrďte svůj e-mail
+276|Připojit
+277|Připojte Codex nebo Claude Code v OmniRoute.
+278|Připojit aplikaci
+279|Připojte jakékoli API nebo webhook.
+280|Připojit vlastní API
+281|Připojit přes 350 zdrojů dat
+282|Připojit přes OAuth (přístup k datům)
+283|Připojit bez OAuth a otevřít {name}
+284|Připojte své aplikace: AI v nich může hledat, číst, vytvářet a upravovat a před každou akcí se zeptá.
+285|Připojeno
+286|Připojené aplikace
+287|Připojené aplikace (Gmail, Drive, Notion, GitHub…)
+288|Připojeno přes OAuth
+289|Připojuji…
+290|Konektory
+291|Kontext mezi chaty projektu
+292|Řídí placenou AI pro běžné účty. Owner zůstává povolen.
+293|Konverzace
+294|Konverzace a kontakty.
+295|Zkopírováno
+296|Zkopíruje klíče uložené v tomto počítači, aby web {domain} měl stejné modely.
+297|Kopírovat
+298|Kopírovat chat
+299|Kopírovat ID účtu
+300|Kopírovat chat do schránky
+301|Kopírovat kód
+302|Kopírovat klíče pro server
+303|Kopírovat zprávu
+304|Kopírovat výběr
+305|Kopíruji…
+306|Ochrana nákladů
+307|Nepodařilo se připojit:
+308|Nepodařilo se zkontrolovat:
+309|Nepodařilo se načíst stav oznámení:
+310|Nepodařilo se načíst nastavení:
+311|Vytvořit
+312|Vytvořit plugin
+313|Vytvořit účet
+314|Tvorba a úprava návrhů
+315|Vytvořit plugin
+316|Vytvořit účet
+317|Vytvořit úkol
+318|Vytvořte si účet {brand}
+319|Tvorba, kombinování a úprava dokumentů a grafiky
+320|Tvorba, spouštění a analýza reklam
+321|Vytvořeno
+322|Vytvářím návrh…
+323|Kreativní
+324|Kreativita
+325|Upozornění na kredity
+326|Kredity přidány
+330|Kredity vyčerpány
+331|Aktuální
+332|Aktuální chat
+333|Současné heslo
+334|Aktuální tarif
+335|Vlastní
+336|Vlastní aplikace
+337|Vlastní asistent
+338|Vlastní hlavička
+339|Vlastní pokyny
+340|Zákaznická podpora
+341|Zákazníci
+342|Zákazníci, platby, faktury a produkty.
+343|Denně
+344|Denně v {time}
+345|Tmavý
+346|Data
+347|Data a akce v HubSpotu
+348|Data a analýzy
+349|Databáze
+350|Datum
+351|Den
+352|Den v měsíci
+353|Dny
+354|Rozhodnutí
+355|Deep Research
+356|Výchozí
+357|Smazat
+358|Smazat účet
+359|Smazat vše
+360|Smazat data
+361|Smazat vše, co si {brand} pro tento účet pamatuje? Nelze vrátit zpět.
+362|Smazat účet
+363|Smazat účet a všechna jeho data? Nelze vrátit zpět. Pro potvrzení napište heslo účtu.
+364|Smazat asistenta «{name}»?
+365|Smazat chat
+366|Smazat chat {name}
+367|Trvale smazat konverzaci «{title}»?
+368|Smazat návrh «{name}» se všemi verzemi?
+369|Smazat plugin «{name}»?
+370|Smazat projekt «{name}»? Konverzace zůstanou, ale nebudou patřit k žádnému projektu.
+371|Smazat uložený klíč
+372|Smazat uložený token
+373|Smazat skill /{slug}?
+374|Smazat úkol «{name}»? Historie spuštění se ztratí.
+375|Smazat toto
+376|Smazat toto z paměti?
+377|Smazat {name}
+378|Smazat {what}? Nelze vrátit zpět. Pro potvrzení napište DELETE.
+379|Smazat «{name}» z Knihovny? Nepůjde už stáhnout ani z konverzací, kde byl použit.
+380|Mazání: {error}
+381|Smazáno: {what}.
+382|Mažu…
+383|Zamítnuto
+384|Zamítnout
+385|Popište web, plakát nebo prezentaci; {brand} vytvoří HTML maketu, kterou uvidíte, upravíte a stáhnete.
+386|Popište stránku, plakát nebo prezentaci. {brand} napíše jeden HTML soubor, který hned uvidíte, upravíte slovy a stáhnete.
+387|Popište obrázek, který mám vytvořit.
+388|Popište obrázek, který chcete…
+389|Popište video, které mám vytvořit.
+390|Popište video, které chcete…
+391|Popište, co máme postavit
+392|Popište, co máme postavit…
+393|Popis
+394|Design
+395|Design a kreativita
+396|Navrhujte na sdíleném plátně
+397|Název návrhu
+398|Typ návrhu
+399|Podrobný
+400|Vývojářské nástroje
+401|Vývoj
+402|Zařízení
+403|Zařízení, která přijímají žádosti: {n}.
+404|Ručně zvolené přímé API
+405|Přímý a upřímný
+407|Zahodit
+408|Zahodit změnu
+409|Odpojit
+410|Odpojit {name}? AI k ní už nebude mít přístup.
+411|Udělej důkladný průzkum, ověř více zdrojů a vysvětli podrobně:
+412|Nepovolovat přímé náklady
+413|Nespouštět placené úlohy
+414|Dokument
+415|Dokument / dlouhý kontext
+416|Dokumentace
+417|Dokumenty
+418|Dokumenty, tabulky a prezentace na Disku
+419|Hotovo! Klíč funguje.
+420|Hotovo. Toto zařízení bude přijímat žádosti o přístup (celkem 1 zařízení).
+421|Hotovo. Toto zařízení bude přijímat žádosti o přístup (celkem {n} zařízení).
+422|Stáhnout
+423|Stáhnout HTML
+424|Stáhnout všechna moje data
+425|Stáhnout {name}
+426|Stahování: {error}
+427|Soubory ke stažení
+428|Stahuji…
+429|Pusťte pro přidání souborů do Knihovny
+430|Pusťte pro připojení souborů
+431|Duplikovat
+432|Např. Učitel matematiky
+433|Např. Přehled zpráv
+434|Např. Jarní marketingová kampaň
+435|Např. Používej dokumenty projektu, drž formální tón a pamatuj si důležitá rozhodnutí.
+436|Např. Počasí
+437|Např. gemini/gemini-3.5-flash
+438|Upravit
+439|Upravit plugin
+440|Upravit asistenta
+441|Upravit asistenta {name}
+442|Upravit projekt
+443|Upravit projekt {name}
+444|Upravit úkol
+445|Upravit toto
+446|Upravit {name}
+447|Upravit «{name}»
+448|Vzdělávání
+449|Vzdělávání a výuka

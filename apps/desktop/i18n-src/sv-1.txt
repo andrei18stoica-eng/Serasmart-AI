@@ -93,348 +93,348 @@
 95|Tillåt även betalda API:er (OpenAI, Grok)
 96|Tillåt alltid
 97|Alltid tillåten
-98|Alltid på engelska
-99|Alltid på rumänska
-100|Alltid på
-101|Alltid på {slug}
-102|Alltid på: används i varje meddelande, utan /namn
-103|Det finns redan ett konto med den här e-postadressen.
-104|En adress eller stad
-105|Analysera och schemalägga inlägg
-106|Analysera blockkedjedata
-107|Analysera filen, hitta problemet och åtgärda det.
-108|Analysera användarbeteende
-109|Analysera träningspass och göra planer
-110|Analysera data om din produkt
-111|Analyserar kod och arbetar med GitHub.
-112|Analyserar uppladdade filer, tabeller och dokument.
-113|Analyserar…
-114|Svarar
-115|Svarens språk
-116|Svar från Cloudflares dokumentation (utan konto).
-117|Svar från dina data
-118|Svaren fortsätter även när appen är stängd
-119|Vilken app som helst med en fjärr-MCP-server (en adress som börjar med https://). Lämna token tom om appen har egen inloggning.
-120|Hur många krediter du vill
-121|App
-122|Tillämpat på servern för det här kontot.
-123|Tillämpa i GitHub
-124|Tillämpa ändringen direkt i GitHub för {path} (gren {branch})? En lokal säkerhetskopia skapas så att du kan gå tillbaka.
-125|Tillämpar ändringarna…
-126|Tillämpar…
-127|Godkänn / Återaktivera
-128|Appar
-129|Appar och automatiseringar
-130|Appavsnitt
-131|Arkivera
-132|Arkiverade
-133|Asana OAuth Client ID
-134|Asana OAuth client secret
-135|Asana tar bara emot OAuth-appar registrerade av ägaren. Skapa en i Asana ({where}) med den här returadressen: {url}
-136|Asana-åtkomst för alla
-137|Ställa förtydligande frågor (med svarsalternativ)
-138|Be om åtkomst eller välj en annan modell.
-139|Fråga om vilket offentligt GitHub-förråd som helst.
-140|Be Ownern om åtkomst till minst en modell.
-141|Be Ownern om åtkomst till OpenAI- eller Claude-modeller.
-142|Assistenter
-143|Minst 10 tecken
-144|Högst 2 GB per fil
-145|Vid start hämtar {brand} själv den nya versionen från GitHub Releases och meddelar när den är redo att installeras.
-146|Bifoga: {error}
-147|Bifogat av dig
-148|Bifogad fil: {names}
-149|Granska behörigheter i Google Drive
-150|Autentisering
-151|Automatisk reserv: direkt-API
-152|Automatisk reserv
-153|Automatisk uppdatering av webbplatsen
-154|Automatiska uppdateringar av webbplatsen är avstängda.
-155|Automatisk uppdatering:
-156|Automatiska uppdateringar (Windows-appen)
-157|Automatiskt · den bästa tillgängliga
-158|Automatiskt — min ordning
-159|Automatiskt — den första tillgängliga bildmodellen
-160|Automatisering
-161|Automatisering och fjärrstyrning
-162|Resultat från automatiseringar
-163|Automatisering «{name}»
-164|Automatiseringar
-165|Tillgänglig
-166|Tillgänglig för ditt konto
-167|Tillgänglig nu
-168|BNR-växelkurser
-169|Tillbaka
-171|Tillbaka till den lokala standardtjänsten. Försök logga in igen.
-172|Baser, tabeller och poster: söka, skapa och uppdatera.
-173|Fakturering
-174|Födelsehoroskop och horoskop
-175|Blockera
-176|Blockkedja
-177|Blockerad
-178|Blockerade användare
-179|Tavlor, objekt och uppdateringar.
-180|Tavlor, lappar och diagram (Miro Enterprise).
-181|Box OAuth Client ID
-182|Box OAuth client secret
-183|Box tar bara emot OAuth-appar registrerade av ägaren. Skapa en i Box ({where}) med den här returadressen: {url}
-184|Box-åtkomst för alla
-185|Felrapporter med inspelningar och loggar.
-186|Bygga och publicera appar
-187|Bygga och publicera webbappar
-188|Företag
-189|Affärer och drift
-190|Företagskonton i bank och transaktioner.
-191|Visitkort
-192|Företagare
-193|Köp krediter
-194|Köp för {price}
-195|C:\Users\du\.ssh\id_ed25519
-196|Kan inte nå servern, ansluter igen…
-197|Avbryt
-198|Kan inte nå tjänsten {brand}. Kontrollera att appen körs och att du har internet.
-199|Kan inte läsa inspelningen.
-200|Kortbetalningar kommer snart
-201|Obs: leverantörerna du ställer in kan använda kredit till sina priser.
-202|Obs: videoskapande kan förbruka kredit snabbt. Kostnaden beror på modell, längd och upplösning.
-203|Cerebras API-nyckel
-204|Cerebras-modeller · kommaseparerade
-205|Ändra
-206|Ändra lösenord
-207|Ändrad
-208|Ändra… (t.ex. gör bakgrunden mörkblå och lägg till ett prisavsnitt)
-209|Ändrar…
-210|Chatt
-211|Chattalternativ
-212|Chatta med alla de bästa AI:erna, minne, filer, bilder, videor och automatiseringar.
-213|Endast ChatGPT · GPT Image
-214|ChatGPT, Gemini och Grok
-215|Chattar
-216|Äldre chattar raderas automatiskt (fästa finns kvar). Dina data stannar på {brand}-servern och säljs aldrig eller används för reklam.
-217|Chattar, minne, bibliotek, designer, projekt, appar och automatiseringar sparas på {brand}-servern.
-218|Chattar, minne, bibliotek, designer, projekt, appar och automatiseringar sparas på den här datorn.
-219|Kontrollen misslyckades
-220|Sök efter uppdateringar nu
-221|Kontrollera länkar, domäner och telefonnummer
-222|Kontrollera priset
-223|Kontrollera priset på produkten jag följer på butikens sida och meddela mig bara om det har sjunkit under priset jag har angett.
-224|Kontrollerat: {when}.
-225|Kontrollerar hur det ser ut på en telefon…
-226|Kontrollerar minne, filer och relevant sammanhang…
-227|Kontrollerar…
-228|Kontrollerar OmniRoute (nyckeln och en Gemini-, Grok-, OpenAI- och Claude-modell) och varje sparat API. Spara inställningarna före testet.
-229|Simuleringar inom kemi och biologi
-230|Välj Installera app eller Lägg till på hemskärmen.
-231|Välj en PNG-, JPEG- eller WebP-bild.
-232|Välj ett datum och en tid i framtiden.
-233|Välj en giltig tid (00:00–23:59).
-234|Välj en AI
-235|Välj minst en veckodag.
-236|Välj från Biblioteket
-237|Välj AI:n
-238|Välj datum och tid för engångsuppgiften.
-239|Välj {plan}
-240|Väljer färger och typsnitt…
-241|Valt automatiskt
-242|Valda dagar
-243|Annonser i Tyskland
-244|Claude / Anthropic (betald)
-245|Claude via API
-246|Rensa sökningen
-247|Client ID för appen som skapats hos leverantören
-248|Stäng
-249|Stänga alla aktiva sessioner för {email}?
-250|Stäng sessioner
-251|Stäng menyn
-252|Stäng förhandsvisningen
-253|Minimera till aktivitetsfältet
-254|Cloudflare API-token
-255|Cloudflare-modeller · kommaseparerade
-256|Code
-257|Kod och GitHub
-258|Kod från e-postmeddelandet
-259|Code {brand} (via OpenAI- / Claude-API:erna, inte dina abonnemang)
-260|Code {brand} finns för Ownern och för konton som Ownern har gett åtkomst.
-261|Kaffe och en tydlig plan? Säg var vi börjar.
-262|Cohere API-nyckel
-263|Cohere-modeller · kommaseparerade
-264|Kombination
-265|Kombinationer
-266|Kombinationer för alla konton
-267|Kommando i chatten
-268|Kommunikation
-269|Företagskort, utgifter och fakturor.
-270|Jämför modeller sida vid sida
-271|Kompatibilitets-API.
-272|Bekräfta e-post
-273|Bekräfta din e-postadress
-274|Anslut
-275|Anslut Codex eller Claude Code i OmniRoute.
-276|Anslut en app
-277|Anslut vilket API eller webhook som helst.
-278|Anslut eget API
-279|Anslut över 350 datakällor
-280|Anslut med OAuth (åtkomst till data)
-281|Anslut utan OAuth och öppna {name}
-282|Anslut dina appar: AI:n kan söka, läsa, skapa och redigera i dem, och frågar före varje åtgärd.
-283|Ansluten
-284|Anslutna appar
-285|Anslutna appar (Gmail, Drive, Notion, GitHub…)
-286|Ansluten med OAuth
-287|Ansluter…
-288|Kopplingar
-289|Sammanhang mellan projektets chattar
-290|Styr betald AI för vanliga konton. Ownern förblir aktiverad.
-291|Konversation
-292|Konversationer och kontakter.
-293|Kopierat
-294|Kopierar nycklarna som sparats på den här datorn så att webbplatsen {domain} får samma modeller.
-295|Kopiera
-296|Kopiera chatt
-297|Kopiera konto-ID
-298|Kopiera chatten till urklipp
-299|Kopiera kod
-300|Kopiera nycklar för servern
-301|Kopiera meddelandet
-302|Kopiera markeringen
-303|Kopierar…
-304|Kostnadsskydd
-305|Kunde inte bifoga:
-306|Kunde inte kontrollera:
-307|Kunde inte läsa aviseringsstatus:
-308|Kunde inte läsa inställningarna:
-309|Skapa
-310|Skapa ett plugin
-311|Skapa konto
-312|Skapa och redigera designer
-313|Skapa plugin
-314|Skapa kontot
-315|Skapa uppgiften
-316|Skapa ditt {brand}-konto
-317|Skapa, kombinera och redigera dokument och grafik
-318|Skapa, starta och analysera annonser
-319|Skapad
-320|Skapar designen…
-321|Kreativ
-322|Kreativitet
-323|Kreditvarningar
-324|Krediter tillagda
-328|Krediterna är slut
-329|Nuvarande
-330|Nuvarande chatt
-331|Nuvarande lösenord
-332|Nuvarande abonnemang
-333|Anpassad
-334|Egen app
-335|Egen assistent
-336|Egen header
-337|Egna instruktioner
-338|Kundtjänst
-339|Kunder
-340|Kunder, betalningar, fakturor och produkter.
-341|Dagligen
-342|Dagligen kl. {time}
-343|Mörkt
-344|Data
-345|Data och åtgärder i HubSpot
-346|Data och analys
-347|Databaser
-348|Datum
-349|Dag
-350|Dag i månaden
-351|Dagar
-352|Beslut
-353|Deep Research
-354|Standard
-355|Radera
-356|Radera konto
-357|Radera allt
-358|Radera data
-359|Radera allt {brand} kommer ihåg för det här kontot? Det går inte att ångra.
-360|Radera kontot
-361|Radera kontot och all dess data? Det går inte att ångra. Skriv kontots lösenord för att bekräfta.
-362|Radera assistenten «{name}»?
-363|Radera chatten
-364|Radera chatten {name}
-365|Radera konversationen «{title}» permanent?
-366|Radera designen «{name}» med alla dess versioner?
-367|Radera pluginet «{name}»?
-368|Radera projektet «{name}»? Konversationerna finns kvar, men hör inte längre till något projekt.
-369|Radera sparad nyckel
-370|Radera sparad token
-371|Radera skillen /{slug}?
-372|Radera uppgiften «{name}»? Körhistoriken går förlorad.
-373|Radera detta
-374|Radera detta från minnet?
-375|Radera {name}
-376|Radera {what}? Det går inte att ångra. Skriv DELETE för att bekräfta.
-377|Radera «{name}» från Biblioteket? Det går inte längre att ladda ner, inte ens från konversationerna där det användes.
-378|Radering: {error}
-379|Raderat: {what}.
-380|Raderar…
-381|Nekad
-382|Neka
-383|Beskriv en webbplats, en affisch eller en presentation; {brand} gör en HTML-mockup som du ser, ändrar och laddar ner.
-384|Beskriv sidan, affischen eller presentationen. {brand} skriver en enda HTML-fil som du ser direkt, ändrar med ord och laddar ner.
-385|Beskriv bilden du vill att jag gör.
-386|Beskriv bilden du vill ha…
-387|Beskriv videon du vill att jag gör.
-388|Beskriv videon du vill ha…
-389|Beskriv vad vi ska bygga
-390|Beskriv vad vi ska bygga…
-391|Beskrivning
-392|Design
-393|Design och kreativitet
-394|Designa på en delad duk
-395|Designens titel
-396|Typ av design
-397|Utförlig
-398|Utvecklarverktyg
-399|Utveckling
-400|Enhet
-401|Enheter som tar emot förfrågningarna: {n}.
-402|Manuellt valt direkt-API
-403|Rak och ärlig
-404|Kasta
-405|Kasta ändringen
-406|Koppla från
-407|Koppla från {name}? AI:n kommer inte längre åt den.
-408|Gör en grundlig research, kontrollera flera källor och förklara i detalj:
-409|Tillåt inga direkta kostnader
-410|Starta inga betalda jobb
-411|Dokument
-412|Dokument / långt sammanhang
-413|Dokumentation
+99|Alltid på engelska
+100|Alltid på rumänska
+101|Alltid på
+102|Alltid på {slug}
+103|Alltid på: används i varje meddelande, utan /namn
+104|Det finns redan ett konto med den här e-postadressen.
+105|En adress eller stad
+106|Analysera och schemalägga inlägg
+107|Analysera blockkedjedata
+108|Analysera filen, hitta problemet och åtgärda det.
+109|Analysera användarbeteende
+110|Analysera träningspass och göra planer
+111|Analysera data om din produkt
+112|Analyserar kod och arbetar med GitHub.
+113|Analyserar uppladdade filer, tabeller och dokument.
+114|Analyserar…
+115|Svarar
+116|Svarens språk
+117|Svar från Cloudflares dokumentation (utan konto).
+118|Svar från dina data
+119|Svaren fortsätter även när appen är stängd
+120|Vilken app som helst med en fjärr-MCP-server (en adress som börjar med https://). Lämna token tom om appen har egen inloggning.
+121|Hur många krediter du vill
+122|App
+123|Tillämpat på servern för det här kontot.
+124|Tillämpa i GitHub
+125|Tillämpa ändringen direkt i GitHub för {path} (gren {branch})? En lokal säkerhetskopia skapas så att du kan gå tillbaka.
+126|Tillämpar ändringarna…
+127|Tillämpar…
+128|Godkänn / Återaktivera
+129|Appar
+130|Appar och automatiseringar
+131|Appavsnitt
+132|Arkivera
+133|Arkiverade
+134|Asana OAuth Client ID
+135|Asana OAuth client secret
+136|Asana tar bara emot OAuth-appar registrerade av ägaren. Skapa en i Asana ({where}) med den här returadressen: {url}
+137|Asana-åtkomst för alla
+138|Ställa förtydligande frågor (med svarsalternativ)
+139|Be om åtkomst eller välj en annan modell.
+140|Fråga om vilket offentligt GitHub-förråd som helst.
+141|Be Ownern om åtkomst till minst en modell.
+142|Be Ownern om åtkomst till OpenAI- eller Claude-modeller.
+143|Assistenter
+144|Minst 10 tecken
+145|Högst 2 GB per fil
+146|Vid start hämtar {brand} själv den nya versionen från GitHub Releases och meddelar när den är redo att installeras.
+147|Bifoga: {error}
+148|Bifogat av dig
+149|Bifogad fil: {names}
+150|Granska behörigheter i Google Drive
+151|Autentisering
+153|Automatisk reserv: direkt-API
+154|Automatisk reserv
+155|Automatisk uppdatering av webbplatsen
+156|Automatiska uppdateringar av webbplatsen är avstängda.
+157|Automatisk uppdatering:
+158|Automatiska uppdateringar (Windows-appen)
+159|Automatiskt · den bästa tillgängliga
+160|Automatiskt — min ordning
+161|Automatiskt — den första tillgängliga bildmodellen
+162|Automatisering
+163|Automatisering och fjärrstyrning
+164|Resultat från automatiseringar
+165|Automatisering «{name}»
+166|Automatiseringar
+167|Tillgänglig
+168|Tillgänglig för ditt konto
+169|Tillgänglig nu
+170|BNR-växelkurser
+171|Tillbaka
+173|Tillbaka till den lokala standardtjänsten. Försök logga in igen.
+174|Baser, tabeller och poster: söka, skapa och uppdatera.
+175|Fakturering
+176|Födelsehoroskop och horoskop
+177|Blockera
+178|Blockkedja
+179|Blockerad
+180|Blockerade användare
+181|Tavlor, objekt och uppdateringar.
+182|Tavlor, lappar och diagram (Miro Enterprise).
+183|Box OAuth Client ID
+184|Box OAuth client secret
+185|Box tar bara emot OAuth-appar registrerade av ägaren. Skapa en i Box ({where}) med den här returadressen: {url}
+186|Box-åtkomst för alla
+187|Felrapporter med inspelningar och loggar.
+188|Bygga och publicera appar
+189|Bygga och publicera webbappar
+190|Företag
+191|Affärer och drift
+192|Företagskonton i bank och transaktioner.
+193|Visitkort
+194|Företagare
+195|Köp krediter
+196|Köp för {price}
+197|C:\Users\du\.ssh\id_ed25519
+198|Kan inte nå servern, ansluter igen…
+199|Avbryt
+200|Kan inte nå tjänsten {brand}. Kontrollera att appen körs och att du har internet.
+201|Kan inte läsa inspelningen.
+202|Kortbetalningar kommer snart
+203|Obs: leverantörerna du ställer in kan använda kredit till sina priser.
+204|Obs: videoskapande kan förbruka kredit snabbt. Kostnaden beror på modell, längd och upplösning.
+205|Cerebras API-nyckel
+206|Cerebras-modeller · kommaseparerade
+207|Ändra
+208|Ändra lösenord
+209|Ändrad
+210|Ändra… (t.ex. gör bakgrunden mörkblå och lägg till ett prisavsnitt)
+211|Ändrar…
+212|Chatt
+213|Chattalternativ
+214|Chatta med alla de bästa AI:erna, minne, filer, bilder, videor och automatiseringar.
+215|Endast ChatGPT · GPT Image
+216|ChatGPT, Gemini och Grok
+217|Chattar
+218|Äldre chattar raderas automatiskt (fästa finns kvar). Dina data stannar på {brand}-servern och säljs aldrig eller används för reklam.
+219|Chattar, minne, bibliotek, designer, projekt, appar och automatiseringar sparas på {brand}-servern.
+220|Chattar, minne, bibliotek, designer, projekt, appar och automatiseringar sparas på den här datorn.
+221|Kontrollen misslyckades
+222|Sök efter uppdateringar nu
+223|Kontrollera länkar, domäner och telefonnummer
+224|Kontrollera priset
+225|Kontrollera priset på produkten jag följer på butikens sida och meddela mig bara om det har sjunkit under priset jag har angett.
+226|Kontrollerat: {when}.
+227|Kontrollerar hur det ser ut på en telefon…
+228|Kontrollerar minne, filer och relevant sammanhang…
+229|Kontrollerar…
+230|Kontrollerar OmniRoute (nyckeln och en Gemini-, Grok-, OpenAI- och Claude-modell) och varje sparat API. Spara inställningarna före testet.
+231|Simuleringar inom kemi och biologi
+232|Välj Installera app eller Lägg till på hemskärmen.
+233|Välj en PNG-, JPEG- eller WebP-bild.
+234|Välj ett datum och en tid i framtiden.
+235|Välj en giltig tid (00:00–23:59).
+236|Välj en AI
+237|Välj minst en veckodag.
+238|Välj från Biblioteket
+239|Välj AI:n
+240|Välj datum och tid för engångsuppgiften.
+241|Välj {plan}
+242|Väljer färger och typsnitt…
+243|Valt automatiskt
+244|Valda dagar
+245|Annonser i Tyskland
+246|Claude / Anthropic (betald)
+247|Claude via API
+248|Rensa sökningen
+249|Client ID för appen som skapats hos leverantören
+250|Stäng
+251|Stänga alla aktiva sessioner för {email}?
+252|Stäng sessioner
+253|Stäng menyn
+254|Stäng förhandsvisningen
+255|Minimera till aktivitetsfältet
+256|Cloudflare API-token
+257|Cloudflare-modeller · kommaseparerade
+258|Code
+259|Kod och GitHub
+260|Kod från e-postmeddelandet
+261|Code {brand} (via OpenAI- / Claude-API:erna, inte dina abonnemang)
+262|Code {brand} finns för Ownern och för konton som Ownern har gett åtkomst.
+263|Kaffe och en tydlig plan? Säg var vi börjar.
+264|Cohere API-nyckel
+265|Cohere-modeller · kommaseparerade
+266|Kombination
+267|Kombinationer
+268|Kombinationer för alla konton
+269|Kommando i chatten
+270|Kommunikation
+271|Företagskort, utgifter och fakturor.
+272|Jämför modeller sida vid sida
+273|Kompatibilitets-API.
+274|Bekräfta e-post
+275|Bekräfta din e-postadress
+276|Anslut
+277|Anslut Codex eller Claude Code i OmniRoute.
+278|Anslut en app
+279|Anslut vilket API eller webhook som helst.
+280|Anslut eget API
+281|Anslut över 350 datakällor
+282|Anslut med OAuth (åtkomst till data)
+283|Anslut utan OAuth och öppna {name}
+284|Anslut dina appar: AI:n kan söka, läsa, skapa och redigera i dem, och frågar före varje åtgärd.
+285|Ansluten
+286|Anslutna appar
+287|Anslutna appar (Gmail, Drive, Notion, GitHub…)
+288|Ansluten med OAuth
+289|Ansluter…
+290|Kopplingar
+291|Sammanhang mellan projektets chattar
+292|Styr betald AI för vanliga konton. Ownern förblir aktiverad.
+293|Konversation
+294|Konversationer och kontakter.
+295|Kopierat
+296|Kopierar nycklarna som sparats på den här datorn så att webbplatsen {domain} får samma modeller.
+297|Kopiera
+298|Kopiera chatt
+299|Kopiera konto-ID
+300|Kopiera chatten till urklipp
+301|Kopiera kod
+302|Kopiera nycklar för servern
+303|Kopiera meddelandet
+304|Kopiera markeringen
+305|Kopierar…
+306|Kostnadsskydd
+307|Kunde inte bifoga:
+308|Kunde inte kontrollera:
+309|Kunde inte läsa aviseringsstatus:
+310|Kunde inte läsa inställningarna:
+311|Skapa
+312|Skapa ett plugin
+313|Skapa konto
+314|Skapa och redigera designer
+315|Skapa plugin
+316|Skapa kontot
+317|Skapa uppgiften
+318|Skapa ditt {brand}-konto
+319|Skapa, kombinera och redigera dokument och grafik
+320|Skapa, starta och analysera annonser
+321|Skapad
+322|Skapar designen…
+323|Kreativ
+324|Kreativitet
+325|Kreditvarningar
+326|Krediter tillagda
+330|Krediterna är slut
+331|Nuvarande
+332|Nuvarande chatt
+333|Nuvarande lösenord
+334|Nuvarande abonnemang
+335|Anpassad
+336|Egen app
+337|Egen assistent
+338|Egen header
+339|Egna instruktioner
+340|Kundtjänst
+341|Kunder
+342|Kunder, betalningar, fakturor och produkter.
+343|Dagligen
+344|Dagligen kl. {time}
+345|Mörkt
+346|Data
+347|Data och åtgärder i HubSpot
+348|Data och analys
+349|Databaser
+350|Datum
+351|Dag
+352|Dag i månaden
+353|Dagar
+354|Beslut
+355|Deep Research
+356|Standard
+357|Radera
+358|Radera konto
+359|Radera allt
+360|Radera data
+361|Radera allt {brand} kommer ihåg för det här kontot? Det går inte att ångra.
+362|Radera kontot
+363|Radera kontot och all dess data? Det går inte att ångra. Skriv kontots lösenord för att bekräfta.
+364|Radera assistenten «{name}»?
+365|Radera chatten
+366|Radera chatten {name}
+367|Radera konversationen «{title}» permanent?
+368|Radera designen «{name}» med alla dess versioner?
+369|Radera pluginet «{name}»?
+370|Radera projektet «{name}»? Konversationerna finns kvar, men hör inte längre till något projekt.
+371|Radera sparad nyckel
+372|Radera sparad token
+373|Radera skillen /{slug}?
+374|Radera uppgiften «{name}»? Körhistoriken går förlorad.
+375|Radera detta
+376|Radera detta från minnet?
+377|Radera {name}
+378|Radera {what}? Det går inte att ångra. Skriv DELETE för att bekräfta.
+379|Radera «{name}» från Biblioteket? Det går inte längre att ladda ner, inte ens från konversationerna där det användes.
+380|Radering: {error}
+381|Raderat: {what}.
+382|Raderar…
+383|Nekad
+384|Neka
+385|Beskriv en webbplats, en affisch eller en presentation; {brand} gör en HTML-mockup som du ser, ändrar och laddar ner.
+386|Beskriv sidan, affischen eller presentationen. {brand} skriver en enda HTML-fil som du ser direkt, ändrar med ord och laddar ner.
+387|Beskriv bilden du vill att jag gör.
+388|Beskriv bilden du vill ha…
+389|Beskriv videon du vill att jag gör.
+390|Beskriv videon du vill ha…
+391|Beskriv vad vi ska bygga
+392|Beskriv vad vi ska bygga…
+393|Beskrivning
+394|Design
+395|Design och kreativitet
+396|Designa på en delad duk
+397|Designens titel
+398|Typ av design
+399|Utförlig
+400|Utvecklarverktyg
+401|Utveckling
+402|Enhet
+403|Enheter som tar emot förfrågningarna: {n}.
+404|Manuellt valt direkt-API
+405|Rak och ärlig
+407|Kasta
+408|Kasta ändringen
+409|Koppla från
+410|Koppla från {name}? AI:n kommer inte längre åt den.
+411|Gör en grundlig research, kontrollera flera källor och förklara i detalj:
+412|Tillåt inga direkta kostnader
+413|Starta inga betalda jobb
 414|Dokument
-415|Dokument, kalkylblad och presentationer i Drive
-416|Klart! Nyckeln fungerar.
-417|Klart. Den här enheten tar emot åtkomstförfrågningar (1 enhet totalt).
-418|Klart. Den här enheten tar emot åtkomstförfrågningar ({n} enheter totalt).
-419|Ladda ner
-420|Ladda ner HTML
-421|Ladda ner all min data
-422|Ladda ner {name}
-423|Nedladdning: {error}
-424|Filer att ladda ner
-425|Laddar ner…
-426|Släpp för att lägga till filerna i Biblioteket
-427|Släpp för att bifoga filerna
-428|Duplicera
-429|T.ex. Mattelärare
-430|T.ex. Nyhetssammanfattning
-431|T.ex. Vårens marknadsföringskampanj
-432|T.ex. Använd projektets dokument, håll en formell ton och kom ihåg viktiga beslut.
-433|T.ex. Väder
-434|T.ex. gemini/gemini-3.5-flash
-435|Redigera
-436|Redigera plugin
-437|Redigera assistenten
-438|Redigera assistenten {name}
-439|Redigera projektet
-440|Redigera projektet {name}
-441|Redigera uppgiften
-442|Redigera detta
-443|Redigera {name}
-444|Redigera «{name}»
-445|Utbildning
-446|Utbildning och undervisning
+415|Dokument / långt sammanhang
+416|Dokumentation
+417|Dokument
+418|Dokument, kalkylblad och presentationer i Drive
+419|Klart! Nyckeln fungerar.
+420|Klart. Den här enheten tar emot åtkomstförfrågningar (1 enhet totalt).
+421|Klart. Den här enheten tar emot åtkomstförfrågningar ({n} enheter totalt).
+422|Ladda ner
+423|Ladda ner HTML
+424|Ladda ner all min data
+425|Ladda ner {name}
+426|Nedladdning: {error}
+427|Filer att ladda ner
+428|Laddar ner…
+429|Släpp för att lägga till filerna i Biblioteket
+430|Släpp för att bifoga filerna
+431|Duplicera
+432|T.ex. Mattelärare
+433|T.ex. Nyhetssammanfattning
+434|T.ex. Vårens marknadsföringskampanj
+435|T.ex. Använd projektets dokument, håll en formell ton och kom ihåg viktiga beslut.
+436|T.ex. Väder
+437|T.ex. gemini/gemini-3.5-flash
+438|Redigera
+439|Redigera plugin
+440|Redigera assistenten
+441|Redigera assistenten {name}
+442|Redigera projektet
+443|Redigera projektet {name}
+444|Redigera uppgiften
+445|Redigera detta
+446|Redigera {name}
+447|Redigera «{name}»
+448|Utbildning
+449|Utbildning och undervisning

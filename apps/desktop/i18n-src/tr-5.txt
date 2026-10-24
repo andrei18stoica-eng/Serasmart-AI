@@ -1,18 +1,18 @@
-577|Ne kadar kullandın: mesajlar, resimler, video ve ses.
-1631|Aboneliğin, planlar ve ek krediler.
-737|Kullanımım
+580|Ne kadar kullandın: mesajlar, resimler, video ve ses.
+1649|Aboneliğin, planlar ve ek krediler.
+742|Kullanımım
 83|Tüm hesaplar
-946|Tüm hesapların planları
-713|Mesajlar
-1492|Ses dakikası
-327|Kullanılan krediler
-325|Krediler, hesap ücretlendirilmese de plan fiyatlarıyla hesaplanır.
-726|Kullanılan modeller
-795|Bu dönemde kullanım yok.
+953|Tüm hesapların planları
+718|Mesajlar
+1506|Ses dakikası
+329|Kullanılan krediler
+327|Krediler, hesap ücretlendirilmese de plan fiyatlarıyla hesaplanır.
+731|Kullanılan modeller
+801|Bu dönemde kullanım yok.
 16|7 gün
-939|Plan
-326|Günlük kredi
-1191|Abonelik
-786|Plan yok
-170|Tüm hesaplara dön
-1117|Takvimlerini ve boş zamanını gör; etkinlik ekle, değiştir veya sil.
+946|Plan
+328|Günlük kredi
+1199|Abonelik
+792|Plan yok
+172|Tüm hesaplara dön
+1124|Takvimlerini ve boş zamanını gör; etkinlik ekle, değiştir veya sil.

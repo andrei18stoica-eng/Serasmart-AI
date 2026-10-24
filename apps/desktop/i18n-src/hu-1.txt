@@ -93,348 +93,348 @@
 95|A fizetős API-k engedélyezése is (OpenAI, Grok)
 96|Mindig engedélyez
 97|Mindig engedélyezve
-98|Mindig angolul
-99|Mindig románul
-100|Mindig bekapcsolva
-101|Mindig bekapcsolva: {slug}
-102|Mindig bekapcsolva: minden üzenetben használja, /név nélkül
-103|Ezzel az e-mail-címmel már létezik fiók.
-104|Egy cím vagy város
-105|Bejegyzések elemzése és ütemezése
-106|Blokklánc-adatok elemzése
-107|Elemezd a fájlt, találd meg a hibát, és javítsd ki.
-108|A felhasználói viselkedés elemzése
-109|Edzések elemzése és tervek készítése
-110|A terméked adatainak elemzése
-111|Kódot elemez és GitHubbal dolgozik.
-112|Feltöltött fájlokat, táblázatokat és dokumentumokat elemez.
-113|Elemzés…
-114|Válaszol
-115|A válaszok nyelve
-116|Válaszok a Cloudflare dokumentációjából (fiók nélkül).
-117|Válaszok az adataidból
-118|A válaszok akkor is folytatódnak, ha az alkalmazás be van zárva
-119|Bármely alkalmazás távoli MCP-szerverrel (https://-sel kezdődő cím). Hagyd üresen a tokent, ha az alkalmazásnak saját bejelentkezése van.
-120|Bármennyi kredit
-121|Alkalmazás
-122|Alkalmazva a szerveren ehhez a fiókhoz.
-123|Alkalmazás a GitHubon
-124|Alkalmazod a módosítást közvetlenül a GitHubon a(z) {path} fájlra ({branch} ág)? Helyi biztonsági mentés készül, hogy vissza lehessen állni.
-125|Módosítások alkalmazása…
-126|Alkalmazás…
-127|Jóváhagyás / Újraaktiválás
-128|Alkalmazások
-129|Alkalmazások és automatizálások
-130|Alkalmazásrészek
-131|Archiválás
-132|Archivált
-133|Asana OAuth Client ID
-134|Asana OAuth client secret
-135|Az Asana csak a tulajdonos által regisztrált OAuth-alkalmazásokat fogadja el. Hozz létre egyet az Asanában ({where}) ezzel a visszatérési címmel: {url}
-136|Asana-hozzáférés mindenkinek
-137|Tisztázó kérdések feltevése (válaszlehetőségekkel)
-138|Kérj hozzáférést, vagy válassz másik modellt.
-139|Kérdezz bármely nyilvános GitHub-tárolóról.
-140|Kérj az Ownertől hozzáférést legalább egy modellhez.
-141|Kérj az Ownertől hozzáférést az OpenAI vagy Claude modellekhez.
-142|Asszisztensek
-143|Legalább 10 karakter
-144|Fájlonként legfeljebb 2 GB
-145|Indításkor a(z) {brand} magától letölti az új verziót a GitHub Releasesről, és szól, ha telepíthető.
-146|Csatolás: {error}
-147|Te csatoltad
-148|Csatolt fájl: {names}
-149|A Google Drive-jogosultságok ellenőrzése
-150|Hitelesítés
-151|Automatikus tartalék: közvetlen API
-152|Automatikus tartalék
-153|Az oldal automatikus frissítése
-154|Az oldal automatikus frissítése ki van kapcsolva.
-155|Automatikus frissítés:
-156|Automatikus frissítések (Windows-alkalmazás)
-157|Automatikus · a legjobb elérhető
-158|Automatikus — az én sorrendem
-159|Automatikus — az első elérhető képmodell
-160|Automatizálás
-161|Automatizálás és távvezérlés
-162|Automatizálások eredményei
-163|«{name}» automatizálás
-164|Automatizálások
-165|Elérhető
-166|Elérhető a fiókodnak
-167|Elérhető most
-168|BNR-árfolyamok
-169|Vissza
-171|Visszaálltunk az alapértelmezett helyi szolgáltatásra. Próbálj újra bejelentkezni.
-172|Bázisok, táblák és rekordok: keresés, létrehozás és frissítés.
-173|Számlázás
-174|Születési horoszkópok és horoszkóp
-175|Letiltás
-176|Blokklánc
-177|Letiltva
-178|Letiltott felhasználók
-179|Táblák, elemek és frissítések.
-180|Táblák, cetlik és diagramok (Miro Enterprise).
-181|Box OAuth Client ID
-182|Box OAuth client secret
-183|A Box csak a tulajdonos által regisztrált OAuth-alkalmazásokat fogadja el. Hozz létre egyet a Boxban ({where}) ezzel a visszatérési címmel: {url}
-184|Box-hozzáférés mindenkinek
-185|Hibajelentések felvételekkel és naplókkal.
-186|Alkalmazások készítése és közzététele
-187|Webalkalmazások készítése és közzététele
-188|Cégek
-189|Üzlet és működés
-190|Céges bankszámlák és tranzakciók.
-191|Névjegykártya
-192|Vállalkozó
-193|Kreditek vásárlása
-194|Vásárlás: {price}
-195|C:\Users\te\.ssh\id_ed25519
-196|A szerver nem érhető el, újracsatlakozás…
-197|Mégse
-198|A(z) {brand} szolgáltatás nem érhető el. Ellenőrizd, hogy fut-e az alkalmazás, és van-e internet.
-199|A felvétel nem olvasható.
-200|A kártyás fizetés hamarosan érkezik
-201|Figyelem: a beállított szolgáltatók a saját áraikon használhatnak keretet.
-202|Figyelem: a videókészítés gyorsan fogyaszthat keretet. A költség a modelltől, a hossztól és a felbontástól függ.
-203|Cerebras API-kulcs
-204|Cerebras modellek · vesszővel elválasztva
-205|Módosítás
-206|Jelszó módosítása
-207|Módosítva
-208|Módosítás… (pl. legyen sötétkék a háttér, és adj hozzá egy árazási részt)
-209|Módosítás…
-210|Chat
-211|Chat-beállítások
-212|Beszélgess az összes legjobb AI-val, memória, fájlok, képek, videók és automatizálások.
-213|Csak ChatGPT · GPT Image
-214|ChatGPT, Gemini és Grok
-215|Chatek
-216|A régebbi chatek maguktól törlődnek (a kitűzöttek megmaradnak). Az adataid a(z) {brand} szerverén maradnak, és soha nem adjuk el vagy használjuk őket reklámhoz.
-217|A chatek, a memória, a könyvtár, a dizájnok, a projektek, az alkalmazások és az automatizálások a(z) {brand} szerverén vannak tárolva.
-218|A chatek, a memória, a könyvtár, a dizájnok, a projektek, az alkalmazások és az automatizálások ezen a számítógépen vannak tárolva.
-219|Az ellenőrzés nem sikerült
-220|Frissítések keresése most
-221|Linkek, domainek és telefonszámok ellenőrzése
-222|Ár ellenőrzése
-223|Ellenőrizd a követett termék árát a bolt oldalán, és csak akkor szólj, ha az általam beállított ár alá esett.
-224|Ellenőrizve: {when}.
-225|Ellenőrzés, hogyan néz ki telefonon…
-226|A memória, a fájlok és a releváns kontextus ellenőrzése…
-227|Ellenőrzés…
-228|Ellenőrzi az OmniRoute-ot (a kulcsot és egy-egy Gemini, Grok, OpenAI és Claude modellt) és minden mentett API-t. A teszt előtt mentsd a beállításokat.
-229|Kémiai és biológiai szimulációk
-230|Válaszd az Alkalmazás telepítése vagy a Hozzáadás a kezdőképernyőhöz lehetőséget.
-231|Válassz PNG, JPEG vagy WebP képet.
-232|Válassz jövőbeli dátumot és időpontot.
-233|Válassz érvényes időpontot (00:00–23:59).
-234|Válassz egy AI-t
-235|Válassz legalább egy napot a héten.
-236|Választás a Könyvtárból
-237|Válaszd ki az AI-t
-238|Válaszd ki az egyszeri feladat dátumát és időpontját.
-239|{plan} választása
-240|Színek és betűtípusok kiválasztása…
-241|Automatikusan választva
-242|Kiválasztott napok
-243|Hirdetések Németországban
-244|Claude / Anthropic (fizetős)
-245|Claude API-n keresztül
-246|Keresés törlése
-247|A szolgáltatónál létrehozott alkalmazás Client ID-ja
-248|Bezárás
-249|Bezárod {email} összes aktív munkamenetét?
-250|Munkamenetek bezárása
-251|Menü bezárása
-252|Előnézet bezárása
-253|Kicsinyítés a tálcára
-254|Cloudflare API-token
-255|Cloudflare modellek · vesszővel elválasztva
-256|Code
-257|Kód és GitHub
-258|Kód az e-mailből
-259|Code {brand} (az OpenAI / Claude API-kon keresztül, nem a te előfizetéseiddel)
-260|A Code {brand} az Owner és azon fiókok számára érhető el, amelyeknek az Owner hozzáférést adott.
-261|Kávé és egy világos terv? Mondd, hol kezdjük.
-262|Cohere API-kulcs
-263|Cohere modellek · vesszővel elválasztva
-264|Kombináció
-265|Kombinációk
-266|Kombinációk minden fióknak
-267|Parancs a chatben
-268|Kommunikáció
-269|Céges kártyák, kiadások és számlák.
-270|Modellek összehasonlítása egymás mellett
-271|Kompatibilitási API.
-272|E-mail megerősítése
-273|Erősítsd meg az e-mail-címed
-274|Csatlakozás
-275|Csatlakoztasd a Codexet vagy a Claude Code-ot az OmniRoute-ban.
-276|Alkalmazás csatlakoztatása
-277|Csatlakoztass bármilyen API-t vagy webhookot.
-278|Saját API csatlakoztatása
-279|Több mint 350 adatforrás csatlakoztatása
-280|Csatlakozás OAuth-tal (adathozzáférés)
-281|Csatlakozás OAuth nélkül és a(z) {name} megnyitása
-282|Csatlakoztasd az alkalmazásaidat: az AI kereshet, olvashat, létrehozhat és szerkeszthet bennük, és minden művelet előtt megkérdez.
-283|Csatlakoztatva
-284|Csatlakoztatott alkalmazások
-285|Csatlakoztatott alkalmazások (Gmail, Drive, Notion, GitHub…)
-286|Csatlakoztatva OAuth-tal
-287|Csatlakozás…
-288|Csatlakozók
-289|Kontextus a projekt chatjei között
-290|A fizetős AI-t szabályozza a normál fiókoknál. Az Owner engedélyezve marad.
-291|Beszélgetés
-292|Beszélgetések és kapcsolatok.
-293|Másolva
-294|Átmásolja a gépen mentett kulcsokat, hogy a(z) {domain} oldalon ugyanazok a modellek legyenek.
-295|Másolás
-296|Chat másolása
-297|Fiókazonosító másolása
-298|Chat másolása a vágólapra
-299|Kód másolása
-300|Kulcsok másolása a szerverhez
-301|Üzenet másolása
-302|Kijelölés másolása
-303|Másolás…
-304|Költségvédelem
-305|Nem sikerült csatolni:
-306|Nem sikerült ellenőrizni:
-307|Nem sikerült beolvasni az értesítések állapotát:
-308|Nem sikerült beolvasni a beállításokat:
-309|Létrehozás
-310|Plugin létrehozása
-311|Fiók létrehozása
-312|Dizájnok készítése és szerkesztése
-313|Plugin létrehozása
-314|A fiók létrehozása
-315|A feladat létrehozása
-316|Hozd létre a(z) {brand} fiókodat
-317|Dokumentumok és grafikák készítése, kombinálása és szerkesztése
-318|Hirdetések készítése, indítása és elemzése
-319|Létrehozva
-320|A dizájn készítése…
-321|Kreatív
-322|Kreativitás
-323|Kredit-figyelmeztetések
-324|Kreditek hozzáadva
-328|Elfogytak a kreditek
-329|Jelenlegi
-330|Jelenlegi chat
-331|Jelenlegi jelszó
-332|Jelenlegi csomag
-333|Egyéni
-334|Egyéni alkalmazás
-335|Egyéni asszisztens
-336|Egyéni fejléc
-337|Egyéni utasítások
-338|Ügyfélszolgálat
-339|Ügyfelek
-340|Ügyfelek, fizetések, számlák és termékek.
-341|Naponta
-342|Naponta {time}-kor
-343|Sötét
-344|Adatok
-345|Adatok és műveletek a HubSpotban
-346|Adatok és elemzés
-347|Adatbázisok
-348|Dátum
-349|Nap
-350|A hónap napja
-351|Napok
-352|Döntések
-353|Deep Research
-354|Alapértelmezett
-355|Törlés
-356|Fiók törlése
-357|Minden törlése
-358|Adatok törlése
-359|Törlöd mindazt, amire a(z) {brand} ennél a fióknál emlékszik? Nem vonható vissza.
-360|A fiók törlése
-361|Törlöd a fiókot és minden adatát? Nem vonható vissza. A megerősítéshez írd be a fiók jelszavát.
-362|Törlöd a(z) «{name}» asszisztenst?
-363|Chat törlése
-364|{name} chat törlése
-365|Véglegesen törlöd a(z) «{title}» beszélgetést?
-366|Törlöd a(z) «{name}» dizájnt az összes verziójával?
-367|Törlöd a(z) «{name}» plugint?
-368|Törlöd a(z) «{name}» projektet? A beszélgetései megmaradnak, de egyik projekthez sem tartoznak majd.
-369|Mentett kulcs törlése
-370|Mentett token törlése
-371|Törlöd a(z) /{slug} skillt?
-372|Törlöd a(z) «{name}» feladatot? A futások előzményei elvesznek.
-373|Ennek törlése
-374|Törlöd ezt a memóriából?
-375|{name} törlése
-376|Törlöd: {what}? Nem vonható vissza. A megerősítéshez írd be: DELETE.
-377|Törlöd a(z) «{name}» elemet a Könyvtárból? Azokból a beszélgetésekből sem lesz letölthető, ahol használták.
-378|Törlés: {error}
-379|Törölve: {what}.
-380|Törlés…
-381|Elutasítva
-382|Elutasítás
-383|Írj le egy weboldalt, plakátot vagy bemutatót; a(z) {brand} HTML-makettet készít, amelyet megnézhetsz, módosíthatsz és letölthetsz.
-384|Írd le az oldalt, a plakátot vagy a bemutatót. A(z) {brand} egyetlen HTML-fájlt ír, amelyet azonnal látsz, szavakkal módosítasz és letöltesz.
-385|Írd le a képet, amit készítsek.
-386|Írd le a képet, amit szeretnél…
-387|Írd le a videót, amit készítsek.
-388|Írd le a videót, amit szeretnél…
-389|Írd le, mit építsünk
-390|Írd le, mit építsünk…
-391|Leírás
-392|Design
-393|Design és kreativitás
-394|Tervezés közös vásznon
-395|A dizájn címe
-396|A dizájn típusa
-397|Részletes
-398|Fejlesztői eszközök
-399|Fejlesztés
-400|Eszköz
-401|A kéréseket fogadó eszközök: {n}.
-402|Kézzel választott közvetlen API
-403|Közvetlen és őszinte
-404|Elvetés
-405|A módosítás elvetése
-406|Leválasztás
-407|Leválasztod: {name}? Az AI többé nem éri el.
-408|Végezz alapos kutatást, nézz meg több forrást, és magyarázd el részletesen:
-409|Közvetlen költségek tiltása
-410|Ne indíts fizetős feladatokat
-411|Dokumentum
-412|Dokumentum / hosszú kontextus
-413|Dokumentáció
-414|Dokumentumok
-415|Dokumentumok, táblázatok és bemutatók a Drive-on
-416|Kész! A kulcs működik.
-417|Kész. Ez az eszköz fogadja a hozzáférési kérelmeket (összesen 1 eszköz).
-418|Kész. Ez az eszköz fogadja a hozzáférési kérelmeket (összesen {n} eszköz).
-419|Letöltés
-420|HTML letöltése
-421|Az összes adatom letöltése
-422|{name} letöltése
-423|Letöltés: {error}
-424|Letölthető fájlok
-425|Letöltés…
-426|Engedd el, hogy a fájlok a Könyvtárba kerüljenek
-427|Engedd el a fájlok csatolásához
-428|Másolat készítése
-429|Pl. Matematikatanár
-430|Pl. Hírösszefoglaló
-431|Pl. Tavaszi marketingkampány
-432|Pl. Használd a projekt dokumentumait, maradj hivatalos hangnemben, és jegyezd meg a fontos döntéseket.
-433|Pl. Időjárás
-434|Pl. gemini/gemini-3.5-flash
-435|Szerkesztés
-436|Plugin szerkesztése
-437|Az asszisztens szerkesztése
-438|{name} asszisztens szerkesztése
-439|A projekt szerkesztése
-440|{name} projekt szerkesztése
-441|A feladat szerkesztése
-442|Ennek szerkesztése
-443|{name} szerkesztése
-444|«{name}» szerkesztése
-445|Oktatás
-446|Oktatás és tanítás
+99|Mindig angolul
+100|Mindig románul
+101|Mindig bekapcsolva
+102|Mindig bekapcsolva: {slug}
+103|Mindig bekapcsolva: minden üzenetben használja, /név nélkül
+104|Ezzel az e-mail-címmel már létezik fiók.
+105|Egy cím vagy város
+106|Bejegyzések elemzése és ütemezése
+107|Blokklánc-adatok elemzése
+108|Elemezd a fájlt, találd meg a hibát, és javítsd ki.
+109|A felhasználói viselkedés elemzése
+110|Edzések elemzése és tervek készítése
+111|A terméked adatainak elemzése
+112|Kódot elemez és GitHubbal dolgozik.
+113|Feltöltött fájlokat, táblázatokat és dokumentumokat elemez.
+114|Elemzés…
+115|Válaszol
+116|A válaszok nyelve
+117|Válaszok a Cloudflare dokumentációjából (fiók nélkül).
+118|Válaszok az adataidból
+119|A válaszok akkor is folytatódnak, ha az alkalmazás be van zárva
+120|Bármely alkalmazás távoli MCP-szerverrel (https://-sel kezdődő cím). Hagyd üresen a tokent, ha az alkalmazásnak saját bejelentkezése van.
+121|Bármennyi kredit
+122|Alkalmazás
+123|Alkalmazva a szerveren ehhez a fiókhoz.
+124|Alkalmazás a GitHubon
+125|Alkalmazod a módosítást közvetlenül a GitHubon a(z) {path} fájlra ({branch} ág)? Helyi biztonsági mentés készül, hogy vissza lehessen állni.
+126|Módosítások alkalmazása…
+127|Alkalmazás…
+128|Jóváhagyás / Újraaktiválás
+129|Alkalmazások
+130|Alkalmazások és automatizálások
+131|Alkalmazásrészek
+132|Archiválás
+133|Archivált
+134|Asana OAuth Client ID
+135|Asana OAuth client secret
+136|Az Asana csak a tulajdonos által regisztrált OAuth-alkalmazásokat fogadja el. Hozz létre egyet az Asanában ({where}) ezzel a visszatérési címmel: {url}
+137|Asana-hozzáférés mindenkinek
+138|Tisztázó kérdések feltevése (válaszlehetőségekkel)
+139|Kérj hozzáférést, vagy válassz másik modellt.
+140|Kérdezz bármely nyilvános GitHub-tárolóról.
+141|Kérj az Ownertől hozzáférést legalább egy modellhez.
+142|Kérj az Ownertől hozzáférést az OpenAI vagy Claude modellekhez.
+143|Asszisztensek
+144|Legalább 10 karakter
+145|Fájlonként legfeljebb 2 GB
+146|Indításkor a(z) {brand} magától letölti az új verziót a GitHub Releasesről, és szól, ha telepíthető.
+147|Csatolás: {error}
+148|Te csatoltad
+149|Csatolt fájl: {names}
+150|A Google Drive-jogosultságok ellenőrzése
+151|Hitelesítés
+153|Automatikus tartalék: közvetlen API
+154|Automatikus tartalék
+155|Az oldal automatikus frissítése
+156|Az oldal automatikus frissítése ki van kapcsolva.
+157|Automatikus frissítés:
+158|Automatikus frissítések (Windows-alkalmazás)
+159|Automatikus · a legjobb elérhető
+160|Automatikus — az én sorrendem
+161|Automatikus — az első elérhető képmodell
+162|Automatizálás
+163|Automatizálás és távvezérlés
+164|Automatizálások eredményei
+165|«{name}» automatizálás
+166|Automatizálások
+167|Elérhető
+168|Elérhető a fiókodnak
+169|Elérhető most
+170|BNR-árfolyamok
+171|Vissza
+173|Visszaálltunk az alapértelmezett helyi szolgáltatásra. Próbálj újra bejelentkezni.
+174|Bázisok, táblák és rekordok: keresés, létrehozás és frissítés.
+175|Számlázás
+176|Születési horoszkópok és horoszkóp
+177|Letiltás
+178|Blokklánc
+179|Letiltva
+180|Letiltott felhasználók
+181|Táblák, elemek és frissítések.
+182|Táblák, cetlik és diagramok (Miro Enterprise).
+183|Box OAuth Client ID
+184|Box OAuth client secret
+185|A Box csak a tulajdonos által regisztrált OAuth-alkalmazásokat fogadja el. Hozz létre egyet a Boxban ({where}) ezzel a visszatérési címmel: {url}
+186|Box-hozzáférés mindenkinek
+187|Hibajelentések felvételekkel és naplókkal.
+188|Alkalmazások készítése és közzététele
+189|Webalkalmazások készítése és közzététele
+190|Cégek
+191|Üzlet és működés
+192|Céges bankszámlák és tranzakciók.
+193|Névjegykártya
+194|Vállalkozó
+195|Kreditek vásárlása
+196|Vásárlás: {price}
+197|C:\Users\te\.ssh\id_ed25519
+198|A szerver nem érhető el, újracsatlakozás…
+199|Mégse
+200|A(z) {brand} szolgáltatás nem érhető el. Ellenőrizd, hogy fut-e az alkalmazás, és van-e internet.
+201|A felvétel nem olvasható.
+202|A kártyás fizetés hamarosan érkezik
+203|Figyelem: a beállított szolgáltatók a saját áraikon használhatnak keretet.
+204|Figyelem: a videókészítés gyorsan fogyaszthat keretet. A költség a modelltől, a hossztól és a felbontástól függ.
+205|Cerebras API-kulcs
+206|Cerebras modellek · vesszővel elválasztva
+207|Módosítás
+208|Jelszó módosítása
+209|Módosítva
+210|Módosítás… (pl. legyen sötétkék a háttér, és adj hozzá egy árazási részt)
+211|Módosítás…
+212|Chat
+213|Chat-beállítások
+214|Beszélgess az összes legjobb AI-val, memória, fájlok, képek, videók és automatizálások.
+215|Csak ChatGPT · GPT Image
+216|ChatGPT, Gemini és Grok
+217|Chatek
+218|A régebbi chatek maguktól törlődnek (a kitűzöttek megmaradnak). Az adataid a(z) {brand} szerverén maradnak, és soha nem adjuk el vagy használjuk őket reklámhoz.
+219|A chatek, a memória, a könyvtár, a dizájnok, a projektek, az alkalmazások és az automatizálások a(z) {brand} szerverén vannak tárolva.
+220|A chatek, a memória, a könyvtár, a dizájnok, a projektek, az alkalmazások és az automatizálások ezen a számítógépen vannak tárolva.
+221|Az ellenőrzés nem sikerült
+222|Frissítések keresése most
+223|Linkek, domainek és telefonszámok ellenőrzése
+224|Ár ellenőrzése
+225|Ellenőrizd a követett termék árát a bolt oldalán, és csak akkor szólj, ha az általam beállított ár alá esett.
+226|Ellenőrizve: {when}.
+227|Ellenőrzés, hogyan néz ki telefonon…
+228|A memória, a fájlok és a releváns kontextus ellenőrzése…
+229|Ellenőrzés…
+230|Ellenőrzi az OmniRoute-ot (a kulcsot és egy-egy Gemini, Grok, OpenAI és Claude modellt) és minden mentett API-t. A teszt előtt mentsd a beállításokat.
+231|Kémiai és biológiai szimulációk
+232|Válaszd az Alkalmazás telepítése vagy a Hozzáadás a kezdőképernyőhöz lehetőséget.
+233|Válassz PNG, JPEG vagy WebP képet.
+234|Válassz jövőbeli dátumot és időpontot.
+235|Válassz érvényes időpontot (00:00–23:59).
+236|Válassz egy AI-t
+237|Válassz legalább egy napot a héten.
+238|Választás a Könyvtárból
+239|Válaszd ki az AI-t
+240|Válaszd ki az egyszeri feladat dátumát és időpontját.
+241|{plan} választása
+242|Színek és betűtípusok kiválasztása…
+243|Automatikusan választva
+244|Kiválasztott napok
+245|Hirdetések Németországban
+246|Claude / Anthropic (fizetős)
+247|Claude API-n keresztül
+248|Keresés törlése
+249|A szolgáltatónál létrehozott alkalmazás Client ID-ja
+250|Bezárás
+251|Bezárod {email} összes aktív munkamenetét?
+252|Munkamenetek bezárása
+253|Menü bezárása
+254|Előnézet bezárása
+255|Kicsinyítés a tálcára
+256|Cloudflare API-token
+257|Cloudflare modellek · vesszővel elválasztva
+258|Code
+259|Kód és GitHub
+260|Kód az e-mailből
+261|Code {brand} (az OpenAI / Claude API-kon keresztül, nem a te előfizetéseiddel)
+262|A Code {brand} az Owner és azon fiókok számára érhető el, amelyeknek az Owner hozzáférést adott.
+263|Kávé és egy világos terv? Mondd, hol kezdjük.
+264|Cohere API-kulcs
+265|Cohere modellek · vesszővel elválasztva
+266|Kombináció
+267|Kombinációk
+268|Kombinációk minden fióknak
+269|Parancs a chatben
+270|Kommunikáció
+271|Céges kártyák, kiadások és számlák.
+272|Modellek összehasonlítása egymás mellett
+273|Kompatibilitási API.
+274|E-mail megerősítése
+275|Erősítsd meg az e-mail-címed
+276|Csatlakozás
+277|Csatlakoztasd a Codexet vagy a Claude Code-ot az OmniRoute-ban.
+278|Alkalmazás csatlakoztatása
+279|Csatlakoztass bármilyen API-t vagy webhookot.
+280|Saját API csatlakoztatása
+281|Több mint 350 adatforrás csatlakoztatása
+282|Csatlakozás OAuth-tal (adathozzáférés)
+283|Csatlakozás OAuth nélkül és a(z) {name} megnyitása
+284|Csatlakoztasd az alkalmazásaidat: az AI kereshet, olvashat, létrehozhat és szerkeszthet bennük, és minden művelet előtt megkérdez.
+285|Csatlakoztatva
+286|Csatlakoztatott alkalmazások
+287|Csatlakoztatott alkalmazások (Gmail, Drive, Notion, GitHub…)
+288|Csatlakoztatva OAuth-tal
+289|Csatlakozás…
+290|Csatlakozók
+291|Kontextus a projekt chatjei között
+292|A fizetős AI-t szabályozza a normál fiókoknál. Az Owner engedélyezve marad.
+293|Beszélgetés
+294|Beszélgetések és kapcsolatok.
+295|Másolva
+296|Átmásolja a gépen mentett kulcsokat, hogy a(z) {domain} oldalon ugyanazok a modellek legyenek.
+297|Másolás
+298|Chat másolása
+299|Fiókazonosító másolása
+300|Chat másolása a vágólapra
+301|Kód másolása
+302|Kulcsok másolása a szerverhez
+303|Üzenet másolása
+304|Kijelölés másolása
+305|Másolás…
+306|Költségvédelem
+307|Nem sikerült csatolni:
+308|Nem sikerült ellenőrizni:
+309|Nem sikerült beolvasni az értesítések állapotát:
+310|Nem sikerült beolvasni a beállításokat:
+311|Létrehozás
+312|Plugin létrehozása
+313|Fiók létrehozása
+314|Dizájnok készítése és szerkesztése
+315|Plugin létrehozása
+316|A fiók létrehozása
+317|A feladat létrehozása
+318|Hozd létre a(z) {brand} fiókodat
+319|Dokumentumok és grafikák készítése, kombinálása és szerkesztése
+320|Hirdetések készítése, indítása és elemzése
+321|Létrehozva
+322|A dizájn készítése…
+323|Kreatív
+324|Kreativitás
+325|Kredit-figyelmeztetések
+326|Kreditek hozzáadva
+330|Elfogytak a kreditek
+331|Jelenlegi
+332|Jelenlegi chat
+333|Jelenlegi jelszó
+334|Jelenlegi csomag
+335|Egyéni
+336|Egyéni alkalmazás
+337|Egyéni asszisztens
+338|Egyéni fejléc
+339|Egyéni utasítások
+340|Ügyfélszolgálat
+341|Ügyfelek
+342|Ügyfelek, fizetések, számlák és termékek.
+343|Naponta
+344|Naponta {time}-kor
+345|Sötét
+346|Adatok
+347|Adatok és műveletek a HubSpotban
+348|Adatok és elemzés
+349|Adatbázisok
+350|Dátum
+351|Nap
+352|A hónap napja
+353|Napok
+354|Döntések
+355|Deep Research
+356|Alapértelmezett
+357|Törlés
+358|Fiók törlése
+359|Minden törlése
+360|Adatok törlése
+361|Törlöd mindazt, amire a(z) {brand} ennél a fióknál emlékszik? Nem vonható vissza.
+362|A fiók törlése
+363|Törlöd a fiókot és minden adatát? Nem vonható vissza. A megerősítéshez írd be a fiók jelszavát.
+364|Törlöd a(z) «{name}» asszisztenst?
+365|Chat törlése
+366|{name} chat törlése
+367|Véglegesen törlöd a(z) «{title}» beszélgetést?
+368|Törlöd a(z) «{name}» dizájnt az összes verziójával?
+369|Törlöd a(z) «{name}» plugint?
+370|Törlöd a(z) «{name}» projektet? A beszélgetései megmaradnak, de egyik projekthez sem tartoznak majd.
+371|Mentett kulcs törlése
+372|Mentett token törlése
+373|Törlöd a(z) /{slug} skillt?
+374|Törlöd a(z) «{name}» feladatot? A futások előzményei elvesznek.
+375|Ennek törlése
+376|Törlöd ezt a memóriából?
+377|{name} törlése
+378|Törlöd: {what}? Nem vonható vissza. A megerősítéshez írd be: DELETE.
+379|Törlöd a(z) «{name}» elemet a Könyvtárból? Azokból a beszélgetésekből sem lesz letölthető, ahol használták.
+380|Törlés: {error}
+381|Törölve: {what}.
+382|Törlés…
+383|Elutasítva
+384|Elutasítás
+385|Írj le egy weboldalt, plakátot vagy bemutatót; a(z) {brand} HTML-makettet készít, amelyet megnézhetsz, módosíthatsz és letölthetsz.
+386|Írd le az oldalt, a plakátot vagy a bemutatót. A(z) {brand} egyetlen HTML-fájlt ír, amelyet azonnal látsz, szavakkal módosítasz és letöltesz.
+387|Írd le a képet, amit készítsek.
+388|Írd le a képet, amit szeretnél…
+389|Írd le a videót, amit készítsek.
+390|Írd le a videót, amit szeretnél…
+391|Írd le, mit építsünk
+392|Írd le, mit építsünk…
+393|Leírás
+394|Design
+395|Design és kreativitás
+396|Tervezés közös vásznon
+397|A dizájn címe
+398|A dizájn típusa
+399|Részletes
+400|Fejlesztői eszközök
+401|Fejlesztés
+402|Eszköz
+403|A kéréseket fogadó eszközök: {n}.
+404|Kézzel választott közvetlen API
+405|Közvetlen és őszinte
+407|Elvetés
+408|A módosítás elvetése
+409|Leválasztás
+410|Leválasztod: {name}? Az AI többé nem éri el.
+411|Végezz alapos kutatást, nézz meg több forrást, és magyarázd el részletesen:
+412|Közvetlen költségek tiltása
+413|Ne indíts fizetős feladatokat
+414|Dokumentum
+415|Dokumentum / hosszú kontextus
+416|Dokumentáció
+417|Dokumentumok
+418|Dokumentumok, táblázatok és bemutatók a Drive-on
+419|Kész! A kulcs működik.
+420|Kész. Ez az eszköz fogadja a hozzáférési kérelmeket (összesen 1 eszköz).
+421|Kész. Ez az eszköz fogadja a hozzáférési kérelmeket (összesen {n} eszköz).
+422|Letöltés
+423|HTML letöltése
+424|Az összes adatom letöltése
+425|{name} letöltése
+426|Letöltés: {error}
+427|Letölthető fájlok
+428|Letöltés…
+429|Engedd el, hogy a fájlok a Könyvtárba kerüljenek
+430|Engedd el a fájlok csatolásához
+431|Másolat készítése
+432|Pl. Matematikatanár
+433|Pl. Hírösszefoglaló
+434|Pl. Tavaszi marketingkampány
+435|Pl. Használd a projekt dokumentumait, maradj hivatalos hangnemben, és jegyezd meg a fontos döntéseket.
+436|Pl. Időjárás
+437|Pl. gemini/gemini-3.5-flash
+438|Szerkesztés
+439|Plugin szerkesztése
+440|Az asszisztens szerkesztése
+441|{name} asszisztens szerkesztése
+442|A projekt szerkesztése
+443|{name} projekt szerkesztése
+444|A feladat szerkesztése
+445|Ennek szerkesztése
+446|{name} szerkesztése
+447|«{name}» szerkesztése
+448|Oktatás
+449|Oktatás és tanítás

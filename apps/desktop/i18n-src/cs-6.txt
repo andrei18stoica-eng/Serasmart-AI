@@ -1,0 +1,19 @@
+1465|Použití
+1561|Kdy AI použije {name}
+152|Automaticky
+98|Vždy dostupné
+406|Vypnuto
+1477|Použito jen, když to zpráva potřebuje
+824|Nabízeno AI u každé zprávy
+1228|AI to nikdy nepoužije
+1658|ptá se pokaždé
+1560|Kdy AI použije /{slug}
+1476|Použije se sám, když to požadavek potřebuje, nebo přes /název
+1475|Použito u každé zprávy
+752|Nikdy nepoužito
+1432|Spouštěcí slova (volitelné)
+1573|Slova, při kterých ho má AI použít, oddělená čárkami
+1572|Slova, která ho vylučují (volitelné)
+600|Pokud zpráva obsahuje některé z nich, skill se nepoužije
+620|Pokyny uložené jednou. AI si samo vybere skilly, které požadavek potřebuje (Automaticky); můžete také napsat /název do chatu nebo nechat skill vždy zapnutý.
+1170|Použité skilly

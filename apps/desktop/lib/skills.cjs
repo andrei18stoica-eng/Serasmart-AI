@@ -5,7 +5,8 @@
 const path = require("path");
 
 const MAX_SKILLS = null; // 0.7.35: no fixed cap any more (was 200; 50 until 0.7.31). Only the plan limits count.
-const MAX_ACTIVE = 4;
+const MAX_ACTIVE = null; // 0.7.40: no cap on the skills of one message (was 4); lib/skillselect.cjs chooses them
+const { chooseSkills } = require("./skillselect.cjs");
 const MAX_INSTRUCTIONS = 40000; // 8000 until 0.7.31; library skills are longer
 
 // Ready-made skills, added with one click; each account edits its own copy.
@@ -108,6 +109,17 @@ function validateSkill(body = {}, prev = null) {
     if (i.length > MAX_INSTRUCTIONS) return { error: `Instrucțiunile pot avea cel mult ${MAX_INSTRUCTIONS} de caractere.` };
     out.instructions = i;
   }
+  // 0.7.40: the metadata used to choose a skill on its own (no instructions are read to choose).
+  for (const k of ["triggers", "excludes", "requires", "conflicts"]) if (has(k)) {
+    const list = (Array.isArray(body[k]) ? body[k] : String(body[k] || "").split(/[,;\n]/)).map((x) => String(x).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, 60)).filter(Boolean);
+    if (list.length > 30) return { error: `«${k}» can have at most 30 entries.` };
+    out[k] = list;
+  }
+  if (has("priority")) {
+    const p = Number(body.priority);
+    if (!Number.isInteger(p) || p < -10 || p > 10) return { error: "The priority is a whole number from -10 to 10." };
+    out.priority = p;
+  }
   for (const k of ["enabled", "auto"]) if (has(k)) {
     if (typeof body[k] !== "boolean") return { error: `Câmpul „${k}” trebuie să fie true sau false.` };
     out[k] = body[k];
@@ -115,15 +127,10 @@ function validateSkill(body = {}, prev = null) {
   return { value: out };
 }
 
-// The skills a message calls: "/rezumat" anywhere in it, plus the ones kept always on. At most MAX_ACTIVE.
-function skillsForMessage(skills, text) {
-  const t = String(text || "");
-  const used = new Set((t.match(/(^|\s)\/([a-z0-9-]{1,32})\b/gi) || []).map(x => x.trim().slice(1).toLowerCase()));
-  const mine = resolveSkills(skills).filter(s => s.enabled !== false);
-  const called = mine.filter(s => used.has(String(s.slug).toLowerCase()));
-  const always = mine.filter(s => s.auto && !called.includes(s));
-  return [...called, ...always].slice(0, MAX_ACTIVE);
-}
+// The skills for a message (0.7.40, lib/skillselect.cjs): the ones called with /name, the ones kept always on and the
+// Auto ones the request needs, with no fixed number. Returns the list; skillsChosen also returns why each was chosen.
+function skillsChosen(skills, text, more = {}) { return chooseSkills(resolveSkills(skills), text, more); }
+function skillsForMessage(skills, text, more = {}) { return skillsChosen(skills, text, more).list; }
 
 function skillSystemText(list) {
   if (!list.length) return "";
@@ -150,4 +157,4 @@ function publicSkill(s) {
   return out;
 }
 
-module.exports = { SKILL_TEMPLATES, MAX_SKILLS, MAX_ACTIVE, MAX_INSTRUCTIONS, library, libraryIndex, libraryNotice, librarySkill, libraryPack, resolveSkills, slugify, validateSkill, skillsForMessage, skillSystemText, publicSkill };
+module.exports = { SKILL_TEMPLATES, MAX_SKILLS, MAX_ACTIVE, MAX_INSTRUCTIONS, library, libraryIndex, libraryNotice, librarySkill, libraryPack, resolveSkills, slugify, validateSkill, skillsForMessage, skillsChosen, skillSystemText, publicSkill };

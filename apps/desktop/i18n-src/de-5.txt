@@ -1,18 +1,18 @@
-577|Was du genutzt hast: Nachrichten, Bilder, Video und Sprache.
-1631|Dein Abo, die Tarife und Zusatzguthaben.
-737|Mein Verbrauch
+580|Was du genutzt hast: Nachrichten, Bilder, Video und Sprache.
+1649|Dein Abo, die Tarife und Zusatzguthaben.
+742|Mein Verbrauch
 83|Alle Konten
-946|Tarife aller Konten
-713|Nachrichten
-1492|Sprachminuten
-327|Verbrauchte Credits
-325|Credits werden zu Tarifpreisen berechnet, auch wenn das Konto nicht bezahlt.
-726|Genutzte Modelle
-795|Kein Verbrauch in diesem Zeitraum.
+953|Tarife aller Konten
+718|Nachrichten
+1506|Sprachminuten
+329|Verbrauchte Credits
+327|Credits werden zu Tarifpreisen berechnet, auch wenn das Konto nicht bezahlt.
+731|Genutzte Modelle
+801|Kein Verbrauch in diesem Zeitraum.
 16|7 Tage
-939|Tarif
-326|Credits pro Tag
-1191|Abo
-786|Kein Tarif
-170|Zurück zu allen Konten
-1117|Sieh deine Kalender und freie Zeit und füge Termine hinzu, ändere oder lösche sie.
+946|Tarif
+328|Credits pro Tag
+1199|Abo
+792|Kein Tarif
+172|Zurück zu allen Konten
+1124|Sieh deine Kalender und freie Zeit und füge Termine hinzu, ändere oder lösche sie.

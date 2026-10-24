@@ -13,6 +13,7 @@ const { SSEClientTransport } = require("@modelcontextprotocol/sdk/client/sse.js"
 const { auth, UnauthorizedError } = require("@modelcontextprotocol/sdk/client/auth.js");
 const { isBlockedAddress } = require("./netguard.cjs");
 const { BRAND_NAME } = require("./brand.cjs");
+const { toolRisk, rankTools } = require("./approuter.cjs");
 
 // Official remote MCP servers (Docker's and the vendors' lists, October 2026). "sse" servers use the older transport.
 // The apps whose sign-in needs an OAuth client the Owner registered once (cfg.<key>ClientId / <key>ClientSecret).
@@ -80,7 +81,7 @@ const CATALOG = [
   { id: "gdocs", logo: "googledocs", name: "Google Docs", category: "Google", url: "https://docsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/documents.readonly https://www.googleapis.com/auth/documents", description: "Read, write and edit documents." },
   { id: "gsheets", logo: "googlesheets", name: "Google Sheets", category: "Google", url: "https://sheetsmcp.googleapis.com/mcp/v1", ownerClient: "google", scope: "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets", description: "Read and edit spreadsheets." }
 ];
-const MAX_TOOLS = 60, TOOLS_TTL = 10 * 60 * 1000, PENDING_TTL = 10 * 60 * 1000;
+const MAX_TOOLS = 100, TOOLS_TTL = 10 * 60 * 1000, PENDING_TTL = 10 * 60 * 1000;
 
 function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({}), version = "1.0", allowPrivate = () => false, now = () => Date.now() }) {
   const pending = new Map(); // state -> { userId, connId, createdAt }
@@ -161,7 +162,7 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
 
   function publicView(c) {
     const entry = CATALOG.find((x) => x.id === c.catalogId);
-    return { id: c.id, catalogId: c.catalogId || "", logo: entry?.logo || "", name: c.name, url: c.url, status: c.status, error: c.error || "", category: entry?.category || "Custom", toolCount: c.toolCount || 0, createdAt: c.createdAt };
+    return { id: c.id, catalogId: c.catalogId || "", logo: entry?.logo || "", name: c.name, url: c.url, status: c.status, error: c.error || "", category: entry?.category || "Custom", toolCount: c.toolCount || 0, mode: ["disabled", "auto", "always"].includes(c.mode) ? c.mode : "auto", createdAt: c.createdAt };
   }
   const ownerMissing = (e) => e.ownerClient && e.ownerClient !== "github" && !ownerClientFor(e)
     ? `The Owner has to add a ${OWNER_CLIENTS[e.ownerClient]} OAuth app in Settings first.` : "";
@@ -262,7 +263,7 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
       do { const page = await client.listTools(cursor ? { cursor } : {}); out.push(...(page.tools || [])); cursor = page.nextCursor; } while (cursor && out.length < 200);
       const list = out.map((t) => ({ name: t.name, title: t.title || t.annotations?.title || t.name, description: String(t.description || "").slice(0, 800), inputSchema: t.inputSchema || { type: "object", properties: {} }, readOnly: !!t.annotations?.readOnlyHint }));
       toolCache.set(connId, { at: now(), tools: list });
-      update(connId, { toolCount: list.length, error: "" });
+      update(connId, { toolCount: list.length, toolNames: list.slice(0, 200).map((t) => String(t.name).slice(0, 64)), error: "" });
       return list;
     } catch (e) {
       update(connId, { error: String(e?.message || e).slice(0, 200) });
@@ -270,20 +271,39 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
       return cached?.tools || [];
     }
   }
-  // Every connected app's tools, for the AI: names are "<n>__<tool>" (OpenAI allows [a-zA-Z0-9_-], 64 characters).
-  async function toolsForChat(userId, { enabled = null } = {}) {
-    const conns = (db().connectors || []).filter((c) => c.userId === userId && c.status === "connected" && (!enabled || enabled.includes(c.id)));
-    const out = [];
+  // The connected apps' tools, for the AI: names are "<n>__<tool>" (OpenAI allows [a-zA-Z0-9_-], 64 characters).
+  // 0.7.40: `enabled` is the apps chosen for this message, in their order (the app the person named first), and every
+  // chosen app gets its share of the room (before, the first apps could fill all 60 places and later ones were cut).
+  async function toolsForChat(userId, { enabled = null, query = "" } = {}) {
+    const mine = (db().connectors || []).filter((c) => c.userId === userId && c.status === "connected" && c.mode !== "disabled");
+    const conns = enabled ? enabled.map((id) => mine.find((c) => c.id === id)).filter(Boolean) : mine;
+    if (!conns.length) return [];
     // 0.7.38: every app's list at the same time, each with a deadline (a slow app is left out of this message).
     const lists = await Promise.all(conns.map((conn) => { let t; return Promise.race([tools(userId, conn.id).catch(() => []), new Promise((r) => { t = setTimeout(() => r(toolCache.get(conn.id)?.tools || []), TOOLS_WAIT_MS); })]).finally(() => clearTimeout(t)); }));
+    const share = Math.max(8, Math.floor(MAX_TOOLS / conns.length));
+    const picked = lists.map((l) => rankTools(l, query, share));
+    let room = MAX_TOOLS - picked.reduce((n, l) => n + l.length, 0);
+    for (const [i, l] of lists.entries()) { if (room <= 0) break; const more = l.filter((t) => !picked[i].includes(t)).slice(0, room); picked[i].push(...more); room -= more.length; }
+    const out = [];
     for (const [i, conn] of conns.entries()) {
-      for (const t of lists[i]) {
+      for (const t of picked[i]) {
         const name = `a${i + 1}__${String(t.name).replace(/[^a-zA-Z0-9_-]/g, "_")}`.slice(0, 64);
-        out.push({ name, connId: conn.id, app: conn.name, logo: CATALOG.find((x) => x.id === conn.catalogId)?.logo || "", tool: t.name, title: t.title, readOnly: t.readOnly, schema: { type: "function", function: { name, description: `[${conn.name}] ${t.description}`.slice(0, 1000), parameters: t.inputSchema } } });
+        out.push({ name, connId: conn.id, app: conn.name, logo: CATALOG.find((x) => x.id === conn.catalogId)?.logo || "", tool: t.name, title: t.title, readOnly: t.readOnly, risk: toolRisk(t.name, t.readOnly), schema: { type: "function", function: { name, description: `[${conn.name}] ${t.description}`.slice(0, 1000), parameters: t.inputSchema } } });
         if (out.length >= MAX_TOOLS) return out;
       }
     }
     return out;
+  }
+  // The person's apps as the router reads them (no secrets).
+  function forRouting(userId) {
+    return (db().connectors || []).filter((c) => c.userId === userId).map((c) => ({ id: c.id, catalogId: c.catalogId || "", name: c.name, status: c.status, mode: c.mode || "auto", description: CATALOG.find((x) => x.id === c.catalogId)?.description || "", toolNames: (toolCache.get(c.id)?.tools || []).map((t) => t.name).concat(c.toolNames || []) }));
+  }
+  // Disabled / Auto / Always available.
+  function setMode(userId, connId, mode) {
+    if (!["disabled", "auto", "always"].includes(mode)) throw Object.assign(new Error("Choose Disabled, Auto or Always available."), { status: 400 });
+    const conn = find(db(), userId, connId);
+    if (!conn) return null;
+    return publicView(update(conn.id, { mode }));
   }
   async function call(userId, connId, tool, args = {}) {
     const conn = find(db(), userId, connId);
@@ -319,7 +339,7 @@ function createConnectors({ store, seal, open, redirectUri, getConfig = () => ({
   function revokeApproval(userId, id) { const d = db(); const before = (d.toolApprovals || []).length; d.toolApprovals = (d.toolApprovals || []).filter((a) => !(a.userId === userId && a.id === id)); store.write(d); return d.toolApprovals.length < before; }
   function close() { for (const { client } of live.values()) client.close().catch(() => {}); live.clear(); }
 
-  return { CATALOG, catalog, list, connect, finish, tools, toolsForChat, call, disconnect, alwaysAllowed, allowAlways, approvals, revokeApproval, checkUrl, close };
+  return { CATALOG, catalog, list, connect, finish, tools, toolsForChat, forRouting, setMode, call, disconnect, alwaysAllowed, allowAlways, approvals, revokeApproval, checkUrl, close };
 }
 
 module.exports = { CATALOG, createConnectors };

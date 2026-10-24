@@ -1,439 +1,439 @@
-893|Betald AI ändrad
-894|Betald AI · användare
-895|Betald AI: {error}
-896|Betalas per användning, med nyckeln eller behörigheterna som Ownern ger
-897|Betalas per användning, med behörigheterna som Ownern ger
-898|Betalas per användning; samma nyckel gör även bilder och videor med Grok Imagine. Slå på det med «Tillåt även betalda API:er».
-899|Panel
-900|Del {n}
-901|Lösenord
-902|Lösenordet ändrat. De andra enheterna måste logga in igen.
-903|Klistra in nyckeln först.
-904|Klistra in nyckeln här
-905|Betalningar
-906|Betalningar, beställningar, katalog och kunder.
-907|Väntar
-908|Prestanda
-909|Behörigheter
-910|Behörigheter ändrade
-911|Behörigheter: {error}
-912|Personlig AI-astrolog
-913|Telefon
-914|Aviseringar på telefonen
-915|Välj en assistent för en ny konversation.
-916|Välj en från listan eller skapa din egen från ett API. Skriv sedan dess namn i chatten så använder {brand} den.
-917|Välj under meddelanderutan vem som gör bilden, eller Automatiskt: den bästa tillgängliga.
-918|Välj under meddelanderutan vem som gör videon, eller Automatiskt: först de gratis, sedan Gemini Veo, Grok Imagine och de andra nycklarna (betalda, om du tillåter dem i Inställningar).
-919|Bild
-920|Bild / syn
-921|HD-bild
-922|Bildgenerering
-923|Bildgenerering, API:er, modeller och automatiskt försök hos en annan leverantör.
-924|Bild gjord av
-925|Bild gjord av {brand}
-926|Skapa bilder
-927|Bildläge: nästa meddelande skapar en bild. Klicka på Bild igen för att avsluta.
-928|Bildmodell
-929|Bildleverantörer
-930|Bild: nästa meddelande skapar en bild.
-931|Bilder
-932|Bilder och videor (genereras inte i testet, så ingen kredit används):
-933|Bilder i Biblioteket
-934|Bilder görs av
-935|Fäst
-936|Fäst detta
-937|Fäst — klicka för att lossa
-938|Plats att söka
-940|Veckoplan
-941|Planera min vecka
-942|Abonnemanget startade
-943|Planerar strukturen…
-944|Abonnemang och krediter är inte aktiva ännu: varje konto fungerar som förut (gratisnivån och Ownerns regler).
-945|Abonnemang och extra krediter
-947|Spela schack och lära sig strategi
-948|Pluginlista
-949|Pluginavsnitt
-950|Pluginkonfiguration
-951|Plugins
-952|Pollinations API-nyckel
-953|Pollinations-modell
-954|Pollinations-videomodell
-955|Populärt
-956|Affisch
-957|Postgres-databaser: fråga, skapa grenar och hantera.
-958|Inlägg för Instagram, Facebook, LinkedIn eller TikTok.
-959|Preferenser
-960|Föredragen modell
-961|Förbereder svaret…
-962|Förbereder frågorna…
-963|Förbereder…
-964|Presentation
-965|Tryck på Dela (fyrkanten med pilen uppåt), eller ••• → Dela.
-966|Klicka på mikrofonen en gång för att börja spela in och igen för att stoppa. {brand} skriver ner det du sa och skickar det.
-967|Förhandsvisning
-968|Förhandsvisningens bredd
-969|Förhandsvisning av {name}
-970|Förhandsvisning: {name}
-971|Senaste 30 dagarna
-972|Senaste 7 dagarna
-973|Prioriterad åtkomst under rusningstid
-974|Prisma Postgres-databaser och migreringar.
-975|Integritet
-976|Integritet och data
-977|Produktanalys, flaggor och experiment.
-978|Produktledning
-979|Produktivitet
-980|Professionell
-981|Professionell e-post
-982|Profil
-983|Profilbild
-984|Profilbilden har tagits bort.
-985|Profilbilden har sparats.
-986|Profilen har sparats.
-987|Programmering
-988|Programmeringsspråk
-989|Programmering med Codex och Claude Code: välj modell och starta en kodkonversation.
-990|Projekt
-991|Projekt och arbete
-992|Projekt, databaser, SQL och loggar.
-993|Projekt, driftsättningar och loggar.
-994|Projekt, uppgifter och CRM
-995|Korrekturläsare
-996|Förslag klart (ingen syntaxkontroll för den här filtypen).
-997|Skyddet är aktivt: {brand} provar Cloudflare och Pollinations direkt. Hugging Face, Together, OpenAI, Stability, fal.ai och Replicate blockeras om de skulle kunna använda betald kredit. För OpenRouter kontrolleras priset före anropet.
-998|Skyddar personuppgifter
-999|Design av proteiner och molekyler
-1000|Leverantörer
-1001|Leverantörer som används i chatten
-1002|Kvalitet
-1003|Frågor om dina hälsodata
-1004|Snabba belopp
-1005|Snabbt svar
-1006|Läs upp
-1007|Läsa och redigera kalkylblad.
-1008|Läsa och ordna dina Gmail-mejl
-1009|Läsa, skriva och redigera dokument.
-1010|Uppläsning finns inte på den här datorn.
-1011|Läser förfrågan…
-1012|Läser texten…
-1013|Redo att använda
-1014|Verkligt resultat från {brand}-körningen:
-1015|Live-internet
-1016|Senaste
-1017|Anslut igen i OmniRoute
-1018|Spela in din röst
-1019|Uppdatera
-1020|Uppdatera modellistan
-1021|Uppdaterar listan…
-1022|Generera svaret igen
-1023|Att generera igen ersätter det här svaret och raderar meddelandena efter det. Fortsätta?
-1024|Avvisad
-1025|Avvisade användare
-1026|Ladda om {brand}
-1027|Ta bort
-1028|Ta bort exponerade personuppgifter
-1029|Ta bort från projektet
-1030|Ta bort pluginet «{name}»?
-1031|Ta bort {name}
-1032|Byt namn
-1033|Byt namn på filen
-1034|Byt namn: {error}
-1035|Replicate API-token
-1036|Replicate-modell
-1037|Replicate-videomodell
-1038|Förråd, ärenden, pull requests och filer.
-1039|Forskning
-1040|Forskning och vetenskap
-1041|Resurser för att studera Koranen
-1042|Återställ från arkivet
-1043|Återställ chatten
-1044|Återställ chatten {name}
-1045|Resultat
-1046|Resultat
-1047|Försök igen
-1048|Kör / testa kod
-1049|Kör AI-modeller på Replicate.
-1050|Kodkörning: {error}
-1051|Körhistorik
-1052|Kör nu
-1053|Hantera din webbutik
-1054|Körs
-1055|Kodkörning och SSH är bara för Ownern.
-1056|Kodkörning, GitHub Solve och SSH är bara för Owner-kontot (se «Ownerns e-post på den här datorn»).
-1057|Kör…
-1058|Kör schemalagda uppgifter och kontroller vid den tid du väljer.
-1059|SEO-research
-1060|Sökväg till den privata SSH-nyckeln
-1061|SSH-server · adress
-1062|SSH-användare
-1063|Försäljning
-1064|Lördag och söndag kl. {time}
-1065|Spara
-1066|Spara och fäst
-1067|Spara och testa
-1068|Spara profil
-1069|Spara inställningar
-1070|Spara ändringen
-1071|Spara skillen
-1072|Sparat och fäst i minnet.
-1073|Sparat.
-1074|Sparar nyckeln och testar…
-1075|Sparar pluginet och testar…
-1076|Sparar…
-1077|Söker igenom kod efter säkerhetsproblem.
-1078|Schemalägg
-1079|Schemalagda
-1080|Schemalagda (schemalagda uppgifter)
-1081|Vetenskap
-1082|Vetenskaplig forskning
-1083|Skrolla och välj Lägg till på hemskärmen, sedan Lägg till.
-1084|Sök
-1085|Sök i GitHub automatiskt
-1086|Söka och hämta data från webben
-1087|Söka och läsa filer och mappar.
-1088|Söka och läsa ditt företags filer.
-1089|Söka och skicka mejl och meddelanden
-1090|Sök appar
-1091|Sök efter namn
-1092|Sök i chattar
-1093|Sök en modell
-1094|Sök en modell…
-1095|Sök språk
-1096|Sök i minnet
-1097|Sök modeller
-1098|Sök i tidigare chattar
-1099|Sök plugins
-1100|Sök plugins och skills
-1101|Sökresultat
-1102|Sök i Biblioteket
-1103|Sök i listan (namn, kategori)
-1104|Sök i biblioteket
-1105|Sök i vetenskaplig litteratur
-1106|Sök på webben efter de senaste nyheterna om
-1107|Sök bland {n} språk
-1108|Söka, läsa och skapa filer.
-1109|Söka, läsa och skriva utkast till mejl.
-1110|Söka, läsa, skapa och redigera sidor och databaser.
-1111|Söker på Wikipedia (rumänska, sedan engelska) och ger artikelns sammanfattning.
-1112|Söker aktuell information och källor på nätet.
-1113|Söker själv aktuella källor vid frågor om ny information, versioner och API:er.
-1114|Säkerhet
-1115|Säkerhetsanalys av kod
-1116|Se abonnemangen
-1118|Seedance, Veo, Wan och andra modeller via samma API.
-1119|Välj
-1120|Välj en användare.
-1121|Vald
-1122|Skicka
-1123|Skicka en testavisering
-1124|Skicka åtkomstförfrågan
-1125|Skicka koden igen
-1126|Skicka koden igen ({s} s)
-1127|Skicka meddelandet
-1128|Servern ansluten ✓
-1129|Sessioner stängda
-1130|Sessioner: {error}
-1131|Ange status «{status}» för {email}? Kontots aktiva sessioner stängs.
-1132|Inställningar
-1133|Inställningar kan bara sparas från {brand}-appen.
-1134|Inställningarna har sparats.
-1135|Flera bildmodeller med en enda nyckel.
-1136|Ska vi fortsätta med «{title}»?
-1137|Gemensamma instruktioner för projektet
-1138|Kort och rakt
-1139|Kort beskrivning
-1140|Kort video (~6 s)
-1141|Visa fler ({n} kvar)
-1142|Visa eller dölj menyn
-1143|Visar de första 60 000 tecknen.
-1144|Visar en avisering när uppgiften har ett resultat.
-1145|Logga in
-1146|Logga in igen
-1147|Logga in igen.
-1148|Logga in på {brand}
-1149|Logga in på {name} i fönstret som öppnades och kom sedan tillbaka hit.
-1150|Logga ut
-1151|Logga ut från {brand} på alla enheter, även den här?
-1152|Logga ut andra enheter
-1153|Inloggning
-1154|Inloggning krävs.
-1155|Utloggning
-1156|Loggar ut…
-1157|Uppdatering av webbplatsen ({domain})
-1158|Webbplatser och driftsättningar.
-1159|Webbplatser, sidor och CMS-objekt.
-1160|Storlek
-1161|Skill-plugins
-1162|Skills
-1163|Slack-kanaler och -meddelanden
-1164|Inlägg för sociala medier
-1165|Mjukvaruutveckling
-1166|Något annat
-1167|Något annat…
-1168|Sortera
-1169|Prata: texten visas i rutan och skickas av sig själv
-1170|Stability API-nyckel
-1171|Stability-motor
-1172|Start
-1173|Starta OmniRoute automatiskt
-1174|Starta OmniRoute eller lägg till en API-nyckel i Inställningar.
-1175|Starta en konversation som skapar en bild.
-1176|Starta {brand} med Windows
-1177|Startar {brand}…
-1178|Startar…
-1179|Toppmoderna ADMET-modeller
-1180|Fortfarande vaken? Låt oss göra klart det tillsammans.
-1181|Stoppa och skicka
-1182|Sluta läsa upp
-1183|Stoppa svaret
-1184|Stoppa röstinspelningen
-1185|Stoppa röstinspelningen först.
-1186|Stoppad efter fel
-1187|Stoppad av Ownern
-1188|Styrketräning för Garmin
-1189|Strukturer, molekyler och proteiner
-1190|Student
-1192|Lyckades
-1193|Föreslå en plan för veckan som börjar: prioriteringar, deadlines och ett litet steg för varje dag.
-1194|Sammanfatta ett dokument
-1195|Sammanfatta det bifogade dokumentet i fem tydliga punkter.
-1196|Sammanfattning
-1197|Sammanfattar en text eller ett dokument i huvudidéerna.
-1198|Stäng av tillfälligt
-1199|Avstängd
-1200|Avstängda användare
-1201|Surfplatta
-1202|Tarotläsningar
-1203|Uppgifter som {brand} kör själv vid den tid du väljer.
-1204|Uppgifter, listor, dokument och kommentarer.
-1205|Uppgifter, projekt och kommentarer.
-1206|Teamadministration med delade krediter
-1207|Tekniska detaljer: {details}
-1208|Testa
-1209|Testa nu
-1210|Testet lyckades: {result}
-1211|Testa nycklar
-1212|Testa mikrofonen
-1213|Testa servern
-1214|Tester
-1215|Testar SSH-anslutningen…
-1216|Testar…
-1217|Texas Hold'em-poker med AI
-1218|Objektets text
-1219|Text som lästs för AI:n
-1220|AI-leverantören svarade inte i tid. Försök igen.
-1221|AI-leverantörens gratisgräns har nåtts. Välj en annan modell eller försök senare.
-1222|API-adressen måste vara en fullständig länk, till exempel https://example.com/webhook.
-1223|Google-sidan öppnas. Klicka på «Create API key» och kopiera den.
-1224|Biblioteket är tomt. Dra hit filer eller klicka på «Lägg till filer».
-1225|OAuth Client ID saknas.
-1226|Kunde inte öppna OAuth-sidan.
-1227|Owner-kontot kan inte raderas.
-1228|Ownern godkänner konton och bestämmer vilka AI-tjänster de får använda.
-1229|Ownern bestämmer vilka modeller ditt konto får använda.
-1230|Ownerns e-postadress är ogiltig.
-1231|Ownern måste först lägga till en Asana OAuth-app i Inställningar.
-1232|Ownern måste först lägga till en Box OAuth-app i Inställningar.
-1233|Ownern måste först lägga till en Google OAuth-app i Inställningar.
-1234|Ownern måste först lägga till en HubSpot OAuth-app i Inställningar.
-1235|Ownern måste först lägga till en Lovable OAuth-app i Inställningar.
-1236|Ownerns personliga abonnemang kan inte ges till andra konton.
-1237|X-knappen döljer appen utan att stoppa tjänsterna.
-1238|Kontot och all dess data (chattar, minne, filer, inställningar) raderas för alltid.
-1239|Kontot skapas på {brand}-servern.
-1240|Kontot skapas på den här datorn och du kan använda det direkt.
-1241|Kontot är inte aktivt.
-1242|Kontot väntar på godkännande från Ownern.
-1243|Kontot har skapats och väntar på godkännande från Ownern.
-1244|Kontot har raderats.
-1245|Adressen är ogiltig.
-1246|Svaret fortsätter på servern…
-1247|Svaret avbröts: {error}
-1248|Svaret stoppades före slutet.
-1249|Svaret stoppades.
-1250|Kunde inte öppna appen — {error}
-1251|Kunde inte öppna appen.
-1252|Appen startar av sig själv och kan stanna i bakgrunden.
-1253|Appen har öppnats.
-1254|Kunde inte läsa in apparna: {error}
-1255|Ljudspåret har transkriberats för {brand}.
-1256|Dokumentets början, som text.
-1257|Webbläsaren kan inte spela in ljud.
-1258|Ändringen gäller för den här chatten.
-1259|Ändringen har tillämpats i GitHub. Commit: {commit}
-1260|Kunde inte kopiera koden till urklipp.
-1261|Koden har gått ut. Begär en ny.
-1262|Koden är inte korrekt.
-1263|Koden har körts. Resultatet har lagts i meddelanderutan.
-1264|Kunde inte kopiera konversationen till urklipp.
-1265|Kunde inte spara konversationen: {error}
-1266|Konversationen har arkiverats. Du hittar den under «Arkiverade» i sidofältet.
-1267|Konversationen har kopierats till urklipp.
-1268|Konversationen har återställts.
-1269|Kunde inte läsa in data: {error}
-1270|Dagen i månaden måste vara mellan 1 och 28.
-1271|Standardmodellen
-1272|E-postadressen är ogiltig.
-1273|Exakt tid och datum i Rumänien och i stora städer i världen.
-1274|Exporten misslyckades:
-1275|Filen har ingen text att visa.
-1276|Filen är inte längre tillgänglig.
-1277|Filen finns inte längre i Biblioteket.
-1278|Filen heter nu «{name}».
-1279|Filen sparas i ditt Bibliotek (upp till 2 GB per fil)…
-1280|Filen eller meddelandet är för stort för tjänsten {brand} (HTTP 413).
-1281|Filen har lagts till i Biblioteket.
-1282|Filen hittades inte i Biblioteket.
-1283|Första sidan, som text.
-1284|Headerns namn får bara innehålla bokstäver, siffror och bindestreck.
-1285|Instruktionerna får vara högst 8 000 tecken.
-1286|Intervallet måste vara mellan 1 och 168 timmar.
-1287|Nyckeln fungerade inte: {error}
-1288|Nyckeln delas med Bilder.
-1289|Nycklarna är krypterade på den här datorn.
-1290|Kunde inte kopiera nycklarna.
-1291|Nycklarna stannar på servern och visas bara maskerade.
-1292|Språket jag skriver på
-1293|Den senaste uppdateringen ({when}) misslyckades — detaljer
-1294|Kunde inte öppna länken i webbläsaren.
-1295|Kunde inte öppna länken: {error}
-1296|Det lokala kontot med den här e-postadressen får Owner-rättigheter: köra kod, GitHub Solve, styra servern. Gäller bara när {brand} Cloud inte är inställt. Logga in igen efter ändringen.
-1297|Adressen till den lokala tjänsten är ogiltig. Exempel: {url}
-1298|De blockerade är inte tillåtna för dig.
-1299|Inloggningen har gått ut för: {names}. OmniRoute-panelen på servern → Providers → varje konto → Reconnect (eller lägg till en API-nyckel).
-1300|Kunde inte skicka meddelandet: {error}
-1301|Meddelandet är tomt.
-1302|Mikrofonen är blockerad. Tillåt åtkomst till mikrofonen i webbläsaren.
-1303|Mikrofonen är inte tillgänglig: {error}
-1304|Kunde inte spara modellen för konversationen: {error}
-1305|Kunde inte läsa in modellistan: {error}
-1306|Modellistan är tom.
-1307|Modellerna kommer från OmniRoute och API:erna som är inställda på servern.
-1308|Modellerna kommer från OmniRoute och API:erna som är inställda på den här datorn.
-1309|Namnet får vara högst 100 tecken.
-1310|Namnet får vara högst 120 tecken.
-1311|Det nya lösenordet måste ha minst 8 tecken.
-1312|De andra enheterna har loggats ut.
-1313|Lösenordet får vara högst 256 tecken.
-1314|Lösenordet får vara högst 72 tecken.
-1315|Lösenordet måste ha minst 10 tecken.
-1316|Lösenordet måste ha minst 8 tecken.
-1317|Kunde inte skapa bilden: {error}
-1318|Kunde inte läsa bilden.
-1319|Bilden är större än 10 MB.
-1320|Pluginet har sparats, men testet misslyckades: {error}
-1321|Pluginen kommer från projekt med öppen källkod (MIT- och Apache 2.0-licenser); varje kort visar upphovspersonen och länkar till källan.
-1322|Kunde inte läsa in pluginen: {error}
-1323|Förhandsvisningen är inte tillgänglig.
-1324|Förhandsvisningen är inte tillgänglig. Filen har troligen raderats från Biblioteket.
-1325|Länken till förhandsvisningen är inte tillgänglig.
-1326|Priset ändras med antalet krediter.
-1327|Kunde inte kopiera förslaget.
-1328|Förslaget har kopierats till urklipp.
-1329|Leverantörens API-nyckel är fel eller har inte åtkomst till den här modellen.
-1330|Inspelningen är tom.
-1331|Förfrågan misslyckades (HTTP {status}).
-1332|Returadressen att registrera hos leverantören:
-1333|Servern kontrollerar GitHub en gång i timmen och installerar den nya versionen själv.
-1334|Servern returnerade ingen giltig session.
-1335|Serverns Owner behöver lägga till en AI-nyckel.
+900|Betald AI ändrad
+901|Betald AI · användare
+902|Betald AI: {error}
+903|Betalas per användning, med nyckeln eller behörigheterna som Ownern ger
+904|Betalas per användning, med behörigheterna som Ownern ger
+905|Betalas per användning; samma nyckel gör även bilder och videor med Grok Imagine. Slå på det med «Tillåt även betalda API:er».
+906|Panel
+907|Del {n}
+908|Lösenord
+909|Lösenordet ändrat. De andra enheterna måste logga in igen.
+910|Klistra in nyckeln först.
+911|Klistra in nyckeln här
+912|Betalningar
+913|Betalningar, beställningar, katalog och kunder.
+914|Väntar
+915|Prestanda
+916|Behörigheter
+917|Behörigheter ändrade
+918|Behörigheter: {error}
+919|Personlig AI-astrolog
+920|Telefon
+921|Aviseringar på telefonen
+922|Välj en assistent för en ny konversation.
+923|Välj en från listan eller skapa din egen från ett API. Skriv sedan dess namn i chatten så använder {brand} den.
+924|Välj under meddelanderutan vem som gör bilden, eller Automatiskt: den bästa tillgängliga.
+925|Välj under meddelanderutan vem som gör videon, eller Automatiskt: först de gratis, sedan Gemini Veo, Grok Imagine och de andra nycklarna (betalda, om du tillåter dem i Inställningar).
+926|Bild
+927|Bild / syn
+928|HD-bild
+929|Bildgenerering
+930|Bildgenerering, API:er, modeller och automatiskt försök hos en annan leverantör.
+931|Bild gjord av
+932|Bild gjord av {brand}
+933|Skapa bilder
+934|Bildläge: nästa meddelande skapar en bild. Klicka på Bild igen för att avsluta.
+935|Bildmodell
+936|Bildleverantörer
+937|Bild: nästa meddelande skapar en bild.
+938|Bilder
+939|Bilder och videor (genereras inte i testet, så ingen kredit används):
+940|Bilder i Biblioteket
+941|Bilder görs av
+942|Fäst
+943|Fäst detta
+944|Fäst — klicka för att lossa
+945|Plats att söka
+947|Veckoplan
+948|Planera min vecka
+949|Abonnemanget startade
+950|Planerar strukturen…
+951|Abonnemang och krediter är inte aktiva ännu: varje konto fungerar som förut (gratisnivån och Ownerns regler).
+952|Abonnemang och extra krediter
+954|Spela schack och lära sig strategi
+955|Pluginlista
+956|Pluginavsnitt
+957|Pluginkonfiguration
+958|Plugins
+959|Pollinations API-nyckel
+960|Pollinations-modell
+961|Pollinations-videomodell
+962|Populärt
+963|Affisch
+964|Postgres-databaser: fråga, skapa grenar och hantera.
+965|Inlägg för Instagram, Facebook, LinkedIn eller TikTok.
+966|Preferenser
+967|Föredragen modell
+968|Förbereder svaret…
+969|Förbereder frågorna…
+970|Förbereder…
+971|Presentation
+972|Tryck på Dela (fyrkanten med pilen uppåt), eller ••• → Dela.
+973|Klicka på mikrofonen en gång för att börja spela in och igen för att stoppa. {brand} skriver ner det du sa och skickar det.
+974|Förhandsvisning
+975|Förhandsvisningens bredd
+976|Förhandsvisning av {name}
+977|Förhandsvisning: {name}
+978|Senaste 30 dagarna
+979|Senaste 7 dagarna
+980|Prioriterad åtkomst under rusningstid
+981|Prisma Postgres-databaser och migreringar.
+982|Integritet
+983|Integritet och data
+984|Produktanalys, flaggor och experiment.
+985|Produktledning
+986|Produktivitet
+987|Professionell
+988|Professionell e-post
+989|Profil
+990|Profilbild
+991|Profilbilden har tagits bort.
+992|Profilbilden har sparats.
+993|Profilen har sparats.
+994|Programmering
+995|Programmeringsspråk
+996|Programmering med Codex och Claude Code: välj modell och starta en kodkonversation.
+997|Projekt
+998|Projekt och arbete
+999|Projekt, databaser, SQL och loggar.
+1000|Projekt, driftsättningar och loggar.
+1001|Projekt, uppgifter och CRM
+1002|Korrekturläsare
+1003|Förslag klart (ingen syntaxkontroll för den här filtypen).
+1004|Skyddet är aktivt: {brand} provar Cloudflare och Pollinations direkt. Hugging Face, Together, OpenAI, Stability, fal.ai och Replicate blockeras om de skulle kunna använda betald kredit. För OpenRouter kontrolleras priset före anropet.
+1005|Skyddar personuppgifter
+1006|Design av proteiner och molekyler
+1007|Leverantörer
+1008|Leverantörer som används i chatten
+1009|Kvalitet
+1010|Frågor om dina hälsodata
+1011|Snabba belopp
+1012|Snabbt svar
+1013|Läs upp
+1014|Läsa och redigera kalkylblad.
+1015|Läsa och ordna dina Gmail-mejl
+1016|Läsa, skriva och redigera dokument.
+1017|Uppläsning finns inte på den här datorn.
+1018|Läser förfrågan…
+1019|Läser texten…
+1020|Redo att använda
+1021|Verkligt resultat från {brand}-körningen:
+1022|Live-internet
+1023|Senaste
+1024|Anslut igen i OmniRoute
+1025|Spela in din röst
+1026|Uppdatera
+1027|Uppdatera modellistan
+1028|Uppdaterar listan…
+1029|Generera svaret igen
+1030|Att generera igen ersätter det här svaret och raderar meddelandena efter det. Fortsätta?
+1031|Avvisad
+1032|Avvisade användare
+1033|Ladda om {brand}
+1034|Ta bort
+1035|Ta bort exponerade personuppgifter
+1036|Ta bort från projektet
+1037|Ta bort pluginet «{name}»?
+1038|Ta bort {name}
+1039|Byt namn
+1040|Byt namn på filen
+1041|Byt namn: {error}
+1042|Replicate API-token
+1043|Replicate-modell
+1044|Replicate-videomodell
+1045|Förråd, ärenden, pull requests och filer.
+1046|Forskning
+1047|Forskning och vetenskap
+1048|Resurser för att studera Koranen
+1049|Återställ från arkivet
+1050|Återställ chatten
+1051|Återställ chatten {name}
+1052|Resultat
+1053|Resultat
+1054|Försök igen
+1055|Kör / testa kod
+1056|Kör AI-modeller på Replicate.
+1057|Kodkörning: {error}
+1058|Körhistorik
+1059|Kör nu
+1060|Hantera din webbutik
+1061|Körs
+1062|Kodkörning och SSH är bara för Ownern.
+1063|Kodkörning, GitHub Solve och SSH är bara för Owner-kontot (se «Ownerns e-post på den här datorn»).
+1064|Kör…
+1065|Kör schemalagda uppgifter och kontroller vid den tid du väljer.
+1066|SEO-research
+1067|Sökväg till den privata SSH-nyckeln
+1068|SSH-server · adress
+1069|SSH-användare
+1070|Försäljning
+1071|Lördag och söndag kl. {time}
+1072|Spara
+1073|Spara och fäst
+1074|Spara och testa
+1075|Spara profil
+1076|Spara inställningar
+1077|Spara ändringen
+1078|Spara skillen
+1079|Sparat och fäst i minnet.
+1080|Sparat.
+1081|Sparar nyckeln och testar…
+1082|Sparar pluginet och testar…
+1083|Sparar…
+1084|Söker igenom kod efter säkerhetsproblem.
+1085|Schemalägg
+1086|Schemalagda
+1087|Schemalagda (schemalagda uppgifter)
+1088|Vetenskap
+1089|Vetenskaplig forskning
+1090|Skrolla och välj Lägg till på hemskärmen, sedan Lägg till.
+1091|Sök
+1092|Sök i GitHub automatiskt
+1093|Söka och hämta data från webben
+1094|Söka och läsa filer och mappar.
+1095|Söka och läsa ditt företags filer.
+1096|Söka och skicka mejl och meddelanden
+1097|Sök appar
+1098|Sök efter namn
+1099|Sök i chattar
+1100|Sök en modell
+1101|Sök en modell…
+1102|Sök språk
+1103|Sök i minnet
+1104|Sök modeller
+1105|Sök i tidigare chattar
+1106|Sök plugins
+1107|Sök plugins och skills
+1108|Sökresultat
+1109|Sök i Biblioteket
+1110|Sök i listan (namn, kategori)
+1111|Sök i biblioteket
+1112|Sök i vetenskaplig litteratur
+1113|Sök på webben efter de senaste nyheterna om
+1114|Sök bland {n} språk
+1115|Söka, läsa och skapa filer.
+1116|Söka, läsa och skriva utkast till mejl.
+1117|Söka, läsa, skapa och redigera sidor och databaser.
+1118|Söker på Wikipedia (rumänska, sedan engelska) och ger artikelns sammanfattning.
+1119|Söker aktuell information och källor på nätet.
+1120|Söker själv aktuella källor vid frågor om ny information, versioner och API:er.
+1121|Säkerhet
+1122|Säkerhetsanalys av kod
+1123|Se abonnemangen
+1125|Seedance, Veo, Wan och andra modeller via samma API.
+1126|Välj
+1127|Välj en användare.
+1128|Vald
+1129|Skicka
+1130|Skicka en testavisering
+1131|Skicka åtkomstförfrågan
+1132|Skicka koden igen
+1133|Skicka koden igen ({s} s)
+1134|Skicka meddelandet
+1135|Servern ansluten ✓
+1136|Sessioner stängda
+1137|Sessioner: {error}
+1138|Ange status «{status}» för {email}? Kontots aktiva sessioner stängs.
+1139|Inställningar
+1140|Inställningar kan bara sparas från {brand}-appen.
+1141|Inställningarna har sparats.
+1142|Flera bildmodeller med en enda nyckel.
+1143|Ska vi fortsätta med «{title}»?
+1144|Gemensamma instruktioner för projektet
+1145|Kort och rakt
+1146|Kort beskrivning
+1147|Kort video (~6 s)
+1148|Visa fler ({n} kvar)
+1149|Visa eller dölj menyn
+1150|Visar de första 60 000 tecknen.
+1151|Visar en avisering när uppgiften har ett resultat.
+1152|Logga in
+1153|Logga in igen
+1154|Logga in igen.
+1155|Logga in på {brand}
+1156|Logga in på {name} i fönstret som öppnades och kom sedan tillbaka hit.
+1157|Logga ut
+1158|Logga ut från {brand} på alla enheter, även den här?
+1159|Logga ut andra enheter
+1160|Inloggning
+1161|Inloggning krävs.
+1162|Utloggning
+1163|Loggar ut…
+1164|Uppdatering av webbplatsen ({domain})
+1165|Webbplatser och driftsättningar.
+1166|Webbplatser, sidor och CMS-objekt.
+1167|Storlek
+1168|Skill-plugins
+1169|Skills
+1171|Slack-kanaler och -meddelanden
+1172|Inlägg för sociala medier
+1173|Mjukvaruutveckling
+1174|Något annat
+1175|Något annat…
+1176|Sortera
+1177|Prata: texten visas i rutan och skickas av sig själv
+1178|Stability API-nyckel
+1179|Stability-motor
+1180|Start
+1181|Starta OmniRoute automatiskt
+1182|Starta OmniRoute eller lägg till en API-nyckel i Inställningar.
+1183|Starta en konversation som skapar en bild.
+1184|Starta {brand} med Windows
+1185|Startar {brand}…
+1186|Startar…
+1187|Toppmoderna ADMET-modeller
+1188|Fortfarande vaken? Låt oss göra klart det tillsammans.
+1189|Stoppa och skicka
+1190|Sluta läsa upp
+1191|Stoppa svaret
+1192|Stoppa röstinspelningen
+1193|Stoppa röstinspelningen först.
+1194|Stoppad efter fel
+1195|Stoppad av Ownern
+1196|Styrketräning för Garmin
+1197|Strukturer, molekyler och proteiner
+1198|Student
+1200|Lyckades
+1201|Föreslå en plan för veckan som börjar: prioriteringar, deadlines och ett litet steg för varje dag.
+1202|Sammanfatta ett dokument
+1203|Sammanfatta det bifogade dokumentet i fem tydliga punkter.
+1204|Sammanfattning
+1205|Sammanfattar en text eller ett dokument i huvudidéerna.
+1206|Stäng av tillfälligt
+1207|Avstängd
+1208|Avstängda användare
+1209|Surfplatta
+1210|Tarotläsningar
+1211|Uppgifter som {brand} kör själv vid den tid du väljer.
+1212|Uppgifter, listor, dokument och kommentarer.
+1213|Uppgifter, projekt och kommentarer.
+1214|Teamadministration med delade krediter
+1215|Tekniska detaljer: {details}
+1216|Testa
+1217|Testa nu
+1218|Testet lyckades: {result}
+1219|Testa nycklar
+1220|Testa mikrofonen
+1221|Testa servern
+1222|Tester
+1223|Testar SSH-anslutningen…
+1224|Testar…
+1225|Texas Hold'em-poker med AI
+1226|Objektets text
+1227|Text som lästs för AI:n
+1229|AI-leverantören svarade inte i tid. Försök igen.
+1230|AI-leverantörens gratisgräns har nåtts. Välj en annan modell eller försök senare.
+1231|API-adressen måste vara en fullständig länk, till exempel https://example.com/webhook.
+1232|Google-sidan öppnas. Klicka på «Create API key» och kopiera den.
+1233|Biblioteket är tomt. Dra hit filer eller klicka på «Lägg till filer».
+1234|OAuth Client ID saknas.
+1235|Kunde inte öppna OAuth-sidan.
+1236|Owner-kontot kan inte raderas.
+1237|Ownern godkänner konton och bestämmer vilka AI-tjänster de får använda.
+1238|Ownern bestämmer vilka modeller ditt konto får använda.
+1239|Ownerns e-postadress är ogiltig.
+1240|Ownern måste först lägga till en Asana OAuth-app i Inställningar.
+1241|Ownern måste först lägga till en Box OAuth-app i Inställningar.
+1242|Ownern måste först lägga till en Google OAuth-app i Inställningar.
+1243|Ownern måste först lägga till en HubSpot OAuth-app i Inställningar.
+1244|Ownern måste först lägga till en Lovable OAuth-app i Inställningar.
+1245|Ownerns personliga abonnemang kan inte ges till andra konton.
+1246|X-knappen döljer appen utan att stoppa tjänsterna.
+1247|Kontot och all dess data (chattar, minne, filer, inställningar) raderas för alltid.
+1248|Kontot skapas på {brand}-servern.
+1249|Kontot skapas på den här datorn och du kan använda det direkt.
+1250|Kontot är inte aktivt.
+1251|Kontot väntar på godkännande från Ownern.
+1252|Kontot har skapats och väntar på godkännande från Ownern.
+1253|Kontot har raderats.
+1254|Adressen är ogiltig.
+1255|Svaret fortsätter på servern…
+1256|Svaret avbröts: {error}
+1257|Svaret stoppades före slutet.
+1258|Svaret stoppades.
+1259|Kunde inte öppna appen — {error}
+1260|Kunde inte öppna appen.
+1261|Appen startar av sig själv och kan stanna i bakgrunden.
+1262|Appen har öppnats.
+1263|Kunde inte läsa in apparna: {error}
+1264|Ljudspåret har transkriberats för {brand}.
+1265|Dokumentets början, som text.
+1266|Webbläsaren kan inte spela in ljud.
+1267|Ändringen gäller för den här chatten.
+1268|Ändringen har tillämpats i GitHub. Commit: {commit}
+1269|Kunde inte kopiera koden till urklipp.
+1270|Koden har gått ut. Begär en ny.
+1271|Koden är inte korrekt.
+1272|Koden har körts. Resultatet har lagts i meddelanderutan.
+1273|Kunde inte kopiera konversationen till urklipp.
+1274|Kunde inte spara konversationen: {error}
+1275|Konversationen har arkiverats. Du hittar den under «Arkiverade» i sidofältet.
+1276|Konversationen har kopierats till urklipp.
+1277|Konversationen har återställts.
+1278|Kunde inte läsa in data: {error}
+1279|Dagen i månaden måste vara mellan 1 och 28.
+1280|Standardmodellen
+1281|E-postadressen är ogiltig.
+1282|Exakt tid och datum i Rumänien och i stora städer i världen.
+1283|Exporten misslyckades:
+1284|Filen har ingen text att visa.
+1285|Filen är inte längre tillgänglig.
+1286|Filen finns inte längre i Biblioteket.
+1287|Filen heter nu «{name}».
+1288|Filen sparas i ditt Bibliotek (upp till 2 GB per fil)…
+1289|Filen eller meddelandet är för stort för tjänsten {brand} (HTTP 413).
+1290|Filen har lagts till i Biblioteket.
+1291|Filen hittades inte i Biblioteket.
+1292|Första sidan, som text.
+1293|Headerns namn får bara innehålla bokstäver, siffror och bindestreck.
+1294|Instruktionerna får vara högst 8 000 tecken.
+1295|Intervallet måste vara mellan 1 och 168 timmar.
+1296|Nyckeln fungerade inte: {error}
+1297|Nyckeln delas med Bilder.
+1298|Nycklarna är krypterade på den här datorn.
+1299|Kunde inte kopiera nycklarna.
+1300|Nycklarna stannar på servern och visas bara maskerade.
+1301|Språket jag skriver på
+1302|Den senaste uppdateringen ({when}) misslyckades — detaljer
+1303|Kunde inte öppna länken i webbläsaren.
+1304|Kunde inte öppna länken: {error}
+1305|Det lokala kontot med den här e-postadressen får Owner-rättigheter: köra kod, GitHub Solve, styra servern. Gäller bara när {brand} Cloud inte är inställt. Logga in igen efter ändringen.
+1306|Adressen till den lokala tjänsten är ogiltig. Exempel: {url}
+1307|De blockerade är inte tillåtna för dig.
+1308|Inloggningen har gått ut för: {names}. OmniRoute-panelen på servern → Providers → varje konto → Reconnect (eller lägg till en API-nyckel).
+1309|Kunde inte skicka meddelandet: {error}
+1310|Meddelandet är tomt.
+1311|Mikrofonen är blockerad. Tillåt åtkomst till mikrofonen i webbläsaren.
+1312|Mikrofonen är inte tillgänglig: {error}
+1313|Kunde inte spara modellen för konversationen: {error}
+1314|Kunde inte läsa in modellistan: {error}
+1315|Modellistan är tom.
+1316|Modellerna kommer från OmniRoute och API:erna som är inställda på servern.
+1317|Modellerna kommer från OmniRoute och API:erna som är inställda på den här datorn.
+1318|Namnet får vara högst 100 tecken.
+1319|Namnet får vara högst 120 tecken.
+1320|Det nya lösenordet måste ha minst 8 tecken.
+1321|De andra enheterna har loggats ut.
+1322|Lösenordet får vara högst 256 tecken.
+1323|Lösenordet får vara högst 72 tecken.
+1324|Lösenordet måste ha minst 10 tecken.
+1325|Lösenordet måste ha minst 8 tecken.
+1326|Kunde inte skapa bilden: {error}
+1327|Kunde inte läsa bilden.
+1328|Bilden är större än 10 MB.
+1329|Pluginet har sparats, men testet misslyckades: {error}
+1330|Pluginen kommer från projekt med öppen källkod (MIT- och Apache 2.0-licenser); varje kort visar upphovspersonen och länkar till källan.
+1331|Kunde inte läsa in pluginen: {error}
+1332|Förhandsvisningen är inte tillgänglig.
+1333|Förhandsvisningen är inte tillgänglig. Filen har troligen raderats från Biblioteket.
+1334|Länken till förhandsvisningen är inte tillgänglig.
+1335|Priset ändras med antalet krediter.
+1336|Kunde inte kopiera förslaget.
+1337|Förslaget har kopierats till urklipp.
+1338|Leverantörens API-nyckel är fel eller har inte åtkomst till den här modellen.
+1339|Inspelningen är tom.
+1340|Förfrågan misslyckades (HTTP {status}).
+1341|Returadressen att registrera hos leverantören:
+1342|Servern kontrollerar GitHub en gång i timmen och installerar den nya versionen själv.
+1343|Servern returnerade ingen giltig session.
+1344|Serverns Owner behöver lägga till en AI-nyckel.

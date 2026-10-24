@@ -93,348 +93,348 @@
 95|Zezwól też na płatne API (OpenAI, Grok)
 96|Zawsze zezwalaj
 97|Zawsze dozwolone
-98|Zawsze po angielsku
-99|Zawsze po rumuńsku
-100|Zawsze włączony
-101|Zawsze włączony {slug}
-102|Zawsze włączony: używany w każdej wiadomości, bez /nazwa
-103|Konto z tym adresem e-mail już istnieje.
-104|Adres lub miasto
-105|Analiza i planowanie postów
-106|Analiza danych blockchain
-107|Przeanalizuj plik, znajdź problem i go napraw.
-108|Analiza zachowań użytkowników
-109|Analiza treningów i układanie planów
-110|Analiza danych Twojego produktu
-111|Analizuje kod i pracuje z GitHubem.
-112|Analizuje przesłane pliki, tabele i dokumenty.
-113|Analizowanie…
-114|Odpowiada
-115|Język odpowiedzi
-116|Odpowiedzi z dokumentacji Cloudflare (bez konta).
-117|Odpowiedzi z Twoich danych
-118|Odpowiedzi trwają nawet po zamknięciu aplikacji
-119|Dowolna aplikacja ze zdalnym serwerem MCP (adres zaczynający się od https://). Zostaw token pusty, jeśli aplikacja ma własne logowanie.
-120|Dowolna liczba kredytów
-121|Aplikacja
-122|Zastosowano na serwerze dla tego konta.
-123|Zastosuj w GitHubie
-124|Zastosować zmianę bezpośrednio w GitHubie dla {path} (gałąź {branch})? Powstaje lokalna kopia zapasowa, aby można było cofnąć.
-125|Stosowanie zmian…
-126|Stosowanie…
-127|Zatwierdź / Aktywuj ponownie
-128|Aplikacje
-129|Aplikacje i automatyzacje
-130|Sekcje aplikacji
-131|Archiwizuj
-132|Zarchiwizowane
-133|Client ID OAuth Asana
-134|Client secret OAuth Asana
-135|Asana przyjmuje tylko aplikacje OAuth zarejestrowane przez właściciela. Utwórz ją w Asanie ({where}) z tym adresem powrotnym: {url}
-136|Dostęp do Asany dla wszystkich
-137|Zadawaj pytania doprecyzowujące (z opcjami odpowiedzi)
-138|Poproś o dostęp lub wybierz inny model.
-139|Pytaj o dowolne publiczne repozytorium GitHub.
-140|Poproś Ownera o dostęp do przynajmniej jednego modelu.
-141|Poproś Ownera o dostęp do modeli OpenAI lub Claude.
-142|Asystenci
-143|Co najmniej 10 znaków
-144|Maksymalnie 2 GB na plik
-145|Przy starcie {brand} sam pobiera nową wersję z GitHub Releases i daje znać, gdy jest gotowa do instalacji.
-146|Załącz: {error}
-147|Załączone przez Ciebie
-148|Załączony plik: {names}
-149|Sprawdzanie uprawnień Dysku Google
-150|Uwierzytelnianie
-151|Automatyczna rezerwa: bezpośrednie API
-152|Automatyczna rezerwa
-153|Automatyczna aktualizacja strony
-154|Automatyczne aktualizacje strony są wyłączone.
-155|Automatyczna aktualizacja:
-156|Automatyczne aktualizacje (aplikacja Windows)
-157|Automatycznie · najlepszy dostępny
-158|Automatycznie — moja kolejność
-159|Automatycznie — pierwszy dostępny model obrazów
-160|Automatyzacja
-161|Automatyzacja i zdalne sterowanie
-162|Wyniki automatyzacji
-163|Automatyzacja «{name}»
-164|Automatyzacje
-165|Dostępne
-166|Dostępne dla Twojego konta
-167|Dostępne teraz
-168|Kursy walut BNR
-169|Wstecz
-171|Wrócono do domyślnej usługi lokalnej. Spróbuj zalogować się ponownie.
-172|Bazy, tabele i rekordy: wyszukiwanie, tworzenie i aktualizacja.
-173|Rozliczenia
-174|Horoskopy urodzeniowe i horoskop
-175|Zablokuj
-176|Blockchain
-177|Zablokowany
-178|Zablokowani użytkownicy
-179|Tablice, elementy i aktualizacje.
-180|Tablice, karteczki i diagramy (Miro Enterprise).
-181|Client ID OAuth Box
-182|Client secret OAuth Box
-183|Box przyjmuje tylko aplikacje OAuth zarejestrowane przez właściciela. Utwórz ją w Boxie ({where}) z tym adresem powrotnym: {url}
-184|Dostęp do Boxa dla wszystkich
-185|Zgłoszenia błędów z nagraniami i logami.
-186|Tworzenie i publikowanie aplikacji
-187|Tworzenie i publikowanie aplikacji webowych
-188|Firmy
-189|Biznes i operacje
-190|Firmowe konta bankowe i transakcje.
-191|Wizytówka
-192|Przedsiębiorca
-193|Kup kredyty
-194|Kup za {price}
-195|C:\Users\ty\.ssh\id_ed25519
-196|Nie można połączyć się z serwerem, ponowne łączenie…
-197|Anuluj
-198|Nie można połączyć się z usługą {brand}. Sprawdź, czy aplikacja działa i czy jest internet.
-199|Nie można odczytać nagrania.
-200|Płatności kartą wkrótce
-201|Uwaga: skonfigurowani dostawcy mogą zużywać środki według swoich cen.
-202|Uwaga: generowanie wideo może szybko zużywać środki. Koszt zależy od modelu, długości i rozdzielczości.
-203|Klucz API Cerebras
-204|Modele Cerebras · oddzielone przecinkami
-205|Zmień
-206|Zmień hasło
-207|Zmieniono
-208|Zmień… (np. zrób tło granatowe i dodaj sekcję z cenami)
-209|Zmienianie…
-210|Czat
-211|Opcje czatu
-212|Rozmawiaj ze wszystkimi najlepszymi AI, pamięć, pliki, obrazy, wideo i automatyzacje.
-213|Tylko ChatGPT · GPT Image
-214|ChatGPT, Gemini i Grok
-215|Czaty
-216|Starsze czaty usuwają się same (przypięte zostają). Twoje dane zostają na serwerze {brand} i nigdy nie są sprzedawane ani używane do reklam.
-217|Czaty, pamięć, biblioteka, projekty graficzne, projekty, aplikacje i automatyzacje są przechowywane na serwerze {brand}.
-218|Czaty, pamięć, biblioteka, projekty graficzne, projekty, aplikacje i automatyzacje są przechowywane na tym komputerze.
-219|Sprawdzanie nie powiodło się
-220|Sprawdź aktualizacje teraz
-221|Sprawdzanie linków, domen i numerów telefonów
-222|Sprawdź cenę
-223|Sprawdź cenę produktu, który śledzę na stronie sklepu, i daj mi znać tylko wtedy, gdy spadła poniżej ustawionej przeze mnie ceny.
-224|Sprawdzono: {when}.
-225|Sprawdzanie, jak to wygląda na telefonie…
-226|Sprawdzanie pamięci, plików i istotnego kontekstu…
-227|Sprawdzanie…
-228|Sprawdza OmniRoute (klucz oraz model Gemini, Grok, OpenAI i Claude) i każde zapisane API. Zapisz ustawienia przed testem.
-229|Symulacje z chemii i biologii
-230|Wybierz Zainstaluj aplikację lub Dodaj do ekranu głównego.
-231|Wybierz obraz PNG, JPEG lub WebP.
-232|Wybierz datę i godzinę w przyszłości.
-233|Wybierz poprawną godzinę (00:00–23:59).
-234|Wybierz AI
-235|Wybierz co najmniej jeden dzień tygodnia.
-236|Wybierz z Biblioteki
-237|Wybierz AI
-238|Wybierz datę i godzinę zadania jednorazowego.
-239|Wybierz {plan}
-240|Dobieranie kolorów i czcionek…
-241|Wybrane automatycznie
-242|Wybrane dni
-243|Ogłoszenia w Niemczech
-244|Claude / Anthropic (płatne)
-245|Claude przez API
-246|Wyczyść wyszukiwanie
-247|Client ID aplikacji utworzonej u dostawcy
-248|Zamknij
-249|Zamknąć wszystkie aktywne sesje {email}?
-250|Zamknij sesje
-251|Zamknij menu
-252|Zamknij podgląd
-253|Minimalizuj do zasobnika
-254|Token API Cloudflare
-255|Modele Cloudflare · oddzielone przecinkami
-256|Code
-257|Kod i GitHub
-258|Kod z e-maila
-259|Code {brand} (przez API OpenAI / Claude, nie Twoje subskrypcje)
-260|Code {brand} jest dostępny dla Ownera i kont, którym Owner dał dostęp.
-261|Kawa i jasny plan? Powiedz, od czego zaczynamy.
-262|Klucz API Cohere
-263|Modele Cohere · oddzielone przecinkami
-264|Kombinacja
-265|Kombinacje
-266|Kombinacje dla wszystkich kont
-267|Polecenie w czacie
-268|Komunikacja
-269|Karty firmowe, wydatki i faktury.
-270|Porównuj modele obok siebie
-271|API zgodności.
-272|Potwierdź e-mail
-273|Potwierdź swój e-mail
-274|Połącz
-275|Połącz Codex lub Claude Code w OmniRoute.
-276|Połącz aplikację
-277|Połącz dowolne API lub webhook.
-278|Połącz własne API
-279|Połącz ponad 350 źródeł danych
-280|Połącz przez OAuth (dostęp do danych)
-281|Połącz bez OAuth i otwórz {name}
-282|Połącz swoje aplikacje: AI może w nich wyszukiwać, czytać, tworzyć i edytować, a przed każdą akcją pyta.
-283|Połączono
-284|Połączone aplikacje
-285|Połączone aplikacje (Gmail, Drive, Notion, GitHub…)
-286|Połączono przez OAuth
-287|Łączenie…
-288|Konektory
-289|Kontekst między czatami projektu
-290|Steruje płatnym AI dla zwykłych kont. Owner pozostaje włączony.
-291|Rozmowa
-292|Rozmowy i kontakty.
-293|Skopiowano
-294|Kopiuje klucze zapisane na tym komputerze, aby strona {domain} miała te same modele.
-295|Kopiuj
-296|Kopiuj czat
-297|Kopiuj ID konta
-298|Kopiuj czat do schowka
-299|Kopiuj kod
-300|Kopiuj klucze dla serwera
-301|Kopiuj wiadomość
-302|Kopiuj zaznaczenie
-303|Kopiowanie…
-304|Ochrona kosztów
-305|Nie udało się załączyć:
-306|Nie udało się sprawdzić:
-307|Nie udało się odczytać stanu powiadomień:
-308|Nie udało się odczytać ustawień:
-309|Utwórz
-310|Utwórz plugin
-311|Utwórz konto
-312|Tworzenie i edycja projektów graficznych
-313|Utwórz plugin
-314|Utwórz konto
-315|Utwórz zadanie
-316|Utwórz konto {brand}
-317|Tworzenie, łączenie i edycja dokumentów i grafik
-318|Tworzenie, uruchamianie i analiza reklam
-319|Utworzono
-320|Tworzenie projektu…
-321|Kreatywny
-322|Kreatywność
-323|Alerty kredytów
-324|Dodano kredyty
-328|Kredyty wyczerpane
-329|Bieżący
-330|Bieżący czat
-331|Obecne hasło
-332|Bieżący plan
-333|Własny
-334|Własna aplikacja
-335|Własny asystent
-336|Własny nagłówek
-337|Własne instrukcje
-338|Obsługa klienta
-339|Klienci
-340|Klienci, płatności, faktury i produkty.
-341|Codziennie
-342|Codziennie o {time}
-343|Ciemny
-344|Dane
-345|Dane i akcje w HubSpot
-346|Dane i analityka
-347|Bazy danych
-348|Data
-349|Dzień
-350|Dzień miesiąca
-351|Dni
-352|Decyzje
-353|Deep Research
-354|Domyślne
-355|Usuń
-356|Usuń konto
-357|Usuń wszystko
-358|Usuń dane
-359|Usunąć wszystko, co {brand} pamięta dla tego konta? Nie można tego cofnąć.
-360|Usuń konto
-361|Usunąć konto i wszystkie jego dane? Nie można tego cofnąć. Wpisz hasło konta, aby potwierdzić.
-362|Usunąć asystenta «{name}»?
-363|Usuń czat
-364|Usuń czat {name}
-365|Trwale usunąć rozmowę «{title}»?
-366|Usunąć projekt «{name}» ze wszystkimi wersjami?
-367|Usunąć plugin «{name}»?
-368|Usunąć projekt «{name}»? Rozmowy zostaną, ale nie będą już należeć do żadnego projektu.
-369|Usuń zapisany klucz
-370|Usuń zapisany token
-371|Usunąć skill /{slug}?
-372|Usunąć zadanie «{name}»? Historia uruchomień zostanie utracona.
-373|Usuń to
-374|Usunąć to z pamięci?
-375|Usuń {name}
-376|Usunąć {what}? Nie można tego cofnąć. Wpisz DELETE, aby potwierdzić.
-377|Usunąć «{name}» z Biblioteki? Nie będzie już można go pobrać nawet z rozmów, w których był użyty.
-378|Usuwanie: {error}
-379|Usunięto: {what}.
-380|Usuwanie…
-381|Odrzucono
-382|Odrzuć
-383|Opisz stronę, plakat lub prezentację; {brand} zrobi makietę HTML, którą zobaczysz, zmienisz i pobierzesz.
-384|Opisz stronę, plakat lub prezentację. {brand} napisze jeden plik HTML, który od razu zobaczysz, zmienisz słowami i pobierzesz.
-385|Opisz obraz, który mam zrobić.
-386|Opisz obraz, który chcesz…
-387|Opisz wideo, które mam zrobić.
-388|Opisz wideo, które chcesz…
-389|Opisz, co mamy zbudować
-390|Opisz, co mamy zbudować…
-391|Opis
-392|Design
-393|Design i kreatywność
-394|Projektuj na wspólnym płótnie
-395|Tytuł projektu
-396|Rodzaj projektu
-397|Szczegółowy
-398|Narzędzia deweloperskie
-399|Programowanie
-400|Urządzenie
-401|Urządzenia odbierające prośby: {n}.
-402|Ręcznie wybrane bezpośrednie API
-403|Bezpośredni i szczery
-404|Odrzuć
-405|Odrzuć zmianę
-406|Rozłącz
-407|Rozłączyć {name}? AI nie będzie już mieć do niej dostępu.
-408|Zrób dokładny research, sprawdź kilka źródeł i wyjaśnij szczegółowo:
-409|Nie zezwalaj na bezpośrednie koszty
-410|Nie uruchamiaj płatnych zadań
-411|Dokument
-412|Dokument / długi kontekst
-413|Dokumentacja
-414|Dokumenty
-415|Dokumenty, arkusze i prezentacje na Dysku
-416|Gotowe! Klucz działa.
-417|Gotowe. To urządzenie będzie otrzymywać prośby o dostęp (łącznie 1 urządzenie).
-418|Gotowe. To urządzenie będzie otrzymywać prośby o dostęp (łącznie {n} urządzeń).
-419|Pobierz
-420|Pobierz HTML
-421|Pobierz wszystkie moje dane
-422|Pobierz {name}
-423|Pobieranie: {error}
-424|Pliki do pobrania
-425|Pobieranie…
-426|Upuść, aby dodać pliki do Biblioteki
-427|Upuść, aby załączyć pliki
-428|Duplikuj
-429|Np. Nauczyciel matematyki
-430|Np. Przegląd wiadomości
-431|Np. Wiosenna kampania marketingowa
-432|Np. Korzystaj z dokumentów projektu, zachowaj formalny ton i pamiętaj ważne decyzje.
-433|Np. Pogoda
-434|Np. gemini/gemini-3.5-flash
-435|Edytuj
-436|Edytuj plugin
-437|Edytuj asystenta
-438|Edytuj asystenta {name}
-439|Edytuj projekt
-440|Edytuj projekt {name}
-441|Edytuj zadanie
-442|Edytuj to
-443|Edytuj {name}
-444|Edytuj «{name}»
-445|Edukacja
-446|Edukacja i nauczanie
+99|Zawsze po angielsku
+100|Zawsze po rumuńsku
+101|Zawsze włączony
+102|Zawsze włączony {slug}
+103|Zawsze włączony: używany w każdej wiadomości, bez /nazwa
+104|Konto z tym adresem e-mail już istnieje.
+105|Adres lub miasto
+106|Analiza i planowanie postów
+107|Analiza danych blockchain
+108|Przeanalizuj plik, znajdź problem i go napraw.
+109|Analiza zachowań użytkowników
+110|Analiza treningów i układanie planów
+111|Analiza danych Twojego produktu
+112|Analizuje kod i pracuje z GitHubem.
+113|Analizuje przesłane pliki, tabele i dokumenty.
+114|Analizowanie…
+115|Odpowiada
+116|Język odpowiedzi
+117|Odpowiedzi z dokumentacji Cloudflare (bez konta).
+118|Odpowiedzi z Twoich danych
+119|Odpowiedzi trwają nawet po zamknięciu aplikacji
+120|Dowolna aplikacja ze zdalnym serwerem MCP (adres zaczynający się od https://). Zostaw token pusty, jeśli aplikacja ma własne logowanie.
+121|Dowolna liczba kredytów
+122|Aplikacja
+123|Zastosowano na serwerze dla tego konta.
+124|Zastosuj w GitHubie
+125|Zastosować zmianę bezpośrednio w GitHubie dla {path} (gałąź {branch})? Powstaje lokalna kopia zapasowa, aby można było cofnąć.
+126|Stosowanie zmian…
+127|Stosowanie…
+128|Zatwierdź / Aktywuj ponownie
+129|Aplikacje
+130|Aplikacje i automatyzacje
+131|Sekcje aplikacji
+132|Archiwizuj
+133|Zarchiwizowane
+134|Client ID OAuth Asana
+135|Client secret OAuth Asana
+136|Asana przyjmuje tylko aplikacje OAuth zarejestrowane przez właściciela. Utwórz ją w Asanie ({where}) z tym adresem powrotnym: {url}
+137|Dostęp do Asany dla wszystkich
+138|Zadawaj pytania doprecyzowujące (z opcjami odpowiedzi)
+139|Poproś o dostęp lub wybierz inny model.
+140|Pytaj o dowolne publiczne repozytorium GitHub.
+141|Poproś Ownera o dostęp do przynajmniej jednego modelu.
+142|Poproś Ownera o dostęp do modeli OpenAI lub Claude.
+143|Asystenci
+144|Co najmniej 10 znaków
+145|Maksymalnie 2 GB na plik
+146|Przy starcie {brand} sam pobiera nową wersję z GitHub Releases i daje znać, gdy jest gotowa do instalacji.
+147|Załącz: {error}
+148|Załączone przez Ciebie
+149|Załączony plik: {names}
+150|Sprawdzanie uprawnień Dysku Google
+151|Uwierzytelnianie
+153|Automatyczna rezerwa: bezpośrednie API
+154|Automatyczna rezerwa
+155|Automatyczna aktualizacja strony
+156|Automatyczne aktualizacje strony są wyłączone.
+157|Automatyczna aktualizacja:
+158|Automatyczne aktualizacje (aplikacja Windows)
+159|Automatycznie · najlepszy dostępny
+160|Automatycznie — moja kolejność
+161|Automatycznie — pierwszy dostępny model obrazów
+162|Automatyzacja
+163|Automatyzacja i zdalne sterowanie
+164|Wyniki automatyzacji
+165|Automatyzacja «{name}»
+166|Automatyzacje
+167|Dostępne
+168|Dostępne dla Twojego konta
+169|Dostępne teraz
+170|Kursy walut BNR
+171|Wstecz
+173|Wrócono do domyślnej usługi lokalnej. Spróbuj zalogować się ponownie.
+174|Bazy, tabele i rekordy: wyszukiwanie, tworzenie i aktualizacja.
+175|Rozliczenia
+176|Horoskopy urodzeniowe i horoskop
+177|Zablokuj
+178|Blockchain
+179|Zablokowany
+180|Zablokowani użytkownicy
+181|Tablice, elementy i aktualizacje.
+182|Tablice, karteczki i diagramy (Miro Enterprise).
+183|Client ID OAuth Box
+184|Client secret OAuth Box
+185|Box przyjmuje tylko aplikacje OAuth zarejestrowane przez właściciela. Utwórz ją w Boxie ({where}) z tym adresem powrotnym: {url}
+186|Dostęp do Boxa dla wszystkich
+187|Zgłoszenia błędów z nagraniami i logami.
+188|Tworzenie i publikowanie aplikacji
+189|Tworzenie i publikowanie aplikacji webowych
+190|Firmy
+191|Biznes i operacje
+192|Firmowe konta bankowe i transakcje.
+193|Wizytówka
+194|Przedsiębiorca
+195|Kup kredyty
+196|Kup za {price}
+197|C:\Users\ty\.ssh\id_ed25519
+198|Nie można połączyć się z serwerem, ponowne łączenie…
+199|Anuluj
+200|Nie można połączyć się z usługą {brand}. Sprawdź, czy aplikacja działa i czy jest internet.
+201|Nie można odczytać nagrania.
+202|Płatności kartą wkrótce
+203|Uwaga: skonfigurowani dostawcy mogą zużywać środki według swoich cen.
+204|Uwaga: generowanie wideo może szybko zużywać środki. Koszt zależy od modelu, długości i rozdzielczości.
+205|Klucz API Cerebras
+206|Modele Cerebras · oddzielone przecinkami
+207|Zmień
+208|Zmień hasło
+209|Zmieniono
+210|Zmień… (np. zrób tło granatowe i dodaj sekcję z cenami)
+211|Zmienianie…
+212|Czat
+213|Opcje czatu
+214|Rozmawiaj ze wszystkimi najlepszymi AI, pamięć, pliki, obrazy, wideo i automatyzacje.
+215|Tylko ChatGPT · GPT Image
+216|ChatGPT, Gemini i Grok
+217|Czaty
+218|Starsze czaty usuwają się same (przypięte zostają). Twoje dane zostają na serwerze {brand} i nigdy nie są sprzedawane ani używane do reklam.
+219|Czaty, pamięć, biblioteka, projekty graficzne, projekty, aplikacje i automatyzacje są przechowywane na serwerze {brand}.
+220|Czaty, pamięć, biblioteka, projekty graficzne, projekty, aplikacje i automatyzacje są przechowywane na tym komputerze.
+221|Sprawdzanie nie powiodło się
+222|Sprawdź aktualizacje teraz
+223|Sprawdzanie linków, domen i numerów telefonów
+224|Sprawdź cenę
+225|Sprawdź cenę produktu, który śledzę na stronie sklepu, i daj mi znać tylko wtedy, gdy spadła poniżej ustawionej przeze mnie ceny.
+226|Sprawdzono: {when}.
+227|Sprawdzanie, jak to wygląda na telefonie…
+228|Sprawdzanie pamięci, plików i istotnego kontekstu…
+229|Sprawdzanie…
+230|Sprawdza OmniRoute (klucz oraz model Gemini, Grok, OpenAI i Claude) i każde zapisane API. Zapisz ustawienia przed testem.
+231|Symulacje z chemii i biologii
+232|Wybierz Zainstaluj aplikację lub Dodaj do ekranu głównego.
+233|Wybierz obraz PNG, JPEG lub WebP.
+234|Wybierz datę i godzinę w przyszłości.
+235|Wybierz poprawną godzinę (00:00–23:59).
+236|Wybierz AI
+237|Wybierz co najmniej jeden dzień tygodnia.
+238|Wybierz z Biblioteki
+239|Wybierz AI
+240|Wybierz datę i godzinę zadania jednorazowego.
+241|Wybierz {plan}
+242|Dobieranie kolorów i czcionek…
+243|Wybrane automatycznie
+244|Wybrane dni
+245|Ogłoszenia w Niemczech
+246|Claude / Anthropic (płatne)
+247|Claude przez API
+248|Wyczyść wyszukiwanie
+249|Client ID aplikacji utworzonej u dostawcy
+250|Zamknij
+251|Zamknąć wszystkie aktywne sesje {email}?
+252|Zamknij sesje
+253|Zamknij menu
+254|Zamknij podgląd
+255|Minimalizuj do zasobnika
+256|Token API Cloudflare
+257|Modele Cloudflare · oddzielone przecinkami
+258|Code
+259|Kod i GitHub
+260|Kod z e-maila
+261|Code {brand} (przez API OpenAI / Claude, nie Twoje subskrypcje)
+262|Code {brand} jest dostępny dla Ownera i kont, którym Owner dał dostęp.
+263|Kawa i jasny plan? Powiedz, od czego zaczynamy.
+264|Klucz API Cohere
+265|Modele Cohere · oddzielone przecinkami
+266|Kombinacja
+267|Kombinacje
+268|Kombinacje dla wszystkich kont
+269|Polecenie w czacie
+270|Komunikacja
+271|Karty firmowe, wydatki i faktury.
+272|Porównuj modele obok siebie
+273|API zgodności.
+274|Potwierdź e-mail
+275|Potwierdź swój e-mail
+276|Połącz
+277|Połącz Codex lub Claude Code w OmniRoute.
+278|Połącz aplikację
+279|Połącz dowolne API lub webhook.
+280|Połącz własne API
+281|Połącz ponad 350 źródeł danych
+282|Połącz przez OAuth (dostęp do danych)
+283|Połącz bez OAuth i otwórz {name}
+284|Połącz swoje aplikacje: AI może w nich wyszukiwać, czytać, tworzyć i edytować, a przed każdą akcją pyta.
+285|Połączono
+286|Połączone aplikacje
+287|Połączone aplikacje (Gmail, Drive, Notion, GitHub…)
+288|Połączono przez OAuth
+289|Łączenie…
+290|Konektory
+291|Kontekst między czatami projektu
+292|Steruje płatnym AI dla zwykłych kont. Owner pozostaje włączony.
+293|Rozmowa
+294|Rozmowy i kontakty.
+295|Skopiowano
+296|Kopiuje klucze zapisane na tym komputerze, aby strona {domain} miała te same modele.
+297|Kopiuj
+298|Kopiuj czat
+299|Kopiuj ID konta
+300|Kopiuj czat do schowka
+301|Kopiuj kod
+302|Kopiuj klucze dla serwera
+303|Kopiuj wiadomość
+304|Kopiuj zaznaczenie
+305|Kopiowanie…
+306|Ochrona kosztów
+307|Nie udało się załączyć:
+308|Nie udało się sprawdzić:
+309|Nie udało się odczytać stanu powiadomień:
+310|Nie udało się odczytać ustawień:
+311|Utwórz
+312|Utwórz plugin
+313|Utwórz konto
+314|Tworzenie i edycja projektów graficznych
+315|Utwórz plugin
+316|Utwórz konto
+317|Utwórz zadanie
+318|Utwórz konto {brand}
+319|Tworzenie, łączenie i edycja dokumentów i grafik
+320|Tworzenie, uruchamianie i analiza reklam
+321|Utworzono
+322|Tworzenie projektu…
+323|Kreatywny
+324|Kreatywność
+325|Alerty kredytów
+326|Dodano kredyty
+330|Kredyty wyczerpane
+331|Bieżący
+332|Bieżący czat
+333|Obecne hasło
+334|Bieżący plan
+335|Własny
+336|Własna aplikacja
+337|Własny asystent
+338|Własny nagłówek
+339|Własne instrukcje
+340|Obsługa klienta
+341|Klienci
+342|Klienci, płatności, faktury i produkty.
+343|Codziennie
+344|Codziennie o {time}
+345|Ciemny
+346|Dane
+347|Dane i akcje w HubSpot
+348|Dane i analityka
+349|Bazy danych
+350|Data
+351|Dzień
+352|Dzień miesiąca
+353|Dni
+354|Decyzje
+355|Deep Research
+356|Domyślne
+357|Usuń
+358|Usuń konto
+359|Usuń wszystko
+360|Usuń dane
+361|Usunąć wszystko, co {brand} pamięta dla tego konta? Nie można tego cofnąć.
+362|Usuń konto
+363|Usunąć konto i wszystkie jego dane? Nie można tego cofnąć. Wpisz hasło konta, aby potwierdzić.
+364|Usunąć asystenta «{name}»?
+365|Usuń czat
+366|Usuń czat {name}
+367|Trwale usunąć rozmowę «{title}»?
+368|Usunąć projekt «{name}» ze wszystkimi wersjami?
+369|Usunąć plugin «{name}»?
+370|Usunąć projekt «{name}»? Rozmowy zostaną, ale nie będą już należeć do żadnego projektu.
+371|Usuń zapisany klucz
+372|Usuń zapisany token
+373|Usunąć skill /{slug}?
+374|Usunąć zadanie «{name}»? Historia uruchomień zostanie utracona.
+375|Usuń to
+376|Usunąć to z pamięci?
+377|Usuń {name}
+378|Usunąć {what}? Nie można tego cofnąć. Wpisz DELETE, aby potwierdzić.
+379|Usunąć «{name}» z Biblioteki? Nie będzie już można go pobrać nawet z rozmów, w których był użyty.
+380|Usuwanie: {error}
+381|Usunięto: {what}.
+382|Usuwanie…
+383|Odrzucono
+384|Odrzuć
+385|Opisz stronę, plakat lub prezentację; {brand} zrobi makietę HTML, którą zobaczysz, zmienisz i pobierzesz.
+386|Opisz stronę, plakat lub prezentację. {brand} napisze jeden plik HTML, który od razu zobaczysz, zmienisz słowami i pobierzesz.
+387|Opisz obraz, który mam zrobić.
+388|Opisz obraz, który chcesz…
+389|Opisz wideo, które mam zrobić.
+390|Opisz wideo, które chcesz…
+391|Opisz, co mamy zbudować
+392|Opisz, co mamy zbudować…
+393|Opis
+394|Design
+395|Design i kreatywność
+396|Projektuj na wspólnym płótnie
+397|Tytuł projektu
+398|Rodzaj projektu
+399|Szczegółowy
+400|Narzędzia deweloperskie
+401|Programowanie
+402|Urządzenie
+403|Urządzenia odbierające prośby: {n}.
+404|Ręcznie wybrane bezpośrednie API
+405|Bezpośredni i szczery
+407|Odrzuć
+408|Odrzuć zmianę
+409|Rozłącz
+410|Rozłączyć {name}? AI nie będzie już mieć do niej dostępu.
+411|Zrób dokładny research, sprawdź kilka źródeł i wyjaśnij szczegółowo:
+412|Nie zezwalaj na bezpośrednie koszty
+413|Nie uruchamiaj płatnych zadań
+414|Dokument
+415|Dokument / długi kontekst
+416|Dokumentacja
+417|Dokumenty
+418|Dokumenty, arkusze i prezentacje na Dysku
+419|Gotowe! Klucz działa.
+420|Gotowe. To urządzenie będzie otrzymywać prośby o dostęp (łącznie 1 urządzenie).
+421|Gotowe. To urządzenie będzie otrzymywać prośby o dostęp (łącznie {n} urządzeń).
+422|Pobierz
+423|Pobierz HTML
+424|Pobierz wszystkie moje dane
+425|Pobierz {name}
+426|Pobieranie: {error}
+427|Pliki do pobrania
+428|Pobieranie…
+429|Upuść, aby dodać pliki do Biblioteki
+430|Upuść, aby załączyć pliki
+431|Duplikuj
+432|Np. Nauczyciel matematyki
+433|Np. Przegląd wiadomości
+434|Np. Wiosenna kampania marketingowa
+435|Np. Korzystaj z dokumentów projektu, zachowaj formalny ton i pamiętaj ważne decyzje.
+436|Np. Pogoda
+437|Np. gemini/gemini-3.5-flash
+438|Edytuj
+439|Edytuj plugin
+440|Edytuj asystenta
+441|Edytuj asystenta {name}
+442|Edytuj projekt
+443|Edytuj projekt {name}
+444|Edytuj zadanie
+445|Edytuj to
+446|Edytuj {name}
+447|Edytuj «{name}»
+448|Edukacja
+449|Edukacja i nauczanie

@@ -1,436 +1,436 @@
-1336|Tjänsten bekräftade inte att filen sparats.
-1337|Sessionen är ogiltig eller har gått ut.
-1338|Sessionerna har stängts.
-1339|Kunde inte spara inställningen: {error}
-1340|Kunde inte spara inställningarna.
-1341|Inloggningen öppnades i webbläsaren. Slutför den där; {brand} sparar anslutningen själv.
-1342|Inloggningen slutfördes inte inom 2 minuter. Försök igen.
-1343|Webbplatsen har den senaste versionen.
-1344|Uppdateringen av webbplatsen misslyckades. Detaljerna finns i Inställningar → Allmänt.
-1345|Webbplatsen har uppdaterats till version {v}. Sidan laddas om.
-1346|Webbplatsen har uppdaterats. Sidan laddas om.
-1347|Webbplatsen uppdateras själv när en ny version kommer ut (kontroll varje timme).
-1348|Webbplatsens inställningar: sparade på servern och tillämpade direkt på alla konton. Nycklarna stannar på servern och visas bara maskerade. Ownerns e-post och registreringarna stannar i .env-filen på servern.
-1349|Skillen /{slug} har sparats.
-1350|Kunde inte läsa in skill-biblioteket: {error}
-1351|Kunde inte läsa in skills: {error}
-1352|Den dikterade texten finns i rutan; skicka den när AI:n har svarat klart.
-1353|Statusen för {email} är nu «{status}».
-1354|Syntaxkontrollen hittade ett fel. Förslaget kan INTE tillämpas.
-1355|Syntaxkontrollen gick igenom.
-1356|Uppgiften har inte körts ännu. Klicka på «Kör nu» för att se ett resultat.
-1357|Uppgiften har uppdaterats.
-1358|Uppgiften «{name}» har skapats.
-1359|Kunde inte läsa in uppgifterna: {error}
-1360|Kunde inte kopiera texten till urklipp.
-1361|Kunde inte läsa texten
-1362|Texten du markerade
-1363|De två nya lösenorden stämmer inte överens.
-1364|Kunde inte skapa videon: {error}
-1365|Röstinspelningen misslyckades.
-1366|Hela meddelandet
-1367|Fönstret kunde inte visa den här delen av appen. Klicka på «Ladda om». Om det händer igen, kopiera detaljerna nedan och skicka dem till appens administratör.
-1368|Tjänsten {brand} hittade inte det som efterfrågades (HTTP 404).
-1369|Tjänsten {brand} fick ett fel (HTTP {status}).
-1370|Kunde inte skapa {format}-filen: {error}. Du kan försöka igen med knapparna under svaret.
-1371|Deras modeller visas i listan (Groq, Gemini, Cerebras…). De svarar när du väljer dem eller när ingen modell är vald.
-1372|Deras modeller visas i listan och svarar direkt, utan OmniRoute.
-1373|Tema
-1374|Det finns nya ändringar på GitHub.
-1375|Det finns inga filer i den här konversationen.
-1376|Det finns inga användare i den här gruppen.
-1377|Det finns inget meddelande från dig för det här svaret.
-1378|Det finns ingen färsk säkerhetskopia på GitHub.
-1379|De här åtgärderna körs utan att fråga. Ta bort en så frågar AI:n igen.
-1380|De här verktygen låter {brand} kontrollera aktuell information och hämta de relevanta delarna av ett GitHub-förråd.
-1381|Tänk
-1382|Tänk är på: mer exakta svar, lite långsammare. Klicka för Snabbt.
-1383|Tänker…
-1384|Den här appen tar bara emot appar den har godkänt; Serasmart finns inte på dess lista ännu.
-1385|Den här webbläsaren kan inte ta emot aviseringar. Använd {brand}-appen som är installerad på telefonen (Chrome på Android eller Safari på iPhone).
-1386|Den här datorn
-1387|Det här dokumentet är tomt.
-1388|Den här e-postadressen accepteras inte.
-1389|Den här filtypen kan inte öppnas här. Använd «Ladda ner».
-1390|Den här filtypen har ingen förhandsvisning. Du kan ladda ner den.
-1391|Den här länken kan inte öppnas av {brand}.
-1392|Periodens kreditdelar
-1393|Den här tjänsten behöver även OAuth Client Secret.
-1394|Den här texten finns inte i dina chattar.
-1395|Den här arbetsboken är tom.
-1396|Tusentals appar via dina Zapier-åtgärder.
-1397|Tid
-1398|Tiden är ute: {answer}
-1399|I dag
-1400|Dagens officiella BNR-kurser: euro, dollar, pund och de andra (bnr.ro).
-1401|Together API-nyckel
-1402|Token
-1403|Token (valfritt)
-1404|Token sparad — lämna tomt för att behålla den
-1405|Ton
-1406|För stort att läsa
-1407|För många försök. Vänta 15 minuter och försök igen.
-1408|För många inloggningsförsök. Försök igen om några minuter.
-1409|För många felaktiga koder. Begär en ny kod.
-1410|Verktyg
-1411|Toppmodeller (de starkaste Claude, GPT, Gemini och Grok)
-1412|Fyll på
-1413|Följa mat och kalorier
-1414|Transkriberingsmodell
-1415|Översätt appen
-1416|Översätt hela appen till alla språk
-1417|Översätter naturligt och behåller ton och formatering.
-1418|Översätter appen till {name}… {pct} %
-1419|Översätter appen till {name}… {pct} %. Texterna byts av sig själva när de är klara.
-1420|Översätter {n} texter till {count} språk i bakgrunden. Du kan stänga det här fönstret.
-1421|Översättare
-1422|Provar modellerna i ordning tills någon fortfarande har kvot.
-1423|Försök igen
-1424|Stäng av på den här enheten
-1425|Stänga av betald AI för vanliga konton? Ownern behåller åtkomsten till de betalda modellerna.
-1426|Stäng av {name}
-1427|Slå på för den här enheten
-1428|Slå på {name}
-1429|Avstängd
-1430|Avstängd av Ownern för ditt konto.
-1431|Inte tillgänglig
-1432|Under meddelanderutan kan du i Bildläge välja varje gång vem som gör den. Med «Automatiskt»: om du har valt en Gemini-, ChatGPT- eller Grok-modell i chatten gör den modellens företag bilden (först abonnemanget i OmniRoute, sedan dess API); annars används den här inställningen.
-1433|Under meddelanderutan kan du i Videoläge välja varje gång vem som gör den. Med «Automatiskt»: om du har valt en Gemini- eller Grok-modell i chatten gör den modellens företag videon (först abonnemanget i OmniRoute, sedan dess API); annars används den här inställningen.
-1434|Ångra den senaste ändringen på GitHub
-1435|Okänt fel.
-1436|Obegränsat
-1437|Avblockera
-1438|Ej ikryssad: dess modeller försvinner från listan och svarar aldrig, inte ens som reserv. OmniRoute-kombinationerna finns kvar; vad de innehåller väljer du i OmniRoute-panelen.
-1439|Namnlös design
-1440|Aktuell dokumentation för kodbibliotek.
-1441|Uppdatera webbplatsen nu
-1442|Uppdatera webbplatsen nu? Servern hämtar den senaste versionen från GitHub och startar om webbplatsen (1–5 minuter, då den inte svarar).
-1443|Uppdatering:
-1444|Uppdaterar webbplatsen… det tar 1–5 minuter; sidan laddas om av sig själv.
-1445|Uppdaterar…
-1446|Ladda upp
-1447|Ladda upp vilken fil som helst
-1448|Ladda upp ljud
-1449|Ladda upp bilder
-1450|Ladda upp video
-1451|Laddar upp 1 fil… stora filer kan ta en stund.
-1452|Laddar upp filen…
-1453|Laddar upp {n} filer… stora filer kan ta en stund.
-1454|Användning
-1455|Använd i chatten
-1456|Används av sig själv när den är relevant
-1457|Använd minnet
-1458|Använd den lokala standardtjänsten
-1459|Använd direkt-API:er
-1460|Använd e-postadressen för ditt {brand}-konto.
-1461|Använd den här AI:n
-1462|Använda
-1463|Används direkt, utan veckogräns
-1464|Används när du skriver {trigger}
-1465|Används när du skriver «{name}» eller {trigger}
-1466|Användbart svar
-1467|Användare
-1468|Använder relevanta chattar i samma projekt utan att du behöver kopiera dem för hand.
-1469|Verktyg
-1470|Giltiga i 12 månader
-1471|Veo med samma Gemini-nyckel som chatten; modellen väljer du ovan, under «Videor görs av».
-1472|Version
-1473|Version på servern: {v}.
-1474|Version {v} finns tillgänglig.
-1475|Version {v} finns tillgänglig. Den laddas ner av sig själv; du får en avisering när den är redo.
-1476|Video
-1477|Videogenerering
-1478|Videogenerering med AI-modeller
-1479|Videogenerering, API:er, modeller och automatiskt försök hos en annan leverantör.
-1480|Video gjord av
-1481|Skapa videor
-1482|Videoläge
-1483|Videoläge: nästa meddelande skapar en video. Klicka på Video igen för att avsluta.
-1484|Video: nästa meddelande skapar en video.
-1485|Videor görs av
-1486|Videor gjorda med AI
-1487|Videor av valfri längd
-1488|Röst
-1489|Röstaktivitet
-1490|Röst och mikrofon
-1491|Röstinmatning
-1493|Taligenkänningen fungerade inte. Klicka på mikrofonen och försök igen.
-1494|Taligenkänningen stoppades; kontrollera texten och skicka den.
-1495|Tal till text
-1496|Vänta
-1497|Vänta tills filen har laddats upp.
-1498|Vänta till {when}
-1499|Väntar på åtkomst
-1500|Väntar på svar från den valda AI:n…
-1501|Väntar på att rösten transkriberas.
-1502|Väntar på ditt godkännande
-1503|Väntar på ditt godkännande i {app}…
-1504|Vill
-1505|Bevaka ett pris
-1506|Arbetssätt
-1507|Vi kunde inte skicka mejlet med koden. Kontrollera adressen och försök igen.
-1508|Vi har mejlat dig en sexsiffrig kod. Ange den för att bekräfta att adressen är din.
-1509|Vi har skickat en sexsiffrig kod till {email}. Om du inte ser den, titta i skräpposten. Koden går ut om 15 minuter.
-1510|Vi har mejlat dig en kod.
-1511|Vi har skickat en ny kod.
-1512|Svagt svar
-1513|Väder
-1514|Aktuellt väder och prognos för 3 dagar för vilken stad som helst (Open-Meteo, utan konto).
-1515|Webbsökning
-1516|Webbsökning för AI-agenter
-1517|Webbsökning gjord för AI.
-1518|Webbsökning med källor
-1519|Webbplats
-1520|Webbplatsens adress
-1521|Webbplatser
-1522|Helgläge. Vad känner du för?
-1523|Veckovis
-1524|Varje vecka, {day} kl. {time}
-1525|Välkommen tillbaka
-1526|Välkommen till {brand}
-1527|Vad bygger vi i dag?
-1528|Vad jobbar vi med i dag?
-1529|Vad beskriver bäst ditt arbete?
-1530|Vad den innehåller
-1531|Vad den gör, i en mening
-1532|Vad som behöver åtgärdas
-1533|Vad ska jag ändra
-1534|Vad ska {brand} kalla dig?
-1535|Vad ska {brand} göra? T.ex. Hitta dagens viktiga nyheter och gör en sammanfattning med länkar.
-1536|Vad AI:n kallar dig
-1537|Vad AI:n ska göra varje gång du använder den här skillen: ton, struktur, vad som ska med, vad som ska undvikas.
-1538|Vad pluginet gör
-1539|Vad allt kostar
-1540|Vad som skulle hjälpa AI:n att lära känna dig: intressen, projekt, erfarenhetsnivå.
-1541|Vad du arbetar med
-1542|Vad {brand} vet om dig
-1543|Vad {brand} kommer ihåg om dig och hur den använder tidigare chattar.
-1544|När en förfrågan kan förstås på flera sätt frågar {brand} först, med alternativ du väljer med ett klick.
-1545|När någon registrerar sig visar din telefon vem som vill gå med i {brand} och frågar om du tillåter det. På Android svarar du från aviseringen med Tillåt eller Neka; på iPhone trycker du på den och väljer i appen. Förfrågan väntar tills du svarar.
-1546|När du ber om en bild eller video lägger {brand} den riktiga filen i chatten, med en nedladdningsknapp.
-1547|När du ber om en bild provar {brand} leverantörerna i den inställda ordningen, lägger den riktiga filen i chatten och sparar den i Biblioteket.
-1548|När du ber om en video provar {brand} leverantörerna i ordning, hämtar den riktiga MP4-filen, lägger den i chatten och sparar den i Biblioteket.
-1549|När du frågar något söker den i dina andra chattar (även arkiverade) och använder det som hör ihop. Så kan du fortsätta ett ämne i en ny chatt.
-1550|Windows-app
-1551|Med Cloud API inställt hanterar Ownern konton, godkännanden och behörigheter centralt. Lämna tomt för att bara använda den här datorn.
-1552|Med xAI-nyckeln från AI-API:er.
-1553|Med xAI-nyckeln från AI-API:er; 1–15 sekunder.
-1554|Utan abonnemang: {n} meddelanden per dag med gratismodellerna, efter en provperiod på {days} dagar med {credits} krediter. Kortbetalningar kommer snart; till dess tilldelar Ownern abonnemangen.
-1555|Word-, Excel-, PowerPoint- och PDF-filer
-1556|Workers, KV, R2 och D1 i ditt Cloudflare-konto.
-1557|Vardagar (måndag–fredag)
-1558|Arbetar i
-1559|Arbetar i {app}…
-1560|Jobbar du sent? Jag finns här när du behöver mig.
-1561|Räknar ut priset…
-1562|Arbetar…
-1563|Träningspass och hälsodata
-1564|Fungerar direkt
-1565|Fungerar: {result}
-1566|Avslutar du dagen? Jag kan hjälpa till med det som är kvar.
-1567|Skriv ett namn på pluginet.
-1568|Skriv ett namn på uppgiften.
-1569|Skriv namnet på ett plugin i chatten (till exempel «Kalender») eller @namn så använder {brand} det för svaret.
-1570|Skriv ett kort, vänligt mejl som
-1571|Skriv ett mejl
-1572|Skriv en gång vad {brand} ska göra och välj när. Till exempel: «Varje vardag kl. 08:30, gör en sammanfattning av nyheterna.»
-1573|Skriv vad {brand} ska göra.
-1574|Skriv ditt svar
-1575|Skriv ett eget svar
-1576|Skriver ett tydligt, artigt mejl med ämnesrad utifrån några idéer.
-1577|Skriver HTML och CSS…
-1578|Skrivande och innehåll
-1579|Skriver ner det du sa…
-1580|Transkriberar din röst…
-1581|Skriver svaret…
-1582|Skriver din {format}-fil…
-1583|Skriver din {format}-fil… {n} ord
-1584|Fel e-postadress eller lösenord.
-1585|JA
-1586|Ja
-1587|I går
-1588|Du har lagt till /{slug}. Skriv det i chatten för att använda det.
-1589|Du kan när som helst lägga till fler gratis-API:er (Groq, Cerebras, Cloudflare för bilder) i Inställningar → AI-API:er.
-1590|Du kan begära en ny kod en gång per minut.
-1591|Du kan ansluta flera tjänster. {brand} provar leverantörerna i ordning och går vidare till nästa om en inte fungerar.
-1592|Du kan använda pluginet utan OAuth för att öppna appen direkt. OAuth eller ett API behövs bara om du vill att {brand} ska läsa eller ändra privata data i den tjänsten.
-1593|Du väljer
-1594|Du valde {model}; OmniRoute skickade frågan till {served}.
-1595|Du valde {model}; {brand} skickade frågan till {served}.
-1596|Du får en kod via e-post för att bekräfta adressen, sedan godkänner Ownern kontot.
-1597|Du har inga assistenter. Skapa en från sidofältet.
-1598|Du har den senaste versionen.
-1599|Du låter {brand} välja
-1600|Du har loggats ut från alla enheter.
-1601|YouTube-statistik och nyckelord
-1602|Din AI, alla modeller
-1603|Ditt ChatGPT-abonnemang, anslutet i OmniRoute
-1604|Ditt Claude-abonnemang, anslutet i OmniRoute
-1605|Dina händelser i Google Kalender
-1606|Dina Helium 10-data
-1607|Dina Outlook-mejl
-1608|Din Plaid-panel: objekt, användning och problem.
-1609|Dina webbplatser, sidor och butik på Wix.
-1610|Inget debiteras ditt konto (Owner).
-1611|Ditt kontos lösenord
-1612|Ditt konto, appen, rösten, AI-tjänsterna och uppdateringarna.
-1613|Dina svar
-1614|Dina appar
-1615|Dina anslutna appar: AI:n läser dem och arbetar i dem med ditt godkännande.
-1616|Ditt val: {value}
-1617|Dina designer
-1618|Dina filer, bilder, videor och designer, redo att användas i konversationer.
-1619|Dina hälsodata
-1620|Dina anteckningar och mötesutskrifter.
-1621|Ditt namn
-1622|Dina API:er och webhooks, och plugins som fungerar direkt.
-1623|Dina bilder och videor: söka, ladda upp, redigera.
-1624|Ditt abonnemang
-1625|Ditt abonnemang, veckans krediter och extra krediter.
-1626|Ditt abonnemang, veckans krediter och vad varje åtgärd kostar.
-1627|Din profil, hur AI:n svarar, aviseringar, integritet och säkerhet.
-1628|Dina resurser på Render
-1629|Din session har gått ut eller stängts. Logga in igen.
-1630|Dina skills
-1632|Dina uppgifter och projekt: lägga till, slutföra, schemalägga om.
-1633|Ditt arbete
-1634|tillagd av dig
-1635|alla chattar
-1636|alla filer i Biblioteket
-1637|hela minnet
-1638|all kontodata (chattar, minne, filer, projekt, assistenter, skills, automatiseringar, appar, designer)
-1639|svar · {s} s
-1640|högst {n} krediter
-1641|automatiskt
-1642|av {author}
-1643|av {author} · {license}
-1644|kategorier
-1645|kategori
-1646|kontrollera att du kopierade hela.
-1647|kod
-1648|anslutningen fungerar
-1649|skapad
-1650|krediter
-1651|standard
-1652|t.ex. Svara på klagomål
-1653|t.ex. ett namn eller smeknamn
-1654|t.ex. ställ förtydligande frågor innan du ger utförliga svar
-1655|t.ex. student, webbdesigner, redovisningskonsult
-1656|t.ex. webbdesigner, redovisningskonsult, lärare
-1657|fel
-1658|fal API-nyckel
-1659|fal-videomodell
-1660|fal.ai-modell
-1661|fil
-1662|för {n} krediter · engångsbetalning
-1663|från en schemalagd uppgift
-1664|från historiken
-1665|från {n}
-1666|github_pat_... eller ghp_...
-1667|ingår
-1668|objekt
-1669|objekt
-1670|sparat automatiskt
-1671|härlett från namnet
-1672|minne
-1673|minst {n} krediter
-1674|namn@exempel.se
-1675|nästa: {when}
-1676|utan konto
-1677|ingen
-1678|ingår inte
-1679|nu
-1680|av veckans krediter använda
-1681|av
-1682|en gång
-1683|bara vid ändringar
-1684|valfritt
-1685|valfritt / PKCE
-1686|betald
-1687|fäst
-1688|skrivskyddad
-1689|verkligt resultat
-1690|obligatoriskt
-1691|inställt av Ownern
-1692|sedan {when}
-1693|källa
-1694|system
-1695|filen
-1696|nyckeln fungerar · {models} modeller, {combos} kombinationer · {s} s
-1697|det finns inget innehåll för filen
-1698|denna
-1699|den här veckan
-1700|i dag
-1701|i morgon
-1702|okänt fel
-1703|upp till {s} s
-1704|används när du inte har valt någon annan i listan högst upp
-1705|med nyckel
-1706|xAI API-nyckel
-1707|i går
-1708|ditt personliga abonnemang förblir bara ditt (leverantörens villkor tillåter inte att kontot delas). Ge personen modellen via API:et (openai/…, anthropic/…).
-1709|{brand}-konto
-1710|{brand} kan göra fel. Kontrollera viktig information.
-1711|{brand} kontrollerar det publicerade priset när det finns och startar inte om den inte kan bekräfta noll kostnad. Gemini Veo, fal.ai och Replicate förblir blockerade i det här läget.
-1712|{brand} transkriberar inspelningen…
-1713|{brand} tar hänsyn till det i varje chatt på det här kontot.
-1714|{brand} sparar själv dina preferenser, beslut och bestående detaljer och använder dem när de spelar roll.
-1715|{brand} stötte på ett problem
-1716|{brand} läser filen från det inställda förrådet och föreslår en åtgärd.
-1717|{brand} utför instruktionerna själv vid vald tid, medan appen körs.
-1718|{brand} sparar pluginet som en direktlänk och öppnar den officiella appen. Logga in som vanligt i webbläsaren.
-1719|{brand}-tjänst
-1720|Adress till {brand}-tjänsten
-1721|{brand}-inställningar
-1722|{brand}-uppdatering tillgänglig — installera nu
-1723|{brand} använde {provider} · {model}
-1724|{brand} använder det bara för att svara dig bättre; du kan se och ändra det här när du vill.
-1725|{days} kl. {time}
-1726|{left} av {limit} gratis meddelanden kvar i dag
-1727|{left} av {total} krediter · slutar {when}
-1728|{model}: {mode} för {email}.
-1729|{name} ({email}) kan nu använda {brand}.
-1730|{name} ({email}) kommer inte att kunna använda {brand}.
-1731|{name} är anslutet. Fråga i chatten; AI:n frågar före varje åtgärd.
-1732|{name} är installerat
-1733|{name} är redo. Skriv i chatten, till exempel: {trigger}, eller bara fråga.
-1734|{name} har lagts till: dess {n} skills fungerar med /namn i chatten.
-1735|{name}: ansluten.
-1736|{name}: sparad för att öppnas direkt, utan OAuth. Logga in som vanligt i den officiella appen.
-1737|{name}: pluginet har anslutits.
-1738|{name}: pluginet har sparats.
-1739|{n} OmniRoute-modeller är dolda av Ownern.
-1740|{n} per dag
-1741|{n} per minut
-1742|{n} per vecka
-1743|{n} åtgärder
-1744|{n} aktiva sessioner
-1745|{n} appar
-1746|{n} åt gången
-1747|{n} automatiseringar
-1748|{n} filer har lagts till i Biblioteket.
-1749|{n} kvar · vecka {w} av 4
-1750|{n} tillgänglig modell
-1751|{n} modeller är dolda av Ownern.
-1752|{n} tillgängliga modeller
-1753|{n} inte tillåtna
-1754|{n} personer
-1755|{n} sekunder
-1756|{n} skills
-1757|{n} versioner
-1758|{pack} · av {author} · {license}
-1759|{plan}-abonnemang
-1760|{plan}-abonnemang: {percent} % av veckan använt
-1761|{price} per år · 2 månader gratis
-1762|{p} % av veckans krediter använda
-1763|{s} s · tar oftast ungefär en minut
-1764|«Tillåten» har ingen effekt så länge «Chat AI» är avstängt för det här kontot: slå först på Chat-behörigheten ovan.
-1765|«Standard» följer behörigheterna ovan; «Tillåten» öppnar modellen även om behörigheterna håller den stängd; «Blockerad» stänger den. Ownerns personliga abonnemang förblir bara Ownerns.
-1766|«Nano Banana»; modellen väljer du ovan, under «Bilder görs av». Samma nyckel som för AI-API:er och Video.
-1767|«{feature}» är avstängt av Ownern för ditt konto.
-1768|«{model}» är inte tillåten för dig av Ownern.
-1769|«{name}» har körts. Resultatet finns i historiken.
-1770|⚡ Snabbt
-1771|✨ Kvalitet
-1772|🎬 Kvalitet
-1773|🛡️ Bara gratis
+1345|Tjänsten bekräftade inte att filen sparats.
+1346|Sessionen är ogiltig eller har gått ut.
+1347|Sessionerna har stängts.
+1348|Kunde inte spara inställningen: {error}
+1349|Kunde inte spara inställningarna.
+1350|Inloggningen öppnades i webbläsaren. Slutför den där; {brand} sparar anslutningen själv.
+1351|Inloggningen slutfördes inte inom 2 minuter. Försök igen.
+1352|Webbplatsen har den senaste versionen.
+1353|Uppdateringen av webbplatsen misslyckades. Detaljerna finns i Inställningar → Allmänt.
+1354|Webbplatsen har uppdaterats till version {v}. Sidan laddas om.
+1355|Webbplatsen har uppdaterats. Sidan laddas om.
+1356|Webbplatsen uppdateras själv när en ny version kommer ut (kontroll varje timme).
+1357|Webbplatsens inställningar: sparade på servern och tillämpade direkt på alla konton. Nycklarna stannar på servern och visas bara maskerade. Ownerns e-post och registreringarna stannar i .env-filen på servern.
+1358|Skillen /{slug} har sparats.
+1359|Kunde inte läsa in skill-biblioteket: {error}
+1360|Kunde inte läsa in skills: {error}
+1361|Den dikterade texten finns i rutan; skicka den när AI:n har svarat klart.
+1362|Statusen för {email} är nu «{status}».
+1363|Syntaxkontrollen hittade ett fel. Förslaget kan INTE tillämpas.
+1364|Syntaxkontrollen gick igenom.
+1365|Uppgiften har inte körts ännu. Klicka på «Kör nu» för att se ett resultat.
+1366|Uppgiften har uppdaterats.
+1367|Uppgiften «{name}» har skapats.
+1368|Kunde inte läsa in uppgifterna: {error}
+1369|Kunde inte kopiera texten till urklipp.
+1370|Kunde inte läsa texten
+1371|Texten du markerade
+1372|De två nya lösenorden stämmer inte överens.
+1373|Kunde inte skapa videon: {error}
+1374|Röstinspelningen misslyckades.
+1375|Hela meddelandet
+1376|Fönstret kunde inte visa den här delen av appen. Klicka på «Ladda om». Om det händer igen, kopiera detaljerna nedan och skicka dem till appens administratör.
+1377|Tjänsten {brand} hittade inte det som efterfrågades (HTTP 404).
+1378|Tjänsten {brand} fick ett fel (HTTP {status}).
+1379|Kunde inte skapa {format}-filen: {error}. Du kan försöka igen med knapparna under svaret.
+1380|Deras modeller visas i listan (Groq, Gemini, Cerebras…). De svarar när du väljer dem eller när ingen modell är vald.
+1381|Deras modeller visas i listan och svarar direkt, utan OmniRoute.
+1382|Tema
+1383|Det finns nya ändringar på GitHub.
+1384|Det finns inga filer i den här konversationen.
+1385|Det finns inga användare i den här gruppen.
+1386|Det finns inget meddelande från dig för det här svaret.
+1387|Det finns ingen färsk säkerhetskopia på GitHub.
+1388|De här åtgärderna körs utan att fråga. Ta bort en så frågar AI:n igen.
+1389|De här verktygen låter {brand} kontrollera aktuell information och hämta de relevanta delarna av ett GitHub-förråd.
+1390|Tänk
+1391|Tänk är på: mer exakta svar, lite långsammare. Klicka för Snabbt.
+1392|Tänker…
+1393|Den här appen tar bara emot appar den har godkänt; Serasmart finns inte på dess lista ännu.
+1394|Den här webbläsaren kan inte ta emot aviseringar. Använd {brand}-appen som är installerad på telefonen (Chrome på Android eller Safari på iPhone).
+1395|Den här datorn
+1396|Det här dokumentet är tomt.
+1397|Den här e-postadressen accepteras inte.
+1398|Den här filtypen kan inte öppnas här. Använd «Ladda ner».
+1399|Den här filtypen har ingen förhandsvisning. Du kan ladda ner den.
+1400|Den här länken kan inte öppnas av {brand}.
+1401|Periodens kreditdelar
+1402|Den här tjänsten behöver även OAuth Client Secret.
+1403|Den här texten finns inte i dina chattar.
+1404|Den här arbetsboken är tom.
+1405|Tusentals appar via dina Zapier-åtgärder.
+1406|Tid
+1407|Tiden är ute: {answer}
+1408|I dag
+1409|Dagens officiella BNR-kurser: euro, dollar, pund och de andra (bnr.ro).
+1410|Together API-nyckel
+1411|Token
+1412|Token (valfritt)
+1413|Token sparad — lämna tomt för att behålla den
+1414|Ton
+1415|För stort att läsa
+1416|För många försök. Vänta 15 minuter och försök igen.
+1417|För många inloggningsförsök. Försök igen om några minuter.
+1418|För många felaktiga koder. Begär en ny kod.
+1419|Verktyg
+1420|Toppmodeller (de starkaste Claude, GPT, Gemini och Grok)
+1421|Fyll på
+1422|Följa mat och kalorier
+1423|Transkriberingsmodell
+1424|Översätt appen
+1425|Översätt hela appen till alla språk
+1426|Översätter naturligt och behåller ton och formatering.
+1427|Översätter appen till {name}… {pct} %
+1428|Översätter appen till {name}… {pct} %. Texterna byts av sig själva när de är klara.
+1429|Översätter {n} texter till {count} språk i bakgrunden. Du kan stänga det här fönstret.
+1430|Översättare
+1431|Provar modellerna i ordning tills någon fortfarande har kvot.
+1433|Försök igen
+1434|Stäng av på den här enheten
+1435|Stänga av betald AI för vanliga konton? Ownern behåller åtkomsten till de betalda modellerna.
+1436|Stäng av {name}
+1437|Slå på för den här enheten
+1438|Slå på {name}
+1439|Avstängd
+1440|Avstängd av Ownern för ditt konto.
+1441|Inte tillgänglig
+1442|Under meddelanderutan kan du i Bildläge välja varje gång vem som gör den. Med «Automatiskt»: om du har valt en Gemini-, ChatGPT- eller Grok-modell i chatten gör den modellens företag bilden (först abonnemanget i OmniRoute, sedan dess API); annars används den här inställningen.
+1443|Under meddelanderutan kan du i Videoläge välja varje gång vem som gör den. Med «Automatiskt»: om du har valt en Gemini- eller Grok-modell i chatten gör den modellens företag videon (först abonnemanget i OmniRoute, sedan dess API); annars används den här inställningen.
+1444|Ångra den senaste ändringen på GitHub
+1445|Okänt fel.
+1446|Obegränsat
+1447|Avblockera
+1448|Ej ikryssad: dess modeller försvinner från listan och svarar aldrig, inte ens som reserv. OmniRoute-kombinationerna finns kvar; vad de innehåller väljer du i OmniRoute-panelen.
+1449|Namnlös design
+1450|Aktuell dokumentation för kodbibliotek.
+1451|Uppdatera webbplatsen nu
+1452|Uppdatera webbplatsen nu? Servern hämtar den senaste versionen från GitHub och startar om webbplatsen (1–5 minuter, då den inte svarar).
+1453|Uppdatering:
+1454|Uppdaterar webbplatsen… det tar 1–5 minuter; sidan laddas om av sig själv.
+1455|Uppdaterar…
+1456|Ladda upp
+1457|Ladda upp vilken fil som helst
+1458|Ladda upp ljud
+1459|Ladda upp bilder
+1460|Ladda upp video
+1461|Laddar upp 1 fil… stora filer kan ta en stund.
+1462|Laddar upp filen…
+1463|Laddar upp {n} filer… stora filer kan ta en stund.
+1464|Användning
+1466|Använd i chatten
+1467|Används av sig själv när den är relevant
+1468|Använd minnet
+1469|Använd den lokala standardtjänsten
+1470|Använd direkt-API:er
+1471|Använd e-postadressen för ditt {brand}-konto.
+1472|Använd den här AI:n
+1473|Använda
+1474|Används direkt, utan veckogräns
+1478|Används när du skriver {trigger}
+1479|Används när du skriver «{name}» eller {trigger}
+1480|Användbart svar
+1481|Användare
+1482|Använder relevanta chattar i samma projekt utan att du behöver kopiera dem för hand.
+1483|Verktyg
+1484|Giltiga i 12 månader
+1485|Veo med samma Gemini-nyckel som chatten; modellen väljer du ovan, under «Videor görs av».
+1486|Version
+1487|Version på servern: {v}.
+1488|Version {v} finns tillgänglig.
+1489|Version {v} finns tillgänglig. Den laddas ner av sig själv; du får en avisering när den är redo.
+1490|Video
+1491|Videogenerering
+1492|Videogenerering med AI-modeller
+1493|Videogenerering, API:er, modeller och automatiskt försök hos en annan leverantör.
+1494|Video gjord av
+1495|Skapa videor
+1496|Videoläge
+1497|Videoläge: nästa meddelande skapar en video. Klicka på Video igen för att avsluta.
+1498|Video: nästa meddelande skapar en video.
+1499|Videor görs av
+1500|Videor gjorda med AI
+1501|Videor av valfri längd
+1502|Röst
+1503|Röstaktivitet
+1504|Röst och mikrofon
+1505|Röstinmatning
+1507|Taligenkänningen fungerade inte. Klicka på mikrofonen och försök igen.
+1508|Taligenkänningen stoppades; kontrollera texten och skicka den.
+1509|Tal till text
+1510|Vänta
+1511|Vänta tills filen har laddats upp.
+1512|Vänta till {when}
+1513|Väntar på åtkomst
+1514|Väntar på svar från den valda AI:n…
+1515|Väntar på att rösten transkriberas.
+1516|Väntar på ditt godkännande
+1517|Väntar på ditt godkännande i {app}…
+1518|Vill
+1519|Bevaka ett pris
+1520|Arbetssätt
+1521|Vi kunde inte skicka mejlet med koden. Kontrollera adressen och försök igen.
+1522|Vi har mejlat dig en sexsiffrig kod. Ange den för att bekräfta att adressen är din.
+1523|Vi har skickat en sexsiffrig kod till {email}. Om du inte ser den, titta i skräpposten. Koden går ut om 15 minuter.
+1524|Vi har mejlat dig en kod.
+1525|Vi har skickat en ny kod.
+1526|Svagt svar
+1527|Väder
+1528|Aktuellt väder och prognos för 3 dagar för vilken stad som helst (Open-Meteo, utan konto).
+1529|Webbsökning
+1530|Webbsökning för AI-agenter
+1531|Webbsökning gjord för AI.
+1532|Webbsökning med källor
+1533|Webbplats
+1534|Webbplatsens adress
+1535|Webbplatser
+1536|Helgläge. Vad känner du för?
+1537|Veckovis
+1538|Varje vecka, {day} kl. {time}
+1539|Välkommen tillbaka
+1540|Välkommen till {brand}
+1541|Vad bygger vi i dag?
+1542|Vad jobbar vi med i dag?
+1543|Vad beskriver bäst ditt arbete?
+1544|Vad den innehåller
+1545|Vad den gör, i en mening
+1546|Vad som behöver åtgärdas
+1547|Vad ska jag ändra
+1548|Vad ska {brand} kalla dig?
+1549|Vad ska {brand} göra? T.ex. Hitta dagens viktiga nyheter och gör en sammanfattning med länkar.
+1550|Vad AI:n kallar dig
+1551|Vad AI:n ska göra varje gång du använder den här skillen: ton, struktur, vad som ska med, vad som ska undvikas.
+1552|Vad pluginet gör
+1553|Vad allt kostar
+1554|Vad som skulle hjälpa AI:n att lära känna dig: intressen, projekt, erfarenhetsnivå.
+1555|Vad du arbetar med
+1556|Vad {brand} vet om dig
+1557|Vad {brand} kommer ihåg om dig och hur den använder tidigare chattar.
+1558|När en förfrågan kan förstås på flera sätt frågar {brand} först, med alternativ du väljer med ett klick.
+1559|När någon registrerar sig visar din telefon vem som vill gå med i {brand} och frågar om du tillåter det. På Android svarar du från aviseringen med Tillåt eller Neka; på iPhone trycker du på den och väljer i appen. Förfrågan väntar tills du svarar.
+1562|När du ber om en bild eller video lägger {brand} den riktiga filen i chatten, med en nedladdningsknapp.
+1563|När du ber om en bild provar {brand} leverantörerna i den inställda ordningen, lägger den riktiga filen i chatten och sparar den i Biblioteket.
+1564|När du ber om en video provar {brand} leverantörerna i ordning, hämtar den riktiga MP4-filen, lägger den i chatten och sparar den i Biblioteket.
+1565|När du frågar något söker den i dina andra chattar (även arkiverade) och använder det som hör ihop. Så kan du fortsätta ett ämne i en ny chatt.
+1566|Windows-app
+1567|Med Cloud API inställt hanterar Ownern konton, godkännanden och behörigheter centralt. Lämna tomt för att bara använda den här datorn.
+1568|Med xAI-nyckeln från AI-API:er.
+1569|Med xAI-nyckeln från AI-API:er; 1–15 sekunder.
+1570|Utan abonnemang: {n} meddelanden per dag med gratismodellerna, efter en provperiod på {days} dagar med {credits} krediter. Kortbetalningar kommer snart; till dess tilldelar Ownern abonnemangen.
+1571|Word-, Excel-, PowerPoint- och PDF-filer
+1574|Workers, KV, R2 och D1 i ditt Cloudflare-konto.
+1575|Vardagar (måndag–fredag)
+1576|Arbetar i
+1577|Arbetar i {app}…
+1578|Jobbar du sent? Jag finns här när du behöver mig.
+1579|Räknar ut priset…
+1580|Arbetar…
+1581|Träningspass och hälsodata
+1582|Fungerar direkt
+1583|Fungerar: {result}
+1584|Avslutar du dagen? Jag kan hjälpa till med det som är kvar.
+1585|Skriv ett namn på pluginet.
+1586|Skriv ett namn på uppgiften.
+1587|Skriv namnet på ett plugin i chatten (till exempel «Kalender») eller @namn så använder {brand} det för svaret.
+1588|Skriv ett kort, vänligt mejl som
+1589|Skriv ett mejl
+1590|Skriv en gång vad {brand} ska göra och välj när. Till exempel: «Varje vardag kl. 08:30, gör en sammanfattning av nyheterna.»
+1591|Skriv vad {brand} ska göra.
+1592|Skriv ditt svar
+1593|Skriv ett eget svar
+1594|Skriver ett tydligt, artigt mejl med ämnesrad utifrån några idéer.
+1595|Skriver HTML och CSS…
+1596|Skrivande och innehåll
+1597|Skriver ner det du sa…
+1598|Transkriberar din röst…
+1599|Skriver svaret…
+1600|Skriver din {format}-fil…
+1601|Skriver din {format}-fil… {n} ord
+1602|Fel e-postadress eller lösenord.
+1603|JA
+1604|Ja
+1605|I går
+1606|Du har lagt till /{slug}. Skriv det i chatten för att använda det.
+1607|Du kan när som helst lägga till fler gratis-API:er (Groq, Cerebras, Cloudflare för bilder) i Inställningar → AI-API:er.
+1608|Du kan begära en ny kod en gång per minut.
+1609|Du kan ansluta flera tjänster. {brand} provar leverantörerna i ordning och går vidare till nästa om en inte fungerar.
+1610|Du kan använda pluginet utan OAuth för att öppna appen direkt. OAuth eller ett API behövs bara om du vill att {brand} ska läsa eller ändra privata data i den tjänsten.
+1611|Du väljer
+1612|Du valde {model}; OmniRoute skickade frågan till {served}.
+1613|Du valde {model}; {brand} skickade frågan till {served}.
+1614|Du får en kod via e-post för att bekräfta adressen, sedan godkänner Ownern kontot.
+1615|Du har inga assistenter. Skapa en från sidofältet.
+1616|Du har den senaste versionen.
+1617|Du låter {brand} välja
+1618|Du har loggats ut från alla enheter.
+1619|YouTube-statistik och nyckelord
+1620|Din AI, alla modeller
+1621|Ditt ChatGPT-abonnemang, anslutet i OmniRoute
+1622|Ditt Claude-abonnemang, anslutet i OmniRoute
+1623|Dina händelser i Google Kalender
+1624|Dina Helium 10-data
+1625|Dina Outlook-mejl
+1626|Din Plaid-panel: objekt, användning och problem.
+1627|Dina webbplatser, sidor och butik på Wix.
+1628|Inget debiteras ditt konto (Owner).
+1629|Ditt kontos lösenord
+1630|Ditt konto, appen, rösten, AI-tjänsterna och uppdateringarna.
+1631|Dina svar
+1632|Dina appar
+1633|Dina anslutna appar: AI:n läser dem och arbetar i dem med ditt godkännande.
+1634|Ditt val: {value}
+1635|Dina designer
+1636|Dina filer, bilder, videor och designer, redo att användas i konversationer.
+1637|Dina hälsodata
+1638|Dina anteckningar och mötesutskrifter.
+1639|Ditt namn
+1640|Dina API:er och webhooks, och plugins som fungerar direkt.
+1641|Dina bilder och videor: söka, ladda upp, redigera.
+1642|Ditt abonnemang
+1643|Ditt abonnemang, veckans krediter och extra krediter.
+1644|Ditt abonnemang, veckans krediter och vad varje åtgärd kostar.
+1645|Din profil, hur AI:n svarar, aviseringar, integritet och säkerhet.
+1646|Dina resurser på Render
+1647|Din session har gått ut eller stängts. Logga in igen.
+1648|Dina skills
+1650|Dina uppgifter och projekt: lägga till, slutföra, schemalägga om.
+1651|Ditt arbete
+1652|tillagd av dig
+1653|alla chattar
+1654|alla filer i Biblioteket
+1655|hela minnet
+1656|all kontodata (chattar, minne, filer, projekt, assistenter, skills, automatiseringar, appar, designer)
+1657|svar · {s} s
+1659|högst {n} krediter
+1660|automatiskt
+1661|av {author}
+1662|av {author} · {license}
+1663|kategorier
+1664|kategori
+1665|kontrollera att du kopierade hela.
+1666|kod
+1667|anslutningen fungerar
+1668|skapad
+1669|krediter
+1670|standard
+1671|t.ex. Svara på klagomål
+1672|t.ex. ett namn eller smeknamn
+1673|t.ex. ställ förtydligande frågor innan du ger utförliga svar
+1674|t.ex. student, webbdesigner, redovisningskonsult
+1675|t.ex. webbdesigner, redovisningskonsult, lärare
+1676|fel
+1677|fal API-nyckel
+1678|fal-videomodell
+1679|fal.ai-modell
+1680|fil
+1681|för {n} krediter · engångsbetalning
+1682|från en schemalagd uppgift
+1683|från historiken
+1684|från {n}
+1685|github_pat_... eller ghp_...
+1686|ingår
+1687|objekt
+1688|objekt
+1689|sparat automatiskt
+1690|härlett från namnet
+1691|minne
+1692|minst {n} krediter
+1693|namn@exempel.se
+1694|nästa: {when}
+1695|utan konto
+1696|ingen
+1697|ingår inte
+1698|nu
+1699|av veckans krediter använda
+1700|av
+1701|en gång
+1702|bara vid ändringar
+1703|valfritt
+1704|valfritt / PKCE
+1705|betald
+1706|fäst
+1707|skrivskyddad
+1708|verkligt resultat
+1709|obligatoriskt
+1710|inställt av Ownern
+1711|sedan {when}
+1712|källa
+1713|system
+1714|filen
+1715|nyckeln fungerar · {models} modeller, {combos} kombinationer · {s} s
+1716|det finns inget innehåll för filen
+1717|denna
+1718|den här veckan
+1719|i dag
+1720|i morgon
+1721|okänt fel
+1722|upp till {s} s
+1723|används när du inte har valt någon annan i listan högst upp
+1724|med nyckel
+1725|xAI API-nyckel
+1726|i går
+1727|ditt personliga abonnemang förblir bara ditt (leverantörens villkor tillåter inte att kontot delas). Ge personen modellen via API:et (openai/…, anthropic/…).
+1728|{brand}-konto
+1729|{brand} kan göra fel. Kontrollera viktig information.
+1730|{brand} kontrollerar det publicerade priset när det finns och startar inte om den inte kan bekräfta noll kostnad. Gemini Veo, fal.ai och Replicate förblir blockerade i det här läget.
+1731|{brand} transkriberar inspelningen…
+1732|{brand} tar hänsyn till det i varje chatt på det här kontot.
+1733|{brand} sparar själv dina preferenser, beslut och bestående detaljer och använder dem när de spelar roll.
+1734|{brand} stötte på ett problem
+1735|{brand} läser filen från det inställda förrådet och föreslår en åtgärd.
+1736|{brand} utför instruktionerna själv vid vald tid, medan appen körs.
+1737|{brand} sparar pluginet som en direktlänk och öppnar den officiella appen. Logga in som vanligt i webbläsaren.
+1738|{brand}-tjänst
+1739|Adress till {brand}-tjänsten
+1740|{brand}-inställningar
+1741|{brand}-uppdatering tillgänglig — installera nu
+1742|{brand} använde {provider} · {model}
+1743|{brand} använder det bara för att svara dig bättre; du kan se och ändra det här när du vill.
+1744|{days} kl. {time}
+1745|{left} av {limit} gratis meddelanden kvar i dag
+1746|{left} av {total} krediter · slutar {when}
+1747|{model}: {mode} för {email}.
+1748|{name} ({email}) kan nu använda {brand}.
+1749|{name} ({email}) kommer inte att kunna använda {brand}.
+1750|{name} är anslutet. Fråga i chatten; AI:n frågar före varje åtgärd.
+1751|{name} är installerat
+1752|{name} är redo. Skriv i chatten, till exempel: {trigger}, eller bara fråga.
+1753|{name} har lagts till: dess {n} skills fungerar med /namn i chatten.
+1754|{name}: ansluten.
+1755|{name}: sparad för att öppnas direkt, utan OAuth. Logga in som vanligt i den officiella appen.
+1756|{name}: pluginet har anslutits.
+1757|{name}: pluginet har sparats.
+1758|{n} OmniRoute-modeller är dolda av Ownern.
+1759|{n} per dag
+1760|{n} per minut
+1761|{n} per vecka
+1762|{n} åtgärder
+1763|{n} aktiva sessioner
+1764|{n} appar
+1765|{n} åt gången
+1766|{n} automatiseringar
+1767|{n} filer har lagts till i Biblioteket.
+1768|{n} kvar · vecka {w} av 4
+1769|{n} tillgänglig modell
+1770|{n} modeller är dolda av Ownern.
+1771|{n} tillgängliga modeller
+1772|{n} inte tillåtna
+1773|{n} personer
+1774|{n} sekunder
+1775|{n} skills
+1776|{n} versioner
+1777|{pack} · av {author} · {license}
+1778|{plan}-abonnemang
+1779|{plan}-abonnemang: {percent} % av veckan använt
+1780|{price} per år · 2 månader gratis
+1781|{p} % av veckans krediter använda
+1782|{s} s · tar oftast ungefär en minut
+1783|«Tillåten» har ingen effekt så länge «Chat AI» är avstängt för det här kontot: slå först på Chat-behörigheten ovan.
+1784|«Standard» följer behörigheterna ovan; «Tillåten» öppnar modellen även om behörigheterna håller den stängd; «Blockerad» stänger den. Ownerns personliga abonnemang förblir bara Ownerns.
+1785|«Nano Banana»; modellen väljer du ovan, under «Bilder görs av». Samma nyckel som för AI-API:er och Video.
+1786|«{feature}» är avstängt av Ownern för ditt konto.
+1787|«{model}» är inte tillåten för dig av Ownern.
+1788|«{name}» har körts. Resultatet finns i historiken.
+1789|⚡ Snabbt
+1790|✨ Kvalitet
+1791|🎬 Kvalitet
+1792|🛡️ Bara gratis

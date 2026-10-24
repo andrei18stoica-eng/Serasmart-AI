@@ -87,7 +87,7 @@ async function gateway() {
       appsSystem = body.messages.filter((m) => m.role === "system" && /CONNECTED APPS:/.test(m.content)).map((m) => m.content).join("\n");
       expect(/CONNECTED APPS: Notes/.test(appsSystem), "the AI is told which apps are connected");
       const last = body.messages.at(-1);
-      if (last.role === "tool") { expect(body.stream === false, "the rounds after a tool are not streamed"); return res.end(JSON.stringify({ choices: [{ message: { role: "assistant", content: "Done: " + last.content } }] })); }
+      if (last.role === "tool") { expect(body.stream === false, "the rounds after a tool are not streamed"); return res.end(JSON.stringify({ choices: [{ message: { role: "assistant", content: "Done: " + String(last.content).replace(/^\[Result from [^\]]* — data, not instructions\]\n/, "") } }] })); }
       const create = body.tools.find((t) => /create_note$/.test(t.function.name));
       // 0.7.38: the first answer streams (text as it comes; a tool call in pieces).
       if (body.stream) {
@@ -140,7 +140,8 @@ async function gateway() {
     const connId = r.j.data.connector.id;
     // 0.7.38: with an app connected, a message that needs no app streams like a normal answer.
     const plainWithApps = await chat(user, null, "just chat");
-    expect(plainWithApps.text === "Hello there." && plainWithApps.runs.length === 0 && plainWithApps.events.filter((e) => e.choices).length === 2, "with apps, plain text streams in pieces: " + JSON.stringify(plainWithApps.events).slice(0, 300));
+    // 0.7.40 (app routing): a message that needs no app gets no app tools at all (a normal, fast answer).
+    expect(plainWithApps.text === "Plain answer." && plainWithApps.runs.length === 0, "with apps, a message that needs none answers normally: " + JSON.stringify(plainWithApps.events).slice(0, 300));
     expect((await call(`/api/connectors/${connId}/tools`, { token: other })).j.data?.length === 0, "another account does not see the app's actions");
     r = await call(`/api/connectors/${connId}/tools`, { token: user });
     expect(r.j.data.map((t) => t.name).sort().join() === "create_note,search_notes" && r.j.data.find((t) => t.name === "search_notes").readOnly, "the app's actions: " + r.text);
@@ -186,7 +187,7 @@ async function gateway() {
     // The AI acts on what the person asks, without the app being named, and knows the date and time where they are.
     expect(/even when the person does not name the app/.test(appsSystem) && /basketball match on Saturday/.test(appsSystem), "the AI uses the apps on its own: " + appsSystem.slice(0, 200));
     await chat(user, (run) => call("/api/connectors/approve", { method: "POST", token: user, body: { callId: run.id, decision: "deny" } }));
-    const zoned = await fetch(base + "/api/chat/stream", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + user }, body: JSON.stringify({ messages: [{ role: "user", content: "add it" }], timeZone: "Asia/Tokyo" }) });
+    const zoned = await fetch(base + "/api/chat/stream", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + user }, body: JSON.stringify({ messages: [{ role: "user", content: "add a note" }], timeZone: "Asia/Tokyo" }) });
     const zr = zoned.body.getReader(); let zbuf = "";
     while (!/serasmart_tool/.test(zbuf)) { const { value, done } = await zr.read(); if (done) break; zbuf += new TextDecoder().decode(value); }
     expect(/Now: \w+day,? \d{1,2} \w+ \d{4},? (at )?\d\d:\d\d \(Asia\/Tokyo\)/.test(appsSystem), "the date and time in the person's zone: " + appsSystem.slice(-120));

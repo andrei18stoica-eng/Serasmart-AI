@@ -1,0 +1,450 @@
+1|(salinan)
+2|(kosong)
+3|(terbaru)
+4|(Anda bisa memilih beberapa)
+5|({email}) ingin bergabung dengan {brand}. Izinkan?
+6|, tempel di sini lalu tekan «Uji kunci».
+7|/ 30 hari
+8|1 sesi aktif
+9|1 aplikasi
+10|1 otomatisasi
+11|1 orang
+12|1 skill
+13|1 versi
+14|3 langkah, gratis, tanpa kartu. Hanya satu menit.
+15|30 hari
+16|7 hari
+17|90 hari
+18|Presentasi 6 slide tentang energi surya untuk siswa SMA.
+19|Browser di cloud yang membaca dan menggunakan halaman web (tanpa akun).
+20|Sore yang tenang cocok untuk berpikir. Apa selanjutnya?
+21|Penawaran layanan yang jelas dengan langkah, harga, dan tenggat.
+22|Beberapa pertanyaan sebelum saya mulai
+23|Token fine-grained dengan izin Models: Read. Token yang sama dipakai untuk GitHub.
+24|Landing page untuk aplikasi kebugaran, dengan manfaat, 3 paket, dan tombol unduh.
+25|Pesan pada 25, 50, 75, dan 90% kredit minggu ini. Pesan 100% selalu muncul.
+26|Pesan di aplikasi (dan di ponsel, jika berlangganan) saat otomatisasi selesai.
+27|Kartu nama minimalis hitam-putih untuk seorang arsitek.
+28|CV modern untuk programmer junior dengan 2 tahun pengalaman React.
+29|Akun pribadi, dikonfirmasi lewat email dan dilindungi kata sandi Anda.
+30|Kredit paket datang dalam empat bagian sama, satu setiap 7 hari dihitung dari hari paket Anda dimulai (misalnya, paket yang dimulai hari Rabu mendapat kredit setiap Rabu). Yang tidak terpakai pindah ke minggu berikutnya. Pada 100% model berbayar berhenti sampai bagian berikutnya, atau Anda membeli kredit tambahan; sementara itu Anda tetap punya {n} pesan per hari di model gratis.
+31|Plugin adalah sekumpulan skill. Tambahkan sekali lalu tulis /nama di chat untuk skill mana pun di dalamnya. Satu plugin dihitung sebagai satu skill dalam paket Anda.
+32|Poster untuk konser rock luar ruangan, dalam warna neon.
+33|Situs presentasi untuk kafe: menu, jam buka, galeri, dan formulir kontak.
+34|Malam yang sunyi cocok untuk kerja fokus. Apa yang Anda pikirkan?
+35|Skill adalah sekumpulan instruksi yang diikuti AI saat Anda memanggilnya. Tambahkan di bawah atau buat sendiri.
+36|Token dengan template «Workers AI». Account ID ada di dash.cloudflare.com → AI → Workers AI. Token yang sama dengan Gambar.
+37|AI
+38|AI & OmniRoute
+39|API AI
+40|AI dan machine learning
+41|Pelatih AI untuk data Garmin Anda
+42|Model AI: {model}
+43|Model AI untuk biologi
+44|Model AI untuk gambar dan video
+45|Model AI untuk akun ini
+46|Musik AI bersama artis
+47|Alat AI untuk WordPress
+48|Akses API
+49|Alamat API
+50|Kunci API
+51|Hanya API
+52|Plugin API
+53|Token API
+54|API
+55|AUTO_FREE mencari sendiri model gratis pertama yang tersedia.
+56|Tentang Anda
+57|Akses untuk akun lain: Control Center → akun tersebut → «Code {brand}». Mereka memakai API OpenAI / Claude, dibayar per pemakaian, bukan langganan Anda: ketentuan ChatGPT dan Claude tidak mengizinkan berbagi akun.
+58|Aksesibilitas
+59|Akun
+60|ID akun
+61|Akun dihapus.
+62|Status akun berubah
+63|Akun dan chat disimpan di server {brand}.
+64|Akun dan chat disimpan di komputer ini.
+65|Tindakan
+66|Aktif
+67|Sesi aktif
+68|Pengguna aktif
+69|Tambah
+70|Tambah file
+71|Tambahkan hal penting yang perlu diingat {brand}… (Ctrl+Enter menyimpan)
+72|Tambahkan kunci atau pilih «Tidak ada» untuk autentikasi.
+73|Tambahkan repositori di Pengaturan → AI & OmniRoute → GitHub agar {brand} membaca kode sendiri untuk pertanyaan pemrograman.
+74|Tambah {name}
+75|Ditambahkan
+76|Bisa ditambahkan ke paket apa pun, atau tanpa paket
+77|Menambahkan…
+78|Log admin ({n})
+79|Admin: {error}
+80|Dorongan sore: apa yang kita selesaikan hari ini?
+81|Lagi
+82|Semua
+83|Semua akun
+84|Semua chat
+85|Semua data
+86|Semua, yang terbaik dulu (ChatGPT, Gemini, Grok, yang gratis)
+87|Semua, yang terbaik dulu (yang gratis, Gemini Veo, Grok)
+88|Izinkan
+89|Izinkan sekali
+90|Izinkan AI berbayar untuk akun lain yang memenuhi syarat? Setiap pengguna tetap memerlukan izin OpenAI / Claude / OpenRouter sendiri.
+91|Izinkan penyedia berbayar
+92|Diizinkan
+93|Hampir selesai…
+94|Hampir akhir pekan. Apa yang perlu kita tuntaskan sebelumnya?
+95|Izinkan juga API berbayar (OpenAI, Grok)
+96|Selalu izinkan
+97|Selalu diizinkan
+98|Selalu dalam bahasa Inggris
+99|Selalu dalam bahasa Rumania
+100|Selalu aktif
+101|Selalu aktif {slug}
+102|Selalu aktif: dipakai di setiap pesan, tanpa /nama
+103|Akun dengan email ini sudah ada.
+104|Alamat atau kota
+105|Analisis dan jadwalkan postingan
+106|Analisis data blockchain
+107|Analisis file, temukan masalahnya, dan perbaiki.
+108|Analisis perilaku pengguna
+109|Analisis latihan dan buat rencana
+110|Analisis data produk Anda
+111|Menganalisis kode dan bekerja dengan GitHub.
+112|Menganalisis file, tabel, dan dokumen yang diunggah.
+113|Menganalisis…
+114|Jawaban sedang berjalan
+115|Bahasa jawaban
+116|Jawaban dari dokumentasi Cloudflare (tanpa akun).
+117|Jawaban dari data Anda
+118|Jawaban tetap berjalan saat aplikasi ditutup
+119|Aplikasi apa pun dengan server MCP jarak jauh (alamat yang diawali https://). Kosongkan token jika aplikasi punya login sendiri.
+120|Berapa pun kredit yang Anda pilih
+121|Aplikasi
+122|Diterapkan di server untuk akun ini.
+123|Terapkan di GitHub
+124|Terapkan perubahan langsung di GitHub untuk {path} (cabang {branch})? Cadangan lokal dibuat agar Anda bisa kembali.
+125|Menerapkan perubahan…
+126|Menerapkan…
+127|Setujui / Aktifkan kembali
+128|Aplikasi
+129|Aplikasi dan otomatisasi
+130|Bagian aplikasi
+131|Arsipkan
+132|Diarsipkan
+133|Asana OAuth Client ID
+134|Asana OAuth client secret
+135|Asana hanya menerima aplikasi OAuth yang didaftarkan pemiliknya. Buat satu di Asana ({where}) dengan alamat pengalihan ini: {url}
+136|Login Asana untuk semua
+137|Ajukan pertanyaan klarifikasi (dengan pilihan jawaban)
+138|Minta akses atau pilih model lain.
+139|Ajukan pertanyaan tentang repositori GitHub publik mana pun.
+140|Minta Owner akses ke setidaknya satu model.
+141|Minta Owner akses ke model OpenAI atau Claude.
+142|Asisten
+143|Minimal 10 karakter
+144|Maksimal 2 GB per file
+145|Saat mulai, {brand} mengunduh versi baru dari GitHub Releases sendiri dan memberi tahu saat siap dipasang.
+146|Lampirkan: {error}
+147|Dilampirkan oleh Anda
+148|File terlampir: {names}
+149|Audit izin Google Drive
+150|Autentikasi
+151|Cadangan otomatis: API langsung
+152|Cadangan otomatis
+153|Pembaruan situs otomatis
+154|Pembaruan situs otomatis nonaktif.
+155|Pembaruan otomatis:
+156|Pembaruan otomatis (aplikasi Windows)
+157|Otomatis · yang terbaik tersedia
+158|Otomatis — urutan saya
+159|Otomatis — model gambar pertama yang tersedia
+160|Otomatisasi
+161|Otomatisasi dan kendali jarak jauh
+162|Hasil otomatisasi
+163|Otomatisasi «{name}»
+164|Otomatisasi
+165|Tersedia
+166|Tersedia untuk akun Anda
+167|Tersedia sekarang
+168|Kurs BNR
+169|Kembali
+170|Kembali ke semua akun
+171|Kembali ke layanan lokal bawaan. Coba masuk lagi.
+172|Base, tabel, dan rekaman: cari, buat, dan perbarui.
+173|Penagihan
+174|Peta kelahiran dan horoskop
+175|Blokir
+176|Blockchain
+177|Diblokir
+178|Pengguna diblokir
+179|Papan, item, dan pembaruan.
+180|Papan, catatan tempel, dan diagram (Miro Enterprise).
+181|Box OAuth Client ID
+182|Box OAuth client secret
+183|Box hanya menerima aplikasi OAuth yang didaftarkan pemiliknya. Buat satu di Box ({where}) dengan alamat pengalihan ini: {url}
+184|Login Box untuk semua
+185|Laporan bug dengan rekaman dan log.
+186|Bangun dan terbitkan aplikasi
+187|Bangun dan terbitkan aplikasi web
+188|Bisnis
+189|Bisnis dan operasional
+190|Rekening bank bisnis dan transaksi.
+191|Kartu nama
+192|Pemilik usaha
+193|Beli kredit
+194|Beli seharga {price}
+195|C:\Users\you\.ssh\id_ed25519
+196|Tidak dapat menjangkau server, menyambung ulang…
+197|Batal
+198|Tidak dapat menjangkau layanan {brand}. Periksa apakah aplikasi berjalan dan koneksi internet.
+199|Tidak dapat membaca rekaman.
+200|Pembayaran kartu segera dibuka
+201|Perhatian: penyedia yang Anda atur bisa memakai kredit dengan harga mereka sendiri.
+202|Perhatian: pembuatan video bisa cepat menghabiskan kredit. Biayanya tergantung model, durasi, dan resolusi.
+203|Kunci API Cerebras
+204|Model Cerebras · pisahkan dengan koma
+205|Ubah
+206|Ubah kata sandi
+207|Diubah
+208|Ubah… (mis. buat latar biru tua dan tambahkan bagian harga)
+209|Mengubah…
+210|Chat
+211|Opsi chat
+212|Chat dengan semua AI terbaik, memori, file, gambar, video, dan otomatisasi.
+213|Hanya ChatGPT · GPT Image
+214|ChatGPT, Gemini, dan Grok
+215|Chat
+216|Chat yang lebih lama dari ini dihapus otomatis (yang disematkan tetap). Data Anda tetap di server {brand} dan tidak pernah dijual atau dipakai untuk iklan.
+217|Chat, memori, pustaka, desain, proyek, aplikasi, dan otomatisasi disimpan di server {brand}.
+218|Chat, memori, pustaka, desain, proyek, aplikasi, dan otomatisasi disimpan di komputer ini.
+219|Pemeriksaan gagal
+220|Periksa pembaruan sekarang
+221|Periksa tautan, domain, dan nomor telepon
+222|Cek harga
+223|Cek harga produk yang saya pantau di halaman toko dan beri tahu saya hanya jika turun di bawah harga yang saya tetapkan.
+224|Diperiksa: {when}.
+225|Memeriksa tampilan di ponsel…
+226|Memeriksa memori, file, dan konteks yang relevan…
+227|Memeriksa…
+228|Memeriksa OmniRoute (kunci dan satu model Gemini, Grok, OpenAI, dan Claude) serta setiap API yang tersimpan. Simpan pengaturan sebelum menguji.
+229|Simulasi kimia dan biologi
+230|Pilih Instal aplikasi atau Tambahkan ke layar utama.
+231|Pilih gambar PNG, JPEG, atau WebP.
+232|Pilih tanggal dan waktu di masa depan.
+233|Pilih waktu yang valid (00:00–23:59).
+234|Pilih AI
+235|Pilih setidaknya satu hari dalam seminggu.
+236|Pilih dari Pustaka
+237|Pilih AI
+238|Pilih tanggal dan waktu untuk tugas sekali jalan.
+239|Pilih {plan}
+240|Memilih warna dan font…
+241|Dipilih otomatis
+242|Hari yang dipilih
+243|Iklan baris di Jerman
+244|Claude / Anthropic (berbayar)
+245|Claude lewat API
+246|Hapus pencarian
+247|Client ID aplikasi yang dibuat di penyedia
+248|Tutup
+249|Tutup semua sesi aktif untuk {email}?
+250|Tutup sesi
+251|Tutup menu
+252|Tutup pratinjau
+253|Kecilkan ke area notifikasi
+254|Token API Cloudflare
+255|Model Cloudflare · pisahkan dengan koma
+256|Code
+257|Kode dan GitHub
+258|Kode dari email
+259|Code {brand} (lewat API OpenAI / Claude, bukan langganan Anda)
+260|Code {brand} tersedia untuk Owner dan akun yang diberi akses oleh Owner.
+261|Kopi dan rencana yang jelas? Beri tahu saya dari mana mulai.
+262|Kunci API Cohere
+263|Model Cohere · pisahkan dengan koma
+264|Kombinasi
+265|Kombinasi
+266|Kombinasi untuk semua akun
+267|Perintah di chat
+268|Komunikasi
+269|Kartu perusahaan, pengeluaran, dan tagihan.
+270|Bandingkan model berdampingan
+271|API kompatibilitas.
+272|Konfirmasi email
+273|Konfirmasi email Anda
+274|Hubungkan
+275|Hubungkan Codex atau Claude Code di OmniRoute.
+276|Hubungkan aplikasi
+277|Hubungkan API atau webhook apa pun.
+278|Hubungkan API kustom
+279|Hubungkan lebih dari 350 sumber data
+280|Hubungkan dengan OAuth (akses ke data)
+281|Hubungkan tanpa OAuth dan buka {name}
+282|Hubungkan aplikasi Anda: AI bisa mencari, membaca, membuat, dan mengedit di dalamnya, dan bertanya dulu sebelum setiap tindakan.
+283|Terhubung
+284|Aplikasi terhubung
+285|Aplikasi terhubung (Gmail, Drive, Notion, GitHub…)
+286|Terhubung dengan OAuth
+287|Menghubungkan…
+288|Konektor
+289|Konteks antar-chat dalam proyek
+290|Mengatur AI berbayar untuk akun biasa. Owner tetap diizinkan.
+291|Percakapan
+292|Percakapan dan kontak.
+293|Disalin
+294|Menyalin kunci yang tersimpan di PC ini, agar situs {domain} punya model yang sama.
+295|Salin
+296|Salin chat
+297|Salin ID akun
+298|Salin chat ke papan klip
+299|Salin kode
+300|Salin kunci untuk server
+301|Salin pesan
+302|Salin pilihan
+303|Menyalin…
+304|Perlindungan biaya
+305|Tidak dapat melampirkan:
+306|Tidak dapat memeriksa:
+307|Tidak dapat membaca status notifikasi:
+308|Tidak dapat membaca pengaturan:
+309|Buat
+310|Buat plugin
+311|Buat akun
+312|Buat dan edit desain
+313|Buat plugin
+314|Buat akun
+315|Buat tugas
+316|Buat akun {brand} Anda
+317|Buat, gabungkan, dan edit dokumen serta grafik
+318|Buat, jalankan, dan analisis iklan
+319|Dibuat
+320|Membuat desain…
+321|Kreatif
+322|Kreativitas
+323|Peringatan kredit
+324|Kredit ditambahkan
+325|Kredit dihitung dengan harga paket, juga saat akun tidak ditagih.
+326|Kredit per hari
+327|Kredit terpakai
+328|Kredit habis
+329|Saat ini
+330|Chat saat ini
+331|Kata sandi saat ini
+332|Paket saat ini
+333|Kustom
+334|Aplikasi kustom
+335|Asisten kustom
+336|Header kustom
+337|Instruksi kustom
+338|Dukungan pelanggan
+339|Pelanggan
+340|Pelanggan, pembayaran, faktur, dan produk.
+341|Harian
+342|Setiap hari pukul {time}
+343|Gelap
+344|Data
+345|Data dan tindakan di HubSpot
+346|Data dan analitik
+347|Basis data
+348|Tanggal
+349|Hari
+350|Tanggal dalam bulan
+351|Hari
+352|Keputusan
+353|Deep Research
+354|Bawaan
+355|Hapus
+356|Hapus akun
+357|Hapus semua
+358|Hapus data
+359|Hapus semua yang diingat {brand} untuk akun ini? Ini tidak bisa dibatalkan.
+360|Hapus akun
+361|Hapus akun dan semua datanya? Ini tidak bisa dibatalkan. Ketik kata sandi akun untuk konfirmasi.
+362|Hapus asisten «{name}»?
+363|Hapus chat
+364|Hapus chat {name}
+365|Hapus percakapan «{title}» selamanya?
+366|Hapus desain «{name}» beserta semua versinya?
+367|Hapus plugin «{name}»?
+368|Hapus proyek «{name}»? Percakapannya tetap ada, tetapi tidak lagi menjadi bagian proyek mana pun.
+369|Hapus kunci tersimpan
+370|Hapus token tersimpan
+371|Hapus skill /{slug}?
+372|Hapus tugas «{name}»? Riwayat jalannya akan hilang.
+373|Hapus ini
+374|Hapus ini dari memori?
+375|Hapus {name}
+376|Hapus {what}? Ini tidak bisa dibatalkan. Ketik DELETE untuk konfirmasi.
+377|Hapus «{name}» dari Pustaka? File ini juga tidak bisa diunduh lagi dari percakapan tempat ia dipakai.
+378|Hapus: {error}
+379|Dihapus: {what}.
+380|Menghapus…
+381|Ditolak
+382|Tolak
+383|Jelaskan situs web, poster, atau presentasi; {brand} membuat mock-up HTML yang bisa Anda lihat, ubah, dan unduh.
+384|Jelaskan halaman, poster, atau presentasi. {brand} menulis satu file HTML yang langsung Anda lihat, ubah dengan kata-kata, dan unduh.
+385|Jelaskan gambar yang ingin saya buat.
+386|Jelaskan gambar yang Anda inginkan…
+387|Jelaskan video yang ingin saya buat.
+388|Jelaskan video yang Anda inginkan…
+389|Jelaskan apa yang akan kita buat
+390|Jelaskan apa yang akan kita buat…
+391|Deskripsi
+392|Design
+393|Desain dan kreativitas
+394|Desain di kanvas bersama
+395|Judul desain
+396|Jenis desain
+397|Mendetail
+398|Alat pengembang
+399|Pengembangan
+400|Perangkat
+401|Perangkat yang menerima permintaan: {n}.
+402|API langsung dipilih manual
+403|Lugas dan jujur
+404|Buang
+405|Buang perubahan
+406|Putuskan
+407|Putuskan {name}? AI tidak akan bisa menjangkaunya lagi.
+408|Lakukan riset mendalam, periksa beberapa sumber, dan jelaskan selengkapnya:
+409|Jangan izinkan biaya langsung
+410|Jangan mulai pekerjaan berbayar
+411|Dokumen
+412|Dokumen / konteks panjang
+413|Dokumentasi
+414|Dokumen
+415|Dokumen, spreadsheet, dan presentasi di Drive
+416|Selesai! Kuncinya berfungsi.
+417|Selesai. Perangkat ini akan menerima permintaan akses (total 1 perangkat).
+418|Selesai. Perangkat ini akan menerima permintaan akses (total {n} perangkat).
+419|Unduh
+420|Unduh HTML
+421|Unduh semua data saya
+422|Unduh {name}
+423|Unduh: {error}
+424|File yang bisa diunduh
+425|Mengunduh…
+426|Lepaskan untuk menambahkan file ke Pustaka
+427|Lepaskan untuk melampirkan file
+428|Duplikat
+429|Mis. Guru matematika
+430|Mis. Ringkasan berita
+431|Mis. Kampanye pemasaran musim semi
+432|Mis. Gunakan dokumen proyek, pertahankan nada formal, dan ingat keputusan penting.
+433|Mis. Cuaca
+434|Mis. gemini/gemini-3.5-flash
+435|Edit
+436|Edit plugin
+437|Edit asisten
+438|Edit asisten {name}
+439|Edit proyek
+440|Edit proyek {name}
+441|Edit tugas
+442|Edit ini
+443|Edit {name}
+444|Edit «{name}»
+445|Pendidikan
+446|Pendidikan dan pengajaran
+447|Email
+448|Kampanye email dan SMS, daftar, dan hasil.
+449|Asisten email dan kalender
+450|Email dikonfirmasi.

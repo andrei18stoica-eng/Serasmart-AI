@@ -113,5 +113,5 @@ expect(/cache: "no-store"/.test(fresh) && /window\.Serasmart/.test(fresh), "the 
 // Switching between the accounts signed in on this device.
 const acc = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "accounts.js"), "utf8");
 expect(/export function switchToAccount/.test(acc) && /export function leaveForNewAccount/.test(acc) && /location\.reload\(\)/.test(acc), "accounts switch and add");
-expect(/<AccountSwitcher user=\{user\}/.test(main) && /tr\("Add another account"\)/.test(main) && /rememberCurrentAccount\(\);\n      onAuth\(/.test(main) && /forgetAccount\(leaving\)/.test(main) && /tr\("Accounts on this device"\)/.test(main), "the switcher, the sign-in list, and signing out forgets the account");
+expect(/<AccountSwitcher user=\{user\}/.test(main) && /tr\("Add another account"\)/.test(main) && /rememberCurrentAccount\(\);\s*onAuth\(/.test(main) && /forgetAccount\(leaving\)/.test(main) && /tr\("Accounts on this device"\)/.test(main), "the switcher, the sign-in list, and signing out forgets the account");
 console.log("0.7.40 skills and app routing OK");

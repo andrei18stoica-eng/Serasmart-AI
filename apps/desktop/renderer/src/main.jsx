@@ -8,7 +8,7 @@ import {
   FileText, Image as ImageIcon, HardDrive, ToggleLeft, ToggleRight,
   Compass, Map as MapIcon, Globe2, Archive, ArchiveRestore, ExternalLink, SlidersHorizontal, Volume2,
   PanelTopOpen, ShieldCheck, UserCheck, Download, Bell, Lock, Pencil, Palette, Clapperboard, Eye, Maximize2, LoaderCircle, SquareTerminal, Gauge,
-  Mail, Sun, Moon, CreditCard, KeyRound, UserCircle
+  Mail, Sun, Moon, CreditCard, KeyRound, UserCircle, ChevronRight, ChevronLeft
 } from "lucide-react";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/dm-sans";
@@ -1483,7 +1483,7 @@ const WEB_SETTINGS={
   setConfig:async(payload)=>{const r=await api("/api/server/settings",{method:"PUT",body:JSON.stringify(payload)});return {ok:true,config:r.config};}
 };
 // The tabs every account has (0.7.23): saved for the account on the server, each with its own buttons.
-const ACCOUNT_TABS=["profile","notify","privacy","security"];
+const ACCOUNT_TABS=["profile","notify","privacy","security","billing","usage"];
 function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSettingsAllowed=true,initialTab="general",preferences,onPreferences,prefBusy,models=[],onAccountDeleted,onDataDeleted}) {
   const {isOwner}=useAccess();
   const bridge=window.Serasmart?.getConfig?window.Serasmart:IS_WEB&&isOwner?WEB_SETTINGS:null;
@@ -1492,6 +1492,9 @@ function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSetti
   const accountOnly=!bridge;
   const account=useAccountSettings();
   const [cfg,setCfg]=useState(null),[keys,setKeys]=useState({}),[tab,setTab]=useState(accountOnly&&!ACCOUNT_TABS.includes(initialTab)?"profile":initialTab),[status,setStatus]=useState(null),[micStatus,setMicStatus]=useState(""),[toolStatus,setToolStatus]=useState(""),[error,setError]=useState(""),[saving,setSaving]=useState(false),[updateStatus,setUpdateStatus]=useState("");
+  // 0.7.39 (asked by the Owner: "settings like Claude's"): on a phone the settings are a full-screen list; a section
+  // opens on its own screen with a back arrow. On a computer the menu stays on the left and the section on the right.
+  const [detail,setDetail]=useState(typeof initialTab==="string"&&initialTab!=="profile"&&initialTab!=="general");
   const {ref,backdropProps}=useModal(onClose);
   const mounted=useRef(true);
   useEffect(()=>()=>{mounted.current=false},[]);
@@ -1543,20 +1546,23 @@ function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSetti
   // Extensions. Billing, Usage, Memory and the Extensions items open their own pages.
   const machineGroup=webServer?"Server":"This computer";
   const tabs=[["profile",UserCircle,"General",true,""],["security",KeyRound,"Account",true,""],["privacy",ShieldCheck,"Privacy",true,""],["notify",Bell,"Notifications",true,""],
-    ["@billing",CreditCard,"Billing",!!onOpenTool,"",()=>onOpenTool("billing")],["@usage",Gauge,"Usage",!!onOpenTool,"",()=>onOpenTool("usage")],["@memory",Brain,"Memory",!!onOpenTool,"",()=>onOpenTool("memory")],
+    ["billing",CreditCard,"Billing",true,""],["usage",Gauge,"Usage",true,""],["@memory",Brain,"Memory",!!onOpenTool,"",()=>onOpenTool("memory")],
     ["general",SlidersHorizontal,"App",!!bridge,machineGroup],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge,machineGroup],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge,machineGroup],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge,machineGroup],["video",Play,"Video",machineSettingsAllowed&&!!bridge,machineGroup],["voice",Volume2,"Voice and microphone",!!bridge,machineGroup],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge,machineGroup],
     ["@skills",Sparkles,"Skills",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","skills")],["@connectors",Plug,"Connectors",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","connectors")],["@plugins",Puzzle,"Plugins",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","plugins")]];
   const onAccountTab=accountOnly||ACCOUNT_TABS.includes(tab);
-  return <div className="modalBackdrop" {...backdropProps}><div className="settingsModal" ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><h2>{tr("{brand} settings",{brand:BRAND_NAME})}</h2><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
+  return <div className="modalBackdrop" {...backdropProps}><div className={detail?"settingsModal showDetail":"settingsModal"} ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><h2>{tr("{brand} settings",{brand:BRAND_NAME})}</h2><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
     {!cfg&&!onAccountTab?<div className="settingsLoading">{error||tr("Loading the settings…")}{error&&<ServerUpdate/>}</div>:<>
     <div className="settingsBody"><div className="settingsNav" role="tablist" aria-orientation="vertical">
       {tabs.filter(t=>t[3]).map(([k,Icon,label,,group,go],i,list)=><React.Fragment key={k}>
         {group&&group!==list[i-1]?.[4]&&<div className="settingsNavGroup">{tr(group)}</div>}
-        {go?<button className="navLink" onClick={()=>{onClose();go()}}><Icon size={17}/> {tr(label)}</button>
-          :<button role="tab" aria-selected={tab===k} className={tab===k?"active":""} onClick={()=>setTab(k)}><Icon size={17}/> {tr(label)}</button>}
+        {go?<button className="navLink" onClick={()=>{onClose();go()}}><Icon size={17}/> <span>{tr(label)}</span><ChevronRight className="navChevron" size={16} aria-hidden="true"/></button>
+          :<button role="tab" aria-selected={tab===k} className={tab===k?"active":""} onClick={()=>{setTab(k);setDetail(true)}}><Icon size={17}/> <span>{tr(label)}</span><ChevronRight className="navChevron" size={16} aria-hidden="true"/></button>}
       </React.Fragment>)}
     </div>
     <div className="settingsPane">
+      <div className="settingsPaneHead"><button className="iconOnly" onClick={()=>setDetail(false)} aria-label={tr("Back")} title={tr("Back")}><ChevronLeft size={22}/></button><b>{tr((tabs.find(t=>t[0]===tab)||[])[2]||"Settings")}</b><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
+      {tab==="billing"&&<BillingPage embedded onUsage={()=>setTab("usage")}/>}
+      {tab==="usage"&&<UsagePage embedded onBilling={()=>setTab("billing")}/>}
       {tab==="profile"&&<ProfileTab account={account} models={models} preferences={preferences} onPreferences={onPreferences} prefBusy={prefBusy}/>}
       {tab==="privacy"&&<PrivacyTab account={account} onDataDeleted={onDataDeleted}/>}
       {tab==="security"&&<SecurityTab account={account} onAccountDeleted={onAccountDeleted} onLogoutAll={onLogoutAll}/>}

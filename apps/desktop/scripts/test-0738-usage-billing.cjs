@@ -81,9 +81,9 @@ function ui() {
   expect(/export function UsagePage/.test(page) && /export function BillingPage/.test(page), "Usage and Billing are two pages");
   expect(/\/api\/usage\/accounts/.test(page) && /Plans of every account/.test(page) && /My usage/.test(page) && /All accounts/.test(page), "Usage: mine, every account (Owner), the plans button");
   expect(/PlanCard/.test(page.slice(page.indexOf("export function BillingPage"))) && !/PlanCard/.test(page.slice(page.indexOf("export function UsagePage"), page.indexOf("export function BillingPage"))), "the plans are on Billing, not on Usage");
-  expect(/\["@billing",CreditCard,"Billing",[^\]]*onOpenTool\("billing"\)/.test(main) && /toolPanel\?\.name==="billing"&&<BillingPage/.test(main), "Settings → Billing opens Billing");
+  expect(/\["billing",CreditCard,"Billing",true,""\],\["usage",Gauge,"Usage",true,""\]/.test(main) && /tab==="billing"&&<BillingPage embedded/.test(main) && /tab==="usage"&&<UsagePage embedded/.test(main) && /toolPanel\?\.name==="billing"&&<BillingPage/.test(main), "Billing and Usage are sections of Settings (0.7.39), and pages of their own");
   expect(/\["billing",CreditCard,"Billing",null\]/.test(main) && !/\["usage",Gauge,"Usage",null\]/.test(main), "the main page's tool list shows Billing, not Usage");
-  expect(/0\.7\.38: Settings scroll/.test(css) && /\.settingsNav\{overflow-y:auto/.test(css) && /\.settingsPane\{max-height:none;min-height:0;overflow-y:auto\}/.test(css), "Settings: the menu and the page scroll");
+  expect(/Settings like Claude.s/.test(css) && /\.settingsNav\{overflow-y:auto/.test(css) && /\.settingsPane\{max-height:none;min-height:0;overflow-y:auto\}/.test(css) && /\.settingsModal\.showDetail \.settingsNav\{display:none\}|\.settingsModal\.showDetail>\.modalHead,\.settingsModal\.showDetail \.settingsNav\{display:none\}/.test(css) && /className=\{detail\?"settingsModal showDetail":"settingsModal"\}/.test(main), "Settings: the menu and the page scroll");
 }
 
 function speed() {

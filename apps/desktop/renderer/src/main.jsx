@@ -32,6 +32,9 @@ import { requestedMediaGeneration } from "./mediaIntent.mjs";
 import { detectSpeechLang, voiceFor, speakableText } from "./speechLang.mjs";
 import { normalizeIntent, FILE_FORMATS, FORMAT_CANDIDATES, requestedDocumentFormat, editedDocumentFormat, answerFileFormat, asksForFile, fileTitleFor } from "./documentIntent.mjs";
 import { ExtensionsPage } from "./pages/Extensions.jsx";
+import { SkillsPanel } from "./pages/Skills.jsx";
+import { ConnectorsPanel } from "./pages/Connectors.jsx";
+import { PluginsPanel } from "./pages/Plugins.jsx";
 import { ToolRunCard, PendingApprovals } from "./pages/Connectors.jsx";
 import { MemoryPage, PreferenceSwitches } from "./pages/Memory.jsx";
 import { UsagePage, BillingPage, CreditsDialog } from "./pages/Usage.jsx";
@@ -40,6 +43,7 @@ import { LibraryPage } from "./pages/Library.jsx";
 import { DesignPage } from "./pages/Design.jsx";
 import { splitQuestions, QuestionCard, QuestionsPending } from "./questions.jsx";
 import { BRAND_NAME, BRAND_SHORT, BRAND_DOMAIN } from "./brand.js";
+import { watchForNewVersion } from "./freshness.js";
 // 0.7.29: loaded only when the microphone is used.
 const VoiceOrb=React.lazy(()=>import("./voiceOrb.jsx"));
 
@@ -1485,9 +1489,9 @@ const WEB_SETTINGS={
   setConfig:async(payload)=>{const r=await api("/api/server/settings",{method:"PUT",body:JSON.stringify(payload)});return {ok:true,config:r.config};}
 };
 // The tabs every account has (0.7.23): saved for the account on the server, each with its own buttons.
-const ACCOUNT_TABS=["profile","notify","privacy","security","billing","usage"];
+const ACCOUNT_TABS=["profile","notify","privacy","security","billing","usage","memory","skills","connectors","plugins"];
 function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSettingsAllowed=true,initialTab="general",preferences,onPreferences,prefBusy,models=[],onAccountDeleted,onDataDeleted}) {
-  const {isOwner}=useAccess();
+  const {isOwner,can}=useAccess();
   const bridge=window.Serasmart?.getConfig?window.Serasmart:IS_WEB&&isOwner?WEB_SETTINGS:null;
   const webServer=bridge===WEB_SETTINGS;
   // Without machine settings (an account on the site that is not the Owner) only the account's own tabs are shown.
@@ -1548,9 +1552,9 @@ function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSetti
   // Extensions. Billing, Usage, Memory and the Extensions items open their own pages.
   const machineGroup=webServer?"Server":"This computer";
   const tabs=[["profile",UserCircle,"General",true,""],["security",KeyRound,"Account",true,""],["privacy",ShieldCheck,"Privacy",true,""],["notify",Bell,"Notifications",true,""],
-    ["billing",CreditCard,"Billing",true,""],["usage",Gauge,"Usage",true,""],["@memory",Brain,"Memory",!!onOpenTool,"",()=>onOpenTool("memory")],
+    ["billing",CreditCard,"Billing",true,""],["usage",Gauge,"Usage",true,""],["memory",Brain,"Memory",true,""],
     ["general",SlidersHorizontal,"App",!!bridge,machineGroup],["ai",Bot,"AI & OmniRoute",machineSettingsAllowed&&!!bridge,machineGroup],["chatapis",Plug,"AI APIs",machineSettingsAllowed&&!!bridge,machineGroup],["images",ImageIcon,"Pictures",machineSettingsAllowed&&!!bridge,machineGroup],["video",Play,"Video",machineSettingsAllowed&&!!bridge,machineGroup],["voice",Volume2,"Voice and microphone",!!bridge,machineGroup],["account",HardDrive,"Owner on this PC",machineSettingsAllowed&&!webServer&&!!bridge,machineGroup],
-    ["@skills",Sparkles,"Skills",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","skills")],["@connectors",Plug,"Connectors",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","connectors")],["@plugins",Puzzle,"Plugins",!!onOpenTool,"Extensions",()=>onOpenTool("extensions","plugins")]];
+    ["skills",Sparkles,"Skills",true,"Extensions"],["connectors",Plug,"Connectors",can("plugins"),"Extensions"],["plugins",Puzzle,"Plugins",can("plugins"),"Extensions"]];
   const onAccountTab=accountOnly||ACCOUNT_TABS.includes(tab);
   return <div className="modalBackdrop" {...backdropProps}><div className={detail?"settingsModal showDetail":"settingsModal"} ref={ref} role="dialog" aria-modal="true" aria-label={tr("{brand} settings",{brand:BRAND_NAME})} tabIndex={-1}><div className="modalHead"><div><h2>{tr("{brand} settings",{brand:BRAND_NAME})}</h2><p>{accountOnly?tr("Your profile, how the AI answers you, notifications, privacy and security."):tr("Your account, the app, voice, the AI services and updates.")}</p></div><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
     {!cfg&&!onAccountTab?<div className="settingsLoading">{error||tr("Loading the settings…")}{error&&<ServerUpdate/>}</div>:<>
@@ -1565,6 +1569,10 @@ function SettingsModal({onOpenTool,onLogoutAll,onClose,onSaved,user,machineSetti
       <div className="settingsPaneHead"><button className="iconOnly" onClick={()=>setDetail(false)} aria-label={tr("Back")} title={tr("Back")}><ChevronLeft size={22}/></button><b>{tr((tabs.find(t=>t[0]===tab)||[])[2]||"Settings")}</b><button className="iconOnly" onClick={onClose} aria-label={tr("Close")} title={tr("Close")}><X size={20}/></button></div>
       {tab==="billing"&&<BillingPage embedded onUsage={()=>setTab("usage")}/>}
       {tab==="usage"&&<UsagePage embedded onBilling={()=>setTab("billing")}/>}
+      {tab==="memory"&&<MemoryPage embedded preferences={preferences} onPreferences={onPreferences} prefBusy={prefBusy}/>}
+      {tab==="skills"&&<SkillsPanel/>}
+      {tab==="connectors"&&<ConnectorsPanel/>}
+      {tab==="plugins"&&<PluginsPanel/>}
       {tab==="profile"&&<ProfileTab account={account} models={models} preferences={preferences} onPreferences={onPreferences} prefBusy={prefBusy}/>}
       {tab==="privacy"&&<PrivacyTab account={account} onDataDeleted={onDataDeleted}/>}
       {tab==="security"&&<SecurityTab account={account} onAccountDeleted={onAccountDeleted} onLogoutAll={onLogoutAll}/>}
@@ -2497,3 +2505,5 @@ function App() {
 }
 document.title=BRAND_NAME;
 createRoot(document.getElementById("root")).render(<ErrorBoundary><App/><AccessRequestDialog/></ErrorBoundary>);
+// 0.7.40: an installed phone app or an open tab picks up a new version by itself (when nothing is being typed).
+watchForNewVersion({canReload:()=>!draftStore.get().trim()});

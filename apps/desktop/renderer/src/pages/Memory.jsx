@@ -40,7 +40,7 @@ function MemoryItem({x,busy,onPin,onRemove,onSave}){
   </div>;
 }
 
-export function MemoryPage({onClose,preferences,onPreferences,prefBusy}){
+export function MemoryPage({onClose,preferences,onPreferences,prefBusy,embedded=false}){
   useLanguage();
   const [items,setItems]=useState([]),[loading,setLoading]=useState(true),[enabled,setEnabled]=useState(true),[query,setQuery]=useState(""),[text,setText]=useState(""),[summary,setSummary]=useState(null),[busy,setBusy]=useState(""),[error,setError]=useState("");
   const seq=useRef(0),mounted=useRef(true);
@@ -70,7 +70,9 @@ export function MemoryPage({onClose,preferences,onPreferences,prefBusy}){
   const facts=summary?[...(summary.recent||[])].sort((a,b)=>Number(b.pinned)-Number(a.pinned)).slice(0,5):[];
   const searching=!!query.trim();
   const grouped=searching?[[tr("Results"),items]]:CATEGORY_ORDER.map(c=>[tr(CATEGORY_LABELS[c]),items.filter(x=>(x.category||"detaliu")===c)]).concat([[tr("Others"),items.filter(x=>!CATEGORY_ORDER.includes(x.category||"detaliu"))]]).filter(([,list])=>list.length);
-  return <ToolShell title={tr("Memory")} subtitle={tr("What {brand} remembers about you and how it uses earlier chats.",{brand:BRAND_NAME})} onClose={onClose} className="pageModal memoryPage">
+  // 0.7.40: inside Settings (a section with a back arrow) or as its own page.
+  const Wrap=embedded?({children})=><div className="memoryPage memoryEmbedded">{children}</div>:({children})=><ToolShell title={tr("Memory")} subtitle={tr("What {brand} remembers about you and how it uses earlier chats.",{brand:BRAND_NAME})} onClose={onClose} className="pageModal memoryPage">{children}</ToolShell>;
+  return <Wrap>
     <div className="pageBody">
       <div className="memoryOverview">
         <section className="memoryCard">
@@ -96,5 +98,5 @@ export function MemoryPage({onClose,preferences,onPreferences,prefBusy}){
       {loading?<div className="emptyState small">{tr("Loading memory…")}</div>:!items.length?<div className="emptyState small">{searching?tr("Nothing found for this search."):tr("Memory is empty.")}</div>:
         grouped.map(([label,list])=><section className="memoryGroup" key={label}><h4>{label} <small>{list.length}</small></h4><div className="memoryList">{list.map(x=><MemoryItem key={x.id} x={x} busy={!!busy} onPin={pin} onRemove={remove} onSave={saveText}/>)}</div></section>)}
     </div>
-  </ToolShell>;
+  </Wrap>;
 }

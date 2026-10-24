@@ -104,4 +104,10 @@ expect(/value="always"/.test(sk) && /value="disabled"/.test(sk) && /Trigger word
 const main = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "main.jsx"), "utf8");
 expect(/tr\("Skills used"\)/.test(main), "the person sees the skills used");
 
+// Settings: Memory, Skills, Connectors and Plugins open inside Settings (a back arrow on the phone), and the web app
+// picks up a new version by itself.
+expect(/\["memory",Brain,"Memory",true,""\]/.test(main) && /tab==="memory"&&<MemoryPage embedded/.test(main) && /tab==="connectors"&&<ConnectorsPanel\/>/.test(main) && !/onOpenTool\("extensions","skills"\)\]/.test(main), "the four sections open inside Settings");
+expect(/watchForNewVersion\(\{canReload:\(\)=>!draftStore\.get\(\)\.trim\(\)\}\)/.test(main), "the web app reloads itself on a new version");
+const fresh = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "freshness.js"), "utf8");
+expect(/cache: "no-store"/.test(fresh) && /window\.Serasmart/.test(fresh), "the version check skips the cache and the Windows app");
 console.log("0.7.40 skills and app routing OK");

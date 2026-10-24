@@ -1569,3 +1569,6 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
   .settingsModal.showDetail .usageEmbeddedHead h3{display:none}
   .usageEmbedded .usageBar{margin:0}
 }
+/* 0.7.40: Memory, Skills, Connectors and Plugins open inside Settings (a section with a back arrow on the phone). */
+.settingsPane .pageSearch input:not([type=checkbox]){flex:1;border:0;background:transparent;padding:0;height:100%;box-shadow:none;border-radius:0}
+.memoryEmbedded{display:grid;gap:14px;align-content:start}

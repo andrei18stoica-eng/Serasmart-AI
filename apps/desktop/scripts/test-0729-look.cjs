@@ -22,7 +22,9 @@ expect(!/<Rise |startDotRingCursor/.test(main) && !/dotRing/.test(css), "nothing
 // 0.7.30: the left bar scrolls with a thin scrollbar in the theme's colours (it was a wide black strip).
 expect(/::-webkit-scrollbar-thumb\{background:color-mix/.test(css) && /scrollbar-width:thin/.test(css) && /\.sideScroll\{overscroll-behavior:contain\}/.test(css), "thin themed scrollbars");
 // 0.7.30: connectors, plugins and skills are one «Extensions» page.
-expect(/\["extensions",Puzzle,"Extensions",null\]/.test(main) && !/\["plugins",Plug,"Apps"/.test(main) && !/\["skills",Sparkles,"Skills"/.test(main), "one Extensions entry in the tools menu");
+// (0.7.40: Skills is also a section of Settings, so only the tools menu line is checked.)
+const toolItems = (main.match(/const TOOL_ITEMS=\[.*\];/) || [""])[0];
+expect(/\["extensions",Puzzle,"Extensions",null\]/.test(toolItems) && !/\["plugins",Plug,"Apps"/.test(toolItems) && !/\["skills",Sparkles,"Skills"/.test(toolItems), "one Extensions entry in the tools menu");
 const ext = read("pages/Extensions.jsx");
 expect(/\["connectors", Plug, "Connectors"/.test(ext) && /\["plugins", Puzzle, "Plugins"/.test(ext) && /\["skills", Sparkles, "Skills"/.test(ext) && /<ConnectorsPanel \/>/.test(ext) && /<PluginsPanel \/>/.test(ext) && /<SkillsPanel \/>/.test(ext), "Extensions opens connectors, plugins and skills");
 

@@ -1487,22 +1487,42 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .sessionDevice b{color:var(--text-strong);font-weight:600;margin-right:6px}
 @media(max-width:760px){.settingsNavGroup{grid-column:1/-1}.setRow{flex-direction:column;align-items:flex-start}.photoControls{flex-wrap:wrap}}
 
-/* 0.7.38: Settings scroll — the menu and the page scroll on their own inside the window (before, the window cut off
-   whatever did not fit: on a phone the menu took the whole height and the page could not be reached). */
-.settingsModal{display:flex;flex-direction:column;max-height:90vh;max-height:90dvh;overflow:hidden}
+/* 0.7.38–0.7.39: Settings like Claude's. Computer: one fixed-size window, the menu on the left and the section on
+   the right, each scrolling on its own. Phone: a full-screen list of sections; a section opens on its own screen with a
+   back arrow, and its content scrolls under a fixed header. */
+.settingsModal{display:flex;flex-direction:column;width:min(1080px,96vw);height:min(760px,92vh);height:min(760px,92dvh);max-height:none;overflow:hidden}
 .settingsModal>.modalHead{flex:none}
-.settingsModal>.settingsBody{flex:1 1 auto;min-height:0;min-height:min(430px,60vh)}
+.settingsModal>.settingsBody{flex:1 1 auto;min-height:0;grid-template-columns:230px minmax(0,1fr)}
 .settingsBody{overflow:hidden}
 .settingsNav{overflow-y:auto;min-height:0;overscroll-behavior:contain}
+.settingsNav button>span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.settingsNav .navChevron{display:none}
 .settingsPane{max-height:none;min-height:0;overflow-y:auto}
+.settingsPaneHead{display:none}
+.settingsModal>.modalActions{flex:none;margin-top:12px}
 @media(max-width:760px){
-  .modalBackdrop:has(.settingsModal){padding:8px}
-  .settingsModal{width:100%;max-height:calc(100dvh - 16px);padding:14px}
-  .settingsModal>.settingsBody{display:flex;flex-direction:column;min-height:0}
-  .settingsNav{display:flex;flex-direction:row;flex:none;overflow-x:auto;overflow-y:hidden;gap:6px;padding:10px 0;border-right:0;border-bottom:1px solid var(--surface-3);scrollbar-width:thin}
-  .settingsNav button{flex:none;white-space:nowrap;padding:8px 10px}
-  .settingsNavGroup{display:none}
-  .settingsPane{flex:1 1 auto;padding:14px 2px;-webkit-overflow-scrolling:touch}
+  .modalBackdrop:has(.settingsModal){padding:0;place-items:stretch}
+  .settingsModal{width:100vw;height:100vh;height:100dvh;max-width:none;border:0;border-radius:0;padding:0;box-shadow:none}
+  .settingsModal>.modalHead{margin:0;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px 12px;border-bottom:1px solid var(--surface-3)}
+  .settingsModal>.modalHead h2{font-size:22px}
+  .settingsModal>.settingsBody{display:flex;flex-direction:column;border:0;min-height:0}
+  /* The list of sections */
+  .settingsModal .settingsNav{display:flex;flex-direction:column;flex:1 1 auto;gap:2px;overflow-x:hidden;overflow-y:auto;padding:8px 10px calc(env(safe-area-inset-bottom,0px) + 16px);border:0}
+  .settingsModal .settingsNav button{width:100%;padding:14px 12px;font-size:16px;gap:14px;border-radius:12px;color:var(--text)}
+  .settingsModal .settingsNav button.active{background:transparent;color:var(--text)}
+  .settingsModal .settingsNav button svg:first-child{color:var(--text-3)}
+  .settingsModal .settingsNav .navChevron{display:block;margin-left:auto;color:var(--faint);flex:none}
+  .settingsModal .settingsNavGroup{display:block;margin:18px 12px 6px}
+  .settingsModal:not(.showDetail) .settingsPane,.settingsModal:not(.showDetail)>.modalActions{display:none}
+  /* One section */
+  .settingsModal.showDetail>.modalHead,.settingsModal.showDetail .settingsNav{display:none}
+  .settingsModal.showDetail .settingsPane{display:block;flex:1 1 auto;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 24px);-webkit-overflow-scrolling:touch}
+  .settingsPaneHead{display:flex;align-items:center;gap:6px;position:sticky;top:0;z-index:3;margin:0 -16px 8px;padding:calc(env(safe-area-inset-top,0px) + 8px) 8px 8px;background:var(--panel);border-bottom:1px solid var(--surface-3)}
+  .settingsPaneHead b{flex:1;font-size:17px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .settingsModal.showDetail .settingsPane>h3:first-of-type{display:none}
+  .settingsModal>.modalActions{margin:0;padding:10px 16px calc(env(safe-area-inset-bottom,0px) + 10px);border-top:1px solid var(--surface-3);background:var(--panel)}
+  .settingsModal>.modalActions:has(> .secondary:only-child){display:none}
+  .settingsPane .setSection,.settingsPane .setRow{min-width:0;max-width:100%}
 }
 
 /* 0.7.38: Usage (what was used) and Billing (the subscription). */
@@ -1530,3 +1550,17 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 }
 .usagePage .pageBody{align-content:start;align-items:start}
 .usagePage .usageTable{align-content:start}
+/* 0.7.39: Usage and Billing inside Settings, like Claude's. */
+.usageEmbedded{display:grid;gap:16px;align-content:start}
+.usageEmbeddedHead{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.usageEmbeddedHead>div{flex:1;min-width:200px}
+.usageEmbeddedHead h3{margin:0 0 4px}
+.usageEmbeddedHead .settingsHelp{margin:0}
+.usageEmbedded .planGrid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.settingsModal .stickySave{background:var(--panel);border-top:1px solid var(--surface-3)}
+@media(max-width:760px){
+  .settingsModal .stickySave{margin:0 -16px;padding:10px 16px calc(env(safe-area-inset-bottom,0px) + 10px)}
+  .settingsModal .stickySave .primary{width:100%}
+  .settingsModal.showDetail .usageEmbeddedHead h3{display:none}
+  .usageEmbedded .usageBar{margin:0}
+}

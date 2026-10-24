@@ -1,8 +1,8 @@
 {
   "name": "serasmart-desktop",
-  "version": "0.7.38",
+  "version": "0.7.39",
   "private": true,
-  "description": "Serasmart AI 0.7.38 - Usage per account, Billing is the subscription, Settings scroll",
+  "description": "Serasmart AI 0.7.39 - Settings like Claude: full-screen list on phones, Usage and Billing inside",
   "main": "main.cjs",
   "repository": {
     "type": "git",

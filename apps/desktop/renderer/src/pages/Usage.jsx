@@ -219,7 +219,11 @@ function AccountsUsage({ days, onOpen }) {
   </div>;
 }
 
-export function UsagePage({ onClose, onBilling }) {
+// embedded (0.7.39): shown inside Settings (Settings → Usage / Billing, like Claude's), without its own window.
+const Shell = ({ embedded, title, subtitle, onClose, actions, children }) => embedded
+  ? <div className="usagePage usageEmbedded"><div className="usageEmbeddedHead"><div><h3>{title}</h3><p className="settingsHelp">{subtitle}</p></div>{actions}</div>{children}</div>
+  : <ToolShell title={title} subtitle={subtitle} onClose={onClose} className="pageModal usagePage" actions={actions}>{children}</ToolShell>;
+export function UsagePage({ onClose, onBilling, embedded = false }) {
   useLanguage();
   const { isOwner } = useAccess();
   const [days, setDays] = useState(30), [tab, setTab] = useState("me"), [account, setAccount] = useState(null);
@@ -233,7 +237,7 @@ export function UsagePage({ onClose, onBilling }) {
     api(path).then((x) => mounted.current && setD(x)).catch((e) => mounted.current && setError(e.message));
   }, [days, tab, account]);
   const actions = isOwner ? <button className="secondary" onClick={() => setPlans(true)}><Users size={15} /> {tr("Plans of every account")}</button> : null;
-  return <ToolShell title={tr("Usage")} subtitle={tr("How much you used: messages, pictures, video and voice.")} onClose={onClose} className="pageModal usagePage" actions={actions}>
+  return <Shell embedded={embedded} title={tr("Usage")} subtitle={tr("How much you used: messages, pictures, video and voice.")} onClose={onClose} actions={actions}>
     <div className="pageBody">
       <div className="usageBar">
         {isOwner && <div className="segmented" role="tablist">
@@ -261,10 +265,10 @@ export function UsagePage({ onClose, onBilling }) {
       </>}
     </div>
     {plans && <PlansDialog onClose={() => setPlans(false)} />}
-  </ToolShell>;
+  </Shell>;
 }
 
-export function BillingPage({ onClose, onUsage }) {
+export function BillingPage({ onClose, onUsage, embedded = false }) {
   useLanguage();
   const { isOwner } = useAccess();
   const [d, setD] = useState(null), [error, setError] = useState("");
@@ -272,7 +276,7 @@ export function BillingPage({ onClose, onUsage }) {
   useEffect(() => () => { mounted.current = false; }, []);
   useEffect(() => { api("/api/credits?peek=1").then((x) => mounted.current && setD(x)).catch((e) => mounted.current && setError(e.message)); }, []);
   const cat = d?.catalog;
-  return <ToolShell title={tr("Billing")} subtitle={tr("Your subscription, the plans and extra credits.")} onClose={onClose} className="pageModal usagePage">
+  return <Shell embedded={embedded} title={tr("Billing")} subtitle={tr("Your subscription, the plans and extra credits.")} onClose={onClose}>
     <div className="pageBody">
       {error && <div className="emptyState small">{error}</div>}
       {!d && !error && <div className="emptyState small">{tr("Loading…")}</div>}
@@ -305,7 +309,7 @@ export function BillingPage({ onClose, onUsage }) {
         {isOwner && <OwnerPanel plans={cat.plans} />}
       </>}
     </div>
-  </ToolShell>;
+  </Shell>;
 }
 
 // The message at 100% (and when a plan feature is missing): buy credits now, or wait for the renewal.

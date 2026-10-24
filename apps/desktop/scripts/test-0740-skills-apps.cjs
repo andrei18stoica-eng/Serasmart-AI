@@ -70,6 +70,9 @@ expect(pick("/excel investor pitch deck presentation").includes("excel") && !pic
 expect(pick("mai multe slide-uri", { previous: "fa o prezentare powerpoint" }).includes("powerpoint"), "the message before counts too");
 const many = Array.from({ length: 40 }, (_, i) => ({ slug: `deck${i}`, name: `Deck ${i}`, description: "presentation slides deck", instructions: "x" }));
 expect(chooseSkills(many, "presentation slides deck").list.length === 40, "no fixed number: every skill that fits is chosen");
+const huge = Array.from({ length: 10 }, (_, i) => ({ slug: `big${i}`, name: `Big ${i}`, description: "presentation slides deck", instructions: "x".repeat(40000) }));
+expect(chooseSkills(huge, "presentation slides deck").list.length === 10, "no size limit either");
+expect(!/BUDGET_CHARS/.test(fs.readFileSync(path.join(__dirname, "..", "lib", "skillselect.cjs"), "utf8")), "no size budget in the code");
 expect(chooseSkills(skills, "fa o prezentare powerpoint").log.every((x) => x.reasons.length), "every chosen skill says why");
 expect(validateSkill({ name: "A", instructions: "B", triggers: "x, y", priority: 3 }).value.triggers.join() === "x,y", "triggers are saved");
 expect(validateSkill({ name: "A", instructions: "B", priority: 99 }).error, "the priority is checked");

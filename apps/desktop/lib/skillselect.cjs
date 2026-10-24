@@ -11,11 +11,10 @@
 // the skills of the request it follows): a /command or a trigger phrase in the message picks it at once; otherwise the
 // words of the message are matched with the words of its name and description (endings ignored: «prezentarea» ~
 // «prezentare»), rare words counting more than common ones; a skill is chosen when the score passes the threshold.
-// There is no cap on how many: only a budget on the size of the instructions, so the prompt keeps room for the answer.
+// There is no cap: neither on how many skills nor on the size of their instructions (asked by the Owner).
 
 const fold = (s) => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const STOP = new Set(("a ai al ale am an and are as at au be but by ca care cat ce cea cel cele cei cu da daca de despre din do does dupa e este eu for fi fie from has have he how i ii il in into is isi it its la le li lor mai make me mi mie my ne nu o of on or ori pe pentru please poti prin sa sau se si sunt te that the their them then there these they this to tu un una unei unui us va vreau want was we what when which who will with would you your yes no can could should help ajuta ajutor imi iti fa faci face scrie write give da-mi").split(" "));
-const BUDGET_CHARS = 120000;
 const THRESHOLD = 3.2;
 
 const stem = (w) => (w.length >= 7 ? w.slice(0, 6) : w.length >= 5 ? w.slice(0, 5) : w);
@@ -73,16 +72,10 @@ function chooseSkills(skills, text, more = {}) {
     if (clash) continue;
     kept.push(x);
   }
-  // The size budget: called and always-on skills first, then by score.
-  let size = 0; const list = [], log = [];
-  for (const x of kept) {
-    const len = String(x.skill.instructions || "").length;
-    const must = x.reasons.some((r) => r === "always on" || r.endsWith("in the message"));
-    if (!must && size + len > BUDGET_CHARS) { log.push({ slug: x.skill.slug, name: x.skill.name, score: x.score, reasons: [...x.reasons, "left out: no room"] }); continue; }
-    size += len; list.push(x.skill);
-    log.push({ slug: x.skill.slug, name: x.skill.name, score: x.score, reasons: x.reasons });
-  }
+  // 0.7.40 (asked by the Owner: "no limit"): every chosen skill goes in, with no cap on number or size.
+  const list = [], log = [];
+  for (const x of kept) { list.push(x.skill); log.push({ slug: x.skill.slug, name: x.skill.name, score: x.score, reasons: x.reasons }); }
   return { list, log };
 }
 
-module.exports = { chooseSkills, terms, THRESHOLD, BUDGET_CHARS };
+module.exports = { chooseSkills, terms, THRESHOLD };

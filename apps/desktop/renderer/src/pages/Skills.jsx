@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Plus, Pencil, Trash2, Sparkles, Check } from "lucide-react";
-import { api, toast, cx, Switch } from "../core.jsx";
+import { api, toast, cx } from "../core.jsx";
 import { t as tr, useLanguage } from "../i18n.jsx";
 import { SkillLibraryList } from "./SkillLibrary.jsx";
 
 // Skills (0.7.18): instructions saved once and called with /name in the chat, or kept always on.
-const BLANK={name:"",slug:"",description:"",instructions:""};
+const BLANK={name:"",slug:"",description:"",instructions:"",triggers:"",excludes:""};
+// 0.7.40: Auto = chosen when the request needs it; Always on = every message; Disabled = never.
+const STATE_HELP={auto:"Used on its own when the request needs it, or with /name",always:"Used on every message",disabled:"Never used"};
+const listText=v=>Array.isArray(v)?v.join(", "):String(v||"");
 // The ready-made skills, shown in English (the server keeps the Romanian names it was made with).
 const TEMPLATE_EN={
   email:["Professional email","Writes a clear, polite email with a subject from a few ideas."],
@@ -26,7 +29,7 @@ function SkillForm({initial,onCancel,onSaved}){
   async function save(e){
     e.preventDefault();if(busy)return;setBusy(true);
     try{
-      const body={name:f.name,slug:f.slug||undefined,description:f.description,instructions:f.instructions};
+      const body={name:f.name,slug:f.slug||undefined,description:f.description,instructions:f.instructions,triggers:listText(f.triggers),excludes:listText(f.excludes)};
       const d=f.id?await api(`/api/skills/${f.id}`,{method:"PATCH",body:JSON.stringify(body)}):await api("/api/skills",{method:"POST",body:JSON.stringify(body)});
       toast(tr("The skill /{slug} was saved.",{slug:d.data.slug}),"success");onSaved();
     }catch(err){toast(err.message)}finally{setBusy(false)}
@@ -35,6 +38,8 @@ function SkillForm({initial,onCancel,onSaved}){
     <label>{tr("Name")}<input value={f.name} onChange={e=>set("name",e.target.value)} maxLength={60} placeholder={tr("e.g. Reply to complaints")} required/></label>
     <label>{tr("Command in chat")}<div className="skillSlug"><span>/</span><input value={f.slug} onChange={e=>set("slug",e.target.value.toLowerCase().replace(/[^a-z0-9-]/g,""))} maxLength={32} placeholder={tr("made from the name")}/></div></label>
     <label>{tr("Short description")}<input value={f.description} onChange={e=>set("description",e.target.value)} maxLength={300} placeholder={tr("What it does, in one sentence")}/></label>
+    <label>{tr("Trigger words (optional)")}<input value={listText(f.triggers)} onChange={e=>set("triggers",e.target.value)} maxLength={600} placeholder={tr("Words that should make the AI use it, separated by commas")}/></label>
+    <label>{tr("Words that rule it out (optional)")}<input value={listText(f.excludes)} onChange={e=>set("excludes",e.target.value)} maxLength={600} placeholder={tr("If the message has one of these, the skill is not used")}/></label>
     <label>{tr("Instructions for the AI")}<textarea value={f.instructions} onChange={e=>set("instructions",e.target.value)} maxLength={40000} rows={8} placeholder={tr("What the AI must do every time you use this skill: tone, structure, what to include, what to avoid.")} required/></label>
     <div className="formActions"><button type="button" className="secondary" onClick={onCancel}>{tr("Cancel")}</button><button className="primary" disabled={busy}>{busy?tr("Saving…"):tr("Save the skill")}</button></div>
   </form>;
@@ -59,7 +64,7 @@ export function SkillsPanel(){
   const free=templates.filter(t=>!t.added);
   return <div className="skillsPanel">
     <div className="pageBody">
-      <p className="panelLead">{tr("Instructions saved once and used any time: write /name in chat (for example /summary) or keep a skill always on.")}</p>
+      <p className="panelLead">{tr("Instructions saved once. The AI picks the skills a request needs on its own (Auto); you can also write /name in chat or keep a skill always on.")}</p>
       {editing?<SkillForm initial={editing} onCancel={()=>setEditing(null)} onSaved={()=>{setEditing(null);load()}}/>:<>
         <div className="skillsHead"><h3>{tr("Your skills")}</h3><button className="primary" onClick={()=>setEditing({...BLANK})}><Plus size={14}/> {tr("New skill")}</button></div>
         {loading?<div className="emptyState small">{tr("Loading…")}</div>:!items.length?<div className="taskEmpty">
@@ -68,8 +73,10 @@ export function SkillsPanel(){
         </div>:<div className="skillList">{items.map(x=><div key={x.id} className={cx("skillCard",!x.enabled&&"off")}>
           <div className="skillCardText"><b>/{x.slug} <span>{x.name}</span></b><small>{x.description||String(x.instructions||"").slice(0,140)}</small>{x.source&&<small className="libSource">{tr("{pack} · by {author} · {license}",{pack:x.source.pack,author:x.source.author,license:x.source.license})}</small>}</div>
           <div className="skillCardActions">
-            <label className="skillAuto" title={tr("Always on: used on every message, without /name")}><Switch checked={!!x.auto} label={tr("Always on {slug}",{slug:x.slug})} disabled={busy===x.id} onChange={v=>patch(x,{auto:v})}/><span>{tr("Always on")}</span></label>
-            <Switch checked={x.enabled} label={tr("On {slug}",{slug:x.slug})} disabled={busy===x.id} onChange={v=>patch(x,{enabled:v})}/>
+            <select className="skillState" value={!x.enabled?"disabled":x.auto?"always":"auto"} disabled={busy===x.id} aria-label={tr("When the AI uses /{slug}",{slug:x.slug})} title={tr(STATE_HELP[!x.enabled?"disabled":x.auto?"always":"auto"])}
+              onChange={e=>patch(x,{disabled:{enabled:false,auto:false},auto:{enabled:true,auto:false},always:{enabled:true,auto:true}}[e.target.value])}>
+              <option value="auto">{tr("Auto")}</option><option value="always">{tr("Always on")}</option><option value="disabled">{tr("Disabled")}</option>
+            </select>
             <button className="iconOnly smallIcon" onClick={()=>setEditing({...x})} aria-label={tr("Edit {name}",{name:x.slug})} title={tr("Edit")}><Pencil size={15}/></button>
             <button className="iconDanger" onClick={()=>remove(x)} aria-label={tr("Delete {name}",{name:x.slug})} title={tr("Delete")}><Trash2 size={15}/></button>
           </div>

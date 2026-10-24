@@ -84,6 +84,10 @@ export function ConnectorsPanel() {
     try { const d = await api(`/api/connectors/${c.id}/tools`); setTools((t) => ({ ...t, [c.id]: d.data || [] })); }
     catch (e) { setTools((t) => ({ ...t, [c.id]: { error: e.message } })); load(); }
   }
+  // 0.7.40: Disabled / Auto / Always available.
+  async function setMode(c, mode) {
+    try { await api(`/api/connectors/${c.id}`, { method: "PATCH", body: JSON.stringify({ mode }) }); await load(); } catch (e) { toast(e.message); }
+  }
   async function revoke(a) {
     try { await api(`/api/connectors/approvals/${a.id}`, { method: "DELETE" }); await load(); } catch (e) { toast(e.message); }
   }
@@ -100,6 +104,10 @@ export function ConnectorsPanel() {
         : <div className="plugCards">{data.connected.map((c) => <div key={c.id} className={cx("plugCard", c.status !== "connected" && "off")}>
           <div className="plugCardTop"><AppLogo logo={c.logo} name={c.name} /><div className="plugCardText"><b title={c.name}>{c.name}</b><small>{tr(STATUS[c.status] || c.status)}{c.status === "connected" && c.toolCount ? ` · ${tr("{n} actions", { n: c.toolCount })}` : ""}</small></div></div>
           {c.error && c.status !== "connected" && <small className="connError">{c.error}</small>}
+          {c.status === "connected" && <label className="connMode" title={tr(MODE_HELP[c.mode || "auto"])}><span>{tr("Use")}</span>
+            <select value={c.mode || "auto"} onChange={(e) => setMode(c, e.target.value)} aria-label={tr("When the AI uses {name}", { name: c.name })}>
+              <option value="auto">{tr("Auto")}</option><option value="always">{tr("Always available")}</option><option value="disabled">{tr("Disabled")}</option>
+            </select></label>}
           {tools[c.id] && <div className="connTools">{tools[c.id] === "loading" ? tr("Loading…") : tools[c.id].error ? <span className="connError">{tools[c.id].error}</span> : tools[c.id].map((t) => <span key={t.name} className={cx("connTool", t.readOnly && "read")} title={t.description}>{t.title}</span>)}</div>}
           <div className="plugCardActions">
             {c.status === "connected" ? <button className="smallBtn" onClick={() => showTools(c)}><Wrench size={13} /> {tools[c.id] ? tr("Hide actions") : tr("Actions")}</button>
@@ -142,6 +150,8 @@ export function ConnectorsPanel() {
   </div>;
 }
 
+const MODE_HELP = { auto: "Used only when the message needs it", always: "Offered to the AI in every message", disabled: "The AI never uses it" };
+
 // In chat: the card for an action the AI wants to take in a connected app.
 const RUN_STATUS = { ask: "Wants to", running: "Working in", done: "Used", denied: "Denied", error: "Failed in" };
 export const decideToolRun = (callId, decision) => api("/api/connectors/approve", { method: "POST", body: JSON.stringify({ callId, decision }) });
@@ -155,12 +165,12 @@ export function ToolRunCard({ run, onDecide = decideToolRun }) {
   }
   return <div className={cx("toolRun", run.status)}>
     <div className="toolRunHead"><AppLogo logo={run.logo} name={run.app} size="small" />
-      <span className="toolRunTitle"><b>{run.app}</b> · {tr(RUN_STATUS[run.status] || run.status)} <em>{run.title}</em>{run.readOnly ? <small> · {tr("read only")}</small> : null}</span></div>
+      <span className="toolRunTitle"><b>{run.app}</b> · {tr(RUN_STATUS[run.status] || run.status)} <em>{run.title}</em>{run.readOnly || run.risk === 0 ? <small> · {tr("read only")}</small> : run.risk >= 2 ? <small> · {tr("asks every time")}</small> : null}</span></div>
     {run.status === "ask" && <>
       {args && <pre className="toolRunArgs">{args}</pre>}
       <div className="toolRunActions">
         <button className="primary" disabled={!!sent} onClick={() => decide("once")}>{tr("Allow once")}</button>
-        <button className="secondary" disabled={!!sent} onClick={() => decide("always")}>{tr("Always allow")}</button>
+        {!(run.risk >= 2) && <button className="secondary" disabled={!!sent} onClick={() => decide("always")}>{tr("Always allow")}</button>}
         <button className="secondary danger" disabled={!!sent} onClick={() => decide("deny")}>{tr("Deny")}</button>
       </div>
     </>}

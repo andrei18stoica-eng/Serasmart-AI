@@ -422,6 +422,8 @@
 .routeBadge{display:inline-flex;align-items:center;gap:7px;max-width:100%;margin:0 0 12px;padding:5px 8px;border:1px solid var(--accent-bg);background:var(--surface);border-radius:9px;color:var(--accent);font-size:10px;line-height:1.25}
 .routeBadge>span{display:flex;align-items:center;gap:6px;min-width:0}
 .routeBadge b{color:var(--text);font-size:10px}
+.routeBadge{flex-wrap:wrap}
+.routeSkills{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 .routeBadge em{font-style:normal;color:var(--accent);max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .routeBadge small{color:var(--accent-strong);border-left:1px solid var(--line);padding-left:7px;white-space:nowrap}
 .thinking{display:flex!important;align-items:center;gap:10px!important;padding-left:44px!important;color:var(--text-3)}
@@ -1113,6 +1115,7 @@ h1,h2,h3{text-wrap:balance}
 .skillCardText{flex:1;min-width:0}.skillCardText b{display:block;font-size:14px}.skillCardText b span{color:var(--text-3);font-weight:500;margin-left:6px}
 .skillCardText small{display:block;color:var(--muted);font-size:12px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .skillCardActions{display:flex;align-items:center;gap:8px;flex:none}.skillAuto{display:flex;align-items:center;gap:6px;color:var(--text-3);font-size:11px}
+.skillState{padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:12px}
 .skillForm{display:grid;gap:4px;max-width:720px}.skillForm label{display:grid;gap:6px;color:var(--text-3);font-size:12px;margin:8px 0}
 .skillForm input,.skillForm textarea{border:1px solid var(--line);background:var(--bg-2);color:var(--text-strong);border-radius:10px;padding:10px 12px;outline:0;font-size:14px}
 .skillForm textarea{resize:vertical;min-height:150px;line-height:1.5}.skillSlug{display:flex;align-items:center;border:1px solid var(--line);background:var(--bg-2);border-radius:10px;padding-left:12px}
@@ -1332,6 +1335,8 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
 .connToken{display:flex;gap:6px;margin-top:8px}.connToken input{flex:1;padding:6px 8px}
 .connError{color:var(--danger);font-size:11px}
 .connTools{display:flex;flex-wrap:wrap;gap:5px;font-size:11px;color:var(--muted)}
+.connMode{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.connMode select{flex:1;min-width:0;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
 .connTool{border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--text-2);background:var(--surface-2)}.connTool.read{color:var(--muted)}
 .connApprovals{display:grid;gap:6px}.connApproval{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--text-2);min-width:0}
 .connApproval span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -1564,3 +1569,25 @@ h1,h2,h3,.wordmark,.welcome h1,.modalHead h2{font-family:var(--font-display)}
   .settingsModal.showDetail .usageEmbeddedHead h3{display:none}
   .usageEmbedded .usageBar{margin:0}
 }
+/* 0.7.40: Memory, Skills, Connectors and Plugins open inside Settings (a section with a back arrow on the phone). */
+.settingsPane .pageSearch input:not([type=checkbox]){flex:1;border:0;background:transparent;padding:0;height:100%;box-shadow:none;border-radius:0}
+.memoryEmbedded{display:grid;gap:14px;align-content:start}
+/* 0.7.40: switching between the accounts signed in on this device. */
+.accountArea{position:relative}
+.accountSwitcher{position:absolute;left:8px;right:8px;bottom:calc(100% - 4px);z-index:30;display:grid;gap:2px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.accountSwitcherRow{display:flex;align-items:center;gap:10px;width:100%;padding:8px;border:0;border-radius:10px;background:transparent;color:var(--text);text-align:left;font:inherit;cursor:pointer}
+.accountSwitcherRow>span:not(.accountAddIcon){flex:1;min-width:0;display:grid}
+.accountSwitcherRow b{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.accountSwitcherRow small{font-size:11px;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.accountSwitcherRow.current{cursor:default}
+.accountSwitcherRow.current>svg{color:var(--accent);flex:none}
+.accountSwitcherRow.add{border-top:1px solid var(--surface-3);border-radius:0 0 10px 10px;margin-top:4px;padding-top:10px}
+.accountAddIcon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--surface-2);color:var(--accent);flex:none}
+@media (hover:hover) and (pointer:fine){button.accountSwitcherRow:hover{background:var(--surface)}}
+.savedAccounts{display:grid;gap:6px;margin:0 0 14px}
+.savedAccountsLabel,.savedAccountsOr{font-size:12px;color:var(--text-3)}
+.savedAccountsOr{text-align:center;margin-top:6px}
+.savedAccount{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);text-align:left;font:inherit;cursor:pointer}
+.savedAccount>span{flex:1;min-width:0;display:grid}
+.savedAccount b{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.savedAccount small{font-size:12px;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

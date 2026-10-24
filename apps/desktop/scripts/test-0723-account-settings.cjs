@@ -101,7 +101,7 @@ async function gateway() {
 
     // The interface: the account tabs for every account.
     const ui = fs.readFileSync(path.join(__dirname, "..", "renderer", "src", "main.jsx"), "utf8");
-    expect(/ACCOUNT_TABS=\["profile","notify","privacy","security"(,"billing","usage")?\]/.test(ui) && /const accountOnly=!bridge/.test(ui) && /ProfileTab account=\{account\}/.test(ui), "every account sees Profile, Notifications, Privacy and Security");
+    expect(/ACCOUNT_TABS=\["profile","notify","privacy","security"(,"billing","usage")?(,"memory","skills","connectors","plugins")?\]/.test(ui) && /const accountOnly=!bridge/.test(ui) && /ProfileTab account=\{account\}/.test(ui), "every account sees Profile, Notifications, Privacy and Security");
   } finally {
     await gw.close(); omni.close();
     fs.rmSync(dir, { recursive: true, force: true });

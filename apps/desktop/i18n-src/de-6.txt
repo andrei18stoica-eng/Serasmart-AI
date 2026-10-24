@@ -1,0 +1,19 @@
+1468|Verwendung
+1564|Wann die KI {name} verwendet
+154|Automatisch
+100|Immer verfügbar
+408|Deaktiviert
+1480|Nur verwendet, wenn die Nachricht es braucht
+826|Der KI bei jeder Nachricht angeboten
+1231|Die KI verwendet es nie
+1661|fragt jedes Mal
+1563|Wann die KI /{slug} verwendet
+1479|Von selbst verwendet, wenn die Anfrage es braucht, oder mit /name
+1478|Bei jeder Nachricht verwendet
+754|Nie verwendet
+1435|Auslösewörter (optional)
+1576|Wörter, bei denen die KI ihn verwenden soll, durch Kommas getrennt
+1575|Ausschlusswörter (optional)
+602|Enthält die Nachricht eines davon, wird der Skill nicht verwendet
+622|Einmal gespeicherte Anweisungen. Die KI wählt die Skills, die eine Anfrage braucht, selbst aus (Automatisch); du kannst auch /name im Chat schreiben oder einen Skill immer aktiv lassen.
+1172|Verwendete Skills

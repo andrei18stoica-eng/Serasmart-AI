@@ -1,0 +1,4 @@
+1211|Hesap değiştir
+71|Başka hesap ekle
+65|Bu cihazdaki hesaplar
+1708|veya başka bir hesaba giriş yapın

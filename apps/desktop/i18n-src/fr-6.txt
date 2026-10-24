@@ -1,0 +1,19 @@
+1468|Utilisation
+1564|Quand l'IA utilise {name}
+154|Automatique
+100|Toujours disponible
+408|Désactivé
+1480|Utilisé seulement quand le message en a besoin
+826|Proposé à l'IA à chaque message
+1231|L'IA ne l'utilise jamais
+1661|demande à chaque fois
+1563|Quand l'IA utilise /{slug}
+1479|Utilisé tout seul quand la demande en a besoin, ou avec /nom
+1478|Utilisé à chaque message
+754|Jamais utilisé
+1435|Mots déclencheurs (facultatif)
+1576|Mots qui doivent faire utiliser le skill par l'IA, séparés par des virgules
+1575|Mots qui l'excluent (facultatif)
+602|Si le message contient l'un d'eux, le skill n'est pas utilisé
+622|Instructions enregistrées une fois. L'IA choisit seule les skills dont une demande a besoin (Automatique) ; vous pouvez aussi écrire /nom dans le chat ou garder un skill toujours actif.
+1172|Skills utilisés

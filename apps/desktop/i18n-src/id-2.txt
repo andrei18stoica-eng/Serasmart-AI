@@ -1,0 +1,450 @@
+456|Email dikonfirmasi. Akses Anda menunggu persetujuan Owner.
+457|Email yang di-hosting di Hostinger
+458|Endpoint / webhook / API kustom
+459|Mengakhiri setiap sesi akun ini, termasuk di perangkat ini.
+460|Berakhir {when}
+461|Hiburan
+462|Kesalahan
+463|Kesalahan, issues, dan rilis.
+464|Selamat malam. Ada yang perlu diselesaikan, atau rencana untuk besok?
+465|Setiap (jam)
+466|Setiap beberapa jam
+467|Setiap file yang dilampirkan atau dibuat di percakapan ini.
+468|Setiap jam
+469|Setiap model dan alat yang diizinkan paket Anda
+470|Setiap model di daftar ini muncul di daftar model di atas. Jika kunci tidak ada, atau penyedia menjawab 429/404/503 atau tidak menjawab sama sekali, {brand} mencoba model berikutnya, lalu penyedia berikutnya.
+471|Setiap {n} jam
+472|Waktu tepat
+473|Contoh
+474|Kode keluar: {code}
+475|Jelaskan dengan sederhana
+476|Video penjelasan yang dibuat dengan AI
+477|Menjelaskan topik apa pun agar pemula paham.
+478|Jelajahi
+479|Jelajahi riset ilmiah
+480|Ekstensi
+481|Kredit tambahan
+482|FLUX.1 Schnell lewat HF Inference Router, hanya jika perlindungan biaya mengizinkan.
+483|FLUX.1 Schnell · penyedia pertama dalam mode gratis.
+484|FLUX.1 Schnell. Kredit promosi bisa terbatas.
+485|Gagal di
+486|Penyedia media cadangan.
+487|Analisis olahraga fantasi
+488|Model cepat dan canggih
+489|Model pembuatan cepat lewat fal.run.
+490|Mode cepat. Tekan untuk Berpikir: jawaban lebih cermat, sedikit lebih lambat.
+491|File
+492|Nama file
+493|Jalur file di repositori
+494|Unggah file: {error}
+495|Unggahan file
+496|File
+497|File dan data
+498|File dan alat
+499|File di chat ini
+500|File di percakapan ini
+501|File: PDF / Word / PowerPoint / Excel / CSV / ZIP / kode
+502|Keuangan
+503|Keuangan dan akuntansi
+504|Cari dan baca makalah ilmiah
+505|Cari, buat, dan edit desain.
+506|Cari, buat, dan perbarui issues, proyek, dan komentar.
+507|Konfirmasi dulu email Anda dengan kode yang Anda terima. Jika tidak menemukannya, periksa Spam atau minta yang baru.
+508|Jelaskan dulu apa yang akan kita buat.
+509|Memperbaiki tata bahasa, diakritik, dan tanda baca tanpa mengubah makna.
+510|Untuk pemeriksaan (harga, iklan): tidak ada notifikasi jika hasilnya sama dengan sebelumnya.
+511|Untuk pertanyaan kode, mencari file yang relevan di repositori sebelum menjawab.
+512|Untuk pertanyaan pemrograman, {brand} mencari sendiri file yang relevan di repositori ini.
+513|Untuk menghubungkan aplikasi Google di Aplikasi: klien OAuth jenis «Aplikasi web» dari Google Cloud, dengan alamat pengalihan ini: {url}
+514|Untuk sains dan riset
+515|Selamanya
+516|Analisis formulir dan jawaban
+517|Gratis
+518|Pesan gratis hari ini
+519|Pesan gratis terpakai
+520|Uji coba gratis
+521|Frekuensi
+522|Pagi yang segar. Apa yang kita kerjakan dulu?
+523|Jumat. Mari tutup minggu ini dengan baik.
+524|Ramah
+525|Nama lengkap
+526|GPT Image lewat API OpenAI.
+527|Game
+528|Kunci API Gemini
+529|Gemini dan Grok
+530|Kunci Gemini
+531|Model Gemini (Nano Banana)
+532|Model Gemini (Veo)
+533|Model Gemini · pisahkan dengan koma
+534|Hanya Gemini · Nano Banana
+535|Hanya Gemini · Veo
+536|Hanya Gemini: lewat Gemini yang terhubung di OmniRoute (langganan, tanpa API) atau lewat kunci Gemini di API AI. Penyedia lain di bawah tidak dipakai.
+537|Gemini lewat API berbayar: untuk memakainya dengan kunci, pilih «Izinkan penyedia berbayar» di bawah.
+538|Umum
+539|Buat
+540|Buat lagi
+541|Dapatkan kunci gratis
+542|Dapatkan {brand} sebagai aplikasi di ponsel Anda, gratis
+543|Menyiapkan…
+544|GitHub OAuth Client ID
+545|GitHub OAuth client secret
+546|Model GitHub · pisahkan dengan koma
+547|Rollback GitHub selesai. Commit: {commit}
+548|Login GitHub untuk semua
+549|Token GitHub (untuk repositori pribadi)
+550|Berikan ringkasan singkat berita paling penting dan berita teknologi hari ini, dengan tautan ke sumbernya.
+551|Kembali ke chat sebelumnya
+552|Kembali ke versi sebelumnya dari {path}?
+553|Ke pesan terbaru
+554|Selamat siang
+555|Selamat siang, {name}
+556|Selamat malam
+557|Selamat malam, {name}
+558|Selamat pagi
+559|Selamat pagi, {name}
+560|Google
+561|Google OAuth Client ID
+562|Google OAuth client secret
+563|Aplikasi Google (Gmail, Drive, Calendar, Docs, Sheets)
+564|Tata kelola
+565|Model Grok · pisahkan dengan koma
+566|Model gambar Grok
+567|Model video Grok
+568|Kunci API Groq
+569|Model Groq · pisahkan dengan koma
+570|Gambar HD
+571|Nama header
+572|Kesehatan
+573|Layanan kesehatan
+574|Bantu saya merencanakan minggu ini. Prioritas saya adalah:
+575|Ini file {format} Anda: {name}
+576|Sembunyikan tindakan
+577|Sembunyikan pemberitahuan
+578|Sembunyikan langkah
+579|Bagaimana Anda ingin asisten ini bekerja?
+580|Bagaimana hari Anda? Apa yang bisa saya bantu ringankan?
+581|Berapa kredit?
+582|Seberapa banyak yang Anda pakai: pesan, gambar, video, dan suara.
+583|Cara AI menjawab
+584|Cara memilih
+585|Cara memasang
+586|Bagaimana Anda ingin dijawab, setiap kali. mis. «Jelaskan singkat, dengan contoh. Saat menulis kode, beri komentar.»
+587|HubSpot OAuth Client ID
+588|HubSpot OAuth client secret
+589|HubSpot hanya menerima aplikasi OAuth yang didaftarkan pemiliknya. Buat satu di HubSpot ({where}) dengan alamat pengalihan ini: {url}
+590|Login HubSpot untuk semua
+591|Model Hugging Face · pisahkan dengan koma
+592|Sumber daya manusia
+593|Saya tidak dapat menjangkau layanan {brand} di {url}. Periksa alamatnya atau gunakan {local}.
+594|Saya menyalin 1 kunci untuk server. Tempelkan saat skrip di server memintanya (klik kanan). Kunci dihapus dari papan klip dalam 2 menit.
+595|Saya menyalin {n} kunci untuk server. Tempelkan saat skrip di server memintanya (klik kanan). Kunci dihapus dari papan klip dalam 2 menit.
+596|Saya tidak menyalin {names}: ada karakter yang tidak diterima server.
+597|Saya tidak mendengar apa pun. Tekan mikrofon dan bicara lagi.
+598|Alamat IP
+599|IP atau domain
+600|Jika model Gemini yang dipilih tidak ada untuk kunci Anda, {brand} mencoba nama Gemini lain sendiri, lalu penyedia yang diizinkan di sini.
+601|Jika model yang dipilih tidak menjawab, otomatis beralih ke API langsung. Nonaktif: hanya model yang dipilih yang menjawab, jika tidak Anda melihat kesalahan.
+603|Jika layanan berhenti, {brand} mencoba memulainya lagi.
+604|Impor dari riwayat
+605|Impor detail yang bertahan lama (preferensi, keputusan, detail proyek) dari riwayat chat Anda?
+606|{n} item diimpor dari riwayat.
+607|Mengimpor…
+608|Di chat
+609|Termasuk di {brand}
+610|Termasuk di {brand} · tanpa akun
+611|Termasuk, tetapi diblokir perlindungan biaya secara bawaan.
+612|Informasi dari rapat Zoom
+613|Infrastruktur
+614|Pasang
+615|Pasang aplikasi {brand}
+616|Terpasang
+617|Instruksi
+618|Instruksi untuk AI
+619|Instruksi untuk asisten
+620|Instruksi untuk {brand}
+621|Instruksi yang disimpan sekali dan dipakai kapan saja: tulis /nama di chat (misalnya /ringkasan) atau biarkan skill selalu aktif.
+623|Instruksi yang diikuti AI saat Anda memanggilnya dengan /nama.
+624|Desain antarmuka dan prototipe
+625|Jawaban tidak valid dari layanan {brand} (HTTP {status}).
+626|Jawaban tidak valid saat mengunggah file.
+627|Faktur, pesanan, dan transaksi.
+628|Issues, pull requests, dan repositori kode
+629|Akan dihapus saat Anda menyimpan
+630|Akhir pekan. Sesuatu untuk kerja, atau hanya untuk Anda?
+631|Issues Jira dan halaman Confluence: cari, buat, edit.
+632|Jira, Confluence, Loom, dan lainnya
+633|Simpan chat
+634|Membuat AI selalu mengikuti berita terbaru
+635|Kunci / token
+636|Kunci tersimpan — kosongkan untuk mempertahankannya
+637|Kunci untuk server
+638|LTX Video. Bisa memakai kredit awal, lalu kredit berbayar.
+639|Bahasa
+640|Bahasa untuk dikte, transkripsi, dan membaca keras
+641|Bahasa: {lang}
+642|Bahasa: {name}
+643|Terakhir aktif
+644|Pembaruan terakhir: {when}, berhasil.
+645|Nanti
+646|Pesan terbaru
+647|Versi terbitan terbaru: {v}.
+648|Hukum, keamanan, dan kepatuhan
+649|Prospek, kontak, dan peluang.
+650|Biarkan {url} kecuali Anda memakai server {brand} terpisah. Alamat diperiksa sebelum disimpan.
+651|Hukum
+652|Analisis hukum
+653|Durasi
+654|Mari mulai hari dengan baik. Apa yang pertama?
+655|Pustaka
+656|Filter pustaka
+657|Lisensi dan penulis
+658|Terang
+659|Mendengarkan… tekan mikrofon lagi untuk berhenti.
+660|Mendengarkan… tekan mikrofon untuk berhenti
+661|Internet langsung dan GitHub
+662|Internet langsung, GitHub, dan server
+663|Memuat memori…
+664|Memuat Pustaka…
+665|Memuat model pemrograman…
+666|Memuat kombinasi…
+667|Memuat desain…
+668|Memuat riwayat…
+669|Memuat model…
+670|Memuat plugin…
+671|Memuat pratinjau…
+672|Memuat profil…
+673|Memuat permintaan…
+674|Memuat pengaturan…
+675|Memuat tugas…
+676|Memuat teks…
+677|Memuat pengguna…
+678|Memuat…
+679|Keluar
+680|Keluar dari semua perangkat
+681|Log dan analitik Workers Anda.
+682|Log, metrik, monitor, dan insiden.
+683|Cari alamat, kota, atau tempat terkenal.
+684|Mencari pembaruan…
+685|Lovable OAuth Client ID
+686|Lovable OAuth client secret
+687|Lovable hanya menerima aplikasi OAuth yang didaftarkan pemiliknya. Buat satu di Lovable ({where}) dengan alamat pengalihan ini: {url}
+688|Login Lovable untuk semua
+689|Salinan dibuat, dinonaktifkan: «{name}».
+690|Dibuat oleh {brand}
+691|Asisten utama
+692|Kombinasi utama (otomatis)
+693|Buat kunci Gemini gratis
+694|Buat gambar
+695|Buat perbaikannya
+696|Membuat dan mengolah PDF, DOCX, dan PPTX.
+697|Membuat gambar dengan AI.
+698|Membuat gambar dan menyiapkan file…
+699|Membuat video… ini bisa memakan beberapa menit
+700|Membuat file {format}…
+701|Kelola dan kueri basis data
+702|Peta
+703|Pemasaran
+704|Matematika / logika
+705|Saya
+706|Transkrip dan ringkasan rapat.
+707|Rapat
+708|Memori
+709|Memori dan chat
+710|Memori kosong.
+711|Memori nonaktif: {brand} tidak menyimpan atau memakai hal baru sampai Anda mengaktifkannya.
+712|Pengaturan memori
+713|Memori, proyek, dan pustaka file
+714|Menu
+715|Pesan
+716|Kirim pesan ke {brand}
+717|Pesan, model canggih
+718|Pesan, model cepat
+719|Pesan, model teratas
+720|Pesan
+721|Metode
+722|Akses mikrofon ditolak. Izinkan mikrofon di browser.
+723|Mikrofon tersedia dan diizinkan ✓
+724|Mikrofon aktif — silakan bicara
+725|Mikrofon tidak tersedia atau tidak diizinkan
+726|Tim dan chat Microsoft Teams
+727|Kunci API Mistral
+728|Model Mistral · pisahkan dengan koma
+729|Model diizinkan / diblokir
+730|Model dipilih manual
+731|Model untuk chat baru
+732|Model untuk desain
+733|Model yang dipakai
+734|Model, dataset, dan Spaces.
+735|Modernisasi
+736|Senin lagi. Mari siapkan minggu ini.
+737|Senin–Jumat pukul {time}
+738|Bulanan
+739|Bulanan, tanggal {day}, pukul {time}
+740|Berita pagi
+741|Paling populer
+742|Pindahkan ke proyek
+743|Musik dan podcast
+744|Pemakaian saya
+745|TIDAK
+746|NVIDIA API / NIM, kompatibel OpenAI.
+747|Kunci API NVIDIA
+748|Model NVIDIA · pisahkan dengan koma
+749|Nama
+750|Navigasi
+751|Butuh bantuan untuk sisa hari ini?
+752|Perlu perhatian
+753|Perlu masuk
+755|Permintaan akses baru
+756|Akun baru
+757|Akun baru dinonaktifkan di server ini.
+758|Baru dan menarik
+759|Asisten baru
+760|Chat baru
+761|Chat baru dengan {name}
+762|Desain baru
+763|Item baru untuk memori
+764|Kata sandi baru
+765|Proyek baru
+766|Skill baru
+767|Tugas baru
+768|Minggu baru. Mau merencanakannya bersama?
+769|Terbaru
+770|Berita setiap pagi
+771|Kredit berikutnya: {when}
+772|Jalan berikutnya
+773|Tidak
+774|Tidak ada model AI yang diizinkan untuk akun ini. Minta Owner akses ke sebuah model.
+775|Belum ada plugin API
+776|Tidak ada jawaban yang kembali.
+777|Belum ada aplikasi yang terhubung. Pilih satu di bawah: setelah Anda masuk, {brand} bisa mencari, membaca, membuat, dan mengedit di dalamnya, dan bertanya dulu sebelum setiap tindakan.
+778|Aplikasi tidak ditemukan. Anda bisa menambahkannya dengan «Aplikasi kustom» jika punya alamat MCP.
+779|Tidak ada perubahan
+780|Belum ada kunci chat yang tersimpan. Tambahkan, misalnya, kunci Gemini atau Groq lalu simpan.
+781|Belum ada chat di proyek ini. Tulis pesan untuk memulai.
+782|Tidak ada chat untuk ditampilkan.
+783|Belum ada chat.
+784|Belum ada model pemrograman yang tersedia.
+785|Belum ada asisten kustom.
+786|Belum ada hari yang dipilih
+787|Belum ada desain. Jelaskan yang pertama di sebelah kanan.
+788|Tidak ada perangkat yang menerimanya. Aktifkan notifikasi di atas.
+789|Tidak ada entri.
+790|Tidak ada file yang cocok dengan filter.
+791|Tidak ada model tersedia
+792|Tidak ada model yang cocok.
+793|Tidak ada model yang tersedia.
+794|Tanpa paket
+795|Plugin tidak ditemukan. Anda bisa membuatnya di tab «Buat plugin».
+796|Tanpa proyek
+797|Belum ada proyek. Buat satu dari menu samping.
+798|Tidak ada teks yang bisa dibaca
+799|Tidak ada repositori terhubung
+800|Belum ada tugas terjadwal
+801|Belum ada skill
+802|Tidak ada hasil teks.
+803|Tidak ada pemakaian dalam periode ini.
+804|Tidak ada model {name} di OmniRoute. Hubungkan di panel OmniRoute (Providers), lalu buka halaman ini lagi.
+805|Tidak ada
+806|Tidak ada AI yang dikonfigurasi yang bisa menjawab sekarang. Periksa model yang dipilih atau kunci API.
+807|Tidak diizinkan Owner
+808|Tidak termasuk dalam paket Anda
+809|Belum terpasang — npm install -g omniroute
+810|Belum dijalankan
+811|Tidak ada hasil untuk pencarian ini.
+812|Tidak ditemukan apa pun.
+813|Belum ada apa-apa. Saat Anda mengobrol, {brand} mengingat preferensi dan keputusan penting Anda. Anda juga bisa menambahkan sesuatu di bawah.
+814|Notifikasi dikirim ke 1 perangkat.
+815|Notifikasi dikirim ke {n} perangkat.
+816|Notifikasi
+817|Notifikasi untuk {brand} diblokir. Aktifkan di pengaturan ponsel (Notifikasi → {brand}) lalu tekan lagi.
+818|Notifikasi nonaktif di perangkat ini.
+819|Notifikasi tidak diizinkan. Anda bisa mengaktifkannya di pengaturan ponsel, di bawah {brand}.
+820|Beri tahu saya
+821|Dokumen dan alur kerja Notion
+822|Kesalahan OAuth — {error}
+823|NONAKTIF
+824|AKTIF
+825|Penawaran untuk klien
+827|Model resmi dan komunitas lewat Predictions API.
+828|Model video resmi lewat Predictions API.
+829|Lebih lama
+830|OmniRoute 3.8 tidak menjawab tanpa kunci. Buat di OmniRoute:
+831|Kunci API OmniRoute
+832|Alamat OmniRoute
+833|Kombinasi OmniRoute
+834|Kombinasi OmniRoute
+835|Perintah OmniRoute
+836|OmniRoute terhubung
+837|OmniRoute belum punya kombinasi.
+838|OmniRoute menjawab.
+839|OmniRoute tidak menjawab. Pilih model dari API langsung (Groq, Gemini…) di daftar, atau aktifkan cadangan otomatis.
+840|OmniRoute berjalan tetapi memerlukan kunci API: buat di OmniRoute → API Manager dan masukkan di Pengaturan → AI & OmniRoute. Sampai saat itu API langsung (Groq, Gemini…) yang menjawab, jika Anda memilihnya di daftar.
+841|Kunci OmniRoute
+842|OmniRoute memerlukan kunci API
+843|OmniRoute berhenti
+844|Di iPhone, notifikasi hanya berfungsi dari aplikasi terpasang: buka {domain} di Safari → Bagikan → Tambahkan ke Layar Utama, lalu buka {brand} dari layar dan kembali ke sini.
+845|Aktif {slug}
+846|Sekali
+847|Sekali: {date}, {time}
+848|Satu tempat untuk peta, gambar, asisten, dan situs web.
+849|Satu tahun
+850|Hanya penyedia tanpa biaya langsung
+851|Hanya blok kode yang dipilih
+852|Hanya langkah kerja yang ditampilkan, bukan penalaran internal model.
+853|Hanya saat ada perubahan
+854|Buka
+855|Buka Pengaturan
+856|Buka Pengaturan → Video
+857|Membuka situs web di browser.
+858|Buka layar penuh
+859|Buka di Design
+860|Buka di browser
+861|Buka halaman Google
+862|Buka menu browser (⋮ atau ≡).
+863|Buka chat
+864|Buka desain {name}
+865|Buka direktori
+866|Buka pratinjau {name}
+867|Buka tugas
+868|Buka {domain} di Safari (di iPhone hanya Safari yang bisa memasang aplikasi).
+869|Buka {name}
+870|OpenAI (ChatGPT) tidak lagi membuat video: Sora ditutup pada 24 September 2026, baik aplikasi maupun API-nya. Gambar ChatGPT masih berfungsi.
+871|OpenAI (berbayar)
+872|Kunci API OpenAI
+873|Kompatibel OpenAI, jawaban cepat.
+874|Kompatibel OpenAI.
+875|Model OpenAI · pisahkan dengan koma
+876|Model gambar OpenAI
+877|OpenAI lewat API
+878|Router kompatibel OpenAI; token yang sama dengan Gambar.
+879|OpenRouter (mungkin berbayar)
+880|Kunci API OpenRouter
+881|Model OpenRouter
+882|Model gambar OpenRouter
+883|Model video OpenRouter
+884|Membuka…
+885|Membuka aplikasi langsung
+886|Operasional
+887|Opsional: GitHub OAuth App (GitHub → Settings → Developer settings) dengan callback URL ini: {url}. Tanpanya, GitHub terhubung dengan token pribadi.
+888|Urutan percobaan
+889|Lainnya
+890|Model OmniRoute lainnya
+891|Akun lain memakai semua model gratis (Gemini, Groq, Mistral, OpenRouter :free…). Langganan Anda (Codex, Claude Code, Copilot, Kiro, akun web) tetap milik Anda saja: ketentuannya tidak mengizinkan berbagi akun. Mereka memakai kombinasi OmniRoute hanya jika Anda mencentangnya di sini; centang hanya kombinasi yang terdiri dari model gratis.
+892|Jawaban lain: {question}
+893|Detail lainnya
+894|Model lainnya
+895|Lainnya
+896|Jika tidak, ia hanya berjalan saat Anda menulis namanya atau @pemicu di chat.
+897|Email Owner di PC ini
+898|Owner di PC ini
+899|Hanya Owner
+900|Owner: pengguna, persetujuan, izin, sesi, dan layanan AI.
+901|PNG, JPEG, atau WebP, hingga 10 MB.
+902|AI berbayar diubah
+903|AI berbayar · pengguna
+904|AI berbayar: {error}
+905|Bayar per pemakaian, dengan kunci atau izin yang diberikan Owner
+906|Bayar per pemakaian, dengan izin yang diberikan Owner
+907|Bayar per pemakaian; kunci yang sama juga membuat gambar dan video Grok Imagine. Aktifkan dengan «Izinkan juga API berbayar».
+908|Panel
+909|Bagian {n}

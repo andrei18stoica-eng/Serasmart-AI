@@ -1,18 +1,18 @@
-577|Ce que vous avez utilisé : messages, images, vidéo et voix.
-1631|Votre abonnement, les forfaits et les crédits supplémentaires.
-737|Ma consommation
-83|Tous les comptes
-946|Forfaits de tous les comptes
-713|Messages
-1492|Minutes de voix
-327|Crédits utilisés
-325|Les crédits sont calculés aux prix des forfaits, même quand le compte n'est pas facturé.
-726|Modèles utilisés
-795|Aucune consommation sur cette période.
+582|Ce que vous avez utilisé : messages, images, vidéo et voix.
+1652|Votre abonnement, les forfaits et les crédits supplémentaires.
+744|Ma consommation
+85|Tous les comptes
+955|Forfaits de tous les comptes
+720|Messages
+1509|Minutes de voix
+331|Crédits utilisés
+329|Les crédits sont calculés aux prix des forfaits, même quand le compte n'est pas facturé.
+733|Modèles utilisés
+803|Aucune consommation sur cette période.
 16|7 jours
-939|Forfait
-326|Crédits par jour
-1191|Abonnement
-786|Aucun forfait
-170|Retour à tous les comptes
-1117|Consultez vos agendas et vos disponibilités, et ajoutez, modifiez ou supprimez des événements.
+948|Forfait
+330|Crédits par jour
+1201|Abonnement
+794|Aucun forfait
+174|Retour à tous les comptes
+1126|Consultez vos agendas et vos disponibilités, et ajoutez, modifiez ou supprimez des événements.

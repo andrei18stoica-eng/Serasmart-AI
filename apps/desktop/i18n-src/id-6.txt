@@ -1,0 +1,19 @@
+1468|Penggunaan
+1564|Kapan AI memakai {name}
+154|Otomatis
+100|Selalu tersedia
+408|Nonaktif
+1480|Dipakai hanya saat pesan membutuhkannya
+826|Ditawarkan ke AI di setiap pesan
+1231|AI tidak pernah memakainya
+1661|bertanya setiap kali
+1563|Kapan AI memakai /{slug}
+1479|Dipakai sendiri saat permintaan membutuhkannya, atau dengan /nama
+1478|Dipakai di setiap pesan
+754|Tidak pernah dipakai
+1435|Kata pemicu (opsional)
+1576|Kata yang membuat AI memakainya, dipisahkan koma
+1575|Kata pengecualian (opsional)
+602|Jika pesan berisi salah satunya, skill tidak dipakai
+622|Instruksi disimpan sekali. AI memilih sendiri skill yang dibutuhkan permintaan (Otomatis); Anda juga bisa menulis /nama di chat atau membiarkan skill selalu aktif.
+1172|Skill yang dipakai

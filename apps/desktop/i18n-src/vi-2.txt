@@ -1,0 +1,444 @@
+450|Giáo dục
+451|Giáo dục và giảng dạy
+452|Email
+453|Chiến dịch email và SMS, danh sách và kết quả.
+454|Trợ lý email và lịch
+455|Đã xác nhận email.
+456|Đã xác nhận email. Quyền truy cập của bạn đang chờ Owner duyệt.
+457|Email được lưu trữ tại Hostinger
+458|Endpoint / webhook / API tùy chỉnh
+459|Kết thúc mọi phiên của tài khoản này, kể cả trên thiết bị này.
+460|Kết thúc {when}
+461|Giải trí
+462|Lỗi
+463|Lỗi, issues và bản phát hành.
+464|Chào buổi tối. Có gì cần hoàn thành, hay kế hoạch cho ngày mai?
+465|Mỗi (giờ)
+466|Vài giờ một lần
+467|Mọi tệp được đính kèm hoặc tạo trong cuộc trò chuyện này.
+468|Mỗi giờ
+469|Mọi mô hình và công cụ gói của bạn cho phép
+470|Mọi mô hình trong các danh sách này đều xuất hiện trong danh sách mô hình ở trên. Nếu thiếu khóa, hoặc nhà cung cấp trả về 429/404/503 hay không trả lời, {brand} thử mô hình tiếp theo, rồi nhà cung cấp tiếp theo.
+471|Mỗi {n} giờ
+472|Giờ chính xác
+473|Ví dụ
+474|Mã thoát: {code}
+475|Giải thích đơn giản
+476|Video giải thích tạo bằng AI
+477|Giải thích bất kỳ chủ đề nào để người mới bắt đầu hiểu.
+478|Khám phá
+479|Khám phá nghiên cứu khoa học
+480|Tiện ích mở rộng
+481|Tín dụng thêm
+482|FLUX.1 Schnell qua HF Inference Router, chỉ khi bảo vệ chi phí cho phép.
+483|FLUX.1 Schnell · nhà cung cấp đầu tiên ở chế độ miễn phí.
+484|FLUX.1 Schnell. Tín dụng khuyến mãi có thể giới hạn.
+485|Thất bại trong
+486|Nhà cung cấp media dự phòng.
+487|Phân tích thể thao ảo
+488|Mô hình nhanh và nâng cao
+489|Mô hình tạo nhanh qua fal.run.
+490|Chế độ nhanh. Nhấn để Suy nghĩ: câu trả lời cẩn thận hơn, chậm hơn một chút.
+491|Tệp
+492|Tên tệp
+493|Đường dẫn tệp trong kho mã
+494|Tải tệp lên: {error}
+495|Tải tệp lên
+496|Tệp
+497|Tệp và dữ liệu
+498|Tệp và công cụ
+499|Tệp trong chat này
+500|Tệp trong cuộc trò chuyện này
+501|Tệp: PDF / Word / PowerPoint / Excel / CSV / ZIP / mã
+502|Tài chính
+503|Tài chính và kế toán
+504|Tìm và đọc bài báo khoa học
+505|Tìm, tạo và chỉnh sửa thiết kế.
+506|Tìm, tạo và cập nhật issues, dự án và bình luận.
+507|Trước tiên hãy xác nhận email bằng mã bạn nhận được. Nếu không thấy, hãy xem Spam hoặc yêu cầu mã mới.
+508|Trước tiên hãy mô tả những gì ta sẽ xây dựng.
+509|Sửa ngữ pháp, dấu và dấu câu mà không đổi nghĩa.
+510|Với các lần kiểm tra (giá, tin đăng): không thông báo khi kết quả giống lần trước.
+511|Với câu hỏi về mã, tìm các tệp liên quan trong kho mã trước khi trả lời.
+512|Với câu hỏi lập trình, {brand} tự tìm các tệp liên quan trong kho mã này.
+513|Để kết nối ứng dụng Google trong Ứng dụng: một OAuth client loại «Ứng dụng web» từ Google Cloud, với địa chỉ chuyển hướng này: {url}
+514|Cho khoa học và nghiên cứu
+515|Mãi mãi
+516|Phân tích biểu mẫu và câu trả lời
+517|Miễn phí
+518|Tin nhắn miễn phí hôm nay
+519|Tin nhắn miễn phí đã dùng
+520|Dùng thử miễn phí
+521|Tần suất
+522|Buổi sáng tươi mới. Ta bắt đầu với việc gì?
+523|Thứ Sáu. Hãy kết thúc tuần thật tốt.
+524|Thân thiện
+525|Họ và tên
+526|GPT Image qua API OpenAI.
+527|Trò chơi
+528|Khóa API Gemini
+529|Gemini và Grok
+530|Khóa Gemini
+531|Mô hình Gemini (Nano Banana)
+532|Mô hình Gemini (Veo)
+533|Mô hình Gemini · cách nhau bằng dấu phẩy
+534|Chỉ Gemini · Nano Banana
+535|Chỉ Gemini · Veo
+536|Chỉ Gemini: qua Gemini kết nối trong OmniRoute (gói đăng ký, không API) hoặc qua khóa Gemini trong API AI. Các nhà cung cấp khác bên dưới không được dùng.
+537|Gemini qua API là trả phí: để dùng bằng khóa, chọn «Cho phép nhà cung cấp trả phí» bên dưới.
+538|Chung
+539|Tạo
+540|Tạo lại
+541|Lấy khóa miễn phí
+542|Có {brand} dưới dạng ứng dụng trên điện thoại, miễn phí
+543|Đang chuẩn bị…
+544|GitHub OAuth Client ID
+545|GitHub OAuth client secret
+546|Mô hình GitHub · cách nhau bằng dấu phẩy
+547|Đã hoàn tác trên GitHub. Commit: {commit}
+548|Đăng nhập GitHub cho mọi người
+549|Token GitHub (cho kho mã riêng tư)
+550|Cho tôi bản tóm tắt ngắn các tin quan trọng nhất và tin công nghệ hôm nay, kèm liên kết đến nguồn.
+551|Quay lại cuộc trò chuyện trước
+552|Quay lại phiên bản trước của {path}?
+553|Đến tin nhắn mới nhất
+554|Chào buổi chiều
+555|Chào buổi chiều, {name}
+556|Chào buổi tối
+557|Chào buổi tối, {name}
+558|Chào buổi sáng
+559|Chào buổi sáng, {name}
+560|Google
+561|Google OAuth Client ID
+562|Google OAuth client secret
+563|Ứng dụng Google (Gmail, Drive, Calendar, Docs, Sheets)
+564|Quản trị
+565|Mô hình Grok · cách nhau bằng dấu phẩy
+566|Mô hình ảnh Grok
+567|Mô hình video Grok
+568|Khóa API Groq
+569|Mô hình Groq · cách nhau bằng dấu phẩy
+570|Ảnh HD
+571|Tên header
+572|Sức khỏe
+573|Chăm sóc sức khỏe
+574|Giúp tôi lên kế hoạch cho tuần này. Ưu tiên của tôi là:
+575|Đây là tệp {format} của bạn: {name}
+576|Ẩn hành động
+577|Ẩn thông báo
+578|Ẩn các bước
+579|Bạn muốn trợ lý này làm việc thế nào?
+580|Ngày hôm nay thế nào? Tôi có thể giúp bạn bớt việc gì?
+581|Bao nhiêu tín dụng?
+582|Bạn đã dùng bao nhiêu: tin nhắn, ảnh, video và giọng nói.
+583|Cách AI trả lời
+584|Cách chọn
+585|Cách cài đặt
+586|Bạn muốn được trả lời thế nào, mỗi lần. vd. «Giải thích ngắn gọn, có ví dụ. Khi viết mã, hãy chú thích.»
+587|HubSpot OAuth Client ID
+588|HubSpot OAuth client secret
+589|HubSpot chỉ nhận ứng dụng OAuth do chủ sở hữu đăng ký. Tạo một ứng dụng trong HubSpot ({where}) với địa chỉ chuyển hướng này: {url}
+590|Đăng nhập HubSpot cho mọi người
+591|Mô hình Hugging Face · cách nhau bằng dấu phẩy
+592|Nhân sự
+593|Tôi không kết nối được dịch vụ {brand} tại {url}. Kiểm tra địa chỉ hoặc dùng {local}.
+594|Tôi đã sao chép 1 khóa cho máy chủ. Dán vào khi script trên máy chủ hỏi (nhấp chuột phải). Khóa được xóa khỏi bộ nhớ tạm sau 2 phút.
+595|Tôi đã sao chép {n} khóa cho máy chủ. Dán vào khi script trên máy chủ hỏi (nhấp chuột phải). Chúng được xóa khỏi bộ nhớ tạm sau 2 phút.
+596|Tôi không sao chép {names}: có ký tự máy chủ không chấp nhận.
+597|Tôi không nghe thấy gì. Nhấn micrô và nói lại.
+598|Địa chỉ IP
+599|IP hoặc tên miền
+600|Nếu mô hình Gemini đã chọn không có cho khóa của bạn, {brand} tự thử các tên Gemini khác, rồi các nhà cung cấp được phép ở đây.
+601|Nếu mô hình đã chọn không trả lời, tự chuyển sang API trực tiếp. Tắt: chỉ mô hình đã chọn trả lời, nếu không bạn sẽ thấy lỗi.
+603|Nếu dịch vụ dừng, {brand} sẽ thử khởi động lại.
+604|Nhập từ lịch sử
+605|Nhập các chi tiết lâu dài (sở thích, quyết định, chi tiết dự án) từ lịch sử trò chuyện?
+606|Đã nhập {n} mục từ lịch sử.
+607|Đang nhập…
+608|Trong chat
+609|Có trong {brand}
+610|Có trong {brand} · không cần tài khoản
+611|Có sẵn, nhưng mặc định bị bảo vệ chi phí chặn.
+612|Thông tin từ cuộc họp Zoom
+613|Hạ tầng
+614|Cài đặt
+615|Cài ứng dụng {brand}
+616|Đã cài đặt
+617|Hướng dẫn
+618|Hướng dẫn cho AI
+619|Hướng dẫn cho trợ lý
+620|Hướng dẫn cho {brand}
+621|Hướng dẫn lưu một lần và dùng bất cứ lúc nào: viết /tên trong chat (ví dụ /tomtat) hoặc để skill luôn bật.
+623|Hướng dẫn AI làm theo khi bạn gọi bằng /tên.
+624|Thiết kế giao diện và bản mẫu
+625|Câu trả lời không hợp lệ từ dịch vụ {brand} (HTTP {status}).
+626|Câu trả lời không hợp lệ khi tải tệp lên.
+627|Hóa đơn, đơn hàng và giao dịch.
+628|Issues, pull requests và kho mã
+629|Sẽ bị xóa khi bạn lưu
+630|Cuối tuần rồi. Việc gì đó cho công việc, hay chỉ cho bạn?
+631|Issues Jira và trang Confluence: tìm, tạo, chỉnh sửa.
+632|Jira, Confluence, Loom và nhiều hơn
+633|Giữ cuộc trò chuyện
+634|Giúp AI luôn cập nhật tin tức
+635|Khóa / token
+636|Đã lưu khóa — để trống để giữ nguyên
+637|Khóa cho máy chủ
+638|LTX Video. Có thể dùng tín dụng ban đầu, sau đó là tín dụng trả phí.
+639|Ngôn ngữ
+640|Ngôn ngữ cho đọc chính tả, chép lời và đọc to
+641|Ngôn ngữ: {lang}
+642|Ngôn ngữ: {name}
+643|Hoạt động lần cuối
+644|Cập nhật lần cuối: {when}, thành công.
+645|Để sau
+646|Tin nhắn mới nhất
+647|Phiên bản phát hành mới nhất: {v}.
+648|Luật, bảo mật và tuân thủ
+649|Khách hàng tiềm năng, liên hệ và cơ hội.
+650|Để nguyên {url} trừ khi bạn dùng máy chủ {brand} riêng. Địa chỉ được kiểm tra trước khi lưu.
+651|Pháp lý
+652|Phân tích pháp lý
+653|Độ dài
+654|Hãy bắt đầu ngày mới thật tốt. Việc đầu tiên là gì?
+655|Thư viện
+656|Bộ lọc thư viện
+657|Giấy phép và tác giả
+658|Sáng
+659|Đang nghe… nhấn micrô lần nữa để dừng.
+660|Đang nghe… nhấn micrô để dừng
+661|Internet trực tiếp và GitHub
+662|Internet trực tiếp, GitHub và máy chủ
+663|Đang tải bộ nhớ…
+664|Đang tải Thư viện…
+665|Đang tải mô hình lập trình…
+666|Đang tải tổ hợp…
+667|Đang tải thiết kế…
+668|Đang tải lịch sử…
+669|Đang tải mô hình…
+670|Đang tải plugin…
+671|Đang tải bản xem trước…
+672|Đang tải hồ sơ…
+673|Đang tải yêu cầu…
+674|Đang tải cài đặt…
+675|Đang tải tác vụ…
+676|Đang tải văn bản…
+677|Đang tải người dùng…
+678|Đang tải…
+679|Đăng xuất
+680|Đăng xuất khỏi mọi thiết bị
+681|Nhật ký và phân tích Workers của bạn.
+682|Nhật ký, số liệu, giám sát và sự cố.
+683|Tìm địa chỉ, thành phố hoặc địa danh.
+684|Đang tìm bản cập nhật…
+685|Lovable OAuth Client ID
+686|Lovable OAuth client secret
+687|Lovable chỉ nhận ứng dụng OAuth do chủ sở hữu đăng ký. Tạo một ứng dụng trong Lovable ({where}) với địa chỉ chuyển hướng này: {url}
+688|Đăng nhập Lovable cho mọi người
+689|Đã tạo bản sao, đã tắt: «{name}».
+690|Tạo bởi {brand}
+691|Trợ lý chính
+692|Tổ hợp chính (tự động)
+693|Tạo khóa Gemini miễn phí
+694|Tạo ảnh
+695|Thực hiện bản sửa
+696|Tạo và xử lý PDF, DOCX và PPTX.
+697|Tạo ảnh bằng AI.
+698|Đang tạo ảnh và chuẩn bị tệp…
+699|Đang tạo video… có thể mất vài phút
+700|Đang tạo tệp {format}…
+701|Quản lý và truy vấn cơ sở dữ liệu
+702|Bản đồ
+703|Marketing
+704|Toán / logic
+705|Tôi
+706|Bản ghi và tóm tắt cuộc họp.
+707|Cuộc họp
+708|Bộ nhớ
+709|Bộ nhớ và cuộc trò chuyện
+710|Bộ nhớ trống.
+711|Bộ nhớ đang tắt: {brand} không lưu hay dùng điều gì mới cho đến khi bạn bật lại.
+712|Cài đặt bộ nhớ
+713|Bộ nhớ, dự án và thư viện tệp
+714|Menu
+715|Tin nhắn
+716|Nhắn tin cho {brand}
+717|Tin nhắn, mô hình nâng cao
+718|Tin nhắn, mô hình nhanh
+719|Tin nhắn, mô hình hàng đầu
+720|Tin nhắn
+721|Phương thức
+722|Quyền truy cập micrô bị từ chối. Hãy cho phép micrô trong trình duyệt.
+723|Micrô khả dụng và được phép ✓
+724|Micrô đang bật — hãy nói
+725|Micrô không khả dụng hoặc không được phép
+726|Nhóm và chat Microsoft Teams
+727|Khóa API Mistral
+728|Mô hình Mistral · cách nhau bằng dấu phẩy
+729|Mô hình được phép / bị chặn
+730|Mô hình chọn thủ công
+731|Mô hình cho cuộc trò chuyện mới
+732|Mô hình cho thiết kế
+733|Mô hình đã dùng
+734|Mô hình, bộ dữ liệu và Spaces.
+735|Hiện đại hóa
+736|Lại thứ Hai. Hãy sắp xếp tuần này.
+737|Thứ Hai–thứ Sáu lúc {time}
+738|Hằng tháng
+739|Hằng tháng, ngày {day}, lúc {time}
+740|Tin tức buổi sáng
+741|Phổ biến nhất
+742|Chuyển vào dự án
+743|Âm nhạc và podcast
+744|Mức dùng của tôi
+745|KHÔNG
+746|NVIDIA API / NIM, tương thích OpenAI.
+747|Khóa API NVIDIA
+748|Mô hình NVIDIA · cách nhau bằng dấu phẩy
+749|Tên
+750|Điều hướng
+751|Cần giúp cho phần còn lại của ngày?
+752|Cần chú ý
+753|Cần đăng nhập
+755|Yêu cầu truy cập mới
+756|Tài khoản mới
+757|Tài khoản mới bị tắt trên máy chủ này.
+758|Mới và đáng chú ý
+759|Trợ lý mới
+760|Cuộc trò chuyện mới
+761|Cuộc trò chuyện mới với {name}
+762|Thiết kế mới
+763|Mục mới cho bộ nhớ
+764|Mật khẩu mới
+765|Dự án mới
+766|Skill mới
+767|Tác vụ mới
+768|Tuần mới. Cùng lên kế hoạch nhé?
+769|Mới nhất
+770|Tin tức mỗi sáng
+771|Tín dụng tiếp theo: {when}
+772|Lần chạy tiếp theo
+773|Không
+774|Không có mô hình AI nào được phép cho tài khoản này. Hãy xin Owner quyền truy cập một mô hình.
+775|Chưa có plugin API
+776|Không có câu trả lời.
+777|Chưa có ứng dụng nào được kết nối. Chọn một ứng dụng bên dưới: sau khi đăng nhập, {brand} có thể tìm, đọc, tạo và chỉnh sửa trong đó, và hỏi bạn trước mỗi hành động.
+778|Không tìm thấy ứng dụng. Bạn có thể thêm bằng «Ứng dụng tùy chỉnh» nếu nó có địa chỉ MCP.
+779|Không có thay đổi
+780|Chưa lưu khóa chat nào. Thêm, ví dụ, khóa Gemini hoặc Groq rồi lưu.
+781|Chưa có cuộc trò chuyện nào trong dự án này. Viết tin nhắn để bắt đầu.
+782|Không có cuộc trò chuyện để hiển thị.
+783|Chưa có cuộc trò chuyện.
+784|Chưa có mô hình lập trình nào.
+785|Chưa có trợ lý tùy chỉnh.
+786|Chưa chọn ngày
+787|Chưa có thiết kế. Mô tả thiết kế đầu tiên ở bên phải.
+788|Không thiết bị nào nhận được. Bật thông báo ở trên.
+789|Không có mục nào.
+790|Không có tệp nào khớp bộ lọc.
+791|Không có mô hình khả dụng
+792|Không có mô hình phù hợp.
+793|Không có mô hình khả dụng.
+794|Không có gói
+795|Không tìm thấy plugin. Bạn có thể tạo trong tab «Tạo plugin».
+796|Không có dự án
+797|Chưa có dự án. Tạo một dự án từ menu bên.
+798|Không có văn bản đọc được
+799|Chưa kết nối kho mã
+800|Chưa có tác vụ đã lên lịch
+801|Chưa có skill
+802|Không có kết quả văn bản.
+803|Không có mức dùng trong khoảng thời gian này.
+804|Không có mô hình {name} trong OmniRoute. Kết nối trong bảng OmniRoute (Providers), rồi mở lại trang này.
+805|Không
+806|Không AI nào đã cấu hình có thể trả lời lúc này. Kiểm tra mô hình đã chọn hoặc khóa API.
+807|Không được Owner cho phép
+808|Không có trong gói của bạn
+809|Chưa cài — npm install -g omniroute
+810|Chưa chạy
+811|Không tìm thấy gì cho tìm kiếm này.
+812|Không tìm thấy gì.
+813|Chưa có gì. Khi bạn trò chuyện, {brand} ghi nhớ sở thích và các quyết định quan trọng của bạn. Bạn cũng có thể thêm bên dưới.
+814|Đã gửi thông báo đến 1 thiết bị.
+815|Đã gửi thông báo đến {n} thiết bị.
+816|Thông báo
+817|Thông báo cho {brand} bị chặn. Bật trong cài đặt điện thoại (Thông báo → {brand}) rồi nhấn lại.
+818|Thông báo đang tắt trên thiết bị này.
+819|Thông báo không được cho phép. Bạn có thể bật trong cài đặt điện thoại, mục {brand}.
+820|Báo cho tôi
+821|Tài liệu và quy trình Notion
+822|Lỗi OAuth — {error}
+823|TẮT
+824|BẬT
+825|Báo giá cho khách hàng
+827|Mô hình chính thức và cộng đồng qua Predictions API.
+828|Mô hình video chính thức qua Predictions API.
+829|Cũ hơn
+830|OmniRoute 3.8 không trả lời nếu không có khóa. Tạo khóa trong OmniRoute:
+831|Khóa API OmniRoute
+832|Địa chỉ OmniRoute
+833|Tổ hợp OmniRoute
+834|Tổ hợp OmniRoute
+835|Lệnh OmniRoute
+836|Đã kết nối OmniRoute
+837|OmniRoute chưa có tổ hợp nào.
+838|OmniRoute đang trả lời.
+839|OmniRoute không trả lời. Chọn mô hình từ API trực tiếp (Groq, Gemini…) trong danh sách, hoặc bật dự phòng tự động.
+840|OmniRoute đang chạy nhưng cần khóa API: tạo trong OmniRoute → API Manager và nhập vào Cài đặt → AI & OmniRoute. Trong lúc đó, API trực tiếp (Groq, Gemini…) sẽ trả lời nếu bạn chọn chúng trong danh sách.
+841|Khóa OmniRoute
+842|OmniRoute cần khóa API
+843|OmniRoute đã dừng
+844|Trên iPhone, thông báo chỉ hoạt động từ ứng dụng đã cài: mở {domain} trong Safari → Chia sẻ → Thêm vào MH chính, rồi mở {brand} từ màn hình và quay lại đây.
+845|Bật {slug}
+846|Một lần
+847|Một lần: {date}, {time}
+848|Một nơi cho bản đồ, ảnh, trợ lý và trang web.
+849|Một năm
+850|Chỉ nhà cung cấp không có chi phí trực tiếp
+851|Chỉ khối mã đã chọn
+852|Chỉ hiển thị các bước làm việc, không phải suy luận nội bộ của mô hình.
+853|Chỉ khi có thay đổi
+854|Mở
+855|Mở Cài đặt
+856|Mở Cài đặt → Video
+857|Mở trang web trong trình duyệt.
+858|Mở toàn màn hình
+859|Mở trong Design
+860|Mở trong trình duyệt
+861|Mở trang Google
+862|Mở menu trình duyệt (⋮ hoặc ≡).
+863|Mở cuộc trò chuyện
+864|Mở thiết kế {name}
+865|Mở danh mục
+866|Mở bản xem trước của {name}
+867|Mở tác vụ
+868|Mở {domain} trong Safari (trên iPhone chỉ Safari cài được ứng dụng).
+869|Mở {name}
+870|OpenAI (ChatGPT) không còn tạo video: Sora đã đóng vào ngày 24 tháng 9 năm 2026, cả ứng dụng lẫn API. Ảnh ChatGPT vẫn hoạt động.
+871|OpenAI (trả phí)
+872|Khóa API OpenAI
+873|Tương thích OpenAI, trả lời nhanh.
+874|Tương thích OpenAI.
+875|Mô hình OpenAI · cách nhau bằng dấu phẩy
+876|Mô hình ảnh OpenAI
+877|OpenAI qua API
+878|Router tương thích OpenAI; cùng token với Ảnh.
+879|OpenRouter (có thể tốn phí)
+880|Khóa API OpenRouter
+881|Mô hình OpenRouter
+882|Mô hình ảnh OpenRouter
+883|Mô hình video OpenRouter
+884|Đang mở…
+885|Mở ứng dụng trực tiếp
+886|Vận hành
+887|Tùy chọn: một GitHub OAuth App (GitHub → Settings → Developer settings) với callback URL này: {url}. Không có nó, GitHub kết nối bằng token cá nhân.
+888|Thứ tự thử
+889|Khác
+890|Mô hình OmniRoute khác
+891|Các tài khoản khác dùng mọi mô hình miễn phí (Gemini, Groq, Mistral, OpenRouter :free…). Gói đăng ký của bạn (Codex, Claude Code, Copilot, Kiro, tài khoản web) chỉ thuộc về bạn: điều khoản của chúng không cho chia sẻ tài khoản. Họ chỉ dùng tổ hợp OmniRoute nếu bạn đánh dấu ở đây; chỉ đánh dấu tổ hợp gồm mô hình miễn phí.
+892|Câu trả lời khác: {question}
+893|Chi tiết khác
+894|Mô hình khác
+895|Khác
+896|Nếu không, nó chỉ chạy khi bạn viết tên hoặc @kích_hoạt trong chat.
+897|Email Owner trên PC này

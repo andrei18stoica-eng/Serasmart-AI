@@ -1,18 +1,18 @@
-577|Ile wykorzystano: wiadomości, obrazy, wideo i głos.
-1631|Twoja subskrypcja, plany i dodatkowe kredyty.
-737|Moje zużycie
-83|Wszystkie konta
-946|Plany wszystkich kont
-713|Wiadomości
-1492|Minuty głosu
-327|Wykorzystane kredyty
-325|Kredyty liczone są według cen planów, także gdy konto nie płaci.
-726|Użyte modele
-795|Brak zużycia w tym okresie.
+582|Ile wykorzystano: wiadomości, obrazy, wideo i głos.
+1652|Twoja subskrypcja, plany i dodatkowe kredyty.
+744|Moje zużycie
+85|Wszystkie konta
+955|Plany wszystkich kont
+720|Wiadomości
+1509|Minuty głosu
+331|Wykorzystane kredyty
+329|Kredyty liczone są według cen planów, także gdy konto nie płaci.
+733|Użyte modele
+803|Brak zużycia w tym okresie.
 16|7 dni
-939|Plan
-326|Kredyty dziennie
-1191|Subskrypcja
-786|Brak planu
-170|Wróć do wszystkich kont
-1117|Przeglądaj kalendarze i wolny czas oraz dodawaj, zmieniaj lub usuwaj wydarzenia.
+948|Plan
+330|Kredyty dziennie
+1201|Subskrypcja
+794|Brak planu
+174|Wróć do wszystkich kont
+1126|Przeglądaj kalendarze i wolny czas oraz dodawaj, zmieniaj lub usuwaj wydarzenia.

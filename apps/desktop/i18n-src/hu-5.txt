@@ -1,18 +1,18 @@
-577|Mennyit használtál: üzenetek, képek, videó és hang.
-1631|Az előfizetésed, a csomagok és az extra kreditek.
-737|Saját használat
-83|Minden fiók
-946|Minden fiók csomagja
-713|Üzenetek
-1492|Hangperc
-327|Felhasznált kreditek
-325|A kreditek a csomagárak szerint számolódnak, akkor is, ha a fiók nem fizet.
-726|Használt modellek
-795|Nincs használat ebben az időszakban.
+582|Mennyit használtál: üzenetek, képek, videó és hang.
+1652|Az előfizetésed, a csomagok és az extra kreditek.
+744|Saját használat
+85|Minden fiók
+955|Minden fiók csomagja
+720|Üzenetek
+1509|Hangperc
+331|Felhasznált kreditek
+329|A kreditek a csomagárak szerint számolódnak, akkor is, ha a fiók nem fizet.
+733|Használt modellek
+803|Nincs használat ebben az időszakban.
 16|7 nap
-939|Csomag
-326|Kredit naponta
-1191|Előfizetés
-786|Nincs csomag
-170|Vissza az összes fiókhoz
-1117|Lásd a naptáraidat és a szabad idődet, és adj hozzá, módosíts vagy törölj eseményeket.
+948|Csomag
+330|Kredit naponta
+1201|Előfizetés
+794|Nincs csomag
+174|Vissza az összes fiókhoz
+1126|Lásd a naptáraidat és a szabad idődet, és adj hozzá, módosíts vagy törölj eseményeket.

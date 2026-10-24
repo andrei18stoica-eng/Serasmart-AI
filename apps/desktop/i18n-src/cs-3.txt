@@ -1,439 +1,439 @@
-893|Placená AI změněna
-894|Placená AI · uživatelé
-895|Placená AI: {error}
-896|Placeno podle použití, s klíčem nebo oprávněními od Ownera
-897|Placeno podle použití, s oprávněními od Ownera
-898|Placeno podle použití; stejný klíč vytváří i obrázky a videa přes Grok Imagine. Zapněte to přes «Povolit i placená API».
-899|Panel
-900|Část {n}
-901|Heslo
-902|Heslo změněno. Ostatní zařízení se musí znovu přihlásit.
-903|Nejdřív vložte klíč.
-904|Vložte klíč sem
-905|Platby
-906|Platby, objednávky, katalog a zákazníci.
-907|Čeká
-908|Výkon
-909|Oprávnění
-910|Oprávnění změněna
-911|Oprávnění: {error}
-912|Osobní AI astrolog
-913|Telefon
-914|Oznámení v telefonu
-915|Vyberte asistenta pro novou konverzaci.
-916|Vyberte ze seznamu nebo si vytvořte vlastní z API. Pak napište jeho název do chatu a {brand} ho použije.
-917|Pod polem zprávy vyberte, kdo obrázek vytvoří, nebo Automaticky: nejlepší dostupný.
-918|Pod polem zprávy vyberte, kdo video vytvoří, nebo Automaticky: nejdřív bezplatné, pak Gemini Veo, Grok Imagine a ostatní klíče (placené, pokud je povolíte v Nastavení).
-919|Obrázek
-920|Obrázek / vidění
-921|HD obrázek
-922|Generování obrázků
-923|Generování obrázků, API, modely a automatický pokus u jiného poskytovatele.
-924|Obrázek vytvořil
-925|Obrázek vytvořil {brand}
-926|Tvorba obrázků
-927|Režim obrázku: další zpráva vytvoří obrázek. Znovu klikněte na Obrázek pro ukončení.
-928|Obrázkový model
-929|Poskytovatelé obrázků
-930|Obrázek: další zpráva vytvoří obrázek.
-931|Obrázky
-932|Obrázky a videa (v testu se negenerují, takže se nečerpá kredit):
-933|Obrázky v Knihovně
-934|Obrázky vytváří
-935|Připnout
-936|Připnout toto
-937|Připnuto — klikněte pro odepnutí
-938|Místo k vyhledání
-940|Týdenní plán
-941|Naplánuj můj týden
-942|Tarif zahájen
-943|Plánuji strukturu…
-944|Tarify a kredity zatím nejsou aktivní: každý účet funguje jako dřív (bezplatná úroveň a pravidla Ownera).
-945|Tarify a kredity navíc
-947|Hraní šachu a učení strategie
-948|Seznam pluginů
-949|Sekce pluginů
-950|Nastavení pluginu
-951|Pluginy
-952|API klíč Pollinations
-953|Model Pollinations
-954|Video model Pollinations
-955|Oblíbené
-956|Plakát
-957|Databáze Postgres: dotazy, větve a správa.
-958|Příspěvky pro Instagram, Facebook, LinkedIn nebo TikTok.
-959|Preference
-960|Preferovaný model
-961|Připravuji odpověď…
-962|Připravuji otázky…
-963|Připravuji…
-964|Prezentace
-965|Klepněte na Sdílet (čtverec se šipkou nahoru), nebo ••• → Sdílet.
-966|Klikněte jednou na mikrofon pro zahájení nahrávání a znovu pro zastavení. {brand} zapíše, co jste řekli, a odešle to.
-967|Náhled
-968|Šířka náhledu
-969|Náhled {name}
-970|Náhled: {name}
-971|Posledních 30 dní
-972|Posledních 7 dní
-973|Přednostní přístup ve špičce
-974|Databáze Prisma Postgres a migrace.
-975|Soukromí
-976|Soukromí a data
-977|Produktová analytika, příznaky a experimenty.
-978|Produktový management
-979|Produktivita
-980|Profesionální
-981|Profesionální e-mail
-982|Profil
-983|Profilová fotka
-984|Profilová fotka odstraněna.
-985|Profilová fotka uložena.
-986|Profil uložen.
-987|Programování
-988|Programovací jazyky
-989|Programování s Codexem a Claude Code: vyberte model a začněte konverzaci o kódu.
-990|Projekty
-991|Projekty a práce
-992|Projekty, databáze, SQL a logy.
-993|Projekty, nasazení a logy.
-994|Projekty, úkoly a CRM
-995|Korektor
-996|Návrh hotov (pro tento typ souboru není kontrola syntaxe).
-997|Ochrana aktivní: {brand} zkouší přímo Cloudflare a Pollinations. Hugging Face, Together, OpenAI, Stability, fal.ai a Replicate jsou blokované, pokud by mohly čerpat placený kredit. U OpenRouteru se cena kontroluje před voláním.
-998|Chrání osobní údaje
-999|Návrh proteinů a molekul
-1000|Poskytovatelé
-1001|Poskytovatelé používaní v chatu
-1002|Kvalita
-1003|Otázky o vašich zdravotních datech
-1004|Rychlé částky
-1005|Rychlá odpověď
-1006|Předčítat
-1007|Čtení a úprava tabulek.
-1008|Čtení a třídění vašich e-mailů v Gmailu
-1009|Čtení, psaní a úprava dokumentů.
-1010|Předčítání není na tomto počítači dostupné.
-1011|Čtu žádost…
-1012|Čtu text…
-1013|Připravené k použití
-1014|Skutečný výsledek spuštění {brand}:
-1015|Živý internet
-1016|Nedávné
-1017|Znovu připojit v OmniRoute
-1018|Nahrajte svůj hlas
-1019|Obnovit
-1020|Obnovit seznam modelů
-1021|Obnovuji seznam…
-1022|Vygenerovat odpověď znovu
-1023|Nové vygenerování nahradí tuto odpověď a smaže následující zprávy. Pokračovat?
-1024|Zamítnuto
-1025|Zamítnutí uživatelé
-1026|Znovu načíst {brand}
-1027|Odebrat
-1028|Odstranit zveřejněné osobní údaje
-1029|Vyjmout z projektu
-1030|Odebrat plugin «{name}»?
-1031|Odebrat {name}
-1032|Přejmenovat
-1033|Přejmenovat soubor
-1034|Přejmenování: {error}
-1035|API token Replicate
-1036|Model Replicate
-1037|Video model Replicate
-1038|Repozitáře, issues, pull requesty a soubory.
-1039|Výzkum
-1040|Výzkum a věda
-1041|Zdroje ke studiu Koránu
-1042|Obnovit z archivu
-1043|Obnovit chat
-1044|Obnovit chat {name}
-1045|Výsledek
-1046|Výsledky
-1047|Zkusit znovu
-1048|Spustit / otestovat kód
-1049|Spouštějte AI modely na Replicate.
-1050|Spuštění kódu: {error}
-1051|Historie spuštění
-1052|Spustit teď
-1053|Spravujte svůj e-shop
-1054|Běží
-1055|Spouštění kódu a SSH jsou jen pro Ownera.
-1056|Spouštění kódu, GitHub Solve a SSH jsou jen pro účet Ownera (viz «E-mail Ownera na tomto počítači»).
-1057|Spouštím…
-1058|Spouští naplánované úkoly a kontroly ve zvolený čas.
-1059|SEO průzkum
-1060|Cesta k soukromému SSH klíči
-1061|SSH server · adresa
-1062|SSH uživatel
-1063|Prodej
-1064|Sobota a neděle v {time}
-1065|Uložit
-1066|Uložit a připnout
-1067|Uložit a otestovat
-1068|Uložit profil
-1069|Uložit nastavení
-1070|Uložit změnu
-1071|Uložit skill
-1072|Uloženo a připnuto v paměti.
-1073|Uloženo.
-1074|Ukládám klíč a testuji…
-1075|Ukládám plugin a testuji…
-1076|Ukládám…
-1077|Prohledává kód kvůli bezpečnostním problémům.
-1078|Naplánovat
-1079|Naplánované
-1080|Naplánované (naplánované úkoly)
-1081|Věda
-1082|Vědecký výzkum
-1083|Posuňte a zvolte Přidat na plochu, pak Přidat.
-1084|Hledat
-1085|Automaticky hledat na GitHubu
-1086|Hledání a získávání dat z webu
-1087|Hledání a čtení souborů a složek.
-1088|Hledání a čtení souborů vaší firmy.
-1089|Hledání a odesílání e-mailů a zpráv
-1090|Hledat aplikace
-1091|Hledat podle názvu
-1092|Hledat v chatech
-1093|Hledat model
-1094|Hledat model…
-1095|Hledat jazyky
-1096|Hledat v paměti
-1097|Hledat modely
-1098|Hledat v dřívějších chatech
-1099|Hledat pluginy
-1100|Hledat pluginy a skilly
-1101|Výsledky hledání
-1102|Hledat v Knihovně
-1103|Hledat v seznamu (název, kategorie)
-1104|Hledat v knihovně
-1105|Hledat ve vědecké literatuře
-1106|Vyhledej na webu nejnovější zprávy o
-1107|Hledat mezi {n} jazyky
-1108|Hledání, čtení a vytváření souborů.
-1109|Hledání, čtení a psaní konceptů e-mailů.
-1110|Hledání, čtení, vytváření a úprava stránek a databází.
-1111|Hledá na Wikipedii (rumunsky, pak anglicky) a vrátí shrnutí článku.
-1112|Vyhledává aktuální informace a online zdroje.
-1113|U otázek na nejnovější informace, verze a API sám hledá aktuální zdroje.
-1114|Zabezpečení
-1115|Bezpečnostní analýza kódu
-1116|Zobrazit tarify
-1118|Seedance, Veo, Wan a další modely přes stejné API.
-1119|Vybrat
-1120|Vyberte uživatele.
-1121|Vybráno
-1122|Odeslat
-1123|Odeslat testovací oznámení
-1124|Odeslat žádost o přístup
-1125|Poslat kód znovu
-1126|Poslat kód znovu ({s} s)
-1127|Odeslat zprávu
-1128|Server připojen ✓
-1129|Relace zavřeny
-1130|Relace: {error}
-1131|Nastavit stav «{status}» pro {email}? Aktivní relace účtu budou zavřeny.
-1132|Nastavení
-1133|Nastavení lze uložit jen v aplikaci {brand}.
-1134|Nastavení uloženo.
-1135|Více obrázkových modelů s jedním klíčem.
-1136|Pokračujeme s «{title}»?
-1137|Společné pokyny projektu
-1138|Krátce a k věci
-1139|Krátký popis
-1140|Krátké video (~6 s)
-1141|Zobrazit další (zbývá {n})
-1142|Zobrazit nebo skrýt menu
-1143|Zobrazuje se prvních 60 000 znaků.
-1144|Zobrazí oznámení, když má úkol výsledek.
-1145|Přihlásit se
-1146|Přihlásit se znovu
-1147|Přihlaste se znovu.
-1148|Přihlásit se do {brand}
-1149|Přihlaste se do {name} v okně, které se otevřelo, a pak se vraťte sem.
-1150|Odhlásit se
-1151|Odhlásit se z {brand} na všech zařízeních, včetně tohoto?
-1152|Odhlásit ostatní zařízení
-1153|Přihlášení
-1154|Je nutné přihlášení.
-1155|Odhlášení
-1156|Odhlašuji…
-1157|Aktualizace webu ({domain})
-1158|Weby a nasazení.
-1159|Weby, stránky a položky CMS.
-1160|Velikost
-1161|Pluginy skillů
-1162|Skilly
-1163|Kanály a zprávy ve Slacku
-1164|Příspěvky na sociální sítě
-1165|Softwarové inženýrství
-1166|Něco jiného
-1167|Něco jiného…
-1168|Řadit
-1169|Mluvte: text se objeví v poli a odešle se sám
-1170|API klíč Stability
-1171|Engine Stability
-1172|Start
-1173|Spouštět OmniRoute automaticky
-1174|Spusťte OmniRoute nebo přidejte API klíč v Nastavení.
-1175|Začněte konverzaci, která vytvoří obrázek.
-1176|Spouštět {brand} s Windows
-1177|Spouštím {brand}…
-1178|Spouštím…
-1179|Špičkové modely ADMET
-1180|Ještě vzhůru? Dokončeme to spolu.
-1181|Zastavit a odeslat
-1182|Zastavit předčítání
-1183|Zastavit odpověď
-1184|Zastavit nahrávání hlasu
-1185|Nejdřív zastavte nahrávání hlasu.
-1186|Zastaveno po chybách
-1187|Zastaveno Ownerem
-1188|Silové tréninky pro Garmin
-1189|Struktury, molekuly a proteiny
-1190|Student
-1192|Úspěch
-1193|Navrhni plán na nadcházející týden: priority, termíny a malý krok na každý den.
-1194|Shrnout dokument
-1195|Shrň připojený dokument do pěti jasných bodů.
-1196|Shrnutí
-1197|Shrne text nebo dokument do hlavních myšlenek.
-1198|Pozastavit
-1199|Pozastaveno
-1200|Pozastavení uživatelé
-1201|Tablet
-1202|Výklady tarotu
-1203|Úkoly, které {brand} spouští sám ve zvolený čas.
-1204|Úkoly, seznamy, dokumenty a komentáře.
-1205|Úkoly, projekty a komentáře.
-1206|Správa týmu se sdílenými kredity
-1207|Technické podrobnosti: {details}
-1208|Test
-1209|Otestovat teď
-1210|Test prošel: {result}
-1211|Otestovat klíče
-1212|Otestovat mikrofon
-1213|Otestovat server
-1214|Testy
-1215|Testuji SSH připojení…
-1216|Testuji…
-1217|Poker Texas Hold'em s AI
-1218|Text položky
-1219|Text přečtený pro AI
-1220|Poskytovatel AI neodpověděl včas. Zkuste to znovu.
-1221|Byl dosažen bezplatný limit poskytovatele AI. Zvolte jiný model nebo to zkuste později.
-1222|Adresa API musí být úplný odkaz, například https://example.com/webhook.
-1223|Otevře se stránka Google. Klikněte na «Create API key» a zkopírujte ho.
-1224|Knihovna je prázdná. Přetáhněte sem soubory nebo klikněte na «Přidat soubory».
-1225|Chybí OAuth Client ID.
-1226|Stránku OAuth se nepodařilo otevřít.
-1227|Účet Ownera nelze smazat.
-1228|Owner schvaluje účty a rozhoduje, jaké AI služby mohou používat.
-1229|Owner rozhoduje, jaké modely může váš účet používat.
-1230|E-mail Ownera není platný.
-1231|Owner musí nejdřív přidat OAuth aplikaci Asana v Nastavení.
-1232|Owner musí nejdřív přidat OAuth aplikaci Box v Nastavení.
-1233|Owner musí nejdřív přidat OAuth aplikaci Google v Nastavení.
-1234|Owner musí nejdřív přidat OAuth aplikaci HubSpot v Nastavení.
-1235|Owner musí nejdřív přidat OAuth aplikaci Lovable v Nastavení.
-1236|Osobní předplatná Ownera nelze dát jiným účtům.
-1237|Tlačítko X skryje aplikaci, aniž by zastavilo služby.
-1238|Účet a všechna jeho data (chaty, paměť, soubory, nastavení) se trvale smažou.
-1239|Účet se vytvoří na serveru {brand}.
-1240|Účet se vytvoří v tomto počítači a můžete ho hned používat.
-1241|Účet není aktivní.
-1242|Účet čeká na schválení Ownerem.
-1243|Účet byl vytvořen a čeká na schválení Ownerem.
-1244|Účet byl smazán.
-1245|Adresa není platná.
-1246|Odpověď pokračuje na serveru…
-1247|Odpověď byla přerušena: {error}
-1248|Odpověď byla zastavena před koncem.
-1249|Odpověď byla zastavena.
-1250|Aplikaci se nepodařilo otevřít — {error}
-1251|Aplikaci se nepodařilo otevřít.
-1252|Aplikace se spouští sama a může zůstat na pozadí.
-1253|Aplikace byla otevřena.
-1254|Aplikace se nepodařilo načíst: {error}
-1255|Zvuková stopa byla přepsána pro {brand}.
-1256|Začátek dokumentu jako text.
-1257|Prohlížeč neumí nahrávat zvuk.
-1258|Změna platí pro tento chat.
-1259|Změna byla použita na GitHubu. Commit: {commit}
-1260|Kód se nepodařilo zkopírovat do schránky.
-1261|Platnost kódu vypršela. Vyžádejte si nový.
-1262|Kód není správný.
-1263|Kód byl spuštěn. Výsledek byl vložen do pole zprávy.
-1264|Konverzaci se nepodařilo zkopírovat do schránky.
-1265|Konverzaci se nepodařilo uložit: {error}
-1266|Konverzace byla archivována. Najdete ji v «Archivované» v postranním panelu.
-1267|Konverzace byla zkopírována do schránky.
-1268|Konverzace byla obnovena.
-1269|Data se nepodařilo načíst: {error}
-1270|Den v měsíci musí být mezi 1 a 28.
-1271|Výchozí model
-1272|E-mailová adresa není platná.
-1273|Přesný čas a datum v Rumunsku a ve velkých městech světa.
-1274|Export selhal:
-1275|Soubor nemá text k zobrazení.
-1276|Soubor už není dostupný.
-1277|Soubor už není v Knihovně.
-1278|Soubor se teď jmenuje «{name}».
-1279|Soubor se ukládá do vaší Knihovny (až 2 GB na soubor)…
-1280|Soubor nebo zpráva je pro službu {brand} příliš velká (HTTP 413).
-1281|Soubor byl přidán do Knihovny.
-1282|Soubor nebyl v Knihovně nalezen.
-1283|První stránka jako text.
-1284|Název hlavičky smí obsahovat jen písmena, číslice a pomlčky.
-1285|Pokyny mohou mít nejvýše 8 000 znaků.
-1286|Interval musí být mezi 1 a 168 hodinami.
-1287|Klíč nefungoval: {error}
-1288|Klíč je sdílený s Obrázky.
-1289|Klíče jsou na tomto počítači šifrované.
-1290|Klíče se nepodařilo zkopírovat.
-1291|Klíče zůstávají na serveru a zobrazují se jen maskované.
-1292|Jazyk, ve kterém píšu
-1293|Poslední aktualizace ({when}) selhala — podrobnosti
-1294|Odkaz se nepodařilo otevřít v prohlížeči.
-1295|Odkaz se nepodařilo otevřít: {error}
-1296|Místní účet s tímto e-mailem dostane práva Ownera: spouštění kódu, GitHub Solve, ovládání serveru. Platí jen tehdy, když {brand} Cloud není nastaven. Po změně se znovu přihlaste.
-1297|Adresa místní služby není platná. Příklad: {url}
-1298|Zablokované nejsou pro vás povolené.
-1299|Přihlášení vypršelo pro: {names}. Panel OmniRoute na serveru → Providers → každý účet → Reconnect (nebo přidejte API klíč).
-1300|Zprávu se nepodařilo odeslat: {error}
-1301|Zpráva je prázdná.
-1302|Mikrofon je blokovaný. Povolte přístup k mikrofonu v prohlížeči.
-1303|Mikrofon není dostupný: {error}
-1304|Model konverzace se nepodařilo uložit: {error}
-1305|Seznam modelů se nepodařilo načíst: {error}
-1306|Seznam modelů je prázdný.
-1307|Modely pocházejí z OmniRoute a z API nastavených na serveru.
-1308|Modely pocházejí z OmniRoute a z API nastavených na tomto počítači.
-1309|Název může mít nejvýše 100 znaků.
-1310|Název může mít nejvýše 120 znaků.
-1311|Nové heslo musí mít alespoň 8 znaků.
-1312|Ostatní zařízení byla odhlášena.
-1313|Heslo může mít nejvýše 256 znaků.
-1314|Heslo může mít nejvýše 72 znaků.
-1315|Heslo musí mít alespoň 10 znaků.
-1316|Heslo musí mít alespoň 8 znaků.
-1317|Obrázek se nepodařilo vytvořit: {error}
-1318|Obrázek se nepodařilo načíst.
-1319|Obrázek má více než 10 MB.
-1320|Plugin byl uložen, ale test selhal: {error}
-1321|Pluginy pocházejí z open-source projektů (licence MIT a Apache 2.0); každá karta uvádí autora a odkazuje na zdroj.
-1322|Pluginy se nepodařilo načíst: {error}
-1323|Náhled není dostupný.
-1324|Náhled není dostupný. Soubor byl pravděpodobně smazán z Knihovny.
-1325|Odkaz na náhled není dostupný.
-1326|Cena se mění podle počtu kreditů.
-1327|Návrh se nepodařilo zkopírovat.
-1328|Návrh byl zkopírován do schránky.
-1329|API klíč poskytovatele je chybný nebo nemá přístup k tomuto modelu.
-1330|Záznam je prázdný.
-1331|Požadavek selhal (HTTP {status}).
-1332|Návratová adresa k registraci u poskytovatele:
-1333|Server kontroluje GitHub jednou za hodinu a novou verzi nainstaluje sám.
-1334|Server nevrátil platnou relaci.
-1335|Owner serveru musí přidat AI klíč.
+902|Placená AI změněna
+903|Placená AI · uživatelé
+904|Placená AI: {error}
+905|Placeno podle použití, s klíčem nebo oprávněními od Ownera
+906|Placeno podle použití, s oprávněními od Ownera
+907|Placeno podle použití; stejný klíč vytváří i obrázky a videa přes Grok Imagine. Zapněte to přes «Povolit i placená API».
+908|Panel
+909|Část {n}
+910|Heslo
+911|Heslo změněno. Ostatní zařízení se musí znovu přihlásit.
+912|Nejdřív vložte klíč.
+913|Vložte klíč sem
+914|Platby
+915|Platby, objednávky, katalog a zákazníci.
+916|Čeká
+917|Výkon
+918|Oprávnění
+919|Oprávnění změněna
+920|Oprávnění: {error}
+921|Osobní AI astrolog
+922|Telefon
+923|Oznámení v telefonu
+924|Vyberte asistenta pro novou konverzaci.
+925|Vyberte ze seznamu nebo si vytvořte vlastní z API. Pak napište jeho název do chatu a {brand} ho použije.
+926|Pod polem zprávy vyberte, kdo obrázek vytvoří, nebo Automaticky: nejlepší dostupný.
+927|Pod polem zprávy vyberte, kdo video vytvoří, nebo Automaticky: nejdřív bezplatné, pak Gemini Veo, Grok Imagine a ostatní klíče (placené, pokud je povolíte v Nastavení).
+928|Obrázek
+929|Obrázek / vidění
+930|HD obrázek
+931|Generování obrázků
+932|Generování obrázků, API, modely a automatický pokus u jiného poskytovatele.
+933|Obrázek vytvořil
+934|Obrázek vytvořil {brand}
+935|Tvorba obrázků
+936|Režim obrázku: další zpráva vytvoří obrázek. Znovu klikněte na Obrázek pro ukončení.
+937|Obrázkový model
+938|Poskytovatelé obrázků
+939|Obrázek: další zpráva vytvoří obrázek.
+940|Obrázky
+941|Obrázky a videa (v testu se negenerují, takže se nečerpá kredit):
+942|Obrázky v Knihovně
+943|Obrázky vytváří
+944|Připnout
+945|Připnout toto
+946|Připnuto — klikněte pro odepnutí
+947|Místo k vyhledání
+949|Týdenní plán
+950|Naplánuj můj týden
+951|Tarif zahájen
+952|Plánuji strukturu…
+953|Tarify a kredity zatím nejsou aktivní: každý účet funguje jako dřív (bezplatná úroveň a pravidla Ownera).
+954|Tarify a kredity navíc
+956|Hraní šachu a učení strategie
+957|Seznam pluginů
+958|Sekce pluginů
+959|Nastavení pluginu
+960|Pluginy
+961|API klíč Pollinations
+962|Model Pollinations
+963|Video model Pollinations
+964|Oblíbené
+965|Plakát
+966|Databáze Postgres: dotazy, větve a správa.
+967|Příspěvky pro Instagram, Facebook, LinkedIn nebo TikTok.
+968|Preference
+969|Preferovaný model
+970|Připravuji odpověď…
+971|Připravuji otázky…
+972|Připravuji…
+973|Prezentace
+974|Klepněte na Sdílet (čtverec se šipkou nahoru), nebo ••• → Sdílet.
+975|Klikněte jednou na mikrofon pro zahájení nahrávání a znovu pro zastavení. {brand} zapíše, co jste řekli, a odešle to.
+976|Náhled
+977|Šířka náhledu
+978|Náhled {name}
+979|Náhled: {name}
+980|Posledních 30 dní
+981|Posledních 7 dní
+982|Přednostní přístup ve špičce
+983|Databáze Prisma Postgres a migrace.
+984|Soukromí
+985|Soukromí a data
+986|Produktová analytika, příznaky a experimenty.
+987|Produktový management
+988|Produktivita
+989|Profesionální
+990|Profesionální e-mail
+991|Profil
+992|Profilová fotka
+993|Profilová fotka odstraněna.
+994|Profilová fotka uložena.
+995|Profil uložen.
+996|Programování
+997|Programovací jazyky
+998|Programování s Codexem a Claude Code: vyberte model a začněte konverzaci o kódu.
+999|Projekty
+1000|Projekty a práce
+1001|Projekty, databáze, SQL a logy.
+1002|Projekty, nasazení a logy.
+1003|Projekty, úkoly a CRM
+1004|Korektor
+1005|Návrh hotov (pro tento typ souboru není kontrola syntaxe).
+1006|Ochrana aktivní: {brand} zkouší přímo Cloudflare a Pollinations. Hugging Face, Together, OpenAI, Stability, fal.ai a Replicate jsou blokované, pokud by mohly čerpat placený kredit. U OpenRouteru se cena kontroluje před voláním.
+1007|Chrání osobní údaje
+1008|Návrh proteinů a molekul
+1009|Poskytovatelé
+1010|Poskytovatelé používaní v chatu
+1011|Kvalita
+1012|Otázky o vašich zdravotních datech
+1013|Rychlé částky
+1014|Rychlá odpověď
+1015|Předčítat
+1016|Čtení a úprava tabulek.
+1017|Čtení a třídění vašich e-mailů v Gmailu
+1018|Čtení, psaní a úprava dokumentů.
+1019|Předčítání není na tomto počítači dostupné.
+1020|Čtu žádost…
+1021|Čtu text…
+1022|Připravené k použití
+1023|Skutečný výsledek spuštění {brand}:
+1024|Živý internet
+1025|Nedávné
+1026|Znovu připojit v OmniRoute
+1027|Nahrajte svůj hlas
+1028|Obnovit
+1029|Obnovit seznam modelů
+1030|Obnovuji seznam…
+1031|Vygenerovat odpověď znovu
+1032|Nové vygenerování nahradí tuto odpověď a smaže následující zprávy. Pokračovat?
+1033|Zamítnuto
+1034|Zamítnutí uživatelé
+1035|Znovu načíst {brand}
+1036|Odebrat
+1037|Odstranit zveřejněné osobní údaje
+1038|Vyjmout z projektu
+1039|Odebrat plugin «{name}»?
+1040|Odebrat {name}
+1041|Přejmenovat
+1042|Přejmenovat soubor
+1043|Přejmenování: {error}
+1044|API token Replicate
+1045|Model Replicate
+1046|Video model Replicate
+1047|Repozitáře, issues, pull requesty a soubory.
+1048|Výzkum
+1049|Výzkum a věda
+1050|Zdroje ke studiu Koránu
+1051|Obnovit z archivu
+1052|Obnovit chat
+1053|Obnovit chat {name}
+1054|Výsledek
+1055|Výsledky
+1056|Zkusit znovu
+1057|Spustit / otestovat kód
+1058|Spouštějte AI modely na Replicate.
+1059|Spuštění kódu: {error}
+1060|Historie spuštění
+1061|Spustit teď
+1062|Spravujte svůj e-shop
+1063|Běží
+1064|Spouštění kódu a SSH jsou jen pro Ownera.
+1065|Spouštění kódu, GitHub Solve a SSH jsou jen pro účet Ownera (viz «E-mail Ownera na tomto počítači»).
+1066|Spouštím…
+1067|Spouští naplánované úkoly a kontroly ve zvolený čas.
+1068|SEO průzkum
+1069|Cesta k soukromému SSH klíči
+1070|SSH server · adresa
+1071|SSH uživatel
+1072|Prodej
+1073|Sobota a neděle v {time}
+1074|Uložit
+1075|Uložit a připnout
+1076|Uložit a otestovat
+1077|Uložit profil
+1078|Uložit nastavení
+1079|Uložit změnu
+1080|Uložit skill
+1081|Uloženo a připnuto v paměti.
+1082|Uloženo.
+1083|Ukládám klíč a testuji…
+1084|Ukládám plugin a testuji…
+1085|Ukládám…
+1086|Prohledává kód kvůli bezpečnostním problémům.
+1087|Naplánovat
+1088|Naplánované
+1089|Naplánované (naplánované úkoly)
+1090|Věda
+1091|Vědecký výzkum
+1092|Posuňte a zvolte Přidat na plochu, pak Přidat.
+1093|Hledat
+1094|Automaticky hledat na GitHubu
+1095|Hledání a získávání dat z webu
+1096|Hledání a čtení souborů a složek.
+1097|Hledání a čtení souborů vaší firmy.
+1098|Hledání a odesílání e-mailů a zpráv
+1099|Hledat aplikace
+1100|Hledat podle názvu
+1101|Hledat v chatech
+1102|Hledat model
+1103|Hledat model…
+1104|Hledat jazyky
+1105|Hledat v paměti
+1106|Hledat modely
+1107|Hledat v dřívějších chatech
+1108|Hledat pluginy
+1109|Hledat pluginy a skilly
+1110|Výsledky hledání
+1111|Hledat v Knihovně
+1112|Hledat v seznamu (název, kategorie)
+1113|Hledat v knihovně
+1114|Hledat ve vědecké literatuře
+1115|Vyhledej na webu nejnovější zprávy o
+1116|Hledat mezi {n} jazyky
+1117|Hledání, čtení a vytváření souborů.
+1118|Hledání, čtení a psaní konceptů e-mailů.
+1119|Hledání, čtení, vytváření a úprava stránek a databází.
+1120|Hledá na Wikipedii (rumunsky, pak anglicky) a vrátí shrnutí článku.
+1121|Vyhledává aktuální informace a online zdroje.
+1122|U otázek na nejnovější informace, verze a API sám hledá aktuální zdroje.
+1123|Zabezpečení
+1124|Bezpečnostní analýza kódu
+1125|Zobrazit tarify
+1127|Seedance, Veo, Wan a další modely přes stejné API.
+1128|Vybrat
+1129|Vyberte uživatele.
+1130|Vybráno
+1131|Odeslat
+1132|Odeslat testovací oznámení
+1133|Odeslat žádost o přístup
+1134|Poslat kód znovu
+1135|Poslat kód znovu ({s} s)
+1136|Odeslat zprávu
+1137|Server připojen ✓
+1138|Relace zavřeny
+1139|Relace: {error}
+1140|Nastavit stav «{status}» pro {email}? Aktivní relace účtu budou zavřeny.
+1141|Nastavení
+1142|Nastavení lze uložit jen v aplikaci {brand}.
+1143|Nastavení uloženo.
+1144|Více obrázkových modelů s jedním klíčem.
+1145|Pokračujeme s «{title}»?
+1146|Společné pokyny projektu
+1147|Krátce a k věci
+1148|Krátký popis
+1149|Krátké video (~6 s)
+1150|Zobrazit další (zbývá {n})
+1151|Zobrazit nebo skrýt menu
+1152|Zobrazuje se prvních 60 000 znaků.
+1153|Zobrazí oznámení, když má úkol výsledek.
+1154|Přihlásit se
+1155|Přihlásit se znovu
+1156|Přihlaste se znovu.
+1157|Přihlásit se do {brand}
+1158|Přihlaste se do {name} v okně, které se otevřelo, a pak se vraťte sem.
+1159|Odhlásit se
+1160|Odhlásit se z {brand} na všech zařízeních, včetně tohoto?
+1161|Odhlásit ostatní zařízení
+1162|Přihlášení
+1163|Je nutné přihlášení.
+1164|Odhlášení
+1165|Odhlašuji…
+1166|Aktualizace webu ({domain})
+1167|Weby a nasazení.
+1168|Weby, stránky a položky CMS.
+1169|Velikost
+1170|Pluginy skillů
+1171|Skilly
+1173|Kanály a zprávy ve Slacku
+1174|Příspěvky na sociální sítě
+1175|Softwarové inženýrství
+1176|Něco jiného
+1177|Něco jiného…
+1178|Řadit
+1179|Mluvte: text se objeví v poli a odešle se sám
+1180|API klíč Stability
+1181|Engine Stability
+1182|Start
+1183|Spouštět OmniRoute automaticky
+1184|Spusťte OmniRoute nebo přidejte API klíč v Nastavení.
+1185|Začněte konverzaci, která vytvoří obrázek.
+1186|Spouštět {brand} s Windows
+1187|Spouštím {brand}…
+1188|Spouštím…
+1189|Špičkové modely ADMET
+1190|Ještě vzhůru? Dokončeme to spolu.
+1191|Zastavit a odeslat
+1192|Zastavit předčítání
+1193|Zastavit odpověď
+1194|Zastavit nahrávání hlasu
+1195|Nejdřív zastavte nahrávání hlasu.
+1196|Zastaveno po chybách
+1197|Zastaveno Ownerem
+1198|Silové tréninky pro Garmin
+1199|Struktury, molekuly a proteiny
+1200|Student
+1202|Úspěch
+1203|Navrhni plán na nadcházející týden: priority, termíny a malý krok na každý den.
+1204|Shrnout dokument
+1205|Shrň připojený dokument do pěti jasných bodů.
+1206|Shrnutí
+1207|Shrne text nebo dokument do hlavních myšlenek.
+1208|Pozastavit
+1209|Pozastaveno
+1210|Pozastavení uživatelé
+1212|Tablet
+1213|Výklady tarotu
+1214|Úkoly, které {brand} spouští sám ve zvolený čas.
+1215|Úkoly, seznamy, dokumenty a komentáře.
+1216|Úkoly, projekty a komentáře.
+1217|Správa týmu se sdílenými kredity
+1218|Technické podrobnosti: {details}
+1219|Test
+1220|Otestovat teď
+1221|Test prošel: {result}
+1222|Otestovat klíče
+1223|Otestovat mikrofon
+1224|Otestovat server
+1225|Testy
+1226|Testuji SSH připojení…
+1227|Testuji…
+1228|Poker Texas Hold'em s AI
+1229|Text položky
+1230|Text přečtený pro AI
+1232|Poskytovatel AI neodpověděl včas. Zkuste to znovu.
+1233|Byl dosažen bezplatný limit poskytovatele AI. Zvolte jiný model nebo to zkuste později.
+1234|Adresa API musí být úplný odkaz, například https://example.com/webhook.
+1235|Otevře se stránka Google. Klikněte na «Create API key» a zkopírujte ho.
+1236|Knihovna je prázdná. Přetáhněte sem soubory nebo klikněte na «Přidat soubory».
+1237|Chybí OAuth Client ID.
+1238|Stránku OAuth se nepodařilo otevřít.
+1239|Účet Ownera nelze smazat.
+1240|Owner schvaluje účty a rozhoduje, jaké AI služby mohou používat.
+1241|Owner rozhoduje, jaké modely může váš účet používat.
+1242|E-mail Ownera není platný.
+1243|Owner musí nejdřív přidat OAuth aplikaci Asana v Nastavení.
+1244|Owner musí nejdřív přidat OAuth aplikaci Box v Nastavení.
+1245|Owner musí nejdřív přidat OAuth aplikaci Google v Nastavení.
+1246|Owner musí nejdřív přidat OAuth aplikaci HubSpot v Nastavení.
+1247|Owner musí nejdřív přidat OAuth aplikaci Lovable v Nastavení.
+1248|Osobní předplatná Ownera nelze dát jiným účtům.
+1249|Tlačítko X skryje aplikaci, aniž by zastavilo služby.
+1250|Účet a všechna jeho data (chaty, paměť, soubory, nastavení) se trvale smažou.
+1251|Účet se vytvoří na serveru {brand}.
+1252|Účet se vytvoří v tomto počítači a můžete ho hned používat.
+1253|Účet není aktivní.
+1254|Účet čeká na schválení Ownerem.
+1255|Účet byl vytvořen a čeká na schválení Ownerem.
+1256|Účet byl smazán.
+1257|Adresa není platná.
+1258|Odpověď pokračuje na serveru…
+1259|Odpověď byla přerušena: {error}
+1260|Odpověď byla zastavena před koncem.
+1261|Odpověď byla zastavena.
+1262|Aplikaci se nepodařilo otevřít — {error}
+1263|Aplikaci se nepodařilo otevřít.
+1264|Aplikace se spouští sama a může zůstat na pozadí.
+1265|Aplikace byla otevřena.
+1266|Aplikace se nepodařilo načíst: {error}
+1267|Zvuková stopa byla přepsána pro {brand}.
+1268|Začátek dokumentu jako text.
+1269|Prohlížeč neumí nahrávat zvuk.
+1270|Změna platí pro tento chat.
+1271|Změna byla použita na GitHubu. Commit: {commit}
+1272|Kód se nepodařilo zkopírovat do schránky.
+1273|Platnost kódu vypršela. Vyžádejte si nový.
+1274|Kód není správný.
+1275|Kód byl spuštěn. Výsledek byl vložen do pole zprávy.
+1276|Konverzaci se nepodařilo zkopírovat do schránky.
+1277|Konverzaci se nepodařilo uložit: {error}
+1278|Konverzace byla archivována. Najdete ji v «Archivované» v postranním panelu.
+1279|Konverzace byla zkopírována do schránky.
+1280|Konverzace byla obnovena.
+1281|Data se nepodařilo načíst: {error}
+1282|Den v měsíci musí být mezi 1 a 28.
+1283|Výchozí model
+1284|E-mailová adresa není platná.
+1285|Přesný čas a datum v Rumunsku a ve velkých městech světa.
+1286|Export selhal:
+1287|Soubor nemá text k zobrazení.
+1288|Soubor už není dostupný.
+1289|Soubor už není v Knihovně.
+1290|Soubor se teď jmenuje «{name}».
+1291|Soubor se ukládá do vaší Knihovny (až 2 GB na soubor)…
+1292|Soubor nebo zpráva je pro službu {brand} příliš velká (HTTP 413).
+1293|Soubor byl přidán do Knihovny.
+1294|Soubor nebyl v Knihovně nalezen.
+1295|První stránka jako text.
+1296|Název hlavičky smí obsahovat jen písmena, číslice a pomlčky.
+1297|Pokyny mohou mít nejvýše 8 000 znaků.
+1298|Interval musí být mezi 1 a 168 hodinami.
+1299|Klíč nefungoval: {error}
+1300|Klíč je sdílený s Obrázky.
+1301|Klíče jsou na tomto počítači šifrované.
+1302|Klíče se nepodařilo zkopírovat.
+1303|Klíče zůstávají na serveru a zobrazují se jen maskované.
+1304|Jazyk, ve kterém píšu
+1305|Poslední aktualizace ({when}) selhala — podrobnosti
+1306|Odkaz se nepodařilo otevřít v prohlížeči.
+1307|Odkaz se nepodařilo otevřít: {error}
+1308|Místní účet s tímto e-mailem dostane práva Ownera: spouštění kódu, GitHub Solve, ovládání serveru. Platí jen tehdy, když {brand} Cloud není nastaven. Po změně se znovu přihlaste.
+1309|Adresa místní služby není platná. Příklad: {url}
+1310|Zablokované nejsou pro vás povolené.
+1311|Přihlášení vypršelo pro: {names}. Panel OmniRoute na serveru → Providers → každý účet → Reconnect (nebo přidejte API klíč).
+1312|Zprávu se nepodařilo odeslat: {error}
+1313|Zpráva je prázdná.
+1314|Mikrofon je blokovaný. Povolte přístup k mikrofonu v prohlížeči.
+1315|Mikrofon není dostupný: {error}
+1316|Model konverzace se nepodařilo uložit: {error}
+1317|Seznam modelů se nepodařilo načíst: {error}
+1318|Seznam modelů je prázdný.
+1319|Modely pocházejí z OmniRoute a z API nastavených na serveru.
+1320|Modely pocházejí z OmniRoute a z API nastavených na tomto počítači.
+1321|Název může mít nejvýše 100 znaků.
+1322|Název může mít nejvýše 120 znaků.
+1323|Nové heslo musí mít alespoň 8 znaků.
+1324|Ostatní zařízení byla odhlášena.
+1325|Heslo může mít nejvýše 256 znaků.
+1326|Heslo může mít nejvýše 72 znaků.
+1327|Heslo musí mít alespoň 10 znaků.
+1328|Heslo musí mít alespoň 8 znaků.
+1329|Obrázek se nepodařilo vytvořit: {error}
+1330|Obrázek se nepodařilo načíst.
+1331|Obrázek má více než 10 MB.
+1332|Plugin byl uložen, ale test selhal: {error}
+1333|Pluginy pocházejí z open-source projektů (licence MIT a Apache 2.0); každá karta uvádí autora a odkazuje na zdroj.
+1334|Pluginy se nepodařilo načíst: {error}
+1335|Náhled není dostupný.
+1336|Náhled není dostupný. Soubor byl pravděpodobně smazán z Knihovny.
+1337|Odkaz na náhled není dostupný.
+1338|Cena se mění podle počtu kreditů.
+1339|Návrh se nepodařilo zkopírovat.
+1340|Návrh byl zkopírován do schránky.
+1341|API klíč poskytovatele je chybný nebo nemá přístup k tomuto modelu.
+1342|Záznam je prázdný.
+1343|Požadavek selhal (HTTP {status}).
+1344|Návratová adresa k registraci u poskytovatele:
+1345|Server kontroluje GitHub jednou za hodinu a novou verzi nainstaluje sám.
+1346|Server nevrátil platnou relaci.
+1347|Owner serveru musí přidat AI klíč.

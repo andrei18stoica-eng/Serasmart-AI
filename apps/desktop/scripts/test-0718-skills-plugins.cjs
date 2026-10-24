@@ -34,7 +34,7 @@ async function units() {
   expect(validateSkill({ name: "", instructions: "x" }).error && validateSkill({ name: "Ok", instructions: "" }).error, "name and instructions are required");
   const list = [{ slug: "rezumat", name: "Rezumat", instructions: "R", enabled: true }, { slug: "ton", name: "Ton", instructions: "T", enabled: true, auto: true }, { slug: "off", name: "Off", instructions: "O", enabled: false, auto: true }];
   const used = skillsForMessage(list, "/rezumat textul de mai jos");
-  expect(used.map(x => x.slug).join() === "rezumat,ton", "a called skill plus the always-on one, never a disabled one: " + used.map(x => x.slug));
+  expect(used.map(x => x.slug).sort().join() === "rezumat,ton", "a called skill plus the always-on one, never a disabled one: " + used.map(x => x.slug));
   expect(skillsForMessage(list, "https://site.ro/rezumat").map(x => x.slug).join() === "ton", "a /word inside a link does not call a skill");
 }
 

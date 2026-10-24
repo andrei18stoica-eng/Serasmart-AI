@@ -1,439 +1,439 @@
-893|Ücretli yapay zekâ değişti
-894|Ücretli yapay zekâ · kullanıcılar
-895|Ücretli yapay zekâ: {error}
-896|Kullanım başına ücretli, anahtarla veya Owner'ın verdiği izinlerle
-897|Kullanım başına ücretli, Owner'ın verdiği izinlerle
-898|Kullanım başına ücretli; aynı anahtar Grok Imagine ile görsel ve video da yapar. «Ücretli API'lere de izin ver» ile açın.
-899|Panel
-900|Bölüm {n}
-901|Şifre
-902|Şifre değişti. Diğer cihazların yeniden giriş yapması gerekiyor.
-903|Önce anahtarı yapıştırın.
-904|Anahtarı buraya yapıştırın
-905|Ödemeler
-906|Ödemeler, siparişler, katalog ve müşteriler.
-907|Beklemede
-908|Performans
-909|İzinler
-910|İzinler değişti
-911|İzinler: {error}
-912|Kişisel yapay zekâ astroloğu
-913|Telefon
-914|Telefonda bildirimler
-915|Yeni bir konuşma için asistan seçin.
-916|Listeden birini seçin veya bir API'den kendinizinkini oluşturun. Sonra adını sohbete yazın, {brand} onu kullanır.
-917|Görseli kimin yapacağını mesaj kutusunun altından seçin veya Otomatik: en iyi uygun olan.
-918|Videoyu kimin yapacağını mesaj kutusunun altından seçin veya Otomatik: önce ücretsizler, sonra Gemini Veo, Grok Imagine ve diğer anahtarlar (Ayarlar'da izin verirseniz ücretli).
-919|Görsel
-920|Görsel / görme
-921|HD görsel
-922|Görsel üretimi
-923|Görsel üretimi, API'ler, modeller ve başka bir sağlayıcıda otomatik deneme.
-924|Görseli yapan
-925|Görseli {brand} yaptı
-926|Görsel oluşturma
-927|Görsel modu: sonraki mesaj bir görsel oluşturur. Çıkmak için Görsel'e tekrar tıklayın.
-928|Görsel modeli
-929|Görsel sağlayıcıları
-930|Görsel: sonraki mesaj bir görsel oluşturur.
-931|Görseller
-932|Görseller ve videolar (testte üretilmez, bu yüzden bakiye kullanılmaz):
-933|Kitaplık'taki görseller
-934|Görselleri yapan
-935|Sabitle
-936|Bunu sabitle
-937|Sabitlendi — kaldırmak için tıklayın
-938|Aranacak yer
-940|Haftalık plan
-941|Haftamı planla
-942|Paket başladı
-943|Yapı planlanıyor…
-944|Paketler ve krediler henüz etkin değil: her hesap eskisi gibi çalışır (ücretsiz katman ve Owner kuralları).
-945|Paketler ve ekstra krediler
-947|Satranç oynama ve strateji öğrenme
-948|Plugin listesi
-949|Plugin bölümleri
-950|Plugin ayarı
-951|Pluginler
-952|Pollinations API anahtarı
-953|Pollinations modeli
-954|Pollinations video modeli
-955|Popüler
-956|Afiş
-957|Postgres veritabanları: sorgulama, dal oluşturma ve yönetim.
-958|Instagram, Facebook, LinkedIn veya TikTok için gönderiler.
-959|Tercihler
-960|Tercih edilen model
-961|Yanıt hazırlanıyor…
-962|Sorular hazırlanıyor…
-963|Hazırlanıyor…
-964|Sunum
-965|Paylaş'a dokunun (yukarı oklu kare) veya ••• → Paylaş.
-966|Kaydı başlatmak için mikrofona bir kez, durdurmak için tekrar tıklayın. {brand} söylediğinizi yazar ve gönderir.
-967|Önizleme
-968|Önizleme genişliği
-969|{name} önizlemesi
-970|Önizleme: {name}
-971|Son 30 gün
-972|Son 7 gün
-973|Yoğun saatlerde öncelikli erişim
-974|Prisma Postgres veritabanları ve geçişler.
-975|Gizlilik
-976|Gizlilik ve veriler
-977|Ürün analitiği, bayraklar ve deneyler.
-978|Ürün yönetimi
-979|Verimlilik
-980|Profesyonel
-981|Profesyonel e-posta
-982|Profil
-983|Profil fotoğrafı
-984|Profil fotoğrafı kaldırıldı.
-985|Profil fotoğrafı kaydedildi.
-986|Profil kaydedildi.
-987|Programlama
-988|Programlama dilleri
-989|Codex ve Claude Code ile programlama: modeli seçin ve bir kod konuşması başlatın.
-990|Projeler
-991|Projeler ve iş
-992|Projeler, veritabanları, SQL ve günlükler.
-993|Projeler, dağıtımlar ve günlükler.
-994|Projeler, görevler ve CRM
-995|Düzeltmen
-996|Öneri hazır (bu dosya türü için sözdizimi kontrolü yok).
-997|Koruma etkin: {brand} doğrudan Cloudflare ve Pollinations'ı dener. Hugging Face, Together, OpenAI, Stability, fal.ai ve Replicate ücretli bakiye kullanabilecekse engellenir. OpenRouter'da fiyat çağrıdan önce kontrol edilir.
-998|Kişisel verileri korur
-999|Protein ve molekül tasarımı
-1000|Sağlayıcılar
-1001|Sohbette kullanılan sağlayıcılar
-1002|Kalite
-1003|Sağlık verileriniz hakkında sorular
-1004|Hızlı tutarlar
-1005|Hızlı yanıt
-1006|Sesli oku
-1007|Tabloları okuma ve düzenleme.
-1008|Gmail e-postalarınızı okuma ve düzenleme
-1009|Belge okuma, yazma ve düzenleme.
-1010|Sesli okuma bu bilgisayarda kullanılamıyor.
-1011|İstek okunuyor…
-1012|Metin okunuyor…
-1013|Kullanıma hazır
-1014|{brand} çalıştırmasının gerçek sonucu:
-1015|Canlı internet
-1016|Son kullanılanlar
-1017|OmniRoute'ta yeniden bağlan
-1018|Sesinizi kaydedin
-1019|Yenile
-1020|Model listesini yenile
-1021|Liste yenileniyor…
-1022|Yanıtı yeniden oluştur
-1023|Yeniden oluşturma bu yanıtı değiştirir ve sonraki mesajları siler. Devam edilsin mi?
-1024|Reddedildi
-1025|Reddedilen kullanıcılar
-1026|{brand}'ı yeniden yükle
-1027|Kaldır
-1028|Açığa çıkmış kişisel verileri kaldırma
-1029|Projeden çıkar
-1030|«{name}» plugini kaldırılsın mı?
-1031|{name} kaldır
-1032|Yeniden adlandır
-1033|Dosyayı yeniden adlandır
-1034|Yeniden adlandırma: {error}
-1035|Replicate API token'ı
-1036|Replicate modeli
-1037|Replicate video modeli
-1038|Depolar, issue'lar, pull request'ler ve dosyalar.
-1039|Araştırma
-1040|Araştırma ve bilim
-1041|Kuran'ı incelemek için kaynaklar
-1042|Arşivden geri yükle
-1043|Sohbeti geri yükle
-1044|{name} sohbetini geri yükle
-1045|Sonuç
-1046|Sonuçlar
-1047|Yeniden dene
-1048|Kodu çalıştır / test et
-1049|Replicate'te yapay zekâ modelleri çalıştırın.
-1050|Kod çalıştırma: {error}
-1051|Çalıştırma geçmişi
-1052|Şimdi çalıştır
-1053|Çevrimiçi mağazanızı yönetin
-1054|Çalışıyor
-1055|Kod çalıştırma ve SSH yalnızca Owner içindir.
-1056|Kod çalıştırma, GitHub Solve ve SSH yalnızca Owner hesabı içindir (bkz. «Bu bilgisayardaki Owner e-postası»).
-1057|Çalıştırılıyor…
-1058|Zamanlanmış görevleri ve kontrolleri seçtiğiniz saatte çalıştırır.
-1059|SEO araştırması
-1060|SSH özel anahtar yolu
-1061|SSH sunucusu · adres
-1062|SSH kullanıcısı
-1063|Satış
-1064|Cumartesi ve pazar {time}
-1065|Kaydet
-1066|Kaydet ve sabitle
-1067|Kaydet ve test et
-1068|Profili kaydet
-1069|Ayarları kaydet
-1070|Değişikliği kaydet
-1071|Skill'i kaydet
-1072|Kaydedildi ve bellekte sabitlendi.
-1073|Kaydedildi.
-1074|Anahtar kaydediliyor ve test ediliyor…
-1075|Plugin kaydediliyor ve test ediliyor…
-1076|Kaydediliyor…
-1077|Kodu güvenlik sorunları için tarar.
-1078|Zamanla
-1079|Zamanlananlar
-1080|Zamanlananlar (zamanlanmış görevler)
-1081|Bilim
-1082|Bilimsel araştırma
-1083|Kaydırın, Ana Ekrana Ekle'yi, sonra Ekle'yi seçin.
-1084|Ara
-1085|GitHub'da otomatik ara
-1086|Web'den veri arama ve çıkarma
-1087|Dosya ve klasörleri arama ve okuma.
-1088|Şirketinizin dosyalarını arama ve okuma.
-1089|E-posta ve mesaj arama ve gönderme
-1090|Uygulama ara
-1091|Ada göre ara
-1092|Sohbetlerde ara
-1093|Model ara
-1094|Model ara…
-1095|Dil ara
-1096|Bellekte ara
-1097|Model ara
-1098|Önceki sohbetlerde ara
-1099|Plugin ara
-1100|Plugin ve skill ara
-1101|Arama sonuçları
-1102|Kitaplık'ta ara
-1103|Listede ara (ad, kategori)
-1104|Kitaplıkta ara
-1105|Bilimsel literatürde ara
-1106|Şu konudaki son haberleri web'de ara:
-1107|{n} dil arasında ara
-1108|Dosya arama, okuma ve oluşturma.
-1109|E-posta arama, okuma ve taslak yazma.
-1110|Sayfa ve veritabanı arama, okuma, oluşturma ve düzenleme.
-1111|Wikipedia'da arar (önce Romence, sonra İngilizce) ve makalenin özetini getirir.
-1112|Güncel bilgi ve çevrimiçi kaynak arar.
-1113|Yeni bilgiler, sürümler ve API'lerle ilgili sorularda güncel kaynakları kendisi arar.
-1114|Güvenlik
-1115|Kodun güvenlik analizi
-1116|Paketleri gör
-1118|Aynı API üzerinden Seedance, Veo, Wan ve diğer modeller.
-1119|Seç
-1120|Bir kullanıcı seçin.
-1121|Seçildi
-1122|Gönder
-1123|Test bildirimi gönder
-1124|Erişim isteği gönder
-1125|Kodu yeniden gönder
-1126|Kodu yeniden gönder ({s} sn)
-1127|Mesajı gönder
-1128|Sunucu bağlı ✓
-1129|Oturumlar kapatıldı
-1130|Oturumlar: {error}
-1131|{email} için «{status}» durumu ayarlansın mı? Hesabın etkin oturumları kapatılacak.
-1132|Ayarlar
-1133|Ayarlar yalnızca {brand} uygulamasından kaydedilebilir.
-1134|Ayarlar kaydedildi.
-1135|Tek anahtarla birden çok görsel modeli.
-1136|«{title}» ile devam edelim mi?
-1137|Projenin ortak talimatları
-1138|Kısa ve net
-1139|Kısa açıklama
-1140|Kısa video (~6 sn)
-1141|Daha fazla göster ({n} kaldı)
-1142|Menüyü göster veya gizle
-1143|İlk 60.000 karakter gösteriliyor.
-1144|Görevin bir sonucu olduğunda bildirim gösterir.
-1145|Giriş yap
-1146|Yeniden giriş yap
-1147|Yeniden giriş yapın.
-1148|{brand}'a giriş yap
-1149|Açılan pencerede {name} hizmetine giriş yapın, sonra buraya dönün.
-1150|Çıkış yap
-1151|Bu cihaz dahil tüm cihazlarda {brand} oturumu kapatılsın mı?
-1152|Diğer cihazlardan çıkış yap
-1153|Giriş
-1154|Giriş gerekli.
-1155|Çıkış
-1156|Çıkış yapılıyor…
-1157|Site güncellemesi ({domain})
-1158|Siteler ve dağıtımlar.
-1159|Siteler, sayfalar ve CMS öğeleri.
-1160|Boyut
-1161|Skill pluginleri
-1162|Skill'ler
-1163|Slack kanalları ve mesajları
-1164|Sosyal medya gönderileri
-1165|Yazılım mühendisliği
-1166|Başka bir şey
-1167|Başka bir şey…
-1168|Sırala
-1169|Konuşun: metin kutuda görünür ve kendiliğinden gönderilir
-1170|Stability API anahtarı
-1171|Stability motoru
-1172|Start
-1173|OmniRoute'u otomatik başlat
-1174|OmniRoute'u başlatın veya Ayarlar'da bir API anahtarı ekleyin.
-1175|Görsel oluşturan bir konuşma başlatın.
-1176|{brand}'ı Windows ile başlat
-1177|{brand} başlatılıyor…
-1178|Başlatılıyor…
-1179|En gelişmiş ADMET modelleri
-1180|Hâlâ uyanık mısınız? Birlikte bitirelim.
-1181|Durdur ve gönder
-1182|Okumayı durdur
-1183|Yanıtı durdur
-1184|Ses kaydını durdur
-1185|Önce ses kaydını durdurun.
-1186|Hatalardan sonra durdu
-1187|Owner tarafından durduruldu
-1188|Garmin için kuvvet antrenmanları
-1189|Yapılar, moleküller ve proteinler
-1190|Öğrenci
-1192|Başarılı
-1193|Başlayan hafta için bir plan öner: öncelikler, son tarihler ve her gün için küçük bir adım.
-1194|Bir belgeyi özetle
-1195|Ekli belgeyi beş net maddede özetle.
-1196|Özet
-1197|Bir metni veya belgeyi ana fikirlerine indirger.
-1198|Askıya al
-1199|Askıda
-1200|Askıya alınan kullanıcılar
-1201|Tablet
-1202|Tarot okumaları
-1203|{brand}'ın seçtiğiniz saatte kendisi çalıştırdığı görevler.
-1204|Görevler, listeler, belgeler ve yorumlar.
-1205|Görevler, projeler ve yorumlar.
-1206|Ortak kredili ekip yönetimi
-1207|Teknik ayrıntılar: {details}
-1208|Test et
-1209|Şimdi test et
-1210|Test geçti: {result}
-1211|Anahtarları test et
-1212|Mikrofonu test et
-1213|Sunucuyu test et
-1214|Testler
-1215|SSH bağlantısı test ediliyor…
-1216|Test ediliyor…
-1217|Yapay zekâyla Texas Hold'em poker
-1218|Öğe metni
-1219|Yapay zekâ için okunan metin
-1220|Yapay zekâ sağlayıcısı zamanında yanıt vermedi. Tekrar deneyin.
-1221|Yapay zekâ sağlayıcısının ücretsiz sınırına ulaşıldı. Başka bir model seçin veya daha sonra deneyin.
-1222|API adresi tam bir bağlantı olmalı, örneğin https://example.com/webhook.
-1223|Google sayfası açılır. «Create API key»e tıklayın ve kopyalayın.
-1224|Kitaplık boş. Dosyaları buraya sürükleyin veya «Dosya ekle»ye tıklayın.
-1225|OAuth Client ID eksik.
-1226|OAuth sayfası açılamadı.
-1227|Owner hesabı silinemez.
-1228|Owner hesapları onaylar ve hangi yapay zekâ hizmetlerini kullanabileceklerine karar verir.
-1229|Hesabınızın hangi modelleri kullanabileceğine Owner karar verir.
-1230|Owner e-postası geçerli değil.
-1231|Owner'ın önce Ayarlar'da bir Asana OAuth uygulaması eklemesi gerekiyor.
-1232|Owner'ın önce Ayarlar'da bir Box OAuth uygulaması eklemesi gerekiyor.
-1233|Owner'ın önce Ayarlar'da bir Google OAuth uygulaması eklemesi gerekiyor.
-1234|Owner'ın önce Ayarlar'da bir HubSpot OAuth uygulaması eklemesi gerekiyor.
-1235|Owner'ın önce Ayarlar'da bir Lovable OAuth uygulaması eklemesi gerekiyor.
-1236|Owner'ın kişisel abonelikleri diğer hesaplara verilemez.
-1237|X düğmesi hizmetleri durdurmadan uygulamayı gizler.
-1238|Hesap ve tüm verileri (sohbetler, bellek, dosyalar, ayarlar) kalıcı olarak silinir.
-1239|Hesap {brand} sunucusunda oluşturulur.
-1240|Hesap bu bilgisayarda oluşturulur ve hemen kullanabilirsiniz.
-1241|Hesap etkin değil.
-1242|Hesap Owner onayını bekliyor.
-1243|Hesap oluşturuldu ve Owner onayını bekliyor.
-1244|Hesap silindi.
-1245|Adres geçerli değil.
-1246|Yanıt sunucuda devam ediyor…
-1247|Yanıt kesildi: {error}
-1248|Yanıt bitmeden durduruldu.
-1249|Yanıt durduruldu.
-1250|Uygulama açılamadı — {error}
-1251|Uygulama açılamadı.
-1252|Uygulama kendiliğinden başlar ve arka planda kalabilir.
-1253|Uygulama açıldı.
-1254|Uygulamalar yüklenemedi: {error}
-1255|Ses kaydı {brand} için yazıya döküldü.
-1256|Belgenin başı, metin olarak.
-1257|Tarayıcı ses kaydedemiyor.
-1258|Değişiklik bu sohbet için geçerli.
-1259|Değişiklik GitHub'da uygulandı. Commit: {commit}
-1260|Kod panoya kopyalanamadı.
-1261|Kodun süresi doldu. Yenisini isteyin.
-1262|Kod doğru değil.
-1263|Kod çalıştırıldı. Sonuç mesaj kutusuna kondu.
-1264|Konuşma panoya kopyalanamadı.
-1265|Konuşma kaydedilemedi: {error}
-1266|Konuşma arşivlendi. Yan çubuktaki «Arşivlenenler»de bulabilirsiniz.
-1267|Konuşma panoya kopyalandı.
-1268|Konuşma geri yüklendi.
-1269|Veriler yüklenemedi: {error}
-1270|Ayın günü 1 ile 28 arasında olmalı.
-1271|Varsayılan model
-1272|E-posta adresi geçerli değil.
-1273|Romanya'da ve dünyanın büyük şehirlerinde tam saat ve tarih.
-1274|Dışa aktarma başarısız:
-1275|Dosyada gösterilecek metin yok.
-1276|Dosya artık kullanılamıyor.
-1277|Dosya artık Kitaplık'ta değil.
-1278|Dosyanın adı artık «{name}».
-1279|Dosya Kitaplığınıza kaydediliyor (dosya başına en fazla 2 GB)…
-1280|Dosya veya mesaj {brand} hizmeti için çok büyük (HTTP 413).
-1281|Dosya Kitaplık'a eklendi.
-1282|Dosya Kitaplık'ta bulunamadı.
-1283|İlk sayfa, metin olarak.
-1284|Header adı yalnızca harf, rakam ve tire içerebilir.
-1285|Talimatlar en fazla 8.000 karakter olabilir.
-1286|Aralık 1 ile 168 saat arasında olmalı.
-1287|Anahtar çalışmadı: {error}
-1288|Anahtar Görseller ile ortaktır.
-1289|Anahtarlar bu bilgisayarda şifrelidir.
-1290|Anahtarlar kopyalanamadı.
-1291|Anahtarlar sunucuda kalır ve yalnızca maskelenmiş gösterilir.
-1292|Yazdığım dil
-1293|Son güncelleme ({when}) başarısız oldu — ayrıntılar
-1294|Bağlantı tarayıcıda açılamadı.
-1295|Bağlantı açılamadı: {error}
-1296|Bu e-postaya sahip yerel hesap Owner haklarını alır: kod çalıştırma, GitHub Solve, sunucuyu yönetme. Yalnızca {brand} Cloud ayarlı değilken geçerlidir. Değişiklikten sonra yeniden giriş yapın.
-1297|Yerel hizmet adresi geçerli değil. Örnek: {url}
-1298|Engellenenler sizin için izinli değil.
-1299|Şu hesapların girişi sona erdi: {names}. Sunucudaki OmniRoute paneli → Providers → her hesap → Reconnect (veya bir API anahtarı ekleyin).
-1300|Mesaj gönderilemedi: {error}
-1301|Mesaj boş.
-1302|Mikrofon engelli. Tarayıcıda mikrofon erişimine izin verin.
-1303|Mikrofon kullanılamıyor: {error}
-1304|Konuşmanın modeli kaydedilemedi: {error}
-1305|Model listesi yüklenemedi: {error}
-1306|Model listesi boş.
-1307|Modeller OmniRoute'tan ve sunucuda ayarlı API'lerden gelir.
-1308|Modeller OmniRoute'tan ve bu bilgisayarda ayarlı API'lerden gelir.
-1309|Ad en fazla 100 karakter olabilir.
-1310|Ad en fazla 120 karakter olabilir.
-1311|Yeni şifre en az 8 karakter olmalı.
-1312|Diğer cihazların oturumu kapatıldı.
-1313|Şifre en fazla 256 karakter olabilir.
-1314|Şifre en fazla 72 karakter olabilir.
-1315|Şifre en az 10 karakter olmalı.
-1316|Şifre en az 8 karakter olmalı.
-1317|Görsel oluşturulamadı: {error}
-1318|Görsel okunamadı.
-1319|Görsel 10 MB'tan büyük.
-1320|Plugin kaydedildi ama test başarısız oldu: {error}
-1321|Pluginler açık kaynak projelerden gelir (MIT ve Apache 2.0 lisansları); her kart yazarı gösterir ve kaynağa bağlantı verir.
-1322|Pluginler yüklenemedi: {error}
-1323|Önizleme kullanılamıyor.
-1324|Önizleme kullanılamıyor. Dosya muhtemelen Kitaplık'tan silindi.
-1325|Önizleme bağlantısı kullanılamıyor.
-1326|Fiyat kredi sayısına göre değişir.
-1327|Öneri kopyalanamadı.
-1328|Öneri panoya kopyalandı.
-1329|Sağlayıcının API anahtarı yanlış veya bu modele erişimi yok.
-1330|Kayıt boş.
-1331|İstek başarısız oldu (HTTP {status}).
-1332|Sağlayıcıda kaydedilecek dönüş adresi:
-1333|Sunucu GitHub'ı saatte bir kontrol eder ve yeni sürümü kendisi yükler.
-1334|Sunucu geçerli bir oturum döndürmedi.
-1335|Sunucunun Owner'ının bir yapay zekâ anahtarı eklemesi gerekiyor.
+902|Ücretli yapay zekâ değişti
+903|Ücretli yapay zekâ · kullanıcılar
+904|Ücretli yapay zekâ: {error}
+905|Kullanım başına ücretli, anahtarla veya Owner'ın verdiği izinlerle
+906|Kullanım başına ücretli, Owner'ın verdiği izinlerle
+907|Kullanım başına ücretli; aynı anahtar Grok Imagine ile görsel ve video da yapar. «Ücretli API'lere de izin ver» ile açın.
+908|Panel
+909|Bölüm {n}
+910|Şifre
+911|Şifre değişti. Diğer cihazların yeniden giriş yapması gerekiyor.
+912|Önce anahtarı yapıştırın.
+913|Anahtarı buraya yapıştırın
+914|Ödemeler
+915|Ödemeler, siparişler, katalog ve müşteriler.
+916|Beklemede
+917|Performans
+918|İzinler
+919|İzinler değişti
+920|İzinler: {error}
+921|Kişisel yapay zekâ astroloğu
+922|Telefon
+923|Telefonda bildirimler
+924|Yeni bir konuşma için asistan seçin.
+925|Listeden birini seçin veya bir API'den kendinizinkini oluşturun. Sonra adını sohbete yazın, {brand} onu kullanır.
+926|Görseli kimin yapacağını mesaj kutusunun altından seçin veya Otomatik: en iyi uygun olan.
+927|Videoyu kimin yapacağını mesaj kutusunun altından seçin veya Otomatik: önce ücretsizler, sonra Gemini Veo, Grok Imagine ve diğer anahtarlar (Ayarlar'da izin verirseniz ücretli).
+928|Görsel
+929|Görsel / görme
+930|HD görsel
+931|Görsel üretimi
+932|Görsel üretimi, API'ler, modeller ve başka bir sağlayıcıda otomatik deneme.
+933|Görseli yapan
+934|Görseli {brand} yaptı
+935|Görsel oluşturma
+936|Görsel modu: sonraki mesaj bir görsel oluşturur. Çıkmak için Görsel'e tekrar tıklayın.
+937|Görsel modeli
+938|Görsel sağlayıcıları
+939|Görsel: sonraki mesaj bir görsel oluşturur.
+940|Görseller
+941|Görseller ve videolar (testte üretilmez, bu yüzden bakiye kullanılmaz):
+942|Kitaplık'taki görseller
+943|Görselleri yapan
+944|Sabitle
+945|Bunu sabitle
+946|Sabitlendi — kaldırmak için tıklayın
+947|Aranacak yer
+949|Haftalık plan
+950|Haftamı planla
+951|Paket başladı
+952|Yapı planlanıyor…
+953|Paketler ve krediler henüz etkin değil: her hesap eskisi gibi çalışır (ücretsiz katman ve Owner kuralları).
+954|Paketler ve ekstra krediler
+956|Satranç oynama ve strateji öğrenme
+957|Plugin listesi
+958|Plugin bölümleri
+959|Plugin ayarı
+960|Pluginler
+961|Pollinations API anahtarı
+962|Pollinations modeli
+963|Pollinations video modeli
+964|Popüler
+965|Afiş
+966|Postgres veritabanları: sorgulama, dal oluşturma ve yönetim.
+967|Instagram, Facebook, LinkedIn veya TikTok için gönderiler.
+968|Tercihler
+969|Tercih edilen model
+970|Yanıt hazırlanıyor…
+971|Sorular hazırlanıyor…
+972|Hazırlanıyor…
+973|Sunum
+974|Paylaş'a dokunun (yukarı oklu kare) veya ••• → Paylaş.
+975|Kaydı başlatmak için mikrofona bir kez, durdurmak için tekrar tıklayın. {brand} söylediğinizi yazar ve gönderir.
+976|Önizleme
+977|Önizleme genişliği
+978|{name} önizlemesi
+979|Önizleme: {name}
+980|Son 30 gün
+981|Son 7 gün
+982|Yoğun saatlerde öncelikli erişim
+983|Prisma Postgres veritabanları ve geçişler.
+984|Gizlilik
+985|Gizlilik ve veriler
+986|Ürün analitiği, bayraklar ve deneyler.
+987|Ürün yönetimi
+988|Verimlilik
+989|Profesyonel
+990|Profesyonel e-posta
+991|Profil
+992|Profil fotoğrafı
+993|Profil fotoğrafı kaldırıldı.
+994|Profil fotoğrafı kaydedildi.
+995|Profil kaydedildi.
+996|Programlama
+997|Programlama dilleri
+998|Codex ve Claude Code ile programlama: modeli seçin ve bir kod konuşması başlatın.
+999|Projeler
+1000|Projeler ve iş
+1001|Projeler, veritabanları, SQL ve günlükler.
+1002|Projeler, dağıtımlar ve günlükler.
+1003|Projeler, görevler ve CRM
+1004|Düzeltmen
+1005|Öneri hazır (bu dosya türü için sözdizimi kontrolü yok).
+1006|Koruma etkin: {brand} doğrudan Cloudflare ve Pollinations'ı dener. Hugging Face, Together, OpenAI, Stability, fal.ai ve Replicate ücretli bakiye kullanabilecekse engellenir. OpenRouter'da fiyat çağrıdan önce kontrol edilir.
+1007|Kişisel verileri korur
+1008|Protein ve molekül tasarımı
+1009|Sağlayıcılar
+1010|Sohbette kullanılan sağlayıcılar
+1011|Kalite
+1012|Sağlık verileriniz hakkında sorular
+1013|Hızlı tutarlar
+1014|Hızlı yanıt
+1015|Sesli oku
+1016|Tabloları okuma ve düzenleme.
+1017|Gmail e-postalarınızı okuma ve düzenleme
+1018|Belge okuma, yazma ve düzenleme.
+1019|Sesli okuma bu bilgisayarda kullanılamıyor.
+1020|İstek okunuyor…
+1021|Metin okunuyor…
+1022|Kullanıma hazır
+1023|{brand} çalıştırmasının gerçek sonucu:
+1024|Canlı internet
+1025|Son kullanılanlar
+1026|OmniRoute'ta yeniden bağlan
+1027|Sesinizi kaydedin
+1028|Yenile
+1029|Model listesini yenile
+1030|Liste yenileniyor…
+1031|Yanıtı yeniden oluştur
+1032|Yeniden oluşturma bu yanıtı değiştirir ve sonraki mesajları siler. Devam edilsin mi?
+1033|Reddedildi
+1034|Reddedilen kullanıcılar
+1035|{brand}'ı yeniden yükle
+1036|Kaldır
+1037|Açığa çıkmış kişisel verileri kaldırma
+1038|Projeden çıkar
+1039|«{name}» plugini kaldırılsın mı?
+1040|{name} kaldır
+1041|Yeniden adlandır
+1042|Dosyayı yeniden adlandır
+1043|Yeniden adlandırma: {error}
+1044|Replicate API token'ı
+1045|Replicate modeli
+1046|Replicate video modeli
+1047|Depolar, issue'lar, pull request'ler ve dosyalar.
+1048|Araştırma
+1049|Araştırma ve bilim
+1050|Kuran'ı incelemek için kaynaklar
+1051|Arşivden geri yükle
+1052|Sohbeti geri yükle
+1053|{name} sohbetini geri yükle
+1054|Sonuç
+1055|Sonuçlar
+1056|Yeniden dene
+1057|Kodu çalıştır / test et
+1058|Replicate'te yapay zekâ modelleri çalıştırın.
+1059|Kod çalıştırma: {error}
+1060|Çalıştırma geçmişi
+1061|Şimdi çalıştır
+1062|Çevrimiçi mağazanızı yönetin
+1063|Çalışıyor
+1064|Kod çalıştırma ve SSH yalnızca Owner içindir.
+1065|Kod çalıştırma, GitHub Solve ve SSH yalnızca Owner hesabı içindir (bkz. «Bu bilgisayardaki Owner e-postası»).
+1066|Çalıştırılıyor…
+1067|Zamanlanmış görevleri ve kontrolleri seçtiğiniz saatte çalıştırır.
+1068|SEO araştırması
+1069|SSH özel anahtar yolu
+1070|SSH sunucusu · adres
+1071|SSH kullanıcısı
+1072|Satış
+1073|Cumartesi ve pazar {time}
+1074|Kaydet
+1075|Kaydet ve sabitle
+1076|Kaydet ve test et
+1077|Profili kaydet
+1078|Ayarları kaydet
+1079|Değişikliği kaydet
+1080|Skill'i kaydet
+1081|Kaydedildi ve bellekte sabitlendi.
+1082|Kaydedildi.
+1083|Anahtar kaydediliyor ve test ediliyor…
+1084|Plugin kaydediliyor ve test ediliyor…
+1085|Kaydediliyor…
+1086|Kodu güvenlik sorunları için tarar.
+1087|Zamanla
+1088|Zamanlananlar
+1089|Zamanlananlar (zamanlanmış görevler)
+1090|Bilim
+1091|Bilimsel araştırma
+1092|Kaydırın, Ana Ekrana Ekle'yi, sonra Ekle'yi seçin.
+1093|Ara
+1094|GitHub'da otomatik ara
+1095|Web'den veri arama ve çıkarma
+1096|Dosya ve klasörleri arama ve okuma.
+1097|Şirketinizin dosyalarını arama ve okuma.
+1098|E-posta ve mesaj arama ve gönderme
+1099|Uygulama ara
+1100|Ada göre ara
+1101|Sohbetlerde ara
+1102|Model ara
+1103|Model ara…
+1104|Dil ara
+1105|Bellekte ara
+1106|Model ara
+1107|Önceki sohbetlerde ara
+1108|Plugin ara
+1109|Plugin ve skill ara
+1110|Arama sonuçları
+1111|Kitaplık'ta ara
+1112|Listede ara (ad, kategori)
+1113|Kitaplıkta ara
+1114|Bilimsel literatürde ara
+1115|Şu konudaki son haberleri web'de ara:
+1116|{n} dil arasında ara
+1117|Dosya arama, okuma ve oluşturma.
+1118|E-posta arama, okuma ve taslak yazma.
+1119|Sayfa ve veritabanı arama, okuma, oluşturma ve düzenleme.
+1120|Wikipedia'da arar (önce Romence, sonra İngilizce) ve makalenin özetini getirir.
+1121|Güncel bilgi ve çevrimiçi kaynak arar.
+1122|Yeni bilgiler, sürümler ve API'lerle ilgili sorularda güncel kaynakları kendisi arar.
+1123|Güvenlik
+1124|Kodun güvenlik analizi
+1125|Paketleri gör
+1127|Aynı API üzerinden Seedance, Veo, Wan ve diğer modeller.
+1128|Seç
+1129|Bir kullanıcı seçin.
+1130|Seçildi
+1131|Gönder
+1132|Test bildirimi gönder
+1133|Erişim isteği gönder
+1134|Kodu yeniden gönder
+1135|Kodu yeniden gönder ({s} sn)
+1136|Mesajı gönder
+1137|Sunucu bağlı ✓
+1138|Oturumlar kapatıldı
+1139|Oturumlar: {error}
+1140|{email} için «{status}» durumu ayarlansın mı? Hesabın etkin oturumları kapatılacak.
+1141|Ayarlar
+1142|Ayarlar yalnızca {brand} uygulamasından kaydedilebilir.
+1143|Ayarlar kaydedildi.
+1144|Tek anahtarla birden çok görsel modeli.
+1145|«{title}» ile devam edelim mi?
+1146|Projenin ortak talimatları
+1147|Kısa ve net
+1148|Kısa açıklama
+1149|Kısa video (~6 sn)
+1150|Daha fazla göster ({n} kaldı)
+1151|Menüyü göster veya gizle
+1152|İlk 60.000 karakter gösteriliyor.
+1153|Görevin bir sonucu olduğunda bildirim gösterir.
+1154|Giriş yap
+1155|Yeniden giriş yap
+1156|Yeniden giriş yapın.
+1157|{brand}'a giriş yap
+1158|Açılan pencerede {name} hizmetine giriş yapın, sonra buraya dönün.
+1159|Çıkış yap
+1160|Bu cihaz dahil tüm cihazlarda {brand} oturumu kapatılsın mı?
+1161|Diğer cihazlardan çıkış yap
+1162|Giriş
+1163|Giriş gerekli.
+1164|Çıkış
+1165|Çıkış yapılıyor…
+1166|Site güncellemesi ({domain})
+1167|Siteler ve dağıtımlar.
+1168|Siteler, sayfalar ve CMS öğeleri.
+1169|Boyut
+1170|Skill pluginleri
+1171|Skill'ler
+1173|Slack kanalları ve mesajları
+1174|Sosyal medya gönderileri
+1175|Yazılım mühendisliği
+1176|Başka bir şey
+1177|Başka bir şey…
+1178|Sırala
+1179|Konuşun: metin kutuda görünür ve kendiliğinden gönderilir
+1180|Stability API anahtarı
+1181|Stability motoru
+1182|Start
+1183|OmniRoute'u otomatik başlat
+1184|OmniRoute'u başlatın veya Ayarlar'da bir API anahtarı ekleyin.
+1185|Görsel oluşturan bir konuşma başlatın.
+1186|{brand}'ı Windows ile başlat
+1187|{brand} başlatılıyor…
+1188|Başlatılıyor…
+1189|En gelişmiş ADMET modelleri
+1190|Hâlâ uyanık mısınız? Birlikte bitirelim.
+1191|Durdur ve gönder
+1192|Okumayı durdur
+1193|Yanıtı durdur
+1194|Ses kaydını durdur
+1195|Önce ses kaydını durdurun.
+1196|Hatalardan sonra durdu
+1197|Owner tarafından durduruldu
+1198|Garmin için kuvvet antrenmanları
+1199|Yapılar, moleküller ve proteinler
+1200|Öğrenci
+1202|Başarılı
+1203|Başlayan hafta için bir plan öner: öncelikler, son tarihler ve her gün için küçük bir adım.
+1204|Bir belgeyi özetle
+1205|Ekli belgeyi beş net maddede özetle.
+1206|Özet
+1207|Bir metni veya belgeyi ana fikirlerine indirger.
+1208|Askıya al
+1209|Askıda
+1210|Askıya alınan kullanıcılar
+1212|Tablet
+1213|Tarot okumaları
+1214|{brand}'ın seçtiğiniz saatte kendisi çalıştırdığı görevler.
+1215|Görevler, listeler, belgeler ve yorumlar.
+1216|Görevler, projeler ve yorumlar.
+1217|Ortak kredili ekip yönetimi
+1218|Teknik ayrıntılar: {details}
+1219|Test et
+1220|Şimdi test et
+1221|Test geçti: {result}
+1222|Anahtarları test et
+1223|Mikrofonu test et
+1224|Sunucuyu test et
+1225|Testler
+1226|SSH bağlantısı test ediliyor…
+1227|Test ediliyor…
+1228|Yapay zekâyla Texas Hold'em poker
+1229|Öğe metni
+1230|Yapay zekâ için okunan metin
+1232|Yapay zekâ sağlayıcısı zamanında yanıt vermedi. Tekrar deneyin.
+1233|Yapay zekâ sağlayıcısının ücretsiz sınırına ulaşıldı. Başka bir model seçin veya daha sonra deneyin.
+1234|API adresi tam bir bağlantı olmalı, örneğin https://example.com/webhook.
+1235|Google sayfası açılır. «Create API key»e tıklayın ve kopyalayın.
+1236|Kitaplık boş. Dosyaları buraya sürükleyin veya «Dosya ekle»ye tıklayın.
+1237|OAuth Client ID eksik.
+1238|OAuth sayfası açılamadı.
+1239|Owner hesabı silinemez.
+1240|Owner hesapları onaylar ve hangi yapay zekâ hizmetlerini kullanabileceklerine karar verir.
+1241|Hesabınızın hangi modelleri kullanabileceğine Owner karar verir.
+1242|Owner e-postası geçerli değil.
+1243|Owner'ın önce Ayarlar'da bir Asana OAuth uygulaması eklemesi gerekiyor.
+1244|Owner'ın önce Ayarlar'da bir Box OAuth uygulaması eklemesi gerekiyor.
+1245|Owner'ın önce Ayarlar'da bir Google OAuth uygulaması eklemesi gerekiyor.
+1246|Owner'ın önce Ayarlar'da bir HubSpot OAuth uygulaması eklemesi gerekiyor.
+1247|Owner'ın önce Ayarlar'da bir Lovable OAuth uygulaması eklemesi gerekiyor.
+1248|Owner'ın kişisel abonelikleri diğer hesaplara verilemez.
+1249|X düğmesi hizmetleri durdurmadan uygulamayı gizler.
+1250|Hesap ve tüm verileri (sohbetler, bellek, dosyalar, ayarlar) kalıcı olarak silinir.
+1251|Hesap {brand} sunucusunda oluşturulur.
+1252|Hesap bu bilgisayarda oluşturulur ve hemen kullanabilirsiniz.
+1253|Hesap etkin değil.
+1254|Hesap Owner onayını bekliyor.
+1255|Hesap oluşturuldu ve Owner onayını bekliyor.
+1256|Hesap silindi.
+1257|Adres geçerli değil.
+1258|Yanıt sunucuda devam ediyor…
+1259|Yanıt kesildi: {error}
+1260|Yanıt bitmeden durduruldu.
+1261|Yanıt durduruldu.
+1262|Uygulama açılamadı — {error}
+1263|Uygulama açılamadı.
+1264|Uygulama kendiliğinden başlar ve arka planda kalabilir.
+1265|Uygulama açıldı.
+1266|Uygulamalar yüklenemedi: {error}
+1267|Ses kaydı {brand} için yazıya döküldü.
+1268|Belgenin başı, metin olarak.
+1269|Tarayıcı ses kaydedemiyor.
+1270|Değişiklik bu sohbet için geçerli.
+1271|Değişiklik GitHub'da uygulandı. Commit: {commit}
+1272|Kod panoya kopyalanamadı.
+1273|Kodun süresi doldu. Yenisini isteyin.
+1274|Kod doğru değil.
+1275|Kod çalıştırıldı. Sonuç mesaj kutusuna kondu.
+1276|Konuşma panoya kopyalanamadı.
+1277|Konuşma kaydedilemedi: {error}
+1278|Konuşma arşivlendi. Yan çubuktaki «Arşivlenenler»de bulabilirsiniz.
+1279|Konuşma panoya kopyalandı.
+1280|Konuşma geri yüklendi.
+1281|Veriler yüklenemedi: {error}
+1282|Ayın günü 1 ile 28 arasında olmalı.
+1283|Varsayılan model
+1284|E-posta adresi geçerli değil.
+1285|Romanya'da ve dünyanın büyük şehirlerinde tam saat ve tarih.
+1286|Dışa aktarma başarısız:
+1287|Dosyada gösterilecek metin yok.
+1288|Dosya artık kullanılamıyor.
+1289|Dosya artık Kitaplık'ta değil.
+1290|Dosyanın adı artık «{name}».
+1291|Dosya Kitaplığınıza kaydediliyor (dosya başına en fazla 2 GB)…
+1292|Dosya veya mesaj {brand} hizmeti için çok büyük (HTTP 413).
+1293|Dosya Kitaplık'a eklendi.
+1294|Dosya Kitaplık'ta bulunamadı.
+1295|İlk sayfa, metin olarak.
+1296|Header adı yalnızca harf, rakam ve tire içerebilir.
+1297|Talimatlar en fazla 8.000 karakter olabilir.
+1298|Aralık 1 ile 168 saat arasında olmalı.
+1299|Anahtar çalışmadı: {error}
+1300|Anahtar Görseller ile ortaktır.
+1301|Anahtarlar bu bilgisayarda şifrelidir.
+1302|Anahtarlar kopyalanamadı.
+1303|Anahtarlar sunucuda kalır ve yalnızca maskelenmiş gösterilir.
+1304|Yazdığım dil
+1305|Son güncelleme ({when}) başarısız oldu — ayrıntılar
+1306|Bağlantı tarayıcıda açılamadı.
+1307|Bağlantı açılamadı: {error}
+1308|Bu e-postaya sahip yerel hesap Owner haklarını alır: kod çalıştırma, GitHub Solve, sunucuyu yönetme. Yalnızca {brand} Cloud ayarlı değilken geçerlidir. Değişiklikten sonra yeniden giriş yapın.
+1309|Yerel hizmet adresi geçerli değil. Örnek: {url}
+1310|Engellenenler sizin için izinli değil.
+1311|Şu hesapların girişi sona erdi: {names}. Sunucudaki OmniRoute paneli → Providers → her hesap → Reconnect (veya bir API anahtarı ekleyin).
+1312|Mesaj gönderilemedi: {error}
+1313|Mesaj boş.
+1314|Mikrofon engelli. Tarayıcıda mikrofon erişimine izin verin.
+1315|Mikrofon kullanılamıyor: {error}
+1316|Konuşmanın modeli kaydedilemedi: {error}
+1317|Model listesi yüklenemedi: {error}
+1318|Model listesi boş.
+1319|Modeller OmniRoute'tan ve sunucuda ayarlı API'lerden gelir.
+1320|Modeller OmniRoute'tan ve bu bilgisayarda ayarlı API'lerden gelir.
+1321|Ad en fazla 100 karakter olabilir.
+1322|Ad en fazla 120 karakter olabilir.
+1323|Yeni şifre en az 8 karakter olmalı.
+1324|Diğer cihazların oturumu kapatıldı.
+1325|Şifre en fazla 256 karakter olabilir.
+1326|Şifre en fazla 72 karakter olabilir.
+1327|Şifre en az 10 karakter olmalı.
+1328|Şifre en az 8 karakter olmalı.
+1329|Görsel oluşturulamadı: {error}
+1330|Görsel okunamadı.
+1331|Görsel 10 MB'tan büyük.
+1332|Plugin kaydedildi ama test başarısız oldu: {error}
+1333|Pluginler açık kaynak projelerden gelir (MIT ve Apache 2.0 lisansları); her kart yazarı gösterir ve kaynağa bağlantı verir.
+1334|Pluginler yüklenemedi: {error}
+1335|Önizleme kullanılamıyor.
+1336|Önizleme kullanılamıyor. Dosya muhtemelen Kitaplık'tan silindi.
+1337|Önizleme bağlantısı kullanılamıyor.
+1338|Fiyat kredi sayısına göre değişir.
+1339|Öneri kopyalanamadı.
+1340|Öneri panoya kopyalandı.
+1341|Sağlayıcının API anahtarı yanlış veya bu modele erişimi yok.
+1342|Kayıt boş.
+1343|İstek başarısız oldu (HTTP {status}).
+1344|Sağlayıcıda kaydedilecek dönüş adresi:
+1345|Sunucu GitHub'ı saatte bir kontrol eder ve yeni sürümü kendisi yükler.
+1346|Sunucu geçerli bir oturum döndürmedi.
+1347|Sunucunun Owner'ının bir yapay zekâ anahtarı eklemesi gerekiyor.
